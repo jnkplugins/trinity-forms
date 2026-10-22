@@ -62,6 +62,7 @@ $trinity_forms_pro_features = [
 
     <div class="jnkui-card">
         <div class="jnkui-card-head"><div><h2><?php esc_html_e( "Already bought Pro?", "trinity-forms" ); ?></h2></div></div>
+    <div class="jnkui-card-body"><p style="margin:0"><strong><?php esc_html_e( "Fastest: paste your Pro license key in Trinity Forms Settings, under License, and click Install Pro now. Pro is installed over this version for you. Or do it by hand:", "trinity-forms" ); ?></strong> <a class="button" href="<?php echo esc_url( admin_url( "edit.php?post_type=trinity_forms_form&page=trinity-forms-settings#lp-trinity-forms-license" ) ); ?>"><?php esc_html_e( "Open the License box", "trinity-forms" ); ?></a></p></div>
         <div class="jnkui-card-body">
             <ol class="jnkui-steps">
                 <li><strong><?php esc_html_e( "Download the Pro zip", "trinity-forms" ); ?></strong><?php esc_html_e( "From your account on jnkplugins.com, under your license.", "trinity-forms" ); ?>

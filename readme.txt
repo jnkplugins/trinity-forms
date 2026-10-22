@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 8.2
-Stable tag: 2.11.0
+Stable tag: 2.12.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -171,6 +171,10 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.12.0 =
+* New: bought Pro? Paste your Pro license key in Settings, under License, and click "Install Pro now". Pro is installed over this version for you, the same way WordPress applies an update, and everything you set up stays. Downloading and uploading the Pro zip still works.
+* Changed: the upgrade page points to that box first.
 
 = 2.11.0 =
 * New: the Dark style is free now, and a new "Theme colours" style takes the form colours from your block theme.
