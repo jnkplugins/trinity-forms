@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 8.2
-Stable tag: 2.10.3
+Stable tag: 2.11.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -171,6 +171,13 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.11.0 =
+* New: the Dark style is free now, and a new "Theme colours" style takes the form colours from your block theme.
+* Changed: the License card looks and works the same in every JnK plugin. In the free version it shows your free license, which keeps the plugin updated, and links to your account if you bought Pro.
+* Changed: the upgrade page has a "Download the Pro zip" button and the three steps, and says what WordPress shows when you upload Pro over this version.
+* Changed: "licence" is now spelled "license" everywhere.
+* Pro: license handling fixes, see the Pro changelog.
 
 = 2.10.3 =
 * Fixed: on a dark theme, text in form fields could be invisible. The fields are white, but they took the theme's light text colour, so typed text, the dropdown and its options were white on white. Fields now always use dark text on their white background. The open dropdown list matches too.

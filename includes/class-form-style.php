@@ -35,6 +35,24 @@ class Form_Style {
                 "--trinity-forms-button-radius" => "0",
                 "--trinity-forms-border"        => "#98a2b3",
             ],
+            // Free since 2.11.0 (was Pro): on a dark theme the default white
+            // fields are the odd one out, and that is not a paid problem.
+            "dark"    => [
+                "--trinity-forms-text"     => "#f2f4f7",
+                "--trinity-forms-label"    => "#f2f4f7",
+                "--trinity-forms-field-bg" => "#1d2939",
+                "--trinity-forms-border"   => "#344054",
+                "--trinity-forms-accent"   => "#818cf8",
+            ],
+            // The block theme's own palette, where it has one: theme.json colours
+            // reach the page as --wp--preset--color--*. Each falls back to the
+            // plugin's colour, so a theme without that slot looks like Default.
+            "theme"   => [
+                "--trinity-forms-accent"      => "var(--wp--preset--color--primary, var(--wp--preset--color--accent-1, #4f46e5))",
+                "--trinity-forms-field-bg"    => "var(--wp--preset--color--base, #fff)",
+                "--trinity-forms-field-color" => "var(--wp--preset--color--contrast, #101828)",
+                "--trinity-forms-border"      => "var(--wp--preset--color--contrast-3, #d0d5dd)",
+            ],
         ];
     }
 
@@ -53,6 +71,8 @@ class Form_Style {
             "default" => __( "Default", "trinity-forms" ),
             "rounded" => __( "Rounded", "trinity-forms" ),
             "sharp"   => __( "Sharp", "trinity-forms" ),
+            "dark"    => __( "Dark", "trinity-forms" ),
+            "theme"   => __( "Theme colours", "trinity-forms" ),
         ] );
     }
 

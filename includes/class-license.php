@@ -72,7 +72,15 @@ final class License {
      * install needs "activate your licence", not "buy Pro" — the customer already did.
      */
     public static function pro_installed(): bool {
-        return is_dir( TRINITY_FORMS_PATH . "pro/includes" );
+        return defined( "TRINITY_FORMS_PRO" ) || is_dir( TRINITY_FORMS_PATH . "pro/includes" );
+    }
+
+    /**
+     * Is this the Pro build? The name every JnK plugin's gate uses for it; the
+     * Pro bootstrap defines TRINITY_FORMS_PRO, the free build has no such code.
+     */
+    public static function is_pro_build(): bool {
+        return self::pro_installed();
     }
 
     /**

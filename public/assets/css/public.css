@@ -397,3 +397,24 @@ table.trinity-forms-list input { width: 100%; }
 /* Choice limits (2.10.0): a full option is shown but cannot be picked. */
 .trinity-forms-form .is-disabled { opacity: .55; cursor: not-allowed; }
 .trinity-forms-form .trinity-forms-option-note { font-size: .8125em; color: #667085; }
+
+/* Style presets that need more than variables (2.11.0: Dark and Theme colours are free). */
+/* Dark: the form sits on its own dark card, so it reads on a light theme too. */
+.trinity-forms-form.trinity-forms-style-dark {
+    color-scheme: dark;
+    background: #101828;
+    padding: 1.5rem;
+    border-radius: 14px;
+}
+.trinity-forms-form.trinity-forms-style-dark .trinity-forms-help,
+.trinity-forms-form.trinity-forms-style-dark .trinity-forms-sub-label,
+.trinity-forms-form.trinity-forms-style-dark .trinity-forms-optional { color: #98a2b3; }
+.trinity-forms-form.trinity-forms-style-dark .trinity-forms-field input,
+.trinity-forms-form.trinity-forms-style-dark .trinity-forms-field select,
+.trinity-forms-form.trinity-forms-style-dark .trinity-forms-field textarea { color: var(--trinity-forms-text, #f2f4f7); box-shadow: none; }
+.trinity-forms-form.trinity-forms-style-dark .trinity-forms-messages.trinity-forms-success { color: #6ce9a6; }
+.trinity-forms-form.trinity-forms-style-dark .trinity-forms-field-error,
+.trinity-forms-form.trinity-forms-style-dark .trinity-forms-messages.trinity-forms-error { color: #fda29b; }
+/* Theme colours: the field colours come from the theme, which may be dark, so let
+   the browser draw native parts (dropdown lists) to match the page, not light. */
+.trinity-forms-form.trinity-forms-style-theme { color-scheme: normal; }

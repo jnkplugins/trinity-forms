@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-22T19:07:42+00:00\n"
+"POT-Creation-Date: 2026-10-22T20:57:18+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Korean\n"
@@ -42,7 +42,7 @@ msgstr "JNK Plugins"
 msgid "https://jnkplugins.com"
 msgstr "https://jnkplugins.com"
 
-#: admin/class-admin-ui.php:57 admin/class-admin-ui.php:246
+#: admin/class-admin-ui.php:57 admin/class-admin-ui.php:249
 msgid "Forms"
 msgstr "양식"
 
@@ -52,7 +52,7 @@ msgstr "양식"
 msgid "Templates"
 msgstr "템플릿"
 
-#: admin/class-admin-ui.php:59 admin/class-admin-ui.php:287
+#: admin/class-admin-ui.php:59 admin/class-admin-ui.php:290
 #: admin/class-admin.php:173 admin/class-admin.php:174
 #: admin/class-forms-list.php:67 admin/views/entries-list.php:143
 #: admin/views/import.php:86
@@ -64,7 +64,7 @@ msgstr "항목"
 msgid "Results"
 msgstr "결과"
 
-#: admin/class-admin-ui.php:61 admin/class-admin-ui.php:235
+#: admin/class-admin-ui.php:61 admin/class-admin-ui.php:238
 msgid "Views"
 msgstr "뷰"
 
@@ -90,83 +90,83 @@ msgstr "피드백 보내기"
 msgid "Pro"
 msgstr "Pro"
 
-#: admin/class-admin-ui.php:134
+#: admin/class-admin-ui.php:137
 msgid "Trinity Forms sections"
 msgstr "Trinity Forms 섹션"
 
-#: admin/class-admin-ui.php:139
+#: admin/class-admin-ui.php:142
 msgid "More"
 msgstr "더 보기"
 
-#: admin/class-admin-ui.php:146
+#: admin/class-admin-ui.php:149
 msgid "Help"
 msgstr "도움말"
 
-#: admin/class-admin-ui.php:147 admin/class-admin.php:81
+#: admin/class-admin-ui.php:150 admin/class-admin.php:81
 #: admin/class-admin.php:186 admin/class-admin.php:187
 #: admin/views/settings.php:27
 msgid "Settings"
 msgstr "설정"
 
-#: admin/class-admin-ui.php:232
+#: admin/class-admin-ui.php:235
 msgid "New View"
 msgstr "새 뷰"
 
-#: admin/class-admin-ui.php:236
+#: admin/class-admin-ui.php:239
 msgid "Show entries on your site as a table, a list or cards. Put a View on any page with its shortcode."
 msgstr "사이트에 항목을 표, 목록 또는 카드로 표시합니다. 숏코드로 어떤 페이지에든 뷰를 넣을 수 있습니다."
 
-#: admin/class-admin-ui.php:243 admin/class-forms-list.php:51
+#: admin/class-admin-ui.php:246 admin/class-forms-list.php:51
 #: builder/src/app.jsx:575
 msgid "Start from a template"
 msgstr "템플릿으로 시작하기"
 
-#: admin/class-admin-ui.php:244
+#: admin/class-admin-ui.php:247
 msgid "New form"
 msgstr "새 양식"
 
-#: admin/class-admin-ui.php:247
+#: admin/class-admin-ui.php:250
 msgid "Every form on your site. Open one to edit it, or copy its shortcode onto a page."
 msgstr "사이트의 모든 양식입니다. 양식을 열어 편집하거나 숏코드를 복사해 페이지에 넣으세요."
 
-#: admin/class-admin-ui.php:281
+#: admin/class-admin-ui.php:284
 msgid "Live forms"
 msgstr "게시된 양식"
 
 #. translators: %s: number of draft forms.
-#: admin/class-admin-ui.php:284
+#: admin/class-admin-ui.php:287
 #, php-format
 msgid "Plus %s draft"
 msgid_plural "Plus %s drafts"
 msgstr[0] "외 초안 %s개"
 
 #. translators: %s: number of draft forms.
-#: admin/class-admin-ui.php:284
+#: admin/class-admin-ui.php:287
 msgid "No drafts waiting"
 msgstr "대기 중인 초안 없음"
 
-#: admin/class-admin-ui.php:287
+#: admin/class-admin-ui.php:290
 msgid "Kept in your own database"
 msgstr "내 데이터베이스에 보관됨"
 
-#: admin/class-admin-ui.php:289 admin/views/entries-list.php:206
+#: admin/class-admin-ui.php:292 admin/views/entries-list.php:206
 #: admin/views/entries-list.php:422
 msgid "Unread"
 msgstr "읽지 않음"
 
-#: admin/class-admin-ui.php:291
+#: admin/class-admin-ui.php:294
 msgid "Waiting for you to open them"
 msgstr "확인을 기다리는 중"
 
-#: admin/class-admin-ui.php:291
+#: admin/class-admin-ui.php:294
 msgid "You are all caught up"
 msgstr "모두 확인했습니다"
 
-#: admin/class-admin-ui.php:295
+#: admin/class-admin-ui.php:298
 msgid "Last 7 days"
 msgstr "최근 7일"
 
-#: admin/class-admin-ui.php:295
+#: admin/class-admin-ui.php:298
 msgid "New entries this week"
 msgstr "이번 주 새 항목"
 
@@ -319,13 +319,13 @@ msgstr "0 = 전역 설정 사용. 이보다 오래된 항목은 매일 실행되
 #. translators: 1: opening link tag, 2: closing link tag.
 #: admin/class-form-editor.php:177
 #, php-format
-msgid "Your Trinity Forms Pro licence is not active, so new Pro features can't be added to this form. Everything it already uses keeps working for your visitors, and you can still change it. %1$sRenew or enter your licence key in Settings%2$s."
+msgid "Your Trinity Forms Pro license is not active, so new Pro features can't be added to this form. Everything it already uses keeps working for your visitors, and you can still change it. %1$sRenew or enter your license key in Settings%2$s."
 msgstr "Trinity Forms Pro 라이선스가 활성 상태가 아니므로 이 양식에 새 Pro 기능을 추가할 수 없습니다. 이미 사용 중인 기능은 방문자에게 계속 작동하며 수정도 할 수 있습니다. %1$s설정에서 라이선스를 갱신하거나 라이선스 키를 입력하세요%2$s."
 
 #. translators: 1: opening link tag, 2: closing link tag.
 #: admin/class-form-editor.php:190
 #, php-format
-msgid "Pro is installed but not activated. %1$sEnter your licence key in Settings%2$s to turn on file uploads, payments, integrations and the other Pro features."
+msgid "Pro is installed but not activated. %1$sEnter your license key in Settings%2$s to turn on file uploads, payments, integrations and the other Pro features."
 msgstr "Pro가 설치되었지만 활성화되지 않았습니다. 파일 업로드, 결제, 연동 및 기타 Pro 기능을 사용하려면 %1$s설정에서 라이선스 키를 입력하세요%2$s."
 
 #. translators: 1: opening link tag, 2: closing link tag.
@@ -1779,7 +1779,7 @@ msgid "Delete all Trinity Forms data when the plugin is deleted"
 msgstr "플러그인을 삭제할 때 모든 Trinity Forms 데이터 삭제"
 
 #: admin/views/settings.php:190
-msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro licence lapse. Tick this only to also remove data on delete."
+msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete."
 msgstr "기본값은 꺼짐입니다. 플러그인을 비활성화하거나 삭제하거나 Pro 라이선스가 만료되어도 양식과 항목은 유지됩니다. 삭제할 때 데이터도 지우려는 경우에만 체크하세요."
 
 #: admin/views/settings.php:194
@@ -1787,7 +1787,7 @@ msgid "Save settings"
 msgstr "설정 저장"
 
 #: admin/views/settings.php:206
-msgid "Licence"
+msgid "License"
 msgstr "라이선스"
 
 #: admin/views/transfer.php:30
@@ -1940,12 +1940,32 @@ msgstr "Trinity Forms Pro 구매"
 msgid "Already bought Pro?"
 msgstr "이미 Pro를 구매하셨나요?"
 
-#: admin/views/upgrade.php:66
-msgid "Download the Pro zip from your account, go to Plugins, Add New, Upload Plugin, upload it and choose “Replace current with uploaded”. Then enter your licence key on the Trinity Forms Settings screen."
-msgstr "계정에서 Pro zip 파일을 다운로드한 다음 플러그인, 새로 추가, 플러그인 업로드로 이동해 업로드하고 “현재 플러그인을 업로드한 것으로 교체”를 선택하세요. 그런 다음 Trinity Forms 설정 화면에서 라이선스 키를 입력하세요."
+#: admin/views/upgrade.php:67 admin/views/upgrade.php:68
+msgid "Download the Pro zip"
+msgstr "Pro zip 파일 다운로드"
+
+#: admin/views/upgrade.php:67
+msgid "From your account on jnkplugins.com, under your license."
+msgstr "jnkplugins.com 계정의 라이선스 항목에서 받으세요."
+
+#: admin/views/upgrade.php:69
+msgid "Upload it over this one"
+msgstr "현재 플러그인 위에 업로드"
+
+#: admin/views/upgrade.php:69
+msgid "Plugins, Add New, Upload Plugin. WordPress shows this copy as Trinity Forms and the upload as Trinity Forms Pro. Choose “Replace current with uploaded”."
+msgstr "플러그인, 새로 추가, 플러그인 업로드로 이동하세요. WordPress는 지금 사본을 Trinity Forms(으)로, 업로드한 파일을 Trinity Forms Pro로 표시합니다. \"현재 플러그인을 업로드한 것으로 교체\"를 선택하세요."
+
+#: admin/views/upgrade.php:70
+msgid "Enter your license key"
+msgstr "라이선스 키를 입력하세요"
+
+#: admin/views/upgrade.php:70
+msgid "A notice at the top of the screen takes you to the box, in Trinity Forms Settings under License. The key is in your purchase email."
+msgstr "화면 상단의 알림을 누르면 Trinity Forms 설정의 라이선스 항목에 있는 입력란으로 이동합니다. 키는 구매 확인 이메일에 있습니다."
 
 #. translators: %s: this site's maximum upload size, e.g. "2 MB".
-#: admin/views/upgrade.php:76
+#: admin/views/upgrade.php:81
 #, php-format
 msgid "The Pro zip is about 6.5 MB and this site accepts uploads up to %s. If WordPress says the file “exceeds the upload_max_filesize directive”, ask your host to raise upload_max_filesize and post_max_size to 16 MB, or unzip it on your computer and upload the trinity-forms folder to wp-content/plugins/ over FTP/SFTP, replacing the existing one. Your forms and entries are kept either way."
 msgstr "Pro zip 파일은 약 6.5 MB이며 이 사이트는 최대 %s까지 업로드할 수 있습니다. WordPress에서 파일이 “upload_max_filesize 지시어를 초과한다”고 표시되면 호스팅 업체에 upload_max_filesize와 post_max_size를 16 MB로 올려 달라고 요청하세요. 또는 컴퓨터에서 압축을 풀고 trinity-forms 폴더를 FTP/SFTP로 wp-content/plugins/에 업로드해 기존 폴더를 교체하세요. 어느 방법이든 양식과 항목은 유지됩니다."
@@ -2246,17 +2266,25 @@ msgstr "관리자 알림"
 msgid "New form entry on {site_name}"
 msgstr "{site_name}에 새 양식 항목이 있습니다"
 
-#: includes/class-form-style.php:53
+#: includes/class-form-style.php:71
 msgid "Default"
 msgstr "기본"
 
-#: includes/class-form-style.php:54
+#: includes/class-form-style.php:72
 msgid "Rounded"
 msgstr "둥글게"
 
-#: includes/class-form-style.php:55
+#: includes/class-form-style.php:73
 msgid "Sharp"
 msgstr "각지게"
+
+#: includes/class-form-style.php:74
+msgid "Dark"
+msgstr "어둡게"
+
+#: includes/class-form-style.php:75
+msgid "Theme colours"
+msgstr "테마 색상"
 
 #: includes/class-form-transfer.php:66
 msgid "That file is not valid JSON."
@@ -3598,15 +3626,15 @@ msgid "Pro fields"
 msgstr "Pro 필드"
 
 #: builder/src/app.jsx:627
-msgid "Activate your Pro licence to add these."
+msgid "Activate your Pro license to add these."
 msgstr "이 필드를 추가하려면 Pro 라이선스를 활성화하세요."
 
 #: builder/src/app.jsx:629
-msgid "Enter licence key"
+msgid "Enter license key"
 msgstr "라이선스 키 입력"
 
 #: builder/src/app.jsx:639
-msgid "Requires an active Pro licence"
+msgid "Requires an active Pro license"
 msgstr "활성 Pro 라이선스가 필요합니다"
 
 #: builder/src/canvas.jsx:33

@@ -174,7 +174,7 @@ class Form_Editor {
                         <?php
                         printf(
                             /* translators: 1: opening link tag, 2: closing link tag. */
-                            esc_html__( "Your Trinity Forms Pro licence is not active, so new Pro features can't be added to this form. Everything it already uses keeps working for your visitors, and you can still change it. %1\$sRenew or enter your licence key in Settings%2\$s.", "trinity-forms" ),
+                            esc_html__( "Your Trinity Forms Pro license is not active, so new Pro features can't be added to this form. Everything it already uses keeps working for your visitors, and you can still change it. %1\$sRenew or enter your license key in Settings%2\$s.", "trinity-forms" ),
                             '<a href="' . esc_url( admin_url( \TrinityForms\Admin::PARENT . "&page=" . \TrinityForms\Admin::SETTINGS ) ) . '">',
                             '</a>'
                         );
@@ -187,7 +187,7 @@ class Form_Editor {
                         <?php
                         printf(
                             /* translators: 1: opening link tag, 2: closing link tag. */
-                            esc_html__( "Pro is installed but not activated. %1\$sEnter your licence key in Settings%2\$s to turn on file uploads, payments, integrations and the other Pro features.", "trinity-forms" ),
+                            esc_html__( "Pro is installed but not activated. %1\$sEnter your license key in Settings%2\$s to turn on file uploads, payments, integrations and the other Pro features.", "trinity-forms" ),
                             '<a href="' . esc_url( admin_url( \TrinityForms\Admin::PARENT . "&page=" . \TrinityForms\Admin::SETTINGS ) ) . '">',
                             '</a>'
                         );

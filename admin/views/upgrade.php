@@ -63,7 +63,12 @@ $trinity_forms_pro_features = [
     <div class="jnkui-card">
         <div class="jnkui-card-head"><div><h2><?php esc_html_e( "Already bought Pro?", "trinity-forms" ); ?></h2></div></div>
         <div class="jnkui-card-body">
-            <p class="description"><?php esc_html_e( "Download the Pro zip from your account, go to Plugins, Add New, Upload Plugin, upload it and choose “Replace current with uploaded”. Then enter your licence key on the Trinity Forms Settings screen.", "trinity-forms" ); ?></p>
+            <ol class="jnkui-steps">
+                <li><strong><?php esc_html_e( "Download the Pro zip", "trinity-forms" ); ?></strong><?php esc_html_e( "From your account on jnkplugins.com, under your license.", "trinity-forms" ); ?>
+                    <br><a class="button button-primary" style="margin-top:6px" href="<?php echo esc_url( "https://license.jnkplugins.com/account/licenses?utm_source=plugin&utm_medium=upgrade-page&utm_campaign=trinity-forms" ); ?>" target="_blank" rel="noopener"><?php esc_html_e( "Download the Pro zip", "trinity-forms" ); ?></a></li>
+                <li><strong><?php esc_html_e( "Upload it over this one", "trinity-forms" ); ?></strong><?php esc_html_e( "Plugins, Add New, Upload Plugin. WordPress shows this copy as Trinity Forms and the upload as Trinity Forms Pro. Choose “Replace current with uploaded”.", "trinity-forms" ); ?></li>
+                <li><strong><?php esc_html_e( "Enter your license key", "trinity-forms" ); ?></strong><?php esc_html_e( "A notice at the top of the screen takes you to the box, in Trinity Forms Settings under License. The key is in your purchase email.", "trinity-forms" ); ?></li>
+            </ol>
     <?php
     // The Pro zip is several MB; many hosts cap uploads at 2 MB, and WordPress's
     // own error ("exceeds the upload_max_filesize directive") says nothing useful.

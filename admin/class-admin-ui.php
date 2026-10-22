@@ -129,7 +129,10 @@ class Admin_UI {
         $out .= '<a class="jnkui-brand" href="' . esc_url( admin_url( Admin::PARENT ) ) . '">'
             . '<span class="jnkui-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 8h8"/><path d="M8 12h8"/><path d="M8 16h4"/></svg></span>'
             . "<b>" . esc_html__( "Trinity Forms", "trinity-forms" ) . "</b>"
-            . '<span class="jnkui-ver">' . esc_html( "v" . TRINITY_FORMS_VERSION ) . "</span></a>";
+            . '<span class="jnkui-ver">' . esc_html( "v" . TRINITY_FORMS_VERSION ) . "</span>"
+            // Says Pro is on, rather than leaving people to infer it from tabs that unlock.
+            . ( \TrinityForms\License::is_pro() ? '<span class="jnkui-pro-badge" style="margin-left:6px;padding:1px 7px;border-radius:999px;background:#4f46e5;color:#fff;font-size:11px;font-weight:600;letter-spacing:.02em;vertical-align:middle">Pro</span>' : "" )
+            . "</a>";
 
         $out .= '<nav class="jnkui-tabs" aria-label="' . esc_attr__( "Trinity Forms sections", "trinity-forms" ) . '">';
         foreach ( self::primary_tabs() as $key => $tab ) {

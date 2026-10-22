@@ -624,9 +624,9 @@ export default function App( { config } ) {
 							<div className="tf-builder__locked">
 								<h3>{ __( 'Pro fields', 'trinity-forms' ) }</h3>
 								<p className="tf-builder__palette-hint">
-									{ __( 'Activate your Pro licence to add these.', 'trinity-forms' ) }{ ' ' }
+									{ __( 'Activate your Pro license to add these.', 'trinity-forms' ) }{ ' ' }
 									{ config.settingsUrl && (
-										<a href={ config.settingsUrl }>{ __( 'Enter licence key', 'trinity-forms' ) }</a>
+										<a href={ config.settingsUrl }>{ __( 'Enter license key', 'trinity-forms' ) }</a>
 									) }
 								</p>
 								{ locked.map( ( p ) => (
@@ -636,7 +636,7 @@ export default function App( { config } ) {
 										className="tf-builder__palette-item is-locked"
 										disabled
 										aria-disabled="true"
-										title={ __( 'Requires an active Pro licence', 'trinity-forms' ) }
+										title={ __( 'Requires an active Pro license', 'trinity-forms' ) }
 									>
 										<span className="dashicons dashicons-lock" aria-hidden="true" /> { p.title }
 									</Button>

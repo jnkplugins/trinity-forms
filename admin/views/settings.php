@@ -187,7 +187,7 @@ $secret_attr = static function ( string $stored ): string {
                         <input type="checkbox" name="trinity_forms_settings[delete_data_on_uninstall]" value="1" <?php checked( $delete_data ); ?> />
                         <?php esc_html_e( "Delete all Trinity Forms data when the plugin is deleted", "trinity-forms" ); ?>
                     </label>
-                    <p class="description"><?php esc_html_e( "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro licence lapse. Tick this only to also remove data on delete.", "trinity-forms" ); ?></p>
+                    <p class="description"><?php esc_html_e( "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete.", "trinity-forms" ); ?></p>
                 </td></tr>
         </table>
 
@@ -203,7 +203,7 @@ $secret_attr = static function ( string $stored ): string {
     $tf_after = (string) ob_get_clean();
     if ( "" !== trim( $tf_after ) ) :
         ?>
-        <h2 id="tf-licence" class="tf-section-title"><?php esc_html_e( "Licence", "trinity-forms" ); ?></h2>
+        <h2 id="tf-licence" class="tf-section-title"><?php esc_html_e( "License", "trinity-forms" ); ?></h2>
         <div class="jnkui-card tf-licence-card"><div class="jnkui-card-body">
             <?php echo $tf_after; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup from the licensing panel, escaped where it is built. ?>
         </div></div>

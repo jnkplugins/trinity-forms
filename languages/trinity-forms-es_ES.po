@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-22T19:07:42+00:00\n"
+"POT-Creation-Date: 2026-10-22T20:57:18+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Spanish (Spain)\n"
@@ -42,7 +42,7 @@ msgstr "JNK Plugins"
 msgid "https://jnkplugins.com"
 msgstr "https://jnkplugins.com"
 
-#: admin/class-admin-ui.php:57 admin/class-admin-ui.php:246
+#: admin/class-admin-ui.php:57 admin/class-admin-ui.php:249
 msgid "Forms"
 msgstr "Formularios"
 
@@ -52,7 +52,7 @@ msgstr "Formularios"
 msgid "Templates"
 msgstr "Plantillas"
 
-#: admin/class-admin-ui.php:59 admin/class-admin-ui.php:287
+#: admin/class-admin-ui.php:59 admin/class-admin-ui.php:290
 #: admin/class-admin.php:173 admin/class-admin.php:174
 #: admin/class-forms-list.php:67 admin/views/entries-list.php:143
 #: admin/views/import.php:86
@@ -64,7 +64,7 @@ msgstr "Envíos"
 msgid "Results"
 msgstr "Resultados"
 
-#: admin/class-admin-ui.php:61 admin/class-admin-ui.php:235
+#: admin/class-admin-ui.php:61 admin/class-admin-ui.php:238
 msgid "Views"
 msgstr "Vistas"
 
@@ -90,51 +90,51 @@ msgstr "Enviar opiniones"
 msgid "Pro"
 msgstr "Pro"
 
-#: admin/class-admin-ui.php:134
+#: admin/class-admin-ui.php:137
 msgid "Trinity Forms sections"
 msgstr "Secciones de Trinity Forms"
 
-#: admin/class-admin-ui.php:139
+#: admin/class-admin-ui.php:142
 msgid "More"
 msgstr "Más"
 
-#: admin/class-admin-ui.php:146
+#: admin/class-admin-ui.php:149
 msgid "Help"
 msgstr "Ayuda"
 
-#: admin/class-admin-ui.php:147 admin/class-admin.php:81
+#: admin/class-admin-ui.php:150 admin/class-admin.php:81
 #: admin/class-admin.php:186 admin/class-admin.php:187
 #: admin/views/settings.php:27
 msgid "Settings"
 msgstr "Ajustes"
 
-#: admin/class-admin-ui.php:232
+#: admin/class-admin-ui.php:235
 msgid "New View"
 msgstr "Nueva vista"
 
-#: admin/class-admin-ui.php:236
+#: admin/class-admin-ui.php:239
 msgid "Show entries on your site as a table, a list or cards. Put a View on any page with its shortcode."
 msgstr "Muestra envíos en tu sitio como tabla, lista o tarjetas. Pon una vista en cualquier página con su shortcode."
 
-#: admin/class-admin-ui.php:243 admin/class-forms-list.php:51
+#: admin/class-admin-ui.php:246 admin/class-forms-list.php:51
 #: builder/src/app.jsx:575
 msgid "Start from a template"
 msgstr "Empezar desde una plantilla"
 
-#: admin/class-admin-ui.php:244
+#: admin/class-admin-ui.php:247
 msgid "New form"
 msgstr "Nuevo formulario"
 
-#: admin/class-admin-ui.php:247
+#: admin/class-admin-ui.php:250
 msgid "Every form on your site. Open one to edit it, or copy its shortcode onto a page."
 msgstr "Todos los formularios de tu sitio. Abre uno para editarlo o copia su shortcode en una página."
 
-#: admin/class-admin-ui.php:281
+#: admin/class-admin-ui.php:284
 msgid "Live forms"
 msgstr "Formularios publicados"
 
 #. translators: %s: number of draft forms.
-#: admin/class-admin-ui.php:284
+#: admin/class-admin-ui.php:287
 #, php-format
 msgid "Plus %s draft"
 msgid_plural "Plus %s drafts"
@@ -142,32 +142,32 @@ msgstr[0] "Y %s borrador"
 msgstr[1] "Y %s borradores"
 
 #. translators: %s: number of draft forms.
-#: admin/class-admin-ui.php:284
+#: admin/class-admin-ui.php:287
 msgid "No drafts waiting"
 msgstr "No hay borradores pendientes"
 
-#: admin/class-admin-ui.php:287
+#: admin/class-admin-ui.php:290
 msgid "Kept in your own database"
 msgstr "Guardados en tu propia base de datos"
 
-#: admin/class-admin-ui.php:289 admin/views/entries-list.php:206
+#: admin/class-admin-ui.php:292 admin/views/entries-list.php:206
 #: admin/views/entries-list.php:422
 msgid "Unread"
 msgstr "No leídos"
 
-#: admin/class-admin-ui.php:291
+#: admin/class-admin-ui.php:294
 msgid "Waiting for you to open them"
 msgstr "Esperando a que los abras"
 
-#: admin/class-admin-ui.php:291
+#: admin/class-admin-ui.php:294
 msgid "You are all caught up"
 msgstr "Lo tienes todo al día"
 
-#: admin/class-admin-ui.php:295
+#: admin/class-admin-ui.php:298
 msgid "Last 7 days"
 msgstr "Últimos 7 días"
 
-#: admin/class-admin-ui.php:295
+#: admin/class-admin-ui.php:298
 msgid "New entries this week"
 msgstr "Envíos nuevos esta semana"
 
@@ -320,13 +320,13 @@ msgstr "0 = usar el ajuste global. El cron diario borra los envíos más antiguo
 #. translators: 1: opening link tag, 2: closing link tag.
 #: admin/class-form-editor.php:177
 #, php-format
-msgid "Your Trinity Forms Pro licence is not active, so new Pro features can't be added to this form. Everything it already uses keeps working for your visitors, and you can still change it. %1$sRenew or enter your licence key in Settings%2$s."
+msgid "Your Trinity Forms Pro license is not active, so new Pro features can't be added to this form. Everything it already uses keeps working for your visitors, and you can still change it. %1$sRenew or enter your license key in Settings%2$s."
 msgstr "Tu licencia de Trinity Forms Pro no está activa, así que no puedes añadir nuevas funciones Pro a este formulario. Todo lo que ya usa sigue funcionando para tus visitantes y aún puedes cambiarlo. %1$sRenueva o introduce tu clave de licencia en Ajustes%2$s."
 
 #. translators: 1: opening link tag, 2: closing link tag.
 #: admin/class-form-editor.php:190
 #, php-format
-msgid "Pro is installed but not activated. %1$sEnter your licence key in Settings%2$s to turn on file uploads, payments, integrations and the other Pro features."
+msgid "Pro is installed but not activated. %1$sEnter your license key in Settings%2$s to turn on file uploads, payments, integrations and the other Pro features."
 msgstr "Pro está instalado pero no activado. %1$sIntroduce tu clave de licencia en Ajustes%2$s para activar la subida de archivos, los pagos, las integraciones y el resto de funciones Pro."
 
 #. translators: 1: opening link tag, 2: closing link tag.
@@ -1781,7 +1781,7 @@ msgid "Delete all Trinity Forms data when the plugin is deleted"
 msgstr "Eliminar todos los datos de Trinity Forms cuando se borre el plugin"
 
 #: admin/views/settings.php:190
-msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro licence lapse. Tick this only to also remove data on delete."
+msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete."
 msgstr "Desactivado por defecto. Tus formularios y envíos se conservan si desactivas o borras el plugin, o si caduca una licencia Pro. Márcalo solo si también quieres eliminar los datos al borrarlo."
 
 #: admin/views/settings.php:194
@@ -1789,7 +1789,7 @@ msgid "Save settings"
 msgstr "Guardar ajustes"
 
 #: admin/views/settings.php:206
-msgid "Licence"
+msgid "License"
 msgstr "Licencia"
 
 #: admin/views/transfer.php:30
@@ -1942,12 +1942,32 @@ msgstr "Consigue Trinity Forms Pro"
 msgid "Already bought Pro?"
 msgstr "¿Ya has comprado Pro?"
 
-#: admin/views/upgrade.php:66
-msgid "Download the Pro zip from your account, go to Plugins, Add New, Upload Plugin, upload it and choose “Replace current with uploaded”. Then enter your licence key on the Trinity Forms Settings screen."
-msgstr "Descarga el zip de Pro desde tu cuenta, ve a Plugins, Añadir nuevo, Subir plugin, súbelo y elige “Reemplazar la actual con la subida”. Luego introduce tu clave de licencia en la pantalla de Ajustes de Trinity Forms."
+#: admin/views/upgrade.php:67 admin/views/upgrade.php:68
+msgid "Download the Pro zip"
+msgstr "Descarga el zip de Pro"
+
+#: admin/views/upgrade.php:67
+msgid "From your account on jnkplugins.com, under your license."
+msgstr "Desde tu cuenta en jnkplugins.com, en tu licencia."
+
+#: admin/views/upgrade.php:69
+msgid "Upload it over this one"
+msgstr "Súbelo sobre este"
+
+#: admin/views/upgrade.php:69
+msgid "Plugins, Add New, Upload Plugin. WordPress shows this copy as Trinity Forms and the upload as Trinity Forms Pro. Choose “Replace current with uploaded”."
+msgstr "Plugins, Añadir nuevo, Subir plugin. WordPress muestra esta copia como Trinity Forms y la subida como Trinity Forms Pro. Elige «Reemplazar el actual con el subido»."
+
+#: admin/views/upgrade.php:70
+msgid "Enter your license key"
+msgstr "Introduce tu clave de licencia"
+
+#: admin/views/upgrade.php:70
+msgid "A notice at the top of the screen takes you to the box, in Trinity Forms Settings under License. The key is in your purchase email."
+msgstr "Un aviso en la parte superior de la pantalla te lleva al cuadro, en Ajustes de Trinity Forms, en Licencia. La clave está en el correo de tu compra."
 
 #. translators: %s: this site's maximum upload size, e.g. "2 MB".
-#: admin/views/upgrade.php:76
+#: admin/views/upgrade.php:81
 #, php-format
 msgid "The Pro zip is about 6.5 MB and this site accepts uploads up to %s. If WordPress says the file “exceeds the upload_max_filesize directive”, ask your host to raise upload_max_filesize and post_max_size to 16 MB, or unzip it on your computer and upload the trinity-forms folder to wp-content/plugins/ over FTP/SFTP, replacing the existing one. Your forms and entries are kept either way."
 msgstr "El zip de Pro pesa unos 6,5 MB y este sitio acepta subidas de hasta %s. Si WordPress dice que el archivo “excede la directiva upload_max_filesize”, pide a tu proveedor de alojamiento que suba upload_max_filesize y post_max_size a 16 MB, o descomprímelo en tu ordenador y sube la carpeta trinity-forms a wp-content/plugins/ por FTP/SFTP, reemplazando la existente. Tus formularios y envíos se conservan en ambos casos."
@@ -2248,17 +2268,25 @@ msgstr "Notificación al administrador"
 msgid "New form entry on {site_name}"
 msgstr "Nuevo envío de formulario en {site_name}"
 
-#: includes/class-form-style.php:53
+#: includes/class-form-style.php:71
 msgid "Default"
 msgstr "Predeterminado"
 
-#: includes/class-form-style.php:54
+#: includes/class-form-style.php:72
 msgid "Rounded"
 msgstr "Redondeado"
 
-#: includes/class-form-style.php:55
+#: includes/class-form-style.php:73
 msgid "Sharp"
 msgstr "Recto"
+
+#: includes/class-form-style.php:74
+msgid "Dark"
+msgstr "Oscuro"
+
+#: includes/class-form-style.php:75
+msgid "Theme colours"
+msgstr "Colores del tema"
 
 #: includes/class-form-transfer.php:66
 msgid "That file is not valid JSON."
@@ -3605,15 +3633,15 @@ msgid "Pro fields"
 msgstr "Campos Pro"
 
 #: builder/src/app.jsx:627
-msgid "Activate your Pro licence to add these."
+msgid "Activate your Pro license to add these."
 msgstr "Activa tu licencia Pro para añadirlos."
 
 #: builder/src/app.jsx:629
-msgid "Enter licence key"
+msgid "Enter license key"
 msgstr "Introduce la clave de licencia"
 
 #: builder/src/app.jsx:639
-msgid "Requires an active Pro licence"
+msgid "Requires an active Pro license"
 msgstr "Requiere una licencia Pro activa"
 
 #: builder/src/canvas.jsx:33
