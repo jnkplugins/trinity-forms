@@ -34,10 +34,15 @@ class Field_Name extends Field_Base {
         $first_label = $this->sub_label( $config, $id . "_first", __( "First", "trinity-forms" ) );
         $last_label  = $this->sub_label( $config, $id . "_last", __( "Last", "trinity-forms" ) );
 
+        // The placeholder only when the sub-labels are hidden. With a visible
+        // sub-label it said "First" / "Last" twice, once in the box and once under it.
+        $hidden      = "hidden" === (string) ( $config["sub_label_placement"] ?? "below" );
+        $first_ph    = $hidden ? ' placeholder="' . esc_attr__( "First", "trinity-forms" ) . '"' : "";
+        $last_ph     = $hidden ? ' placeholder="' . esc_attr__( "Last", "trinity-forms" ) . '"' : "";
         $first_input = '<input type="text" id="' . $id . '_first" name="' . $base . '[first]" value="' . esc_attr( $first )
-            . '" placeholder="' . esc_attr__( "First", "trinity-forms" ) . '"' . $req . " />";
+            . '"' . $first_ph . $req . " />";
         $last_input = '<input type="text" id="' . $id . '_last" name="' . $base . '[last]" value="' . esc_attr( $last )
-            . '" placeholder="' . esc_attr__( "Last", "trinity-forms" ) . '"' . $req . " />";
+            . '"' . $last_ph . $req . " />";
 
         $control = '<span class="trinity-forms-name">'
             . '<span class="trinity-forms-subfield">'

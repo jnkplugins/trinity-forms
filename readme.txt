@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 8.2
-Stable tag: 2.10.2
+Stable tag: 2.10.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -171,6 +171,11 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.10.3 =
+* Fixed: on a dark theme, text in form fields could be invisible. The fields are white, but they took the theme's light text colour, so typed text, the dropdown and its options were white on white. Fields now always use dark text on their white background. The open dropdown list matches too.
+* New: a `--trinity-forms-field-color` CSS variable sets the text colour inside fields, next to `--trinity-forms-field-bg`.
+* Changed: the Name field no longer shows "First" and "Last" both inside the boxes and under them. The words show once, as labels. With sub-labels set to hidden, they still show inside the boxes.
 
 = 2.10.2 =
 * Pro: fixed an update notice that could show again after updating. No change in the free version.

@@ -241,6 +241,10 @@ table.trinity-forms-list input { width: 100%; }
     --trinity-forms-accent: #4f46e5;
     --trinity-forms-border: #d0d5dd;
     --trinity-forms-radius: 8px;
+    /* Fields are white by default, so the browser's own parts of them (the open
+       dropdown list, scrollbars, date pickers) must be drawn light too. Without
+       this a dark theme gets a dark dropdown list inside a white select. */
+    color-scheme: light;
 }
 .trinity-forms-form .trinity-forms-field input[type="text"],
 .trinity-forms-form .trinity-forms-field input[type="email"],
@@ -257,10 +261,23 @@ table.trinity-forms-list input { width: 100%; }
     border: 1px solid var(--trinity-forms-border);
     border-radius: var(--trinity-forms-radius);
     background-color: #fff;
-    color: inherit;
+    /* Never inherit the text colour: the field is white, and a dark theme's light
+       body text made typed text invisible (2.10.3). Order: the field's own colour,
+       then the form's text colour (the Text colour control and the Dark preset set
+       it), then dark ink. */
+    color: var(--trinity-forms-field-color, var(--trinity-forms-text, #101828));
     line-height: 1.4;
     box-shadow: 0 1px 2px rgba(16, 24, 40, .05);
     transition: border-color .15s ease, box-shadow .15s ease;
+}
+.trinity-forms-form .trinity-forms-field select option {
+    color: var(--trinity-forms-field-color, var(--trinity-forms-text, #101828));
+    background-color: var(--trinity-forms-field-bg, #fff);
+}
+.trinity-forms-form .trinity-forms-field input::placeholder,
+.trinity-forms-form .trinity-forms-field textarea::placeholder {
+    color: var(--trinity-forms-placeholder, #98a2b3);
+    opacity: 1;
 }
 .trinity-forms-form .trinity-forms-field input:focus,
 .trinity-forms-form .trinity-forms-field select:focus,

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-19T13:48:28+00:00\n"
+"POT-Creation-Date: 2026-10-22T19:07:42+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Spanish (Spain)\n"
@@ -2947,13 +2947,13 @@ msgid "Please choose no more than %d options."
 msgstr "Elige como máximo %d opciones."
 
 #: includes/fields/class-field-name.php:34
-#: includes/fields/class-field-name.php:38 blocks/field-name/index.js:15
+#: includes/fields/class-field-name.php:40 blocks/field-name/index.js:15
 #: builder/src/field-preview.jsx:127
 msgid "First"
 msgstr "Nombre"
 
 #: includes/fields/class-field-name.php:35
-#: includes/fields/class-field-name.php:40 blocks/field-name/index.js:16
+#: includes/fields/class-field-name.php:41 blocks/field-name/index.js:16
 #: builder/src/field-preview.jsx:128
 msgid "Last"
 msgstr "Apellidos"
