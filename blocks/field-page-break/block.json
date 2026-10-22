@@ -1,0 +1,16 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "trinity-forms/field-page-break",
+    "title": "Page break",
+    "category": "trinity-forms",
+    "icon": "page-break",
+    "supports": { "html": false, "reusable": false, "inserter": true },
+    "attributes": {
+        "fieldId":  { "type": "string", "default": "" },
+        "label":    { "type": "string", "default": "" },
+        "nextText": { "type": "string", "default": "Next" },
+        "prevText": { "type": "string", "default": "Back" }
+    },
+    "editorScript": "file:./index.js"
+}

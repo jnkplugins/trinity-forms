@@ -1,0 +1,3980 @@
+# Translation of Trinity Forms into Spanish (Spain).
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Trinity Forms 2.8.1\n"
+"Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
+"POT-Creation-Date: 2026-10-19T13:48:28+00:00\n"
+"PO-Revision-Date: 2026-10-10 16:35+0000\n"
+"Last-Translator: JNK Plugins\n"
+"Language-Team: Spanish (Spain)\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Domain: trinity-forms\n"
+"X-Generator: WP-CLI 2.12.0\n"
+
+#. Plugin Name of the plugin
+#: trinity-forms.php admin/class-admin-ui.php:131
+#: includes/class-entry-notes.php:111 includes/class-plugin.php:87
+msgid "Trinity Forms"
+msgstr "Trinity Forms"
+
+#. Plugin URI of the plugin
+#: trinity-forms.php
+msgid "https://jnkplugins.com/trinity-forms/"
+msgstr "https://jnkplugins.com/trinity-forms/"
+
+#. Description of the plugin
+#: trinity-forms.php
+msgid "Lightweight WordPress form builder — drag-and-drop fields, conditional logic, entries, notifications and CSV export."
+msgstr "Constructor de formularios ligero para WordPress: campos de arrastrar y soltar, lógica condicional, envíos, notificaciones y exportación a CSV."
+
+#. Author of the plugin
+#: trinity-forms.php
+msgid "JNK Plugins"
+msgstr "JNK Plugins"
+
+#. Author URI of the plugin
+#: trinity-forms.php
+msgid "https://jnkplugins.com"
+msgstr "https://jnkplugins.com"
+
+#: admin/class-admin-ui.php:57 admin/class-admin-ui.php:246
+msgid "Forms"
+msgstr "Formularios"
+
+#: admin/class-admin-ui.php:58 includes/class-templates.php:24
+#: includes/class-templates.php:25 includes/class-templates.php:171
+#: builder/src/app.jsx:454
+msgid "Templates"
+msgstr "Plantillas"
+
+#: admin/class-admin-ui.php:59 admin/class-admin-ui.php:287
+#: admin/class-admin.php:173 admin/class-admin.php:174
+#: admin/class-forms-list.php:67 admin/views/entries-list.php:143
+#: admin/views/import.php:86
+msgid "Entries"
+msgstr "Envíos"
+
+#: admin/class-admin-ui.php:60 includes/class-results.php:27
+#: includes/class-results.php:28 includes/class-results.php:159
+msgid "Results"
+msgstr "Resultados"
+
+#: admin/class-admin-ui.php:61 admin/class-admin-ui.php:235
+msgid "Views"
+msgstr "Vistas"
+
+#: admin/class-admin-ui.php:62
+msgid "Integrations"
+msgstr "Integraciones"
+
+#: admin/class-admin-ui.php:69 admin/class-forms-list.php:211
+#: admin/views/transfer.php:29
+msgid "Import / Export"
+msgstr "Importar / Exportar"
+
+#: admin/class-admin-ui.php:70 admin/class-admin.php:207
+#: admin/class-admin.php:208 admin/views/import.php:15
+msgid "Import from Gravity Forms"
+msgstr "Importar desde Gravity Forms"
+
+#: admin/class-admin-ui.php:71
+msgid "Send feedback"
+msgstr "Enviar opiniones"
+
+#: admin/class-admin-ui.php:117
+msgid "Pro"
+msgstr "Pro"
+
+#: admin/class-admin-ui.php:134
+msgid "Trinity Forms sections"
+msgstr "Secciones de Trinity Forms"
+
+#: admin/class-admin-ui.php:139
+msgid "More"
+msgstr "Más"
+
+#: admin/class-admin-ui.php:146
+msgid "Help"
+msgstr "Ayuda"
+
+#: admin/class-admin-ui.php:147 admin/class-admin.php:81
+#: admin/class-admin.php:186 admin/class-admin.php:187
+#: admin/views/settings.php:27
+msgid "Settings"
+msgstr "Ajustes"
+
+#: admin/class-admin-ui.php:232
+msgid "New View"
+msgstr "Nueva vista"
+
+#: admin/class-admin-ui.php:236
+msgid "Show entries on your site as a table, a list or cards. Put a View on any page with its shortcode."
+msgstr "Muestra envíos en tu sitio como tabla, lista o tarjetas. Pon una vista en cualquier página con su shortcode."
+
+#: admin/class-admin-ui.php:243 admin/class-forms-list.php:51
+#: builder/src/app.jsx:575
+msgid "Start from a template"
+msgstr "Empezar desde una plantilla"
+
+#: admin/class-admin-ui.php:244
+msgid "New form"
+msgstr "Nuevo formulario"
+
+#: admin/class-admin-ui.php:247
+msgid "Every form on your site. Open one to edit it, or copy its shortcode onto a page."
+msgstr "Todos los formularios de tu sitio. Abre uno para editarlo o copia su shortcode en una página."
+
+#: admin/class-admin-ui.php:281
+msgid "Live forms"
+msgstr "Formularios publicados"
+
+#. translators: %s: number of draft forms.
+#: admin/class-admin-ui.php:284
+#, php-format
+msgid "Plus %s draft"
+msgid_plural "Plus %s drafts"
+msgstr[0] "Y %s borrador"
+msgstr[1] "Y %s borradores"
+
+#. translators: %s: number of draft forms.
+#: admin/class-admin-ui.php:284
+msgid "No drafts waiting"
+msgstr "No hay borradores pendientes"
+
+#: admin/class-admin-ui.php:287
+msgid "Kept in your own database"
+msgstr "Guardados en tu propia base de datos"
+
+#: admin/class-admin-ui.php:289 admin/views/entries-list.php:206
+#: admin/views/entries-list.php:422
+msgid "Unread"
+msgstr "No leídos"
+
+#: admin/class-admin-ui.php:291
+msgid "Waiting for you to open them"
+msgstr "Esperando a que los abras"
+
+#: admin/class-admin-ui.php:291
+msgid "You are all caught up"
+msgstr "Lo tienes todo al día"
+
+#: admin/class-admin-ui.php:295
+msgid "Last 7 days"
+msgstr "Últimos 7 días"
+
+#: admin/class-admin-ui.php:295
+msgid "New entries this week"
+msgstr "Envíos nuevos esta semana"
+
+#: admin/class-admin.php:88 admin/class-admin.php:220 admin/class-admin.php:221
+msgid "Upgrade to Pro"
+msgstr "Mejorar a Pro"
+
+#: admin/class-admin.php:100
+msgid "Docs"
+msgstr "Documentación"
+
+#: admin/class-admin.php:102
+msgid "Support"
+msgstr "Soporte"
+
+#: admin/class-admin.php:195
+msgid "Feedback & Support"
+msgstr "Opiniones y soporte"
+
+#: admin/class-admin.php:196
+msgid "Feedback"
+msgstr "Opiniones"
+
+#. translators: %s: feedback type (bug report, feature request, …).
+#: admin/class-admin.php:445
+#, php-format
+msgid "Trinity Forms feedback: %s"
+msgstr "Opiniones sobre Trinity Forms: %s"
+
+#: admin/class-admin.php:482
+msgid "You are not allowed to view this entry."
+msgstr "No tienes permiso para ver este envío."
+
+#. translators: %s: display name of the user who resent the notification.
+#: admin/class-admin.php:552 admin/class-admin.php:631
+#, php-format
+msgid "Notifications resent by %s."
+msgstr "Notificaciones reenviadas por %s."
+
+#. translators: 1: user display name, 2: comma-separated list of field labels.
+#: admin/class-admin.php:745
+#, php-format
+msgid "Edited by %1$s — changed: %2$s."
+msgstr "Editado por %1$s, cambios: %2$s."
+
+#: admin/class-form-editor.php:65
+msgid "Testing…"
+msgstr "Probando…"
+
+#: admin/class-form-editor.php:66
+msgid "✓ Connected"
+msgstr "✓ Conectado"
+
+#: admin/class-form-editor.php:67
+msgid "✗ Failed"
+msgstr "✗ Error"
+
+#: admin/class-form-editor.php:68
+msgid "✗ Network error"
+msgstr "✗ Error de red"
+
+#: admin/class-form-editor.php:69
+msgid "Insert a merge tag"
+msgstr "Insertar una etiqueta de combinación"
+
+#: admin/class-form-editor.php:70
+msgid "Sending…"
+msgstr "Enviando…"
+
+#: admin/class-form-editor.php:71
+msgid "Type an address in Send to first."
+msgstr "Escribe primero una dirección en Enviar a."
+
+#: admin/class-form-editor.php:72
+msgid "A merge tag only becomes an address when someone submits the form. Type a real address to send a test."
+msgstr "Una etiqueta solo se convierte en dirección cuando alguien envía el formulario. Escribe una dirección real para enviar una prueba."
+
+#: admin/class-form-editor.php:80
+msgid "Trinity Forms — Settings"
+msgstr "Trinity Forms: Ajustes"
+
+#: admin/class-form-editor.php:110
+msgid "General"
+msgstr "General"
+
+#: admin/class-form-editor.php:111 builder/src/app.jsx:504
+msgid "Notifications"
+msgstr "Notificaciones"
+
+#: admin/class-form-editor.php:112
+msgid "Confirmations"
+msgstr "Confirmaciones"
+
+#: admin/class-form-editor.php:113
+msgid "Layout"
+msgstr "Diseño"
+
+#: admin/class-form-editor.php:114
+msgid "Restrictions"
+msgstr "Restricciones"
+
+#: admin/class-form-editor.php:123
+msgid "Submit button text"
+msgstr "Texto del botón de envío"
+
+#: admin/class-form-editor.php:125
+msgid "Confirmation message"
+msgstr "Mensaje de confirmación"
+
+#: admin/class-form-editor.php:127
+msgid "Redirect URL"
+msgstr "URL de redirección"
+
+#: admin/class-form-editor.php:135
+msgid "Allow save & continue later"
+msgstr "Permitir guardar y continuar más tarde"
+
+#: admin/class-form-editor.php:136
+msgid "Show a save button so users can resume later via emailed link"
+msgstr "Muestra un botón de guardar para que los usuarios puedan continuar más tarde con un enlace enviado por correo electrónico"
+
+#: admin/class-form-editor.php:144
+msgid "Bot challenge (CAPTCHA)"
+msgstr "Verificación anti-bots (CAPTCHA)"
+
+#. translators: %s: CAPTCHA provider name, e.g. "Google reCAPTCHA v2".
+#: admin/class-form-editor.php:150
+#, php-format
+msgid "Enable the bot challenge for this form (provider: %s)"
+msgstr "Activar la verificación anti-bots en este formulario (proveedor: %s)"
+
+#. translators: %s = link to settings page
+#: admin/class-form-editor.php:157
+#, php-format
+msgid "Add the CAPTCHA provider's site + secret keys in %s first."
+msgstr "Primero añade la clave del sitio y la clave secreta del proveedor de CAPTCHA en %s."
+
+#: admin/class-form-editor.php:158
+msgid "Trinity Forms Settings"
+msgstr "Ajustes de Trinity Forms"
+
+#: admin/class-form-editor.php:163
+msgid "Retention (days)"
+msgstr "Conservación (días)"
+
+#: admin/class-form-editor.php:165
+msgid "0 = inherit global setting. Entries older than this are deleted by the daily cron."
+msgstr "0 = usar el ajuste global. El cron diario borra los envíos más antiguos que esto."
+
+#. translators: 1: opening link tag, 2: closing link tag.
+#: admin/class-form-editor.php:177
+#, php-format
+msgid "Your Trinity Forms Pro licence is not active, so new Pro features can't be added to this form. Everything it already uses keeps working for your visitors, and you can still change it. %1$sRenew or enter your licence key in Settings%2$s."
+msgstr "Tu licencia de Trinity Forms Pro no está activa, así que no puedes añadir nuevas funciones Pro a este formulario. Todo lo que ya usa sigue funcionando para tus visitantes y aún puedes cambiarlo. %1$sRenueva o introduce tu clave de licencia en Ajustes%2$s."
+
+#. translators: 1: opening link tag, 2: closing link tag.
+#: admin/class-form-editor.php:190
+#, php-format
+msgid "Pro is installed but not activated. %1$sEnter your licence key in Settings%2$s to turn on file uploads, payments, integrations and the other Pro features."
+msgstr "Pro está instalado pero no activado. %1$sIntroduce tu clave de licencia en Ajustes%2$s para activar la subida de archivos, los pagos, las integraciones y el resto de funciones Pro."
+
+#. translators: 1: opening link tag, 2: closing link tag.
+#: admin/class-form-editor.php:209
+#, php-format
+msgid "Need signatures, payments or save and continue? %1$sSee what Pro adds%2$s."
+msgstr "¿Necesitas firmas, pagos o guardar y continuar? %1$sMira lo que añade Pro%2$s."
+
+#. translators: %s: the embed shortcode, wrapped in a <code> tag.
+#: admin/class-form-editor.php:221
+#, php-format
+msgid "Embed shortcode: %s"
+msgstr "Shortcode para insertar: %s"
+
+#: admin/class-form-editor.php:226 includes/class-onboarding.php:118
+msgid "Create a page with this form"
+msgstr "Crear una página con este formulario"
+
+#: admin/class-form-editor.php:227
+msgid "Makes a draft page holding this form and opens it. Nothing goes live until you publish it."
+msgstr "Crea una página en borrador con este formulario y la abre. Nada se publica hasta que tú la publiques."
+
+#: admin/class-form-editor.php:232
+msgid "Send an email each time the form is submitted."
+msgstr "Envía un correo electrónico cada vez que se envíe el formulario."
+
+#: admin/class-form-editor.php:240
+msgid "Merge tags for this form — click to copy:"
+msgstr "Etiquetas de combinación de este formulario (haz clic para copiar):"
+
+#: admin/class-form-editor.php:250
+msgid "Add fields to the form and save it to see their tags here."
+msgstr "Añade campos al formulario y guárdalo para ver aquí sus etiquetas."
+
+#: admin/class-form-editor.php:256
+msgid "+ Add notification"
+msgstr "+ Añadir notificación"
+
+#: admin/class-form-editor.php:261
+msgid "What the visitor sees after submitting. The first confirmation whose conditions match wins; if none do, the default on the General tab is used."
+msgstr "Lo que ve el visitante después de enviar. Gana la primera confirmación cuyas condiciones se cumplan; si no se cumple ninguna, se usa la predeterminada de la pestaña General."
+
+#: admin/class-form-editor.php:271
+msgid "+ Add confirmation"
+msgstr "+ Añadir confirmación"
+
+#: admin/class-form-editor.php:273
+msgid "Suspected spam"
+msgstr "Posible spam"
+
+#: admin/class-form-editor.php:275 admin/class-form-editor.php:656
+#: admin/views/feedback.php:62
+msgid "Message"
+msgstr "Mensaje"
+
+#: admin/class-form-editor.php:277
+msgid "Leave blank to show the normal confirmation"
+msgstr "Déjalo en blanco para mostrar la confirmación normal"
+
+#: admin/class-form-editor.php:279
+msgid "Blank is the safer default: telling a bot it was caught helps it tune around the filter, and telling a wrongly-flagged person the same thing helps nobody. The submission is kept either way — look under Entries → Spam."
+msgstr "En blanco es la opción más segura: decirle a un bot que lo han pillado le ayuda a esquivar el filtro, y decírselo a una persona marcada por error no ayuda a nadie. El envío se guarda igualmente: míralo en Envíos → Spam."
+
+#: admin/class-form-editor.php:286
+msgid "How the form looks. Every setting here is a default — a field that makes its own choice keeps it."
+msgstr "Cómo se ve el formulario. Cada ajuste de aquí es un valor predeterminado: un campo que tenga su propia elección la mantiene."
+
+#: admin/class-form-editor.php:293
+msgid "Style"
+msgstr "Estilo"
+
+#: admin/class-form-editor.php:301
+msgid "Accent colour"
+msgstr "Color de acento"
+
+#: admin/class-form-editor.php:304
+msgid "Reset"
+msgstr "Restablecer"
+
+#: admin/class-form-editor.php:305
+msgid "Used for the button, the focus ring and ticked boxes."
+msgstr "Se usa en el botón, el borde de foco y las casillas marcadas."
+
+#: admin/class-form-editor.php:311
+msgid "Preview"
+msgstr "Vista previa"
+
+#: admin/class-form-editor.php:318
+msgid "Your name"
+msgstr "Tu nombre"
+
+#: admin/class-form-editor.php:319
+msgid "Send me a copy"
+msgstr "Envíame una copia"
+
+#: admin/class-form-editor.php:320 includes/class-form-manager.php:275
+#: includes/class-gf-importer.php:186 public/class-form-renderer.php:84
+msgid "Submit"
+msgstr "Enviar"
+
+#: admin/class-form-editor.php:322
+msgid "A rough preview. Your theme's fonts and colours also apply on the real page."
+msgstr "Una vista previa aproximada. En la página real también se aplican las fuentes y colores de tu tema."
+
+#: admin/class-form-editor.php:325
+msgid "Labels"
+msgstr "Etiquetas"
+
+#: admin/class-form-editor.php:329 admin/class-form-editor.php:342
+#: admin/class-form-editor.php:374 blocks/field-shared.js:154
+#: builder/src/field-panel.jsx:306
+msgid "Above the field"
+msgstr "Encima del campo"
+
+#: admin/class-form-editor.php:330
+msgid "To the left"
+msgstr "A la izquierda"
+
+#: admin/class-form-editor.php:331
+msgid "To the right"
+msgstr "A la derecha"
+
+#: admin/class-form-editor.php:332
+msgid "Hidden (use placeholders)"
+msgstr "Ocultas (usar textos de ejemplo)"
+
+#: admin/class-form-editor.php:334
+msgid "Hidden keeps the label for screen readers — it is only removed visually."
+msgstr "Ocultas mantiene la etiqueta para los lectores de pantalla; solo se quita visualmente."
+
+#: admin/class-form-editor.php:337 blocks/field-shared.js:107
+#: builder/src/field-panel.jsx:21
+msgid "Help text"
+msgstr "Texto de ayuda"
+
+#: admin/class-form-editor.php:341 admin/class-form-editor.php:373
+#: blocks/field-shared.js:153 builder/src/field-panel.jsx:305
+msgid "Below the field"
+msgstr "Debajo del campo"
+
+#: admin/class-form-editor.php:346
+msgid "Sub-labels"
+msgstr "Subetiquetas"
+
+#: admin/class-form-editor.php:350
+msgid "Below the input"
+msgstr "Debajo del cuadro"
+
+#: admin/class-form-editor.php:351
+msgid "Above the input"
+msgstr "Encima del cuadro"
+
+#: admin/class-form-editor.php:352 blocks/field-hidden/index.js:34
+msgid "Hidden"
+msgstr "Ocultas"
+
+#: admin/class-form-editor.php:354
+msgid "The \"First\" and \"Last\" under a name field, or the parts of an address."
+msgstr "El \"Nombre\" y \"Apellidos\" bajo un campo de nombre, o las partes de una dirección."
+
+#: admin/class-form-editor.php:357
+msgid "Required fields"
+msgstr "Campos obligatorios"
+
+#: admin/class-form-editor.php:361
+msgid "Mark required with *"
+msgstr "Marcar los obligatorios con *"
+
+#: admin/class-form-editor.php:362
+msgid "Mark required with \"(required)\""
+msgstr "Marcar los obligatorios con \"(obligatorio)\""
+
+#: admin/class-form-editor.php:363
+msgid "Mark the optional ones instead"
+msgstr "Marcar en su lugar los opcionales"
+
+#: admin/class-form-editor.php:364
+msgid "Do not mark either"
+msgstr "No marcar ninguno"
+
+#: admin/class-form-editor.php:366
+msgid "On a form where nearly everything is required, marking the optional ones reads better."
+msgstr "En un formulario donde casi todo es obligatorio, se lee mejor marcando los opcionales."
+
+#: admin/class-form-editor.php:369
+msgid "Errors"
+msgstr "Errores"
+
+#: admin/class-form-editor.php:380
+msgid "Also list every problem at the top of the form"
+msgstr "Listar también todos los problemas al principio del formulario"
+
+#: admin/class-form-editor.php:382
+msgid "Worth turning on for a long form, where the inline errors can all be below the fold and a failed submit looks like nothing happened."
+msgstr "Merece la pena activarlo en un formulario largo, donde los errores de cada campo pueden quedar fuera de la vista y un envío fallido parece que no ha hecho nada."
+
+#: admin/class-form-editor.php:385
+msgid "Form CSS class"
+msgstr "Clase CSS del formulario"
+
+#: admin/class-form-editor.php:389
+msgid "Submit button"
+msgstr "Botón de envío"
+
+#: admin/class-form-editor.php:391
+msgid "Image"
+msgstr "Imagen"
+
+#: admin/class-form-editor.php:394
+msgid "Leave blank for a normal button. The button text above is used as the image's alt text."
+msgstr "Déjalo en blanco para un botón normal. El texto del botón de arriba se usa como texto alternativo de la imagen."
+
+#: admin/class-form-editor.php:397
+msgid "Only show when"
+msgstr "Mostrar solo cuando"
+
+#: admin/class-form-editor.php:406
+msgid "— always show it —"
+msgstr "— mostrar siempre —"
+
+#: admin/class-form-editor.php:422
+msgid "Useful for a consent checkbox that has to be ticked before the form can be sent."
+msgstr "Útil para una casilla de consentimiento que hay que marcar antes de poder enviar el formulario."
+
+#: admin/class-form-editor.php:428
+msgid "Control when the form accepts submissions, and how many it takes. Leave a field blank or at 0 to leave that rule off."
+msgstr "Controla cuándo acepta envíos el formulario y cuántos admite. Deja un campo en blanco o en 0 para desactivar esa regla."
+
+#: admin/class-form-editor.php:430
+msgid "Schedule"
+msgstr "Programación"
+
+#: admin/class-form-editor.php:432
+msgid "Opens"
+msgstr "Se abre"
+
+#: admin/class-form-editor.php:435
+msgid "Before this, visitors see the message below instead of the form. Uses your site's timezone."
+msgstr "Antes de esto, los visitantes ven el mensaje de abajo en lugar del formulario. Usa la zona horaria de tu sitio."
+
+#: admin/class-form-editor.php:437
+msgid "Message before it opens"
+msgstr "Mensaje antes de abrirse"
+
+#: admin/class-form-editor.php:438 includes/class-restrictions.php:73
+msgid "This form is not open yet."
+msgstr "Este formulario aún no está abierto."
+
+#: admin/class-form-editor.php:439
+msgid "Closes"
+msgstr "Se cierra"
+
+#: admin/class-form-editor.php:441
+msgid "Message after it closes"
+msgstr "Mensaje después de cerrarse"
+
+#: admin/class-form-editor.php:442 includes/class-restrictions.php:81
+msgid "This form is now closed."
+msgstr "Este formulario ya está cerrado."
+
+#: admin/class-form-editor.php:445
+msgid "Entry limits"
+msgstr "Límites de envíos"
+
+#: admin/class-form-editor.php:447
+msgid "Total entries"
+msgstr "Envíos totales"
+
+#: admin/class-form-editor.php:450
+msgid "0 = unlimited. Spam and trashed entries do not count towards the limit."
+msgstr "0 = ilimitado. Los envíos de spam y los de la papelera no cuentan para el límite."
+
+#: admin/class-form-editor.php:452
+msgid "Per logged-in user"
+msgstr "Por usuario conectado"
+
+#: admin/class-form-editor.php:454
+msgid "Per IP address"
+msgstr "Por dirección IP"
+
+#: admin/class-form-editor.php:457
+msgid "Blunt: everyone behind one office router or mobile network shares an address."
+msgstr "Es un método tosco: todos los que estén detrás del mismo router de oficina o red móvil comparten dirección."
+
+#: admin/class-form-editor.php:459
+msgid "Message when full"
+msgstr "Mensaje cuando esté completo"
+
+#: admin/class-form-editor.php:460 includes/class-restrictions.php:99
+msgid "This form is no longer accepting submissions."
+msgstr "Este formulario ya no acepta envíos."
+
+#: admin/class-form-editor.php:461
+msgid "Message when you've already submitted"
+msgstr "Mensaje si ya lo has enviado"
+
+#: admin/class-form-editor.php:462 includes/class-restrictions.php:110
+#: includes/class-restrictions.php:121
+msgid "You have already submitted this form."
+msgstr "Ya has enviado este formulario."
+
+#: admin/class-form-editor.php:465
+msgid "Who can submit"
+msgstr "Quién puede enviar"
+
+#: admin/class-form-editor.php:467
+msgid "Require login"
+msgstr "Requerir acceso"
+
+#: admin/class-form-editor.php:472
+msgid "Only logged-in users may see and submit this form"
+msgstr "Solo los usuarios conectados pueden ver y enviar este formulario"
+
+#: admin/class-form-editor.php:475
+msgid "Message for logged-out visitors"
+msgstr "Mensaje para visitantes no conectados"
+
+#: admin/class-form-editor.php:476 includes/class-restrictions.php:52
+msgid "Please log in to fill in this form."
+msgstr "Accede para rellenar este formulario."
+
+#: admin/class-form-editor.php:540 admin/class-form-editor.php:646
+msgid "Name"
+msgstr "Nombre"
+
+#: admin/class-form-editor.php:546
+msgid "Enabled"
+msgstr "Activado"
+
+#: admin/class-form-editor.php:549
+msgid "Send when"
+msgstr "Enviar cuando"
+
+#: admin/class-form-editor.php:553
+msgid "The form is submitted"
+msgstr "Se envía el formulario"
+
+#: admin/class-form-editor.php:554
+msgid "A payment completes"
+msgstr "Se completa un pago"
+
+#: admin/class-form-editor.php:555
+msgid "An entry is approved"
+msgstr "Se aprueba un envío"
+
+#: admin/class-form-editor.php:556
+msgid "An entry is edited"
+msgstr "Se edita un envío"
+
+#: admin/class-form-editor.php:574
+msgid "Send to"
+msgstr "Enviar a"
+
+#: admin/class-form-editor.php:576
+msgid "These addresses"
+msgstr "Estas direcciones"
+
+#: admin/class-form-editor.php:577
+msgid "An email field on the form"
+msgstr "Un campo de correo electrónico del formulario"
+
+#: admin/class-form-editor.php:585
+msgid "— choose a field —"
+msgstr "— elige un campo —"
+
+#: admin/class-form-editor.php:593
+msgid "Cc"
+msgstr "Cc"
+
+#: admin/class-form-editor.php:596
+msgid "Bcc"
+msgstr "Cco"
+
+#: admin/class-form-editor.php:599
+msgid "Reply-To"
+msgstr "Responder a"
+
+#: admin/class-form-editor.php:601
+msgid "Where your reply goes when you hit Reply. Put the tag of the form's email field here to answer the sender directly."
+msgstr "A dónde va tu respuesta cuando pulsas Responder. Pon aquí la etiqueta del campo de correo electrónico del formulario para responder directamente al remitente."
+
+#: admin/class-form-editor.php:603
+msgid "From name"
+msgstr "Nombre del remitente"
+
+#: admin/class-form-editor.php:606
+msgid "From email"
+msgstr "Correo electrónico del remitente"
+
+#: admin/class-form-editor.php:608
+msgid "Leave blank. Sending as the visitor's address makes your notification fail SPF checks and land in spam — use Reply-To above instead."
+msgstr "Déjalo en blanco. Enviar con la dirección del visitante hace que tu notificación falle las comprobaciones SPF y acabe en spam; usa en su lugar Responder a, más arriba."
+
+#: admin/class-form-editor.php:610
+msgid "Subject"
+msgstr "Asunto"
+
+#: admin/class-form-editor.php:613
+msgid "Body"
+msgstr "Cuerpo"
+
+#: admin/class-form-editor.php:619
+msgid "Attach any files uploaded with the submission"
+msgstr "Adjuntar los archivos subidos con el envío"
+
+#: admin/class-form-editor.php:624
+msgid "Send a test"
+msgstr "Enviar una prueba"
+
+#: admin/class-form-editor.php:625 admin/class-forms-list.php:136
+msgid "Duplicate"
+msgstr "Duplicar"
+
+#: admin/class-form-editor.php:626 admin/class-form-editor.php:705
+msgid "Remove"
+msgstr "Quitar"
+
+#: admin/class-form-editor.php:647
+msgid "Enterprise enquiries"
+msgstr "Consultas de empresa"
+
+#: admin/class-form-editor.php:649
+msgid "Then show"
+msgstr "Después mostrar"
+
+#: admin/class-form-editor.php:651
+msgid "A message"
+msgstr "Un mensaje"
+
+#: admin/class-form-editor.php:652
+msgid "A page on this site"
+msgstr "Una página de este sitio"
+
+#: admin/class-form-editor.php:653
+msgid "Another URL"
+msgstr "Otra URL"
+
+#: admin/class-form-editor.php:659
+msgid "Page"
+msgstr "Página"
+
+#: admin/class-form-editor.php:664 includes/fields/class-field-product.php:55
+msgid "— select —"
+msgstr "— elegir —"
+
+#: admin/class-form-editor.php:669
+msgid "URL"
+msgstr "URL"
+
+#: admin/class-form-editor.php:672
+msgid "Query string"
+msgstr "Cadena de consulta"
+
+#: admin/class-form-editor.php:674
+msgid "Appended to the page or URL above. Merge tags are resolved first."
+msgstr "Se añade a la página o URL de arriba. Las etiquetas de combinación se resuelven primero."
+
+#: admin/class-form-editor.php:679
+msgid "Only when"
+msgstr "Solo cuando"
+
+#: admin/class-form-editor.php:682
+msgid "— always (use the default instead) —"
+msgstr "— siempre (usa la predeterminada) —"
+
+#: admin/class-forms-list.php:48 admin/views/entries-list.php:155
+msgid "Create your first form"
+msgstr "Crea tu primer formulario"
+
+#: admin/class-forms-list.php:49
+msgid "Start from one of twelve ready-made forms, or build one from scratch. Either way you get a shortcode to drop on any page, and every submission is stored in your own database."
+msgstr "Empieza con uno de los doce formularios listos o crea uno desde cero. En ambos casos obtienes un shortcode para poner en cualquier página, y cada envío se guarda en tu propia base de datos."
+
+#: admin/class-forms-list.php:52
+msgid "Add a blank form"
+msgstr "Añadir un formulario en blanco"
+
+#: admin/class-forms-list.php:63
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: admin/class-forms-list.php:64
+msgid "Fields"
+msgstr "Campos"
+
+#: admin/class-forms-list.php:68
+msgid "Last submission"
+msgstr "Último envío"
+
+#: admin/class-forms-list.php:141
+msgid "Export JSON"
+msgstr "Exportar JSON"
+
+#: admin/class-forms-list.php:160
+msgid "You do not have permission to export forms."
+msgstr "No tienes permiso para exportar formularios."
+
+#: admin/class-forms-list.php:165
+msgid "You do not have permission to export this form."
+msgstr "No tienes permiso para exportar este formulario."
+
+#: admin/class-forms-list.php:169 admin/class-forms-list.php:231
+#: includes/class-rest-api.php:114 includes/class-submission-pipeline.php:42
+msgid "Form not found."
+msgstr "Formulario no encontrado."
+
+#: admin/class-forms-list.php:182
+msgid "You do not have permission to import forms."
+msgstr "No tienes permiso para importar formularios."
+
+#: admin/class-forms-list.php:194
+msgid "Choose a .json file exported from Trinity Forms."
+msgstr "Elige un archivo .json exportado desde Trinity Forms."
+
+#: admin/class-forms-list.php:196
+msgid "That file is too large to be a form export."
+msgstr "Ese archivo es demasiado grande para ser una exportación de formulario."
+
+#: admin/class-forms-list.php:210
+msgid "Import / Export forms"
+msgstr "Importar / Exportar formularios"
+
+#: admin/class-forms-list.php:224
+msgid "You do not have permission to duplicate forms."
+msgstr "No tienes permiso para duplicar formularios."
+
+#. translators: %s: original form title
+#: admin/class-forms-list.php:239
+#, php-format
+msgid "%s (Copy)"
+msgstr "%s (copia)"
+
+#: admin/class-forms-list.php:246
+msgid "Failed to duplicate form."
+msgstr "No se pudo duplicar el formulario."
+
+#: admin/class-forms-list.php:293
+msgid "Form duplicated. Integration credentials were not copied — please reconfigure them on the new form."
+msgstr "Formulario duplicado. Las credenciales de las integraciones no se copiaron, así que vuelve a configurarlas en el nuevo formulario."
+
+#: admin/class-forms-list.php:294
+msgid "Form duplicated."
+msgstr "Formulario duplicado."
+
+#: admin/class-forms-list.php:299
+msgid "Edit copy"
+msgstr "Editar la copia"
+
+#. translators: %d: form ID.
+#: admin/views/entries-list.php:76 includes/class-form-manager.php:54
+#, php-format
+msgid "(untitled form #%d)"
+msgstr "(formulario sin título n.º %d)"
+
+#: admin/views/entries-list.php:144
+msgid "Everything people have sent through your forms. Open one to read it, reply or add a note."
+msgstr "Todo lo que la gente ha enviado con tus formularios. Abre uno para leerlo, responder o añadir una nota."
+
+#: admin/views/entries-list.php:145
+msgid "Export CSV"
+msgstr "Exportar CSV"
+
+#: admin/views/entries-list.php:153 admin/views/transfer.php:55
+msgid "No forms yet"
+msgstr "Aún no hay formularios"
+
+#: admin/views/entries-list.php:154
+msgid "Build a form, put its shortcode on a page, and every submission is stored here in your own database. No caps, no per-entry fees."
+msgstr "Crea un formulario, pon su shortcode en una página y cada envío se guardará aquí, en tu propia base de datos. Sin límites ni tarifas por envío."
+
+#: admin/views/entries-list.php:170
+#, php-format
+msgid "%s marked as read."
+msgstr "Marcado como leído: %s."
+
+#: admin/views/entries-list.php:171
+#, php-format
+msgid "%s marked as unread."
+msgstr "Marcado como no leído: %s."
+
+#: admin/views/entries-list.php:172
+#, php-format
+msgid "%s starred."
+msgstr "Destacado: %s."
+
+#: admin/views/entries-list.php:173
+#, php-format
+msgid "%s unstarred."
+msgstr "Ya no destacado: %s."
+
+#: admin/views/entries-list.php:174
+#, php-format
+msgid "%s marked as spam."
+msgstr "Marcado como spam: %s."
+
+#: admin/views/entries-list.php:175
+#, php-format
+msgid "%s moved to trash."
+msgstr "Movido a la papelera: %s."
+
+#: admin/views/entries-list.php:176
+#, php-format
+msgid "%s restored."
+msgstr "Restaurado: %s."
+
+#: admin/views/entries-list.php:177 admin/views/entries-list.php:178
+#, php-format
+msgid "%s permanently deleted."
+msgstr "Borrado para siempre: %s."
+
+#: admin/views/entries-list.php:179
+#, php-format
+msgid "Notifications resent for %s."
+msgstr "Notificaciones reenviadas para %s."
+
+#: admin/views/entries-list.php:180 admin/views/entry-detail.php:155
+msgid "Note added."
+msgstr "Nota añadida."
+
+#: admin/views/entries-list.php:181 admin/views/entry-detail.php:156
+msgid "Note deleted."
+msgstr "Nota borrada."
+
+#: admin/views/entries-list.php:182
+msgid "Columns updated."
+msgstr "Columnas actualizadas."
+
+#: admin/views/entries-list.php:183
+#, php-format
+msgid "%s approved."
+msgstr "Aprobado: %s."
+
+#: admin/views/entries-list.php:184
+#, php-format
+msgid "%s rejected."
+msgstr "Rechazado: %s."
+
+#: admin/views/entries-list.php:185
+msgid "Nothing selected."
+msgstr "No hay nada seleccionado."
+
+#. translators: %s: number of entries.
+#: admin/views/entries-list.php:190 admin/views/entries-list.php:339
+#, php-format
+msgid "%s entry"
+msgid_plural "%s entries"
+msgstr[0] "%s envío"
+msgstr[1] "%s envíos"
+
+#: admin/views/entries-list.php:205
+msgid "All"
+msgstr "Todos"
+
+#: admin/views/entries-list.php:207 admin/views/entries-list.php:354
+msgid "Starred"
+msgstr "Destacados"
+
+#: admin/views/entries-list.php:208 admin/views/entries-list.php:453
+#: includes/class-entries.php:63
+msgid "Spam"
+msgstr "Spam"
+
+#: admin/views/entries-list.php:209 admin/views/entries-list.php:454
+#: admin/views/entry-detail.php:220 includes/class-entries.php:64
+msgid "Trash"
+msgstr "Papelera"
+
+#: admin/views/entries-list.php:213 includes/class-entries.php:65
+msgid "Partial"
+msgstr "Parciales"
+
+#: admin/views/entries-list.php:223
+msgid "Filter entries"
+msgstr "Filtrar envíos"
+
+#: admin/views/entries-list.php:237 admin/views/entries-list.php:356
+#: admin/views/entry-detail.php:340 admin/views/import.php:85
+#: includes/class-my-submissions.php:50 includes/class-my-submissions.php:56
+#: includes/class-plugin.php:88 includes/class-results.php:146
+#: blocks/form-block/edit.js:29
+msgid "Form"
+msgstr "Formulario"
+
+#: admin/views/entries-list.php:239
+msgid "All forms"
+msgstr "Todos los formularios"
+
+#: admin/views/entries-list.php:246 admin/views/entries-list.php:362
+#: admin/views/entry-detail.php:360
+msgid "Payment"
+msgstr "Pago"
+
+#: admin/views/entries-list.php:248
+msgid "Any payment"
+msgstr "Cualquier pago"
+
+#: admin/views/entries-list.php:256
+msgid "From date"
+msgstr "Desde la fecha"
+
+#: admin/views/entries-list.php:258
+msgid "to"
+msgstr "a"
+
+#: admin/views/entries-list.php:259
+msgid "To date"
+msgstr "Hasta la fecha"
+
+#: admin/views/entries-list.php:263
+msgid "Search entries"
+msgstr "Buscar envíos"
+
+#: admin/views/entries-list.php:264
+msgid "Search answers…"
+msgstr "Buscar en las respuestas…"
+
+#: admin/views/entries-list.php:266
+msgid "Filter"
+msgstr "Filtrar"
+
+#: admin/views/entries-list.php:269
+msgid "Clear"
+msgstr "Limpiar"
+
+#: admin/views/entries-list.php:278
+msgid "Choose answer columns"
+msgstr "Elegir columnas de respuestas"
+
+#: admin/views/entries-list.php:285
+msgid "Show these answers as columns in the list."
+msgstr "Muestra estas respuestas como columnas en la lista."
+
+#: admin/views/entries-list.php:295
+msgid "Apply columns"
+msgstr "Aplicar columnas"
+
+#: admin/views/entries-list.php:312
+msgid "Bulk action"
+msgstr "Acción en lote"
+
+#: admin/views/entries-list.php:314
+msgid "With selected…"
+msgstr "Con los seleccionados…"
+
+#: admin/views/entries-list.php:316 admin/views/entries-list.php:448
+#: admin/views/entry-detail.php:218
+msgid "Restore"
+msgstr "Restaurar"
+
+#: admin/views/entries-list.php:317 admin/views/entries-list.php:450
+msgid "Delete permanently"
+msgstr "Borrar para siempre"
+
+#: admin/views/entries-list.php:319
+msgid "Mark as read"
+msgstr "Marcar como leído"
+
+#: admin/views/entries-list.php:320
+msgid "Mark as unread"
+msgstr "Marcar como no leído"
+
+#: admin/views/entries-list.php:321 admin/views/entry-detail.php:195
+msgid "Star"
+msgstr "Destacar"
+
+#: admin/views/entries-list.php:322 admin/views/entries-list.php:416
+msgid "Remove star"
+msgstr "Quitar destacado"
+
+#: admin/views/entries-list.php:323 admin/views/entry-detail.php:200
+msgid "Resend notifications"
+msgstr "Reenviar notificaciones"
+
+#: admin/views/entries-list.php:324 admin/views/entry-detail.php:216
+#: admin/views/entry-print.php:81
+msgid "Print"
+msgstr "Imprimir"
+
+#: admin/views/entries-list.php:325
+msgid "Export selected to CSV"
+msgstr "Exportar seleccionados a CSV"
+
+#: admin/views/entries-list.php:326
+msgid "Mark as spam"
+msgstr "Marcar como spam"
+
+#: admin/views/entries-list.php:327
+msgid "Move to trash"
+msgstr "Mover a la papelera"
+
+#: admin/views/entries-list.php:333
+msgid "Apply"
+msgstr "Aplicar"
+
+#: admin/views/entries-list.php:351
+msgid "Select all"
+msgstr "Seleccionar todo"
+
+#: admin/views/entries-list.php:355
+msgid "Entry"
+msgstr "Envío"
+
+#: admin/views/entries-list.php:360 admin/views/entry-detail.php:355
+#: admin/views/entry-detail.php:435
+msgid "Submitted"
+msgstr "Enviado"
+
+#: admin/views/entries-list.php:361 admin/views/entry-detail.php:357
+#: includes/class-my-submissions.php:51
+msgid "Status"
+msgstr "Estado"
+
+#: admin/views/entries-list.php:373
+msgid "No entries match those filters."
+msgstr "Ningún envío coincide con esos filtros."
+
+#: admin/views/entries-list.php:373
+msgid "Try a wider date range or a different search."
+msgstr "Prueba un rango de fechas más amplio u otra búsqueda."
+
+#: admin/views/entries-list.php:373
+msgid "Clear the filters"
+msgstr "Limpiar los filtros"
+
+#: admin/views/entries-list.php:375
+msgid "The trash is empty."
+msgstr "La papelera está vacía."
+
+#: admin/views/entries-list.php:375
+msgid "Entries you move to the trash wait here before they are deleted for good."
+msgstr "Los envíos que mueves a la papelera esperan aquí antes de borrarse para siempre."
+
+#: admin/views/entries-list.php:377
+msgid "No spam. Nice."
+msgstr "Nada de spam. Genial."
+
+#: admin/views/entries-list.php:377
+msgid "Anything the spam checks catch lands here, so you can rescue a real message."
+msgstr "Todo lo que detectan los filtros de spam acaba aquí, para que puedas rescatar un mensaje real."
+
+#: admin/views/entries-list.php:379
+msgid "You are all caught up."
+msgstr "Estás al día."
+
+#: admin/views/entries-list.php:379
+msgid "New entries show up here until you open them."
+msgstr "Los envíos nuevos aparecen aquí hasta que los abres."
+
+#: admin/views/entries-list.php:381
+msgid "No starred entries yet."
+msgstr "Aún no hay envíos destacados."
+
+#: admin/views/entries-list.php:381
+msgid "Star an entry from the list to keep it handy here."
+msgstr "Destaca un envío en la lista para tenerlo a mano aquí."
+
+#: admin/views/entries-list.php:383
+msgid "No entries yet."
+msgstr "Aún no hay envíos."
+
+#: admin/views/entries-list.php:383
+msgid "Entries appear here the moment someone submits. Add a form to a page to start collecting."
+msgstr "Los envíos aparecen aquí en cuanto alguien envía un formulario. Añade un formulario a una página para empezar a recibirlos."
+
+#: admin/views/entries-list.php:383 includes/class-results.php:169
+msgid "Go to your forms"
+msgstr "Ir a tus formularios"
+
+#. translators: %d: entry ID.
+#: admin/views/entries-list.php:408
+#, php-format
+msgid "Select entry %d"
+msgstr "Seleccionar el envío %d"
+
+#: admin/views/entries-list.php:416
+msgid "Star this entry"
+msgstr "Destacar este envío"
+
+#: admin/views/entries-list.php:422
+msgid "Unread:"
+msgstr "No leído:"
+
+#. translators: %d: entry ID.
+#. translators: %d: numeric entry ID.
+#: admin/views/entries-list.php:430 admin/views/entry-detail.php:143
+#: admin/views/entry-print.php:57 admin/views/entry-print.php:97
+#, php-format
+msgid "Entry #%d"
+msgstr "Envío n.º %d"
+
+#: admin/views/entries-list.php:443
+msgid "View"
+msgstr "Ver"
+
+#: admin/views/entries-list.php:445
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: admin/views/entries-list.php:450
+msgid "Permanently delete this entry? This cannot be undone."
+msgstr "¿Borrar este envío para siempre? No se puede deshacer."
+
+#: admin/views/entries-list.php:452
+msgid "Mark read"
+msgstr "Marcar leído"
+
+#: admin/views/entries-list.php:452 admin/views/entry-detail.php:197
+msgid "Mark unread"
+msgstr "Marcar no leído"
+
+#: admin/views/entries-list.php:491
+msgid "This form does not take payments"
+msgstr "Este formulario no acepta pagos"
+
+#: admin/views/entry-detail.php:20
+msgid "Entry not found"
+msgstr "Envío no encontrado"
+
+#: admin/views/entry-detail.php:22
+msgid "This entry is gone"
+msgstr "Este envío ya no existe"
+
+#: admin/views/entry-detail.php:23
+msgid "It may have been deleted. The rest of your entries are still in the list."
+msgstr "Puede que se haya borrado. El resto de tus envíos siguen en la lista."
+
+#: admin/views/entry-detail.php:24
+msgid "Back to entries"
+msgstr "Volver a los envíos"
+
+#: admin/views/entry-detail.php:134 admin/views/entry-detail.php:135
+msgid "Newer"
+msgstr "Más reciente"
+
+#: admin/views/entry-detail.php:137 admin/views/entry-detail.php:138
+msgid "Older"
+msgstr "Más antiguo"
+
+#. translators: 1: person's name or "Someone", 2: form name, 3: when.
+#: admin/views/entry-detail.php:146
+#, php-format
+msgid "%1$s sent %2$s %3$s."
+msgstr "%1$s envió %2$s %3$s."
+
+#. translators: 1: person's name or "Someone", 2: form name, 3: when.
+#: admin/views/entry-detail.php:146
+msgid "Someone"
+msgstr "Alguien"
+
+#: admin/views/entry-detail.php:148
+msgid "All entries"
+msgstr "Todos los envíos"
+
+#: admin/views/entry-detail.php:157
+msgid "Notifications resent."
+msgstr "Notificaciones reenviadas."
+
+#: admin/views/entry-detail.php:158
+msgid "Entry starred."
+msgstr "Envío destacado."
+
+#: admin/views/entry-detail.php:159
+msgid "Star removed."
+msgstr "Destacado quitado."
+
+#: admin/views/entry-detail.php:160
+msgid "Entry restored."
+msgstr "Envío restaurado."
+
+#: admin/views/entry-detail.php:161
+msgid "Marked as read."
+msgstr "Marcado como leído."
+
+#: admin/views/entry-detail.php:162
+msgid "Marked as unread."
+msgstr "Marcado como no leído."
+
+#: admin/views/entry-detail.php:163
+msgid "Entry saved."
+msgstr "Envío guardado."
+
+#: admin/views/entry-detail.php:164
+msgid "Nothing changed."
+msgstr "No ha cambiado nada."
+
+#: admin/views/entry-detail.php:165
+msgid "Entry approved."
+msgstr "Envío aprobado."
+
+#: admin/views/entry-detail.php:166
+msgid "Entry rejected."
+msgstr "Envío rechazado."
+
+#. translators: %s: form name.
+#: admin/views/entry-detail.php:189
+#, php-format
+msgid "Re: %s"
+msgstr "Re: %s"
+
+#. translators: %s: form name.
+#: admin/views/entry-detail.php:190
+msgid "Reply by email"
+msgstr "Responder por correo electrónico"
+
+#: admin/views/entry-detail.php:195
+msgid "Unstar"
+msgstr "Quitar destacado"
+
+#: admin/views/entry-detail.php:199
+msgid "Resend this entry's notifications?"
+msgstr "¿Reenviar las notificaciones de este envío?"
+
+#: admin/views/entry-detail.php:214
+msgid "Edit"
+msgstr "Editar"
+
+#. translators: %s: the reason the mail system gave.
+#: admin/views/entry-detail.php:235
+#, php-format
+msgid "Reason: %s"
+msgstr "Motivo: %s"
+
+#: admin/views/entry-detail.php:237 admin/views/settings.php:65
+#: includes/class-mail-check.php:262 includes/class-onboarding.php:145
+msgid "Send a test email"
+msgstr "Enviar un correo de prueba"
+
+#: admin/views/entry-detail.php:244
+msgid "Answers"
+msgstr "Respuestas"
+
+#: admin/views/entry-detail.php:268
+msgid "Not answered"
+msgstr "Sin respuesta"
+
+#: admin/views/entry-detail.php:280
+msgid "Files"
+msgstr "Archivos"
+
+#: admin/views/entry-detail.php:286 admin/views/entry-detail.php:288
+#: admin/views/transfer.php:61
+msgid "Download"
+msgstr "Descargar"
+
+#: admin/views/entry-detail.php:297 admin/views/entry-print.php:127
+msgid "Notes"
+msgstr "Notas"
+
+#: admin/views/entry-detail.php:298
+msgid "Private to your team. Never emailed or shown to the person who sent this."
+msgstr "Privadas para tu equipo. Nunca se envían por correo ni se muestran a quien envió esto."
+
+#: admin/views/entry-detail.php:316
+msgid "Delete this note?"
+msgstr "¿Borrar esta nota?"
+
+#: admin/views/entry-detail.php:316
+msgid "Delete"
+msgstr "Borrar"
+
+#: admin/views/entry-detail.php:329
+msgid "Add a note"
+msgstr "Añadir una nota"
+
+#: admin/views/entry-detail.php:330
+msgid "Add a note…"
+msgstr "Añade una nota…"
+
+#: admin/views/entry-detail.php:331
+msgid "Add note"
+msgstr "Añadir nota"
+
+#: admin/views/entry-detail.php:338
+msgid "Details"
+msgstr "Detalles"
+
+#: admin/views/entry-detail.php:352
+msgid "Form deleted"
+msgstr "Formulario borrado"
+
+#: admin/views/entry-detail.php:371
+msgid "User"
+msgstr "Usuario"
+
+#: admin/views/entry-detail.php:372 includes/class-entry-notes.php:114
+msgid "Deleted user"
+msgstr "Usuario borrado"
+
+#: admin/views/entry-detail.php:380
+msgid "Created post"
+msgstr "Entrada creada"
+
+#: admin/views/entry-detail.php:386 includes/class-merge-tags.php:38
+msgid "IP address"
+msgstr "Dirección IP"
+
+#: admin/views/entry-detail.php:388
+msgid "Sent from"
+msgstr "Enviado desde"
+
+#: admin/views/entry-detail.php:392
+msgid "Came from"
+msgstr "Procedencia"
+
+#: admin/views/entry-detail.php:395
+msgid "Browser"
+msgstr "Navegador"
+
+#: admin/views/entry-detail.php:407
+msgid "Activity"
+msgstr "Actividad"
+
+#: admin/views/entry-detail.php:434
+msgid "entry"
+msgstr "envío"
+
+#. translators: %d: numeric entry ID.
+#: admin/views/entry-edit.php:27 admin/views/entry-edit.php:60
+#, php-format
+msgid "Edit entry #%d"
+msgstr "Editar envío n.º %d"
+
+#: admin/views/entry-edit.php:29
+msgid "This entry's form has been deleted, so there is nothing to edit it against."
+msgstr "El formulario de este envío se ha eliminado, así que no hay nada con lo que editarlo."
+
+#: admin/views/entry-edit.php:61
+msgid "Edits are saved as a note on this entry, with your name and the time. Nothing is emailed. Use \"Resend notifications\" if you want that."
+msgstr "Los cambios se guardan como una nota en este envío, con tu nombre y la hora. No se envía ningún correo. Usa \"Reenviar notificaciones\" si quieres hacerlo."
+
+#: admin/views/entry-edit.php:62
+msgid "Back to entry"
+msgstr "Volver al envío"
+
+#: admin/views/entry-edit.php:68
+msgid "This entry was not saved."
+msgstr "Este envío no se ha guardado."
+
+#: admin/views/entry-edit.php:113
+msgid "Not editable. This value is a record of what happened, not a setting."
+msgstr "No se puede editar. Este valor es un registro de lo que pasó, no un ajuste."
+
+#: admin/views/entry-edit.php:137
+msgid "Save entry"
+msgstr "Guardar envío"
+
+#: admin/views/entry-edit.php:138
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: admin/views/entry-print.php:40
+msgid "Entry not found."
+msgstr "Envío no encontrado."
+
+#. translators: %d: number of entries.
+#: admin/views/entry-print.php:55
+#, php-format
+msgid "%d entries"
+msgstr "%d envíos"
+
+#: admin/views/feedback.php:14 admin/views/upgrade.php:15
+msgid "You do not have permission to access this page."
+msgstr "No tienes permiso para acceder a esta página."
+
+#: admin/views/feedback.php:23
+msgid "Feedback and support"
+msgstr "Opiniones y soporte"
+
+#: admin/views/feedback.php:24
+msgid "Found a bug, want a feature, or just want to say hi? Your message goes straight to the people who make Trinity Forms."
+msgstr "¿Has encontrado un error, quieres una función o solo quieres saludar? Tu mensaje llega directamente a quienes hacen Trinity Forms."
+
+#: admin/views/feedback.php:25
+msgid "Read the docs"
+msgstr "Leer la documentación"
+
+#: admin/views/feedback.php:30
+msgid "Thanks! Your feedback was sent to the Trinity Forms author."
+msgstr "¡Gracias! Tus opiniones se han enviado al autor de Trinity Forms."
+
+#: admin/views/feedback.php:32
+msgid "You’ve sent several messages recently. Please try again in a little while."
+msgstr "Has enviado varios mensajes hace poco. Vuelve a intentarlo dentro de un rato."
+
+#: admin/views/feedback.php:34
+msgid "Sorry, your message could not be sent. Your site’s email may not be configured."
+msgstr "Lo sentimos, no se ha podido enviar tu mensaje. Puede que el correo electrónico de tu sitio no esté configurado."
+
+#: admin/views/feedback.php:44
+msgid "Leave this field empty"
+msgstr "Deja este campo vacío"
+
+#: admin/views/feedback.php:50
+msgid "Type"
+msgstr "Tipo"
+
+#: admin/views/feedback.php:53
+msgid "Bug report"
+msgstr "Informe de error"
+
+#: admin/views/feedback.php:54
+msgid "Feature request"
+msgstr "Solicitud de función"
+
+#: admin/views/feedback.php:55
+msgid "Question"
+msgstr "Pregunta"
+
+#: admin/views/feedback.php:56
+msgid "Praise"
+msgstr "Elogio"
+
+#: admin/views/feedback.php:57
+msgid "Other"
+msgstr "Otro"
+
+#: admin/views/feedback.php:68
+msgid "Your email"
+msgstr "Tu correo electrónico"
+
+#: admin/views/feedback.php:71
+msgid "Optional, so we can reply."
+msgstr "Opcional, para poder responderte."
+
+#: admin/views/feedback.php:75
+msgid "Site info"
+msgstr "Información del sitio"
+
+#: admin/views/feedback.php:79
+msgid "Include basic site info to help debugging"
+msgstr "Incluir información básica del sitio para ayudar a depurar"
+
+#: admin/views/feedback.php:82
+msgid "Sends: WordPress version, PHP version, Trinity Forms version, active theme, and site URL. No personal data."
+msgstr "Envía: versión de WordPress, versión de PHP, versión de Trinity Forms, tema activo y URL del sitio. Ningún dato personal."
+
+#: admin/views/feedback.php:88
+msgid "Send message"
+msgstr "Enviar mensaje"
+
+#: admin/views/feedback.php:91
+msgid "Sent with your site's own email. Nothing else leaves your site."
+msgstr "Se envía con el correo electrónico de tu propio sitio. Nada más sale de tu sitio."
+
+#: admin/views/import.php:16
+msgid "Bring your Gravity Forms forms, notifications and entries across. Nothing in Gravity Forms is changed or deleted."
+msgstr "Trae tus formularios, notificaciones y envíos de Gravity Forms. No se cambia ni se elimina nada en Gravity Forms."
+
+#: admin/views/import.php:29
+msgid "Dry run finished. Nothing was changed."
+msgstr "Prueba terminada. No se ha cambiado nada."
+
+#: admin/views/import.php:29
+msgid "Import finished."
+msgstr "Importación terminada."
+
+#. translators: 1: form title, 2: number of fields, 3: number of entries.
+#: admin/views/import.php:37
+#, php-format
+msgid "Would import %1$s: %2$d fields and %3$d entries."
+msgstr "Se importaría %1$s: %2$d campos y %3$d envíos."
+
+#: admin/views/import.php:38
+#, php-format
+msgid "Imported %1$s: %2$d fields and %3$d entries."
+msgstr "Importado %1$s: %2$d campos y %3$d envíos."
+
+#: admin/views/import.php:46
+msgid "These fields had no equivalent and were not imported:"
+msgstr "Estos campos no tenían equivalente y no se han importado:"
+
+#: admin/views/import.php:55
+msgid "Open the imported form"
+msgstr "Abrir el formulario importado"
+
+#: admin/views/import.php:65
+msgid "No Gravity Forms data found on this site"
+msgstr "No se han encontrado datos de Gravity Forms en este sitio"
+
+#: admin/views/import.php:66
+msgid "The importer reads Gravity Forms' own database tables on this site. Gravity Forms does not need to be active, so you can deactivate it first and still import. To move forms from another site, install Trinity Forms there, import, then use Import / Export to copy the forms here."
+msgstr "El importador lee las tablas de la base de datos de Gravity Forms en este sitio. Gravity Forms no tiene que estar activo, así que puedes desactivarlo primero y aun así importar. Para mover formularios desde otro sitio, instala allí Trinity Forms, importa y luego usa Importar / Exportar para copiar los formularios aquí."
+
+#: admin/views/import.php:67
+msgid "Go to Import / Export"
+msgstr "Ir a Importar / Exportar"
+
+#: admin/views/import.php:75
+msgid "1. Pick a form"
+msgstr "1. Elige un formulario"
+
+#: admin/views/import.php:76
+msgid "Each import makes a new Trinity Forms form, so you can look at the result and import again if you want to start over."
+msgstr "Cada importación crea un formulario nuevo de Trinity Forms, así que puedes revisar el resultado y volver a importar si quieres empezar de cero."
+
+#: admin/views/import.php:84
+msgid "Select"
+msgstr "Seleccionar"
+
+#: admin/views/import.php:100
+msgid "2. Choose what to bring"
+msgstr "2. Elige qué traer"
+
+#: admin/views/import.php:105
+msgid "Bring the entries across as well"
+msgstr "Traer también los envíos"
+
+#: admin/views/import.php:111
+msgid "Dry run: tell me what would happen, change nothing"
+msgstr "Prueba: dime qué pasaría, sin cambiar nada"
+
+#: admin/views/import.php:116
+msgid "Import"
+msgstr "Importar"
+
+#: admin/views/settings.php:22
+msgid "(saved, leave blank to keep)"
+msgstr "(guardado, déjalo en blanco para mantenerlo)"
+
+#: admin/views/settings.php:28
+msgid "Site-wide defaults for every form. Each form can still change most of these in its own settings."
+msgstr "Valores predeterminados para todos los formularios del sitio. Cada formulario puede cambiar la mayoría en sus propios ajustes."
+
+#: admin/views/settings.php:31
+msgid "Settings sections"
+msgstr "Secciones de ajustes"
+
+#: admin/views/settings.php:40
+msgid "Settings saved."
+msgstr "Ajustes guardados."
+
+#: admin/views/settings.php:53
+msgid "Email check"
+msgstr "Comprobación de correo"
+
+#: admin/views/settings.php:54
+msgid "Send yourself a test to see whether form emails can leave this site."
+msgstr "Envíate una prueba para ver si los correos de los formularios pueden salir de este sitio."
+
+#: admin/views/settings.php:63
+msgid "Send the test to"
+msgstr "Enviar la prueba a"
+
+#: admin/views/settings.php:67
+msgid "WordPress can only tell us the email was handed to your mail server. Whether it reaches the inbox is up to that server, so check the inbox (and the spam folder) yourself."
+msgstr "WordPress solo puede decirnos que el correo se entregó a tu servidor de correo. Que llegue a la bandeja de entrada depende de ese servidor, así que revisa tú la bandeja (y la carpeta de spam)."
+
+#. translators: 1: date, 2: email address, 3: outcome.
+#: admin/views/settings.php:72
+#, php-format
+msgid "Last test: %1$s to %2$s. %3$s"
+msgstr "Última prueba: %1$s a %2$s. %3$s"
+
+#: admin/views/settings.php:75
+msgid "Handed to the mail server."
+msgstr "Entregado al servidor de correo."
+
+#: admin/views/settings.php:75
+msgid "It could not be sent."
+msgstr "No se pudo enviar."
+
+#: admin/views/settings.php:80
+msgid "Failed in the last 7 days"
+msgstr "Fallidos en los últimos 7 días"
+
+#: admin/views/settings.php:90 includes/class-mail-check.php:260
+msgid "See the entry"
+msgstr "Ver la entrada"
+
+#: admin/views/settings.php:95
+msgid "Most of the time this means the site has no working mail setup. An SMTP plugin that sends through your email provider usually fixes it."
+msgstr "Casi siempre significa que el sitio no tiene un envío de correo que funcione. Un plugin SMTP que envíe a través de tu proveedor de correo suele arreglarlo."
+
+#: admin/views/settings.php:114
+msgid "Form editor"
+msgstr "Editor de formularios"
+
+#: admin/views/settings.php:117
+msgid "Open forms in"
+msgstr "Abrir los formularios en"
+
+#: admin/views/settings.php:120 includes/class-form-builder.php:173
+msgid "Visual builder (drag and drop)"
+msgstr "Constructor visual (arrastrar y soltar)"
+
+#: admin/views/settings.php:121 includes/class-form-builder.php:174
+msgid "Block editor"
+msgstr "Editor de bloques"
+
+#: admin/views/settings.php:123
+msgid "The default for new forms. Any form can override this in its own settings. Both editors read and write the same form, so you can switch at any time."
+msgstr "El valor predeterminado para los formularios nuevos. Cualquier formulario puede cambiarlo en sus propios ajustes. Los dos editores leen y escriben el mismo formulario, así que puedes cambiar cuando quieras."
+
+#: admin/views/settings.php:124
+msgid "Forms you built before upgrading keep opening in the block editor until you change them individually."
+msgstr "Los formularios que creaste antes de mejorar siguen abriéndose en el editor de bloques hasta que los cambies uno a uno."
+
+#: admin/views/settings.php:128
+msgid "Spam protection (CAPTCHA)"
+msgstr "Protección contra spam (CAPTCHA)"
+
+#: admin/views/settings.php:131
+msgid "Provider"
+msgstr "Proveedor"
+
+#: admin/views/settings.php:138
+msgid "Enter the site + secret keys for your chosen provider below, then enable the challenge in each form's settings."
+msgstr "Introduce abajo la clave del sitio y la clave secreta del proveedor que elijas y luego activa la verificación en los ajustes de cada formulario."
+
+#: admin/views/settings.php:156
+msgid "Selected"
+msgstr "Seleccionado"
+
+#: admin/views/settings.php:158
+msgid "Site key"
+msgstr "Clave del sitio"
+
+#: admin/views/settings.php:160
+msgid "Secret key"
+msgstr "Clave secreta"
+
+#: admin/views/settings.php:167
+msgid "Keeping entries"
+msgstr "Conservación de envíos"
+
+#: admin/views/settings.php:169
+msgid "Keep entries for (days)"
+msgstr "Conservar envíos durante (días)"
+
+#: admin/views/settings.php:172
+msgid "0 keeps entries forever. A form's own setting overrides this."
+msgstr "0 conserva los envíos para siempre. El ajuste propio de un formulario tiene prioridad."
+
+#: admin/views/settings.php:174
+msgid "Empty trash after (days)"
+msgstr "Vaciar la papelera tras (días)"
+
+#: admin/views/settings.php:177
+msgid "Entries in the trash are deleted for good after this many days. 0 never empties the trash."
+msgstr "Los envíos de la papelera se eliminan definitivamente tras este número de días. 0 nunca vacía la papelera."
+
+#: admin/views/settings.php:181
+msgid "Data"
+msgstr "Datos"
+
+#: admin/views/settings.php:183
+msgid "Delete data on uninstall"
+msgstr "Eliminar datos al desinstalar"
+
+#: admin/views/settings.php:188
+msgid "Delete all Trinity Forms data when the plugin is deleted"
+msgstr "Eliminar todos los datos de Trinity Forms cuando se borre el plugin"
+
+#: admin/views/settings.php:190
+msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro licence lapse. Tick this only to also remove data on delete."
+msgstr "Desactivado por defecto. Tus formularios y envíos se conservan si desactivas o borras el plugin, o si caduca una licencia Pro. Márcalo solo si también quieres eliminar los datos al borrarlo."
+
+#: admin/views/settings.php:194
+msgid "Save settings"
+msgstr "Guardar ajustes"
+
+#: admin/views/settings.php:206
+msgid "Licence"
+msgstr "Licencia"
+
+#: admin/views/transfer.php:30
+msgid "Move a form between sites as a small .json file. Handy for going from a test site to the live one."
+msgstr "Mueve un formulario entre sitios como un pequeño archivo .json. Útil para pasar de un sitio de pruebas al sitio real."
+
+#. translators: %s: imported form title.
+#: admin/views/transfer.php:39
+#, php-format
+msgid "Imported “%s”."
+msgstr "Importado “%s”."
+
+#: admin/views/transfer.php:43
+msgid "Edit form"
+msgstr "Editar formulario"
+
+#: admin/views/transfer.php:44
+msgid "Integration and payment keys are never included in an export, so set them up again on this site."
+msgstr "Las claves de integraciones y pagos nunca se incluyen en una exportación, así que vuelve a configurarlas en este sitio."
+
+#: admin/views/transfer.php:52
+msgid "Export a form"
+msgstr "Exportar un formulario"
+
+#: admin/views/transfer.php:53
+msgid "Fields, settings, notifications and confirmations. Entries and keys are left out."
+msgstr "Campos, ajustes, notificaciones y confirmaciones. Los envíos y las claves quedan fuera."
+
+#: admin/views/transfer.php:55
+msgid "Once you have a form, you can download it here."
+msgstr "Cuando tengas un formulario, podrás descargarlo aquí."
+
+#: admin/views/transfer.php:60
+msgid "(no title)"
+msgstr "(sin título)"
+
+#: admin/views/transfer.php:70
+msgid "Import a form"
+msgstr "Importar un formulario"
+
+#: admin/views/transfer.php:71
+msgid "Pick a .json file exported from Trinity Forms. It becomes a new form."
+msgstr "Elige un archivo .json exportado desde Trinity Forms. Se convertirá en un formulario nuevo."
+
+#: admin/views/transfer.php:77
+msgid "Export file (.json)"
+msgstr "Archivo de exportación (.json)"
+
+#: admin/views/transfer.php:79
+msgid "Title (optional)"
+msgstr "Título (opcional)"
+
+#: admin/views/transfer.php:81
+msgid "Leave blank to keep the title from the file."
+msgstr "Déjalo en blanco para mantener el título del archivo."
+
+#: admin/views/transfer.php:82
+msgid "Import form"
+msgstr "Importar formulario"
+
+#: admin/views/transfer.php:88
+msgid "Coming from Gravity Forms?"
+msgstr "¿Vienes de Gravity Forms?"
+
+#: admin/views/transfer.php:89
+msgid "Bring forms, conditional logic, notifications and entries across, with a dry run first."
+msgstr "Trae formularios, lógica condicional, notificaciones y envíos, con una prueba previa."
+
+#: admin/views/transfer.php:90
+msgid "Open"
+msgstr "Abrir"
+
+#: admin/views/transfer.php:92
+msgid "Same files as the WP-CLI commands: wp trinity form export <id> and wp trinity form import <file>."
+msgstr "Los mismos archivos que los comandos de WP-CLI: wp trinity form export <id> y wp trinity form import <file>."
+
+#: admin/views/upgrade.php:28
+msgid "Payments"
+msgstr "Pagos"
+
+#: admin/views/upgrade.php:28
+msgid "Collect payments with Stripe, PayPal and Mollie, including recurring billing and coupons."
+msgstr "Cobra con Stripe, PayPal y Mollie, incluidos pagos recurrentes y cupones."
+
+#: admin/views/upgrade.php:29
+msgid "CRM & marketing integrations"
+msgstr "Integraciones de CRM y marketing"
+
+#: admin/views/upgrade.php:29
+msgid "Send submissions to your email-marketing and CRM tools automatically."
+msgstr "Envía los envíos a tus herramientas de email marketing y CRM automáticamente."
+
+#: admin/views/upgrade.php:30
+msgid "Guided forms & landing pages"
+msgstr "Formularios guiados y páginas de aterrizaje"
+
+#: admin/views/upgrade.php:30
+msgid "One question at a time with a progress bar, or a form on its own full-page URL. (Multi-step page breaks are already free.)"
+msgstr "Una pregunta cada vez con barra de progreso, o un formulario en su propia URL a página completa. (Los saltos de página de varios pasos ya son gratis)."
+
+#: admin/views/upgrade.php:31
+msgid "Advanced fields"
+msgstr "Campos avanzados"
+
+#: admin/views/upgrade.php:31
+msgid "Signature, repeater, calculation, rich text and chained selects."
+msgstr "Firma, repetidor, cálculo, texto enriquecido y desplegables encadenados."
+
+#: admin/views/upgrade.php:32
+msgid "Save & resume"
+msgstr "Guardar y continuar"
+
+#: admin/views/upgrade.php:32
+msgid "Let visitors save a partial submission and finish later."
+msgstr "Permite a los visitantes guardar un envío a medias y terminarlo más tarde."
+
+#: admin/views/upgrade.php:33
+msgid "Public submissions table"
+msgstr "Tabla pública de envíos"
+
+#: admin/views/upgrade.php:33
+msgid "Publish a read-only entries table on the front end with [trinity_forms_submissions]."
+msgstr "Publica una tabla de envíos de solo lectura en la parte pública con [trinity_forms_submissions]."
+
+#: admin/views/upgrade.php:38
+msgid "Upgrade to Trinity Forms Pro"
+msgstr "Mejorar a Trinity Forms Pro"
+
+#: admin/views/upgrade.php:39
+msgid "You are on free Trinity Forms: a complete builder that stores your entries with no caps. Pro adds the parts you need once you take money or grow."
+msgstr "Usas Trinity Forms gratis: un constructor completo que guarda tus envíos sin límites. Pro añade lo que necesitas cuando empiezas a cobrar o a crecer."
+
+#: admin/views/upgrade.php:40
+msgid "See Pro pricing"
+msgstr "Ver precios de Pro"
+
+#: admin/views/upgrade.php:53
+msgid "Upgrading keeps everything."
+msgstr "Al mejorar se conserva todo."
+
+#: admin/views/upgrade.php:54
+msgid "Install the Pro version over this one. Same plugin, same database. Your forms and entries carry over untouched: no reinstall, no data loss."
+msgstr "Instala la versión Pro encima de esta. Mismo plugin, misma base de datos. Tus formularios y envíos se mantienen intactos: sin reinstalar y sin perder datos."
+
+#: admin/views/upgrade.php:59
+msgid "Get Trinity Forms Pro"
+msgstr "Consigue Trinity Forms Pro"
+
+#: admin/views/upgrade.php:64
+msgid "Already bought Pro?"
+msgstr "¿Ya has comprado Pro?"
+
+#: admin/views/upgrade.php:66
+msgid "Download the Pro zip from your account, go to Plugins, Add New, Upload Plugin, upload it and choose “Replace current with uploaded”. Then enter your licence key on the Trinity Forms Settings screen."
+msgstr "Descarga el zip de Pro desde tu cuenta, ve a Plugins, Añadir nuevo, Subir plugin, súbelo y elige “Reemplazar la actual con la subida”. Luego introduce tu clave de licencia en la pantalla de Ajustes de Trinity Forms."
+
+#. translators: %s: this site's maximum upload size, e.g. "2 MB".
+#: admin/views/upgrade.php:76
+#, php-format
+msgid "The Pro zip is about 6.5 MB and this site accepts uploads up to %s. If WordPress says the file “exceeds the upload_max_filesize directive”, ask your host to raise upload_max_filesize and post_max_size to 16 MB, or unzip it on your computer and upload the trinity-forms folder to wp-content/plugins/ over FTP/SFTP, replacing the existing one. Your forms and entries are kept either way."
+msgstr "El zip de Pro pesa unos 6,5 MB y este sitio acepta subidas de hasta %s. Si WordPress dice que el archivo “excede la directiva upload_max_filesize”, pide a tu proveedor de alojamiento que suba upload_max_filesize y post_max_size a 16 MB, o descomprímelo en tu ordenador y sube la carpeta trinity-forms a wp-content/plugins/ por FTP/SFTP, reemplazando la existente. Tus formularios y envíos se conservan en ambos casos."
+
+#: includes/class-activity.php:28
+msgid "a visitor"
+msgstr "un visitante"
+
+#. translators: %s: display name.
+#: includes/class-activity.php:38
+#, php-format
+msgid "Note added by %s"
+msgstr "Nota añadida por %s"
+
+#. translators: %s: display name.
+#: includes/class-activity.php:45
+#, php-format
+msgid "Edited by %s"
+msgstr "Editado por %s"
+
+#: includes/class-activity.php:46
+msgid "Edited from the front end"
+msgstr "Editado desde la parte pública"
+
+#. translators: %s: display name.
+#: includes/class-activity.php:53
+#, php-format
+msgid "Approved by %s"
+msgstr "Aprobado por %s"
+
+#. translators: %s: display name.
+#: includes/class-activity.php:55
+#, php-format
+msgid "Rejected by %s"
+msgstr "Rechazado por %s"
+
+#. translators: %s: user login name.
+#: includes/class-activity.php:63
+#, php-format
+msgid "Created the account %s"
+msgstr "Creó la cuenta %s"
+
+#. translators: %s: display name.
+#: includes/class-activity.php:74
+#, php-format
+msgid "Starred by %s"
+msgstr "Destacado por %s"
+
+#. translators: %s: display name.
+#: includes/class-activity.php:76
+#, php-format
+msgid "Star removed by %s"
+msgstr "Destacado quitado por %s"
+
+#. translators: %s: display name.
+#: includes/class-activity.php:78
+#, php-format
+msgid "Marked as read by %s"
+msgstr "Marcado como leído por %s"
+
+#. translators: %s: display name.
+#: includes/class-activity.php:80
+#, php-format
+msgid "Marked as unread by %s"
+msgstr "Marcado como no leído por %s"
+
+#. translators: %s: display name.
+#: includes/class-activity.php:82
+#, php-format
+msgid "Marked as spam by %s"
+msgstr "Marcado como spam por %s"
+
+#. translators: %s: display name.
+#: includes/class-activity.php:84
+#, php-format
+msgid "Moved to trash by %s"
+msgstr "Movido a la papelera por %s"
+
+#. translators: %s: display name.
+#: includes/class-activity.php:86
+#, php-format
+msgid "Restored by %s"
+msgstr "Restaurado por %s"
+
+#. translators: %s: the add-on's name.
+#: includes/class-addon.php:149
+#, php-format
+msgid "%s could not process this entry."
+msgstr "%s no ha podido procesar este envío."
+
+#: includes/class-akismet-check.php:44
+msgid "Akismet flagged it."
+msgstr "Akismet lo marcó."
+
+#: includes/class-analytics.php:72 includes/class-analytics.php:77
+msgid "Funnel"
+msgstr "Embudo"
+
+#. translators: %d: submissions.
+#: includes/class-analytics.php:93
+#, php-format
+msgid "%d completed · rate shows once views have been counted for a while"
+msgstr "%d completados · la tasa aparece cuando se hayan contado visitas durante un tiempo"
+
+#. translators: 1: views, 2: submissions, 3: completion rate.
+#: includes/class-analytics.php:100
+#, php-format
+msgid "%1$d views · %2$d completed · %3$s%% completion"
+msgstr "%1$d visitas · %2$d completados · %3$s%% completado"
+
+#: includes/class-anti-spam.php:33
+msgid "The hidden trap field was filled in (a bot does that, a person cannot)."
+msgstr "Se rellenó el campo trampa oculto (eso lo hace un bot, una persona no puede)."
+
+#: includes/class-anti-spam.php:39
+msgid "Sent faster than a person can fill in a form."
+msgstr "Enviado más rápido de lo que una persona puede rellenar un formulario."
+
+#: includes/class-anti-spam.php:46
+msgid "The bot check (CAPTCHA) did not pass."
+msgstr "No superó la comprobación anti-bots (CAPTCHA)."
+
+#: includes/class-builder-rest.php:258
+msgid "This form can't be edited in the builder. Your form is unchanged."
+msgstr "Este formulario no se puede editar en el constructor. Tu formulario no ha cambiado."
+
+#: includes/class-builder-rest.php:274
+msgid "This form changed since you opened it. Reload before saving."
+msgstr "Este formulario ha cambiado desde que lo abriste. Recarga antes de guardar."
+
+#: includes/class-builder-rest.php:310
+msgid "You are not allowed to publish this form."
+msgstr "No tienes permiso para publicar este formulario."
+
+#: includes/class-conditional-logic.php:26 blocks/conditional-rules.js:32
+msgid "is"
+msgstr "es"
+
+#: includes/class-conditional-logic.php:27 blocks/conditional-rules.js:33
+msgid "is not"
+msgstr "no es"
+
+#: includes/class-conditional-logic.php:28 blocks/conditional-rules.js:34
+msgid "contains"
+msgstr "contiene"
+
+#: includes/class-conditional-logic.php:29 blocks/conditional-rules.js:35
+msgid "does not contain"
+msgstr "no contiene"
+
+#: includes/class-conditional-logic.php:30 blocks/conditional-rules.js:36
+msgid "starts with"
+msgstr "empieza por"
+
+#: includes/class-conditional-logic.php:31 blocks/conditional-rules.js:37
+msgid "ends with"
+msgstr "termina en"
+
+#: includes/class-conditional-logic.php:32 blocks/conditional-rules.js:38
+msgid "is greater than"
+msgstr "es mayor que"
+
+#: includes/class-conditional-logic.php:33 blocks/conditional-rules.js:39
+msgid "is less than"
+msgstr "es menor que"
+
+#: includes/class-conditional-logic.php:34 blocks/conditional-rules.js:40
+msgid "is before"
+msgstr "es anterior a"
+
+#: includes/class-conditional-logic.php:35 blocks/conditional-rules.js:41
+msgid "is after"
+msgstr "es posterior a"
+
+#: includes/class-conditional-logic.php:36 blocks/conditional-rules.js:42
+msgid "is one of"
+msgstr "es uno de"
+
+#: includes/class-conditional-logic.php:37 blocks/conditional-rules.js:43
+msgid "is none of"
+msgstr "no es ninguno de"
+
+#: includes/class-conditional-logic.php:38 blocks/conditional-rules.js:44
+msgid "matches pattern"
+msgstr "coincide con el patrón"
+
+#: includes/class-conditional-logic.php:39 blocks/conditional-rules.js:45
+msgid "is empty"
+msgstr "está vacío"
+
+#: includes/class-conditional-logic.php:40 blocks/conditional-rules.js:46
+msgid "is not empty"
+msgstr "no está vacío"
+
+#: includes/class-confirmations.php:46 includes/class-form-manager.php:277
+msgid "Thank you!"
+msgstr "¡Gracias!"
+
+#: includes/class-dates.php:43
+msgid "just now"
+msgstr "justo ahora"
+
+#. translators: %s: human-readable time difference, e.g. "3 months".
+#: includes/class-dates.php:47
+#, php-format
+msgid "in %s"
+msgstr "en %s"
+
+#. translators: %s: human-readable time difference, e.g. "13 days".
+#: includes/class-dates.php:49
+#, php-format
+msgid "%s ago"
+msgstr "hace %s"
+
+#: includes/class-entries.php:48
+msgid "Paid"
+msgstr "Pagado"
+
+#: includes/class-entries.php:49 includes/class-entries.php:62
+msgid "Pending"
+msgstr "Pendiente"
+
+#: includes/class-entries.php:50 includes/class-entries.php:66
+msgid "Failed"
+msgstr "Fallido"
+
+#: includes/class-entries.php:51
+msgid "Refunded"
+msgstr "Reembolsado"
+
+#: includes/class-entries.php:52 includes/class-entries.php:53
+msgid "No payment"
+msgstr "Sin pago"
+
+#: includes/class-entries.php:61
+msgid "Completed"
+msgstr "Completado"
+
+#: includes/class-entries.php:67
+msgid "Pending review"
+msgstr "Pendiente de revisión"
+
+#: includes/class-entries.php:68
+msgid "Approved"
+msgstr "Aprobado"
+
+#: includes/class-entries.php:69
+msgid "Rejected"
+msgstr "Rechazado"
+
+#: includes/class-entries.php:772
+msgid "Yes"
+msgstr "Sí"
+
+#: includes/class-entries.php:772
+msgid "No"
+msgstr "No"
+
+#: includes/class-field.php:63 includes/fields/class-field-file.php:28
+msgid "This field is required."
+msgstr "Este campo es obligatorio."
+
+#: includes/class-form-builder.php:110 includes/class-rest-api.php:262
+msgid "Untitled form"
+msgstr "Formulario sin título"
+
+#: includes/class-form-builder.php:169
+msgid "Edit this form with"
+msgstr "Editar este formulario con"
+
+#: includes/class-form-builder.php:172
+msgid "Site default"
+msgstr "Predeterminado del sitio"
+
+#: includes/class-form-builder.php:177
+msgid "Both editors read and write the same form — switch whenever you like."
+msgstr "Los dos editores leen y guardan el mismo formulario, así que cambia cuando quieras."
+
+#: includes/class-form-builder.php:179
+msgid "Open in the visual builder"
+msgstr "Abrir en el constructor visual"
+
+#: includes/class-form-builder.php:252 includes/class-form-builder.php:253
+#: includes/class-form-builder.php:266 includes/class-form-builder.php:267
+msgid "Visual Builder"
+msgstr "Constructor visual"
+
+#: includes/class-form-builder.php:280
+msgid "Trinity Forms Visual Builder: run `npm run build:builder` to compile the builder assets."
+msgstr "Constructor visual de Trinity Forms: ejecuta `npm run build:builder` para compilar los recursos del constructor."
+
+#: includes/class-form-manager.php:241
+msgid "Admin notification"
+msgstr "Notificación al administrador"
+
+#. translators: {site_name} is a merge tag and must stay untranslated.
+#: includes/class-form-manager.php:246
+msgid "New form entry on {site_name}"
+msgstr "Nuevo envío de formulario en {site_name}"
+
+#: includes/class-form-style.php:53
+msgid "Default"
+msgstr "Predeterminado"
+
+#: includes/class-form-style.php:54
+msgid "Rounded"
+msgstr "Redondeado"
+
+#: includes/class-form-style.php:55
+msgid "Sharp"
+msgstr "Recto"
+
+#: includes/class-form-transfer.php:66
+msgid "That file is not valid JSON."
+msgstr "Ese archivo no es un JSON válido."
+
+#: includes/class-form-transfer.php:70
+msgid "That file was not exported from Trinity Forms."
+msgstr "Ese archivo no se exportó desde Trinity Forms."
+
+#: includes/class-form-transfer.php:74
+msgid "That file was made by a newer version of Trinity Forms. Update first."
+msgstr "Ese archivo se creó con una versión más reciente de Trinity Forms. Actualiza primero."
+
+#: includes/class-form-transfer.php:80
+msgid "That file has no form in it."
+msgstr "Ese archivo no contiene ningún formulario."
+
+#: includes/class-form-transfer.php:86
+msgid "Imported form"
+msgstr "Formulario importado"
+
+#: includes/class-form-transfer.php:90
+msgid "The form could not be created."
+msgstr "No se ha podido crear el formulario."
+
+#. translators: 1: field label, 2: Gravity Forms field type.
+#: includes/class-gf-importer.php:230
+#, php-format
+msgid "%1$s (%2$s)"
+msgstr "%1$s (%2$s)"
+
+#: includes/class-gf-importer.php:231
+msgid "Untitled field"
+msgstr "Campo sin título"
+
+#: includes/class-gf-importer.php:422
+msgid "Thanks — we have your submission."
+msgstr "Gracias, hemos recibido tu envío."
+
+#: includes/class-mail-check.php:71
+msgid "The mail system turned it down without saying why."
+msgstr "El sistema de correo lo rechazó sin decir por qué."
+
+#: includes/class-mail-check.php:128
+msgid "That is not an email address."
+msgstr "Eso no es una dirección de correo."
+
+#. translators: %s: site name.
+#: includes/class-mail-check.php:132
+#, php-format
+msgid "Test email from Trinity Forms on %s"
+msgstr "Correo de prueba de Trinity Forms en %s"
+
+#. translators: 1: site address, 2: date and time.
+#: includes/class-mail-check.php:135
+#, php-format
+msgid ""
+"This is a test sent from Trinity Forms on %1$s at %2$s.\n"
+"\n"
+"If you are reading it, form emails from this site can reach this inbox. Nothing else to do."
+msgstr ""
+"Esta es una prueba enviada desde Trinity Forms en %1$s el %2$s.\n"
+"\n"
+"Si la estás leyendo, los correos de los formularios de este sitio pueden llegar a esta bandeja. No hay que hacer nada más."
+
+#. translators: %s: email address.
+#: includes/class-mail-check.php:153
+#, php-format
+msgid "Your site handed the test to its mail server for %s. Check that inbox, and the spam folder, in a few minutes. If it never shows up, the mail server is not passing it on: an SMTP plugin usually fixes that."
+msgstr "Tu sitio entregó la prueba a su servidor de correo para %s. Revisa esa bandeja, y la carpeta de spam, en unos minutos. Si nunca aparece, el servidor de correo no la está reenviando: un plugin SMTP suele arreglarlo."
+
+#. translators: %s: the reason the mail system gave.
+#: includes/class-mail-check.php:162
+#, php-format
+msgid "Your site could not send it. Reason: %s"
+msgstr "Tu sitio no pudo enviarlo. Motivo: %s"
+
+#: includes/class-mail-check.php:189 includes/class-mail-check.php:201
+#: includes/class-onboarding.php:165 includes/class-templates.php:145
+msgid "You are not allowed to do this."
+msgstr "No tienes permiso para hacer esto."
+
+#. translators: %s: number of emails.
+#: includes/class-mail-check.php:246
+#, php-format
+msgid "%s form email could not be sent in the last 7 days."
+msgid_plural "%s form emails could not be sent in the last 7 days."
+msgstr[0] "No se pudo enviar %s correo de formulario en los últimos 7 días."
+msgstr[1] "No se pudieron enviar %s correos de formulario en los últimos 7 días."
+
+#. translators: 1: email address, 2: the reason the mail system gave.
+#: includes/class-mail-check.php:253
+#, php-format
+msgid "The latest was to %1$s. Reason: %2$s"
+msgstr "El último fue a %1$s. Motivo: %2$s"
+
+#: includes/class-mail-check.php:263
+msgid "Dismiss"
+msgstr "Descartar"
+
+#: includes/class-merge-tags.php:23
+msgid "Every answer"
+msgstr "Todas las respuestas"
+
+#: includes/class-merge-tags.php:27
+msgid "This form"
+msgstr "Este formulario"
+
+#: includes/class-merge-tags.php:31
+msgid "The entry"
+msgstr "El envío"
+
+#: includes/class-merge-tags.php:33
+msgid "Entry number"
+msgstr "Número de envío"
+
+#: includes/class-merge-tags.php:34
+msgid "Link to the entry in wp-admin"
+msgstr "Enlace al envío en wp-admin"
+
+#: includes/class-merge-tags.php:35
+msgid "Form name"
+msgstr "Nombre del formulario"
+
+#: includes/class-merge-tags.php:36
+msgid "Date submitted"
+msgstr "Fecha de envío"
+
+#: includes/class-merge-tags.php:37
+msgid "Today, in any date format"
+msgstr "Hoy, en cualquier formato de fecha"
+
+#: includes/class-merge-tags.php:39
+msgid "Page it was submitted from"
+msgstr "Página desde la que se envió"
+
+#: includes/class-merge-tags.php:43
+msgid "The person"
+msgstr "La persona"
+
+#: includes/class-merge-tags.php:45
+msgid "Their display name, if logged in"
+msgstr "Su nombre visible, si ha iniciado sesión"
+
+#: includes/class-merge-tags.php:46
+msgid "Their account email, if logged in"
+msgstr "El correo electrónico de su cuenta, si ha iniciado sesión"
+
+#: includes/class-merge-tags.php:47
+msgid "Their first name, if logged in"
+msgstr "Su nombre, si ha iniciado sesión"
+
+#: includes/class-merge-tags.php:51
+msgid "The site"
+msgstr "El sitio"
+
+#: includes/class-merge-tags.php:53
+msgid "Site name"
+msgstr "Nombre del sitio"
+
+#: includes/class-merge-tags.php:54
+msgid "Site address"
+msgstr "Dirección del sitio"
+
+#: includes/class-merge-tags.php:55
+msgid "Admin email"
+msgstr "Correo electrónico del administrador"
+
+#: includes/class-my-submissions.php:20
+msgid "Please log in to see your submissions."
+msgstr "Inicia sesión para ver tus envíos."
+
+#: includes/class-my-submissions.php:44
+msgid "You have no submissions yet."
+msgstr "Todavía no tienes envíos."
+
+#: includes/class-my-submissions.php:49
+msgid "Date"
+msgstr "Fecha"
+
+#. translators: 1: notification name, 2: email address(es).
+#: includes/class-notification-engine.php:96
+#, php-format
+msgid "Email \"%1$s\" handed to the mail server for %2$s"
+msgstr "Correo \"%1$s\" entregado al servidor de correo para %2$s"
+
+#. translators: %s: email address(es).
+#: includes/class-notification-engine.php:106
+#, php-format
+msgid "Email to %s could not be sent"
+msgstr "No se pudo enviar el correo a %s"
+
+#: includes/class-onboarding.php:111
+msgid "Create a form"
+msgstr "Crear un formulario"
+
+#: includes/class-onboarding.php:111
+msgid "Done. You can add more from a template at any time."
+msgstr "Hecho. Puedes añadir más desde una plantilla cuando quieras."
+
+#: includes/class-onboarding.php:116
+msgid "Open the draft page and publish it"
+msgstr "Abre la página en borrador y publícala"
+
+#: includes/class-onboarding.php:122
+msgid "Put it on a page"
+msgstr "Ponlo en una página"
+
+#: includes/class-onboarding.php:124
+msgid "A draft page with your form is waiting. It goes live when you publish it."
+msgstr "Hay una página en borrador con tu formulario esperando. Se publica cuando tú la publiques."
+
+#: includes/class-onboarding.php:125
+msgid "Make a page that holds the form, or paste its shortcode into any page."
+msgstr "Crea una página que contenga el formulario, o pega su shortcode en cualquier página."
+
+#: includes/class-onboarding.php:132
+msgid "Send a test entry"
+msgstr "Envía una entrada de prueba"
+
+#: includes/class-onboarding.php:133
+msgid "Fill the form in yourself, ideally in a private window, the way a visitor would."
+msgstr "Rellena tú el formulario, mejor en una ventana privada, como lo haría un visitante."
+
+#: includes/class-onboarding.php:134
+msgid "Open the page"
+msgstr "Abrir la página"
+
+#: includes/class-onboarding.php:140
+msgid "Check the email arrived"
+msgstr "Comprueba que llegó el correo"
+
+#: includes/class-onboarding.php:142
+msgid "A form email could not be sent. Send a test email to see why."
+msgstr "No se pudo enviar un correo de formulario. Envía un correo de prueba para ver por qué."
+
+#: includes/class-onboarding.php:143
+msgid "Look in the inbox the form sends to, and the spam folder. Only you can see whether it got there."
+msgstr "Mira en la bandeja a la que envía el formulario, y en la carpeta de spam. Solo tú puedes ver si llegó."
+
+#: includes/class-onboarding.php:144
+msgid "It arrived"
+msgstr "Ha llegado"
+
+#: includes/class-onboarding.php:149
+msgid "Your first ten minutes"
+msgstr "Tus primeros diez minutos"
+
+#. translators: 1: steps done, 2: total steps.
+#: includes/class-onboarding.php:151
+#, php-format
+msgid "%1$d of %2$d done. Each step ticks itself once it has really happened."
+msgstr "%1$d de %2$d hechos. Cada paso se marca solo cuando de verdad ha ocurrido."
+
+#: includes/class-onboarding.php:152
+msgid "Hide this"
+msgstr "Ocultar"
+
+#: includes/class-onboarding.php:192
+msgid "Contact"
+msgstr "Contacto"
+
+#: includes/class-onboarding.php:202
+msgid "You are not allowed to create pages."
+msgstr "No tienes permiso para crear páginas."
+
+#: includes/class-onboarding.php:206
+msgid "The page could not be created."
+msgstr "No se pudo crear la página."
+
+#: includes/class-onboarding.php:214 builder/src/app.jsx:491
+msgid "Create a page"
+msgstr "Crear una página"
+
+#: includes/class-plugin.php:81
+msgid "Trinity Forms Forms"
+msgstr "Formularios de Trinity Forms"
+
+#: includes/class-plugin.php:89
+msgid "All Forms"
+msgstr "Todos los formularios"
+
+#: includes/class-plugin.php:90
+msgid "Add Form"
+msgstr "Añadir formulario"
+
+#: includes/class-plugin.php:91
+msgid "Edit Form"
+msgstr "Editar formulario"
+
+#: includes/class-plugin.php:92
+msgid "No forms yet — start from a template, or add a blank one."
+msgstr "Aún no hay formularios. Empieza desde una plantilla o añade uno en blanco."
+
+#: includes/class-plugin.php:240
+msgid "Trinity Forms Fields"
+msgstr "Campos de Trinity Forms"
+
+#: includes/class-privacy.php:26 includes/class-privacy.php:34
+msgid "Trinity Forms submissions"
+msgstr "Envíos de Trinity Forms"
+
+#: includes/class-privacy.php:53
+msgid "Form submissions"
+msgstr "Envíos de formularios"
+
+#: includes/class-private-files.php:166
+msgid "You do not have permission to download this file."
+msgstr "No tienes permiso para descargar este archivo."
+
+#: includes/class-private-files.php:174
+msgid "File not found."
+msgstr "Archivo no encontrado."
+
+#: includes/class-rest-api.php:105
+msgid "Invalid or missing nonce."
+msgstr "Nonce no válido o ausente."
+
+#. translators: %d: minutes to wait.
+#: includes/class-rest-api.php:220
+#, php-format
+msgid "Too many submissions from your connection. Please try again in %d minute."
+msgid_plural "Too many submissions from your connection. Please try again in %d minutes."
+msgstr[0] "Demasiados envíos desde tu conexión. Inténtalo de nuevo dentro de %d minuto."
+msgstr[1] "Demasiados envíos desde tu conexión. Inténtalo de nuevo dentro de %d minutos."
+
+#. translators: %d: seconds to wait.
+#: includes/class-rest-api.php:222
+#, php-format
+msgid "Too many submissions from your connection. Please try again in %d second."
+msgid_plural "Too many submissions from your connection. Please try again in %d seconds."
+msgstr[0] "Demasiados envíos desde tu conexión. Inténtalo de nuevo dentro de %d segundo."
+msgstr[1] "Demasiados envíos desde tu conexión. Inténtalo de nuevo dentro de %d segundos."
+
+#: includes/class-results.php:152
+msgid "Show"
+msgstr "Mostrar"
+
+#: includes/class-results.php:160
+msgid "Answers added up across every entry. Choice and rating questions turn into charts, like a poll or survey."
+msgstr "Respuestas sumadas de todos los envíos. Las preguntas de opciones y de valoración se convierten en gráficos, como una encuesta."
+
+#: includes/class-results.php:167
+msgid "No published forms yet"
+msgstr "Aún no hay formularios publicados"
+
+#: includes/class-results.php:168
+msgid "Publish a form and collect a few entries. Its results show up here."
+msgstr "Publica un formulario y recibe algunos envíos. Sus resultados aparecerán aquí."
+
+#: includes/class-results.php:181
+msgid "Completed entries"
+msgstr "Envíos completados"
+
+#: includes/class-results.php:183
+msgid "Spam, trash and unfinished entries are left out"
+msgstr "No se incluyen el spam, la papelera ni los envíos sin terminar"
+
+#: includes/class-results.php:186
+msgid "Questions charted"
+msgstr "Preguntas en gráficos"
+
+#. translators: 1: number of choice questions, 2: number of number/rating questions.
+#: includes/class-results.php:190
+#, php-format
+msgid "%1$d choice, %2$d number or rating"
+msgstr "%1$d de opciones, %2$d de número o valoración"
+
+#: includes/class-results.php:197
+msgid "Nothing to chart yet"
+msgstr "Aún no hay nada que mostrar en gráficos"
+
+#: includes/class-results.php:198
+msgid "Add choice questions (radio, dropdown, checkboxes) or rating, range and number fields, then collect a few entries."
+msgstr "Añade preguntas de opciones (botones de opción, desplegables, casillas) o campos de valoración, rango y número, y luego recibe algunos envíos."
+
+#. translators: %d: number of people who answered.
+#: includes/class-results.php:209
+#, php-format
+msgid "%d answer"
+msgid_plural "%d answers"
+msgstr[0] "%d respuesta"
+msgstr[1] "%d respuestas"
+
+#. translators: 1: lowest value, 2: highest value, 3: count.
+#: includes/class-results.php:217
+#, php-format
+msgid "average (range %1$s to %2$s, %3$d responses)"
+msgstr "media (rango de %1$s a %2$s, %3$d respuestas)"
+
+#: includes/class-secrets.php:85
+msgid "Trinity Forms: The PHP OpenSSL extension is required to encrypt credentials at rest. Credentials are currently stored in plaintext — please enable the openssl extension."
+msgstr "Trinity Forms: se necesita la extensión OpenSSL de PHP para cifrar las credenciales guardadas. Ahora mismo las credenciales se guardan en texto plano, así que activa la extensión openssl."
+
+#: includes/class-shortcode.php:29
+msgid "The submissions table is available in Trinity Forms Pro."
+msgstr "La tabla de envíos está disponible en Trinity Forms Pro."
+
+#: includes/class-submission-pipeline.php:56
+msgid "Please complete the bot check (CAPTCHA) and submit again. If you can't see it, reload the page or allow its script."
+msgstr "Completa la verificación anti-bots (CAPTCHA) y vuelve a enviar. Si no la ves, recarga la página o permite su script."
+
+#: includes/class-submission-pipeline.php:63
+msgid "Upload failed."
+msgstr "Error al subir el archivo."
+
+#: includes/class-submission-pipeline.php:69
+msgid "Validation failed."
+msgstr "La validación ha fallado."
+
+#. translators: %s: why the entry was judged spam.
+#: includes/class-submission-pipeline.php:85
+#, php-format
+msgid "Marked as spam: %s"
+msgstr "Marcado como spam: %s"
+
+#: includes/class-submission-pipeline.php:86
+msgid "Marked as spam by the spam filter"
+msgstr "Marcado como spam por el filtro de spam"
+
+#: includes/class-submission-pipeline.php:174
+msgid "This value has already been used."
+msgstr "Este valor ya se ha usado."
+
+#. translators: %s: form title.
+#: includes/class-submission-pipeline.php:380
+#, php-format
+msgid "[Trinity Forms] Payments are failing on \"%s\""
+msgstr "[Trinity Forms] Los pagos están fallando en \"%s\""
+
+#. translators: 1: form title, 2: provider error, 3: entry admin URL.
+#: includes/class-submission-pipeline.php:383
+#, php-format
+msgid ""
+"A visitor could not start a payment on \"%1$s\". Nothing was charged.\n"
+"\n"
+"Reason from the payment provider: %2$s\n"
+"\n"
+"Check the payment keys under Trinity Forms > Settings. The entry: %3$s"
+msgstr ""
+"Un visitante no ha podido iniciar un pago en \"%1$s\". No se ha cobrado nada.\n"
+"\n"
+"Motivo del proveedor de pagos: %2$s\n"
+"\n"
+"Revisa las claves de pago en Trinity Forms > Ajustes. El envío: %3$s"
+
+#: includes/class-submission-pipeline.php:416
+msgid "Payment could not be started, so nothing was charged. Please try again later, or contact the site owner if it keeps happening."
+msgstr "No se ha podido iniciar el pago, así que no se ha cobrado nada. Inténtalo de nuevo más tarde o contacta con el propietario del sitio si sigue pasando."
+
+#. translators: %s: uploaded file name.
+#: includes/class-submission-pipeline.php:470
+#, php-format
+msgid "Upload error for %s."
+msgstr "Error al subir %s."
+
+#: includes/class-templates.php:59
+msgid "Contact form"
+msgstr "Formulario de contacto"
+
+#: includes/class-templates.php:59
+msgid "Name, email and a message. The classic."
+msgstr "Nombre, correo electrónico y un mensaje. El clásico."
+
+#: includes/class-templates.php:64
+msgid "Quote request"
+msgstr "Solicitud de presupuesto"
+
+#: includes/class-templates.php:64
+msgid "Capture leads with service, budget and details."
+msgstr "Consigue contactos con servicio, presupuesto y detalles."
+
+#: includes/class-templates.php:72
+msgid "Event registration"
+msgstr "Inscripción a un evento"
+
+#: includes/class-templates.php:72
+msgid "Register attendees with a guest count and session."
+msgstr "Inscribe asistentes con número de invitados y sesión."
+
+#: includes/class-templates.php:79
+msgid "Appointment booking"
+msgstr "Reserva de citas"
+
+#: includes/class-templates.php:79
+msgid "Let visitors request a date and time."
+msgstr "Deja que los visitantes soliciten una fecha y hora."
+
+#: includes/class-templates.php:87
+msgid "RSVP"
+msgstr "RSVP"
+
+#: includes/class-templates.php:87
+msgid "Yes/No plus a guest count."
+msgstr "Sí/No y número de invitados."
+
+#: includes/class-templates.php:93
+msgid "Newsletter signup"
+msgstr "Suscripción al boletín"
+
+#: includes/class-templates.php:93
+msgid "Email plus a consent checkbox."
+msgstr "Correo electrónico y una casilla de consentimiento."
+
+#: includes/class-templates.php:98
+msgid "Support request"
+msgstr "Solicitud de soporte"
+
+#: includes/class-templates.php:98
+msgid "Subject, priority and a message."
+msgstr "Asunto, prioridad y un mensaje."
+
+#: includes/class-templates.php:105
+msgid "Feedback & satisfaction"
+msgstr "Opiniones y satisfacción"
+
+#: includes/class-templates.php:105
+msgid "A star rating, an NPS slider and comments."
+msgstr "Valoración con estrellas, un deslizador NPS y comentarios."
+
+#: includes/class-templates.php:111
+msgid "Job application"
+msgstr "Solicitud de empleo"
+
+#: includes/class-templates.php:111
+msgid "Applicant details and a cover letter."
+msgstr "Datos del candidato y una carta de presentación."
+
+#: includes/class-templates.php:118
+msgid "Order form"
+msgstr "Formulario de pedido"
+
+#: includes/class-templates.php:118
+msgid "Address, country, product and quantity."
+msgstr "Dirección, país, producto y cantidad."
+
+#: includes/class-templates.php:126
+msgid "Volunteer signup"
+msgstr "Inscripción de voluntarios"
+
+#: includes/class-templates.php:126
+msgid "Availability and skills."
+msgstr "Disponibilidad y habilidades."
+
+#: includes/class-templates.php:133
+msgid "Testimonial"
+msgstr "Testimonio"
+
+#: includes/class-templates.php:133
+msgid "Collect a rating and a quote with consent to publish."
+msgstr "Recoge una valoración y una cita con consentimiento para publicarla."
+
+#: includes/class-templates.php:161
+msgid "Could not create the form."
+msgstr "No se ha podido crear el formulario."
+
+#: includes/class-templates.php:172
+msgid "Pick a ready-made form to create it in one click, then change it like any other form."
+msgstr "Elige un formulario ya hecho para crearlo con un clic y luego cámbialo como cualquier otro."
+
+#: includes/class-templates.php:173
+msgid "Start from blank"
+msgstr "Empezar en blanco"
+
+#. translators: %d: number of fields in the template.
+#: includes/class-templates.php:188
+#, php-format
+msgid "%d field"
+msgid_plural "%d fields"
+msgstr[0] "%d campo"
+msgstr[1] "%d campos"
+
+#: includes/class-templates.php:194
+msgid "Use template"
+msgstr "Usar plantilla"
+
+#: includes/fields/class-field-address.php:16 blocks/field-address/index.js:17
+msgid "Street address"
+msgstr "Dirección"
+
+#: includes/fields/class-field-address.php:17 blocks/field-address/index.js:18
+msgid "Address line 2"
+msgstr "Línea de dirección 2"
+
+#: includes/fields/class-field-address.php:18 blocks/field-address/index.js:20
+#: builder/src/field-preview.jsx:137
+msgid "City"
+msgstr "Ciudad"
+
+#: includes/fields/class-field-address.php:19 blocks/field-address/index.js:21
+msgid "State / Region"
+msgstr "Provincia / Región"
+
+#: includes/fields/class-field-address.php:20 blocks/field-address/index.js:24
+msgid "Postal code"
+msgstr "Código postal"
+
+#: includes/fields/class-field-address.php:21 blocks/field-address/index.js:25
+msgid "Country"
+msgstr "País"
+
+#: includes/fields/class-field-base.php:109
+msgid "optional"
+msgstr "opcional"
+
+#: includes/fields/class-field-base.php:117
+msgid "required"
+msgstr "obligatorio"
+
+#. translators: %d: minimum number of characters.
+#: includes/fields/class-field-base.php:193
+#, php-format
+msgid "Must be at least %d characters."
+msgstr "Debe tener al menos %d caracteres."
+
+#. translators: %d: maximum number of characters.
+#: includes/fields/class-field-base.php:200
+#, php-format
+msgid "Must be %d characters or fewer."
+msgstr "Debe tener %d caracteres o menos."
+
+#: includes/fields/class-field-base.php:208
+msgid "Invalid format."
+msgstr "Formato no válido."
+
+#: includes/fields/class-field-checkbox.php:43
+#: includes/fields/class-field-image-choice.php:73
+#: includes/fields/class-field-multiselect.php:58
+#: includes/fields/class-field-radio.php:37
+#: includes/fields/class-field-select.php:39
+msgid "Invalid selection."
+msgstr "Selección no válida."
+
+#: includes/fields/class-field-consent.php:11
+msgid "I agree."
+msgstr "Acepto."
+
+#: includes/fields/class-field-country.php:20 blocks/field-country/index.js:15
+msgid "Select a country…"
+msgstr "Selecciona un país…"
+
+#: includes/fields/class-field-country.php:38
+msgid "Please select a valid country."
+msgstr "Selecciona un país válido."
+
+#: includes/fields/class-field-date.php:27
+msgid "Invalid date."
+msgstr "Fecha no válida."
+
+#: includes/fields/class-field-email.php:34
+msgid "Please enter a valid email address."
+msgstr "Introduce una dirección de correo electrónico válida."
+
+#: includes/fields/class-field-file.php:40
+#, php-format
+msgid "File %s exceeds the maximum size."
+msgstr "El archivo %s supera el tamaño máximo."
+
+#: includes/fields/class-field-file.php:45
+#, php-format
+msgid "File %s has a disallowed type."
+msgstr "El archivo %s tiene un tipo no permitido."
+
+#: includes/fields/class-field-list.php:47
+msgid "Actions"
+msgstr "Acciones"
+
+#: includes/fields/class-field-list.php:65
+msgid "Remove row"
+msgstr "Quitar fila"
+
+#: includes/fields/class-field-list.php:72
+msgid "+ Add row"
+msgstr "+ Añadir fila"
+
+#. translators: %d: maximum number of rows.
+#: includes/fields/class-field-list.php:110
+#, php-format
+msgid "Please add no more than %d rows."
+msgstr "Añade como máximo %d filas."
+
+#. translators: %d: maximum number of choices.
+#: includes/fields/class-field-multiselect.php:66
+#, php-format
+msgid "Please choose no more than %d options."
+msgstr "Elige como máximo %d opciones."
+
+#: includes/fields/class-field-name.php:34
+#: includes/fields/class-field-name.php:38 blocks/field-name/index.js:15
+#: builder/src/field-preview.jsx:127
+msgid "First"
+msgstr "Nombre"
+
+#: includes/fields/class-field-name.php:35
+#: includes/fields/class-field-name.php:40 blocks/field-name/index.js:16
+#: builder/src/field-preview.jsx:128
+msgid "Last"
+msgstr "Apellidos"
+
+#: includes/fields/class-field-number.php:37
+#: includes/fields/class-field-range.php:51
+msgid "Must be a number."
+msgstr "Debe ser un número."
+
+#. translators: %s: minimum allowed value.
+#: includes/fields/class-field-number.php:42
+#: includes/fields/class-field-range.php:56
+#, php-format
+msgid "Must be at least %s."
+msgstr "Debe ser al menos %s."
+
+#. translators: %s: maximum allowed value.
+#: includes/fields/class-field-number.php:46
+#: includes/fields/class-field-range.php:60
+#, php-format
+msgid "Must be no more than %s."
+msgstr "No debe ser mayor que %s."
+
+#: includes/fields/class-field-password.php:35
+msgid "Confirm password"
+msgstr "Confirmar contraseña"
+
+#. translators: %d: minimum number of characters.
+#: includes/fields/class-field-password.php:59
+#, php-format
+msgid "Password must be at least %d characters."
+msgstr "La contraseña debe tener al menos %d caracteres."
+
+#: includes/fields/class-field-password.php:69
+msgid "The two passwords do not match."
+msgstr "Las dos contraseñas no coinciden."
+
+#: includes/fields/class-field-phone.php:41
+msgid "Enter a valid international phone number."
+msgstr "Introduce un número de teléfono internacional válido."
+
+#: includes/fields/class-field-phone.php:44
+msgid "Enter a valid phone number."
+msgstr "Introduce un número de teléfono válido."
+
+#. translators: %d: minimum quantity.
+#: includes/fields/class-field-quantity.php:41
+#, php-format
+msgid "Please enter a quantity of at least %d."
+msgstr "Introduce una cantidad de al menos %d."
+
+#. translators: %d: maximum quantity.
+#: includes/fields/class-field-quantity.php:45
+#, php-format
+msgid "Please enter a quantity of %d or fewer."
+msgstr "Introduce una cantidad de %d o menos."
+
+#. translators: 1: rating chosen, 2: highest rating.
+#: includes/fields/class-field-rating.php:24
+#, php-format
+msgid "%1$d of %2$d"
+msgstr "%1$d de %2$d"
+
+#: includes/fields/class-field-rating.php:46
+msgid "Invalid rating."
+msgstr "Valoración no válida."
+
+#: includes/fields/class-field-time.php:28
+msgid "Invalid time."
+msgstr "Hora no válida."
+
+#: includes/fields/class-field-website.php:61
+msgid "Please enter a valid web address."
+msgstr "Introduce una dirección web válida."
+
+#: public/class-form-renderer.php:153
+msgid "Welcome back — we restored the answers you saved. Check them and carry on."
+msgstr "Hola de nuevo. Hemos recuperado las respuestas que guardaste. Revísalas y continúa."
+
+#: public/class-form-renderer.php:183
+msgid "Previous"
+msgstr "Anterior"
+
+#: public/class-form-renderer.php:184
+msgid "Next"
+msgstr "Siguiente"
+
+#: public/class-form-renderer.php:190
+msgid "Save & continue later"
+msgstr "Guardar y continuar más tarde"
+
+#: public/class-form-renderer.php:402
+msgid "Thank you — your submission was received."
+msgstr "Gracias, hemos recibido tu envío."
+
+#: blocks/conditional-panel.js:66 builder/src/field-panel.jsx:264
+msgid "Format"
+msgstr "Formato"
+
+#: blocks/conditional-panel.js:69 builder/src/field-panel.jsx:267
+msgid "Pattern"
+msgstr "Patrón"
+
+#: blocks/conditional-panel.js:70
+msgid "A regular expression the value must match, e.g. ^[0-9]{5}$ for a 5-digit ZIP. Leave empty for no check."
+msgstr "Una expresión regular que el valor debe cumplir, p. ej. ^[0-9]{5}$ para un código postal de 5 dígitos. Déjalo vacío para no comprobarlo."
+
+#: blocks/conditional-panel.js:77 builder/src/field-panel.jsx:275
+msgid "Error message"
+msgstr "Mensaje de error"
+
+#: blocks/conditional-panel.js:78
+msgid "Shown when the value doesn't match."
+msgstr "Se muestra cuando el valor no coincide."
+
+#: blocks/conditional-panel.js:85 builder/src/field-panel.jsx:390
+msgid "Conditional logic"
+msgstr "Lógica condicional"
+
+#: blocks/conditional-rules.js:58
+msgid "All rules match"
+msgstr "Se cumplen todas las reglas"
+
+#: blocks/conditional-rules.js:59
+msgid "Any rule matches"
+msgstr "Se cumple alguna regla"
+
+#: blocks/conditional-rules.js:77 blocks/field-shared.js:87
+#: blocks/field-shared.js:228 builder/src/field-panel.jsx:219
+msgid "Field"
+msgstr "Campo"
+
+#: blocks/conditional-rules.js:79
+msgid "— Select —"
+msgstr "— Seleccionar —"
+
+#: blocks/conditional-rules.js:84
+msgid "Condition"
+msgstr "Condición"
+
+#: blocks/conditional-rules.js:92
+msgid "Value"
+msgstr "Valor"
+
+#: blocks/conditional-rules.js:98
+msgid "Remove rule"
+msgstr "Quitar regla"
+
+#: blocks/conditional-rules.js:128
+msgid "When"
+msgstr "Cuando"
+
+#: blocks/conditional-rules.js:128
+msgid "Within this group"
+msgstr "Dentro de este grupo"
+
+#: blocks/conditional-rules.js:150
+msgid "Group"
+msgstr "Grupo"
+
+#: blocks/conditional-rules.js:175
+msgid "Add rule"
+msgstr "Añadir regla"
+
+#: blocks/conditional-rules.js:185
+msgid "Add group"
+msgstr "Añadir grupo"
+
+#: blocks/conditional-rules.js:191
+msgid "Remove group"
+msgstr "Quitar grupo"
+
+#: blocks/conditional-rules.js:217
+msgid "Add another field to this form first — a rule needs a field to test."
+msgstr "Primero añade otro campo a este formulario; una regla necesita un campo que comprobar."
+
+#: blocks/conditional-rules.js:227
+msgid "Then"
+msgstr "Entonces"
+
+#: blocks/conditional-rules.js:230
+msgid "Show this field"
+msgstr "Mostrar este campo"
+
+#: blocks/conditional-rules.js:231
+msgid "Hide this field"
+msgstr "Ocultar este campo"
+
+#: blocks/field-checkbox/index.js:17 blocks/field-radio/index.js:18
+#: blocks/field-select/index.js:18
+msgid "Options (one per line, label | value)"
+msgstr "Opciones (una por línea, etiqueta | valor)"
+
+#: blocks/field-consent/index.js:15
+msgid "Consent"
+msgstr "Consentimiento"
+
+#: blocks/field-consent/index.js:16 blocks/field-hidden/index.js:22
+msgid "Internal label"
+msgstr "Etiqueta interna"
+
+#: blocks/field-consent/index.js:17 builder/src/field-preview.jsx:83
+msgid "Consent text"
+msgstr "Texto de consentimiento"
+
+#: blocks/field-consent/index.js:18 blocks/field-shared.js:112
+#: builder/src/field-panel.jsx:241
+msgid "Required"
+msgstr "Obligatorio"
+
+#: blocks/field-file/index.js:17 builder/src/field-panel.jsx:87
+msgid "Accepted extensions (.pdf, .png …)"
+msgstr "Extensiones aceptadas (.pdf, .png …)"
+
+#: blocks/field-file/index.js:18
+msgid "Allow multiple"
+msgstr "Permitir varios"
+
+#: blocks/field-file/index.js:19 builder/src/field-panel.jsx:89
+msgid "Max size (MB)"
+msgstr "Tamaño máximo (MB)"
+
+#: blocks/field-hidden/index.js:15
+msgid "Hidden field"
+msgstr "Campo oculto"
+
+#: blocks/field-hidden/index.js:17 blocks/field-shared.js:89
+#: builder/src/field-panel.jsx:222
+msgid "Field ID"
+msgstr "ID del campo"
+
+#: blocks/field-hidden/index.js:27 blocks/field-range/index.js:22
+#: blocks/field-shared.js:168 builder/src/field-panel.jsx:324
+msgid "Default value"
+msgstr "Valor predeterminado"
+
+#: blocks/field-html/index.js:15
+msgid "HTML"
+msgstr "HTML"
+
+#: blocks/field-html/index.js:17
+msgid "HTML markup"
+msgstr "Código HTML"
+
+#: blocks/field-multiple-choice/index.js:9
+msgid "Radio buttons (pick one)"
+msgstr "Botones de opción (elige uno)"
+
+#: blocks/field-multiple-choice/index.js:10
+msgid "Checkboxes (pick several)"
+msgstr "Casillas (elige varias)"
+
+#: blocks/field-multiple-choice/index.js:11
+msgid "Dropdown (pick one)"
+msgstr "Desplegable (elige uno)"
+
+#: blocks/field-multiple-choice/index.js:12
+msgid "Dropdown (pick several)"
+msgstr "Desplegable (elige varios)"
+
+#: blocks/field-multiple-choice/index.js:44 builder/src/field-panel.jsx:63
+#: builder/src/field-panel.jsx:252
+msgid "Choices"
+msgstr "Opciones"
+
+#: blocks/field-multiple-choice/index.js:46
+msgid "Show as"
+msgstr "Mostrar como"
+
+#: blocks/field-multiple-choice/index.js:47
+msgid "Switching style keeps your options — no need to delete the field and start again."
+msgstr "Cambiar el estilo conserva tus opciones, no hace falta borrar el campo y empezar de nuevo."
+
+#: blocks/field-multiple-choice/index.js:53
+msgid "Options"
+msgstr "Opciones"
+
+#: blocks/field-multiple-choice/index.js:54 builder/src/field-panel.jsx:64
+msgid "One per line. Use \"Label | value\" to store a different value."
+msgstr "Una por línea. Usa \"Etiqueta | valor\" para guardar un valor distinto."
+
+#: blocks/field-number/index.js:19 blocks/field-range/index.js:19
+msgid "Min"
+msgstr "Mín."
+
+#: blocks/field-number/index.js:20 blocks/field-range/index.js:20
+msgid "Max"
+msgstr "Máx."
+
+#: blocks/field-number/index.js:21 blocks/field-range/index.js:21
+msgid "Step"
+msgstr "Paso"
+
+#: blocks/field-page-break/index.js:15 blocks/field-page-break/index.js:20
+#: builder/src/field-preview.jsx:122
+msgid "Page break"
+msgstr "Salto de página"
+
+#: blocks/field-page-break/index.js:16
+msgid "Next button text"
+msgstr "Texto del botón Siguiente"
+
+#: blocks/field-page-break/index.js:17
+msgid "Back button text"
+msgstr "Texto del botón Atrás"
+
+#: blocks/field-phone/index.js:17
+msgid "Require international format"
+msgstr "Exigir formato internacional"
+
+#: blocks/field-radio/index.js:23 blocks/field-select/index.js:23
+msgid "Correct answer value (quiz — optional)"
+msgstr "Valor de la respuesta correcta (cuestionario, opcional)"
+
+#: blocks/field-radio/index.js:24 blocks/field-select/index.js:24
+msgid "The option value that scores points. Leave blank for non-quiz forms."
+msgstr "El valor de la opción que suma puntos. Déjalo en blanco en formularios que no son cuestionarios."
+
+#: blocks/field-radio/index.js:30 blocks/field-select/index.js:30
+#: builder/src/field-panel.jsx:110
+msgid "Points"
+msgstr "Puntos"
+
+#: blocks/field-rating/index.js:18
+msgid "Stars"
+msgstr "Estrellas"
+
+#: blocks/field-section/index.js:15 builder/src/field-preview.jsx:100
+msgid "Section"
+msgstr "Sección"
+
+#: blocks/field-section/index.js:16
+msgid "Heading"
+msgstr "Encabezado"
+
+#: blocks/field-section/index.js:17
+msgid "Description"
+msgstr "Descripción"
+
+#: blocks/field-shared.js:90 builder/src/field-panel.jsx:223
+msgid "Used in merge tags and entry export."
+msgstr "Se usa en las etiquetas de combinación y en la exportación de envíos."
+
+#: blocks/field-shared.js:95 builder/src/field-panel.jsx:19
+msgid "Label"
+msgstr "Etiqueta"
+
+#: blocks/field-shared.js:101 builder/src/field-panel.jsx:20
+msgid "Placeholder"
+msgstr "Texto de ejemplo"
+
+#: blocks/field-shared.js:136 builder/src/field-panel.jsx:284
+msgid "Appearance"
+msgstr "Apariencia"
+
+#: blocks/field-shared.js:138 builder/src/field-panel.jsx:288
+msgid "Field width"
+msgstr "Ancho del campo"
+
+#: blocks/field-shared.js:141 builder/src/field-panel.jsx:291
+msgid "Full width"
+msgstr "Ancho completo"
+
+#: blocks/field-shared.js:142 builder/src/field-panel.jsx:292
+msgid "One half"
+msgstr "Un medio"
+
+#: blocks/field-shared.js:143 builder/src/field-panel.jsx:293
+msgid "One third"
+msgstr "Un tercio"
+
+#: blocks/field-shared.js:144 builder/src/field-panel.jsx:294
+msgid "One quarter"
+msgstr "Un cuarto"
+
+#: blocks/field-shared.js:149 builder/src/field-panel.jsx:301
+msgid "Help text position"
+msgstr "Posición del texto de ayuda"
+
+#: blocks/field-shared.js:152 builder/src/field-panel.jsx:304
+msgid "Use the form's setting"
+msgstr "Usar el ajuste del formulario"
+
+#: blocks/field-shared.js:159 builder/src/field-panel.jsx:312
+msgid "CSS class"
+msgstr "Clase CSS"
+
+#: blocks/field-shared.js:160 builder/src/field-panel.jsx:313
+msgid "Added to the field wrapper, for your own styling."
+msgstr "Se añade al contenedor del campo, para tus propios estilos."
+
+#: blocks/field-shared.js:166 builder/src/field-panel.jsx:321
+msgid "Advanced"
+msgstr "Avanzado"
+
+#: blocks/field-shared.js:173 builder/src/field-panel.jsx:330
+msgid "Admin label"
+msgstr "Etiqueta de administración"
+
+#: blocks/field-shared.js:174
+msgid "Shown instead of the label in entries and exports."
+msgstr "Se muestra en lugar de la etiqueta en los envíos y exportaciones."
+
+#: blocks/field-shared.js:179 builder/src/field-panel.jsx:338
+msgid "Visible to"
+msgstr "Visible para"
+
+#: blocks/field-shared.js:182 builder/src/field-panel.jsx:341
+msgid "Everyone"
+msgstr "Todos"
+
+#: blocks/field-shared.js:183 builder/src/field-panel.jsx:342
+msgid "Logged-in users"
+msgstr "Usuarios conectados"
+
+#: blocks/field-shared.js:184 builder/src/field-panel.jsx:343
+msgid "Administrators only"
+msgstr "Solo administradores"
+
+#: blocks/field-shared.js:189 builder/src/field-panel.jsx:350
+msgid "Allow this field to be pre-filled from the URL"
+msgstr "Permitir rellenar este campo desde la URL"
+
+#: blocks/field-shared.js:190 builder/src/field-panel.jsx:351
+msgid "Off by default: a form whose every field can be set from a link is a form whose data you cannot trust."
+msgstr "Desactivado por defecto: un formulario en el que cualquier campo se puede rellenar desde un enlace es un formulario cuyos datos no son fiables."
+
+#: blocks/field-shared.js:196 builder/src/field-panel.jsx:358
+msgid "Parameter name"
+msgstr "Nombre del parámetro"
+
+#: blocks/field-shared.js:197 builder/src/field-panel.jsx:359
+msgid "Defaults to the field ID. Also reads user_email, first_name, post_id and user_meta_<key>."
+msgstr "Por defecto es el ID del campo. También lee user_email, first_name, post_id y user_meta_<key>."
+
+#: blocks/field-shared.js:203 builder/src/field-panel.jsx:367
+msgid "No duplicates"
+msgstr "Sin duplicados"
+
+#: blocks/field-shared.js:204 builder/src/field-panel.jsx:368
+msgid "Refuse a submission if another entry on this form already has the same value."
+msgstr "Rechazar un envío si otro envío de este formulario ya tiene el mismo valor."
+
+#: blocks/field-shared.js:209 builder/src/field-panel.jsx:374
+msgid "Custom error message"
+msgstr "Mensaje de error personalizado"
+
+#: blocks/field-shared.js:214 builder/src/field-panel.jsx:381
+msgid "Autocomplete"
+msgstr "Autocompletar"
+
+#: blocks/field-shared.js:215 builder/src/field-panel.jsx:382
+msgid "The HTML autocomplete hint, e.g. email, given-name, organization."
+msgstr "La pista de autocompletado HTML, p. ej. email, given-name, organization."
+
+#: blocks/field-textarea/index.js:16 builder/src/field-panel.jsx:98
+msgid "Rows"
+msgstr "Filas"
+
+#: blocks/form-block/edit.js:19
+msgid "— Select a form —"
+msgstr "— Selecciona un formulario —"
+
+#: blocks/form-block/edit.js:31
+msgid "Choose form"
+msgstr "Elige un formulario"
+
+#: blocks/form-block/edit.js:37
+msgid "Show title"
+msgstr "Mostrar título"
+
+#: blocks/form-block/edit.js:48 blocks/form-block/edit.js:54
+msgid "Trinity Forms Form"
+msgstr "Formulario de Trinity Forms"
+
+#: blocks/form-block/edit.js:49
+msgid "Pick a form from the sidebar to embed."
+msgstr "Elige en la barra lateral el formulario que quieres insertar."
+
+#: builder/src/app.jsx:146
+msgid "Could not load this form."
+msgstr "No se ha podido cargar este formulario."
+
+#: builder/src/app.jsx:202
+msgid "new field"
+msgstr "campo nuevo"
+
+#: builder/src/app.jsx:205
+msgid "the end of the form"
+msgstr "el final del formulario"
+
+#: builder/src/app.jsx:210
+msgid "field"
+msgstr "campo"
+
+#. translators: 1: position, 2: total number of fields.
+#: builder/src/app.jsx:221
+msgid "position %1$d of %2$d"
+msgstr "posición %1$d de %2$d"
+
+#. translators: %s: field label.
+#: builder/src/app.jsx:226
+msgid "Picked up %s."
+msgstr "Has cogido %s."
+
+#. translators: 1: dragged field label, 2: field it is over, 3: position text.
+#: builder/src/app.jsx:230
+msgid "%1$s is over %2$s, %3$s."
+msgstr "%1$s está sobre %2$s, %3$s."
+
+#. translators: %s: field label.
+#: builder/src/app.jsx:232
+msgid "%s is no longer over a drop position."
+msgstr "%s ya no está sobre una posición para soltar."
+
+#. translators: 1: dragged field label, 2: target field label.
+#: builder/src/app.jsx:236
+msgid "%1$s was dropped at %2$s."
+msgstr "%1$s se ha soltado en %2$s."
+
+#. translators: %s: field label.
+#: builder/src/app.jsx:238
+msgid "%s was dropped outside the form; nothing changed."
+msgstr "%s se ha soltado fuera del formulario; no ha cambiado nada."
+
+#. translators: %s: field label.
+#: builder/src/app.jsx:241
+msgid "Moving %s was cancelled."
+msgstr "Se ha cancelado el movimiento de %s."
+
+#: builder/src/app.jsx:358
+msgid "Replace the current form with this template? Your unsaved changes will be lost."
+msgstr "¿Reemplazar el formulario actual con esta plantilla? Perderás los cambios sin guardar."
+
+#: builder/src/app.jsx:396
+msgid "Form saved. It is published, so it shows wherever you embed it."
+msgstr "Formulario guardado. Está publicado, así que aparece donde lo insertes."
+
+#: builder/src/app.jsx:397
+msgid "Form saved as a draft. Visitors will not see it until you publish it."
+msgstr "Formulario guardado como borrador. Los visitantes no lo verán hasta que lo publiques."
+
+#: builder/src/app.jsx:411
+msgid "Could not save this form."
+msgstr "No se ha podido guardar este formulario."
+
+#: builder/src/app.jsx:431 builder/src/app.jsx:432
+msgid "Form title"
+msgstr "Título del formulario"
+
+#: builder/src/app.jsx:441
+msgid "Undo"
+msgstr "Deshacer"
+
+#: builder/src/app.jsx:442
+msgid "Ctrl+Z"
+msgstr "Ctrl+Z"
+
+#: builder/src/app.jsx:448
+msgid "Redo"
+msgstr "Rehacer"
+
+#: builder/src/app.jsx:449
+msgid "Ctrl+Shift+Z"
+msgstr "Ctrl+Shift+Z"
+
+#: builder/src/app.jsx:473
+msgid "Copy the shortcode that puts this form on a page or post"
+msgstr "Copia el shortcode que pone este formulario en una página o entrada"
+
+#: builder/src/app.jsx:476
+msgid "Copied"
+msgstr "Copiado"
+
+#: builder/src/app.jsx:477
+msgid "Press Ctrl+C to copy"
+msgstr "Pulsa Ctrl+C para copiar"
+
+#: builder/src/app.jsx:480
+msgid "Copy shortcode"
+msgstr "Copiar shortcode"
+
+#: builder/src/app.jsx:488
+msgid "Make a draft page holding this form and open it. Save your changes first."
+msgstr "Crea una página en borrador con este formulario y la abre. Guarda antes tus cambios."
+
+#: builder/src/app.jsx:501
+msgid "Set up the emails sent when this form is submitted"
+msgstr "Configura los correos que se envían cuando se envía este formulario"
+
+#: builder/src/app.jsx:509
+msgid "Open in block editor"
+msgstr "Abrir en el editor de bloques"
+
+#: builder/src/app.jsx:516
+msgid "Describe your form and let AI draft the fields (opens the block editor)"
+msgstr "Describe tu formulario y deja que la IA cree un borrador de los campos (abre el editor de bloques)"
+
+#: builder/src/app.jsx:519
+msgid "Draft with AI"
+msgstr "Crear borrador con IA"
+
+#: builder/src/app.jsx:524
+msgid "Form status"
+msgstr "Estado del formulario"
+
+#: builder/src/app.jsx:531
+msgid "Draft"
+msgstr "Borrador"
+
+#: builder/src/app.jsx:533
+msgid "Published"
+msgstr "Publicado"
+
+#: builder/src/app.jsx:537
+msgid "Saving…"
+msgstr "Guardando…"
+
+#: builder/src/app.jsx:537
+msgid "Save form"
+msgstr "Guardar formulario"
+
+#: builder/src/app.jsx:545
+msgid "This form was saved in a format the builder can't open, so its fields don't show here. It still works on your site, and saving is turned off so nothing gets overwritten."
+msgstr "Este formulario se guardó en un formato que el constructor no puede abrir, así que sus campos no aparecen aquí. Sigue funcionando en tu sitio, y el guardado está desactivado para que no se sobrescriba nada."
+
+#: builder/src/app.jsx:556
+msgid "This form changed somewhere else, most likely in the block editor in another tab. Your edits here have not been saved, and saving now would overwrite that change."
+msgstr "Este formulario ha cambiado en otro sitio, seguramente en el editor de bloques en otra pestaña. Tus cambios aquí no se han guardado, y guardar ahora sobrescribiría ese cambio."
+
+#: builder/src/app.jsx:562
+msgid "Reload the form"
+msgstr "Recargar el formulario"
+
+#: builder/src/app.jsx:595
+msgid "fields"
+msgstr "campos"
+
+#: builder/src/app.jsx:616
+msgid "Add a field"
+msgstr "Añadir un campo"
+
+#: builder/src/app.jsx:618
+msgid "Click to append, or drag onto the canvas to place."
+msgstr "Haz clic para añadirlo al final, o arrástralo al lienzo para colocarlo."
+
+#: builder/src/app.jsx:625
+msgid "Pro fields"
+msgstr "Campos Pro"
+
+#: builder/src/app.jsx:627
+msgid "Activate your Pro licence to add these."
+msgstr "Activa tu licencia Pro para añadirlos."
+
+#: builder/src/app.jsx:629
+msgid "Enter licence key"
+msgstr "Introduce la clave de licencia"
+
+#: builder/src/app.jsx:639
+msgid "Requires an active Pro licence"
+msgstr "Requiere una licencia Pro activa"
+
+#: builder/src/canvas.jsx:33
+msgid "This form is empty. Drag a field here, or click one on the left."
+msgstr "Este formulario está vacío. Arrastra un campo aquí o haz clic en uno de la izquierda."
+
+#: builder/src/canvas.jsx:36
+msgid "Or start from a template"
+msgstr "O empieza con una plantilla"
+
+#: builder/src/canvas.jsx:86
+msgid "conditional"
+msgstr "condicional"
+
+#. translators: %s: block name.
+#: builder/src/canvas.jsx:125
+msgid "Reorder %s"
+msgstr "Reordenar %s"
+
+#. translators: %s: block name.
+#: builder/src/canvas.jsx:154
+msgid "Move %s up"
+msgstr "Subir %s"
+
+#. translators: %s: block name.
+#: builder/src/canvas.jsx:161
+msgid "Move %s down"
+msgstr "Bajar %s"
+
+#. translators: %s: block name.
+#: builder/src/canvas.jsx:168
+msgid "Remove %s"
+msgstr "Quitar %s"
+
+#: builder/src/field-panel.jsx:88
+msgid "Allow multiple files"
+msgstr "Permitir varios archivos"
+
+#: builder/src/field-panel.jsx:90
+msgid "Formula"
+msgstr "Fórmula"
+
+#: builder/src/field-panel.jsx:90
+msgid "Use field ids in braces, e.g. {quantity} * 12.50"
+msgstr "Usa los ID de los campos entre llaves, p. ej. {quantity} * 12.50"
+
+#: builder/src/field-panel.jsx:91
+msgid "Prefix"
+msgstr "Prefijo"
+
+#: builder/src/field-panel.jsx:92
+msgid "Suffix"
+msgstr "Sufijo"
+
+#: builder/src/field-panel.jsx:93
+msgid "Decimal places"
+msgstr "Decimales"
+
+#: builder/src/field-panel.jsx:95
+msgid "Fills in"
+msgstr "Rellena"
+
+#: builder/src/field-panel.jsx:99
+msgid "Data (CSV)"
+msgstr "Datos (CSV)"
+
+#: builder/src/field-panel.jsx:99
+msgid "First line names the levels (e.g. Country,State); each further line is one path."
+msgstr "La primera línea nombra los niveles (p. ej. País,Provincia); cada línea siguiente es una ruta."
+
+#: builder/src/field-panel.jsx:101
+msgid "Amount mode"
+msgstr "Modo del importe"
+
+#: builder/src/field-panel.jsx:104
+msgid "Amount"
+msgstr "Importe"
+
+#: builder/src/field-panel.jsx:105
+msgid "Amount from field (id)"
+msgstr "Importe de un campo (ID)"
+
+#: builder/src/field-panel.jsx:106
+msgid "Currency"
+msgstr "Moneda"
+
+#: builder/src/field-panel.jsx:107
+msgid "Add button text"
+msgstr "Texto del botón de añadir"
+
+#: builder/src/field-panel.jsx:108
+msgid "Sub-field schema (JSON array)"
+msgstr "Esquema de subcampos (array JSON)"
+
+#: builder/src/field-panel.jsx:108
+msgid "e.g. [{\"id\":\"name\",\"type\":\"text\",\"label\":\"Name\"}]. Left empty, one \"Item\" column is shown."
+msgstr "p. ej. [{\"id\":\"name\",\"type\":\"text\",\"label\":\"Name\"}]. Si lo dejas vacío, se muestra una columna \"Item\"."
+
+#: builder/src/field-panel.jsx:109
+msgid "Correct answer value (quiz)"
+msgstr "Valor de la respuesta correcta (cuestionario)"
+
+#: builder/src/field-panel.jsx:111
+msgid "Check it is a full phone number (7 to 15 digits, + allowed)"
+msgstr "Comprobar que es un número de teléfono completo (de 7 a 15 dígitos, se admite +)"
+
+#: builder/src/field-panel.jsx:136
+msgid "Field settings"
+msgstr "Ajustes del campo"
+
+#: builder/src/field-panel.jsx:145
+msgid "Allow multiple selections"
+msgstr "Permitir varias selecciones"
+
+#: builder/src/field-panel.jsx:207
+msgid "Select a field to edit its settings."
+msgstr "Selecciona un campo para editar sus ajustes."
+
+#: builder/src/field-panel.jsx:268
+msgid "A regular expression the value must match. Leave empty for no check."
+msgstr "Una expresión regular que el valor debe cumplir. Déjalo vacío para no comprobar nada."
+
+#: builder/src/field-panel.jsx:331
+msgid "Shown instead of the label in entries and exports. Useful when the public label is a long question."
+msgstr "Se muestra en lugar de la etiqueta en los envíos y exportaciones. Útil cuando la etiqueta pública es una pregunta larga."
+
+#: builder/src/field-panel.jsx:375
+msgid "Replaces the built-in \"this field is required\" wording."
+msgstr "Sustituye el texto predeterminado \"este campo es obligatorio\"."
+
+#. translators: %d: number of further choices not shown.
+#: builder/src/field-preview.jsx:31
+msgid "+ %d more"
+msgstr "+ %d más"
+
+#: builder/src/field-preview.jsx:37
+msgid "No choices yet"
+msgstr "Aún no hay opciones"
+
+#: builder/src/field-preview.jsx:55
+msgid "Select an option"
+msgstr "Selecciona una opción"
+
+#: builder/src/field-preview.jsx:66
+msgid "Select a country"
+msgstr "Selecciona un país"
+
+#: builder/src/field-preview.jsx:67
+msgid "United States"
+msgstr "Estados Unidos"
+
+#: builder/src/field-preview.jsx:68
+msgid "United Kingdom"
+msgstr "Reino Unido"
+
+#: builder/src/field-preview.jsx:69
+msgid "India"
+msgstr "India"
+
+#: builder/src/field-preview.jsx:110
+msgid "Custom HTML"
+msgstr "HTML personalizado"
+
+#: builder/src/field-preview.jsx:117
+msgid "Hidden: not shown to visitors"
+msgstr "Oculto: no se muestra a los visitantes"
+
+#: builder/src/field-preview.jsx:135
+msgid "Street"
+msgstr "Calle"
+
+#: builder/src/field-preview.jsx:138
+msgid "Postcode"
+msgstr "Código postal"
+
+#: builder/src/field-preview.jsx:192
+msgid "Drop a file here or browse"
+msgstr "Suelta un archivo aquí o búscalo"
+
+#: builder/src/field-preview.jsx:197
+msgid "Signature pad"
+msgstr "Panel de firma"
+
+#: builder/src/field-preview.jsx:209
+msgid "Repeatable group"
+msgstr "Grupo repetible"
+
+#: builder/src/opaque-card.jsx:15
+msgid "Advanced block"
+msgstr "Bloque avanzado"
+
+#: builder/src/opaque-card.jsx:18
+msgid "Kept exactly as it is. Edit it in the block editor."
+msgstr "Se conserva tal cual. Edítalo en el editor de bloques."
+
+#. translators: %s: block title, e.g. "Columns".
+#: builder/src/opaque-card.jsx:24
+msgid "Open %s in the block editor"
+msgstr "Abrir %s en el editor de bloques"
+
+#: blocks/field-address/block.json
+msgctxt "block title"
+msgid "Address"
+msgstr "Dirección"
+
+#: blocks/field-checkbox/block.json
+msgctxt "block title"
+msgid "Checkbox group"
+msgstr "Grupo de casillas"
+
+#: blocks/field-consent/block.json
+msgctxt "block title"
+msgid "Consent"
+msgstr "Consentimiento"
+
+#: blocks/field-country/block.json
+msgctxt "block title"
+msgid "Country"
+msgstr "País"
+
+#: blocks/field-date/block.json
+msgctxt "block title"
+msgid "Date"
+msgstr "Fecha"
+
+#: blocks/field-email/block.json
+msgctxt "block title"
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: blocks/field-file/block.json
+msgctxt "block title"
+msgid "File upload"
+msgstr "Subida de archivos"
+
+#: blocks/field-hidden/block.json
+msgctxt "block title"
+msgid "Hidden"
+msgstr "Oculto"
+
+#: blocks/field-html/block.json
+msgctxt "block title"
+msgid "HTML"
+msgstr "HTML"
+
+#: blocks/field-image-choice/block.json
+msgctxt "block title"
+msgid "Image Choice"
+msgstr "Opción con imagen"
+
+#: blocks/field-list/block.json
+msgctxt "block title"
+msgid "List"
+msgstr "Lista"
+
+#: blocks/field-multiple-choice/block.json
+msgctxt "block title"
+msgid "Multiple Choice"
+msgstr "Opción múltiple"
+
+#: blocks/field-multiselect/block.json
+msgctxt "block title"
+msgid "Multi Select"
+msgstr "Selección múltiple"
+
+#: blocks/field-name/block.json
+msgctxt "block title"
+msgid "Name"
+msgstr "Nombre"
+
+#: blocks/field-number/block.json
+msgctxt "block title"
+msgid "Number"
+msgstr "Número"
+
+#: blocks/field-option/block.json
+msgctxt "block title"
+msgid "Option"
+msgstr "Opción"
+
+#: blocks/field-page-break/block.json
+msgctxt "block title"
+msgid "Page break"
+msgstr "Salto de página"
+
+#: blocks/field-password/block.json
+msgctxt "block title"
+msgid "Password"
+msgstr "Contraseña"
+
+#: blocks/field-phone/block.json
+msgctxt "block title"
+msgid "Phone"
+msgstr "Teléfono"
+
+#: blocks/field-product/block.json
+msgctxt "block title"
+msgid "Product"
+msgstr "Producto"
+
+#: blocks/field-quantity/block.json
+msgctxt "block title"
+msgid "Quantity"
+msgstr "Cantidad"
+
+#: blocks/field-radio/block.json
+msgctxt "block title"
+msgid "Radio"
+msgstr "Botones de opción"
+
+#: blocks/field-range/block.json
+msgctxt "block title"
+msgid "Range slider"
+msgstr "Control deslizante"
+
+#: blocks/field-rating/block.json
+msgctxt "block title"
+msgid "Rating"
+msgstr "Valoración"
+
+#: blocks/field-section/block.json
+msgctxt "block title"
+msgid "Section heading"
+msgstr "Título de sección"
+
+#: blocks/field-select/block.json
+msgctxt "block title"
+msgid "Select"
+msgstr "Desplegable"
+
+#: blocks/field-shipping/block.json
+msgctxt "block title"
+msgid "Shipping"
+msgstr "Gastos de envío"
+
+#: blocks/field-text/block.json
+msgctxt "block title"
+msgid "Text"
+msgstr "Texto"
+
+#: blocks/field-textarea/block.json
+msgctxt "block title"
+msgid "Textarea"
+msgstr "Área de texto"
+
+#: blocks/field-time/block.json
+msgctxt "block title"
+msgid "Time"
+msgstr "Hora"
+
+#: blocks/field-total/block.json
+msgctxt "block title"
+msgid "Total"
+msgstr "Total"
+
+#: blocks/field-website/block.json
+msgctxt "block title"
+msgid "Website"
+msgstr "Sitio web"
+
+#: blocks/form-block/block.json
+msgctxt "block title"
+msgid "Trinity Forms Form"
+msgstr "Formulario de Trinity Forms"

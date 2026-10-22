@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "trinity-forms/field-range",
+    "title": "Range slider",
+    "category": "trinity-forms",
+    "icon": "leftright",
+    "supports": { "html": false, "reusable": false, "inserter": true },
+    "attributes": {
+        "fieldId":     { "type": "string", "default": "" },
+        "label":       { "type": "string", "default": "Range" },
+        "help":        { "type": "string", "default": "" },
+        "required":    { "type": "boolean", "default": false },
+        "min":         { "type": "number", "default": 0 },
+        "max":         { "type": "number", "default": 100 },
+        "step":        { "type": "number", "default": 1 },
+        "default":     { "type": "number" },
+        "conditional": { "type": "object" }
+    },
+    "editorScript": "file:./index.js"
+}

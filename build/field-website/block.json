@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "trinity-forms/field-website",
+  "title": "Website",
+  "category": "trinity-forms",
+  "icon": "admin-links",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "inserter": true
+  },
+  "attributes": {
+    "fieldId": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": "Website"
+    },
+    "help": {
+      "type": "string",
+      "default": ""
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "conditional": {
+      "type": "object"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "https://example.com"
+    }
+  },
+  "editorScript": "file:./index.js"
+}

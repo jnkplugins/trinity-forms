@@ -1,0 +1,78 @@
+.trinity-forms-tabs { display:flex; gap:4px; border-bottom:1px solid #c3c4c7; margin-bottom:12px; }
+.trinity-forms-tabs button { background:transparent; border:1px solid transparent; border-bottom:0; padding:6px 12px; cursor:pointer; }
+.trinity-forms-tabs button.active { background:#fff; border-color:#c3c4c7; }
+.trinity-forms-tab-panel { display:none; }
+.trinity-forms-tab-panel.active { display:block; }
+.trinity-forms-list-card { border:1px solid #dcdcde; padding:12px; margin-bottom:12px; background:#fafafa; }
+.trinity-forms-list-card label { display:block; margin-top:8px; font-weight:600; }
+.trinity-forms-list-card input[type=text], .trinity-forms-list-card input[type=email],
+.trinity-forms-list-card input[type=password], .trinity-forms-list-card input[type=number],
+.trinity-forms-list-card select, .trinity-forms-list-card textarea { width:100%; }
+.trinity-forms-row-actions { margin-top:8px; }
+.trinity-forms-tags { display:inline-flex; flex-wrap:wrap; gap:4px; margin-left:4px; vertical-align:middle; }
+.trinity-forms-tag { font-family:Menlo,Consolas,monospace; font-size:12px; background:#f0f0f1; border:1px solid #c3c4c7; border-radius:3px; padding:1px 6px; cursor:copy; }
+.trinity-forms-tag:hover { background:#e0e0e1; }
+.trinity-forms-tag.is-copied { background:#d5f5dd; border-color:#00a32a; }
+
+/* --- Merge-tag picker ------------------------------------------------------- */
+
+/* Anchored to the input it fills in, so the menu opens where you are looking
+   rather than at the top of the tab. */
+.trinity-forms-tag-picker { position: relative; display: inline-block; margin-left: .35rem; vertical-align: top; }
+.trinity-forms-tag-toggle { font-family: monospace; padding: 0 .5rem; }
+
+.trinity-forms-tag-menu {
+    position: absolute;
+    z-index: 100;
+    top: calc(100% + 4px);
+    left: 0;
+    min-width: 22rem;
+    max-height: 20rem;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+    padding: .35rem 0;
+}
+/* Right-align when the input sits near the edge of the metabox, so the menu is
+   not clipped off-screen. */
+@media (max-width: 900px) {
+    .trinity-forms-tag-menu { left: auto; right: 0; }
+}
+
+.trinity-forms-tag-menu-heading {
+    margin: .4rem 0 .2rem;
+    padding: 0 .75rem;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: #646970;
+}
+.trinity-forms-tag-menu-item {
+    display: flex;
+    gap: .6rem;
+    align-items: baseline;
+    width: 100%;
+    background: none;
+    border: 0;
+    text-align: left;
+    padding: .3rem .75rem;
+    cursor: pointer;
+    font: inherit;
+}
+.trinity-forms-tag-menu-item:hover,
+.trinity-forms-tag-menu-item:focus { background: #f0f0f1; }
+.trinity-forms-tag-menu-item code { flex: none; font-size: 12px; }
+.trinity-forms-tag-menu-item span { color: #50575e; font-size: 12px; }
+
+/* "Send a test" result on a notification card (2.10.0). */
+.trinity-forms-list-card .tf-test-result { margin: 6px 0 0; }
+.trinity-forms-list-card .tf-test-result.is-error { color: #b32d2e; }
+
+/* Layout tab style preview (2.10.0). */
+.tf-style-preview { max-width: 420px; padding: 16px; border: 1px dashed #c3c4c7; border-radius: 8px; background: #fff; pointer-events: none; }
+.tf-style-preview .trinity-forms-field input[type="text"] { width: 100%; }
+/* wp-admin restyles checkboxes (appearance:none + its own blue), which hid the accent in the preview only. */
+.tf-style-preview input[type="checkbox"]:checked { background-color: var(--trinity-forms-accent, #3858e9); border-color: var(--trinity-forms-accent, #3858e9); }

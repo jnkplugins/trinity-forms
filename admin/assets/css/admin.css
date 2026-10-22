@@ -1,0 +1,394 @@
+/*
+ * Trinity Forms admin: the Trinity layer on top of the shared JnK kit (jnk-ui.css).
+ *
+ * jnk-ui.css stays byte-identical across the JnK plugins; everything Trinity-only
+ * lives here: the indigo brand, the post-type list screens (Forms, Views) that
+ * WordPress draws itself, and the screen details (entries, entry, results...).
+ * Every rule is scoped under .jnkui or body.tf-ui, so nothing leaks into other
+ * screens or plugins.
+ */
+
+/* ---------- Brand: indigo ---------- */
+.jnkui.tf-ui-wrap,
+body.tf-ui {
+	--jnk-brand: #4f46e5;
+	--jnk-brand-2: #7c3aed;
+	--jnk-brand-soft: #eef2ff;
+}
+/* The list screens are not inside .jnkui, so they need the neutral tokens too. */
+body.tf-ui {
+	--jnk-ink: #0f172a;
+	--jnk-ink-2: #334155;
+	--jnk-mute: #64748b;
+	--jnk-line: #e2e8f0;
+	--jnk-line-2: #f1f5f9;
+	--jnk-bg: #f6f7fb;
+	--jnk-radius: 12px;
+	--jnk-shadow: 0 1px 2px rgba(15, 23, 42, .05), 0 1px 3px rgba(15, 23, 42, .06);
+}
+body.tf-ui,
+body.tf-ui #wpcontent,
+body.tf-ui #wpfooter { background: #f6f7fb; }
+
+/* ---------- Post-type list screens (Forms, Views) ---------- */
+/* The header (top bar, title, tiles) is printed before WordPress' own .wrap. */
+.jnkui.tf-ui-listhead { padding-bottom: 0; }
+.jnkui.tf-ui-listhead .jnkui-page { padding-bottom: 4px; }
+.jnkui.tf-ui-listhead .tf-stats { margin-bottom: 4px; }
+body.tf-ui-list #wpbody-content > .wrap {
+	margin: 8px 28px 0 8px;
+	max-width: 1280px;
+	color: var(--jnk-ink-2);
+}
+/* The same title and "Add" link are in the header above. */
+body.tf-ui-list .wrap > h1.wp-heading-inline,
+body.tf-ui-list .wrap > .page-title-action { display: none; }
+body.tf-ui-list .wrap .subsubsub { margin: 4px 0 8px; font-size: 13px; }
+body.tf-ui-list .wrap .subsubsub a { color: var(--jnk-mute); font-weight: 550; }
+body.tf-ui-list .wrap .subsubsub a.current { color: var(--jnk-ink); }
+body.tf-ui-list .wrap .subsubsub a.current .count { color: var(--jnk-brand); }
+body.tf-ui-list .wrap input[type=search],
+body.tf-ui-list .wrap select {
+	border: 1px solid #cbd5e1; border-radius: 8px; min-height: 34px; box-shadow: none;
+}
+body.tf-ui-list .wrap select { padding-right: 26px; }
+body.tf-ui-list .wrap .button {
+	border-radius: 8px; border-color: var(--jnk-line); background: #fff; color: var(--jnk-ink);
+	font-weight: 600; min-height: 34px; line-height: 32px;
+}
+body.tf-ui-list .wrap .button:hover { background: var(--jnk-line-2); border-color: #cbd5e1; color: var(--jnk-ink); }
+body.tf-ui-list .wrap .tablenav { height: auto; min-height: 34px; margin: 8px 0; }
+body.tf-ui-list .wp-list-table {
+	border: 1px solid var(--jnk-line); border-radius: var(--jnk-radius); box-shadow: var(--jnk-shadow);
+	border-collapse: separate; border-spacing: 0; overflow: hidden; background: #fff;
+}
+body.tf-ui-list .wp-list-table thead th,
+body.tf-ui-list .wp-list-table thead td,
+body.tf-ui-list .wp-list-table tfoot th,
+body.tf-ui-list .wp-list-table tfoot td {
+	background: #f8fafc; color: var(--jnk-mute); font-size: 11.5px; font-weight: 650;
+	text-transform: uppercase; letter-spacing: .04em; border-color: var(--jnk-line);
+}
+body.tf-ui-list .wp-list-table thead th a,
+body.tf-ui-list .wp-list-table tfoot th a { color: var(--jnk-mute); }
+body.tf-ui-list .wp-list-table.striped > tbody > :nth-child(odd) { background: #fff; }
+body.tf-ui-list .wp-list-table tbody tr:hover { background: #fafbff; }
+body.tf-ui-list .wp-list-table tbody td,
+body.tf-ui-list .wp-list-table tbody th { border-bottom: 1px solid var(--jnk-line-2); }
+body.tf-ui-list .wp-list-table tbody tr:last-child td,
+body.tf-ui-list .wp-list-table tbody tr:last-child th { border-bottom: 0; }
+body.tf-ui-list .wp-list-table .row-title { color: var(--jnk-ink); font-weight: 650; font-size: 14px; }
+body.tf-ui-list .wp-list-table .row-title:hover { color: var(--jnk-brand); }
+body.tf-ui-list .wp-list-table td a { color: var(--jnk-brand); }
+body.tf-ui-list .wp-list-table .row-actions a { color: var(--jnk-mute); }
+body.tf-ui-list .wp-list-table .row-actions a:hover { color: var(--jnk-brand); }
+body.tf-ui-list .wp-list-table .row-actions .trash a,
+body.tf-ui-list .wp-list-table .row-actions .delete a { color: #b91c1c; }
+body.tf-ui-list .wp-list-table td code {
+	font-size: 12px; background: var(--jnk-line-2); border: 1px solid var(--jnk-line);
+	border-radius: 6px; padding: 2px 6px; color: var(--jnk-ink-2); white-space: nowrap;
+}
+body.tf-ui-list .wp-list-table td.column-trinity_forms_submissions a {
+	display: inline-block; min-width: 28px; text-align: center; padding: 1px 8px; border-radius: 999px;
+	background: var(--jnk-brand-soft); color: var(--jnk-brand); font-weight: 650; text-decoration: none;
+}
+body.tf-ui-list .wp-list-table .column-date { color: var(--jnk-mute); }
+@media (max-width: 782px) {
+	body.tf-ui-list #wpbody-content > .wrap { margin: 8px 14px 0 4px; }
+	body.tf-ui-list .wp-list-table td code { white-space: normal; word-break: break-all; }
+}
+
+/* ---------- Page bits shared by our own screens ---------- */
+.jnkui .jnkui-page > h2,
+.jnkui .jnkui-page form > h2,
+.jnkui .tf-section-title {
+	margin: 28px 0 10px; font-size: 15px; font-weight: 650; color: var(--jnk-ink); letter-spacing: -.01em;
+}
+.jnkui .jnkui-page form > h3 { margin: 18px 0 8px; font-size: 13px; font-weight: 650; color: var(--jnk-ink-2); }
+.jnkui .jnkui-head + form > h2:first-of-type { margin-top: 0; }
+.jnkui .jnkui-page > .description,
+.jnkui .jnkui-page form > .description { max-width: 760px; }
+.jnkui .notice { border-radius: 10px; box-shadow: var(--jnk-shadow); }
+.jnkui .notice.inline { margin: 0 0 16px; }
+.jnkui code { background: var(--jnk-line-2); border-radius: 5px; padding: 1px 5px; font-size: 12px; }
+.jnkui .jnkui-card-body > :first-child { margin-top: 0; }
+.jnkui .jnkui-card-body > :last-child { margin-bottom: 0; }
+.jnkui .jnkui-card .form-table { border: 0; box-shadow: none; border-radius: 0; margin: 0; }
+.jnkui .tf-actions-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+@media (max-width: 782px) {
+	.jnkui .form-table th { padding: 14px 16px 0; width: auto; }
+	.jnkui .form-table td { padding: 8px 16px 14px; }
+	.jnkui input.regular-text, .jnkui input.large-text, .jnkui textarea.large-text { width: 100%; max-width: 100%; }
+}
+
+/* ---------- Entries list ---------- */
+.jnkui .tf-segments { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+.jnkui .tf-segments a {
+	display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px;
+	color: var(--jnk-ink-2); background: #fff; border: 1px solid var(--jnk-line); text-decoration: none;
+	font-weight: 600; font-size: 13px;
+}
+.jnkui .tf-segments a:hover { border-color: #cbd5e1; color: var(--jnk-ink); }
+.jnkui .tf-segments a.is-active { background: var(--jnk-ink); border-color: var(--jnk-ink); color: #fff; }
+.jnkui .tf-segments .tf-count {
+	font-size: 11.5px; font-weight: 650; padding: 0 7px; border-radius: 999px; line-height: 18px;
+	background: var(--jnk-line-2); color: var(--jnk-mute); font-variant-numeric: tabular-nums;
+}
+.jnkui .tf-segments a.is-active .tf-count { background: rgba(255, 255, 255, .18); color: #fff; }
+
+.jnkui .tf-filterbar {
+	display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 14px; padding: 12px;
+	background: #fff; border: 1px solid var(--jnk-line); border-radius: var(--jnk-radius); box-shadow: var(--jnk-shadow);
+}
+.jnkui .tf-filterbar select { min-width: 160px; max-width: 100%; }
+.jnkui .tf-filterbar .tf-dates { display: inline-flex; align-items: center; gap: 6px; }
+.jnkui .tf-filterbar .tf-search { flex: 1 1 200px; min-width: 0; }
+.jnkui .tf-filterbar .button-link { color: var(--jnk-mute); }
+
+.jnkui .tf-columns-panel {
+	background: #fff; border: 1px solid var(--jnk-line); border-radius: var(--jnk-radius);
+	padding: 0 16px; margin: 0 0 14px; box-shadow: var(--jnk-shadow);
+}
+.jnkui .tf-columns-panel > summary { cursor: pointer; font-weight: 600; padding: 12px 0; color: var(--jnk-ink); }
+.jnkui .tf-columns-panel[open] > summary { border-bottom: 1px solid var(--jnk-line-2); margin-bottom: 8px; }
+.jnkui .tf-columns-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px 16px; }
+
+.jnkui .tf-bulkbar { margin-bottom: 10px; }
+.jnkui .tf-bulk { display: flex; gap: 8px; align-items: center; }
+
+.jnkui table.tf-entries td,
+.jnkui table.tf-entries th { padding: 9px 12px; vertical-align: middle; }
+.jnkui table.tf-entries thead th, .jnkui table.tf-entries thead td { padding: 10px 12px; }
+.jnkui table.tf-entries .tf-col-cb { width: 22px; padding-right: 0; }
+.jnkui table.tf-entries .tf-col-cb input { margin: 0; }
+.jnkui table.tf-entries .tf-col-star { width: 22px; padding-left: 4px; padding-right: 0; }
+.jnkui table.tf-entries .tf-col-who { min-width: 200px; }
+.jnkui table.tf-entries .tf-col-date { white-space: nowrap; color: var(--jnk-ink-2); }
+.jnkui table.tf-entries .tf-col-status,
+.jnkui table.tf-entries .tf-col-pay { white-space: nowrap; width: 1%; }
+.jnkui table.tf-entries .tf-col-form { color: var(--jnk-ink-2); }
+.jnkui table.tf-entries .tf-entry-link { display: inline-flex; align-items: center; gap: 7px; font-weight: 550; color: var(--jnk-ink); }
+.jnkui table.tf-entries tr.tf-unread .tf-entry-link { font-weight: 700; }
+.jnkui table.tf-entries tr.tf-unread td,
+.jnkui table.tf-entries tr.tf-unread th { background: #fbfbff; }
+/* Row actions sit where the email line is and swap in on hover or keyboard focus,
+   so they never add height to every row (WordPress' own row actions take up a
+   line even while hidden). */
+.jnkui table.tf-entries td.tf-col-who { position: relative; }
+.jnkui table.tf-entries .tf-col-who .row-actions { position: absolute; left: -9999em; bottom: 9px; padding: 0; font-size: 12.5px; white-space: nowrap; }
+.jnkui table.tf-entries tr:hover .tf-col-who .row-actions,
+.jnkui table.tf-entries .tf-col-who:focus-within .row-actions { left: 12px; right: 12px; overflow: hidden; text-overflow: ellipsis; }
+.jnkui table.tf-entries tr:hover .tf-col-who .jnkui-sub,
+.jnkui table.tf-entries .tf-col-who:focus-within .jnkui-sub { visibility: hidden; }
+.jnkui table.tf-entries .row-actions a { color: var(--jnk-mute); font-weight: 500; }
+.jnkui table.tf-entries .row-actions a:hover { color: var(--jnk-brand); }
+.jnkui table.tf-entries .row-actions .trash a { color: var(--jnk-bad); }
+.jnkui table.tf-entries tr.tf-empty-row td { padding: 0; }
+.jnkui table.tf-entries tr.tf-empty-row .jnkui-empty { border: 0; border-radius: 0; }
+.jnkui .tf-pagination { margin: 14px 0 0; display: flex; gap: 4px; flex-wrap: wrap; }
+.jnkui .tf-pagination .page-numbers {
+	display: inline-grid; place-items: center; min-width: 34px; height: 34px; padding: 0 8px; border-radius: 8px;
+	background: #fff; border: 1px solid var(--jnk-line); color: var(--jnk-ink-2); text-decoration: none; font-weight: 600;
+}
+.jnkui .tf-pagination .page-numbers.current { background: var(--jnk-ink); color: #fff; border-color: var(--jnk-ink); }
+.jnkui .tf-pagination .page-numbers.dots { border: 0; background: none; }
+/* Narrow screens: drop the form and answer columns so a row still fits. */
+.jnkui .tf-mobile-only { display: none; }
+@media (max-width: 782px) {
+	.jnkui table.tf-entries .tf-col-form,
+	.jnkui table.tf-entries .tf-col-answer,
+	.jnkui table.tf-entries .tf-col-date,
+	.jnkui table.tf-entries .tf-col-pay { display: none; }
+	.jnkui table.tf-entries .tf-mobile-only { display: block; }
+	.jnkui table.tf-entries .tf-col-who { min-width: 150px; }
+	.jnkui .tf-filterbar select, .jnkui .tf-filterbar .tf-dates { flex: 1 1 100%; }
+	.jnkui .tf-filterbar .tf-dates input { flex: 1; min-width: 0; }
+}
+
+/* Star: an action, not a link. Earns its yellow once it is on. */
+.tf-star { color: #a7aaad; text-decoration: none; display: inline-block; line-height: 1; }
+.tf-star:hover, .tf-star:focus { color: #dba617; }
+.tf-star.is-on { color: #dba617; }
+.jnkui .tf-star .dashicons { font-size: 18px; width: 18px; height: 18px; }
+
+/* Status pills in the older class names (kept for any markup still using them). */
+.tf-pill { display: inline-block; padding: 1px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 600; line-height: 18px; white-space: nowrap; }
+.tf-pill-success { background: #ecfdf5; color: #047857; }
+.tf-pill-warning { background: #fffbeb; color: #b45309; }
+.tf-pill-info    { background: #eff6ff; color: #1d4ed8; }
+.tf-pill-danger  { background: #fef2f2; color: #b91c1c; }
+.tf-pill-muted   { background: #f1f5f9; color: #64748b; }
+.tf-pill-neutral { background: #f1f5f9; color: #334155; }
+
+/* ---------- Single entry ---------- */
+.jnkui .tf-entry-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 0 0 18px; }
+.jnkui .tf-entry-actions .dashicons { font-size: 16px; width: 16px; height: 16px; }
+.jnkui .tf-entry-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 20px; align-items: start; }
+@media (max-width: 1100px) { .jnkui .tf-entry-grid { grid-template-columns: minmax(0, 1fr); } }
+.jnkui .tf-answers { margin: 0; }
+.jnkui .tf-answers > div { display: grid; grid-template-columns: minmax(120px, 30%) minmax(0, 1fr); gap: 16px; padding: 13px 22px; border-bottom: 1px solid var(--jnk-line-2); }
+.jnkui .tf-answers > div:last-child { border-bottom: 0; }
+.jnkui .tf-answers dt { color: var(--jnk-mute); font-weight: 600; font-size: 13px; }
+.jnkui .tf-answers dd { margin: 0; color: var(--jnk-ink); overflow-wrap: anywhere; }
+@media (max-width: 600px) { .jnkui .tf-answers > div { grid-template-columns: 1fr; gap: 2px; padding: 12px 16px; } }
+.jnkui .tf-facts { margin: 0; }
+.jnkui .tf-facts > div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 22px; border-bottom: 1px solid var(--jnk-line-2); }
+.jnkui .tf-facts > div:last-child { border-bottom: 0; }
+.jnkui .tf-facts dt { color: var(--jnk-mute); font-size: 13px; flex: none; }
+.jnkui .tf-facts dd { margin: 0; text-align: right; color: var(--jnk-ink); min-width: 0; overflow-wrap: anywhere; }
+.jnkui .tf-pager { display: inline-flex; gap: 6px; }
+.jnkui .button.disabled { opacity: .5; pointer-events: none; }
+
+/* Notes read as a thread. */
+.jnkui .tf-notes { margin: 0; padding: 0; list-style: none; }
+.jnkui .tf-note { padding: 12px 22px; border-bottom: 1px solid var(--jnk-line-2); margin: 0; }
+.jnkui .tf-note-system { background: #f8fafc; color: var(--jnk-mute); font-size: 13px; }
+.jnkui .tf-note-head { display: flex; gap: 8px; align-items: baseline; margin-bottom: 2px; }
+.jnkui .tf-note-head strong { color: var(--jnk-ink); }
+.jnkui .tf-note-head .description { font-size: 12px; }
+.jnkui .tf-note-delete { margin-left: auto; color: var(--jnk-bad); text-decoration: none; font-size: 12px; }
+.jnkui .tf-note-form { padding: 16px 22px; }
+.jnkui .tf-note-form textarea { width: 100%; }
+.jnkui .tf-note-form p { margin: 8px 0 0; }
+.jnkui .tf-logs { margin: 0; padding: 0; list-style: none; max-height: 360px; overflow-y: auto; }
+.jnkui .tf-logs li { padding: 10px 22px; border-bottom: 1px solid var(--jnk-line-2); font-size: 13px; margin: 0; }
+.jnkui .tf-logs li:last-child { border-bottom: 0; }
+.jnkui .tf-logs .jnkui-pill { margin-right: 4px; }
+
+/* ---------- Templates ---------- */
+.jnkui .tf-tpl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+.jnkui .tf-tpl-card { display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; margin: 0; transition: border-color .15s, box-shadow .15s; }
+.jnkui .tf-tpl-card:hover { border-color: color-mix(in srgb, var(--jnk-brand) 35%, var(--jnk-line)); box-shadow: var(--jnk-shadow-lg); }
+.jnkui .tf-tpl-icon { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: var(--jnk-brand-soft); color: var(--jnk-brand); }
+.jnkui .tf-tpl-icon .dashicons { font-size: 22px; width: 22px; height: 22px; }
+.jnkui .tf-tpl-card h2 { margin: 4px 0 0; font-size: 15px; }
+.jnkui .tf-tpl-card p { margin: 0; color: var(--jnk-mute); font-size: 13px; flex: 1; }
+.jnkui .tf-tpl-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 6px; }
+.jnkui .tf-tpl-card form { margin: 0; }
+
+/* ---------- Results ---------- */
+.jnkui .tf-res-picker { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.jnkui .tf-res-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; align-items: start; }
+@media (max-width: 600px) { .jnkui .tf-res-grid { grid-template-columns: 1fr; } }
+.jnkui .tf-res-grid .jnkui-card { margin: 0; }
+.jnkui .tf-res-row { display: grid; grid-template-columns: minmax(0, 36%) minmax(0, 1fr) 68px; gap: 12px; align-items: center; padding: 6px 0; font-size: 13px; }
+.jnkui .tf-res-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--jnk-ink); }
+.jnkui .tf-res-row .jnkui-bar { height: 10px; min-width: 0; }
+.jnkui .tf-res-num { text-align: right; color: var(--jnk-mute); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.jnkui .tf-res-num b { color: var(--jnk-ink); }
+.jnkui .tf-res-avg { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.jnkui .tf-res-avg b { font-size: 34px; line-height: 1; font-weight: 700; color: var(--jnk-ink); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+
+/* ---------- Upgrade / features ---------- */
+.jnkui .tf-feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 20px; }
+.jnkui .tf-feature-grid .jnkui-card { margin: 0; }
+.jnkui .tf-feature-grid h2 { display: flex; align-items: center; gap: 8px; margin: 0 0 6px; }
+.jnkui .tf-feature-grid h2::before { content: "\2713"; display: inline-grid; place-items: center; flex: none; width: 22px; height: 22px; border-radius: 50%; font-size: 12px; background: var(--jnk-brand-soft); color: var(--jnk-brand); }
+.jnkui .tf-feature-grid p { margin: 0; color: var(--jnk-mute); font-size: 13px; }
+.jnkui .tf-hero-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 4px 0 20px; }
+.jnkui .button.button-hero { min-height: 44px; padding: 0 20px; font-size: 14px; }
+
+/* ---------- Visual Builder page ---------- */
+.jnkui.tf-builder-page .jnkui-page { max-width: none; padding-top: 20px; }
+.jnkui.tf-builder-page { padding-bottom: 24px; }
+
+/* ---------- Integrations ---------- */
+.jnkui .tf-int-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.jnkui .tf-int-card { display: flex; align-items: center; gap: 12px; padding: 14px 16px; margin: 0; }
+.jnkui .tf-int-logo { flex: none; width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; font-weight: 700; font-size: 15px; color: var(--jnk-brand); background: var(--jnk-brand-soft); }
+.jnkui .tf-int-card b { display: block; color: var(--jnk-ink); font-weight: 650; }
+
+/* ---------- Settings ---------- */
+.jnkui .tf-jump { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 20px; }
+.jnkui .tf-jump[hidden] { display: none; }
+.jnkui .tf-jump a {
+	padding: 5px 12px; border-radius: 999px; background: #fff; border: 1px solid var(--jnk-line);
+	color: var(--jnk-ink-2); text-decoration: none; font-weight: 600; font-size: 12.5px;
+}
+.jnkui .tf-jump a:hover { border-color: color-mix(in srgb, var(--jnk-brand) 40%, var(--jnk-line)); color: var(--jnk-brand); }
+.jnkui .tf-settings > h2, .jnkui #tf-licence { scroll-margin-top: 110px; }
+.jnkui .tf-provider {
+	background: #fff; border: 1px solid var(--jnk-line); border-radius: var(--jnk-radius);
+	box-shadow: var(--jnk-shadow); margin: 0 0 10px;
+}
+.jnkui .tf-provider > summary { cursor: pointer; padding: 13px 22px; font-weight: 600; color: var(--jnk-ink); display: flex; align-items: center; gap: 8px; }
+.jnkui .tf-provider[open] > summary { border-bottom: 1px solid var(--jnk-line-2); }
+.jnkui .tf-provider .form-table { border: 0; box-shadow: none; margin: 0; border-radius: 0 0 var(--jnk-radius) var(--jnk-radius); }
+.jnkui .tf-sticky-save {
+	position: sticky; bottom: 0; z-index: 5; margin: 8px -4px 0; padding: 12px 4px;
+	background: linear-gradient(to bottom, rgba(246, 247, 251, 0), var(--jnk-bg) 35%);
+}
+.jnkui .tf-licence-card .jnkui-card-body > .wrap { margin: 0; }
+.jnkui .tf-licence-card h1, .jnkui .tf-licence-card h2 { font-size: 15px; margin-top: 0; }
+.jnkui .tf-narrow { max-width: 760px; }
+
+/* Forms list: column widths, so the shortcode chip never runs into its neighbour. */
+body.tf-ui-list .wp-list-table th.column-trinity_forms_shortcode { width: 200px; }
+body.tf-ui-list .wp-list-table th.column-trinity_forms_fields,
+body.tf-ui-list .wp-list-table th.column-trinity_forms_submissions { width: 76px; }
+body.tf-ui-list .wp-list-table .column-trinity_forms_fields,
+body.tf-ui-list .wp-list-table .column-trinity_forms_submissions { text-align: center; }
+body.tf-ui-list .wp-list-table th.column-trinity_forms_last_sub { width: 150px; }
+body.tf-ui-list .wp-list-table th.column-date { width: 130px; }
+body.tf-ui-list .wp-list-table .column-trinity_forms_stats { color: var(--jnk-mute); font-size: 12.5px; }
+/* Screen Options sits at the right edge of the page column, not the window. */
+body.tf-ui-list #screen-meta-links { float: none; display: flex; justify-content: flex-end; max-width: 1280px; margin: 0 28px 0 8px; }
+body.tf-ui-list #screen-meta-links .show-settings { border-radius: 0 0 8px 8px; }
+body.tf-ui-list #screen-meta { margin: 0 28px 0 8px; max-width: 1280px; }
+@media (max-width: 782px) {
+	body.tf-ui-list .wp-list-table th.column-trinity_forms_shortcode,
+	body.tf-ui-list .wp-list-table th.column-trinity_forms_fields,
+	body.tf-ui-list .wp-list-table th.column-trinity_forms_submissions,
+	body.tf-ui-list .wp-list-table th.column-trinity_forms_last_sub,
+	body.tf-ui-list .wp-list-table th.column-date { width: auto; }
+	body.tf-ui-list .wp-list-table .column-trinity_forms_fields,
+	body.tf-ui-list .wp-list-table .column-trinity_forms_submissions { text-align: left; }
+	body.tf-ui-list #screen-meta-links { display: none; }
+}
+.jnkui .tf-answers a, .jnkui .tf-facts a { color: var(--jnk-brand); text-decoration: none; font-weight: 550; }
+.jnkui .tf-answers a:hover, .jnkui .tf-facts a:hover { text-decoration: underline; }
+.jnkui .tf-transfer { align-items: start; }
+
+/* Phones: the section tabs get their own scrolling row under the brand. */
+@media (max-width: 782px) {
+	.jnkui.tf-ui-wrap .jnkui-topbar { padding-top: 10px; }
+	.jnkui.tf-ui-wrap .jnkui-tabs { order: 3; flex: 1 1 100%; min-height: 42px; }
+	.jnkui.tf-ui-wrap .jnkui-topbar-end { margin-left: auto; }
+	.jnkui.tf-ui-wrap .jnkui-head-actions { width: 100%; }
+}
+@media (max-width: 782px) {
+	.jnkui table.tf-entries .tf-col-who { min-width: 0; }
+	.jnkui table.tf-entries td, .jnkui table.tf-entries th { padding-left: 8px; padding-right: 8px; }
+}
+/* Phones: WordPress pushes #wpbody down to clear the taller admin bar, but the
+   list-screen header prints before #wpbody, so it takes that space instead. */
+@media (max-width: 782px) {
+	.jnkui.tf-ui-listhead { padding-top: 46px; }
+	body.tf-ui-list #wpbody { padding-top: 0; }
+	.jnkui.tf-ui-wrap .tf-stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+	.jnkui.tf-ui-wrap .tf-stats .jnkui-stat { padding: 12px 14px; }
+	.jnkui.tf-ui-wrap .tf-stats .jnkui-stat-value { font-size: 22px; }
+	.jnkui.tf-ui-wrap .tf-stats .jnkui-stat-foot { font-size: 12px; }
+}
+@media (max-width: 782px) {
+	.jnkui .form-table th { border-bottom: 0; }
+}
+
+/* A dashicon inside a kit button sat below the label (Star on a single entry). */
+.jnkui .button:has(> .dashicons) { display: inline-flex; align-items: center; gap: 6px; }
+.jnkui .button > .dashicons { width: 18px; height: 18px; font-size: 18px; line-height: 1; margin: 0; }
+
+/* Email check (2.10.0). */
+.jnkui .tf-mail-check-form { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 8px; }
+.jnkui .tf-mail-check-form input[type=email] { flex: 1 1 260px; max-width: 360px; }
+.jnkui #tf-mail-check h3 { margin: 18px 0 6px; font-size: 13px; }
+.jnkui .tf-mail-failures { border: 1px solid var(--jnk-line-2); border-radius: 10px; }
+.jnkui .tf-mail-failures li { padding: 10px 14px; }
+
+/* First-ten-minutes checklist (2.10.0). */
+.jnkui .tf-onboarding .jnkui-card-head { align-items: flex-start; }
+.jnkui .tf-onboarding-dismiss { font-size: 12.5px; color: var(--jnk-mute); text-decoration: none; white-space: nowrap; }
+.jnkui .tf-onboarding-dismiss:hover { color: var(--jnk-ink); text-decoration: underline; }
+.jnkui .tf-onboarding .jnkui-steps .jnkui-muted { display: block; font-size: 13px; margin-top: 2px; }
+.jnkui .tf-onboarding .jnkui-steps li.is-done strong { color: var(--jnk-mute); text-decoration: line-through; }
+.jnkui .tf-onboarding-action { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }

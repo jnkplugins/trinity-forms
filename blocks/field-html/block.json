@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "trinity-forms/field-html",
+    "title": "HTML",
+    "category": "trinity-forms",
+    "icon": "html",
+    "supports": { "html": false, "reusable": false, "inserter": true },
+    "attributes": {
+        "fieldId":     { "type": "string", "default": "" },
+        "html":        { "type": "string", "default": "<p>Custom HTML</p>" },
+        "conditional": { "type": "object" }
+    },
+    "editorScript": "file:./index.js"
+}

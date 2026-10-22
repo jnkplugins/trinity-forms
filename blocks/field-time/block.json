@@ -1,0 +1,17 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "trinity-forms/field-time",
+    "title": "Time",
+    "category": "trinity-forms",
+    "icon": "clock",
+    "supports": { "html": false, "reusable": false, "inserter": true },
+    "attributes": {
+        "fieldId":     { "type": "string", "default": "" },
+        "label":       { "type": "string", "default": "Time" },
+        "help":        { "type": "string", "default": "" },
+        "required":    { "type": "boolean", "default": false },
+        "conditional": { "type": "object" }
+    },
+    "editorScript": "file:./index.js"
+}

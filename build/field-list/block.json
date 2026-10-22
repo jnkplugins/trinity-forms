@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "trinity-forms/field-list",
+  "title": "List",
+  "category": "trinity-forms",
+  "icon": "editor-ul",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "inserter": true
+  },
+  "attributes": {
+    "fieldId": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": "List"
+    },
+    "help": {
+      "type": "string",
+      "default": ""
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "conditional": {
+      "type": "object"
+    },
+    "columns": {
+      "type": "array",
+      "default": [
+        {
+          "label": "Item"
+        }
+      ]
+    },
+    "maxRows": {
+      "type": "number"
+    }
+  },
+  "editorScript": "file:./index.js"
+}

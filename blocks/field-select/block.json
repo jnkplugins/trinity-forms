@@ -1,0 +1,27 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "trinity-forms/field-select",
+    "title": "Select",
+    "category": "trinity-forms",
+    "icon": "menu",
+    "supports": { "html": false, "reusable": false, "inserter": true },
+    "attributes": {
+        "fieldId":       { "type": "string", "default": "" },
+        "label":         { "type": "string", "default": "Choose one" },
+        "placeholder":   { "type": "string", "default": "— Select —" },
+        "help":          { "type": "string", "default": "" },
+        "required":      { "type": "boolean", "default": false },
+        "options":       {
+            "type": "array",
+            "default": [
+                { "label": "Option A", "value": "a" },
+                { "label": "Option B", "value": "b" }
+            ]
+        },
+        "correctAnswer": { "type": "string", "default": "" },
+        "points":        { "type": "number", "default": 1 },
+        "conditional":   { "type": "object" }
+    },
+    "editorScript": "file:./index.js"
+}

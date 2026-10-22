@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "trinity-forms/field-name",
+  "title": "Name",
+  "category": "trinity-forms",
+  "icon": "admin-users",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "inserter": true
+  },
+  "attributes": {
+    "fieldId": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": "Name"
+    },
+    "help": {
+      "type": "string",
+      "default": ""
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "conditional": {
+      "type": "object"
+    }
+  },
+  "editorScript": "file:./index.js"
+}

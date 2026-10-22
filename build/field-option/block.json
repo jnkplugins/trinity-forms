@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "trinity-forms/field-option",
+  "title": "Option",
+  "category": "trinity-forms",
+  "icon": "screenoptions",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "inserter": true
+  },
+  "attributes": {
+    "fieldId": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": "Option"
+    },
+    "help": {
+      "type": "string",
+      "default": ""
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "conditional": {
+      "type": "object"
+    },
+    "productField": {
+      "type": "string",
+      "default": ""
+    },
+    "multiple": {
+      "type": "boolean",
+      "default": false
+    },
+    "options": {
+      "type": "array",
+      "default": [
+        {
+          "label": "Option one",
+          "value": "option_one"
+        },
+        {
+          "label": "Option two",
+          "value": "option_two"
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./index.js"
+}

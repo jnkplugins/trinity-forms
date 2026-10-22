@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "trinity-forms/field-number",
+  "title": "Number",
+  "category": "trinity-forms",
+  "icon": "calculator",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "inserter": true
+  },
+  "attributes": {
+    "fieldId": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": "Number"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": ""
+    },
+    "help": {
+      "type": "string",
+      "default": ""
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "min": {
+      "type": "number"
+    },
+    "max": {
+      "type": "number"
+    },
+    "step": {
+      "type": "number"
+    },
+    "conditional": {
+      "type": "object"
+    }
+  },
+  "editorScript": "file:./index.js"
+}

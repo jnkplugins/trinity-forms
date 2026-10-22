@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "trinity-forms/field-product",
+  "title": "Product",
+  "category": "trinity-forms",
+  "icon": "cart",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "inserter": true
+  },
+  "attributes": {
+    "fieldId": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": "Product"
+    },
+    "help": {
+      "type": "string",
+      "default": ""
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "conditional": {
+      "type": "object"
+    },
+    "productType": {
+      "type": "string",
+      "default": "single"
+    },
+    "price": {
+      "type": "string",
+      "default": "0.00"
+    },
+    "options": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "editorScript": "file:./index.js"
+}

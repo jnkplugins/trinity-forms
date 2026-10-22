@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "trinity-forms/field-section",
+  "title": "Section heading",
+  "category": "trinity-forms",
+  "icon": "heading",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "inserter": true
+  },
+  "attributes": {
+    "fieldId": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": "Section"
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "conditional": {
+      "type": "object"
+    }
+  },
+  "editorScript": "file:./index.js"
+}

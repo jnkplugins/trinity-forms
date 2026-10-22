@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "trinity-forms/field-shipping",
+  "title": "Shipping",
+  "category": "trinity-forms",
+  "icon": "airplane",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "inserter": true
+  },
+  "attributes": {
+    "fieldId": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": "Shipping"
+    },
+    "help": {
+      "type": "string",
+      "default": ""
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "conditional": {
+      "type": "object"
+    },
+    "price": {
+      "type": "string",
+      "default": "0.00"
+    },
+    "options": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "editorScript": "file:./index.js"
+}

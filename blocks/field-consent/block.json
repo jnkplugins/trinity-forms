@@ -1,0 +1,17 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "trinity-forms/field-consent",
+    "title": "Consent",
+    "category": "trinity-forms",
+    "icon": "shield",
+    "supports": { "html": false, "reusable": false, "inserter": true },
+    "attributes": {
+        "fieldId":     { "type": "string", "default": "" },
+        "label":       { "type": "string", "default": "Consent" },
+        "consentText": { "type": "string", "default": "I agree to the terms." },
+        "required":    { "type": "boolean", "default": true },
+        "conditional": { "type": "object" }
+    },
+    "editorScript": "file:./index.js"
+}

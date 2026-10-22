@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "trinity-forms/field-textarea",
+    "title": "Textarea",
+    "category": "trinity-forms",
+    "icon": "editor-paragraph",
+    "supports": { "html": false, "reusable": false, "inserter": true },
+    "attributes": {
+        "fieldId":        { "type": "string", "default": "" },
+        "label":          { "type": "string", "default": "Message" },
+        "placeholder":    { "type": "string", "default": "" },
+        "help":           { "type": "string", "default": "" },
+        "required":       { "type": "boolean", "default": false },
+        "rows":           { "type": "number",  "default": 4 },
+        "pattern":        { "type": "string", "default": "" },
+        "patternMessage": { "type": "string", "default": "" },
+        "conditional":    { "type": "object" }
+    },
+    "editorScript": "file:./index.js"
+}

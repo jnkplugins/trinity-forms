@@ -1,0 +1,46 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "trinity-forms/field-quantity",
+    "title": "Quantity",
+    "category": "trinity-forms",
+    "icon": "plus-alt2",
+    "supports": {
+        "html": false,
+        "reusable": false,
+        "inserter": true
+    },
+    "attributes": {
+        "fieldId": {
+            "type": "string",
+            "default": ""
+        },
+        "label": {
+            "type": "string",
+            "default": "Quantity"
+        },
+        "help": {
+            "type": "string",
+            "default": ""
+        },
+        "required": {
+            "type": "boolean",
+            "default": false
+        },
+        "conditional": {
+            "type": "object"
+        },
+        "productField": {
+            "type": "string",
+            "default": ""
+        },
+        "min": {
+            "type": "number",
+            "default": 0
+        },
+        "max": {
+            "type": "number"
+        }
+    },
+    "editorScript": "file:./index.js"
+}

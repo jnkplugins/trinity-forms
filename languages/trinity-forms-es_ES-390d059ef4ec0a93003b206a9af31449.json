@@ -1,0 +1,123 @@
+{
+    "translation-revision-date": "2026-10-10 16:35+0000",
+    "generator": "WP-CLI\/2.12.0",
+    "source": "build\/field-multiselect\/index.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "es_ES",
+                "plural-forms": "nplurals=2; plural=n != 1;"
+            },
+            "Field": [
+                "Campo"
+            ],
+            "Field ID": [
+                "ID del campo"
+            ],
+            "Used in merge tags and entry export.": [
+                "Se usa en las etiquetas de combinaci\u00f3n y en la exportaci\u00f3n de env\u00edos."
+            ],
+            "Label": [
+                "Etiqueta"
+            ],
+            "Placeholder": [
+                "Texto de ejemplo"
+            ],
+            "Help text": [
+                "Texto de ayuda"
+            ],
+            "Required": [
+                "Obligatorio"
+            ],
+            "Appearance": [
+                "Apariencia"
+            ],
+            "Field width": [
+                "Ancho del campo"
+            ],
+            "Full width": [
+                "Ancho completo"
+            ],
+            "One half": [
+                "Un medio"
+            ],
+            "One third": [
+                "Un tercio"
+            ],
+            "One quarter": [
+                "Un cuarto"
+            ],
+            "Help text position": [
+                "Posici\u00f3n del texto de ayuda"
+            ],
+            "Use the form's setting": [
+                "Usar el ajuste del formulario"
+            ],
+            "Below the field": [
+                "Debajo del campo"
+            ],
+            "Above the field": [
+                "Encima del campo"
+            ],
+            "CSS class": [
+                "Clase CSS"
+            ],
+            "Added to the field wrapper, for your own styling.": [
+                "Se a\u00f1ade al contenedor del campo, para tus propios estilos."
+            ],
+            "Advanced": [
+                "Avanzado"
+            ],
+            "Default value": [
+                "Valor predeterminado"
+            ],
+            "Admin label": [
+                "Etiqueta de administraci\u00f3n"
+            ],
+            "Shown instead of the label in entries and exports.": [
+                "Se muestra en lugar de la etiqueta en los env\u00edos y exportaciones."
+            ],
+            "Visible to": [
+                "Visible para"
+            ],
+            "Everyone": [
+                "Todos"
+            ],
+            "Logged-in users": [
+                "Usuarios conectados"
+            ],
+            "Administrators only": [
+                "Solo administradores"
+            ],
+            "Allow this field to be pre-filled from the URL": [
+                "Permitir rellenar este campo desde la URL"
+            ],
+            "Off by default: a form whose every field can be set from a link is a form whose data you cannot trust.": [
+                "Desactivado por defecto: un formulario en el que cualquier campo se puede rellenar desde un enlace es un formulario cuyos datos no son fiables."
+            ],
+            "Parameter name": [
+                "Nombre del par\u00e1metro"
+            ],
+            "Defaults to the field ID. Also reads user_email, first_name, post_id and user_meta_<key>.": [
+                "Por defecto es el ID del campo. Tambi\u00e9n lee user_email, first_name, post_id y user_meta_<key>."
+            ],
+            "No duplicates": [
+                "Sin duplicados"
+            ],
+            "Refuse a submission if another entry on this form already has the same value.": [
+                "Rechazar un env\u00edo si otro env\u00edo de este formulario ya tiene el mismo valor."
+            ],
+            "Custom error message": [
+                "Mensaje de error personalizado"
+            ],
+            "Autocomplete": [
+                "Autocompletar"
+            ],
+            "The HTML autocomplete hint, e.g. email, given-name, organization.": [
+                "La pista de autocompletado HTML, p. ej. email, given-name, organization."
+            ]
+        }
+    }
+}

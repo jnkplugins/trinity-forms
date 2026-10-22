@@ -1,0 +1,795 @@
+/* Visual builder: three-pane shell (palette | canvas | field settings).
+   Colours come from the JnK kit tokens set on the page wrapper (.jnkui), with
+   fallbacks so the builder still reads well on its own. */
+$ink: var( --jnk-ink, #0f172a );
+$ink-2: var( --jnk-ink-2, #334155 );
+$mute: var( --jnk-mute, #64748b );
+$line: var( --jnk-line, #e2e8f0 );
+$line-2: var( --jnk-line-2, #f1f5f9 );
+$brand: var( --jnk-brand, #4f46e5 );
+$brand-soft: var( --jnk-brand-soft, #eef2ff );
+
+.tf-builder {
+	max-width: 1600px;
+	margin: 0;
+	/* WordPress components (Save, toggles, focus rings) follow the Trinity brand. */
+	--wp-admin-theme-color: #4f46e5;
+	--wp-admin-theme-color--rgb: 79, 70, 229;
+	--wp-admin-theme-color-darker-10: #4338ca;
+	--wp-admin-theme-color-darker-10--rgb: 67, 56, 202;
+	--wp-admin-theme-color-darker-20: #3730a3;
+	--wp-admin-theme-color-darker-20--rgb: 55, 48, 163;
+
+	&.is-loading {
+		display: flex;
+		justify-content: center;
+		padding: 80px 0;
+	}
+
+	&__bar {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 10px 12px;
+		padding: 10px 16px;
+		background: #fff;
+		border: 1px solid $line;
+		border-radius: 12px 12px 0 0;
+		box-shadow: 0 1px 2px rgba( 15, 23, 42, 0.05 );
+	}
+
+	&__title {
+		font-size: 15px;
+	}
+
+	&__title-input {
+		font-size: 16px;
+		font-weight: 650;
+		color: $ink;
+		border: 1px solid transparent;
+		background: transparent;
+		padding: 5px 10px;
+		border-radius: 8px;
+		min-width: 0;
+		width: 260px;
+		max-width: 100%;
+
+		&:hover {
+			border-color: $line;
+		}
+
+		&:focus {
+			border-color: $brand;
+			background: #fff;
+			box-shadow: 0 0 0 3px rgba( 79, 70, 229, 0.18 );
+			outline: none;
+		}
+	}
+
+	&__bar-actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 6px;
+		margin-left: auto;
+
+		.components-button.is-tertiary {
+			color: $ink-2;
+			font-weight: 550;
+			padding: 6px 8px;
+
+			&:hover:not( :disabled ) {
+				color: $brand;
+				background: $brand-soft;
+			}
+		}
+
+		.components-button.is-primary {
+			border-radius: 8px;
+			font-weight: 600;
+			padding: 0 16px;
+		}
+	}
+
+	&__status {
+		border: 1px solid #cbd5e1;
+		border-radius: 8px;
+		min-height: 36px;
+		color: $ink;
+	}
+
+	/* The shortcode sits in the toolbar because this is where a new user asks how
+	   to put the form on a page. It wraps to its own line on a narrow toolbar
+	   rather than squeezing the buttons beside it. */
+	&__shortcode {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+	}
+
+	&__shortcode-code {
+		font-family: Menlo, Consolas, monospace;
+		font-size: 12px;
+		background: $line-2;
+		border: 1px solid $line;
+		border-radius: 6px;
+		padding: 3px 8px;
+		white-space: nowrap;
+		cursor: text;
+		user-select: all;
+	}
+
+	@media (max-width: 1440px) {
+		&__shortcode-code {
+			display: none;
+		}
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 252px minmax( 0, 1fr ) 340px;
+		gap: 0;
+		background: #f6f7fb;
+		border: 1px solid $line;
+		border-top: 0;
+		border-radius: 0 0 12px 12px;
+		min-height: 520px;
+		overflow: hidden;
+
+		/* The three panes stack on narrow screens rather than crushing the canvas. */
+		@media (max-width: 960px) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	/* Field palette: a two-column grid of compact chips rather than one long
+	   column of full-width buttons. */
+	&__palette {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 6px;
+		align-content: start;
+		padding: 16px 14px;
+		border-right: 1px solid $line;
+		background: #fff;
+
+		> h2,
+		> .tf-builder__palette-hint,
+		> .tf-builder__locked {
+			grid-column: 1 / -1;
+		}
+
+		h2 {
+			font-size: 11px;
+			font-weight: 650;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			color: $mute;
+			margin: 0;
+		}
+	}
+
+	&__palette-hint {
+		font-size: 12px;
+		color: $mute;
+		margin: 0 0 6px;
+	}
+
+	&__palette-item.components-button {
+		display: block !important;
+		width: 100%;
+		height: auto;
+		min-height: 34px;
+		margin: 0;
+		padding: 6px 8px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		text-align: left;
+		justify-content: flex-start !important;
+		font-size: 12.5px;
+		font-weight: 550;
+		color: $ink-2;
+		background: #fff;
+		border-radius: 8px;
+		box-shadow: inset 0 0 0 1px $line;
+		cursor: grab;
+		touch-action: none;
+
+		&:hover:not( :disabled ) {
+			color: $brand;
+			background: $brand-soft;
+			box-shadow: inset 0 0 0 1px rgba( 79, 70, 229, 0.35 );
+		}
+
+		&.is-dragging {
+			opacity: 0.4;
+		}
+	}
+
+	&__canvas {
+		padding: 20px;
+		min-width: 0;
+
+		&.is-empty {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			align-items: center;
+			justify-content: center;
+			min-height: 160px;
+			border: 2px dashed #cbd5e1;
+			border-radius: 12px;
+			margin: 20px;
+			color: $mute;
+
+			&.is-over {
+				border-color: $brand;
+				background: $brand-soft;
+			}
+		}
+	}
+
+	&__end-zone {
+		height: 28px;
+		margin-top: 4px;
+		border: 2px dashed transparent;
+		border-radius: 6px;
+		transition: all 0.1s ease;
+
+		&.is-over {
+			border-color: $brand;
+			background: $brand-soft;
+		}
+	}
+
+	&__drag-overlay {
+		padding: 6px 12px;
+		background: $ink;
+		color: #fff;
+		border-radius: 4px;
+		font-size: 13px;
+		box-shadow: 0 4px 12px rgba( 0, 0, 0, 0.25 );
+		pointer-events: none;
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0 8px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		> li {
+			box-sizing: border-box;
+			min-width: 0;
+		}
+	}
+
+	/* The canvas is one sheet of paper, like the published form. A field shows
+	   a light outline on hover and the brand outline when it is the one being
+	   edited, instead of every field sitting in its own boxed card. */
+	&__list {
+		background: #fff;
+		border: 1px solid $line;
+		border-radius: 12px;
+		box-shadow: 0 1px 3px rgba( 15, 23, 42, 0.06 );
+		padding: 14px;
+	}
+
+	&__row {
+		position: relative;
+		display: flex;
+		align-items: flex-start;
+		gap: 8px;
+		background: #fff;
+		border: 1px solid transparent;
+		border-radius: 10px;
+		padding: 12px 18px 14px;
+		margin-bottom: 4px;
+		transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+
+		&:hover {
+			border-color: #e2e8f0;
+			background: #fcfcfd;
+		}
+
+		&.is-selected {
+			border-color: $brand;
+			background: #fff;
+			box-shadow: 0 0 0 3px rgba( 79, 70, 229, 0.12 );
+		}
+
+		&.is-opaque {
+			background: #f8fafc;
+			border: 1px dashed #cbd5e1;
+		}
+	}
+
+	&__drag {
+		cursor: grab;
+		background: none;
+		border: 0;
+		padding: 4px 2px;
+		color: #949494;
+		font-size: 16px;
+		line-height: 1;
+		touch-action: none;
+
+		&:focus-visible {
+			outline: 2px solid var(--wp-admin-theme-color, #3858e9);
+			outline-offset: 1px;
+		}
+	}
+
+	&__row-body {
+		flex: 1;
+		min-width: 0;
+	}
+
+	&__row-select {
+		display: block;
+		width: 100%;
+		text-align: left;
+		background: none;
+		border: 0;
+		padding: 0;
+		cursor: pointer;
+	}
+
+	&__field-label {
+		display: block;
+		margin-bottom: 6px;
+		font-size: 13.5px;
+		font-weight: 600;
+		line-height: 1.4;
+		color: $ink;
+	}
+
+	&__req {
+		color: #d63638;
+	}
+
+	&__field-meta {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		margin-top: 8px;
+
+		code {
+			font-size: 11px;
+			color: $mute;
+			background: $line-2;
+			border-radius: 4px;
+			padding: 0 5px;
+		}
+	}
+
+	&__field-help {
+		display: block;
+		margin-top: 4px;
+		font-size: 12px;
+		color: #50575e;
+	}
+
+	/* The preview is a picture of the field, never a working control. */
+	&__field-preview {
+		pointer-events: none;
+	}
+
+	&__badge {
+		font-size: 10px;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		background: $brand-soft;
+		color: $brand;
+		border-radius: 999px;
+		padding: 1px 5px;
+	}
+
+	/* Move, delete and the field ID only show for the field you are on, so the
+	   canvas reads as the form, not as a list of controls. */
+	&__row-actions,
+	&__drag {
+		opacity: 0;
+		transition: opacity 0.12s ease;
+	}
+
+	&__row:hover,
+	&__row.is-selected,
+	&__row:focus-within {
+		.tf-builder__row-actions,
+		.tf-builder__drag {
+			opacity: 1;
+		}
+	}
+
+	/* Floated over the card's corner so the field keeps the full width. */
+	&__row-actions {
+		position: absolute;
+		top: 8px;
+		right: 8px;
+		z-index: 2;
+		display: flex;
+		gap: 2px;
+		padding: 2px;
+		background: #fff;
+		border: 1px solid $line;
+		border-radius: 8px;
+		box-shadow: 0 2px 6px rgba( 15, 23, 42, 0.08 );
+	}
+
+	&__drag {
+		position: absolute !important;
+		left: 0;
+		top: 12px;
+	}
+
+	&__opaque {
+		p {
+			margin: 4px 0 0;
+			font-size: 12px;
+			color: #50575e;
+		}
+	}
+
+	&__opaque-badge {
+		display: inline-block;
+		font-size: 10px;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		background: #dcdcde;
+		color: #1d2327;
+		border-radius: 2px;
+		padding: 1px 5px;
+		margin-right: 6px;
+	}
+
+	&__panel {
+		background: #fff;
+		border-left: 1px solid $line;
+		min-width: 0;
+		max-height: 70vh;
+		overflow-y: auto;
+
+		&.is-empty {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+			color: $mute;
+			text-align: center;
+		}
+
+		/* The inspector inherited @wordpress/components defaults and nothing else, so
+		   controls sat flush against one another, help text ran straight into the next
+		   label, and the Required toggle butted up against the field above it. These
+		   rules give the panel its own vertical rhythm. */
+		.components-panel__body {
+			border-bottom: 1px solid #f0f0f1;
+
+			&:last-child {
+				border-bottom: 0;
+			}
+		}
+
+		.components-panel__body-title button {
+			font-size: 13px;
+			font-weight: 600;
+		}
+
+		.components-base-control {
+			margin-bottom: 18px;
+
+			&:last-child {
+				margin-bottom: 8px;
+			}
+		}
+
+		.components-base-control__label {
+			display: block;
+			margin-bottom: 5px;
+			font-size: 11px;
+			font-weight: 600;
+			letter-spacing: 0.03em;
+			text-transform: uppercase;
+			color: #50575e;
+		}
+
+		/* Help text belongs to the control above it, not to the label below. */
+		.components-base-control__help {
+			margin: 6px 0 0;
+			font-size: 12px;
+			font-style: normal;
+			line-height: 1.5;
+			color: #646970;
+		}
+
+		/* Toggles are a different shape from text fields; give them room and a rule
+		   above so they read as their own setting rather than a stray checkbox. */
+		.components-toggle-control {
+			margin: 4px 0 18px;
+			padding-top: 14px;
+			border-top: 1px solid #f0f0f1;
+
+			.components-base-control__field {
+				margin-bottom: 0;
+			}
+
+			.components-toggle-control__label {
+				font-size: 13px;
+				color: #1d2327;
+			}
+		}
+
+		textarea.components-textarea-control__input {
+			min-height: 78px;
+		}
+	}
+}
+
+/* Field previews: every control the same height, border, white fill and full
+   width, the way a visitor sees the form. They are disabled controls drawn as
+   enabled ones: browsers and wp-admin grey some disabled types and not others,
+   which made one form look like four different kits. Every selector starts with
+   .tf-builder so wp-admin's own form styles never win. */
+$tf-ctrl-h: 40px;
+$tf-ctrl-border: #d0d5dd;
+$tf-ctrl-text: #98a2b3;
+
+.tf-builder .tf-preview__control,
+.tf-builder .tf-preview__control:disabled {
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	max-width: none;
+	height: $tf-ctrl-h;
+	min-height: $tf-ctrl-h;
+	margin: 0;
+	padding: 0 12px;
+	border: 1px solid $tf-ctrl-border;
+	border-radius: 8px;
+	background-color: #fff;
+	box-shadow: 0 1px 2px rgba( 16, 24, 40, 0.04 );
+	color: $tf-ctrl-text;
+	-webkit-text-fill-color: $tf-ctrl-text;
+	opacity: 1;
+	font-size: 14px;
+	line-height: $tf-ctrl-h - 2px;
+	cursor: default;
+}
+
+.tf-builder .tf-preview__control::placeholder {
+	color: $tf-ctrl-text;
+	-webkit-text-fill-color: $tf-ctrl-text;
+	opacity: 1;
+}
+
+.tf-builder textarea.tf-preview__control,
+.tf-builder textarea.tf-preview__control:disabled {
+	height: 96px;
+	padding: 10px 12px;
+	line-height: 1.5;
+	resize: none;
+}
+
+/* One chevron, drawn the same in every browser. */
+.tf-builder select.tf-preview__control,
+.tf-builder select.tf-preview__control:disabled {
+	appearance: none;
+	-webkit-appearance: none;
+	padding-right: 36px;
+	background: #fff url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23667085' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E" ) no-repeat right 12px center / 16px 16px;
+}
+
+.tf-builder input[type='date'].tf-preview__control::-webkit-calendar-picker-indicator,
+.tf-builder input[type='time'].tf-preview__control::-webkit-calendar-picker-indicator {
+	opacity: 0.45;
+}
+
+.tf-builder input[type='range'].tf-preview__control,
+.tf-builder input[type='range'].tf-preview__control:disabled {
+	flex: 1;
+	height: auto;
+	min-height: 0;
+	padding: 0;
+	border: 0;
+	box-shadow: none;
+	background: none;
+	accent-color: $brand;
+}
+
+.tf-builder .tf-preview__range {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.tf-builder .tf-preview__row {
+	display: flex;
+	gap: 10px;
+}
+
+.tf-builder .tf-preview__row .tf-preview__control {
+	flex: 1;
+	min-width: 0;
+}
+
+.tf-builder .tf-preview__stack {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+/* Radio and checkbox choices: real-size marks, even spacing. */
+.tf-builder .tf-preview__options {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.tf-builder .tf-preview__options label,
+.tf-builder .tf-preview__consent {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 14px;
+	line-height: 1.45;
+	color: #344054;
+}
+
+.tf-builder .tf-preview__consent {
+	align-items: flex-start;
+}
+
+.tf-builder .tf-preview__options input[type],
+.tf-builder .tf-preview__consent input[type] {
+	appearance: none;
+	-webkit-appearance: none;
+	flex: none;
+	width: 18px;
+	height: 18px;
+	min-width: 18px;
+	margin: 0;
+	border: 1px solid $tf-ctrl-border;
+	border-radius: 5px;
+	background: #fff;
+	box-shadow: none;
+	opacity: 1;
+}
+
+.tf-builder .tf-preview__consent input[type] {
+	margin-top: 1px;
+}
+
+.tf-builder .tf-preview__options input[type='radio'] {
+	border-radius: 50%;
+}
+
+.tf-builder .tf-preview__options input[type]::before,
+.tf-builder .tf-preview__consent input[type]::before {
+	display: none;
+}
+
+.tf-builder .tf-preview__more {
+	font-size: 12.5px;
+	color: $tf-ctrl-text;
+}
+
+.tf-builder .tf-preview__stars {
+	font-size: 22px;
+	letter-spacing: 4px;
+	color: #f5b301;
+}
+
+.tf-builder .tf-preview__section h3 {
+	margin: 2px 0 4px;
+	font-size: 16px;
+	font-weight: 650;
+	color: $ink;
+}
+
+.tf-builder .tf-preview__section p {
+	margin: 0;
+	font-size: 13px;
+	color: #475467;
+}
+
+.tf-builder .tf-preview__html,
+.tf-builder .tf-preview__signature,
+.tf-builder .tf-preview__drop {
+	box-sizing: border-box;
+	padding: 12px;
+	border: 1px dashed $tf-ctrl-border;
+	border-radius: 8px;
+	background: #f9fafb;
+	font-size: 13px;
+	color: #667085;
+}
+
+.tf-builder .tf-preview__html code {
+	background: none;
+	font-size: 12.5px;
+}
+
+.tf-builder .tf-preview__signature,
+.tf-builder .tf-preview__drop {
+	height: 88px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.tf-builder .tf-preview__pagebreak {
+	border-top: 2px dashed #c3c4c7;
+	margin-top: 8px;
+	padding-top: 6px;
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: #949494;
+}
+
+.tf-builder__templates-modal {
+	max-width: 720px;
+
+	.tf-builder__templates-grid {
+		display: grid;
+		grid-template-columns: repeat( 2, 1fr );
+		gap: 12px;
+	}
+
+	.tf-builder__template-card {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 4px;
+		padding: 14px;
+		text-align: left;
+		background: #fff;
+		border: 1px solid #dcdcde;
+		border-radius: 6px;
+		cursor: pointer;
+		transition: border-color 0.1s ease, box-shadow 0.1s ease;
+
+		&:hover,
+		&:focus {
+			border-color: #2271b1;
+			box-shadow: 0 0 0 1px #2271b1;
+			outline: none;
+		}
+
+		.dashicons {
+			color: #2271b1;
+		}
+
+		strong {
+			font-size: 14px;
+		}
+	}
+
+	.tf-builder__template-desc {
+		font-size: 12px;
+		color: #50575e;
+	}
+
+	.tf-builder__template-count {
+		font-size: 11px;
+		color: #787c82;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+}
+
+// Locked (unlicensed Pro) field cards.
+.tf-builder__locked {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 6px;
+	margin-top: 14px;
+	h3, .tf-builder__palette-hint { grid-column: 1 / -1; }
+	h3 { font-size: 11px; font-weight: 650; letter-spacing: 0.05em; text-transform: uppercase; margin: 0; color: var( --jnk-mute, #64748b ); }
+	.tf-builder__palette-item.is-locked { opacity: .65; cursor: not-allowed; }
+	.dashicons-lock { font-size: 14px; width: 14px; height: 14px; vertical-align: text-bottom; }
+}

@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "trinity-forms/field-rating",
+    "title": "Rating",
+    "category": "trinity-forms",
+    "icon": "star-filled",
+    "supports": { "html": false, "reusable": false, "inserter": true },
+    "attributes": {
+        "fieldId":     { "type": "string", "default": "" },
+        "label":       { "type": "string", "default": "Rating" },
+        "help":        { "type": "string", "default": "" },
+        "required":    { "type": "boolean", "default": false },
+        "max":         { "type": "number",  "default": 5 },
+        "conditional": { "type": "object" }
+    },
+    "editorScript": "file:./index.js"
+}

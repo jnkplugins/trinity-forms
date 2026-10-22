@@ -1,0 +1,42 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "trinity-forms/field-password",
+    "title": "Password",
+    "category": "trinity-forms",
+    "icon": "lock",
+    "supports": {
+        "html": false,
+        "reusable": false,
+        "inserter": true
+    },
+    "attributes": {
+        "fieldId": {
+            "type": "string",
+            "default": ""
+        },
+        "label": {
+            "type": "string",
+            "default": "Password"
+        },
+        "help": {
+            "type": "string",
+            "default": ""
+        },
+        "required": {
+            "type": "boolean",
+            "default": false
+        },
+        "conditional": {
+            "type": "object"
+        },
+        "minLength": {
+            "type": "number"
+        },
+        "confirm": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "editorScript": "file:./index.js"
+}

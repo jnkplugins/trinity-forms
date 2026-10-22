@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "trinity-forms/field-text",
+  "title": "Text",
+  "category": "trinity-forms",
+  "icon": "edit",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "inserter": true
+  },
+  "attributes": {
+    "fieldId": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": "Text"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": ""
+    },
+    "help": {
+      "type": "string",
+      "default": ""
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "minLength": {
+      "type": "number"
+    },
+    "maxLength": {
+      "type": "number"
+    },
+    "pattern": {
+      "type": "string",
+      "default": ""
+    },
+    "patternMessage": {
+      "type": "string",
+      "default": ""
+    },
+    "conditional": {
+      "type": "object"
+    }
+  },
+  "editorScript": "file:./index.js"
+}

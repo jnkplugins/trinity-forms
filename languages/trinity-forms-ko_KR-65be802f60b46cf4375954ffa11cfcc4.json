@@ -1,0 +1,27 @@
+{
+    "translation-revision-date": "2026-10-10 16:35+0000",
+    "generator": "WP-CLI\/2.12.0",
+    "source": "build\/field-consent\/index.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "ko_KR",
+                "plural-forms": "nplurals=1; plural=0;"
+            },
+            "Required": [
+                "\ud544\uc218"
+            ],
+            "Consent": [
+                "\ub3d9\uc758"
+            ],
+            "Internal label": [
+                "\ub0b4\ubd80 \ub808\uc774\ube14"
+            ],
+            "Consent text": [
+                "\ub3d9\uc758 \ubb38\uad6c"
+            ]
+        }
+    }
+}

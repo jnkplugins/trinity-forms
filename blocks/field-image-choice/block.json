@@ -1,0 +1,54 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "trinity-forms/field-image-choice",
+    "title": "Image Choice",
+    "category": "trinity-forms",
+    "icon": "format-image",
+    "supports": {
+        "html": false,
+        "reusable": false,
+        "inserter": true
+    },
+    "attributes": {
+        "fieldId": {
+            "type": "string",
+            "default": ""
+        },
+        "label": {
+            "type": "string",
+            "default": "Image Choice"
+        },
+        "help": {
+            "type": "string",
+            "default": ""
+        },
+        "required": {
+            "type": "boolean",
+            "default": false
+        },
+        "conditional": {
+            "type": "object"
+        },
+        "options": {
+            "type": "array",
+            "default": [
+                {
+                    "label": "Option one",
+                    "value": "option_one",
+                    "image": ""
+                },
+                {
+                    "label": "Option two",
+                    "value": "option_two",
+                    "image": ""
+                }
+            ]
+        },
+        "multiple": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "editorScript": "file:./index.js"
+}

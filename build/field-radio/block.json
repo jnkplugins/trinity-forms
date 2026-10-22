@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "trinity-forms/field-radio",
+  "title": "Radio",
+  "category": "trinity-forms",
+  "icon": "marker",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "inserter": true
+  },
+  "attributes": {
+    "fieldId": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": "Choose one"
+    },
+    "help": {
+      "type": "string",
+      "default": ""
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "options": {
+      "type": "array",
+      "default": [
+        {
+          "label": "Option A",
+          "value": "a"
+        },
+        {
+          "label": "Option B",
+          "value": "b"
+        }
+      ]
+    },
+    "correctAnswer": {
+      "type": "string",
+      "default": ""
+    },
+    "points": {
+      "type": "number",
+      "default": 1
+    },
+    "conditional": {
+      "type": "object"
+    }
+  },
+  "editorScript": "file:./index.js"
+}

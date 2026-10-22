@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "trinity-forms/field-email",
+  "title": "Email",
+  "category": "trinity-forms",
+  "icon": "email",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "inserter": true
+  },
+  "attributes": {
+    "fieldId": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": "Email"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "you@example.com"
+    },
+    "help": {
+      "type": "string",
+      "default": ""
+    },
+    "required": {
+      "type": "boolean",
+      "default": true
+    },
+    "pattern": {
+      "type": "string",
+      "default": ""
+    },
+    "patternMessage": {
+      "type": "string",
+      "default": ""
+    },
+    "conditional": {
+      "type": "object"
+    }
+  },
+  "editorScript": "file:./index.js"
+}

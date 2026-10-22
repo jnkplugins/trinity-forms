@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "trinity-forms/field-multiple-choice",
+  "title": "Multiple Choice",
+  "category": "trinity-forms",
+  "icon": "forms",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "inserter": true
+  },
+  "attributes": {
+    "fieldId": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": "Multiple Choice"
+    },
+    "help": {
+      "type": "string",
+      "default": ""
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "choiceStyle": {
+      "type": "string",
+      "default": "radio"
+    },
+    "options": {
+      "type": "array",
+      "default": [
+        {
+          "label": "Option one",
+          "value": "option_one"
+        },
+        {
+          "label": "Option two",
+          "value": "option_two"
+        }
+      ]
+    },
+    "conditional": {
+      "type": "object"
+    }
+  },
+  "editorScript": "file:./index.js"
+}

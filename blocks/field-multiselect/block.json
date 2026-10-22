@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "trinity-forms/field-multiselect",
+    "title": "Multi Select",
+    "category": "trinity-forms",
+    "icon": "list-view",
+    "supports": {
+        "html": false,
+        "reusable": false,
+        "inserter": true
+    },
+    "attributes": {
+        "fieldId": {
+            "type": "string",
+            "default": ""
+        },
+        "label": {
+            "type": "string",
+            "default": "Multi Select"
+        },
+        "help": {
+            "type": "string",
+            "default": ""
+        },
+        "required": {
+            "type": "boolean",
+            "default": false
+        },
+        "conditional": {
+            "type": "object"
+        },
+        "options": {
+            "type": "array",
+            "default": [
+                {
+                    "label": "Option one",
+                    "value": "option_one"
+                },
+                {
+                    "label": "Option two",
+                    "value": "option_two"
+                }
+            ]
+        },
+        "maxChoices": {
+            "type": "number"
+        }
+    },
+    "editorScript": "file:./index.js"
+}

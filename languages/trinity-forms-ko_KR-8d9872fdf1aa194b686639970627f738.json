@@ -1,0 +1,129 @@
+{
+    "translation-revision-date": "2026-10-10 16:35+0000",
+    "generator": "WP-CLI\/2.12.0",
+    "source": "build\/conditional-panel.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "ko_KR",
+                "plural-forms": "nplurals=1; plural=0;"
+            },
+            "is": [
+                "\uac19\uc74c"
+            ],
+            "is not": [
+                "\uac19\uc9c0 \uc54a\uc74c"
+            ],
+            "contains": [
+                "\ud3ec\ud568"
+            ],
+            "does not contain": [
+                "\ud3ec\ud568\ud558\uc9c0 \uc54a\uc74c"
+            ],
+            "starts with": [
+                "\ub2e4\uc74c\uc73c\ub85c \uc2dc\uc791"
+            ],
+            "ends with": [
+                "\ub2e4\uc74c\uc73c\ub85c \ub05d\ub0a8"
+            ],
+            "is greater than": [
+                "\ubcf4\ub2e4 \ud07c"
+            ],
+            "is less than": [
+                "\ubcf4\ub2e4 \uc791\uc74c"
+            ],
+            "is before": [
+                "\uc774\uc804"
+            ],
+            "is after": [
+                "\uc774\ud6c4"
+            ],
+            "is one of": [
+                "\ub2e4\uc74c \uc911 \ud558\ub098"
+            ],
+            "is none of": [
+                "\ub2e4\uc74c \uc911 \uc5b4\ub290 \uac83\ub3c4 \uc544\ub2d8"
+            ],
+            "matches pattern": [
+                "\ud328\ud134\uacfc \uc77c\uce58"
+            ],
+            "is empty": [
+                "\ube44\uc5b4 \uc788\uc74c"
+            ],
+            "is not empty": [
+                "\ube44\uc5b4 \uc788\uc9c0 \uc54a\uc74c"
+            ],
+            "All rules match": [
+                "\ubaa8\ub4e0 \uaddc\uce59 \uc77c\uce58"
+            ],
+            "Any rule matches": [
+                "\ud558\ub098 \uc774\uc0c1\uc758 \uaddc\uce59 \uc77c\uce58"
+            ],
+            "Field": [
+                "\ud544\ub4dc"
+            ],
+            "\u2014 Select \u2014": [
+                "\u2014 \uc120\ud0dd \u2014"
+            ],
+            "Condition": [
+                "\uc870\uac74"
+            ],
+            "Value": [
+                "\uac12"
+            ],
+            "Remove rule": [
+                "\uaddc\uce59 \uc0ad\uc81c"
+            ],
+            "When": [
+                "\uc870\uac74"
+            ],
+            "Within this group": [
+                "\uc774 \uadf8\ub8f9 \uc548\uc5d0\uc11c"
+            ],
+            "Group": [
+                "\uadf8\ub8f9"
+            ],
+            "Add rule": [
+                "\uaddc\uce59 \ucd94\uac00"
+            ],
+            "Add group": [
+                "\uadf8\ub8f9 \ucd94\uac00"
+            ],
+            "Remove group": [
+                "\uadf8\ub8f9 \uc0ad\uc81c"
+            ],
+            "Then": [
+                "\uadf8\ub7ec\uba74"
+            ],
+            "Show this field": [
+                "\uc774 \ud544\ub4dc \ud45c\uc2dc"
+            ],
+            "Hide this field": [
+                "\uc774 \ud544\ub4dc \uc228\uae30\uae30"
+            ],
+            "Add another field to this form first \u2014 a rule needs a field to test.": [
+                "\uba3c\uc800 \uc774 \uc591\uc2dd\uc5d0 \ub2e4\ub978 \ud544\ub4dc\ub97c \ucd94\uac00\ud558\uc138\uc694. \uaddc\uce59\uc5d0\ub294 \uac80\uc0ac\ud560 \ud544\ub4dc\uac00 \ud544\uc694\ud569\ub2c8\ub2e4."
+            ],
+            "Format": [
+                "\ud615\uc2dd"
+            ],
+            "Pattern": [
+                "\ud328\ud134"
+            ],
+            "A regular expression the value must match, e.g. ^[0-9]{5}$ for a 5-digit ZIP. Leave empty for no check.": [
+                "\uac12\uc774 \uc77c\uce58\ud574\uc57c \ud558\ub294 \uc815\uaddc\uc2dd\uc785\ub2c8\ub2e4. \uc608: 5\uc790\ub9ac \uc6b0\ud3b8\ubc88\ud638\ub294 ^[0-9]{5}$. \uac80\uc0ac\ud558\uc9c0 \uc54a\uc73c\ub824\uba74 \ube44\uc6cc \ub450\uc138\uc694."
+            ],
+            "Error message": [
+                "\uc624\ub958 \uba54\uc2dc\uc9c0"
+            ],
+            "Shown when the value doesn't match.": [
+                "\uac12\uc774 \uc77c\uce58\ud558\uc9c0 \uc54a\uc744 \ub54c \ud45c\uc2dc\ub429\ub2c8\ub2e4."
+            ],
+            "Conditional logic": [
+                "\uc870\uac74\ubd80 \ub85c\uc9c1"
+            ]
+        }
+    }
+}

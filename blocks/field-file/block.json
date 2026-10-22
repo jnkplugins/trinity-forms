@@ -1,0 +1,20 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "trinity-forms/field-file",
+    "title": "File upload",
+    "category": "trinity-forms",
+    "icon": "upload",
+    "supports": { "html": false, "reusable": false, "inserter": true },
+    "attributes": {
+        "fieldId":     { "type": "string", "default": "" },
+        "label":       { "type": "string", "default": "File" },
+        "help":        { "type": "string", "default": "" },
+        "required":    { "type": "boolean", "default": false },
+        "accept":      { "type": "string", "default": "" },
+        "multiple":    { "type": "boolean", "default": false },
+        "maxSize":     { "type": "number" },
+        "conditional": { "type": "object" }
+    },
+    "editorScript": "file:./index.js"
+}
