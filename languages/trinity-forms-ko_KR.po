@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-23T06:24:37+00:00\n"
+"POT-Creation-Date: 2026-10-23T07:13:43+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Korean\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: trinity-forms.php admin/class-admin-ui.php:131
-#: includes/class-entry-notes.php:111 includes/class-plugin.php:87
+#: includes/class-entry-notes.php:111 includes/class-plugin.php:88
 msgid "Trinity Forms"
 msgstr "Trinity Forms"
 
@@ -1003,7 +1003,7 @@ msgstr "항목 필터"
 #: admin/views/entries-list.php:237 admin/views/entries-list.php:356
 #: admin/views/entry-detail.php:340 admin/views/import.php:85
 #: includes/class-my-submissions.php:50 includes/class-my-submissions.php:56
-#: includes/class-plugin.php:88 includes/class-results.php:146
+#: includes/class-plugin.php:89 includes/class-results.php:146
 #: blocks/form-block/edit.js:29
 msgid "Form"
 msgstr "양식"
@@ -2566,27 +2566,27 @@ msgstr "페이지를 만들지 못했습니다."
 msgid "Create a page"
 msgstr "페이지 만들기"
 
-#: includes/class-plugin.php:81
+#: includes/class-plugin.php:82
 msgid "Trinity Forms Forms"
 msgstr "Trinity Forms 양식"
 
-#: includes/class-plugin.php:89
+#: includes/class-plugin.php:90
 msgid "All Forms"
 msgstr "모든 양식"
 
-#: includes/class-plugin.php:90
+#: includes/class-plugin.php:91
 msgid "Add Form"
 msgstr "양식 추가"
 
-#: includes/class-plugin.php:91
+#: includes/class-plugin.php:92
 msgid "Edit Form"
 msgstr "양식 편집"
 
-#: includes/class-plugin.php:92
+#: includes/class-plugin.php:93
 msgid "No forms yet — start from a template, or add a blank one."
 msgstr "아직 양식이 없습니다. 템플릿으로 시작하거나 빈 양식을 추가하세요."
 
-#: includes/class-plugin.php:240
+#: includes/class-plugin.php:241
 msgid "Trinity Forms Fields"
 msgstr "Trinity Forms 필드"
 
@@ -2678,6 +2678,41 @@ msgstr[0] "답변 %d개"
 #, php-format
 msgid "average (range %1$s to %2$s, %3$d responses)"
 msgstr "평균(범위 %1$s~%2$s, 응답 %3$d개)"
+
+#: includes/class-schema-check.php:82
+msgid "Trinity Forms could not create its database tables."
+msgstr "Trinity Forms이(가) 데이터베이스 테이블을 만들지 못했습니다."
+
+#: includes/class-schema-check.php:83
+msgid "Forms cannot save entries without them. Send the details below to support (jnkplugins.com/contact) and we will sort it out with you."
+msgstr "이 테이블이 없으면 폼이 항목을 저장할 수 없습니다. 아래 내용을 지원팀(jnkplugins.com/contact)에 보내 주시면 함께 해결해 드리겠습니다."
+
+#: includes/class-schema-check.php:92
+msgid "Trinity Forms database tables"
+msgstr "Trinity Forms 데이터베이스 테이블"
+
+#: includes/class-schema-check.php:105
+msgid "Trinity Forms is missing database tables"
+msgstr "Trinity Forms에 데이터베이스 테이블이 없습니다"
+
+#: includes/class-schema-check.php:108
+msgid "Forms cannot save entries without these tables. Send this list to support (jnkplugins.com/contact):"
+msgstr "이 테이블이 없으면 폼이 항목을 저장할 수 없습니다. 이 목록을 지원팀(jnkplugins.com/contact)에 보내 주세요:"
+
+#: includes/class-schema-check.php:116
+msgid "Trinity Forms Pro data is ready"
+msgstr "Trinity Forms Pro 데이터가 준비되었습니다"
+
+#: includes/class-schema-check.php:116
+msgid "Trinity Forms database tables are ready"
+msgstr "Trinity Forms 데이터베이스 테이블이 준비되었습니다"
+
+#. translators: %d: number of database tables
+#: includes/class-schema-check.php:121
+#, php-format
+msgid "The %d table Trinity Forms needs is in the database."
+msgid_plural "All %d tables Trinity Forms needs are in the database."
+msgstr[0] "Trinity Forms에 필요한 테이블 %d개가 모두 데이터베이스에 있습니다."
 
 #: includes/class-secrets.php:85
 msgid "Trinity Forms: The PHP OpenSSL extension is required to encrypt credentials at rest. Credentials are currently stored in plaintext — please enable the openssl extension."

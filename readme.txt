@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 8.2
-Stable tag: 2.12.3
+Stable tag: 2.13.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -181,6 +181,9 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.13.0 =
+* New: Tools > Site Health checks that Trinity Forms's database tables exist. If the database refused one, it says which, with the database's own error, and Trinity Forms's screens show the same notice.
 
 = 2.12.3 =
 * Fixed: "Update now" could fail with "Download link expired" when clicked a while after WordPress last checked for updates. The plugin now fetches a fresh download link right before the update starts.

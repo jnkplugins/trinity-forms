@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-23T06:24:37+00:00\n"
+"POT-Creation-Date: 2026-10-23T07:13:43+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Spanish (Spain)\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: trinity-forms.php admin/class-admin-ui.php:131
-#: includes/class-entry-notes.php:111 includes/class-plugin.php:87
+#: includes/class-entry-notes.php:111 includes/class-plugin.php:88
 msgid "Trinity Forms"
 msgstr "Trinity Forms"
 
@@ -1005,7 +1005,7 @@ msgstr "Filtrar envíos"
 #: admin/views/entries-list.php:237 admin/views/entries-list.php:356
 #: admin/views/entry-detail.php:340 admin/views/import.php:85
 #: includes/class-my-submissions.php:50 includes/class-my-submissions.php:56
-#: includes/class-plugin.php:88 includes/class-results.php:146
+#: includes/class-plugin.php:89 includes/class-results.php:146
 #: blocks/form-block/edit.js:29
 msgid "Form"
 msgstr "Formulario"
@@ -2569,27 +2569,27 @@ msgstr "No se pudo crear la página."
 msgid "Create a page"
 msgstr "Crear una página"
 
-#: includes/class-plugin.php:81
+#: includes/class-plugin.php:82
 msgid "Trinity Forms Forms"
 msgstr "Formularios de Trinity Forms"
 
-#: includes/class-plugin.php:89
+#: includes/class-plugin.php:90
 msgid "All Forms"
 msgstr "Todos los formularios"
 
-#: includes/class-plugin.php:90
+#: includes/class-plugin.php:91
 msgid "Add Form"
 msgstr "Añadir formulario"
 
-#: includes/class-plugin.php:91
+#: includes/class-plugin.php:92
 msgid "Edit Form"
 msgstr "Editar formulario"
 
-#: includes/class-plugin.php:92
+#: includes/class-plugin.php:93
 msgid "No forms yet — start from a template, or add a blank one."
 msgstr "Aún no hay formularios. Empieza desde una plantilla o añade uno en blanco."
 
-#: includes/class-plugin.php:240
+#: includes/class-plugin.php:241
 msgid "Trinity Forms Fields"
 msgstr "Campos de Trinity Forms"
 
@@ -2684,6 +2684,42 @@ msgstr[1] "%d respuestas"
 #, php-format
 msgid "average (range %1$s to %2$s, %3$d responses)"
 msgstr "media (rango de %1$s a %2$s, %3$d respuestas)"
+
+#: includes/class-schema-check.php:82
+msgid "Trinity Forms could not create its database tables."
+msgstr "Trinity Forms no pudo crear sus tablas en la base de datos."
+
+#: includes/class-schema-check.php:83
+msgid "Forms cannot save entries without them. Send the details below to support (jnkplugins.com/contact) and we will sort it out with you."
+msgstr "Los formularios no pueden guardar entradas sin ellas. Envía los detalles de abajo al soporte (jnkplugins.com/contact) y lo resolvemos contigo."
+
+#: includes/class-schema-check.php:92
+msgid "Trinity Forms database tables"
+msgstr "Tablas de la base de datos de Trinity Forms"
+
+#: includes/class-schema-check.php:105
+msgid "Trinity Forms is missing database tables"
+msgstr "A Trinity Forms le faltan tablas en la base de datos"
+
+#: includes/class-schema-check.php:108
+msgid "Forms cannot save entries without these tables. Send this list to support (jnkplugins.com/contact):"
+msgstr "Los formularios no pueden guardar entradas sin estas tablas. Envía esta lista al soporte (jnkplugins.com/contact):"
+
+#: includes/class-schema-check.php:116
+msgid "Trinity Forms Pro data is ready"
+msgstr "Los datos de Trinity Forms Pro están listos"
+
+#: includes/class-schema-check.php:116
+msgid "Trinity Forms database tables are ready"
+msgstr "Las tablas de la base de datos de Trinity Forms están listas"
+
+#. translators: %d: number of database tables
+#: includes/class-schema-check.php:121
+#, php-format
+msgid "The %d table Trinity Forms needs is in the database."
+msgid_plural "All %d tables Trinity Forms needs are in the database."
+msgstr[0] "La %d tabla que necesita Trinity Forms está en la base de datos."
+msgstr[1] "Las %d tablas que necesita Trinity Forms están en la base de datos."
 
 #: includes/class-secrets.php:85
 msgid "Trinity Forms: The PHP OpenSSL extension is required to encrypt credentials at rest. Credentials are currently stored in plaintext — please enable the openssl extension."

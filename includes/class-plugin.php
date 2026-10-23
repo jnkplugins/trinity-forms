@@ -67,6 +67,7 @@ final class Plugin {
             // Apply pending schema migrations on update (the activation hook does
             // not fire on in-place upgrades, e.g. free → Pro via zip upload).
             add_action( "admin_init", [ Activator::class, "maybe_upgrade" ] );
+            Schema_Check::register();
             Admin::bootstrap();
             Onboarding::register();
             Templates::bootstrap();

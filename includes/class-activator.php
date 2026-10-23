@@ -99,6 +99,9 @@ class Activator {
         dbDelta( $entry_notes );
         dbDelta( $files );
         dbDelta( $logs );
+        // dbDelta() says nothing when the database refuses a table; check, and
+        // keep the database's own error for the notice and Site Health.
+        Schema_Check::record();
 
         // Add FK separately — dbDelta doesn't parse FOREIGN KEY clauses.
         $fk_name = "fk_{$wpdb->prefix}trinity_forms_entry_meta_entry";
