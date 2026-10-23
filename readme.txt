@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 8.2
-Stable tag: 2.12.0
+Stable tag: 2.12.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,8 +23,8 @@ paying hundreds a year just to run a contact form.
 
 Trinity Forms ships the whole builder for free — a drag-and-drop form builder with
 conditional logic, native entry storage, CSV export, email notifications, and
-spam protection, with no submission caps and no phone-home. Payments and
-integrations are Pro, from $49/year, only when you actually need them.
+spam protection, with no submission caps and no tracking. Payments and
+integrations are Pro, from $29/year, only when you actually need them.
 
 It's built for the WordPress shops that ship things: agencies, freelancers,
 membership sites, donation pages, course creators, and local businesses that want
@@ -33,7 +33,7 @@ a real form tool without the renewal shock.
 = What you can do today (free version) =
 
 * Build forms two ways — a dedicated drag-and-drop **Visual Builder** where you drop fields into place, reorder, undo/redo and start from 12 ready-made templates, or the Gutenberg block editor you already know. New forms open in the builder; either editor can be used on any form.
-* 20 field types — text, email, textarea, select, radio, checkbox, number, range slider, name, phone, address, country, date, time, hidden, HTML, page break, section, rating, consent, and file upload (files are stored privately and only reach logged-in admins).
+* 32 field types: text, email, textarea, select, radio, checkbox, multiple choice, multi select, image choice, number, range slider, name, phone, address, country, date, time, website, password, list, hidden, HTML, page break, section, rating, consent, file upload (files are stored privately and only reach logged-in admins), and the pricing fields Product, Quantity, Option, Shipping and Total.
 * Conditional logic — show, hide, and skip fields based on prior answers, with all-of / any-of matching and eight operators. Uncapped.
 * Native entry storage in your own WordPress database, with a searchable admin Entries list and per-entry detail view.
 * CSV export of all your submissions.
@@ -46,7 +46,7 @@ a real form tool without the renewal shock.
 
 = Get Pro =
 
-Pro is available at https://jnkplugins.com/trinity-forms/pricing.php (from $49/year, flat — year-one price is renewal price). Pro adds:
+Pro is available at https://jnkplugins.com/trinity-forms/pricing.php (from $29/year, flat, and the renewal price is the year-one price). Pro adds:
 
 * Payments — Stripe, PayPal, and Mollie. Hosted Checkout keeps your site PCI out-of-scope. If a licence ends, forms keep taking payments and everything visitors use keeps working; 30 days after expiry only adding new Pro features in the dashboard locks.
 * CRM & marketing integrations — automatically send submissions to popular email-marketing, CRM, chat, spreadsheet, and automation tools, plus a generic HMAC-signed webhook.
@@ -64,14 +64,14 @@ Trinity Forms puts the features other plugins sell as "Pro" in the free tier, an
 
 * Conditional logic, native entry storage, and CSV export — free.
 * No submission caps, ever — free.
-* Payments (Stripe, PayPal, Mollie) — Pro, from $49/year flat, not bundled into a $200–$400/year plan.
+* Payments (Stripe, PayPal, Mollie): Pro, from $29/year flat, not bundled into a $200–$400/year plan.
 * Renewal price is the same as year one. No "introductory pricing" trap.
 
 See the full feature comparison at https://jnkplugins.com/trinity-forms/features.php
 
 == Installation ==
 
-1. Upload the plugin or install it from WordPress.org.
+1. Download the zip from https://jnkplugins.com/trinity-forms/ and upload it under Plugins > Add New > Upload Plugin.
 2. Activate it through the Plugins screen.
 3. Go to Forms > Add New to build your first form.
 4. Embed it with the `[trinity-forms id="123"]` shortcode or the Trinity Forms block.
@@ -84,10 +84,13 @@ No. The free plugin stores unlimited submissions in your WordPress database.
 
 = Does it phone home or require an account? =
 
-No account, and nothing is contacted by default. The only optional external
-call is the anti-spam CAPTCHA (Cloudflare Turnstile, Google reCAPTCHA v2, or
-hCaptcha), which runs solely when you enable it and enter your own provider keys.
-See "External services" below.
+No account. The zip from jnkplugins.com includes a small update client: it asks
+our license server (api.jnkplugins.com) whether a newer Trinity Forms is out,
+sending your site address, the license key the zip came with and the installed
+version, so WordPress can offer the update. Your form entries are never sent
+anywhere. The only other external call is the optional anti-spam CAPTCHA
+(Cloudflare Turnstile, Google reCAPTCHA, or hCaptcha), which runs solely when you
+enable it and enter your own provider keys. See "External services" below.
 
 = What happens to my data if I uninstall or my Pro license expires? =
 
@@ -96,9 +99,10 @@ your forms and entries — nothing is wiped unless you explicitly turn on
 "Delete all Trinity Forms data when the plugin is deleted" under Trinity Forms Settings,
 in which case data is removed only when you delete the plugin.
 
-A lapsed Pro license simply disables premium features (payments,
-integrations, and so on) and the plugin behaves like the free tier — it never
-deletes any data. Renewing your license restores access to those features.
+If a Pro license expires, Pro keeps working for 30 days. After that, everything
+your visitors see keeps working (forms with Pro fields, payments, the
+integrations already set up), and only the Pro tools in your dashboard lock
+until you renew. Nothing is ever deleted.
 
 = Which editor do forms open in? =
 
@@ -135,7 +139,13 @@ Buy any two at ~20% off or all three at ~25% off. See [the bundle pricing](https
 
 == External services ==
 
-Trinity Forms does not contact any external service by default.
+The zip from jnkplugins.com checks our license server for updates: once or twice
+a day it sends your site address, its license key and the installed version to
+`https://api.jnkplugins.com/api/v1/` so WordPress can offer the update, and the
+update itself downloads from there. No form data is sent. Terms:
+https://jnkplugins.com/terms.php · Privacy: https://jnkplugins.com/privacy.php
+
+Apart from that, Trinity Forms does not contact any external service by default.
 
 If — and only if — you enable a CAPTCHA challenge for a form and enter your own
 keys for the chosen provider under Trinity Forms Settings, the plugin contacts that
@@ -171,6 +181,9 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.12.1 =
+* Changed: the readme says plainly what the free zip's update check sends and where, with current prices, and how to install from the jnkplugins.com zip. No code changes.
 
 = 2.12.0 =
 * New: bought Pro? Paste your Pro license key in Settings, under License, and click "Install Pro now". Pro is installed over this version for you, the same way WordPress applies an update, and everything you set up stays. Downloading and uploading the Pro zip still works.
