@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 8.2
-Stable tag: 2.12.1
+Stable tag: 2.12.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -85,7 +85,7 @@ No. The free plugin stores unlimited submissions in your WordPress database.
 = Does it phone home or require an account? =
 
 No account. The zip from jnkplugins.com includes a small update client: it asks
-our license server (api.jnkplugins.com) whether a newer Trinity Forms is out,
+our license server on jnkplugins.com whether a newer Trinity Forms is out,
 sending your site address, the license key the zip came with and the installed
 version, so WordPress can offer the update. Your form entries are never sent
 anywhere. The only other external call is the optional anti-spam CAPTCHA
@@ -141,7 +141,7 @@ Buy any two at ~20% off or all three at ~25% off. See [the bundle pricing](https
 
 The zip from jnkplugins.com checks our license server for updates: once or twice
 a day it sends your site address, its license key and the installed version to
-`https://api.jnkplugins.com/api/v1/` so WordPress can offer the update, and the
+our license server on jnkplugins.com so WordPress can offer the update, and the
 update itself downloads from there. No form data is sent. Terms:
 https://jnkplugins.com/terms.php · Privacy: https://jnkplugins.com/privacy.php
 
@@ -181,6 +181,9 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.12.2 =
+* Fixed: "Check again" on Dashboard > Updates now finds a new version straight away. Before, a release could stay hidden for up to 12 hours unless you used "Check for updates now" in the License card.
 
 = 2.12.1 =
 * Changed: the readme says plainly what the free zip's update check sends and where, with current prices, and how to install from the jnkplugins.com zip. No code changes.
