@@ -56,6 +56,8 @@ $secret_attr = static function ( string $stored ): string {
         <div class="jnkui-card-body">
             <?php if ( $tf_mail_result ) : ?>
                 <div class="jnkui-callout<?php echo $tf_mail_result["ok"] ? "" : " is-warn"; ?>"><p><?php echo esc_html( (string) $tf_mail_result["message"] ); ?></p></div>
+            <?php elseif ( "" !== \TrinityForms\Mail_Check::php_mail_warning() ) : ?>
+                <div class="jnkui-callout is-warn"><p><?php echo esc_html( \TrinityForms\Mail_Check::php_mail_warning() ); ?></p></div>
             <?php endif; ?>
             <form method="post" action="<?php echo esc_url( admin_url( "admin-post.php" ) ); ?>" class="tf-mail-check-form">
                 <input type="hidden" name="action" value="trinity_forms_test_email" />
@@ -99,6 +101,13 @@ $secret_attr = static function ( string $stored ): string {
 
     <form method="post" action="options.php" class="tf-settings">
         <?php settings_fields( "trinity_forms_settings_group" ); ?>
+        <?php
+        // Enter in a field presses the form's first submit button. That was Pro's
+        // "Send a test alert" (formaction admin-post.php), so Enter sent a test and
+        // threw the change away. This Save comes first; clipped, not display:none,
+        // which some browsers skip for implicit submission.
+        ?>
+        <button type="submit" name="submit" value="1" class="tf-default-submit" tabindex="-1" aria-hidden="true" style="position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip-path:inset(50%);"><?php esc_html_e( "Save settings", "trinity-forms" ); ?></button>
 
         <?php
         // Premium payment-gateway settings (Stripe, PayPal) are rendered by pro/.

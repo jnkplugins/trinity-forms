@@ -45,13 +45,19 @@ class Notification_Engine {
                 continue;
             }
             $to      = apply_filters( "trinity_forms_email_to",      $to, $entry_id, $notif );
-            $subject = apply_filters( "trinity_forms_email_subject", Merge_Tags::replace( (string) ( $notif["subject"] ?? "" ), $entry_id ), $entry_id, $notif );
+            $subject = apply_filters( "trinity_forms_email_subject", self::plain( Merge_Tags::replace( (string) ( $notif["subject"] ?? "" ), $entry_id ) ), $entry_id, $notif );
             $body    = apply_filters( "trinity_forms_email_body",    Merge_Tags::replace( self::body_html( (string) ( $notif["body"] ?? "" ) ), $entry_id ), $entry_id, $notif );
 
-            $headers = [ "Content-Type: text/html; charset=UTF-8" ];
+            $headers   = [ "Content-Type: text/html; charset=UTF-8" ];
+            $from_name = self::plain( Merge_Tags::replace( (string) ( $notif["from_name"] ?? "" ), $entry_id ) );
+            // A From name with no From email (the screen says to leave the email
+            // blank) used to be dropped, so mail came from "WordPress". Set only the
+            // name for this one send and keep the site's own address.
+            $name_only = "" !== $from_name && empty( $notif["from_email"] )
+                ? static fn() => $from_name
+                : null;
             if ( ! empty( $notif["from_email"] ) ) {
                 $from      = Merge_Tags::replace( (string) $notif["from_email"], $entry_id );
-                $from_name = trim( Merge_Tags::replace( (string) ( $notif["from_name"] ?? "" ), $entry_id ) );
                 // "Acme Support <forms@acme.com>" rather than a bare address: an
                 // inbox shows the name, and a nameless From reads as machine spam.
                 $headers[] = "" !== $from_name
@@ -85,7 +91,13 @@ class Notification_Engine {
             $attachments = empty( $notif["attach_files"] ) ? [] : self::entry_files( $entry_id );
             $attachments = (array) apply_filters( "trinity_forms_email_attachments", $attachments, $entry_id, $notif );
             Mail_Check::begin();
+            if ( $name_only ) {
+                add_filter( "wp_mail_from_name", $name_only, 99 );
+            }
             $sent = wp_mail( $to, $subject, $body, $headers, $attachments );
+            if ( $name_only ) {
+                remove_filter( "wp_mail_from_name", $name_only, 99 );
+            }
             do_action( "trinity_forms_notification_sent", $entry_id, $notif["id"] ?? "", $sent );
             if ( $sent ) {
                 Mail_Check::record_success();
@@ -110,6 +122,16 @@ class Notification_Engine {
                 do_action( "trinity_forms_notification_failed", $entry_id, $notif, $to, $reason );
             }
         }
+    }
+
+    /**
+     * Merge tags are escaped for the HTML body, so a subject or From name read
+     * "Filmy Duniya &amp; Friends" and "Sean O&#039;Brien" in the inbox. Those are
+     * plain-text headers: decode, and keep them on one line.
+     */
+    private static function plain( string $text ): string {
+        $text = html_entity_decode( wp_specialchars_decode( $text, ENT_QUOTES ), ENT_QUOTES | ENT_HTML5, "UTF-8" );
+        return trim( (string) preg_replace( "/[\r\n\t]+/", " ", $text ) );
     }
 
     /**

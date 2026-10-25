@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 8.2
-Stable tag: 2.13.0
+Stable tag: 2.14.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -181,6 +181,21 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.14.0 =
+* Fixed: entry times were shifted by the site's time zone (a new entry on an India-time site said "in 5 hours"). Retention and trash clean-up now count days in site time too.
+* Fixed: a page more than a day old (a cached page, or a tab left open overnight) refused every submit. It now gets a fresh security token and sends; if that fails it says the page is out of date and keeps the answers.
+* Fixed: a phone autofill could fill the hidden spam trap and send a real visitor's entry to spam. The trap is harder to autofill, an entry where a person typed is kept, and the log shows what was in the trap.
+* Fixed: a file bigger than the server allows said "This field is required." for fields the visitor filled. It now says the file is too big and gives the real limit. An empty file says so.
+* Fixed: on right-to-left sites every page with a form was 10,000 px wide.
+* Fixed: with JavaScript off, a form landed on a page of code after sending, a multi-step form could not be sent, and conditional fields never showed. All three work now.
+* Fixed: email subjects and sender names showed "&amp;" and "&#039;". A notification's From name is used even when From email is blank.
+* New: Settings, the test email and Tools > Site Health warn when mail goes out through PHP mail() (and about a strict DMARC policy on the From domain), and say "Form emails are failing" when they are.
+* Fixed: on PHP-FPM and LiteSpeed hosts, notifications are sent after the visitor gets the reply, so a slow mail server no longer keeps them waiting.
+* Fixed: during a spam wave, real visitors were told "Too many submissions from your connection". Spam now has its own limit.
+* Fixed: a form setting saved at the top level of the form data (by code or an import) was ignored. It is used now, with a notice for developers.
+* Fixed: the page script's messages can be translated. The phone Back button moves between steps of a multi-step form, and Back after a redirect no longer sends the entry again.
+* Fixed: when a form is deleted, the page it was on shows a note to editors instead of nothing.
 
 = 2.13.0 =
 * New: Tools > Site Health checks that Trinity Forms's database tables exist. If the database refused one, it says which, with the database's own error, and Trinity Forms's screens show the same notice.

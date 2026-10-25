@@ -12,7 +12,11 @@ class Field_File extends Field_Base {
         $multiple = ! empty( $config["multiple"] ) ? " multiple" : "";
         $required = ! empty( $config["required"] ) ? " required" : "";
         $bracket  = $multiple ? "[]" : "";
-        $control  = '<input type="file" id="' . $id . '" name="' . $name . $bracket . '" accept="' . $accept . '"' . $multiple . $required . ' />';
+        // The real limit, so the page script can say "too big" before sending a
+        // file the server would throw away.
+        $max      = self::max_bytes( $config );
+        $limits   = ' data-max-bytes="' . esc_attr( (string) $max ) . '" data-max-label="' . esc_attr( size_format( $max ) ) . '"';
+        $control  = '<input type="file" id="' . $id . '" name="' . $name . $bracket . '" accept="' . $accept . '"' . $multiple . $required . $limits . ' />';
         return $this->wrap( $config, $control );
     }
 
@@ -37,7 +41,7 @@ class Field_File extends Field_Base {
         foreach ( $items as $item ) {
             if ( ! is_array( $item ) ) { continue; }
             if ( $max_bytes > 0 && (int) ( $item["size"] ?? 0 ) > $max_bytes ) {
-                $errors[] = sprintf( __( "File %s exceeds the maximum size.", "trinity-forms" ), $item["filename"] ?? "" );
+                $errors[] = self::too_big_message( (string) ( $item["filename"] ?? "" ), self::max_bytes( $config ) );
             }
             if ( $accept ) {
                 $ext = strtolower( pathinfo( (string) ( $item["filename"] ?? "" ), PATHINFO_EXTENSION ) );
@@ -47,6 +51,25 @@ class Field_File extends Field_Base {
             }
         }
         return $errors;
+    }
+
+    /**
+     * The largest file this field takes: its own "Max size" capped by what the
+     * server accepts. A 5 MB field on a host with PHP's default 2 MB limit used to
+     * fail a 3 MB photo with "Upload error" and no reason.
+     */
+    public static function max_bytes( array $config ): int {
+        $server = (int) wp_max_upload_size();
+        $field  = (int) ( $config["max_size"] ?? 0 ) * 1024 * 1024;
+        if ( $field > 0 && ( $server <= 0 || $field < $server ) ) {
+            return $field;
+        }
+        return $server;
+    }
+
+    public static function too_big_message( string $name, int $max ): string {
+        /* translators: 1: file name, 2: the largest size accepted, e.g. "2 MB". */
+        return sprintf( __( "%1\$s is too big. Files can be up to %2\$s.", "trinity-forms" ), $name, size_format( $max ) );
     }
 
     private static function parse_accept( string $raw ): array {

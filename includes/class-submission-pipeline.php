@@ -24,6 +24,13 @@ class Submission_Pipeline {
         }, 10, 2 );
     }
 
+    /**
+     * Set by the REST route while a form is past its spam cap for the minute: spam
+     * is then answered as usual but not stored, so a bot wave cannot fill the
+     * entries table. Real entries are never affected.
+     */
+    public static bool $drop_spam = false;
+
     /** The payload being processed, for listeners that need a value beyond the fields. */
     private static array $current_payload = [];
 
@@ -51,12 +58,21 @@ class Submission_Pipeline {
         }
 
         // Honeypot first: a filled trap is a bot whether or not a token came along.
-        $honeypot_hit = $form->get_setting( "honeypot", true ) && ! empty( $payload[ Anti_Spam::HONEYPOT_FIELD ] );
+        $honeypot_hit = Anti_Spam::honeypot_hit( $form, $payload );
         if ( ! $honeypot_hit && Anti_Spam::captcha_token_missing( $form, $payload ) ) {
             return $this->error( 422, __( "Please complete the bot check (CAPTCHA) and submit again. If you can't see it, reload the page or allow its script.", "trinity-forms" ), [], [ "reason" => "captcha_missing" ] );
         }
 
         $is_spam = ! Anti_Spam::check( $form, $payload );
+
+        if ( $is_spam && self::$drop_spam ) {
+            return $this->ok( [
+                "entry_id"     => 0,
+                "confirmation" => Confirmations::spam_message( $form, 0 ),
+                "redirect"     => null,
+                "spam"         => true,
+            ] );
+        }
 
         [ $payload, $upload_errors ] = $this->process_uploads( $form, $payload );
         if ( $upload_errors ) {
@@ -71,6 +87,9 @@ class Submission_Pipeline {
 
         $entry_id = $this->store( $form, $sanitized, (string) ( $payload["_trinity_forms_source_url"] ?? "" ) );
         $this->record_files( $entry_id, $form, $sanitized );
+        if ( "" !== Anti_Spam::note() ) {
+            Logger::info( "spam", Anti_Spam::note(), $entry_id );
+        }
 
         // Spam is quarantined, not discarded. Two reasons: the filter is sometimes
         // wrong, and a real message thrown away is unrecoverable — the Spam tab on
@@ -123,7 +142,7 @@ class Submission_Pipeline {
             }
         }
 
-        Notification_Engine::dispatch( $entry_id );
+        self::send_notifications( $entry_id );
 
         // Premium ESP/webhook integrations (pro/ only) and add-ons subscribe to this
         // action. Queue a job only when something listens: the free build used to
@@ -465,9 +484,24 @@ class Submission_Pipeline {
                     "error"    => (int) ( $multi ? $_FILES[ $key ]["error"][ $field->id ][ $idx ] : $_FILES[ $key ]["error"][ $field->id ] ),
                     "size"     => (int) ( $multi ? $_FILES[ $key ]["size"][ $field->id ][ $idx ] : $_FILES[ $key ]["size"][ $field->id ] ),
                 ];
+                if ( UPLOAD_ERR_NO_FILE === (int) $file["error"] ) {
+                    continue;
+                }
+                // Say which limit was hit: "Upload error" alone left the visitor
+                // trying the same photo again.
+                if ( in_array( (int) $file["error"], [ UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE ], true ) ) {
+                    $errors[ $field->id ][] = Fields\Field_File::too_big_message( $file["name"], Fields\Field_File::max_bytes( $field->config ) );
+                    continue;
+                }
                 if ( (int) $file["error"] !== UPLOAD_ERR_OK ) {
                     /* translators: %s: uploaded file name. */
                     $errors[ $field->id ][] = sprintf( __( "Upload error for %s.", "trinity-forms" ), $file["name"] );
+                    continue;
+                }
+                // Core's own text for this one talks about php.ini to the visitor.
+                if ( 0 === (int) $file["size"] ) {
+                    /* translators: %s: uploaded file name. */
+                    $errors[ $field->id ][] = sprintf( __( "%s is empty.", "trinity-forms" ), $file["name"] );
                     continue;
                 }
                 // Private folder + gated URL: form uploads are not media-library files.
@@ -492,6 +526,47 @@ class Submission_Pipeline {
 
         // phpcs:enable WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized,WordPress.Security.ValidatedSanitizedInput.MissingUnslash,WordPress.Security.ValidatedSanitizedInput.InputNotValidated
         return [ $payload, $errors ];
+    }
+
+    /** Entries whose notifications go out once the visitor has the response. */
+    private static array $deferred = [];
+
+    /**
+     * Send the entry's notifications, after the response when the server can hand
+     * it over early (PHP-FPM, LiteSpeed). With a dead SMTP host the visitor used to
+     * watch the spinner for 139 s per notification, past Cloudflare's 100 s limit,
+     * although the entry was long saved. Elsewhere it sends at once, as before.
+     */
+    public static function send_notifications( int $entry_id ): void {
+        $can_finish_early = defined( "REST_REQUEST" ) && REST_REQUEST
+            && ( function_exists( "fastcgi_finish_request" ) || function_exists( "litespeed_finish_request" ) );
+        if ( ! apply_filters( "trinity_forms_defer_notifications", $can_finish_early, $entry_id ) ) {
+            Notification_Engine::dispatch( $entry_id );
+            return;
+        }
+        if ( ! self::$deferred ) {
+            // After wp_ob_end_flush_all (priority 1), so the JSON is out of WordPress's buffers.
+            add_action( "shutdown", [ self::class, "send_deferred" ], 2 );
+        }
+        self::$deferred[] = $entry_id;
+    }
+
+    /** shutdown: finish the visitor's response, then talk to the mail server. */
+    public static function send_deferred(): void {
+        $ids            = self::$deferred;
+        self::$deferred = [];
+        if ( ! $ids ) {
+            return;
+        }
+        if ( function_exists( "fastcgi_finish_request" ) ) {
+            fastcgi_finish_request();
+        } elseif ( function_exists( "litespeed_finish_request" ) ) {
+            litespeed_finish_request();
+        }
+        ignore_user_abort( true );
+        foreach ( $ids as $id ) {
+            Notification_Engine::dispatch( (int) $id );
+        }
     }
 
     public static function client_ip(): string {

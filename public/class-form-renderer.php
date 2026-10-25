@@ -62,6 +62,43 @@ class Form_Renderer {
         );
     }
 
+    /**
+     * The outcome of a submit sent with JavaScript off (see REST_API::back_to_the_page()).
+     * Shown once, on the form it belongs to.
+     */
+    public static function plain_post_notice( Form $form ): string {
+        $token = isset( $_GET["tf_result"] ) ? sanitize_key( wp_unslash( (string) $_GET["tf_result"] ) ) : ""; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- a read-only lookup key, not an action.
+        if ( "" === $token ) {
+            return "";
+        }
+        $note = get_transient( "trinity_forms_plain_" . $token );
+        if ( ! is_array( $note ) || (int) ( $note["form_id"] ?? 0 ) !== (int) $form->id ) {
+            return "";
+        }
+        delete_transient( "trinity_forms_plain_" . $token );
+        $type  = ! empty( $note["ok"] ) ? "success" : "error";
+        $items = array_map( static fn( $m ) => "<li>" . wp_kses_post( (string) $m ) . "</li>", (array) ( $note["messages"] ?? [] ) );
+        return '<div id="trinity-forms-' . (int) $form->id . '" class="trinity-forms-messages trinity-forms-' . $type . '" role="status"><ul>' . implode( "", $items ) . "</ul></div>";
+    }
+
+    /**
+     * Shown where a form should be when it is gone. Deleting a form left its page
+     * published and silently empty; now the people who can fix the page see why.
+     * Visitors still get nothing.
+     */
+    public static function missing_notice( int $form_id ): string {
+        if ( ! current_user_can( "edit_posts" ) ) {
+            return "";
+        }
+        return '<p class="trinity-forms-missing" style="border:1px dashed #b32d2e;padding:.75em 1em;color:#b32d2e;">'
+            . esc_html( sprintf(
+                /* translators: %d: form ID. */
+                __( "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note.", "trinity-forms" ),
+                $form_id
+            ) )
+            . "</p>";
+    }
+
     /** Tests only: start counting forms again. */
     public static function reset_instances(): void {
         self::$instances = 0;
@@ -145,6 +182,7 @@ class Form_Renderer {
         $html .= (string) apply_filters( "trinity_forms_form_data_attributes", "", $form, $multi );
         $html .= ' method="post" action="' . $action . '" enctype="multipart/form-data">';
         $html .= '<input type="hidden" name="_wpnonce" value="' . esc_attr( $nonce ) . '" />';
+        $html .= self::plain_post_notice( $form );
         if ( $token ) {
             $html .= '<input type="hidden" name="_trinity_forms_resume_token" value="' . esc_attr( $token ) . '" />';
             // Say what just happened: a half-filled form appearing out of nowhere
@@ -165,8 +203,18 @@ class Form_Renderer {
         }
         $html .= Anti_Spam::honeypot_html();
         $html .= Anti_Spam::timetrap_html();
+        // Without JavaScript nothing evaluates a "show" condition, so its field
+        // stayed hidden for ever and a required one could not be answered. Show
+        // them all; the server still applies the conditions on submit.
+        if ( false !== strpos( $fields_html, "trinity-forms-conditional" ) ) {
+            $html .= '<noscript><style>.trinity-forms-form .trinity-forms-conditional{display:block !important}</style></noscript>';
+        }
         if ( $multi ) {
             $html .= '<p class="trinity-forms-step-status" role="status" aria-live="polite"></p>';
+            // Without JavaScript nothing switches steps, so Next did nothing and the
+            // form could not be sent. Show every step and a Submit of its own.
+            $html .= '<noscript><style>.trinity-forms-form .trinity-forms-step[hidden]{display:block !important}'
+                . '.trinity-forms-form .trinity-forms-next,.trinity-forms-form .trinity-forms-submit:not(.trinity-forms-submit-nojs){display:none !important}</style></noscript>';
         }
 
         // A summary of everything wrong, at the top. On a long form the inline
@@ -183,6 +231,10 @@ class Form_Renderer {
             $html .= '<button type="button" class="trinity-forms-prev" hidden>' . esc_html__( "Previous", "trinity-forms" ) . '</button> ';
             $html .= '<button type="button" class="trinity-forms-next">' . esc_html__( "Next", "trinity-forms" ) . '</button> ';
             $html .= '<button type="submit" class="trinity-forms-submit" hidden>' . $submit . '</button>';
+            // formnovalidate: a required field whose condition is not met is still on
+            // screen without the page script, and would block the browser's own check.
+            // The server validates (and skips hidden fields) either way.
+            $html .= '<noscript><button type="submit" class="trinity-forms-submit trinity-forms-submit-nojs" formnovalidate>' . $submit . '</button></noscript>';
         } else {
             $html .= self::submit_button( $form, $submit );
         }

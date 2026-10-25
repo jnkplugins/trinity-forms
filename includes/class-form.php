@@ -67,6 +67,34 @@ class Form {
                     $base[ $section ] = $meta[ $section ];
                 }
             }
+            // Form settings belong under "settings". One written at the top level
+            // (code that sets the meta by hand) used to be ignored without a word:
+            // a top-level confirmation_message left visitors seeing "Thank you!".
+            // Use it, unless "settings" holds a value of its own (not just the default
+            // a new form starts with), and say so to developers.
+            $stray = array_diff_key( $meta, array_flip( array_merge( self::SECTIONS, [ "version", "steps", "fields" ] ) ) );
+            if ( $stray ) {
+                $settings = isset( $base["settings"] ) && is_array( $base["settings"] ) ? $base["settings"] : [];
+                $defaults = Form_Manager::default_schema()["settings"];
+                foreach ( $stray as $key => $value ) {
+                    if ( ! array_key_exists( $key, $settings ) || ( array_key_exists( $key, $defaults ) && $settings[ $key ] === $defaults[ $key ] ) ) {
+                        $settings[ $key ] = $value;
+                    }
+                }
+                $base["settings"] = $settings;
+                if ( function_exists( "_doing_it_wrong" ) ) {
+                    _doing_it_wrong(
+                        __METHOD__,
+                        sprintf(
+                            /* translators: 1: list of meta keys, 2: the meta key name. */
+                            esc_html__( 'Form settings %1$s are at the top level of %2$s; put them under "settings".', "trinity-forms" ),
+                            esc_html( implode( ", ", array_keys( $stray ) ) ),
+                            esc_html( self::SETTINGS_META )
+                        ),
+                        "2.14.0"
+                    );
+                }
+            }
         }
 
         $this->schema = $base;

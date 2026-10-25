@@ -31,6 +31,9 @@ class Mail_Check {
     /** When a form email or a test was last handed to the mail server (unix time). */
     public const LAST_OK_OPTION = "trinity_forms_mail_last_ok";
 
+    /** How the last email left the site: { mailer, from, at }. Written by observe(). */
+    public const TRANSPORT_OPTION = "trinity_forms_mail_transport";
+
     /** User meta: the newest failure time this person has dismissed the warning for. */
     public const DISMISS_META = "trinity_forms_mail_notice_dismissed";
 
@@ -44,6 +47,9 @@ class Mail_Check {
 
     public static function register(): void {
         add_action( "wp_mail_failed", [ self::class, "capture" ] );
+        // Last in line, after any SMTP plugin has set the mailer up.
+        add_action( "phpmailer_init", [ self::class, "observe" ], PHP_INT_MAX );
+        add_filter( "site_status_tests", [ self::class, "site_status_tests" ] );
         add_action( "rest_api_init", [ self::class, "register_routes" ] );
         if ( is_admin() ) {
             add_action( "admin_notices", [ self::class, "render_notice" ] );
@@ -57,6 +63,161 @@ class Mail_Check {
         if ( $error instanceof \WP_Error ) {
             self::$last_error = trim( wp_strip_all_tags( (string) $error->get_error_message() ) );
         }
+    }
+
+    /**
+     * Note how this email is about to leave: PHPMailer's "mail" means PHP mail(),
+     * the server's own mailer, with no SMTP account behind it. On a shared host that
+     * sends from the server's name with no DKIM for the site's domain, so DMARC fails
+     * and inboxes file it as junk (seen on a live site, 24 Oct 2026). Written only
+     * when something changed, so a busy form does not write on every email.
+     *
+     * @param object $phpmailer PHPMailer instance.
+     */
+    public static function observe( $phpmailer ): void {
+        if ( ! is_object( $phpmailer ) || ! isset( $phpmailer->Mailer ) ) {
+            return;
+        }
+        $now  = [ "mailer" => strtolower( (string) $phpmailer->Mailer ), "from" => (string) ( $phpmailer->From ?? "" ) ];
+        $seen = self::transport();
+        if ( ( $seen["mailer"] ?? "" ) !== $now["mailer"] || ( $seen["from"] ?? "" ) !== $now["from"] || time() - (int) ( $seen["at"] ?? 0 ) > DAY_IN_SECONDS ) {
+            update_option( self::TRANSPORT_OPTION, $now + [ "at" => time() ], false );
+        }
+    }
+
+    /** @return array{mailer?:string,from?:string,at?:int} */
+    public static function transport(): array {
+        $t = get_option( self::TRANSPORT_OPTION, [] );
+        return is_array( $t ) ? $t : [];
+    }
+
+    /** True when the last email went out through PHP mail() / sendmail, not SMTP. */
+    public static function uses_php_mail(): bool {
+        return in_array( self::transport()["mailer"] ?? "", [ "mail", "sendmail", "qmail" ], true );
+    }
+
+    /** The From domain's DMARC policy ("none", "quarantine", "reject") or "" when it has none. */
+    public static function dmarc_policy( string $domain ): string {
+        $domain = strtolower( trim( $domain ) );
+        if ( "" === $domain || ! function_exists( "dns_get_record" ) ) {
+            return "";
+        }
+        $key    = "trinity_forms_dmarc_" . md5( $domain );
+        $cached = get_transient( $key );
+        if ( false !== $cached ) {
+            return (string) $cached;
+        }
+        $policy  = "";
+        $records = @dns_get_record( "_dmarc." . $domain, DNS_TXT ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- a failed DNS lookup is "no policy", not an error worth showing.
+        foreach ( (array) $records as $r ) {
+            $txt = (string) ( $r["txt"] ?? "" );
+            if ( 0 === stripos( $txt, "v=DMARC1" ) && preg_match( "/\bp=(none|quarantine|reject)\b/i", $txt, $m ) ) {
+                $policy = strtolower( $m[1] );
+                break;
+            }
+        }
+        set_transient( $key, $policy, DAY_IN_SECONDS );
+        return $policy;
+    }
+
+    /** The warning shown when mail goes out through PHP mail(), or "" when it does not. */
+    public static function php_mail_warning(): string {
+        if ( ! self::uses_php_mail() ) {
+            return "";
+        }
+        $text = __( "This site sends email with PHP mail(), the server's own mailer, not through an email account. Many inboxes put these emails in spam.", "trinity-forms" );
+        $from = (string) ( self::transport()["from"] ?? "" );
+        $at   = strrpos( $from, "@" );
+        if ( false !== $at ) {
+            $domain = substr( $from, $at + 1 );
+            $policy = self::dmarc_policy( $domain );
+            // Whole sentences per policy: a raw "reject" dropped into a translated
+            // sentence reads wrong in every other language.
+            if ( "reject" === $policy ) {
+                /* translators: %s: domain name. */
+                $text .= " " . sprintf( __( "%s also tells inboxes to refuse mail it did not sign, so expect form emails to go missing.", "trinity-forms" ), $domain );
+            } elseif ( "quarantine" === $policy ) {
+                /* translators: %s: domain name. */
+                $text .= " " . sprintf( __( "%s also tells inboxes to put mail it did not sign in spam, so expect form emails to go missing.", "trinity-forms" ), $domain );
+            }
+        }
+        return $text . " " . __( "Fix: send through your host's SMTP mailbox or your email provider, with an SMTP plugin.", "trinity-forms" );
+    }
+
+    /** @param array<string,mixed> $tests */
+    public static function site_status_tests( $tests ): array {
+        $tests                                 = (array) $tests;
+        $tests["direct"]["trinity_forms_mail"] = [
+            "label" => __( "How Trinity Forms emails are sent", "trinity-forms" ),
+            "test"  => [ self::class, "site_health" ],
+        ];
+        return $tests;
+    }
+
+    /** Tools > Site Health. */
+    public static function site_health(): array {
+        $badge   = [ "label" => "Trinity Forms", "color" => "blue" ];
+        $failing = self::failing_now();
+        // Before the mailer check: with every form email failing over a bad SMTP
+        // password, this used to pass as "sent through a mail server (SMTP)".
+        if ( $failing ) {
+            $failures = self::failures_since_last_success();
+            $count    = $failures
+                /* translators: %s: number of emails. */
+                ? sprintf( _n( "%s form email could not be sent in the last 7 days.", "%s form emails could not be sent in the last 7 days.", count( $failures ), "trinity-forms" ), number_format_i18n( count( $failures ) ) ) . " "
+                : "";
+            return [
+                "label"       => __( "Form emails are failing", "trinity-forms" ),
+                "status"      => "critical",
+                "badge"       => [ "label" => "Trinity Forms", "color" => "red" ],
+                "description" => "<p>" . esc_html( $count . sprintf(
+                    /* translators: 1: email address, 2: the reason the mail system gave. */
+                    __( "The latest was to %1\$s. Reason: %2\$s", "trinity-forms" ),
+                    (string) ( $failing["to"] ?? "" ),
+                    (string) ( $failing["reason"] ?? "" )
+                ) ) . "</p>",
+                "actions"     => '<p><a href="' . esc_url( admin_url( Admin::PARENT . "&page=" . Admin::SETTINGS . "#tf-mail-check" ) ) . '">' . esc_html__( "Send a test email", "trinity-forms" ) . "</a></p>",
+                "test"        => "trinity_forms_mail",
+            ];
+        }
+        if ( self::uses_php_mail() ) {
+            return [
+                "label"       => __( "Form emails are sent with PHP mail() and may land in spam", "trinity-forms" ),
+                "status"      => "recommended",
+                "badge"       => [ "label" => "Trinity Forms", "color" => "orange" ],
+                "description" => "<p>" . esc_html( self::php_mail_warning() ) . "</p>",
+                "actions"     => '<p><a href="' . esc_url( admin_url( Admin::PARENT . "&page=" . Admin::SETTINGS . "#tf-mail-check" ) ) . '">' . esc_html__( "Send a test email", "trinity-forms" ) . "</a></p>",
+                "test"        => "trinity_forms_mail",
+            ];
+        }
+        $known = "" !== ( self::transport()["mailer"] ?? "" );
+        return [
+            "label"       => $known ? __( "Form emails are sent through a mail server (SMTP)", "trinity-forms" ) : __( "Trinity Forms has not sent an email yet", "trinity-forms" ),
+            "status"      => "good",
+            "badge"       => $badge,
+            "description" => "<p>" . esc_html( $known
+                ? __( "The last email went out through an SMTP mailer, which inboxes trust far more than PHP mail().", "trinity-forms" )
+                : __( "It checks how emails leave the site when the first one is sent. Send a test from Forms > Settings to check now.", "trinity-forms" ) ) . "</p>",
+            "actions"     => "",
+            "test"        => "trinity_forms_mail",
+        ];
+    }
+
+    /**
+     * The newest failure (a form email or the test) when nothing has gone out fine
+     * since, else null.
+     *
+     * @return array{to?:string,reason?:string}|null
+     */
+    public static function failing_now(): ?array {
+        $failures = self::failures_since_last_success();
+        $test     = get_option( self::TEST_OPTION, [] );
+        $test_bad = is_array( $test ) && isset( $test["ok"] ) && ! $test["ok"]
+            && (int) ( $test["at"] ?? 0 ) > (int) get_option( self::LAST_OK_OPTION, 0 );
+        if ( $test_bad && ( ! $failures || (int) $test["at"] >= (int) ( $failures[0]["at"] ?? 0 ) ) ) {
+            return [ "to" => (string) ( $test["to"] ?? "" ), "reason" => (string) ( $test["reason"] ?? "" ) ];
+        }
+        return $failures ? $failures[0] : null;
     }
 
     /** Call right before wp_mail(), so a reason left over from another send is not reused. */
@@ -146,13 +307,14 @@ class Mail_Check {
         }
 
         if ( $ok ) {
+            $warning = self::php_mail_warning();
             return [
-                "ok"      => true,
+                "ok"      => "" === $warning,
                 "message" => sprintf(
                     /* translators: %s: email address. */
                     __( "Your site handed the test to its mail server for %s. Check that inbox, and the spam folder, in a few minutes. If it never shows up, the mail server is not passing it on: an SMTP plugin usually fixes that.", "trinity-forms" ),
                     $to
-                ),
+                ) . ( "" !== $warning ? " " . $warning : "" ),
             ];
         }
         return [

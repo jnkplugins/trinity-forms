@@ -527,7 +527,8 @@ class Entries {
         }
 
         $table  = self::table();
-        $cutoff = gmdate( "Y-m-d H:i:s", time() - ( $days * DAY_IN_SECONDS ) );
+        // trashed_at is site time (current_time( "mysql" )), so the cutoff is too.
+        $cutoff = wp_date( "Y-m-d H:i:s", time() - ( $days * DAY_IN_SECONDS ) );
         // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.PreparedSQL.InterpolatedNotPrepared
         $sql = "SELECT id FROM {$table} WHERE status = 'trash' AND trashed_at IS NOT NULL AND trashed_at < %s LIMIT 500";
         // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared

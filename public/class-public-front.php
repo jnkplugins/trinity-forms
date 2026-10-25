@@ -19,7 +19,10 @@ class Public_Front {
             "nonce"              => wp_create_nonce( "wp_rest" ),
             "captcha_provider"   => $provider,
             "turnstile_site_key" => $site_key,
+            // A fresh nonce for a page served from a cache (see ajax_nonce()).
+            "ajax_url"           => admin_url( "admin-ajax.php" ),
         ] );
+        wp_localize_script( "trinity-forms", "TrinityFormsI18n", self::script_strings() );
 
         if ( $site_key !== "" ) {
             // reCAPTCHA v3 needs the site key in the script URL and an executor that
@@ -41,6 +44,50 @@ class Public_Front {
                 wp_add_inline_script( "trinity-forms-turnstile", $js );
             }
         }
+    }
+
+    /** Everything the page script says to a visitor, in the site's language. */
+    public static function script_strings(): array {
+        return [
+            "oneProblem"   => __( "There is one thing to fix:", "trinity-forms" ),
+            "someProblems" => __( "There are some things to fix:", "trinity-forms" ),
+            "thanks"       => __( "Thanks — your submission was received.", "trinity-forms" ),
+            "failed"       => __( "Submission failed.", "trinity-forms" ),
+            "network"      => __( "Network error — please try again.", "trinity-forms" ),
+            "stale"        => __( "This page is out of date. Please reload it and try again.", "trinity-forms" ),
+            /* translators: 1: file name, 2: the largest size accepted, e.g. "2 MB". */
+            "fileTooBig"   => __( "%1\$s is too big. Files can be up to %2\$s.", "trinity-forms" ),
+            "tooLarge"     => __( "The file is too big to send.", "trinity-forms" ),
+            /* translators: 1: current step number, 2: number of steps. */
+            "stepOf"       => __( "Step %1\$d of %2\$d", "trinity-forms" ),
+            "required"     => __( "This field is required.", "trinity-forms" ),
+            "badEmail"     => __( "Please enter a valid email address.", "trinity-forms" ),
+            "resumeAsk"    => __( "Email me a link to finish this form later", "trinity-forms" ),
+            "sendLink"     => __( "Send link", "trinity-forms" ),
+            "cancel"       => __( "Cancel", "trinity-forms" ),
+            "saving"       => __( "Saving…", "trinity-forms" ),
+            "savedEmailed" => __( "Saved. We've emailed you a link to resume.", "trinity-forms" ),
+            /* translators: %s: the link that resumes the form. */
+            "savedLink"    => __( "Saved. Bookmark this URL to resume: %s", "trinity-forms" ),
+            "saveFailed"   => __( "Could not save progress.", "trinity-forms" ),
+            "addItem"      => __( "Add item", "trinity-forms" ),
+            "remove"       => __( "Remove", "trinity-forms" ),
+        ];
+    }
+
+    /**
+     * A fresh wp_rest nonce for the page script.
+     *
+     * A page served from a full-page cache (or a tab left open overnight) carries a
+     * nonce that expires after 12-24 hours, and WordPress refuses the submit with
+     * "Cookie check failed" before our route runs, so every lead was lost without a
+     * trace. admin-ajax, not REST: the REST API answers any origin with credentials,
+     * which would hand a logged-in user's nonce to another site; admin-ajax sends no
+     * CORS headers (the same reason core's own "rest-nonce" action lives there).
+     */
+    public static function ajax_nonce(): void {
+        nocache_headers();
+        wp_send_json_success( [ "nonce" => wp_create_nonce( "wp_rest" ) ] );
     }
 
     /** The configured provider's site key, in plain text (older installs stored it encrypted). */

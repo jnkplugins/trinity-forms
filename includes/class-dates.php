@@ -49,16 +49,30 @@ class Dates {
             : sprintf( __( "%s ago", "trinity-forms" ), human_time_diff( $ts, $now ) );
     }
 
-    private static function timestamp( $value ): int {
+    /**
+     * A Unix timestamp for a value from our tables.
+     *
+     * Entries, notes and logs are stored in site time (current_time( "mysql" )).
+     * strtotime() read them as UTC, because WordPress runs PHP in UTC, and
+     * wp_date() then added the offset a second time: on an India-time site a new
+     * entry said "in 5 hours". A value that names its own zone ("Z", "+05:30")
+     * keeps it.
+     */
+    public static function timestamp( $value ): int {
         if ( $value === null || $value === "" ) {
             return 0;
         }
         if ( is_numeric( $value ) ) {
             return (int) $value;
         }
-        $ts = strtotime( (string) $value );
-        if ( ! $ts ) {
-            $ts = strtotime( preg_replace( "/\\.\\d+/", "", (string) $value ) );
+        $value = (string) $value;
+        if ( "0000-00-00" === substr( $value, 0, 10 ) ) {
+            return 0;
+        }
+        try {
+            $ts = ( new \DateTimeImmutable( $value, wp_timezone() ) )->getTimestamp();
+        } catch ( \Exception $e ) {
+            $ts = strtotime( $value );
         }
         return $ts ?: 0;
     }

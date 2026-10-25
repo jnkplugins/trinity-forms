@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-23T07:13:43+00:00\n"
+"POT-Creation-Date: 2026-10-25T11:27:35+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Korean\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: trinity-forms.php admin/class-admin-ui.php:131
-#: includes/class-entry-notes.php:111 includes/class-plugin.php:88
+#: includes/class-entry-notes.php:111 includes/class-plugin.php:90
 msgid "Trinity Forms"
 msgstr "Trinity Forms"
 
@@ -422,7 +422,7 @@ msgid "Send me a copy"
 msgstr "사본 받기"
 
 #: admin/class-form-editor.php:320 includes/class-form-manager.php:275
-#: includes/class-gf-importer.php:186 public/class-form-renderer.php:84
+#: includes/class-gf-importer.php:186 public/class-form-renderer.php:121
 msgid "Submit"
 msgstr "제출"
 
@@ -740,6 +740,7 @@ msgid "Duplicate"
 msgstr "복제"
 
 #: admin/class-form-editor.php:626 admin/class-form-editor.php:705
+#: public/class-public-front.php:74
 msgid "Remove"
 msgstr "제거"
 
@@ -828,7 +829,7 @@ msgid "You do not have permission to export this form."
 msgstr "이 양식을 내보낼 권한이 없습니다."
 
 #: admin/class-forms-list.php:169 admin/class-forms-list.php:231
-#: includes/class-rest-api.php:114 includes/class-submission-pipeline.php:42
+#: includes/class-rest-api.php:117 includes/class-submission-pipeline.php:49
 msgid "Form not found."
 msgstr "양식을 찾을 수 없습니다."
 
@@ -1003,7 +1004,7 @@ msgstr "항목 필터"
 #: admin/views/entries-list.php:237 admin/views/entries-list.php:356
 #: admin/views/entry-detail.php:340 admin/views/import.php:85
 #: includes/class-my-submissions.php:50 includes/class-my-submissions.php:56
-#: includes/class-plugin.php:89 includes/class-results.php:146
+#: includes/class-plugin.php:91 includes/class-results.php:146
 #: blocks/form-block/edit.js:29
 msgid "Form"
 msgstr "양식"
@@ -1347,8 +1348,9 @@ msgstr "편집"
 msgid "Reason: %s"
 msgstr "이유: %s"
 
-#: admin/views/entry-detail.php:237 admin/views/settings.php:65
-#: includes/class-mail-check.php:262 includes/class-onboarding.php:145
+#: admin/views/entry-detail.php:237 admin/views/settings.php:67
+#: includes/class-mail-check.php:179 includes/class-mail-check.php:189
+#: includes/class-mail-check.php:424 includes/class-onboarding.php:145
 msgid "Send a test email"
 msgstr "테스트 이메일 보내기"
 
@@ -1471,7 +1473,7 @@ msgstr "편집할 수 없습니다. 이 값은 설정이 아니라 발생한 일
 msgid "Save entry"
 msgstr "항목 저장"
 
-#: admin/views/entry-edit.php:138
+#: admin/views/entry-edit.php:138 public/class-public-front.php:67
 msgid "Cancel"
 msgstr "취소"
 
@@ -1664,129 +1666,129 @@ msgstr "이메일 확인"
 msgid "Send yourself a test to see whether form emails can leave this site."
 msgstr "양식 이메일이 이 사이트에서 나갈 수 있는지 테스트를 직접 보내 확인하세요."
 
-#: admin/views/settings.php:63
+#: admin/views/settings.php:65
 msgid "Send the test to"
 msgstr "테스트 받을 주소"
 
-#: admin/views/settings.php:67
+#: admin/views/settings.php:69
 msgid "WordPress can only tell us the email was handed to your mail server. Whether it reaches the inbox is up to that server, so check the inbox (and the spam folder) yourself."
 msgstr "WordPress는 이메일이 메일 서버에 넘겨졌다는 것까지만 알 수 있습니다. 받은편지함에 도착하는지는 그 서버에 달려 있으니 받은편지함(과 스팸함)을 직접 확인하세요."
 
 #. translators: 1: date, 2: email address, 3: outcome.
-#: admin/views/settings.php:72
+#: admin/views/settings.php:74
 #, php-format
 msgid "Last test: %1$s to %2$s. %3$s"
 msgstr "마지막 테스트: %1$s, %2$s 앞. %3$s"
 
-#: admin/views/settings.php:75
+#: admin/views/settings.php:77
 msgid "Handed to the mail server."
 msgstr "메일 서버에 넘겨졌습니다."
 
-#: admin/views/settings.php:75
+#: admin/views/settings.php:77
 msgid "It could not be sent."
 msgstr "보내지 못했습니다."
 
-#: admin/views/settings.php:80
+#: admin/views/settings.php:82
 msgid "Failed in the last 7 days"
 msgstr "최근 7일 동안 실패"
 
-#: admin/views/settings.php:90 includes/class-mail-check.php:260
+#: admin/views/settings.php:92 includes/class-mail-check.php:422
 msgid "See the entry"
 msgstr "항목 보기"
 
-#: admin/views/settings.php:95
+#: admin/views/settings.php:97
 msgid "Most of the time this means the site has no working mail setup. An SMTP plugin that sends through your email provider usually fixes it."
 msgstr "대부분은 사이트에 제대로 된 메일 설정이 없다는 뜻입니다. 이메일 제공업체를 통해 보내는 SMTP 플러그인으로 보통 해결됩니다."
 
-#: admin/views/settings.php:114
-msgid "Form editor"
-msgstr "양식 편집기"
-
-#: admin/views/settings.php:117
-msgid "Open forms in"
-msgstr "양식 열기 방식"
-
-#: admin/views/settings.php:120 includes/class-form-builder.php:173
-msgid "Visual builder (drag and drop)"
-msgstr "비주얼 빌더(끌어서 놓기)"
-
-#: admin/views/settings.php:121 includes/class-form-builder.php:174
-msgid "Block editor"
-msgstr "블록 편집기"
-
-#: admin/views/settings.php:123
-msgid "The default for new forms. Any form can override this in its own settings. Both editors read and write the same form, so you can switch at any time."
-msgstr "새 양식의 기본값입니다. 각 양식의 설정에서 바꿀 수 있습니다. 두 편집기는 같은 양식을 읽고 쓰므로 언제든지 전환할 수 있습니다."
-
-#: admin/views/settings.php:124
-msgid "Forms you built before upgrading keep opening in the block editor until you change them individually."
-msgstr "업그레이드 전에 만든 양식은 개별적으로 변경하기 전까지 블록 편집기에서 열립니다."
-
-#: admin/views/settings.php:128
-msgid "Spam protection (CAPTCHA)"
-msgstr "스팸 방지(CAPTCHA)"
-
-#: admin/views/settings.php:131
-msgid "Provider"
-msgstr "제공업체"
-
-#: admin/views/settings.php:138
-msgid "Enter the site + secret keys for your chosen provider below, then enable the challenge in each form's settings."
-msgstr "아래에 선택한 제공업체의 사이트 키와 비밀 키를 입력한 다음, 각 양식의 설정에서 봇 확인을 켜세요."
-
-#: admin/views/settings.php:156
-msgid "Selected"
-msgstr "선택됨"
-
-#: admin/views/settings.php:158
-msgid "Site key"
-msgstr "사이트 키"
-
-#: admin/views/settings.php:160
-msgid "Secret key"
-msgstr "비밀 키"
-
-#: admin/views/settings.php:167
-msgid "Keeping entries"
-msgstr "항목 보관"
-
-#: admin/views/settings.php:169
-msgid "Keep entries for (days)"
-msgstr "항목 보관 기간(일)"
-
-#: admin/views/settings.php:172
-msgid "0 keeps entries forever. A form's own setting overrides this."
-msgstr "0이면 항목을 영구 보관합니다. 양식 자체 설정이 이 값보다 우선합니다."
-
-#: admin/views/settings.php:174
-msgid "Empty trash after (days)"
-msgstr "휴지통 비우기 기간(일)"
-
-#: admin/views/settings.php:177
-msgid "Entries in the trash are deleted for good after this many days. 0 never empties the trash."
-msgstr "휴지통에 있는 항목은 이 일수가 지나면 영구 삭제됩니다. 0이면 휴지통을 비우지 않습니다."
-
-#: admin/views/settings.php:181
-msgid "Data"
-msgstr "데이터"
-
-#: admin/views/settings.php:183
-msgid "Delete data on uninstall"
-msgstr "제거 시 데이터 삭제"
-
-#: admin/views/settings.php:188
-msgid "Delete all Trinity Forms data when the plugin is deleted"
-msgstr "플러그인을 삭제할 때 모든 Trinity Forms 데이터 삭제"
-
-#: admin/views/settings.php:190
-msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete."
-msgstr "기본값은 꺼짐입니다. 플러그인을 비활성화하거나 삭제하거나 Pro 라이선스가 만료되어도 양식과 항목은 유지됩니다. 삭제할 때 데이터도 지우려는 경우에만 체크하세요."
-
-#: admin/views/settings.php:194
+#: admin/views/settings.php:110 admin/views/settings.php:203
 msgid "Save settings"
 msgstr "설정 저장"
 
-#: admin/views/settings.php:206
+#: admin/views/settings.php:123
+msgid "Form editor"
+msgstr "양식 편집기"
+
+#: admin/views/settings.php:126
+msgid "Open forms in"
+msgstr "양식 열기 방식"
+
+#: admin/views/settings.php:129 includes/class-form-builder.php:173
+msgid "Visual builder (drag and drop)"
+msgstr "비주얼 빌더(끌어서 놓기)"
+
+#: admin/views/settings.php:130 includes/class-form-builder.php:174
+msgid "Block editor"
+msgstr "블록 편집기"
+
+#: admin/views/settings.php:132
+msgid "The default for new forms. Any form can override this in its own settings. Both editors read and write the same form, so you can switch at any time."
+msgstr "새 양식의 기본값입니다. 각 양식의 설정에서 바꿀 수 있습니다. 두 편집기는 같은 양식을 읽고 쓰므로 언제든지 전환할 수 있습니다."
+
+#: admin/views/settings.php:133
+msgid "Forms you built before upgrading keep opening in the block editor until you change them individually."
+msgstr "업그레이드 전에 만든 양식은 개별적으로 변경하기 전까지 블록 편집기에서 열립니다."
+
+#: admin/views/settings.php:137
+msgid "Spam protection (CAPTCHA)"
+msgstr "스팸 방지(CAPTCHA)"
+
+#: admin/views/settings.php:140
+msgid "Provider"
+msgstr "제공업체"
+
+#: admin/views/settings.php:147
+msgid "Enter the site + secret keys for your chosen provider below, then enable the challenge in each form's settings."
+msgstr "아래에 선택한 제공업체의 사이트 키와 비밀 키를 입력한 다음, 각 양식의 설정에서 봇 확인을 켜세요."
+
+#: admin/views/settings.php:165
+msgid "Selected"
+msgstr "선택됨"
+
+#: admin/views/settings.php:167
+msgid "Site key"
+msgstr "사이트 키"
+
+#: admin/views/settings.php:169
+msgid "Secret key"
+msgstr "비밀 키"
+
+#: admin/views/settings.php:176
+msgid "Keeping entries"
+msgstr "항목 보관"
+
+#: admin/views/settings.php:178
+msgid "Keep entries for (days)"
+msgstr "항목 보관 기간(일)"
+
+#: admin/views/settings.php:181
+msgid "0 keeps entries forever. A form's own setting overrides this."
+msgstr "0이면 항목을 영구 보관합니다. 양식 자체 설정이 이 값보다 우선합니다."
+
+#: admin/views/settings.php:183
+msgid "Empty trash after (days)"
+msgstr "휴지통 비우기 기간(일)"
+
+#: admin/views/settings.php:186
+msgid "Entries in the trash are deleted for good after this many days. 0 never empties the trash."
+msgstr "휴지통에 있는 항목은 이 일수가 지나면 영구 삭제됩니다. 0이면 휴지통을 비우지 않습니다."
+
+#: admin/views/settings.php:190
+msgid "Data"
+msgstr "데이터"
+
+#: admin/views/settings.php:192
+msgid "Delete data on uninstall"
+msgstr "제거 시 데이터 삭제"
+
+#: admin/views/settings.php:197
+msgid "Delete all Trinity Forms data when the plugin is deleted"
+msgstr "플러그인을 삭제할 때 모든 Trinity Forms 데이터 삭제"
+
+#: admin/views/settings.php:199
+msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete."
+msgstr "기본값은 꺼짐입니다. 플러그인을 비활성화하거나 삭제하거나 Pro 라이선스가 만료되어도 양식과 항목은 유지됩니다. 삭제할 때 데이터도 지우려는 경우에만 체크하세요."
+
+#: admin/views/settings.php:215
 msgid "License"
 msgstr "라이선스"
 
@@ -2084,15 +2086,23 @@ msgstr "%d건 완료 · 조회수가 한동안 집계되면 비율이 표시됩�
 msgid "%1$d views · %2$d completed · %3$s%% completion"
 msgstr "조회 %1$d회 · 완료 %2$d건 · 완료율 %3$s%%"
 
-#: includes/class-anti-spam.php:33
-msgid "The hidden trap field was filled in (a bot does that, a person cannot)."
-msgstr "숨겨진 함정 필드가 채워졌습니다(봇은 채우지만 사람은 채울 수 없습니다)."
+#. translators: %s: the text found in the hidden field.
+#: includes/class-anti-spam.php:71
+#, php-format
+msgid "The hidden trap field was filled in with \"%s\". Bots do that; a browser's autofill can too."
+msgstr "숨겨진 함정 필드에 \"%s\" 값이 입력되었습니다. 봇이 주로 이렇게 하지만 브라우저 자동 완성일 수도 있습니다."
 
-#: includes/class-anti-spam.php:39
+#. translators: %s: the text found in the hidden field.
+#: includes/class-anti-spam.php:76
+#, php-format
+msgid "The hidden trap field had \"%s\" in it, most likely the browser's autofill. The visitor typed in the form and took a person's time, so it was not marked as spam."
+msgstr "숨겨진 함정 필드에 \"%s\" 값이 있었습니다. 브라우저 자동 완성일 가능성이 큽니다. 방문자가 양식에 직접 입력했고 사람이 걸리는 만큼 시간이 걸렸으므로 스팸으로 표시하지 않았습니다."
+
+#: includes/class-anti-spam.php:81
 msgid "Sent faster than a person can fill in a form."
 msgstr "사람이 양식을 채울 수 있는 것보다 빨리 보내졌습니다."
 
-#: includes/class-anti-spam.php:46
+#: includes/class-anti-spam.php:88
 msgid "The bot check (CAPTCHA) did not pass."
 msgstr "봇 확인(CAPTCHA)을 통과하지 못했습니다."
 
@@ -2224,19 +2234,20 @@ msgstr "승인됨"
 msgid "Rejected"
 msgstr "거부됨"
 
-#: includes/class-entries.php:772
+#: includes/class-entries.php:773
 msgid "Yes"
 msgstr "예"
 
-#: includes/class-entries.php:772
+#: includes/class-entries.php:773
 msgid "No"
 msgstr "아니요"
 
-#: includes/class-field.php:63 includes/fields/class-field-file.php:28
+#: includes/class-field.php:63 includes/fields/class-field-file.php:32
+#: public/class-public-front.php:63
 msgid "This field is required."
 msgstr "필수 필드입니다."
 
-#: includes/class-form-builder.php:110 includes/class-rest-api.php:262
+#: includes/class-form-builder.php:110 includes/class-rest-api.php:380
 msgid "Untitled form"
 msgstr "제목 없는 양식"
 
@@ -2318,6 +2329,12 @@ msgstr "가져온 양식"
 msgid "The form could not be created."
 msgstr "양식을 만들 수 없습니다."
 
+#. translators: 1: list of meta keys, 2: the meta key name.
+#: includes/class-form.php:90
+#, php-format
+msgid "Form settings %1$s are at the top level of %2$s; put them under \"settings\"."
+msgstr "양식 설정 %1$s이(가) %2$s의 최상위에 있습니다. \"settings\" 아래로 옮기세요."
+
 #. translators: 1: field label, 2: Gravity Forms field type.
 #: includes/class-gf-importer.php:230
 #, php-format
@@ -2332,22 +2349,83 @@ msgstr "제목 없는 필드"
 msgid "Thanks — we have your submission."
 msgstr "감사합니다. 제출이 접수되었습니다."
 
-#: includes/class-mail-check.php:71
+#: includes/class-mail-check.php:128
+msgid "This site sends email with PHP mail(), the server's own mailer, not through an email account. Many inboxes put these emails in spam."
+msgstr "이 사이트는 이메일 계정이 아니라 서버 자체 메일러인 PHP mail()로 이메일을 보냅니다. 많은 받은편지함이 이런 이메일을 스팸으로 분류합니다."
+
+#. translators: %s: domain name.
+#: includes/class-mail-check.php:138
+#, php-format
+msgid "%s also tells inboxes to refuse mail it did not sign, so expect form emails to go missing."
+msgstr "또한 %s은(는) 서명하지 않은 메일을 거부하라고 받은편지함에 요청하므로 양식 이메일이 사라질 수 있습니다."
+
+#. translators: %s: domain name.
+#: includes/class-mail-check.php:141
+#, php-format
+msgid "%s also tells inboxes to put mail it did not sign in spam, so expect form emails to go missing."
+msgstr "또한 %s은(는) 서명하지 않은 메일을 스팸으로 보내라고 받은편지함에 요청하므로 양식 이메일이 사라질 수 있습니다."
+
+#: includes/class-mail-check.php:144
+msgid "Fix: send through your host's SMTP mailbox or your email provider, with an SMTP plugin."
+msgstr "해결 방법: SMTP 플러그인을 사용해 호스팅의 SMTP 메일함이나 이메일 서비스를 통해 보내세요."
+
+#: includes/class-mail-check.php:151
+msgid "How Trinity Forms emails are sent"
+msgstr "Trinity Forms 이메일 발송 방식"
+
+#. translators: %s: number of emails.
+#: includes/class-mail-check.php:167 includes/class-mail-check.php:408
+#, php-format
+msgid "%s form email could not be sent in the last 7 days."
+msgid_plural "%s form emails could not be sent in the last 7 days."
+msgstr[0] "최근 7일 동안 양식 이메일 %s개를 보내지 못했습니다."
+
+#: includes/class-mail-check.php:170
+msgid "Form emails are failing"
+msgstr "양식 이메일 발송이 실패하고 있습니다"
+
+#. translators: 1: email address, 2: the reason the mail system gave.
+#: includes/class-mail-check.php:175 includes/class-mail-check.php:415
+#, php-format
+msgid "The latest was to %1$s. Reason: %2$s"
+msgstr "가장 최근은 %1$s 앞이었습니다. 이유: %2$s"
+
+#: includes/class-mail-check.php:185
+msgid "Form emails are sent with PHP mail() and may land in spam"
+msgstr "양식 이메일이 PHP mail()로 발송되어 스팸으로 분류될 수 있습니다"
+
+#: includes/class-mail-check.php:195
+msgid "Form emails are sent through a mail server (SMTP)"
+msgstr "양식 이메일이 메일 서버(SMTP)를 통해 발송됩니다"
+
+#: includes/class-mail-check.php:195
+msgid "Trinity Forms has not sent an email yet"
+msgstr "Trinity Forms가 아직 이메일을 보내지 않았습니다"
+
+#: includes/class-mail-check.php:199
+msgid "The last email went out through an SMTP mailer, which inboxes trust far more than PHP mail()."
+msgstr "마지막 이메일은 SMTP 메일러로 발송되었습니다. 받은편지함은 PHP mail()보다 SMTP를 훨씬 더 신뢰합니다."
+
+#: includes/class-mail-check.php:200
+msgid "It checks how emails leave the site when the first one is sent. Send a test from Forms > Settings to check now."
+msgstr "첫 이메일이 발송될 때 이메일이 사이트에서 나가는 방식을 확인합니다. 지금 확인하려면 양식 > 설정에서 테스트를 보내세요."
+
+#: includes/class-mail-check.php:232
 msgid "The mail system turned it down without saying why."
 msgstr "메일 시스템이 이유를 밝히지 않고 거부했습니다."
 
-#: includes/class-mail-check.php:128
+#: includes/class-mail-check.php:289
 msgid "That is not an email address."
 msgstr "이메일 주소가 아닙니다."
 
 #. translators: %s: site name.
-#: includes/class-mail-check.php:132
+#: includes/class-mail-check.php:293
 #, php-format
 msgid "Test email from Trinity Forms on %s"
 msgstr "%s의 Trinity Forms 테스트 이메일"
 
 #. translators: 1: site address, 2: date and time.
-#: includes/class-mail-check.php:135
+#: includes/class-mail-check.php:296
 #, php-format
 msgid ""
 "This is a test sent from Trinity Forms on %1$s at %2$s.\n"
@@ -2359,36 +2437,23 @@ msgstr ""
 "이 메일이 보인다면 이 사이트의 양식 이메일이 이 받은편지함에 도착할 수 있습니다. 더 할 일은 없습니다."
 
 #. translators: %s: email address.
-#: includes/class-mail-check.php:153
+#: includes/class-mail-check.php:315
 #, php-format
 msgid "Your site handed the test to its mail server for %s. Check that inbox, and the spam folder, in a few minutes. If it never shows up, the mail server is not passing it on: an SMTP plugin usually fixes that."
 msgstr "사이트가 %s 앞으로 테스트를 메일 서버에 넘겼습니다. 몇 분 뒤 그 받은편지함과 스팸함을 확인하세요. 끝내 오지 않으면 메일 서버가 전달하지 않는 것입니다. 보통 SMTP 플러그인으로 해결됩니다."
 
 #. translators: %s: the reason the mail system gave.
-#: includes/class-mail-check.php:162
+#: includes/class-mail-check.php:324
 #, php-format
 msgid "Your site could not send it. Reason: %s"
 msgstr "사이트가 보내지 못했습니다. 이유: %s"
 
-#: includes/class-mail-check.php:189 includes/class-mail-check.php:201
+#: includes/class-mail-check.php:351 includes/class-mail-check.php:363
 #: includes/class-onboarding.php:165 includes/class-templates.php:145
 msgid "You are not allowed to do this."
 msgstr "이 작업을 수행할 권한이 없습니다."
 
-#. translators: %s: number of emails.
-#: includes/class-mail-check.php:246
-#, php-format
-msgid "%s form email could not be sent in the last 7 days."
-msgid_plural "%s form emails could not be sent in the last 7 days."
-msgstr[0] "최근 7일 동안 양식 이메일 %s개를 보내지 못했습니다."
-
-#. translators: 1: email address, 2: the reason the mail system gave.
-#: includes/class-mail-check.php:253
-#, php-format
-msgid "The latest was to %1$s. Reason: %2$s"
-msgstr "가장 최근은 %1$s 앞이었습니다. 이유: %2$s"
-
-#: includes/class-mail-check.php:263
+#: includes/class-mail-check.php:425
 msgid "Dismiss"
 msgstr "닫기"
 
@@ -2473,13 +2538,13 @@ msgid "Date"
 msgstr "날짜"
 
 #. translators: 1: notification name, 2: email address(es).
-#: includes/class-notification-engine.php:96
+#: includes/class-notification-engine.php:108
 #, php-format
 msgid "Email \"%1$s\" handed to the mail server for %2$s"
 msgstr "이메일 \"%1$s\"이(가) %2$s 앞으로 메일 서버에 넘겨졌습니다"
 
 #. translators: %s: email address(es).
-#: includes/class-notification-engine.php:106
+#: includes/class-notification-engine.php:118
 #, php-format
 msgid "Email to %s could not be sent"
 msgstr "%s 앞 이메일을 보내지 못했습니다"
@@ -2566,27 +2631,27 @@ msgstr "페이지를 만들지 못했습니다."
 msgid "Create a page"
 msgstr "페이지 만들기"
 
-#: includes/class-plugin.php:82
+#: includes/class-plugin.php:84
 msgid "Trinity Forms Forms"
 msgstr "Trinity Forms 양식"
 
-#: includes/class-plugin.php:90
+#: includes/class-plugin.php:92
 msgid "All Forms"
 msgstr "모든 양식"
 
-#: includes/class-plugin.php:91
+#: includes/class-plugin.php:93
 msgid "Add Form"
 msgstr "양식 추가"
 
-#: includes/class-plugin.php:92
+#: includes/class-plugin.php:94
 msgid "Edit Form"
 msgstr "양식 편집"
 
-#: includes/class-plugin.php:93
+#: includes/class-plugin.php:95
 msgid "No forms yet — start from a template, or add a blank one."
 msgstr "아직 양식이 없습니다. 템플릿으로 시작하거나 빈 양식을 추가하세요."
 
-#: includes/class-plugin.php:241
+#: includes/class-plugin.php:243
 msgid "Trinity Forms Fields"
 msgstr "Trinity Forms 필드"
 
@@ -2606,19 +2671,36 @@ msgstr "이 파일을 다운로드할 권한이 없습니다."
 msgid "File not found."
 msgstr "파일을 찾을 수 없습니다."
 
-#: includes/class-rest-api.php:105
+#: includes/class-rest-api.php:107
 msgid "Invalid or missing nonce."
 msgstr "nonce가 잘못되었거나 없습니다."
 
+#. translators: %s: the largest file size accepted, e.g. "2 MB".
+#: includes/class-rest-api.php:247
+#, php-format
+msgid "The file is too big to send. Files can be up to %s."
+msgstr "파일이 너무 커서 보낼 수 없습니다. 파일은 최대 %s까지 가능합니다."
+
+#: includes/class-rest-api.php:252 includes/class-submission-pipeline.php:79
+msgid "Upload failed."
+msgstr "업로드에 실패했습니다."
+
+#. translators: %d: seconds to wait.
+#: includes/class-rest-api.php:335
+#, php-format
+msgid "This form is getting a lot of submissions right now. Please try again in %d second."
+msgid_plural "This form is getting a lot of submissions right now. Please try again in %d seconds."
+msgstr[0] "지금 이 양식에 제출이 많이 몰리고 있습니다. %d초 후에 다시 시도하세요."
+
 #. translators: %d: minutes to wait.
-#: includes/class-rest-api.php:220
+#: includes/class-rest-api.php:338
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d minute."
 msgid_plural "Too many submissions from your connection. Please try again in %d minutes."
 msgstr[0] "연결에서 너무 많은 제출이 발생했습니다. %d분 후에 다시 시도하세요."
 
 #. translators: %d: seconds to wait.
-#: includes/class-rest-api.php:222
+#: includes/class-rest-api.php:340
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d second."
 msgid_plural "Too many submissions from your connection. Please try again in %d seconds."
@@ -2722,40 +2804,36 @@ msgstr "Trinity Forms: 저장된 자격 증명을 암호화하려면 PHP OpenSSL
 msgid "The submissions table is available in Trinity Forms Pro."
 msgstr "제출 항목 표는 Trinity Forms Pro에서 사용할 수 있습니다."
 
-#: includes/class-submission-pipeline.php:56
+#: includes/class-submission-pipeline.php:63
 msgid "Please complete the bot check (CAPTCHA) and submit again. If you can't see it, reload the page or allow its script."
 msgstr "봇 확인(CAPTCHA)을 완료한 후 다시 제출하세요. 보이지 않으면 페이지를 새로 고치거나 해당 스크립트를 허용하세요."
 
-#: includes/class-submission-pipeline.php:63
-msgid "Upload failed."
-msgstr "업로드에 실패했습니다."
-
-#: includes/class-submission-pipeline.php:69
+#: includes/class-submission-pipeline.php:85
 msgid "Validation failed."
 msgstr "유효성 검사에 실패했습니다."
 
 #. translators: %s: why the entry was judged spam.
-#: includes/class-submission-pipeline.php:85
+#: includes/class-submission-pipeline.php:104
 #, php-format
 msgid "Marked as spam: %s"
 msgstr "스팸으로 표시됨: %s"
 
-#: includes/class-submission-pipeline.php:86
+#: includes/class-submission-pipeline.php:105
 msgid "Marked as spam by the spam filter"
 msgstr "스팸 필터가 스팸으로 표시함"
 
-#: includes/class-submission-pipeline.php:174
+#: includes/class-submission-pipeline.php:193
 msgid "This value has already been used."
 msgstr "이미 사용된 값입니다."
 
 #. translators: %s: form title.
-#: includes/class-submission-pipeline.php:380
+#: includes/class-submission-pipeline.php:399
 #, php-format
 msgid "[Trinity Forms] Payments are failing on \"%s\""
 msgstr "[Trinity Forms] \"%s\" 양식에서 결제가 실패하고 있습니다"
 
 #. translators: 1: form title, 2: provider error, 3: entry admin URL.
-#: includes/class-submission-pipeline.php:383
+#: includes/class-submission-pipeline.php:402
 #, php-format
 msgid ""
 "A visitor could not start a payment on \"%1$s\". Nothing was charged.\n"
@@ -2770,15 +2848,21 @@ msgstr ""
 "\n"
 "Trinity Forms > 설정에서 결제 키를 확인하세요. 항목: %3$s"
 
-#: includes/class-submission-pipeline.php:416
+#: includes/class-submission-pipeline.php:435
 msgid "Payment could not be started, so nothing was charged. Please try again later, or contact the site owner if it keeps happening."
 msgstr "결제를 시작할 수 없어 청구된 금액은 없습니다. 나중에 다시 시도하시고, 계속 문제가 생기면 사이트 운영자에게 문의하세요."
 
 #. translators: %s: uploaded file name.
-#: includes/class-submission-pipeline.php:470
+#: includes/class-submission-pipeline.php:498
 #, php-format
 msgid "Upload error for %s."
 msgstr "%s 업로드 중 오류가 발생했습니다."
+
+#. translators: %s: uploaded file name.
+#: includes/class-submission-pipeline.php:504
+#, php-format
+msgid "%s is empty."
+msgstr "%s 파일이 비어 있습니다."
 
 #: includes/class-templates.php:59
 msgid "Contact form"
@@ -2972,19 +3056,20 @@ msgstr "올바른 국가를 선택하세요."
 msgid "Invalid date."
 msgstr "날짜가 올바르지 않습니다."
 
-#: includes/fields/class-field-email.php:34
+#: includes/fields/class-field-email.php:34 public/class-public-front.php:64
 msgid "Please enter a valid email address."
 msgstr "올바른 이메일 주소를 입력하세요."
 
-#: includes/fields/class-field-file.php:40
-#, php-format
-msgid "File %s exceeds the maximum size."
-msgstr "%s 파일이 최대 크기를 초과합니다."
-
-#: includes/fields/class-field-file.php:45
+#: includes/fields/class-field-file.php:49
 #, php-format
 msgid "File %s has a disallowed type."
 msgstr "%s 파일은 허용되지 않는 형식입니다."
+
+#. translators: 1: file name, 2: the largest size accepted, e.g. "2 MB".
+#: includes/fields/class-field-file.php:72 public/class-public-front.php:59
+#, php-format
+msgid "%1$s is too big. Files can be up to %2$s."
+msgstr "%1$s 파일이 너무 큽니다. 파일은 최대 %2$s까지 가능합니다."
 
 #: includes/fields/class-field-list.php:47
 msgid "Actions"
@@ -3093,25 +3178,95 @@ msgstr "시간이 올바르지 않습니다."
 msgid "Please enter a valid web address."
 msgstr "올바른 웹 주소를 입력하세요."
 
-#: public/class-form-renderer.php:153
+#. translators: %d: form ID.
+#: public/class-form-renderer.php:96
+#, php-format
+msgid "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note."
+msgstr "방문자에게는 여기에 아무것도 보이지 않습니다. 양식 #%d이(가) 삭제되었거나 게시되지 않았습니다. 이 안내는 사이트를 편집할 수 있는 사람에게만 보입니다."
+
+#: public/class-form-renderer.php:191
 msgid "Welcome back — we restored the answers you saved. Check them and carry on."
 msgstr "다시 오셨군요. 저장한 답변을 복원했습니다. 확인하고 계속 진행하세요."
 
-#: public/class-form-renderer.php:183
+#: public/class-form-renderer.php:231
 msgid "Previous"
 msgstr "이전"
 
-#: public/class-form-renderer.php:184
+#: public/class-form-renderer.php:232
 msgid "Next"
 msgstr "다음"
 
-#: public/class-form-renderer.php:190
+#: public/class-form-renderer.php:242
 msgid "Save & continue later"
 msgstr "저장 후 나중에 계속"
 
-#: public/class-form-renderer.php:402
+#: public/class-form-renderer.php:454
 msgid "Thank you — your submission was received."
 msgstr "감사합니다. 제출이 접수되었습니다."
+
+#: public/class-public-front.php:52
+msgid "There is one thing to fix:"
+msgstr "수정할 항목이 하나 있습니다:"
+
+#: public/class-public-front.php:53
+msgid "There are some things to fix:"
+msgstr "수정할 항목이 있습니다:"
+
+#: public/class-public-front.php:54
+msgid "Thanks — your submission was received."
+msgstr "감사합니다. 제출이 접수되었습니다."
+
+#: public/class-public-front.php:55
+msgid "Submission failed."
+msgstr "제출하지 못했습니다."
+
+#: public/class-public-front.php:56
+msgid "Network error — please try again."
+msgstr "네트워크 오류입니다. 다시 시도하세요."
+
+#: public/class-public-front.php:57
+msgid "This page is out of date. Please reload it and try again."
+msgstr "이 페이지가 오래되었습니다. 새로고침한 후 다시 시도하세요."
+
+#: public/class-public-front.php:60
+msgid "The file is too big to send."
+msgstr "파일이 너무 커서 보낼 수 없습니다."
+
+#. translators: 1: current step number, 2: number of steps.
+#: public/class-public-front.php:62
+#, php-format
+msgid "Step %1$d of %2$d"
+msgstr "%2$d단계 중 %1$d단계"
+
+#: public/class-public-front.php:65
+msgid "Email me a link to finish this form later"
+msgstr "나중에 이 양식을 마칠 수 있도록 링크를 이메일로 보내 주세요"
+
+#: public/class-public-front.php:66
+msgid "Send link"
+msgstr "링크 보내기"
+
+#: public/class-public-front.php:68 builder/src/app.jsx:537
+msgid "Saving…"
+msgstr "저장 중…"
+
+#: public/class-public-front.php:69
+msgid "Saved. We've emailed you a link to resume."
+msgstr "저장했습니다. 이어서 작성할 수 있는 링크를 이메일로 보냈습니다."
+
+#. translators: %s: the link that resumes the form.
+#: public/class-public-front.php:71
+#, php-format
+msgid "Saved. Bookmark this URL to resume: %s"
+msgstr "저장했습니다. 이어서 작성하려면 이 URL을 북마크하세요: %s"
+
+#: public/class-public-front.php:72
+msgid "Could not save progress."
+msgstr "진행 상황을 저장하지 못했습니다."
+
+#: public/class-public-front.php:73
+msgid "Add item"
+msgstr "항목 추가"
 
 #: blocks/conditional-panel.js:66 builder/src/field-panel.jsx:264
 msgid "Format"
@@ -3631,10 +3786,6 @@ msgstr "초안"
 #: builder/src/app.jsx:533
 msgid "Published"
 msgstr "게시됨"
-
-#: builder/src/app.jsx:537
-msgid "Saving…"
-msgstr "저장 중…"
 
 #: builder/src/app.jsx:537
 msgid "Save form"

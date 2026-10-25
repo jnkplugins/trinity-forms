@@ -102,7 +102,9 @@ class REST_API {
         // CRIT-01: verify the wp_rest nonce embedded by Form_Renderer.
         $nonce = (string) ( $request->get_param( "_wpnonce" ) ?: $request->get_header( "x_wp_nonce" ) );
         if ( ! wp_verify_nonce( $nonce, "wp_rest" ) ) {
-            return new \WP_REST_Response( $this->envelope( null, [ [ "code" => 403, "message" => __( "Invalid or missing nonce.", "trinity-forms" ) ] ] ), 403 );
+            // "reason" lets the page script tell a stale page (cached, or a tab left
+            // open overnight) from other refusals: it fetches a fresh nonce and retries.
+            return new \WP_REST_Response( $this->envelope( null, [ [ "code" => 403, "reason" => "invalid_nonce", "message" => __( "Invalid or missing nonce.", "trinity-forms" ) ] ] ), 403 );
         }
 
         $form_id = (int) $request["form_id"];
@@ -110,8 +112,14 @@ class REST_API {
         // Reject unknown form IDs before rate-limiting, so unauthenticated requests
         // can't create arbitrary per-form transients (storage bloat).
         // Drafts are not public: the same rule the shortcode and block apply.
-        if ( ! Form_Manager::get_public( $form_id ) ) {
+        $form = Form_Manager::get_public( $form_id );
+        if ( ! $form ) {
             return new \WP_REST_Response( $this->envelope( null, [ [ "code" => 404, "message" => __( "Form not found.", "trinity-forms" ) ] ] ), 404 );
+        }
+
+        $too_large = $this->body_too_large( $request, $form );
+        if ( $too_large ) {
+            return $too_large;
         }
 
         // CRIT-02: rate-limit public submissions.
@@ -125,6 +133,7 @@ class REST_API {
         // Honeypot + time-trap fields are at the top level.
         $payload[ Anti_Spam::HONEYPOT_FIELD ] = (string) $request->get_param( Anti_Spam::HONEYPOT_FIELD );
         $payload[ Anti_Spam::TIMETRAP_FIELD ] = (string) $request->get_param( Anti_Spam::TIMETRAP_FIELD );
+        $payload[ Anti_Spam::HUMAN_FIELD ]    = (string) $request->get_param( Anti_Spam::HUMAN_FIELD );
 
         // The page the form was on. The browser sends JSON, so this never reached
         // $_POST and every entry's "Submitted from" stayed empty.
@@ -154,13 +163,100 @@ class REST_API {
             }
         }
 
-        $result = ( new Submission_Pipeline() )->handle( $form_id, $payload );
+        // The form-wide cap counts real entries and spam apart (see
+        // check_submit_rate_limit): past the spam cap, more spam is answered as
+        // usual but not stored.
+        $limits = $this->submit_limits();
+        $spam_key = "trinity_forms_rate_submit_spam_" . $form_id;
+        Submission_Pipeline::$drop_spam = $limits["per_form"] > 0 && self::rate_peek( $spam_key, $limits["per_form"] ) > 0;
+        try {
+            $result = ( new Submission_Pipeline() )->handle( $form_id, $payload );
+        } finally {
+            Submission_Pipeline::$drop_spam = false;
+        }
+        if ( $limits["per_form"] > 0 && ! empty( $result["success"] ) && ! empty( $result["data"]["entry_id"] ) ) {
+            self::rate_hit( empty( $result["data"]["spam"] ) ? "trinity_forms_rate_submit_form_" . $form_id : $spam_key, $limits["per_form"], $limits["window"] );
+        }
         $status = $result["meta"]["status"] ?? ( $result["success"] ? 200 : 400 );
+        if ( self::is_plain_form_post( $request ) ) {
+            return self::back_to_the_page( $form_id, $result, $source_url );
+        }
         return new \WP_REST_Response( $result, (int) $status );
     }
 
-    /** @return true|\WP_REST_Response */
-    private function check_submit_rate_limit( int $form_id ) {
+    /**
+     * A browser with JavaScript off posts the form itself: no X-WP-Nonce header and
+     * no JSON Accept, which the page script always sends.
+     */
+    private static function is_plain_form_post( \WP_REST_Request $request ): bool {
+        if ( "" !== (string) $request->get_header( "x_wp_nonce" ) ) {
+            return false;
+        }
+        if ( false !== stripos( (string) $request->get_header( "accept" ), "json" ) ) {
+            return false;
+        }
+        $type = strtolower( (string) $request->get_header( "content_type" ) );
+        return 0 === strpos( $type, "multipart/form-data" ) || 0 === strpos( $type, "application/x-www-form-urlencoded" );
+    }
+
+    /**
+     * With JavaScript off the visitor used to land on a page of raw JSON. Send them
+     * back to the form's page (or the form's redirect) and say what happened there.
+     * The message rides in a short-lived transient, so no visitor text is put in
+     * the URL. Form_Renderer::plain_post_notice() shows it.
+     */
+    private static function back_to_the_page( int $form_id, array $result, string $source_url ): \WP_REST_Response {
+        $redirect = (string) ( $result["data"]["redirect"] ?? "" );
+        if ( ! empty( $result["success"] ) && "" !== $redirect ) {
+            // The owner's redirect or the payment page, which may be another host.
+            $to = wp_sanitize_redirect( $redirect );
+        } else {
+            $messages = ! empty( $result["success"] )
+                ? [ (string) ( $result["data"]["confirmation"] ?? "" ) ]
+                : array_values( array_filter( array_map( static fn( $e ) => (string) ( $e["message"] ?? "" ), (array) ( $result["errors"] ?? [] ) ) ) );
+            $token = wp_generate_password( 16, false );
+            set_transient( "trinity_forms_plain_" . $token, [
+                "form_id"  => $form_id,
+                "ok"       => ! empty( $result["success"] ),
+                "messages" => $messages,
+            ], 10 * MINUTE_IN_SECONDS );
+            // The page URL comes from the visitor's POST: only this site's own.
+            $page = wp_validate_redirect( $source_url, home_url( "/" ) );
+            $to   = add_query_arg( "tf_result", $token, $page ) . "#trinity-forms-" . $form_id;
+        }
+        $response = new \WP_REST_Response( null, 303 );
+        $response->header( "Location", $to );
+        return $response;
+    }
+
+    /**
+     * A body over post_max_size reaches us empty: PHP throws away every field and
+     * file, but the nonce header survives. Without this the visitor who attached a
+     * big phone photo was told "This field is required." for the fields they had
+     * filled in, and the file was never mentioned.
+     */
+    private function body_too_large( \WP_REST_Request $request, Form $form ): ?\WP_REST_Response {
+        $length = (int) $request->get_header( "content_length" );
+        $limit  = wp_convert_hr_to_bytes( (string) ini_get( "post_max_size" ) );
+        if ( $limit <= 0 || $length <= $limit ) {
+            return null;
+        }
+        $file_fields = array_values( array_filter( $form->fields(), static fn( $f ) => "file" === $f->type ) );
+        $max         = $file_fields ? Fields\Field_File::max_bytes( $file_fields[0]->config ) : wp_max_upload_size();
+        /* translators: %s: the largest file size accepted, e.g. "2 MB". */
+        $message = sprintf( __( "The file is too big to send. Files can be up to %s.", "trinity-forms" ), size_format( $max ) );
+        $errors  = [ [ "code" => 413, "reason" => "too_large", "message" => $message ] ];
+        if ( 1 === count( $file_fields ) ) {
+            // Painted next to the file box (and the stepper jumps to its step); the
+            // heading then reads like any other upload problem.
+            $errors[0]["message"] = __( "Upload failed.", "trinity-forms" );
+            $errors[]             = [ "field" => $file_fields[0]->id, "message" => $message ];
+        }
+        return new \WP_REST_Response( [ "success" => false, "data" => null, "errors" => $errors, "meta" => [ "status" => 413 ] ], 413 );
+    }
+
+    /** @return array{per_ip:int,per_form:int,window:int} */
+    private function submit_limits(): array {
         // 10 submissions a minute per visitor IP, 50 a minute per form. The window
         // is fixed: it starts with the first counted submit and does not restart on
         // each later one, which used to lock a shared office IP out indefinitely.
@@ -171,26 +267,45 @@ class REST_API {
         ];
         $limits = (array) apply_filters( "trinity_forms_submit_rate_limit", $defaults );
         $limits = array_merge( $defaults, $limits );
+        return [
+            "per_ip"   => (int) $limits["per_ip"],
+            "per_form" => (int) $limits["per_form"],
+            "window"   => max( 1, (int) $limits["window_seconds"] ),
+        ];
+    }
 
-        $window   = max( 1, (int) $limits["window_seconds"] );
-        $per_ip   = (int) $limits["per_ip"];
-        $per_form = (int) $limits["per_form"];
+    /** @return true|\WP_REST_Response */
+    private function check_submit_rate_limit( int $form_id ) {
+        $limits = $this->submit_limits();
 
-        if ( $per_ip > 0 ) {
-            $wait = self::rate_hit( "trinity_forms_rate_submit_" . sha1( (string) Submission_Pipeline::client_ip() ), $per_ip, $window );
+        if ( $limits["per_ip"] > 0 ) {
+            $wait = self::rate_hit( "trinity_forms_rate_submit_" . sha1( (string) Submission_Pipeline::client_ip() ), $limits["per_ip"], $limits["window"] );
             if ( $wait > 0 ) {
                 return $this->too_many_requests( $wait );
             }
         }
 
-        if ( $per_form > 0 ) {
-            $wait = self::rate_hit( "trinity_forms_rate_submit_form_" . $form_id, $per_form, $window );
+        // Only real entries fill the form-wide bucket (counted after the pipeline).
+        // When spam counted too, a wave of 50 bot posts from 50 addresses refused
+        // the next real visitor, and told them it was their connection.
+        if ( $limits["per_form"] > 0 ) {
+            $wait = self::rate_peek( "trinity_forms_rate_submit_form_" . $form_id, $limits["per_form"] );
             if ( $wait > 0 ) {
-                return $this->too_many_requests( $wait );
+                return $this->too_many_requests( $wait, true );
             }
         }
 
         return true;
+    }
+
+    /** Seconds until a full window resets, or 0 when there is room. Counts nothing. */
+    public static function rate_peek( string $key, int $limit ): int {
+        $bucket = get_transient( $key );
+        $now    = time();
+        if ( ! is_array( $bucket ) || (int) ( $bucket["reset"] ?? 0 ) <= $now || (int) ( $bucket["count"] ?? 0 ) < $limit ) {
+            return 0;
+        }
+        return max( 1, (int) $bucket["reset"] - $now );
     }
 
     /**
@@ -213,13 +328,16 @@ class REST_API {
         return 0;
     }
 
-    private function too_many_requests( int $wait = 60 ): \WP_REST_Response {
+    private function too_many_requests( int $wait = 60, bool $whole_form = false ): \WP_REST_Response {
         $wait    = max( 1, $wait );
-        $message = $wait > 90
+        $message = $whole_form
+            /* translators: %d: seconds to wait. */
+            ? sprintf( _n( "This form is getting a lot of submissions right now. Please try again in %d second.", "This form is getting a lot of submissions right now. Please try again in %d seconds.", $wait, "trinity-forms" ), $wait )
+            : ( $wait > 90
             /* translators: %d: minutes to wait. */
             ? sprintf( _n( "Too many submissions from your connection. Please try again in %d minute.", "Too many submissions from your connection. Please try again in %d minutes.", (int) ceil( $wait / 60 ), "trinity-forms" ), (int) ceil( $wait / 60 ) )
             /* translators: %d: seconds to wait. */
-            : sprintf( _n( "Too many submissions from your connection. Please try again in %d second.", "Too many submissions from your connection. Please try again in %d seconds.", $wait, "trinity-forms" ), $wait );
+            : sprintf( _n( "Too many submissions from your connection. Please try again in %d second.", "Too many submissions from your connection. Please try again in %d seconds.", $wait, "trinity-forms" ), $wait ) );
         $response = new \WP_REST_Response( [
             "success" => false,
             "data"    => null,

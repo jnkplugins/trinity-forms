@@ -8,6 +8,8 @@ if ( ! $form_id ) {
 }
 $form = \TrinityForms\Form_Manager::get_public( $form_id );
 if ( ! $form ) {
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside missing_notice().
+    echo \TrinityForms\Form_Renderer::missing_notice( $form_id );
     return;
 }
 if ( ! empty( $attributes["showTitle"] ) && $form->title ) {

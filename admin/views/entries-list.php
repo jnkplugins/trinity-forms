@@ -398,7 +398,7 @@ Admin_UI::open(
                 $sender    = $senders[ $rid ] ?? [];
                 $s_name    = (string) ( $sender["name"] ?? "" );
                 $s_email   = (string) ( $sender["email"] ?? "" );
-                $tf_ts     = strtotime( (string) $r->submitted_at );
+                $tf_ts     = Dates::timestamp( $r->submitted_at );
                 ?>
                 <tr class="<?php echo $unread ? "tf-unread" : ""; ?>">
                     <th scope="row" class="tf-col-cb">

@@ -7,7 +7,14 @@ class Anti_Spam {
 
     public const HONEYPOT_FIELD = "trinity_forms_hp";
     public const TIMETRAP_FIELD = "trinity_forms_ts";
+    /** Set by the page script: "1" = the script ran, "2" = someone typed or tapped in the form. */
+    public const HUMAN_FIELD    = "trinity_forms_js";
     private const MIN_FILL_SECONDS = 3;
+    /** A filled trap is forgiven only when the visitor also took at least this long. */
+    private const HUMAN_FILL_SECONDS = 5;
+
+    /** A note for the entry log about a check that let the entry through. */
+    private static string $note = "";
 
     /** Why the submission being checked was judged spam ("" when it was not, or no reason given). */
     private static string $reason = "";
@@ -27,11 +34,46 @@ class Anti_Spam {
         return self::$reason;
     }
 
+    public static function note(): string {
+        return self::$note;
+    }
+
+    /**
+     * True when the submission came from the page with someone typing or tapping
+     * in the form, and taking a person's time over it.
+     *
+     * A real visitor's mobile browser can autofill the hidden trap field (seen on
+     * a live site, 24 Oct 2026: an Android in-app browser, page scripts ran, sent
+     * 43 s after the page opened, marked as spam). A bot posting straight at the
+     * endpoint sends neither signal.
+     */
+    public static function looks_human( array $payload ): bool {
+        $ts = isset( $payload[ self::TIMETRAP_FIELD ] ) ? (int) $payload[ self::TIMETRAP_FIELD ] : 0;
+        return "2" === (string) ( $payload[ self::HUMAN_FIELD ] ?? "" )
+            && $ts > 0
+            && ( time() - $ts ) >= self::HUMAN_FILL_SECONDS;
+    }
+
+    /** True when the trap has text and nothing says a person filled the form in. */
+    public static function honeypot_hit( Form $form, array $payload ): bool {
+        return $form->get_setting( "honeypot", true )
+            && ! empty( $payload[ self::HONEYPOT_FIELD ] )
+            && ! self::looks_human( $payload );
+    }
+
     public static function check( Form $form, array $payload ): bool {
         self::$reason = "";
+        self::$note   = "";
         if ( $form->get_setting( "honeypot", true ) && ! empty( $payload[ self::HONEYPOT_FIELD ] ) ) {
-            self::flag( __( "The hidden trap field was filled in (a bot does that, a person cannot).", "trinity-forms" ) );
-            return false;
+            $trap = mb_substr( sanitize_text_field( (string) $payload[ self::HONEYPOT_FIELD ] ), 0, 80 );
+            if ( ! self::looks_human( $payload ) ) {
+                /* translators: %s: the text found in the hidden field. */
+                self::flag( sprintf( __( "The hidden trap field was filled in with \"%s\". Bots do that; a browser's autofill can too.", "trinity-forms" ), $trap ) );
+                return false;
+            }
+            // Not spam on this alone: the other checks below still run.
+            /* translators: %s: the text found in the hidden field. */
+            self::$note = sprintf( __( "The hidden trap field had \"%s\" in it, most likely the browser's autofill. The visitor typed in the form and took a person's time, so it was not marked as spam.", "trinity-forms" ), $trap );
         }
 
         $ts = isset( $payload[ self::TIMETRAP_FIELD ] ) ? (int) $payload[ self::TIMETRAP_FIELD ] : 0;
@@ -61,15 +103,26 @@ class Anti_Spam {
         // Inline CSS — bots scrape class names; this hides without giving them a hook.
         // aria-hidden + tabindex=-1 keep screen readers and keyboard users away while
         // still presenting a fillable input to dumb crawlers.
-        $hidden = "position:absolute !important;left:-9999px !important;top:auto !important;"
-            . "height:1px !important;width:1px !important;overflow:hidden !important;opacity:0 !important;";
+        // No physical offset (left:-9999px): on a right-to-left site the left is the
+        // scrollable side, so that made every form page about 10,000 px wide and a
+        // phone opened it on a blank screen. Clipped in place instead.
+        $hidden = "position:absolute !important;height:1px !important;width:1px !important;"
+            . "margin:-1px !important;padding:0 !important;border:0 !important;overflow:hidden !important;"
+            . "clip:rect(0 0 0 0) !important;clip-path:inset(50%) !important;white-space:nowrap !important;"
+            . "opacity:0 !important;pointer-events:none !important;";
+        // No label text and autocomplete="new-password": browsers and password
+        // managers autofill a field that looks like name/email/website, and many
+        // mobile browsers ignore autocomplete="off". The data-* flags ask
+        // LastPass, 1Password and Dashlane to leave it alone too.
         return '<div aria-hidden="true" style="' . $hidden . '">'
-            . '<label>Leave this field empty<input type="text" name="' . esc_attr( self::HONEYPOT_FIELD ) . '" value="" tabindex="-1" autocomplete="off" /></label>'
+            . '<input type="text" name="' . esc_attr( self::HONEYPOT_FIELD ) . '" value="" tabindex="-1" autocomplete="new-password"'
+            . ' data-lpignore="true" data-1p-ignore="true" data-form-type="other" aria-label="-" />'
             . '</div>';
     }
 
     public static function timetrap_html(): string {
-        return '<input type="hidden" name="' . esc_attr( self::TIMETRAP_FIELD ) . '" value="' . esc_attr( (string) time() ) . '" />';
+        return '<input type="hidden" name="' . esc_attr( self::TIMETRAP_FIELD ) . '" value="' . esc_attr( (string) time() ) . '" />'
+            . '<input type="hidden" name="' . esc_attr( self::HUMAN_FIELD ) . '" value="" />';
     }
 
     /** Supported CAPTCHA providers → siteverify endpoint, response field, widget class, script. */

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-23T07:13:43+00:00\n"
+"POT-Creation-Date: 2026-10-25T11:27:35+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Spanish (Spain)\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: trinity-forms.php admin/class-admin-ui.php:131
-#: includes/class-entry-notes.php:111 includes/class-plugin.php:88
+#: includes/class-entry-notes.php:111 includes/class-plugin.php:90
 msgid "Trinity Forms"
 msgstr "Trinity Forms"
 
@@ -423,7 +423,7 @@ msgid "Send me a copy"
 msgstr "Envíame una copia"
 
 #: admin/class-form-editor.php:320 includes/class-form-manager.php:275
-#: includes/class-gf-importer.php:186 public/class-form-renderer.php:84
+#: includes/class-gf-importer.php:186 public/class-form-renderer.php:121
 msgid "Submit"
 msgstr "Enviar"
 
@@ -741,6 +741,7 @@ msgid "Duplicate"
 msgstr "Duplicar"
 
 #: admin/class-form-editor.php:626 admin/class-form-editor.php:705
+#: public/class-public-front.php:74
 msgid "Remove"
 msgstr "Quitar"
 
@@ -829,7 +830,7 @@ msgid "You do not have permission to export this form."
 msgstr "No tienes permiso para exportar este formulario."
 
 #: admin/class-forms-list.php:169 admin/class-forms-list.php:231
-#: includes/class-rest-api.php:114 includes/class-submission-pipeline.php:42
+#: includes/class-rest-api.php:117 includes/class-submission-pipeline.php:49
 msgid "Form not found."
 msgstr "Formulario no encontrado."
 
@@ -1005,7 +1006,7 @@ msgstr "Filtrar envíos"
 #: admin/views/entries-list.php:237 admin/views/entries-list.php:356
 #: admin/views/entry-detail.php:340 admin/views/import.php:85
 #: includes/class-my-submissions.php:50 includes/class-my-submissions.php:56
-#: includes/class-plugin.php:89 includes/class-results.php:146
+#: includes/class-plugin.php:91 includes/class-results.php:146
 #: blocks/form-block/edit.js:29
 msgid "Form"
 msgstr "Formulario"
@@ -1349,8 +1350,9 @@ msgstr "Editar"
 msgid "Reason: %s"
 msgstr "Motivo: %s"
 
-#: admin/views/entry-detail.php:237 admin/views/settings.php:65
-#: includes/class-mail-check.php:262 includes/class-onboarding.php:145
+#: admin/views/entry-detail.php:237 admin/views/settings.php:67
+#: includes/class-mail-check.php:179 includes/class-mail-check.php:189
+#: includes/class-mail-check.php:424 includes/class-onboarding.php:145
 msgid "Send a test email"
 msgstr "Enviar un correo de prueba"
 
@@ -1473,7 +1475,7 @@ msgstr "No se puede editar. Este valor es un registro de lo que pasó, no un aju
 msgid "Save entry"
 msgstr "Guardar envío"
 
-#: admin/views/entry-edit.php:138
+#: admin/views/entry-edit.php:138 public/class-public-front.php:67
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -1666,129 +1668,129 @@ msgstr "Comprobación de correo"
 msgid "Send yourself a test to see whether form emails can leave this site."
 msgstr "Envíate una prueba para ver si los correos de los formularios pueden salir de este sitio."
 
-#: admin/views/settings.php:63
+#: admin/views/settings.php:65
 msgid "Send the test to"
 msgstr "Enviar la prueba a"
 
-#: admin/views/settings.php:67
+#: admin/views/settings.php:69
 msgid "WordPress can only tell us the email was handed to your mail server. Whether it reaches the inbox is up to that server, so check the inbox (and the spam folder) yourself."
 msgstr "WordPress solo puede decirnos que el correo se entregó a tu servidor de correo. Que llegue a la bandeja de entrada depende de ese servidor, así que revisa tú la bandeja (y la carpeta de spam)."
 
 #. translators: 1: date, 2: email address, 3: outcome.
-#: admin/views/settings.php:72
+#: admin/views/settings.php:74
 #, php-format
 msgid "Last test: %1$s to %2$s. %3$s"
 msgstr "Última prueba: %1$s a %2$s. %3$s"
 
-#: admin/views/settings.php:75
+#: admin/views/settings.php:77
 msgid "Handed to the mail server."
 msgstr "Entregado al servidor de correo."
 
-#: admin/views/settings.php:75
+#: admin/views/settings.php:77
 msgid "It could not be sent."
 msgstr "No se pudo enviar."
 
-#: admin/views/settings.php:80
+#: admin/views/settings.php:82
 msgid "Failed in the last 7 days"
 msgstr "Fallidos en los últimos 7 días"
 
-#: admin/views/settings.php:90 includes/class-mail-check.php:260
+#: admin/views/settings.php:92 includes/class-mail-check.php:422
 msgid "See the entry"
 msgstr "Ver la entrada"
 
-#: admin/views/settings.php:95
+#: admin/views/settings.php:97
 msgid "Most of the time this means the site has no working mail setup. An SMTP plugin that sends through your email provider usually fixes it."
 msgstr "Casi siempre significa que el sitio no tiene un envío de correo que funcione. Un plugin SMTP que envíe a través de tu proveedor de correo suele arreglarlo."
 
-#: admin/views/settings.php:114
-msgid "Form editor"
-msgstr "Editor de formularios"
-
-#: admin/views/settings.php:117
-msgid "Open forms in"
-msgstr "Abrir los formularios en"
-
-#: admin/views/settings.php:120 includes/class-form-builder.php:173
-msgid "Visual builder (drag and drop)"
-msgstr "Constructor visual (arrastrar y soltar)"
-
-#: admin/views/settings.php:121 includes/class-form-builder.php:174
-msgid "Block editor"
-msgstr "Editor de bloques"
-
-#: admin/views/settings.php:123
-msgid "The default for new forms. Any form can override this in its own settings. Both editors read and write the same form, so you can switch at any time."
-msgstr "El valor predeterminado para los formularios nuevos. Cualquier formulario puede cambiarlo en sus propios ajustes. Los dos editores leen y escriben el mismo formulario, así que puedes cambiar cuando quieras."
-
-#: admin/views/settings.php:124
-msgid "Forms you built before upgrading keep opening in the block editor until you change them individually."
-msgstr "Los formularios que creaste antes de mejorar siguen abriéndose en el editor de bloques hasta que los cambies uno a uno."
-
-#: admin/views/settings.php:128
-msgid "Spam protection (CAPTCHA)"
-msgstr "Protección contra spam (CAPTCHA)"
-
-#: admin/views/settings.php:131
-msgid "Provider"
-msgstr "Proveedor"
-
-#: admin/views/settings.php:138
-msgid "Enter the site + secret keys for your chosen provider below, then enable the challenge in each form's settings."
-msgstr "Introduce abajo la clave del sitio y la clave secreta del proveedor que elijas y luego activa la verificación en los ajustes de cada formulario."
-
-#: admin/views/settings.php:156
-msgid "Selected"
-msgstr "Seleccionado"
-
-#: admin/views/settings.php:158
-msgid "Site key"
-msgstr "Clave del sitio"
-
-#: admin/views/settings.php:160
-msgid "Secret key"
-msgstr "Clave secreta"
-
-#: admin/views/settings.php:167
-msgid "Keeping entries"
-msgstr "Conservación de envíos"
-
-#: admin/views/settings.php:169
-msgid "Keep entries for (days)"
-msgstr "Conservar envíos durante (días)"
-
-#: admin/views/settings.php:172
-msgid "0 keeps entries forever. A form's own setting overrides this."
-msgstr "0 conserva los envíos para siempre. El ajuste propio de un formulario tiene prioridad."
-
-#: admin/views/settings.php:174
-msgid "Empty trash after (days)"
-msgstr "Vaciar la papelera tras (días)"
-
-#: admin/views/settings.php:177
-msgid "Entries in the trash are deleted for good after this many days. 0 never empties the trash."
-msgstr "Los envíos de la papelera se eliminan definitivamente tras este número de días. 0 nunca vacía la papelera."
-
-#: admin/views/settings.php:181
-msgid "Data"
-msgstr "Datos"
-
-#: admin/views/settings.php:183
-msgid "Delete data on uninstall"
-msgstr "Eliminar datos al desinstalar"
-
-#: admin/views/settings.php:188
-msgid "Delete all Trinity Forms data when the plugin is deleted"
-msgstr "Eliminar todos los datos de Trinity Forms cuando se borre el plugin"
-
-#: admin/views/settings.php:190
-msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete."
-msgstr "Desactivado por defecto. Tus formularios y envíos se conservan si desactivas o borras el plugin, o si caduca una licencia Pro. Márcalo solo si también quieres eliminar los datos al borrarlo."
-
-#: admin/views/settings.php:194
+#: admin/views/settings.php:110 admin/views/settings.php:203
 msgid "Save settings"
 msgstr "Guardar ajustes"
 
-#: admin/views/settings.php:206
+#: admin/views/settings.php:123
+msgid "Form editor"
+msgstr "Editor de formularios"
+
+#: admin/views/settings.php:126
+msgid "Open forms in"
+msgstr "Abrir los formularios en"
+
+#: admin/views/settings.php:129 includes/class-form-builder.php:173
+msgid "Visual builder (drag and drop)"
+msgstr "Constructor visual (arrastrar y soltar)"
+
+#: admin/views/settings.php:130 includes/class-form-builder.php:174
+msgid "Block editor"
+msgstr "Editor de bloques"
+
+#: admin/views/settings.php:132
+msgid "The default for new forms. Any form can override this in its own settings. Both editors read and write the same form, so you can switch at any time."
+msgstr "El valor predeterminado para los formularios nuevos. Cualquier formulario puede cambiarlo en sus propios ajustes. Los dos editores leen y escriben el mismo formulario, así que puedes cambiar cuando quieras."
+
+#: admin/views/settings.php:133
+msgid "Forms you built before upgrading keep opening in the block editor until you change them individually."
+msgstr "Los formularios que creaste antes de mejorar siguen abriéndose en el editor de bloques hasta que los cambies uno a uno."
+
+#: admin/views/settings.php:137
+msgid "Spam protection (CAPTCHA)"
+msgstr "Protección contra spam (CAPTCHA)"
+
+#: admin/views/settings.php:140
+msgid "Provider"
+msgstr "Proveedor"
+
+#: admin/views/settings.php:147
+msgid "Enter the site + secret keys for your chosen provider below, then enable the challenge in each form's settings."
+msgstr "Introduce abajo la clave del sitio y la clave secreta del proveedor que elijas y luego activa la verificación en los ajustes de cada formulario."
+
+#: admin/views/settings.php:165
+msgid "Selected"
+msgstr "Seleccionado"
+
+#: admin/views/settings.php:167
+msgid "Site key"
+msgstr "Clave del sitio"
+
+#: admin/views/settings.php:169
+msgid "Secret key"
+msgstr "Clave secreta"
+
+#: admin/views/settings.php:176
+msgid "Keeping entries"
+msgstr "Conservación de envíos"
+
+#: admin/views/settings.php:178
+msgid "Keep entries for (days)"
+msgstr "Conservar envíos durante (días)"
+
+#: admin/views/settings.php:181
+msgid "0 keeps entries forever. A form's own setting overrides this."
+msgstr "0 conserva los envíos para siempre. El ajuste propio de un formulario tiene prioridad."
+
+#: admin/views/settings.php:183
+msgid "Empty trash after (days)"
+msgstr "Vaciar la papelera tras (días)"
+
+#: admin/views/settings.php:186
+msgid "Entries in the trash are deleted for good after this many days. 0 never empties the trash."
+msgstr "Los envíos de la papelera se eliminan definitivamente tras este número de días. 0 nunca vacía la papelera."
+
+#: admin/views/settings.php:190
+msgid "Data"
+msgstr "Datos"
+
+#: admin/views/settings.php:192
+msgid "Delete data on uninstall"
+msgstr "Eliminar datos al desinstalar"
+
+#: admin/views/settings.php:197
+msgid "Delete all Trinity Forms data when the plugin is deleted"
+msgstr "Eliminar todos los datos de Trinity Forms cuando se borre el plugin"
+
+#: admin/views/settings.php:199
+msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete."
+msgstr "Desactivado por defecto. Tus formularios y envíos se conservan si desactivas o borras el plugin, o si caduca una licencia Pro. Márcalo solo si también quieres eliminar los datos al borrarlo."
+
+#: admin/views/settings.php:215
 msgid "License"
 msgstr "Licencia"
 
@@ -2086,15 +2088,23 @@ msgstr "%d completados · la tasa aparece cuando se hayan contado visitas durant
 msgid "%1$d views · %2$d completed · %3$s%% completion"
 msgstr "%1$d visitas · %2$d completados · %3$s%% completado"
 
-#: includes/class-anti-spam.php:33
-msgid "The hidden trap field was filled in (a bot does that, a person cannot)."
-msgstr "Se rellenó el campo trampa oculto (eso lo hace un bot, una persona no puede)."
+#. translators: %s: the text found in the hidden field.
+#: includes/class-anti-spam.php:71
+#, php-format
+msgid "The hidden trap field was filled in with \"%s\". Bots do that; a browser's autofill can too."
+msgstr "El campo trampa oculto se rellenó con \"%s\". Los bots lo hacen, pero el autocompletado del navegador también puede."
 
-#: includes/class-anti-spam.php:39
+#. translators: %s: the text found in the hidden field.
+#: includes/class-anti-spam.php:76
+#, php-format
+msgid "The hidden trap field had \"%s\" in it, most likely the browser's autofill. The visitor typed in the form and took a person's time, so it was not marked as spam."
+msgstr "El campo trampa oculto tenía \"%s\", seguramente por el autocompletado del navegador. El visitante escribió en el formulario y tardó lo que tardaría una persona, así que no se marcó como spam."
+
+#: includes/class-anti-spam.php:81
 msgid "Sent faster than a person can fill in a form."
 msgstr "Enviado más rápido de lo que una persona puede rellenar un formulario."
 
-#: includes/class-anti-spam.php:46
+#: includes/class-anti-spam.php:88
 msgid "The bot check (CAPTCHA) did not pass."
 msgstr "No superó la comprobación anti-bots (CAPTCHA)."
 
@@ -2226,19 +2236,20 @@ msgstr "Aprobado"
 msgid "Rejected"
 msgstr "Rechazado"
 
-#: includes/class-entries.php:772
+#: includes/class-entries.php:773
 msgid "Yes"
 msgstr "Sí"
 
-#: includes/class-entries.php:772
+#: includes/class-entries.php:773
 msgid "No"
 msgstr "No"
 
-#: includes/class-field.php:63 includes/fields/class-field-file.php:28
+#: includes/class-field.php:63 includes/fields/class-field-file.php:32
+#: public/class-public-front.php:63
 msgid "This field is required."
 msgstr "Este campo es obligatorio."
 
-#: includes/class-form-builder.php:110 includes/class-rest-api.php:262
+#: includes/class-form-builder.php:110 includes/class-rest-api.php:380
 msgid "Untitled form"
 msgstr "Formulario sin título"
 
@@ -2320,6 +2331,12 @@ msgstr "Formulario importado"
 msgid "The form could not be created."
 msgstr "No se ha podido crear el formulario."
 
+#. translators: 1: list of meta keys, 2: the meta key name.
+#: includes/class-form.php:90
+#, php-format
+msgid "Form settings %1$s are at the top level of %2$s; put them under \"settings\"."
+msgstr "Los ajustes del formulario %1$s están en el nivel superior de %2$s; ponlos dentro de \"settings\"."
+
 #. translators: 1: field label, 2: Gravity Forms field type.
 #: includes/class-gf-importer.php:230
 #, php-format
@@ -2334,22 +2351,84 @@ msgstr "Campo sin título"
 msgid "Thanks — we have your submission."
 msgstr "Gracias, hemos recibido tu envío."
 
-#: includes/class-mail-check.php:71
+#: includes/class-mail-check.php:128
+msgid "This site sends email with PHP mail(), the server's own mailer, not through an email account. Many inboxes put these emails in spam."
+msgstr "Este sitio envía los correos con PHP mail(), el sistema de correo del propio servidor, no a través de una cuenta de correo. Muchas bandejas de entrada mandan estos correos a spam."
+
+#. translators: %s: domain name.
+#: includes/class-mail-check.php:138
+#, php-format
+msgid "%s also tells inboxes to refuse mail it did not sign, so expect form emails to go missing."
+msgstr "Además, %s pide a las bandejas de entrada que rechacen el correo que no ha firmado, así que es probable que se pierdan correos del formulario."
+
+#. translators: %s: domain name.
+#: includes/class-mail-check.php:141
+#, php-format
+msgid "%s also tells inboxes to put mail it did not sign in spam, so expect form emails to go missing."
+msgstr "Además, %s pide a las bandejas de entrada que manden a spam el correo que no ha firmado, así que es probable que se pierdan correos del formulario."
+
+#: includes/class-mail-check.php:144
+msgid "Fix: send through your host's SMTP mailbox or your email provider, with an SMTP plugin."
+msgstr "Solución: envía a través del buzón SMTP de tu hosting o de tu proveedor de correo, con un plugin SMTP."
+
+#: includes/class-mail-check.php:151
+msgid "How Trinity Forms emails are sent"
+msgstr "Cómo se envían los correos de Trinity Forms"
+
+#. translators: %s: number of emails.
+#: includes/class-mail-check.php:167 includes/class-mail-check.php:408
+#, php-format
+msgid "%s form email could not be sent in the last 7 days."
+msgid_plural "%s form emails could not be sent in the last 7 days."
+msgstr[0] "No se pudo enviar %s correo de formulario en los últimos 7 días."
+msgstr[1] "No se pudieron enviar %s correos de formulario en los últimos 7 días."
+
+#: includes/class-mail-check.php:170
+msgid "Form emails are failing"
+msgstr "Los correos del formulario están fallando"
+
+#. translators: 1: email address, 2: the reason the mail system gave.
+#: includes/class-mail-check.php:175 includes/class-mail-check.php:415
+#, php-format
+msgid "The latest was to %1$s. Reason: %2$s"
+msgstr "El último fue a %1$s. Motivo: %2$s"
+
+#: includes/class-mail-check.php:185
+msgid "Form emails are sent with PHP mail() and may land in spam"
+msgstr "Los correos del formulario se envían con PHP mail() y pueden acabar en spam"
+
+#: includes/class-mail-check.php:195
+msgid "Form emails are sent through a mail server (SMTP)"
+msgstr "Los correos del formulario se envían a través de un servidor de correo (SMTP)"
+
+#: includes/class-mail-check.php:195
+msgid "Trinity Forms has not sent an email yet"
+msgstr "Trinity Forms aún no ha enviado ningún correo"
+
+#: includes/class-mail-check.php:199
+msgid "The last email went out through an SMTP mailer, which inboxes trust far more than PHP mail()."
+msgstr "El último correo salió a través de un servicio SMTP, en el que las bandejas de entrada confían mucho más que en PHP mail()."
+
+#: includes/class-mail-check.php:200
+msgid "It checks how emails leave the site when the first one is sent. Send a test from Forms > Settings to check now."
+msgstr "Comprueba cómo salen los correos del sitio cuando se envía el primero. Envía una prueba desde Formularios > Ajustes para comprobarlo ahora."
+
+#: includes/class-mail-check.php:232
 msgid "The mail system turned it down without saying why."
 msgstr "El sistema de correo lo rechazó sin decir por qué."
 
-#: includes/class-mail-check.php:128
+#: includes/class-mail-check.php:289
 msgid "That is not an email address."
 msgstr "Eso no es una dirección de correo."
 
 #. translators: %s: site name.
-#: includes/class-mail-check.php:132
+#: includes/class-mail-check.php:293
 #, php-format
 msgid "Test email from Trinity Forms on %s"
 msgstr "Correo de prueba de Trinity Forms en %s"
 
 #. translators: 1: site address, 2: date and time.
-#: includes/class-mail-check.php:135
+#: includes/class-mail-check.php:296
 #, php-format
 msgid ""
 "This is a test sent from Trinity Forms on %1$s at %2$s.\n"
@@ -2361,37 +2440,23 @@ msgstr ""
 "Si la estás leyendo, los correos de los formularios de este sitio pueden llegar a esta bandeja. No hay que hacer nada más."
 
 #. translators: %s: email address.
-#: includes/class-mail-check.php:153
+#: includes/class-mail-check.php:315
 #, php-format
 msgid "Your site handed the test to its mail server for %s. Check that inbox, and the spam folder, in a few minutes. If it never shows up, the mail server is not passing it on: an SMTP plugin usually fixes that."
 msgstr "Tu sitio entregó la prueba a su servidor de correo para %s. Revisa esa bandeja, y la carpeta de spam, en unos minutos. Si nunca aparece, el servidor de correo no la está reenviando: un plugin SMTP suele arreglarlo."
 
 #. translators: %s: the reason the mail system gave.
-#: includes/class-mail-check.php:162
+#: includes/class-mail-check.php:324
 #, php-format
 msgid "Your site could not send it. Reason: %s"
 msgstr "Tu sitio no pudo enviarlo. Motivo: %s"
 
-#: includes/class-mail-check.php:189 includes/class-mail-check.php:201
+#: includes/class-mail-check.php:351 includes/class-mail-check.php:363
 #: includes/class-onboarding.php:165 includes/class-templates.php:145
 msgid "You are not allowed to do this."
 msgstr "No tienes permiso para hacer esto."
 
-#. translators: %s: number of emails.
-#: includes/class-mail-check.php:246
-#, php-format
-msgid "%s form email could not be sent in the last 7 days."
-msgid_plural "%s form emails could not be sent in the last 7 days."
-msgstr[0] "No se pudo enviar %s correo de formulario en los últimos 7 días."
-msgstr[1] "No se pudieron enviar %s correos de formulario en los últimos 7 días."
-
-#. translators: 1: email address, 2: the reason the mail system gave.
-#: includes/class-mail-check.php:253
-#, php-format
-msgid "The latest was to %1$s. Reason: %2$s"
-msgstr "El último fue a %1$s. Motivo: %2$s"
-
-#: includes/class-mail-check.php:263
+#: includes/class-mail-check.php:425
 msgid "Dismiss"
 msgstr "Descartar"
 
@@ -2476,13 +2541,13 @@ msgid "Date"
 msgstr "Fecha"
 
 #. translators: 1: notification name, 2: email address(es).
-#: includes/class-notification-engine.php:96
+#: includes/class-notification-engine.php:108
 #, php-format
 msgid "Email \"%1$s\" handed to the mail server for %2$s"
 msgstr "Correo \"%1$s\" entregado al servidor de correo para %2$s"
 
 #. translators: %s: email address(es).
-#: includes/class-notification-engine.php:106
+#: includes/class-notification-engine.php:118
 #, php-format
 msgid "Email to %s could not be sent"
 msgstr "No se pudo enviar el correo a %s"
@@ -2569,27 +2634,27 @@ msgstr "No se pudo crear la página."
 msgid "Create a page"
 msgstr "Crear una página"
 
-#: includes/class-plugin.php:82
+#: includes/class-plugin.php:84
 msgid "Trinity Forms Forms"
 msgstr "Formularios de Trinity Forms"
 
-#: includes/class-plugin.php:90
+#: includes/class-plugin.php:92
 msgid "All Forms"
 msgstr "Todos los formularios"
 
-#: includes/class-plugin.php:91
+#: includes/class-plugin.php:93
 msgid "Add Form"
 msgstr "Añadir formulario"
 
-#: includes/class-plugin.php:92
+#: includes/class-plugin.php:94
 msgid "Edit Form"
 msgstr "Editar formulario"
 
-#: includes/class-plugin.php:93
+#: includes/class-plugin.php:95
 msgid "No forms yet — start from a template, or add a blank one."
 msgstr "Aún no hay formularios. Empieza desde una plantilla o añade uno en blanco."
 
-#: includes/class-plugin.php:241
+#: includes/class-plugin.php:243
 msgid "Trinity Forms Fields"
 msgstr "Campos de Trinity Forms"
 
@@ -2609,12 +2674,30 @@ msgstr "No tienes permiso para descargar este archivo."
 msgid "File not found."
 msgstr "Archivo no encontrado."
 
-#: includes/class-rest-api.php:105
+#: includes/class-rest-api.php:107
 msgid "Invalid or missing nonce."
 msgstr "Nonce no válido o ausente."
 
+#. translators: %s: the largest file size accepted, e.g. "2 MB".
+#: includes/class-rest-api.php:247
+#, php-format
+msgid "The file is too big to send. Files can be up to %s."
+msgstr "El archivo es demasiado grande para enviarlo. Los archivos pueden ocupar hasta %s."
+
+#: includes/class-rest-api.php:252 includes/class-submission-pipeline.php:79
+msgid "Upload failed."
+msgstr "Error al subir el archivo."
+
+#. translators: %d: seconds to wait.
+#: includes/class-rest-api.php:335
+#, php-format
+msgid "This form is getting a lot of submissions right now. Please try again in %d second."
+msgid_plural "This form is getting a lot of submissions right now. Please try again in %d seconds."
+msgstr[0] "Este formulario está recibiendo muchos envíos ahora mismo. Inténtalo de nuevo dentro de %d segundo."
+msgstr[1] "Este formulario está recibiendo muchos envíos ahora mismo. Inténtalo de nuevo dentro de %d segundos."
+
 #. translators: %d: minutes to wait.
-#: includes/class-rest-api.php:220
+#: includes/class-rest-api.php:338
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d minute."
 msgid_plural "Too many submissions from your connection. Please try again in %d minutes."
@@ -2622,7 +2705,7 @@ msgstr[0] "Demasiados envíos desde tu conexión. Inténtalo de nuevo dentro de 
 msgstr[1] "Demasiados envíos desde tu conexión. Inténtalo de nuevo dentro de %d minutos."
 
 #. translators: %d: seconds to wait.
-#: includes/class-rest-api.php:222
+#: includes/class-rest-api.php:340
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d second."
 msgid_plural "Too many submissions from your connection. Please try again in %d seconds."
@@ -2729,40 +2812,36 @@ msgstr "Trinity Forms: se necesita la extensión OpenSSL de PHP para cifrar las 
 msgid "The submissions table is available in Trinity Forms Pro."
 msgstr "La tabla de envíos está disponible en Trinity Forms Pro."
 
-#: includes/class-submission-pipeline.php:56
+#: includes/class-submission-pipeline.php:63
 msgid "Please complete the bot check (CAPTCHA) and submit again. If you can't see it, reload the page or allow its script."
 msgstr "Completa la verificación anti-bots (CAPTCHA) y vuelve a enviar. Si no la ves, recarga la página o permite su script."
 
-#: includes/class-submission-pipeline.php:63
-msgid "Upload failed."
-msgstr "Error al subir el archivo."
-
-#: includes/class-submission-pipeline.php:69
+#: includes/class-submission-pipeline.php:85
 msgid "Validation failed."
 msgstr "La validación ha fallado."
 
 #. translators: %s: why the entry was judged spam.
-#: includes/class-submission-pipeline.php:85
+#: includes/class-submission-pipeline.php:104
 #, php-format
 msgid "Marked as spam: %s"
 msgstr "Marcado como spam: %s"
 
-#: includes/class-submission-pipeline.php:86
+#: includes/class-submission-pipeline.php:105
 msgid "Marked as spam by the spam filter"
 msgstr "Marcado como spam por el filtro de spam"
 
-#: includes/class-submission-pipeline.php:174
+#: includes/class-submission-pipeline.php:193
 msgid "This value has already been used."
 msgstr "Este valor ya se ha usado."
 
 #. translators: %s: form title.
-#: includes/class-submission-pipeline.php:380
+#: includes/class-submission-pipeline.php:399
 #, php-format
 msgid "[Trinity Forms] Payments are failing on \"%s\""
 msgstr "[Trinity Forms] Los pagos están fallando en \"%s\""
 
 #. translators: 1: form title, 2: provider error, 3: entry admin URL.
-#: includes/class-submission-pipeline.php:383
+#: includes/class-submission-pipeline.php:402
 #, php-format
 msgid ""
 "A visitor could not start a payment on \"%1$s\". Nothing was charged.\n"
@@ -2777,15 +2856,21 @@ msgstr ""
 "\n"
 "Revisa las claves de pago en Trinity Forms > Ajustes. El envío: %3$s"
 
-#: includes/class-submission-pipeline.php:416
+#: includes/class-submission-pipeline.php:435
 msgid "Payment could not be started, so nothing was charged. Please try again later, or contact the site owner if it keeps happening."
 msgstr "No se ha podido iniciar el pago, así que no se ha cobrado nada. Inténtalo de nuevo más tarde o contacta con el propietario del sitio si sigue pasando."
 
 #. translators: %s: uploaded file name.
-#: includes/class-submission-pipeline.php:470
+#: includes/class-submission-pipeline.php:498
 #, php-format
 msgid "Upload error for %s."
 msgstr "Error al subir %s."
+
+#. translators: %s: uploaded file name.
+#: includes/class-submission-pipeline.php:504
+#, php-format
+msgid "%s is empty."
+msgstr "%s está vacío."
 
 #: includes/class-templates.php:59
 msgid "Contact form"
@@ -2980,19 +3065,20 @@ msgstr "Selecciona un país válido."
 msgid "Invalid date."
 msgstr "Fecha no válida."
 
-#: includes/fields/class-field-email.php:34
+#: includes/fields/class-field-email.php:34 public/class-public-front.php:64
 msgid "Please enter a valid email address."
 msgstr "Introduce una dirección de correo electrónico válida."
 
-#: includes/fields/class-field-file.php:40
-#, php-format
-msgid "File %s exceeds the maximum size."
-msgstr "El archivo %s supera el tamaño máximo."
-
-#: includes/fields/class-field-file.php:45
+#: includes/fields/class-field-file.php:49
 #, php-format
 msgid "File %s has a disallowed type."
 msgstr "El archivo %s tiene un tipo no permitido."
+
+#. translators: 1: file name, 2: the largest size accepted, e.g. "2 MB".
+#: includes/fields/class-field-file.php:72 public/class-public-front.php:59
+#, php-format
+msgid "%1$s is too big. Files can be up to %2$s."
+msgstr "%1$s es demasiado grande. Los archivos pueden ocupar hasta %2$s."
 
 #: includes/fields/class-field-list.php:47
 msgid "Actions"
@@ -3101,25 +3187,95 @@ msgstr "Hora no válida."
 msgid "Please enter a valid web address."
 msgstr "Introduce una dirección web válida."
 
-#: public/class-form-renderer.php:153
+#. translators: %d: form ID.
+#: public/class-form-renderer.php:96
+#, php-format
+msgid "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note."
+msgstr "Los visitantes no ven nada aquí: el formulario #%d se eliminó o no está publicado. Solo quienes pueden editar el sitio ven este aviso."
+
+#: public/class-form-renderer.php:191
 msgid "Welcome back — we restored the answers you saved. Check them and carry on."
 msgstr "Hola de nuevo. Hemos recuperado las respuestas que guardaste. Revísalas y continúa."
 
-#: public/class-form-renderer.php:183
+#: public/class-form-renderer.php:231
 msgid "Previous"
 msgstr "Anterior"
 
-#: public/class-form-renderer.php:184
+#: public/class-form-renderer.php:232
 msgid "Next"
 msgstr "Siguiente"
 
-#: public/class-form-renderer.php:190
+#: public/class-form-renderer.php:242
 msgid "Save & continue later"
 msgstr "Guardar y continuar más tarde"
 
-#: public/class-form-renderer.php:402
+#: public/class-form-renderer.php:454
 msgid "Thank you — your submission was received."
 msgstr "Gracias, hemos recibido tu envío."
+
+#: public/class-public-front.php:52
+msgid "There is one thing to fix:"
+msgstr "Hay una cosa que corregir:"
+
+#: public/class-public-front.php:53
+msgid "There are some things to fix:"
+msgstr "Hay algunas cosas que corregir:"
+
+#: public/class-public-front.php:54
+msgid "Thanks — your submission was received."
+msgstr "Gracias, hemos recibido tu envío."
+
+#: public/class-public-front.php:55
+msgid "Submission failed."
+msgstr "No se pudo enviar."
+
+#: public/class-public-front.php:56
+msgid "Network error — please try again."
+msgstr "Error de red. Inténtalo de nuevo."
+
+#: public/class-public-front.php:57
+msgid "This page is out of date. Please reload it and try again."
+msgstr "Esta página está desactualizada. Vuelve a cargarla e inténtalo de nuevo."
+
+#: public/class-public-front.php:60
+msgid "The file is too big to send."
+msgstr "El archivo es demasiado grande para enviarlo."
+
+#. translators: 1: current step number, 2: number of steps.
+#: public/class-public-front.php:62
+#, php-format
+msgid "Step %1$d of %2$d"
+msgstr "Paso %1$d de %2$d"
+
+#: public/class-public-front.php:65
+msgid "Email me a link to finish this form later"
+msgstr "Envíame un enlace para terminar este formulario más tarde"
+
+#: public/class-public-front.php:66
+msgid "Send link"
+msgstr "Enviar enlace"
+
+#: public/class-public-front.php:68 builder/src/app.jsx:537
+msgid "Saving…"
+msgstr "Guardando…"
+
+#: public/class-public-front.php:69
+msgid "Saved. We've emailed you a link to resume."
+msgstr "Guardado. Te hemos enviado por correo un enlace para continuar."
+
+#. translators: %s: the link that resumes the form.
+#: public/class-public-front.php:71
+#, php-format
+msgid "Saved. Bookmark this URL to resume: %s"
+msgstr "Guardado. Guarda esta URL en marcadores para continuar: %s"
+
+#: public/class-public-front.php:72
+msgid "Could not save progress."
+msgstr "No se pudo guardar el progreso."
+
+#: public/class-public-front.php:73
+msgid "Add item"
+msgstr "Añadir elemento"
 
 #: blocks/conditional-panel.js:66 builder/src/field-panel.jsx:264
 msgid "Format"
@@ -3639,10 +3795,6 @@ msgstr "Borrador"
 #: builder/src/app.jsx:533
 msgid "Published"
 msgstr "Publicado"
-
-#: builder/src/app.jsx:537
-msgid "Saving…"
-msgstr "Guardando…"
 
 #: builder/src/app.jsx:537
 msgid "Save form"

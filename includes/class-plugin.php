@@ -62,6 +62,8 @@ final class Plugin {
         add_filter( "the_content", [ Form_Renderer::class, "maybe_render_resume_notice" ] );
 
         add_action( "wp_enqueue_scripts", [ Public_Front::class, "enqueue_assets" ] );
+        add_action( "wp_ajax_trinity_forms_nonce",        [ Public_Front::class, "ajax_nonce" ] );
+        add_action( "wp_ajax_nopriv_trinity_forms_nonce", [ Public_Front::class, "ajax_nonce" ] );
 
         if ( is_admin() ) {
             // Apply pending schema migrations on update (the activation hook does

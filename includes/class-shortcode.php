@@ -36,7 +36,7 @@ class Shortcode {
         $atts = shortcode_atts( [ "id" => 0 ], (array) $atts, "trinity-forms" );
         $form = Form_Manager::get_public( (int) $atts["id"] );
         if ( ! $form ) {
-            return "";
+            return (int) $atts["id"] > 0 ? Form_Renderer::missing_notice( (int) $atts["id"] ) : "";
         }
         return Form_Renderer::render( $form );
     }

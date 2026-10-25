@@ -1,6 +1,23 @@
 (function () {
     "use strict";
 
+    // Visitor-facing text comes translated from PHP (TrinityFormsI18n); the English
+    // here is only a fallback for a form drawn without the page script's data.
+    function t( key, fallback ) {
+        var d = window.TrinityFormsI18n;
+        return ( d && d[ key ] ) || fallback;
+    }
+
+    // sprintf for "%s", "%d" and numbered "%1$s" placeholders.
+    function fmt( str ) {
+        var args = arguments, n = 0;
+        return String( str ).replace( /%(?:(\d+)\$)?[sd]/g, function ( m, pos ) {
+            n++;
+            var v = args[ pos ? parseInt( pos, 10 ) : n ];
+            return v === undefined ? "" : String( v );
+        } );
+    }
+
     function serialize( form ) {
         var fd = new FormData( form );
         var payload = { trinity_forms_fields: {} };
@@ -94,6 +111,18 @@
             } );
         } );
 
+        // On a multi-step form the first problem can sit on a step the visitor has
+        // already left: show that step, or the error is drawn where nobody sees it.
+        if ( listed.length && typeof form.__ffGoTo === "function" ) {
+            var step = listed[0].wrap.closest( ".trinity-forms-step" );
+            if ( step && step.hasAttribute( "hidden" ) ) {
+                form.__ffGoTo( parseInt( step.getAttribute( "data-step" ), 10 ) || 0 );
+                if ( listed[0].control.focus ) {
+                    try { listed[0].control.focus(); } catch ( err ) {}
+                }
+            }
+        }
+
         if ( ! summary ) {
             return;
         }
@@ -106,8 +135,8 @@
 
         var heading = document.createElement( "p" );
         heading.textContent = listed.length === 1
-            ? ( window.TrinityFormsI18n && window.TrinityFormsI18n.oneProblem ) || "There is one thing to fix:"
-            : ( window.TrinityFormsI18n && window.TrinityFormsI18n.someProblems ) || "There are some things to fix:";
+            ? t( "oneProblem", "There is one thing to fix:" )
+            : t( "someProblems", "There are some things to fix:" );
         summary.appendChild( heading );
 
         var ul = document.createElement( "ul" );
@@ -140,55 +169,159 @@
         return false;
     }
 
+    // Tell the server the page script ran ("1") and someone typed or tapped in the
+    // form ("2"). With both and a person's time, a hidden trap field that a mobile
+    // browser autofilled no longer files a real visitor as spam.
+    [ "keydown", "pointerdown", "touchstart", "input" ].forEach( function ( type ) {
+        document.addEventListener( type, function ( e ) {
+            var form = e.target && e.target.closest ? e.target.closest( ".trinity-forms-form" ) : null;
+            if ( form ) form.dataset.trinityHuman = "1";
+        }, { capture: true, passive: true } );
+    } );
+
+    function markHuman( form ) {
+        var f = form.querySelector( '[name="trinity_forms_js"]' );
+        if ( f ) f.value = form.dataset.trinityHuman === "1" ? "2" : "1";
+    }
+
+    function currentNonce( form ) {
+        return ( form.querySelector( '[name="_wpnonce"]' ) || {} ).value || ( window.TrinityFormsData && window.TrinityFormsData.nonce ) || "";
+    }
+
+    // WordPress ("Cookie check failed") or our route ("Invalid or missing nonce")
+    // refused the page's nonce: the page came from a cache or sat open for a day.
+    function isStaleNonce( res ) {
+        if ( ! res || res.status !== 403 || ! res.body ) return false;
+        if ( res.body.code === "rest_cookie_invalid_nonce" ) return true;
+        var first = res.body.errors && res.body.errors[0];
+        return !! ( first && first.reason === "invalid_nonce" );
+    }
+
+    function refreshNonce() {
+        var url = ( window.TrinityFormsData && window.TrinityFormsData.ajax_url ) || "/wp-admin/admin-ajax.php";
+        var fd  = new FormData();
+        fd.append( "action", "trinity_forms_nonce" );
+        return fetch( url, { method: "POST", credentials: "same-origin", body: fd } )
+            .then( function ( r ) { return r.json(); } )
+            .then( function ( j ) {
+                var n = j && j.success && j.data && j.data.nonce;
+                if ( ! n ) throw new Error( "no nonce" );
+                // Every form on the page, and the multipart body (FormData reads the
+                // hidden input), use the new one from here on.
+                document.querySelectorAll( '.trinity-forms-form input[name="_wpnonce"]' ).forEach( function ( el ) { el.value = n; } );
+                if ( window.TrinityFormsData ) window.TrinityFormsData.nonce = n;
+                return n;
+            } );
+    }
+
+    /**
+     * POST with the page's nonce; on a stale-nonce refusal fetch a fresh one and try
+     * once more. build( nonce ) returns the fetch options. Resolves to
+     * { ok, status, body }, with body {} when the reply was not JSON.
+     */
+    function postWithNonce( form, url, build, retried ) {
+        return fetch( url, build( currentNonce( form ) ) )
+            .then( function ( r ) {
+                return r.json().then(
+                    function ( j ) { return { ok: r.ok, status: r.status, body: j || {} }; },
+                    function () { return { ok: false, status: r.status, body: {} }; }
+                );
+            } )
+            .then( function ( res ) {
+                if ( ! retried && isStaleNonce( res ) ) {
+                    return refreshNonce().then(
+                        function () { return postWithNonce( form, url, build, true ); },
+                        function () { return res; }
+                    );
+                }
+                return res;
+            } );
+    }
+
+    // Field id from "trinity_forms_fields[id]" / "trinity_forms_fields[id][]".
+    function fieldIdOf( input ) {
+        var m = ( input.getAttribute( "name" ) || "" ).match( /^trinity_forms_fields\[([^\]]+)\]/ );
+        return m ? m[1] : "";
+    }
+
+    // Catch a file the server would refuse before sending it: over post_max_size the
+    // whole body is thrown away, and on a phone that is minutes of upload for nothing.
+    function fileSizeErrors( form ) {
+        var errors = [];
+        form.querySelectorAll( 'input[type="file"][data-max-bytes]' ).forEach( function ( input ) {
+            var max = parseInt( input.getAttribute( "data-max-bytes" ), 10 ) || 0;
+            if ( ! max || input.disabled || ! input.files ) return;
+            Array.prototype.forEach.call( input.files, function ( f ) {
+                if ( f.size > max ) {
+                    errors.push( {
+                        field: fieldIdOf( input ),
+                        message: fmt( t( "fileTooBig", "%1$s is too big. Files can be up to %2$s." ), f.name, input.getAttribute( "data-max-label" ) || "" )
+                    } );
+                }
+            } );
+        } );
+        return errors;
+    }
+
     function submit( form ) {
         if ( form.dataset.submitting === "1" ) return;
-        form.dataset.submitting = "1";
+        markHuman( form );
         clearFieldErrors( form );
         showMessages( form, "", "info" );
 
+        var tooBig = fileSizeErrors( form );
+        if ( tooBig.length ) {
+            paintFieldErrors( form, tooBig );
+            showMessages( form, tooBig, "error" );
+            return;
+        }
+
+        form.dataset.submitting = "1";
         var btn = form.querySelector( '[type="submit"]' );
         if ( btn ) btn.disabled = true;
 
-        var url      = form.getAttribute( "action" );
-        var nonce    = ( form.querySelector( '[name="_wpnonce"]' ) || {} ).value || ( window.TrinityFormsData && window.TrinityFormsData.nonce ) || "";
+        var url       = form.getAttribute( "action" );
         var multipart = hasFiles( form );
-        var headers  = { "Accept": "application/json", "X-WP-Nonce": nonce };
-        var body;
 
-        if ( multipart ) {
-            body = new FormData( form );
-        } else {
-            headers[ "Content-Type" ] = "application/json";
-            body = JSON.stringify( serialize( form ) );
-        }
-
-        fetch( url, {
-            method: "POST",
-            credentials: "same-origin",
-            headers: headers,
-            body: body
+        postWithNonce( form, url, function ( nonce ) {
+            var headers = { "Accept": "application/json", "X-WP-Nonce": nonce };
+            var body;
+            if ( multipart ) {
+                body = new FormData( form );
+            } else {
+                headers[ "Content-Type" ] = "application/json";
+                body = JSON.stringify( serialize( form ) );
+            }
+            return { method: "POST", credentials: "same-origin", headers: headers, body: body };
         } )
-        .then( function ( r ) { return r.json().then( function ( j ) { return { ok: r.ok, body: j }; } ); } )
         .then( function ( res ) {
             var body = res.body || {};
             if ( res.ok && body.success ) {
+                // Listeners (abandoned-form capture) start over for the next person.
+                try { form.dispatchEvent( new CustomEvent( "trinity-forms:submitted" ) ); } catch ( e ) {}
+                // Cleared before a redirect too: the browser restored the filled-in
+                // form on Back, and one more tap sent a duplicate entry and mail.
+                form.reset();
                 if ( body.data && body.data.redirect ) {
                     window.location.assign( body.data.redirect );
                     return;
                 }
-                // Listeners (abandoned-form capture) start over for the next person.
-                try { form.dispatchEvent( new CustomEvent( "trinity-forms:submitted" ) ); } catch ( e ) {}
-                form.reset();
                 // Server returns the form's configured message under data.confirmation.
-                showMessages( form, ( body.data && ( body.data.confirmation || body.data.message ) ) || "Thanks — your submission was received.", "success" );
+                showMessages( form, ( body.data && ( body.data.confirmation || body.data.message ) ) || t( "thanks", "Thanks — your submission was received." ), "success" );
                 form.classList.add( "is-submitted" );
+            } else if ( isStaleNonce( res ) ) {
+                // The fresh nonce did not help either. The answers stay in the form.
+                showMessages( form, t( "stale", "This page is out of date. Please reload it and try again." ), "error" );
+            } else if ( res.status === 413 && ! ( body.errors && body.errors.length ) ) {
+                // The web server (not WordPress) refused the body as too big.
+                showMessages( form, t( "tooLarge", "The file is too big to send." ), "error" );
             } else {
                 paintFieldErrors( form, body.errors );
-                showMessages( form, body.errors && body.errors.length ? body.errors : "Submission failed.", "error" );
+                showMessages( form, body.errors && body.errors.length ? body.errors : t( "failed", "Submission failed." ), "error" );
             }
         } )
         .catch( function () {
-            showMessages( form, "Network error — please try again.", "error" );
+            showMessages( form, t( "network", "Network error — please try again." ), "error" );
         } )
         .finally( function () {
             form.dataset.submitting = "0";
@@ -417,6 +550,30 @@
             } );
         }
 
+        // Each step is a history entry, so the phone's Back button goes to the
+        // previous step instead of leaving the page (and the answers).
+        var historyKey = "trinityStep" + ( form.getAttribute( "data-form-id" ) || "" );
+
+        function remember( i, replace ) {
+            if ( ! window.history || typeof window.history.pushState !== "function" ) return;
+            var state = {};
+            var old = window.history.state;
+            if ( old && typeof old === "object" ) {
+                for ( var k in old ) { if ( Object.prototype.hasOwnProperty.call( old, k ) ) state[ k ] = old[ k ]; }
+            }
+            state[ historyKey ] = i;
+            try {
+                if ( replace ) window.history.replaceState( state, "" );
+                else window.history.pushState( state, "" );
+            } catch ( e ) {}
+        }
+
+        window.addEventListener( "popstate", function ( e ) {
+            var st = e.state && typeof e.state === "object" ? e.state[ historyKey ] : undefined;
+            var to = typeof st === "number" ? st : 0;
+            if ( to !== current ) show( to );
+        } );
+
         function show( i ) {
             current = Math.max( 0, Math.min( i, steps.length - 1 ) );
             steps.forEach( function ( s, idx ) {
@@ -432,7 +589,7 @@
             if ( prevBtn )   prevBtn.hidden   = current === 0;
             if ( nextBtn )   nextBtn.hidden   = last;
             if ( submitBtn ) submitBtn.hidden = ! last;
-            if ( status )    status.textContent = "Step " + ( current + 1 ) + " of " + steps.length;
+            if ( status )    status.textContent = fmt( t( "stepOf", "Step %1$d of %2$d" ), current + 1, steps.length );
             var first = steps[ current ].querySelector( "input, select, textarea" );
             if ( first ) { try { first.focus(); } catch ( e ) {} }
         }
@@ -453,7 +610,7 @@
                         var p = document.createElement( "p" );
                         p.className = "trinity-forms-field-error";
                         p.setAttribute( "role", "alert" );
-                        p.textContent = el.validationMessage || "This field is required.";
+                        p.textContent = el.validationMessage || t( "required", "This field is required." );
                         wrap.appendChild( p );
                     }
                     el.setAttribute( "aria-invalid", "true" );
@@ -467,12 +624,29 @@
         }
 
         form.__ffIsLast = function () { return current === steps.length - 1; };
-        form.__ffNext   = function () { if ( validateCurrent() ) show( current + 1 ); };
+        // An error jump replaces the entry: Back should not return to the last step.
+        form.__ffGoTo   = function ( i ) { show( i ); remember( current, true ); };
+        form.__ffNext   = function () {
+            if ( validateCurrent() ) {
+                show( current + 1 );
+                remember( current, false );
+            }
+        };
 
         if ( nextBtn ) nextBtn.addEventListener( "click", function () { form.__ffNext(); } );
-        if ( prevBtn ) prevBtn.addEventListener( "click", function () { show( current - 1 ); } );
+        if ( prevBtn ) prevBtn.addEventListener( "click", function () {
+            // Previous is the same as Back when the step came from history.
+            var st = window.history && window.history.state;
+            if ( st && typeof st === "object" && st[ historyKey ] === current && current > 0 ) {
+                window.history.back();
+            } else {
+                show( current - 1 );
+                remember( current, true );
+            }
+        } );
 
         show( 0 );
+        remember( 0, true );
     }
 
     /**
@@ -493,10 +667,14 @@
         box.setAttribute( "role", "group" );
         var uid = "tf-resume-email-" + Math.random().toString( 36 ).slice( 2 );
         box.innerHTML =
-            '<label for="' + uid + '">Email me a link to finish this form later</label>' +
+            '<label for="' + uid + '"></label>' +
             '<input type="email" id="' + uid + '" autocomplete="email" required />' +
-            '<button type="button" class="trinity-forms-resume-send">Send link</button> ' +
-            '<button type="button" class="trinity-forms-resume-cancel">Cancel</button>';
+            '<button type="button" class="trinity-forms-resume-send"></button> ' +
+            '<button type="button" class="trinity-forms-resume-cancel"></button>';
+        // Text set as text: a translation must never be read as markup.
+        box.querySelector( "label" ).textContent = t( "resumeAsk", "Email me a link to finish this form later" );
+        box.querySelector( ".trinity-forms-resume-send" ).textContent = t( "sendLink", "Send link" );
+        box.querySelector( ".trinity-forms-resume-cancel" ).textContent = t( "cancel", "Cancel" );
         var anchor = form.querySelector( ".trinity-forms-save-progress" );
         if ( anchor && anchor.parentNode ) {
             anchor.parentNode.insertBefore( box, anchor.nextSibling );
@@ -508,7 +686,7 @@
             var value = ( input.value || "" ).trim();
             if ( ! value || ( input.checkValidity && ! input.checkValidity() ) ) {
                 input.setAttribute( "aria-invalid", "true" );
-                showMessages( form, "Please enter a valid email address.", "error" );
+                showMessages( form, t( "badEmail", "Please enter a valid email address." ), "error" );
                 input.focus();
                 return;
             }
@@ -533,34 +711,36 @@
     }
 
     function sendProgress( form, url, email ) {
-
-        var nonce = ( form.querySelector( '[name="_wpnonce"]' ) || {} ).value || ( window.TrinityFormsData && window.TrinityFormsData.nonce ) || "";
         var payload = serialize( form );
         payload.email = email;
 
-        showMessages( form, "Saving…", "info" );
-        fetch( url, {
-            method: "POST",
-            credentials: "same-origin",
-            headers: {
-                "Content-Type":  "application/json",
-                "Accept":        "application/json",
-                "X-WP-Nonce":    nonce
-            },
-            body: JSON.stringify( payload )
+        showMessages( form, t( "saving", "Saving…" ), "info" );
+        postWithNonce( form, url, function ( nonce ) {
+            return {
+                method: "POST",
+                credentials: "same-origin",
+                headers: {
+                    "Content-Type":  "application/json",
+                    "Accept":        "application/json",
+                    "X-WP-Nonce":    nonce
+                },
+                body: JSON.stringify( payload )
+            };
         } )
-        .then( function ( r ) { return r.json(); } )
-        .then( function ( res ) {
+        .then( function ( r ) {
+            var res = r.body;
             if ( res && res.success ) {
                 var msg = res.data && res.data.emailed
-                    ? "Saved. We've emailed you a link to resume."
-                    : "Saved. Bookmark this URL to resume: " + ( res.data && res.data.resume_url );
+                    ? t( "savedEmailed", "Saved. We've emailed you a link to resume." )
+                    : fmt( t( "savedLink", "Saved. Bookmark this URL to resume: %s" ), res.data && res.data.resume_url );
                 showMessages( form, msg, "success" );
+            } else if ( isStaleNonce( r ) ) {
+                showMessages( form, t( "stale", "This page is out of date. Please reload it and try again." ), "error" );
             } else {
-                showMessages( form, "Could not save progress.", "error" );
+                showMessages( form, t( "saveFailed", "Could not save progress." ), "error" );
             }
         } )
-        .catch( function () { showMessages( form, "Network error.", "error" ); } );
+        .catch( function () { showMessages( form, t( "network", "Network error — please try again." ), "error" ); } );
     }
 
     document.addEventListener( "click", function ( e ) {
@@ -1067,7 +1247,7 @@
             if ( ! Array.isArray( subs ) || ! subs.length ) return;
             // A second form on the page has prefixed ids; the field name uses the original.
             var fieldId = box.getAttribute( "data-tf-base-id" ) || box.id;
-            var addText = box.getAttribute( "data-add-label" ) || "Add item";
+            var addText = box.getAttribute( "data-add-label" ) || t( "addItem", "Add item" );
             var list = document.createElement( "div" );
             list.className = "trinity-forms-repeater-rows";
             box.appendChild( list );
@@ -1097,7 +1277,7 @@
                 var remove = document.createElement( "button" );
                 remove.type = "button";
                 remove.className = "trinity-forms-repeater-remove";
-                remove.textContent = "Remove";
+                remove.textContent = t( "remove", "Remove" );
                 remove.addEventListener( "click", function () { row.parentNode.removeChild( row ); } );
                 row.appendChild( remove );
                 list.appendChild( row );

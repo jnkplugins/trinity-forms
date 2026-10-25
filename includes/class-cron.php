@@ -13,7 +13,8 @@ class Cron {
             if ( $days <= 0 ) {
                 continue;
             }
-            $cutoff = gmdate( "Y-m-d H:i:s", time() - $days * DAY_IN_SECONDS );
+            // submitted_at is site time (current_time( "mysql" )), so the cutoff is too.
+            $cutoff = wp_date( "Y-m-d H:i:s", time() - $days * DAY_IN_SECONDS );
 
             // Collect the doomed entry ids first, then delete each one the same way
             // the manual paths do (Admin::handle_delete_entry, REST_API::delete_submission):
