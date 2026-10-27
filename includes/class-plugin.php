@@ -9,6 +9,9 @@ final class Plugin {
     private function __construct() {}
 
     public function boot(): void {
+        // Before this request writes a row: rows up to here are still site time.
+        Utc_Migration::mark_boundary();
+
         // Must be added before any field block registers on init, so every one of
         // them picks up the shared field settings (width, css class, prefill, …).
         add_filter( "register_block_type_args", [ Field_Registry::class, "add_common_attributes" ], 10, 2 );

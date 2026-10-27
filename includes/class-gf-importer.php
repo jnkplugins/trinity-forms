@@ -422,6 +422,41 @@ class GF_Importer {
         return __( "Thanks — we have your submission.", "trinity-forms" );
     }
 
+    /**
+     * Entries that came from Gravity Forms with its UTC date_created kept as is,
+     * so the one-time conversion to UTC (Utc_Migration) leaves them alone. Rows
+     * are recognised by an exact match with a GF entry (date, source URL, user
+     * agent); only possible while the GF tables are still there.
+     *
+     * @return int[] Entry ids.
+     */
+    public static function imported_entry_ids(): array {
+        global $wpdb;
+        $gf_entry = $wpdb->prefix . "gf_entry";
+        $entries  = $wpdb->prefix . "trinity_forms_entries";
+        if ( ! self::is_available() ) {
+            return [];
+        }
+        // Joined on the date only: the GF tables may use another collation, and
+        // comparing text across them fails ("Illegal mix of collations").
+        // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery
+        $rows = $wpdb->get_results(
+            "SELECT e.id, e.source_url, e.user_agent,
+                    g.source_url AS gf_url, g.user_agent AS gf_agent
+               FROM {$entries} e
+               JOIN {$gf_entry} g ON g.date_created = e.submitted_at",
+            ARRAY_A
+        );
+        $ids = [];
+        foreach ( (array) $rows as $row ) {
+            if ( substr( (string) $row["gf_url"], 0, 500 ) === (string) $row["source_url"]
+                && substr( (string) $row["gf_agent"], 0, 500 ) === (string) $row["user_agent"] ) {
+                $ids[ (int) $row["id"] ] = true;
+            }
+        }
+        return array_keys( $ids );
+    }
+
     private static function count_entries( int $gf_form_id ): int {
         global $wpdb;
         $table = $wpdb->prefix . "gf_entry";
@@ -493,6 +528,7 @@ class GF_Importer {
                     "status"       => "completed",
                     // Keep the original timestamp: an import that stamps everything
                     // "today" destroys the only thing entries are usually sorted by.
+                    // GF stores UTC, and so do we.
                     "submitted_at" => (string) $row["date_created"],
                     "ip_address"   => ! empty( $row["ip"] ) ? @inet_pton( (string) $row["ip"] ) : null,
                     "user_agent"   => substr( (string) $row["user_agent"], 0, 500 ),

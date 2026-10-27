@@ -257,7 +257,7 @@ class Submission_Pipeline {
             [
                 "form_id"      => $form->id,
                 "status"       => $form->payment_enabled() ? "pending" : "completed",
-                "submitted_at" => current_time( "mysql" ),
+                "submitted_at" => Dates::now(),
                 "ip_address"   => $ip ? inet_pton( $ip ) : null,
                 "user_agent"   => substr( sanitize_text_field( wp_unslash( (string) ( $_SERVER["HTTP_USER_AGENT"] ?? "" ) ) ), 0, 500 ),
                 "user_id"      => get_current_user_id() ?: null,
@@ -334,7 +334,7 @@ class Submission_Pipeline {
                         "filepath"      => substr( (string) ( $file["path"] ?? "" ), 0, 500 ),
                         "mime_type"     => substr( (string) ( $file["type"] ?? "" ), 0, 100 ),
                         "size_bytes"    => (int) ( $file["size"] ?? 0 ),
-                        "uploaded_at"   => current_time( "mysql" ),
+                        "uploaded_at"   => Dates::now(),
                     ],
                     [ "%d", "%s", "%d", "%s", "%s", "%s", "%d", "%s" ]
                 );

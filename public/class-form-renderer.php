@@ -181,7 +181,7 @@ class Form_Renderer {
         // attribute fragment; free core adds nothing.
         $html .= (string) apply_filters( "trinity_forms_form_data_attributes", "", $form, $multi );
         $html .= ' method="post" action="' . $action . '" enctype="multipart/form-data">';
-        $html .= '<input type="hidden" name="_wpnonce" value="' . esc_attr( $nonce ) . '" />';
+        $html .= '<input type="hidden" name="_trinity_forms_nonce" value="' . esc_attr( $nonce ) . '" />';
         $html .= self::plain_post_notice( $form );
         if ( $token ) {
             $html .= '<input type="hidden" name="_trinity_forms_resume_token" value="' . esc_attr( $token ) . '" />';

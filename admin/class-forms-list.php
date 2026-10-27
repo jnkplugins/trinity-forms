@@ -107,8 +107,7 @@ class Forms_List {
                     echo "—";
                     return;
                 }
-                $ts = strtotime( (string) $last );
-                echo esc_html( $ts ? date_i18n( get_option( "date_format" ) . " " . get_option( "time_format" ), $ts ) : (string) $last );
+                echo esc_html( Dates::human( (string) $last, false, (string) $last ) );
                 return;
         }
     }

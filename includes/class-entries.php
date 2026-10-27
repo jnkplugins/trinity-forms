@@ -154,13 +154,14 @@ class Entries {
 
         $from = (string) ( $args["date_from"] ?? "" );
         if ( "" !== $from ) {
+            // The owner's days are site days; the column is UTC.
             $where[]  = "e.submitted_at >= %s";
-            $params[] = $from . " 00:00:00";
+            $params[] = Dates::day_bound( $from );
         }
         $to = (string) ( $args["date_to"] ?? "" );
         if ( "" !== $to ) {
             $where[]  = "e.submitted_at <= %s";
-            $params[] = $to . " 23:59:59";
+            $params[] = Dates::day_bound( $to, true );
         }
 
         $search = trim( (string) ( $args["search"] ?? "" ) );
@@ -452,7 +453,7 @@ class Entries {
         if ( "trash" === $status ) {
             // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.PreparedSQL.InterpolatedNotPrepared
             $sql    = "UPDATE {$table} SET status = %s, trashed_at = %s WHERE id IN ({$holds})";
-            $head   = [ $status, current_time( "mysql" ) ];
+            $head   = [ $status, Dates::now() ];
         } else {
             // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.PreparedSQL.InterpolatedNotPrepared
             $sql    = "UPDATE {$table} SET status = %s, trashed_at = NULL WHERE id IN ({$holds})";
@@ -527,8 +528,8 @@ class Entries {
         }
 
         $table  = self::table();
-        // trashed_at is site time (current_time( "mysql" )), so the cutoff is too.
-        $cutoff = wp_date( "Y-m-d H:i:s", time() - ( $days * DAY_IN_SECONDS ) );
+        // trashed_at is UTC, so the cutoff is too.
+        $cutoff = Dates::cutoff( $days * DAY_IN_SECONDS );
         // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.PreparedSQL.InterpolatedNotPrepared
         $sql = "SELECT id FROM {$table} WHERE status = 'trash' AND trashed_at IS NOT NULL AND trashed_at < %s LIMIT 500";
         // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
@@ -650,7 +651,8 @@ class Entries {
 
             foreach ( (array) $entry_rows as $r ) {
                 $values = $by_entry[ (int) $r["id"] ] ?? [];
-                $row    = [ $r["id"], $r["submitted_at"], $r["status"] ];
+                // Site time, as before: a spreadsheet built on the export keeps working.
+                $row    = [ $r["id"], Dates::to_site( $r["submitted_at"] ), $r["status"] ];
                 foreach ( array_keys( $ordered_labels ) as $fid ) {
                     $row[] = self::csv_safe( (string) ( $values[ $fid ] ?? "" ) );
                 }

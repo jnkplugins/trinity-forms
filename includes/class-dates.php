@@ -52,11 +52,9 @@ class Dates {
     /**
      * A Unix timestamp for a value from our tables.
      *
-     * Entries, notes and logs are stored in site time (current_time( "mysql" )).
-     * strtotime() read them as UTC, because WordPress runs PHP in UTC, and
-     * wp_date() then added the offset a second time: on an India-time site a new
-     * entry said "in 5 hours". A value that names its own zone ("Z", "+05:30")
-     * keeps it.
+     * Since 2.15.0 every time in our tables is UTC (see Utc_Migration), the way
+     * WordPress keeps post_date_gmt; wp_date() then shows it in the site's zone.
+     * A value that names its own zone ("Z", "+05:30") keeps it.
      */
     public static function timestamp( $value ): int {
         if ( $value === null || $value === "" ) {
@@ -70,10 +68,75 @@ class Dates {
             return 0;
         }
         try {
-            $ts = ( new \DateTimeImmutable( $value, wp_timezone() ) )->getTimestamp();
+            $ts = ( new \DateTimeImmutable( $value, new \DateTimeZone( "UTC" ) ) )->getTimestamp();
         } catch ( \Exception $e ) {
             $ts = strtotime( $value );
         }
         return $ts ?: 0;
+    }
+
+    /** Option that says the tables hold UTC. Entry Vault reads it too: keep the name. */
+    public const UTC_OPTION = "trinity_forms_times_utc";
+
+    /** True once every stored time is UTC (fresh install, or the upgrade finished). */
+    public static function stored_utc(): bool {
+        return (bool) get_option( self::UTC_OPTION );
+    }
+
+    /** "Now" for a database column: always UTC. */
+    public static function now(): string {
+        return gmdate( "Y-m-d H:i:s" );
+    }
+
+    /**
+     * A stored value as the site-time string 2.14 and older gave out (REST, CSV,
+     * webhooks): outward values keep their meaning, *_gmt fields carry UTC.
+     */
+    public static function to_site( $value ): string {
+        $value = (string) $value;
+        if ( "" === $value || "0000-00-00" === substr( $value, 0, 10 ) ) {
+            return $value;
+        }
+        return get_date_from_gmt( $value );
+    }
+
+    /**
+     * A database cutoff for "older than $seconds". UTC; until the one-time
+     * conversion has run the rows are still site time, so the cutoff is too.
+     */
+    public static function cutoff( int $seconds ): string {
+        $ts = time() - $seconds;
+        return self::stored_utc() ? gmdate( "Y-m-d H:i:s", $ts ) : wp_date( "Y-m-d H:i:s", $ts );
+    }
+
+    /**
+     * A day the owner typed (Y-m-d, a site day) as a UTC bound for a query:
+     * its first second, or with $end its last.
+     */
+    public static function day_bound( string $day, bool $end = false ): string {
+        $local = $day . ( $end ? " 23:59:59" : " 00:00:00" );
+        if ( ! preg_match( '/^\d{4}-\d{2}-\d{2}$/', $day ) || ! self::stored_utc() ) {
+            return $local;
+        }
+        return get_gmt_from_date( $local );
+    }
+
+    /**
+     * Stored times are UTC; the fields keep the site time they always had, and
+     * a *_gmt field beside each carries the UTC value.
+     *
+     * @param array<string,mixed> $entry A row from the entries table (or part of one).
+     * @return array<string,mixed>
+     */
+    public static function with_site_times( array $entry ): array {
+        foreach ( [ "submitted_at", "trashed_at" ] as $col ) {
+            if ( ! array_key_exists( $col, $entry ) ) {
+                continue;
+            }
+            $raw                    = $entry[ $col ];
+            $entry[ $col ]          = null === $raw ? null : self::to_site( $raw );
+            $entry[ $col . "_gmt" ] = $raw;
+        }
+        return $entry;
     }
 }

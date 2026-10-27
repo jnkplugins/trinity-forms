@@ -54,7 +54,7 @@ class Entry_Notes {
                 "author_id"  => $author_id ?: null,
                 "note_type"  => $type,
                 "note"       => $note,
-                "created_at" => current_time( "mysql" ),
+                "created_at" => Dates::now(),
             ],
             [ "%d", "%d", "%s", "%s", "%s" ]
         );

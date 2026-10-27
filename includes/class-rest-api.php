@@ -99,33 +99,49 @@ class REST_API {
     /* ---------- Public ---------- */
 
     public function submit( \WP_REST_Request $request ) {
-        // CRIT-01: verify the wp_rest nonce embedded by Form_Renderer.
-        $nonce = (string) ( $request->get_param( "_wpnonce" ) ?: $request->get_header( "x_wp_nonce" ) );
+        $form_id = (int) $request["form_id"];
+        // With JavaScript off every refusal below goes back to the page with its
+        // message, not to a page of raw JSON. A body over post_max_size arrives
+        // empty, so the page comes from the Referer then.
+        $plain      = self::is_plain_form_post( $request );
+        $source_url = (string) ( $request->get_param( "_trinity_forms_source_url" ) ?: $request->get_header( "referer" ) );
+        $refuse     = function ( \WP_REST_Response $response ) use ( $plain, $form_id, $source_url ): \WP_REST_Response {
+            return $plain ? self::back_to_the_page( $form_id, (array) $response->get_data(), $source_url ) : $response;
+        };
+
+        // Drafts are not public: the same rule the shortcode and block apply.
+        $form = Form_Manager::get_public( $form_id );
+
+        // Checked before the nonce: PHP threw the body away, nonce included, and
+        // "too big" is the thing the visitor can act on.
+        if ( $form ) {
+            $too_large = $this->body_too_large( $request, $form );
+            if ( $too_large ) {
+                return $refuse( $too_large );
+            }
+        }
+
+        // CRIT-01: verify the wp_rest nonce embedded by Form_Renderer. The page's
+        // field is named _trinity_forms_nonce so WordPress's own cookie check
+        // (which reads _wpnonce) cannot answer a stale page with raw JSON first.
+        $nonce = (string) ( $request->get_param( "_trinity_forms_nonce" ) ?: $request->get_param( "_wpnonce" ) ?: $request->get_header( "x_wp_nonce" ) );
         if ( ! wp_verify_nonce( $nonce, "wp_rest" ) ) {
             // "reason" lets the page script tell a stale page (cached, or a tab left
             // open overnight) from other refusals: it fetches a fresh nonce and retries.
-            return new \WP_REST_Response( $this->envelope( null, [ [ "code" => 403, "reason" => "invalid_nonce", "message" => __( "Invalid or missing nonce.", "trinity-forms" ) ] ] ), 403 );
+            $message = $plain ? __( "This page is out of date. Please reload it and try again.", "trinity-forms" ) : __( "Invalid or missing nonce.", "trinity-forms" );
+            return $refuse( new \WP_REST_Response( $this->envelope( null, [ [ "code" => 403, "reason" => "invalid_nonce", "message" => $message ] ] ), 403 ) );
         }
-
-        $form_id = (int) $request["form_id"];
 
         // Reject unknown form IDs before rate-limiting, so unauthenticated requests
         // can't create arbitrary per-form transients (storage bloat).
-        // Drafts are not public: the same rule the shortcode and block apply.
-        $form = Form_Manager::get_public( $form_id );
         if ( ! $form ) {
-            return new \WP_REST_Response( $this->envelope( null, [ [ "code" => 404, "message" => __( "Form not found.", "trinity-forms" ) ] ] ), 404 );
-        }
-
-        $too_large = $this->body_too_large( $request, $form );
-        if ( $too_large ) {
-            return $too_large;
+            return $refuse( new \WP_REST_Response( $this->envelope( null, [ [ "code" => 404, "message" => __( "Form not found.", "trinity-forms" ) ] ] ), 404 ) );
         }
 
         // CRIT-02: rate-limit public submissions.
         $rate = $this->check_submit_rate_limit( $form_id );
         if ( $rate !== true ) {
-            return $rate;
+            return $refuse( $rate );
         }
 
         $payload = (array) $request->get_param( "trinity_forms_fields" );
@@ -137,9 +153,9 @@ class REST_API {
 
         // The page the form was on. The browser sends JSON, so this never reached
         // $_POST and every entry's "Submitted from" stayed empty.
-        $source_url = (string) $request->get_param( "_trinity_forms_source_url" );
-        if ( "" !== $source_url ) {
-            $payload["_trinity_forms_source_url"] = $source_url;
+        $sent_from = (string) $request->get_param( "_trinity_forms_source_url" );
+        if ( "" !== $sent_from ) {
+            $payload["_trinity_forms_source_url"] = $sent_from;
         }
 
         // Abandoned-form capture token, so the finished submission can replace the
@@ -178,7 +194,7 @@ class REST_API {
             self::rate_hit( empty( $result["data"]["spam"] ) ? "trinity_forms_rate_submit_form_" . $form_id : $spam_key, $limits["per_form"], $limits["window"] );
         }
         $status = $result["meta"]["status"] ?? ( $result["success"] ? 200 : 400 );
-        if ( self::is_plain_form_post( $request ) ) {
+        if ( $plain ) {
             return self::back_to_the_page( $form_id, $result, $source_url );
         }
         return new \WP_REST_Response( $result, (int) $status );
@@ -213,7 +229,7 @@ class REST_API {
         } else {
             $messages = ! empty( $result["success"] )
                 ? [ (string) ( $result["data"]["confirmation"] ?? "" ) ]
-                : array_values( array_filter( array_map( static fn( $e ) => (string) ( $e["message"] ?? "" ), (array) ( $result["errors"] ?? [] ) ) ) );
+                : self::plain_errors( $form_id, (array) ( $result["errors"] ?? [] ) );
             $token = wp_generate_password( 16, false );
             set_transient( "trinity_forms_plain_" . $token, [
                 "form_id"  => $form_id,
@@ -227,6 +243,36 @@ class REST_API {
         $response = new \WP_REST_Response( null, 303 );
         $response->header( "Location", $to );
         return $response;
+    }
+
+    /**
+     * Error lines for the no-JS page. A field error names its field ("Email: This
+     * field is required."), since the page has no field to paint it next to, and a
+     * closing line says how to get the typed answers back.
+     *
+     * @return string[]
+     */
+    private static function plain_errors( int $form_id, array $errors ): array {
+        $labels = [];
+        $form   = Form_Manager::get( $form_id );
+        if ( $form ) {
+            foreach ( $form->fields() as $field ) {
+                $labels[ (string) $field->id ] = wp_strip_all_tags( (string) ( $field->config["label"] ?? "" ) );
+            }
+        }
+        $lines = [];
+        foreach ( $errors as $e ) {
+            $message = (string) ( $e["message"] ?? "" );
+            if ( "" === $message ) {
+                continue;
+            }
+            $label = $labels[ (string) ( $e["field"] ?? "" ) ] ?? "";
+            /* translators: 1: field label, 2: what is wrong with it. */
+            $lines[] = "" !== $label ? sprintf( __( '%1$s: %2$s', "trinity-forms" ), $label, $message ) : $message;
+        }
+        $lines   = array_values( array_unique( $lines ) );
+        $lines[] = __( "Your browser's Back button brings back what you typed.", "trinity-forms" );
+        return $lines;
     }
 
     /**
@@ -446,6 +492,10 @@ class REST_API {
         $sql = "SELECT id, form_id, status, submitted_at, payment_status FROM %i WHERE {$where} ORDER BY submitted_at DESC LIMIT %d OFFSET %d";
         // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare,PluginCheck.Security.DirectDB.UnescapedDBParameter
         $rows = $wpdb->get_results( $wpdb->prepare( $sql, ...array_merge( [ $table ], $params, [ $per_page, $offset ] ) ) );
+        foreach ( (array) $rows as $row ) {
+            $row->submitted_at_gmt = (string) $row->submitted_at;
+            $row->submitted_at     = Dates::to_site( $row->submitted_at );
+        }
 
         return $this->envelope( $rows, [], [ "page" => $page, "per_page" => $per_page, "total" => $total ] );
     }
@@ -458,6 +508,7 @@ class REST_API {
             return new \WP_REST_Response( $this->envelope( null, [ [ "code" => 404, "message" => "Not found" ] ] ), 404 );
         }
         $entry["ip_address"] = $entry["ip_address"] ? inet_ntop( $entry["ip_address"] ) : null;
+        $entry = Dates::with_site_times( $entry );
         $entry["fields"] = $wpdb->get_results( $wpdb->prepare(
             "SELECT field_id, field_label, field_type, value FROM {$wpdb->prefix}trinity_forms_entry_meta WHERE entry_id = %d",
             $id

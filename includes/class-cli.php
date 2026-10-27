@@ -123,7 +123,7 @@ class CLI {
                         "form"      => (int) $r->form_id,
                         "from"      => $senders[ $id ]["email"] ?? ( $senders[ $id ]["name"] ?? "" ),
                         "status"    => (string) $r->status,
-                        "submitted" => (string) $r->submitted_at,
+                        "submitted" => Dates::to_site( $r->submitted_at ),
                     ];
                 }
                 \WP_CLI\Utils\format_items( $assoc["format"] ?? "table", $rows, [ "id", "form", "from", "status", "submitted" ] );

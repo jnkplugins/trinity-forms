@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 8.2
-Stable tag: 2.14.0
+Stable tag: 2.15.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -181,6 +181,13 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.15.0 =
+* Changed: times are now stored in UTC and shown in the time zone set in Settings > General, so a time zone change or a daylight saving switch no longer shifts entry times. Existing entries are converted once, the first time an admin page opens after the update. Do not go back to an older version afterwards, as it would show the times shifted.
+* Fixed: entries imported from Gravity Forms showed the wrong time.
+* Fixed: on a multi-step form, a link to a spot on the same page jumped back to step 1, and after sending, Back walked through the empty steps.
+* Fixed: with JavaScript off, a page from a cache, a file that was too big or too many submissions showed a page of code. The visitor now goes back to the form with the message, and each error names its field.
+* For developers: entry times in the REST API keep site time and gain a submitted_at_gmt field. Entries::get() now returns UTC.
 
 = 2.14.0 =
 * Fixed: entry times were shifted by the site's time zone (a new entry on an India-time site said "in 5 hours"). Retention and trash clean-up now count days in site time too.

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-25T11:27:35+00:00\n"
+"POT-Creation-Date: 2026-10-27T18:53:51+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Spanish (Spain)\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: trinity-forms.php admin/class-admin-ui.php:131
-#: includes/class-entry-notes.php:111 includes/class-plugin.php:90
+#: includes/class-entry-notes.php:111 includes/class-plugin.php:93
 msgid "Trinity Forms"
 msgstr "Trinity Forms"
 
@@ -72,7 +72,7 @@ msgstr "Vistas"
 msgid "Integrations"
 msgstr "Integraciones"
 
-#: admin/class-admin-ui.php:69 admin/class-forms-list.php:211
+#: admin/class-admin-ui.php:69 admin/class-forms-list.php:210
 #: admin/views/transfer.php:29
 msgid "Import / Export"
 msgstr "Importar / Exportar"
@@ -736,7 +736,7 @@ msgstr "Adjuntar los archivos subidos con el envío"
 msgid "Send a test"
 msgstr "Enviar una prueba"
 
-#: admin/class-form-editor.php:625 admin/class-forms-list.php:136
+#: admin/class-form-editor.php:625 admin/class-forms-list.php:135
 msgid "Duplicate"
 msgstr "Duplicar"
 
@@ -817,62 +817,62 @@ msgstr "Campos"
 msgid "Last submission"
 msgstr "Último envío"
 
-#: admin/class-forms-list.php:141
+#: admin/class-forms-list.php:140
 msgid "Export JSON"
 msgstr "Exportar JSON"
 
-#: admin/class-forms-list.php:160
+#: admin/class-forms-list.php:159
 msgid "You do not have permission to export forms."
 msgstr "No tienes permiso para exportar formularios."
 
-#: admin/class-forms-list.php:165
+#: admin/class-forms-list.php:164
 msgid "You do not have permission to export this form."
 msgstr "No tienes permiso para exportar este formulario."
 
-#: admin/class-forms-list.php:169 admin/class-forms-list.php:231
-#: includes/class-rest-api.php:117 includes/class-submission-pipeline.php:49
+#: admin/class-forms-list.php:168 admin/class-forms-list.php:230
+#: includes/class-rest-api.php:138 includes/class-submission-pipeline.php:49
 msgid "Form not found."
 msgstr "Formulario no encontrado."
 
-#: admin/class-forms-list.php:182
+#: admin/class-forms-list.php:181
 msgid "You do not have permission to import forms."
 msgstr "No tienes permiso para importar formularios."
 
-#: admin/class-forms-list.php:194
+#: admin/class-forms-list.php:193
 msgid "Choose a .json file exported from Trinity Forms."
 msgstr "Elige un archivo .json exportado desde Trinity Forms."
 
-#: admin/class-forms-list.php:196
+#: admin/class-forms-list.php:195
 msgid "That file is too large to be a form export."
 msgstr "Ese archivo es demasiado grande para ser una exportación de formulario."
 
-#: admin/class-forms-list.php:210
+#: admin/class-forms-list.php:209
 msgid "Import / Export forms"
 msgstr "Importar / Exportar formularios"
 
-#: admin/class-forms-list.php:224
+#: admin/class-forms-list.php:223
 msgid "You do not have permission to duplicate forms."
 msgstr "No tienes permiso para duplicar formularios."
 
 #. translators: %s: original form title
-#: admin/class-forms-list.php:239
+#: admin/class-forms-list.php:238
 #, php-format
 msgid "%s (Copy)"
 msgstr "%s (copia)"
 
-#: admin/class-forms-list.php:246
+#: admin/class-forms-list.php:245
 msgid "Failed to duplicate form."
 msgstr "No se pudo duplicar el formulario."
 
-#: admin/class-forms-list.php:293
+#: admin/class-forms-list.php:292
 msgid "Form duplicated. Integration credentials were not copied — please reconfigure them on the new form."
 msgstr "Formulario duplicado. Las credenciales de las integraciones no se copiaron, así que vuelve a configurarlas en el nuevo formulario."
 
-#: admin/class-forms-list.php:294
+#: admin/class-forms-list.php:293
 msgid "Form duplicated."
 msgstr "Formulario duplicado."
 
-#: admin/class-forms-list.php:299
+#: admin/class-forms-list.php:298
 msgid "Edit copy"
 msgstr "Editar la copia"
 
@@ -1006,7 +1006,7 @@ msgstr "Filtrar envíos"
 #: admin/views/entries-list.php:237 admin/views/entries-list.php:356
 #: admin/views/entry-detail.php:340 admin/views/import.php:85
 #: includes/class-my-submissions.php:50 includes/class-my-submissions.php:56
-#: includes/class-plugin.php:91 includes/class-results.php:146
+#: includes/class-plugin.php:94 includes/class-results.php:146
 #: blocks/form-block/edit.js:29
 msgid "Form"
 msgstr "Formulario"
@@ -2236,11 +2236,11 @@ msgstr "Aprobado"
 msgid "Rejected"
 msgstr "Rechazado"
 
-#: includes/class-entries.php:773
+#: includes/class-entries.php:775
 msgid "Yes"
 msgstr "Sí"
 
-#: includes/class-entries.php:773
+#: includes/class-entries.php:775
 msgid "No"
 msgstr "No"
 
@@ -2249,7 +2249,7 @@ msgstr "No"
 msgid "This field is required."
 msgstr "Este campo es obligatorio."
 
-#: includes/class-form-builder.php:110 includes/class-rest-api.php:380
+#: includes/class-form-builder.php:110 includes/class-rest-api.php:426
 msgid "Untitled form"
 msgstr "Formulario sin título"
 
@@ -2634,27 +2634,27 @@ msgstr "No se pudo crear la página."
 msgid "Create a page"
 msgstr "Crear una página"
 
-#: includes/class-plugin.php:84
+#: includes/class-plugin.php:87
 msgid "Trinity Forms Forms"
 msgstr "Formularios de Trinity Forms"
 
-#: includes/class-plugin.php:92
+#: includes/class-plugin.php:95
 msgid "All Forms"
 msgstr "Todos los formularios"
 
-#: includes/class-plugin.php:93
+#: includes/class-plugin.php:96
 msgid "Add Form"
 msgstr "Añadir formulario"
 
-#: includes/class-plugin.php:94
+#: includes/class-plugin.php:97
 msgid "Edit Form"
 msgstr "Editar formulario"
 
-#: includes/class-plugin.php:95
+#: includes/class-plugin.php:98
 msgid "No forms yet — start from a template, or add a blank one."
 msgstr "Aún no hay formularios. Empieza desde una plantilla o añade uno en blanco."
 
-#: includes/class-plugin.php:243
+#: includes/class-plugin.php:246
 msgid "Trinity Forms Fields"
 msgstr "Campos de Trinity Forms"
 
@@ -2674,22 +2674,36 @@ msgstr "No tienes permiso para descargar este archivo."
 msgid "File not found."
 msgstr "Archivo no encontrado."
 
-#: includes/class-rest-api.php:107
+#: includes/class-rest-api.php:131 public/class-public-front.php:57
+msgid "This page is out of date. Please reload it and try again."
+msgstr "Esta página está desactualizada. Vuelve a cargarla e inténtalo de nuevo."
+
+#: includes/class-rest-api.php:131
 msgid "Invalid or missing nonce."
 msgstr "Nonce no válido o ausente."
 
+#. translators: 1: field label, 2: what is wrong with it.
+#: includes/class-rest-api.php:271
+#, php-format
+msgid "%1$s: %2$s"
+msgstr "%1$s: %2$s"
+
+#: includes/class-rest-api.php:274
+msgid "Your browser's Back button brings back what you typed."
+msgstr "El botón Atrás de tu navegador recupera lo que escribiste."
+
 #. translators: %s: the largest file size accepted, e.g. "2 MB".
-#: includes/class-rest-api.php:247
+#: includes/class-rest-api.php:293
 #, php-format
 msgid "The file is too big to send. Files can be up to %s."
 msgstr "El archivo es demasiado grande para enviarlo. Los archivos pueden ocupar hasta %s."
 
-#: includes/class-rest-api.php:252 includes/class-submission-pipeline.php:79
+#: includes/class-rest-api.php:298 includes/class-submission-pipeline.php:79
 msgid "Upload failed."
 msgstr "Error al subir el archivo."
 
 #. translators: %d: seconds to wait.
-#: includes/class-rest-api.php:335
+#: includes/class-rest-api.php:381
 #, php-format
 msgid "This form is getting a lot of submissions right now. Please try again in %d second."
 msgid_plural "This form is getting a lot of submissions right now. Please try again in %d seconds."
@@ -2697,7 +2711,7 @@ msgstr[0] "Este formulario está recibiendo muchos envíos ahora mismo. Inténta
 msgstr[1] "Este formulario está recibiendo muchos envíos ahora mismo. Inténtalo de nuevo dentro de %d segundos."
 
 #. translators: %d: minutes to wait.
-#: includes/class-rest-api.php:338
+#: includes/class-rest-api.php:384
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d minute."
 msgid_plural "Too many submissions from your connection. Please try again in %d minutes."
@@ -2705,7 +2719,7 @@ msgstr[0] "Demasiados envíos desde tu conexión. Inténtalo de nuevo dentro de 
 msgstr[1] "Demasiados envíos desde tu conexión. Inténtalo de nuevo dentro de %d minutos."
 
 #. translators: %d: seconds to wait.
-#: includes/class-rest-api.php:340
+#: includes/class-rest-api.php:386
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d second."
 msgid_plural "Too many submissions from your connection. Please try again in %d seconds."
@@ -3232,10 +3246,6 @@ msgstr "No se pudo enviar."
 #: public/class-public-front.php:56
 msgid "Network error — please try again."
 msgstr "Error de red. Inténtalo de nuevo."
-
-#: public/class-public-front.php:57
-msgid "This page is out of date. Please reload it and try again."
-msgstr "Esta página está desactualizada. Vuelve a cargarla e inténtalo de nuevo."
 
 #: public/class-public-front.php:60
 msgid "The file is too big to send."

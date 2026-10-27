@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-25T11:27:35+00:00\n"
+"POT-Creation-Date: 2026-10-27T18:53:51+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Korean\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: trinity-forms.php admin/class-admin-ui.php:131
-#: includes/class-entry-notes.php:111 includes/class-plugin.php:90
+#: includes/class-entry-notes.php:111 includes/class-plugin.php:93
 msgid "Trinity Forms"
 msgstr "Trinity Forms"
 
@@ -72,7 +72,7 @@ msgstr "뷰"
 msgid "Integrations"
 msgstr "연동"
 
-#: admin/class-admin-ui.php:69 admin/class-forms-list.php:211
+#: admin/class-admin-ui.php:69 admin/class-forms-list.php:210
 #: admin/views/transfer.php:29
 msgid "Import / Export"
 msgstr "가져오기 / 내보내기"
@@ -735,7 +735,7 @@ msgstr "제출과 함께 업로드된 파일 첨부"
 msgid "Send a test"
 msgstr "테스트 보내기"
 
-#: admin/class-form-editor.php:625 admin/class-forms-list.php:136
+#: admin/class-form-editor.php:625 admin/class-forms-list.php:135
 msgid "Duplicate"
 msgstr "복제"
 
@@ -816,62 +816,62 @@ msgstr "필드"
 msgid "Last submission"
 msgstr "마지막 제출"
 
-#: admin/class-forms-list.php:141
+#: admin/class-forms-list.php:140
 msgid "Export JSON"
 msgstr "JSON 내보내기"
 
-#: admin/class-forms-list.php:160
+#: admin/class-forms-list.php:159
 msgid "You do not have permission to export forms."
 msgstr "양식을 내보낼 권한이 없습니다."
 
-#: admin/class-forms-list.php:165
+#: admin/class-forms-list.php:164
 msgid "You do not have permission to export this form."
 msgstr "이 양식을 내보낼 권한이 없습니다."
 
-#: admin/class-forms-list.php:169 admin/class-forms-list.php:231
-#: includes/class-rest-api.php:117 includes/class-submission-pipeline.php:49
+#: admin/class-forms-list.php:168 admin/class-forms-list.php:230
+#: includes/class-rest-api.php:138 includes/class-submission-pipeline.php:49
 msgid "Form not found."
 msgstr "양식을 찾을 수 없습니다."
 
-#: admin/class-forms-list.php:182
+#: admin/class-forms-list.php:181
 msgid "You do not have permission to import forms."
 msgstr "양식을 가져올 권한이 없습니다."
 
-#: admin/class-forms-list.php:194
+#: admin/class-forms-list.php:193
 msgid "Choose a .json file exported from Trinity Forms."
 msgstr "Trinity Forms에서 내보낸 .json 파일을 선택하세요."
 
-#: admin/class-forms-list.php:196
+#: admin/class-forms-list.php:195
 msgid "That file is too large to be a form export."
 msgstr "양식 내보내기 파일이라기에는 파일이 너무 큽니다."
 
-#: admin/class-forms-list.php:210
+#: admin/class-forms-list.php:209
 msgid "Import / Export forms"
 msgstr "양식 가져오기 / 내보내기"
 
-#: admin/class-forms-list.php:224
+#: admin/class-forms-list.php:223
 msgid "You do not have permission to duplicate forms."
 msgstr "양식을 복제할 권한이 없습니다."
 
 #. translators: %s: original form title
-#: admin/class-forms-list.php:239
+#: admin/class-forms-list.php:238
 #, php-format
 msgid "%s (Copy)"
 msgstr "%s (사본)"
 
-#: admin/class-forms-list.php:246
+#: admin/class-forms-list.php:245
 msgid "Failed to duplicate form."
 msgstr "양식을 복제하지 못했습니다."
 
-#: admin/class-forms-list.php:293
+#: admin/class-forms-list.php:292
 msgid "Form duplicated. Integration credentials were not copied — please reconfigure them on the new form."
 msgstr "양식을 복제했습니다. 연동 자격 증명은 복사되지 않았으니 새 양식에서 다시 설정하세요."
 
-#: admin/class-forms-list.php:294
+#: admin/class-forms-list.php:293
 msgid "Form duplicated."
 msgstr "양식을 복제했습니다."
 
-#: admin/class-forms-list.php:299
+#: admin/class-forms-list.php:298
 msgid "Edit copy"
 msgstr "사본 편집"
 
@@ -1004,7 +1004,7 @@ msgstr "항목 필터"
 #: admin/views/entries-list.php:237 admin/views/entries-list.php:356
 #: admin/views/entry-detail.php:340 admin/views/import.php:85
 #: includes/class-my-submissions.php:50 includes/class-my-submissions.php:56
-#: includes/class-plugin.php:91 includes/class-results.php:146
+#: includes/class-plugin.php:94 includes/class-results.php:146
 #: blocks/form-block/edit.js:29
 msgid "Form"
 msgstr "양식"
@@ -2234,11 +2234,11 @@ msgstr "승인됨"
 msgid "Rejected"
 msgstr "거부됨"
 
-#: includes/class-entries.php:773
+#: includes/class-entries.php:775
 msgid "Yes"
 msgstr "예"
 
-#: includes/class-entries.php:773
+#: includes/class-entries.php:775
 msgid "No"
 msgstr "아니요"
 
@@ -2247,7 +2247,7 @@ msgstr "아니요"
 msgid "This field is required."
 msgstr "필수 필드입니다."
 
-#: includes/class-form-builder.php:110 includes/class-rest-api.php:380
+#: includes/class-form-builder.php:110 includes/class-rest-api.php:426
 msgid "Untitled form"
 msgstr "제목 없는 양식"
 
@@ -2631,27 +2631,27 @@ msgstr "페이지를 만들지 못했습니다."
 msgid "Create a page"
 msgstr "페이지 만들기"
 
-#: includes/class-plugin.php:84
+#: includes/class-plugin.php:87
 msgid "Trinity Forms Forms"
 msgstr "Trinity Forms 양식"
 
-#: includes/class-plugin.php:92
+#: includes/class-plugin.php:95
 msgid "All Forms"
 msgstr "모든 양식"
 
-#: includes/class-plugin.php:93
+#: includes/class-plugin.php:96
 msgid "Add Form"
 msgstr "양식 추가"
 
-#: includes/class-plugin.php:94
+#: includes/class-plugin.php:97
 msgid "Edit Form"
 msgstr "양식 편집"
 
-#: includes/class-plugin.php:95
+#: includes/class-plugin.php:98
 msgid "No forms yet — start from a template, or add a blank one."
 msgstr "아직 양식이 없습니다. 템플릿으로 시작하거나 빈 양식을 추가하세요."
 
-#: includes/class-plugin.php:243
+#: includes/class-plugin.php:246
 msgid "Trinity Forms Fields"
 msgstr "Trinity Forms 필드"
 
@@ -2671,36 +2671,50 @@ msgstr "이 파일을 다운로드할 권한이 없습니다."
 msgid "File not found."
 msgstr "파일을 찾을 수 없습니다."
 
-#: includes/class-rest-api.php:107
+#: includes/class-rest-api.php:131 public/class-public-front.php:57
+msgid "This page is out of date. Please reload it and try again."
+msgstr "이 페이지가 오래되었습니다. 새로고침한 후 다시 시도하세요."
+
+#: includes/class-rest-api.php:131
 msgid "Invalid or missing nonce."
 msgstr "nonce가 잘못되었거나 없습니다."
 
+#. translators: 1: field label, 2: what is wrong with it.
+#: includes/class-rest-api.php:271
+#, php-format
+msgid "%1$s: %2$s"
+msgstr "%1$s: %2$s"
+
+#: includes/class-rest-api.php:274
+msgid "Your browser's Back button brings back what you typed."
+msgstr "브라우저의 뒤로 버튼을 누르면 입력한 내용이 돌아옵니다."
+
 #. translators: %s: the largest file size accepted, e.g. "2 MB".
-#: includes/class-rest-api.php:247
+#: includes/class-rest-api.php:293
 #, php-format
 msgid "The file is too big to send. Files can be up to %s."
 msgstr "파일이 너무 커서 보낼 수 없습니다. 파일은 최대 %s까지 가능합니다."
 
-#: includes/class-rest-api.php:252 includes/class-submission-pipeline.php:79
+#: includes/class-rest-api.php:298 includes/class-submission-pipeline.php:79
 msgid "Upload failed."
 msgstr "업로드에 실패했습니다."
 
 #. translators: %d: seconds to wait.
-#: includes/class-rest-api.php:335
+#: includes/class-rest-api.php:381
 #, php-format
 msgid "This form is getting a lot of submissions right now. Please try again in %d second."
 msgid_plural "This form is getting a lot of submissions right now. Please try again in %d seconds."
 msgstr[0] "지금 이 양식에 제출이 많이 몰리고 있습니다. %d초 후에 다시 시도하세요."
 
 #. translators: %d: minutes to wait.
-#: includes/class-rest-api.php:338
+#: includes/class-rest-api.php:384
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d minute."
 msgid_plural "Too many submissions from your connection. Please try again in %d minutes."
 msgstr[0] "연결에서 너무 많은 제출이 발생했습니다. %d분 후에 다시 시도하세요."
 
 #. translators: %d: seconds to wait.
-#: includes/class-rest-api.php:340
+#: includes/class-rest-api.php:386
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d second."
 msgid_plural "Too many submissions from your connection. Please try again in %d seconds."
@@ -3223,10 +3237,6 @@ msgstr "제출하지 못했습니다."
 #: public/class-public-front.php:56
 msgid "Network error — please try again."
 msgstr "네트워크 오류입니다. 다시 시도하세요."
-
-#: public/class-public-front.php:57
-msgid "This page is out of date. Please reload it and try again."
-msgstr "이 페이지가 오래되었습니다. 새로고침한 후 다시 시도하세요."
 
 #: public/class-public-front.php:60
 msgid "The file is too big to send."

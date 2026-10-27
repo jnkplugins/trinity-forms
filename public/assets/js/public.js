@@ -184,8 +184,12 @@
         if ( f ) f.value = form.dataset.trinityHuman === "1" ? "2" : "1";
     }
 
+    // Renamed from _wpnonce in 2.15 (WordPress's own check read it first); a page
+    // cached before the update still has the old name.
+    var NONCE_FIELD = 'input[name="_trinity_forms_nonce"], input[name="_wpnonce"]';
+
     function currentNonce( form ) {
-        return ( form.querySelector( '[name="_wpnonce"]' ) || {} ).value || ( window.TrinityFormsData && window.TrinityFormsData.nonce ) || "";
+        return ( form.querySelector( NONCE_FIELD ) || {} ).value || ( window.TrinityFormsData && window.TrinityFormsData.nonce ) || "";
     }
 
     // WordPress ("Cookie check failed") or our route ("Invalid or missing nonce")
@@ -208,7 +212,7 @@
                 if ( ! n ) throw new Error( "no nonce" );
                 // Every form on the page, and the multipart body (FormData reads the
                 // hidden input), use the new one from here on.
-                document.querySelectorAll( '.trinity-forms-form input[name="_wpnonce"]' ).forEach( function ( el ) { el.value = n; } );
+                document.querySelectorAll( '.trinity-forms-form input[name="_trinity_forms_nonce"], .trinity-forms-form input[name="_wpnonce"]' ).forEach( function ( el ) { el.value = n; } );
                 if ( window.TrinityFormsData ) window.TrinityFormsData.nonce = n;
                 return n;
             } );
@@ -306,6 +310,7 @@
                     window.location.assign( body.data.redirect );
                     return;
                 }
+                if ( typeof form.__ffDone === "function" ) form.__ffDone();
                 // Server returns the form's configured message under data.confirmation.
                 showMessages( form, ( body.data && ( body.data.confirmation || body.data.message ) ) || t( "thanks", "Thanks — your submission was received." ), "success" );
                 form.classList.add( "is-submitted" );
@@ -570,8 +575,11 @@
 
         window.addEventListener( "popstate", function ( e ) {
             var st = e.state && typeof e.state === "object" ? e.state[ historyKey ] : undefined;
-            var to = typeof st === "number" ? st : 0;
-            if ( to !== current ) show( to );
+            // The page's own entry carries step 0 (set below), so an entry without
+            // the key belongs to someone else: a #anchor jump or another script's
+            // router. Moving to step 1 there threw visitors back mid-form.
+            if ( typeof st !== "number" ) return;
+            if ( st !== current ) show( st );
         } );
 
         function show( i ) {
@@ -624,6 +632,15 @@
         }
 
         form.__ffIsLast = function () { return current === steps.length - 1; };
+        // After a successful send, step back over the step entries so Back leaves
+        // the page instead of walking through the emptied form.
+        form.__ffDone   = function () {
+            var st = window.history && window.history.state;
+            var depth = st && typeof st === "object" ? st[ historyKey ] : 0;
+            if ( typeof depth === "number" && depth > 0 ) {
+                try { window.history.go( -depth ); } catch ( e ) {}
+            }
+        };
         // An error jump replaces the entry: Back should not return to the last step.
         form.__ffGoTo   = function ( i ) { show( i ); remember( current, true ); };
         form.__ffNext   = function () {
@@ -1204,7 +1221,7 @@
             }
             lastSent = body;
 
-            var nonceInput = form.querySelector( 'input[name="_wpnonce"]' );
+            var nonceInput = form.querySelector( NONCE_FIELD );
             fetch( url, {
                 method: "POST",
                 credentials: "same-origin",

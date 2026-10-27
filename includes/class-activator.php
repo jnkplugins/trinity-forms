@@ -6,6 +6,14 @@ defined( "ABSPATH" ) || exit;
 class Activator {
     public static function activate(): void {
         global $wpdb;
+        // Before anything is written: a fresh install stores UTC from the start;
+        // an existing one remembers which rows are still site time.
+        $previous = (string) get_option( "trinity_forms_version", "" );
+        if ( "" === $previous ) {
+            update_option( Dates::UTC_OPTION, 1, true );
+        } else {
+            Utc_Migration::mark_boundary();
+        }
         require_once ABSPATH . "wp-admin/includes/upgrade.php";
         $charset_collate = $wpdb->get_charset_collate();
         $prefix          = $wpdb->prefix . "trinity_forms_";
@@ -166,6 +174,13 @@ class Activator {
      */
     public static function maybe_upgrade(): void {
         $stored = (string) get_option( "trinity_forms_version", "" );
+
+        // Not tied to the version: it has to go on after a timeout, when the
+        // version is already stamped, until every column is UTC.
+        if ( "" !== $stored && ! Dates::stored_utc() ) {
+            Utc_Migration::run();
+        }
+
         if ( $stored === TRINITY_FORMS_VERSION ) {
             return;
         }

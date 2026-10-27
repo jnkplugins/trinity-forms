@@ -28,7 +28,7 @@ class Logger {
                 "type"       => $type,
                 "message"    => $message,
                 "context"    => $context ? wp_json_encode( $context ) : null,
-                "created_at" => current_time( "mysql" ),
+                "created_at" => Dates::now(),
             ],
             [ "%d", "%s", "%s", "%s", "%s", "%s" ]
         );

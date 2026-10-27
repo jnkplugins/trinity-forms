@@ -265,8 +265,8 @@ class Admin_UI {
 
         $counted = Entries::counted_statuses();
         $holds   = implode( ",", array_fill( 0, count( $counted ), "%s" ) );
-        // submitted_at is stored in site time (current_time( "mysql" )), so compare in site time.
-        $since   = wp_date( "Y-m-d H:i:s", time() - WEEK_IN_SECONDS );
+        // submitted_at is UTC, so the cutoff is too.
+        $since   = Dates::cutoff( WEEK_IN_SECONDS );
         // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- IN() list built from %s placeholders; table name from $wpdb->prefix.
         $week = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM " . Entries::table() . " WHERE submitted_at >= %s AND status IN ({$holds})", $since, ...$counted ) );
 
