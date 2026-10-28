@@ -17,6 +17,12 @@ defined( "ABSPATH" ) || exit;
  * can finish it early (PHP-FPM, LiteSpeed), otherwise at once.
  *
  * A job is either queued or run here, never both, so it is sent once.
+ *
+ * Jobs queued while the queue still looked alive (WP-Cron switched off, or a
+ * server cron that died, less than STALE_AFTER ago) would still wait for wp-admin.
+ * So whenever a job runs here, a few of those still-pending Trinity actions run
+ * with it, claimed through Action Scheduler's own store first so a runner that
+ * starts at the same moment cannot send them again.
  */
 class Background {
 
@@ -26,8 +32,20 @@ class Background {
      */
     public const STALE_AFTER = 300;
 
+    /** The hooks run() queues: only these are picked up from the queue. */
+    public const HOOKS = [ "trinity_forms_run_integrations", "trinity_forms_geolocate_entry", "trinity_forms_send_alert" ];
+
+    /** At most this many queued Trinity actions are picked up on one request. */
+    public const PICK_UP_LIMIT = 5;
+
     /** @var array<int, array{0: string, 1: array<int, mixed>}> Jobs waiting for shutdown. */
     private static array $deferred = [];
+
+    /** Pick up queued actions after the deferred jobs. */
+    private static bool $pick_up = false;
+
+    /** Queued actions were already picked up on this request. */
+    private static bool $picked_up = false;
 
     /**
      * Run do_action( $hook, ...$args ) off the visitor's request: queued when a
@@ -40,10 +58,14 @@ class Background {
             as_enqueue_async_action( $hook, $args );
             return;
         }
+        $pick_up = self::should_pick_up();
         // Already in shutdown (a deferred notification failed and raised an
         // alert): the response is out, run now.
         if ( doing_action( "shutdown" ) || ! self::can_finish_early() ) {
             do_action( $hook, ...$args );
+            if ( $pick_up ) {
+                self::run_pending();
+            }
             return;
         }
         if ( ! self::$deferred ) {
@@ -51,6 +73,83 @@ class Background {
             add_action( "shutdown", [ self::class, "run_deferred" ], 3 );
         }
         self::$deferred[] = [ $hook, $args ];
+        self::$pick_up    = self::$pick_up || $pick_up;
+    }
+
+    /**
+     * Should this request also run Trinity actions left on the queue? Only when
+     * nothing runs the queue (judged without the filter, so a site that opts out
+     * of queueing while its cron works never competes with that cron), and once.
+     */
+    private static function should_pick_up(): bool {
+        return ! self::$picked_up
+            && function_exists( "as_enqueue_async_action" )
+            && is_callable( [ "ActionScheduler", "store" ] )
+            && is_callable( [ "ActionScheduler", "runner" ] )
+            && ! self::queue_runs( defined( "DISABLE_WP_CRON" ) && DISABLE_WP_CRON, self::queue_next_run(), time() );
+    }
+
+    /**
+     * Run Trinity actions that are due and still pending on Action Scheduler.
+     * They are claimed first (the same claim a queue runner takes, so a runner
+     * starting now skips them and an action a live runner holds is left alone),
+     * then run through Action Scheduler, which marks them complete or failed.
+     *
+     * @param object|null $store  ActionScheduler_Store; tests pass a stand-in.
+     * @param object|null $runner ActionScheduler_Abstract_QueueRunner; tests pass a stand-in.
+     * @return int How many actions ran.
+     */
+    public static function run_pending( $store = null, $runner = null ): int {
+        self::$picked_up = true;
+        /**
+         * Filter how many queued Trinity actions one request may pick up when
+         * nothing runs Action Scheduler's queue. 0 turns the pick-up off.
+         *
+         * @param int $limit Default 5.
+         */
+        $limit = (int) apply_filters( "trinity_forms_background_pick_up_limit", self::PICK_UP_LIMIT );
+        if ( $limit < 1 ) {
+            return 0;
+        }
+        try {
+            $store  = $store ?? \ActionScheduler::store();
+            $runner = $runner ?? \ActionScheduler::runner();
+            // stake_claim() keeps the hooks as the store's claim filter; put back
+            // what was there so a later claim on this request is not narrowed.
+            self::release_abandoned_claims( $store, $limit );
+            $before = method_exists( $store, "get_claim_filter" ) ? $store->get_claim_filter( "hooks" ) : null;
+            try {
+                $claim = $store->stake_claim( $limit, null, self::HOOKS );
+            } finally {
+                if ( null !== $before && method_exists( $store, "set_claim_filter" ) ) {
+                    $store->set_claim_filter( "hooks", $before );
+                }
+            }
+        } catch ( \Throwable $e ) {
+            return 0;
+        }
+        $ran      = 0;
+        $claim_id = $claim->get_id();
+        try {
+            foreach ( $claim->get_actions() as $action_id ) {
+                if ( $claim_id !== $store->get_claim_id( $action_id ) ) {
+                    break; // Lost the claim (a cleaner reset it): leave the rest.
+                }
+                // A store that ignored the hook list must not make us run another plugin's work.
+                $action = $store->fetch_action( $action_id );
+                if ( ! in_array( $action->get_hook(), self::HOOKS, true ) ) {
+                    $store->unclaim_action( $action_id );
+                    continue;
+                }
+                $runner->process_action( $action_id, "Trinity Forms" );
+                $ran++;
+            }
+        } catch ( \Throwable $e ) {
+            // process_action() records an action's own failure; this is the store failing.
+        } finally {
+            $store->release_claim( $claim );
+        }
+        return $ran;
     }
 
     /** Whether $hook goes to Action Scheduler. */
@@ -106,10 +205,49 @@ class Background {
         return (bool) apply_filters( "trinity_forms_defer_background_job", $can );
     }
 
+    /**
+     * A runner that died mid-batch (the server restarted, a cron request was
+     * killed) leaves its actions claimed and pending. Action Scheduler's own
+     * cleaner frees such claims once they are older than its timeout (5 minutes),
+     * but only when the queue runs, which is the thing that stopped. Do the same
+     * here, for Trinity's hooks only and with the same timeout filter, so those
+     * actions can be claimed below. A live runner renews nothing on an action it
+     * still holds, but it never holds one that long: its batches end after 30 s.
+     *
+     * @param object $store ActionScheduler_Store.
+     */
+    private static function release_abandoned_claims( $store, int $limit ): void {
+        if ( ! method_exists( $store, "query_actions" ) || ! method_exists( $store, "unclaim_action" ) ) {
+            return;
+        }
+        $timeout = (int) apply_filters( "action_scheduler_timeout_period", 300 );
+        if ( $timeout < 0 ) {
+            return; // Action Scheduler's "never reset" setting.
+        }
+        $cutoff = new \DateTime( "@" . ( time() - $timeout ) );
+        foreach ( self::HOOKS as $hook ) {
+            $ids = $store->query_actions( [
+                "hook"             => $hook,
+                "status"           => "pending",
+                "claimed"          => true,
+                "modified"         => $cutoff,
+                "modified_compare" => "<=",
+                "per_page"         => $limit,
+                "orderby"          => "none",
+            ] );
+            foreach ( (array) $ids as $action_id ) {
+                $store->unclaim_action( $action_id );
+                do_action( "action_scheduler_reset_action", $action_id );
+            }
+        }
+    }
+
     /** shutdown: finish the visitor's response, then run the jobs. */
     public static function run_deferred(): void {
         $jobs           = self::$deferred;
+        $pick_up        = self::$pick_up;
         self::$deferred = [];
+        self::$pick_up  = false;
         if ( ! $jobs ) {
             return;
         }
@@ -121,6 +259,9 @@ class Background {
         ignore_user_abort( true );
         foreach ( $jobs as [ $hook, $args ] ) {
             do_action( $hook, ...$args );
+        }
+        if ( $pick_up ) {
+            self::run_pending();
         }
     }
 }
