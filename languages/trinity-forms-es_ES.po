@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-28T06:58:30+00:00\n"
+"POT-Creation-Date: 2026-10-28T12:14:51+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Spanish (Spain)\n"
@@ -2844,18 +2844,18 @@ msgstr "Marcado como spam: %s"
 msgid "Marked as spam by the spam filter"
 msgstr "Marcado como spam por el filtro de spam"
 
-#: includes/class-submission-pipeline.php:193
+#: includes/class-submission-pipeline.php:191
 msgid "This value has already been used."
 msgstr "Este valor ya se ha usado."
 
 #. translators: %s: form title.
-#: includes/class-submission-pipeline.php:399
+#: includes/class-submission-pipeline.php:397
 #, php-format
 msgid "[Trinity Forms] Payments are failing on \"%s\""
 msgstr "[Trinity Forms] Los pagos están fallando en \"%s\""
 
 #. translators: 1: form title, 2: provider error, 3: entry admin URL.
-#: includes/class-submission-pipeline.php:402
+#: includes/class-submission-pipeline.php:400
 #, php-format
 msgid ""
 "A visitor could not start a payment on \"%1$s\". Nothing was charged.\n"
@@ -2870,18 +2870,18 @@ msgstr ""
 "\n"
 "Revisa las claves de pago en Trinity Forms > Ajustes. El envío: %3$s"
 
-#: includes/class-submission-pipeline.php:435
+#: includes/class-submission-pipeline.php:433
 msgid "Payment could not be started, so nothing was charged. Please try again later, or contact the site owner if it keeps happening."
 msgstr "No se ha podido iniciar el pago, así que no se ha cobrado nada. Inténtalo de nuevo más tarde o contacta con el propietario del sitio si sigue pasando."
 
 #. translators: %s: uploaded file name.
-#: includes/class-submission-pipeline.php:498
+#: includes/class-submission-pipeline.php:496
 #, php-format
 msgid "Upload error for %s."
 msgstr "Error al subir %s."
 
 #. translators: %s: uploaded file name.
-#: includes/class-submission-pipeline.php:504
+#: includes/class-submission-pipeline.php:502
 #, php-format
 msgid "%s is empty."
 msgstr "%s está vacío."

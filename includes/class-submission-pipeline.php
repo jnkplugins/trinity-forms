@@ -145,15 +145,13 @@ class Submission_Pipeline {
         self::send_notifications( $entry_id );
 
         // Premium ESP/webhook integrations (pro/ only) and add-ons subscribe to this
-        // action. Queue a job only when something listens: the free build used to
+        // action. Start a job only when something listens: the free build used to
         // leave a "failed: no callbacks are registered" row in Scheduled Actions for
-        // every single submission.
-        if ( ! has_action( "trinity_forms_run_integrations" ) ) {
-            // Nothing to run.
-        } elseif ( function_exists( "as_enqueue_async_action" ) ) {
-            as_enqueue_async_action( "trinity_forms_run_integrations", [ $entry_id ] );
-        } else {
-            do_action( "trinity_forms_run_integrations", $entry_id );
+        // every single submission. Background queues it only where a queue runner
+        // works; with WP-Cron off it runs here, so a webhook is not held until the
+        // owner opens wp-admin.
+        if ( has_action( "trinity_forms_run_integrations" ) ) {
+            Background::run( "trinity_forms_run_integrations", [ $entry_id ] );
         }
 
         do_action( "trinity_forms_entry_completed", $entry_id );
