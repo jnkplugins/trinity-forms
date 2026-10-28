@@ -289,6 +289,11 @@ class Form_Builder {
         // wp-scripts emits the imported stylesheet as style-index.css.
         if ( is_file( TRINITY_FORMS_PATH . "builder/build/style-index.css" ) ) {
             wp_enqueue_style( "trinity-forms-builder", TRINITY_FORMS_URL . "builder/build/style-index.css", [ "wp-components" ], $meta["version"] );
+            // The build also writes a mirrored style-index-rtl.css; WordPress swaps
+            // it in for Arabic, Hebrew and other right-to-left sites.
+            if ( is_file( TRINITY_FORMS_PATH . "builder/build/style-index-rtl.css" ) ) {
+                wp_style_add_data( "trinity-forms-builder", "rtl", "replace" );
+            }
         }
 
         $form_id = isset( $_GET["form"] ) ? absint( $_GET["form"] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only screen selector.

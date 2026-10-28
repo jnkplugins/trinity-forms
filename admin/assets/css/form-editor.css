@@ -9,7 +9,7 @@
 .trinity-forms-list-card input[type=password], .trinity-forms-list-card input[type=number],
 .trinity-forms-list-card select, .trinity-forms-list-card textarea { width:100%; }
 .trinity-forms-row-actions { margin-top:8px; }
-.trinity-forms-tags { display:inline-flex; flex-wrap:wrap; gap:4px; margin-left:4px; vertical-align:middle; }
+.trinity-forms-tags { display:inline-flex; flex-wrap:wrap; gap:4px; margin-inline-start:4px; vertical-align:middle; }
 .trinity-forms-tag { font-family:Menlo,Consolas,monospace; font-size:12px; background:#f0f0f1; border:1px solid #c3c4c7; border-radius:3px; padding:1px 6px; cursor:copy; }
 .trinity-forms-tag:hover { background:#e0e0e1; }
 .trinity-forms-tag.is-copied { background:#d5f5dd; border-color:#00a32a; }
@@ -18,14 +18,14 @@
 
 /* Anchored to the input it fills in, so the menu opens where you are looking
    rather than at the top of the tab. */
-.trinity-forms-tag-picker { position: relative; display: inline-block; margin-left: .35rem; vertical-align: top; }
+.trinity-forms-tag-picker { position: relative; display: inline-block; margin-inline-start: .35rem; vertical-align: top; }
 .trinity-forms-tag-toggle { font-family: monospace; padding: 0 .5rem; }
 
 .trinity-forms-tag-menu {
     position: absolute;
     z-index: 100;
     top: calc(100% + 4px);
-    left: 0;
+    inset-inline-start: 0;
     min-width: 22rem;
     max-height: 20rem;
     overflow-y: auto;
@@ -38,7 +38,7 @@
 /* Right-align when the input sits near the edge of the metabox, so the menu is
    not clipped off-screen. */
 @media (max-width: 900px) {
-    .trinity-forms-tag-menu { left: auto; right: 0; }
+    .trinity-forms-tag-menu { inset-inline-start: auto; inset-inline-end: 0; }
 }
 
 .trinity-forms-tag-menu-heading {
@@ -57,7 +57,7 @@
     width: 100%;
     background: none;
     border: 0;
-    text-align: left;
+    text-align: start;
     padding: .3rem .75rem;
     cursor: pointer;
     font: inherit;

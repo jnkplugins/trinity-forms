@@ -51,7 +51,7 @@ body.tf-ui-list .wrap input[type=search],
 body.tf-ui-list .wrap select {
 	border: 1px solid #cbd5e1; border-radius: 8px; min-height: 34px; box-shadow: none;
 }
-body.tf-ui-list .wrap select { padding-right: 26px; }
+body.tf-ui-list .wrap select { padding-inline-end: 26px; }
 body.tf-ui-list .wrap .button {
 	border-radius: 8px; border-color: var(--jnk-line); background: #fff; color: var(--jnk-ink);
 	font-weight: 600; min-height: 34px; line-height: 32px;
@@ -159,9 +159,9 @@ body.tf-ui-list .wp-list-table .column-date { color: var(--jnk-mute); }
 .jnkui table.tf-entries td,
 .jnkui table.tf-entries th { padding: 9px 12px; vertical-align: middle; }
 .jnkui table.tf-entries thead th, .jnkui table.tf-entries thead td { padding: 10px 12px; }
-.jnkui table.tf-entries .tf-col-cb { width: 22px; padding-right: 0; }
+.jnkui table.tf-entries .tf-col-cb { width: 22px; padding-inline-end: 0; }
 .jnkui table.tf-entries .tf-col-cb input { margin: 0; }
-.jnkui table.tf-entries .tf-col-star { width: 22px; padding-left: 4px; padding-right: 0; }
+.jnkui table.tf-entries .tf-col-star { width: 22px; padding-inline: 4px 0; }
 .jnkui table.tf-entries .tf-col-who { min-width: 200px; }
 .jnkui table.tf-entries .tf-col-date { white-space: nowrap; color: var(--jnk-ink-2); }
 .jnkui table.tf-entries .tf-col-status,
@@ -175,9 +175,9 @@ body.tf-ui-list .wp-list-table .column-date { color: var(--jnk-mute); }
    so they never add height to every row (WordPress' own row actions take up a
    line even while hidden). */
 .jnkui table.tf-entries td.tf-col-who { position: relative; }
-.jnkui table.tf-entries .tf-col-who .row-actions { position: absolute; left: -9999em; bottom: 9px; padding: 0; font-size: 12.5px; white-space: nowrap; }
+.jnkui table.tf-entries .tf-col-who .row-actions { position: absolute; inset-inline-start: -9999em; bottom: 9px; padding: 0; font-size: 12.5px; white-space: nowrap; }
 .jnkui table.tf-entries tr:hover .tf-col-who .row-actions,
-.jnkui table.tf-entries .tf-col-who:focus-within .row-actions { left: 12px; right: 12px; overflow: hidden; text-overflow: ellipsis; }
+.jnkui table.tf-entries .tf-col-who:focus-within .row-actions { inset-inline: 12px; overflow: hidden; text-overflow: ellipsis; }
 .jnkui table.tf-entries tr:hover .tf-col-who .jnkui-sub,
 .jnkui table.tf-entries .tf-col-who:focus-within .jnkui-sub { visibility: hidden; }
 .jnkui table.tf-entries .row-actions a { color: var(--jnk-mute); font-weight: 500; }
@@ -235,7 +235,7 @@ body.tf-ui-list .wp-list-table .column-date { color: var(--jnk-mute); }
 .jnkui .tf-facts > div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 22px; border-bottom: 1px solid var(--jnk-line-2); }
 .jnkui .tf-facts > div:last-child { border-bottom: 0; }
 .jnkui .tf-facts dt { color: var(--jnk-mute); font-size: 13px; flex: none; }
-.jnkui .tf-facts dd { margin: 0; text-align: right; color: var(--jnk-ink); min-width: 0; overflow-wrap: anywhere; }
+.jnkui .tf-facts dd { margin: 0; text-align: end; color: var(--jnk-ink); min-width: 0; overflow-wrap: anywhere; }
 .jnkui .tf-pager { display: inline-flex; gap: 6px; }
 .jnkui .button.disabled { opacity: .5; pointer-events: none; }
 
@@ -246,14 +246,14 @@ body.tf-ui-list .wp-list-table .column-date { color: var(--jnk-mute); }
 .jnkui .tf-note-head { display: flex; gap: 8px; align-items: baseline; margin-bottom: 2px; }
 .jnkui .tf-note-head strong { color: var(--jnk-ink); }
 .jnkui .tf-note-head .description { font-size: 12px; }
-.jnkui .tf-note-delete { margin-left: auto; color: var(--jnk-bad); text-decoration: none; font-size: 12px; }
+.jnkui .tf-note-delete { margin-inline-start: auto; color: var(--jnk-bad); text-decoration: none; font-size: 12px; }
 .jnkui .tf-note-form { padding: 16px 22px; }
 .jnkui .tf-note-form textarea { width: 100%; }
 .jnkui .tf-note-form p { margin: 8px 0 0; }
 .jnkui .tf-logs { margin: 0; padding: 0; list-style: none; max-height: 360px; overflow-y: auto; }
 .jnkui .tf-logs li { padding: 10px 22px; border-bottom: 1px solid var(--jnk-line-2); font-size: 13px; margin: 0; }
 .jnkui .tf-logs li:last-child { border-bottom: 0; }
-.jnkui .tf-logs .jnkui-pill { margin-right: 4px; }
+.jnkui .tf-logs .jnkui-pill { margin-inline-end: 4px; }
 
 /* ---------- Templates ---------- */
 .jnkui .tf-tpl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
@@ -274,7 +274,7 @@ body.tf-ui-list .wp-list-table .column-date { color: var(--jnk-mute); }
 .jnkui .tf-res-row { display: grid; grid-template-columns: minmax(0, 36%) minmax(0, 1fr) 68px; gap: 12px; align-items: center; padding: 6px 0; font-size: 13px; }
 .jnkui .tf-res-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--jnk-ink); }
 .jnkui .tf-res-row .jnkui-bar { height: 10px; min-width: 0; }
-.jnkui .tf-res-num { text-align: right; color: var(--jnk-mute); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.jnkui .tf-res-num { text-align: end; color: var(--jnk-mute); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .jnkui .tf-res-num b { color: var(--jnk-ink); }
 .jnkui .tf-res-avg { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
 .jnkui .tf-res-avg b { font-size: 34px; line-height: 1; font-weight: 700; color: var(--jnk-ink); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
@@ -342,7 +342,7 @@ body.tf-ui-list #screen-meta { margin: 0 28px 0 8px; max-width: 1280px; }
 	body.tf-ui-list .wp-list-table th.column-trinity_forms_last_sub,
 	body.tf-ui-list .wp-list-table th.column-date { width: auto; }
 	body.tf-ui-list .wp-list-table .column-trinity_forms_fields,
-	body.tf-ui-list .wp-list-table .column-trinity_forms_submissions { text-align: left; }
+	body.tf-ui-list .wp-list-table .column-trinity_forms_submissions { text-align: start; }
 	body.tf-ui-list #screen-meta-links { display: none; }
 }
 .jnkui .tf-answers a, .jnkui .tf-facts a { color: var(--jnk-brand); text-decoration: none; font-weight: 550; }
@@ -353,12 +353,12 @@ body.tf-ui-list #screen-meta { margin: 0 28px 0 8px; max-width: 1280px; }
 @media (max-width: 782px) {
 	.jnkui.tf-ui-wrap .jnkui-topbar { padding-top: 10px; }
 	.jnkui.tf-ui-wrap .jnkui-tabs { order: 3; flex: 1 1 100%; min-height: 42px; }
-	.jnkui.tf-ui-wrap .jnkui-topbar-end { margin-left: auto; }
+	.jnkui.tf-ui-wrap .jnkui-topbar-end { margin-inline-start: auto; }
 	.jnkui.tf-ui-wrap .jnkui-head-actions { width: 100%; }
 }
 @media (max-width: 782px) {
 	.jnkui table.tf-entries .tf-col-who { min-width: 0; }
-	.jnkui table.tf-entries td, .jnkui table.tf-entries th { padding-left: 8px; padding-right: 8px; }
+	.jnkui table.tf-entries td, .jnkui table.tf-entries th { padding-inline: 8px; }
 }
 /* Phones: WordPress pushes #wpbody down to clear the taller admin bar, but the
    list-screen header prints before #wpbody, so it takes that space instead. */

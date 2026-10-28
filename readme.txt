@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 8.2
-Stable tag: 2.15.0
+Stable tag: 2.16.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -181,6 +181,12 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.16.0 =
+* Fixed: CSV exports showed Korean, Japanese, Arabic and emoji as garbled text in Excel on Windows.
+* Fixed: in Arabic, Hebrew and other right-to-left languages, every Trinity Forms admin screen scrolled sideways.
+* Fixed: the Visual Builder was laid out left to right on right-to-left sites, and long field names in the palette were cut off.
+* Fixed: "wp trinity entry export 12" and "wp trinity entry delete 12" ignored the 12 and acted on every form. They now stop and ask for --form=12.
 
 = 2.15.0 =
 * Changed: times are now stored in UTC and shown in the time zone set in Settings > General, so a time zone change or a daylight saving switch no longer shifts entry times. Existing entries are converted once, the first time an admin page opens after the update. Do not go back to an older version afterwards, as it would show the times shifted.

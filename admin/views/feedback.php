@@ -40,7 +40,7 @@ $trinity_forms_feedback = isset( $_GET["ff_feedback"] ) ? sanitize_key( wp_unsla
         <input type="hidden" name="action" value="trinity_forms_send_feedback" />
 
         <?php /* Honeypot: hidden from real users, tempting to bots. */ ?>
-        <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+        <div style="position:absolute;inset-inline-start:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
             <label for="ff_website"><?php esc_html_e( "Leave this field empty", "trinity-forms" ); ?></label>
             <input type="text" id="ff_website" name="ff_website" value="" tabindex="-1" autocomplete="off" />
         </div>

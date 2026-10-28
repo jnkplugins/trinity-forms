@@ -548,6 +548,9 @@ class Entries {
         return "" !== $v && in_array( $v[0], [ "=", "+", "-", "@" ], true ) ? "'" . $v : $v;
     }
 
+    /** UTF-8 byte order mark that starts every CSV the plugin writes. */
+    public const CSV_BOM = "\xEF\xBB\xBF";
+
     /**
      * Build a CSV for a set of entry ids.
      *
@@ -661,7 +664,9 @@ class Entries {
         }
 
         rewind( $fp );
-        $csv = (string) stream_get_contents( $fp );
+        // UTF-8 byte order mark first: without it Excel on Windows reads the file
+        // as the local code page and shows Korean, Arabic or emoji as mojibake.
+        $csv = self::CSV_BOM . (string) stream_get_contents( $fp );
         // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose -- closing the in-memory php://temp stream opened above.
         fclose( $fp );
 

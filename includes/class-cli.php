@@ -102,6 +102,11 @@ class CLI {
      */
     public static function entry( array $args, array $assoc ): void {
         $sub  = $args[0] ?? "list";
+        // "wp trinity entry export 12" used to ignore the 12 and act on every
+        // form's entries (delete too). Only --form picks a form.
+        if ( count( $args ) > 1 ) {
+            \WP_CLI::error( sprintf( "Unexpected argument \"%s\". To pick a form, use --form=%s.", $args[1], $args[1] ) );
+        }
         $args_for_query = [
             "form_id" => (int) ( $assoc["form"] ?? 0 ),
             "view"    => (string) ( $assoc["status"] ?? "all" ),
