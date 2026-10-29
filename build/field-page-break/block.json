@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "name": "trinity-forms/field-page-break",
   "title": "Page break",
+  "textdomain": "trinity-forms",
   "category": "trinity-forms",
   "icon": "page-break",
   "supports": {

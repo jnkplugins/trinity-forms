@@ -3,6 +3,7 @@
     "apiVersion": 3,
     "name": "trinity-forms/field-image-choice",
     "title": "Image Choice",
+    "textdomain": "trinity-forms",
     "category": "trinity-forms",
     "icon": "format-image",
     "supports": {

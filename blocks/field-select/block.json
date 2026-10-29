@@ -3,6 +3,7 @@
     "apiVersion": 3,
     "name": "trinity-forms/field-select",
     "title": "Select",
+    "textdomain": "trinity-forms",
     "category": "trinity-forms",
     "icon": "menu",
     "supports": { "html": false, "reusable": false, "inserter": true },

@@ -3,6 +3,7 @@
     "apiVersion": 3,
     "name": "trinity-forms/field-radio",
     "title": "Radio",
+    "textdomain": "trinity-forms",
     "category": "trinity-forms",
     "icon": "marker",
     "supports": { "html": false, "reusable": false, "inserter": true },

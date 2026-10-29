@@ -3,6 +3,7 @@
     "apiVersion": 3,
     "name": "trinity-forms/field-country",
     "title": "Country",
+    "textdomain": "trinity-forms",
     "category": "trinity-forms",
     "icon": "admin-site-alt3",
     "supports": { "html": false, "reusable": false, "inserter": true },

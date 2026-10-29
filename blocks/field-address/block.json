@@ -3,6 +3,7 @@
     "apiVersion": 3,
     "name": "trinity-forms/field-address",
     "title": "Address",
+    "textdomain": "trinity-forms",
     "category": "trinity-forms",
     "icon": "location",
     "supports": { "html": false, "reusable": false, "inserter": true },

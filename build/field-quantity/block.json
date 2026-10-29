@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "name": "trinity-forms/field-quantity",
   "title": "Quantity",
+  "textdomain": "trinity-forms",
   "category": "trinity-forms",
   "icon": "plus-alt2",
   "supports": {

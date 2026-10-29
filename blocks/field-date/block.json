@@ -3,6 +3,7 @@
     "apiVersion": 3,
     "name": "trinity-forms/field-date",
     "title": "Date",
+    "textdomain": "trinity-forms",
     "category": "trinity-forms",
     "icon": "calendar-alt",
     "supports": { "html": false, "reusable": false, "inserter": true },

@@ -3,6 +3,7 @@
     "apiVersion": 3,
     "name": "trinity-forms/field-shipping",
     "title": "Shipping",
+    "textdomain": "trinity-forms",
     "category": "trinity-forms",
     "icon": "airplane",
     "supports": {

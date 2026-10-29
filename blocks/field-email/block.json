@@ -3,6 +3,7 @@
     "apiVersion": 3,
     "name": "trinity-forms/field-email",
     "title": "Email",
+    "textdomain": "trinity-forms",
     "category": "trinity-forms",
     "icon": "email",
     "supports": { "html": false, "reusable": false, "inserter": true },

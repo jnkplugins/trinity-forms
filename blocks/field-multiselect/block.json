@@ -3,6 +3,7 @@
     "apiVersion": 3,
     "name": "trinity-forms/field-multiselect",
     "title": "Multi Select",
+    "textdomain": "trinity-forms",
     "category": "trinity-forms",
     "icon": "list-view",
     "supports": {

@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "name": "trinity-forms/field-textarea",
   "title": "Textarea",
+  "textdomain": "trinity-forms",
   "category": "trinity-forms",
   "icon": "editor-paragraph",
   "supports": {

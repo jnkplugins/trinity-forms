@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "name": "trinity-forms/field-text",
   "title": "Text",
+  "textdomain": "trinity-forms",
   "category": "trinity-forms",
   "icon": "edit",
   "supports": {

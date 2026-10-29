@@ -3,6 +3,7 @@
     "apiVersion": 3,
     "name": "trinity-forms/field-html",
     "title": "HTML",
+    "textdomain": "trinity-forms",
     "category": "trinity-forms",
     "icon": "html",
     "supports": { "html": false, "reusable": false, "inserter": true },

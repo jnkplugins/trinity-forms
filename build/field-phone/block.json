@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "name": "trinity-forms/field-phone",
   "title": "Phone",
+  "textdomain": "trinity-forms",
   "category": "trinity-forms",
   "icon": "phone",
   "supports": {

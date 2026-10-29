@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "name": "trinity-forms/field-range",
   "title": "Range slider",
+  "textdomain": "trinity-forms",
   "category": "trinity-forms",
   "icon": "leftright",
   "supports": {

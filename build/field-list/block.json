@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "name": "trinity-forms/field-list",
   "title": "List",
+  "textdomain": "trinity-forms",
   "category": "trinity-forms",
   "icon": "editor-ul",
   "supports": {

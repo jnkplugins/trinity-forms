@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "name": "trinity-forms/field-consent",
   "title": "Consent",
+  "textdomain": "trinity-forms",
   "category": "trinity-forms",
   "icon": "shield",
   "supports": {

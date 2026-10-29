@@ -3,6 +3,7 @@
     "apiVersion": 3,
     "name": "trinity-forms/field-option",
     "title": "Option",
+    "textdomain": "trinity-forms",
     "category": "trinity-forms",
     "icon": "screenoptions",
     "supports": {

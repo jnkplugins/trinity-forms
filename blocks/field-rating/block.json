@@ -3,6 +3,7 @@
     "apiVersion": 3,
     "name": "trinity-forms/field-rating",
     "title": "Rating",
+    "textdomain": "trinity-forms",
     "category": "trinity-forms",
     "icon": "star-filled",
     "supports": { "html": false, "reusable": false, "inserter": true },

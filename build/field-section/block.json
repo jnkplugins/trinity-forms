@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "name": "trinity-forms/field-section",
   "title": "Section heading",
+  "textdomain": "trinity-forms",
   "category": "trinity-forms",
   "icon": "heading",
   "supports": {

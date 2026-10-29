@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "name": "trinity-forms/field-website",
   "title": "Website",
+  "textdomain": "trinity-forms",
   "category": "trinity-forms",
   "icon": "admin-links",
   "supports": {

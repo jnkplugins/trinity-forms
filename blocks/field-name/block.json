@@ -3,6 +3,7 @@
     "apiVersion": 3,
     "name": "trinity-forms/field-name",
     "title": "Name",
+    "textdomain": "trinity-forms",
     "category": "trinity-forms",
     "icon": "admin-users",
     "supports": { "html": false, "reusable": false, "inserter": true },

@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "name": "trinity-forms/form",
   "title": "Trinity Forms Form",
+  "textdomain": "trinity-forms",
   "category": "widgets",
   "icon": "feedback",
   "supports": {

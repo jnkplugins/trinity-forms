@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 8.2
-Stable tag: 2.16.2
+Stable tag: 2.17.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -181,6 +181,11 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.17.0 =
+* New: Hindi translation.
+* Fixed: block names in the block editor now follow your WordPress language.
+* Fixed: the licence box on the Settings screen is now translated.
 
 = 2.16.2 =
 * Maintenance release for the Pro version. Nothing changes in the free version.

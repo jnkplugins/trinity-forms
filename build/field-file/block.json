@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "name": "trinity-forms/field-file",
   "title": "File upload",
+  "textdomain": "trinity-forms",
   "category": "trinity-forms",
   "icon": "upload",
   "supports": {

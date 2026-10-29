@@ -1,0 +1,132 @@
+{
+    "translation-revision-date": "2026-10-29 12:00+0000",
+    "generator": "WP-CLI\/2.12.0",
+    "source": "build\/field-number\/index.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "hi_IN",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "Field": [
+                "\u092b\u093c\u0940\u0932\u094d\u0921"
+            ],
+            "Field ID": [
+                "\u092b\u093c\u0940\u0932\u094d\u0921 ID"
+            ],
+            "Used in merge tags and entry export.": [
+                "\u092e\u0930\u094d\u091c \u091f\u0948\u0917 \u0914\u0930 \u090f\u0902\u091f\u094d\u0930\u0940 \u090f\u0915\u094d\u0938\u092a\u094b\u0930\u094d\u091f \u092e\u0947\u0902 \u0907\u0938\u094d\u0924\u0947\u092e\u093e\u0932 \u0939\u094b\u0924\u093e \u0939\u0948\u0964"
+            ],
+            "Label": [
+                "\u0932\u0947\u092c\u0932"
+            ],
+            "Placeholder": [
+                "\u092a\u094d\u0932\u0947\u0938\u0939\u094b\u0932\u094d\u0921\u0930"
+            ],
+            "Help text": [
+                "\u0938\u0939\u093e\u092f\u0924\u093e \u091f\u0947\u0915\u094d\u0938\u094d\u091f"
+            ],
+            "Required": [
+                "\u091c\u093c\u0930\u0942\u0930\u0940"
+            ],
+            "Appearance": [
+                "\u0905\u092a\u0940\u092f\u0930\u0947\u0902\u0938"
+            ],
+            "Field width": [
+                "\u092b\u093c\u0940\u0932\u094d\u0921 \u0915\u0940 \u091a\u094c\u0921\u093c\u093e\u0908"
+            ],
+            "Full width": [
+                "\u092a\u0942\u0930\u0940 \u091a\u094c\u0921\u093c\u093e\u0908"
+            ],
+            "One half": [
+                "\u0906\u0927\u0940"
+            ],
+            "One third": [
+                "\u090f\u0915 \u0924\u093f\u0939\u093e\u0908"
+            ],
+            "One quarter": [
+                "\u090f\u0915 \u091a\u094c\u0925\u093e\u0908"
+            ],
+            "Help text position": [
+                "\u0938\u0939\u093e\u092f\u0924\u093e \u091f\u0947\u0915\u094d\u0938\u094d\u091f \u0915\u0940 \u091c\u0917\u0939"
+            ],
+            "Use the form's setting": [
+                "\u092b\u093c\u0949\u0930\u094d\u092e \u0915\u0940 \u0938\u0947\u091f\u093f\u0902\u0917 \u0907\u0938\u094d\u0924\u0947\u092e\u093e\u0932 \u0915\u0930\u0947\u0902"
+            ],
+            "Below the field": [
+                "\u092b\u093c\u0940\u0932\u094d\u0921 \u0915\u0947 \u0928\u0940\u091a\u0947"
+            ],
+            "Above the field": [
+                "\u092b\u093c\u0940\u0932\u094d\u0921 \u0915\u0947 \u090a\u092a\u0930"
+            ],
+            "CSS class": [
+                "CSS \u0915\u094d\u0932\u093e\u0938"
+            ],
+            "Added to the field wrapper, for your own styling.": [
+                "\u092b\u093c\u0940\u0932\u094d\u0921 \u0930\u0948\u092a\u0930 \u092e\u0947\u0902 \u091c\u094b\u0921\u093c\u0940 \u091c\u093e\u0924\u0940 \u0939\u0948, \u0906\u092a\u0915\u0940 \u0905\u092a\u0928\u0940 \u0938\u094d\u091f\u093e\u0907\u0932\u093f\u0902\u0917 \u0915\u0947 \u0932\u093f\u090f\u0964"
+            ],
+            "Advanced": [
+                "\u090f\u0921\u0935\u093e\u0902\u0938\u094d\u0921"
+            ],
+            "Default value": [
+                "\u0921\u093f\u092b\u093c\u0949\u0932\u094d\u091f \u092e\u093e\u0928"
+            ],
+            "Admin label": [
+                "\u090f\u0921\u092e\u093f\u0928 \u0932\u0947\u092c\u0932"
+            ],
+            "Shown instead of the label in entries and exports.": [
+                "\u090f\u0902\u091f\u094d\u0930\u093f\u092f\u094b\u0902 \u0914\u0930 \u090f\u0915\u094d\u0938\u092a\u094b\u0930\u094d\u091f \u092e\u0947\u0902 \u0932\u0947\u092c\u0932 \u0915\u0940 \u091c\u0917\u0939 \u0926\u093f\u0916\u0924\u093e \u0939\u0948\u0964"
+            ],
+            "Visible to": [
+                "\u0915\u093f\u0938\u0947 \u0926\u093f\u0916\u0947"
+            ],
+            "Everyone": [
+                "\u0938\u092d\u0940 \u0915\u094b"
+            ],
+            "Logged-in users": [
+                "\u0932\u0949\u0917-\u0907\u0928 \u0909\u092a\u092f\u094b\u0917\u0915\u0930\u094d\u0924\u093e"
+            ],
+            "Administrators only": [
+                "\u0938\u093f\u0930\u094d\u092b\u093c \u090f\u0921\u092e\u093f\u0928\u093f\u0938\u094d\u091f\u094d\u0930\u0947\u091f\u0930"
+            ],
+            "Allow this field to be pre-filled from the URL": [
+                "\u0907\u0938 \u092b\u093c\u0940\u0932\u094d\u0921 \u0915\u094b URL \u0938\u0947 \u092a\u0939\u0932\u0947 \u0938\u0947 \u092d\u0930\u0928\u0947 \u0926\u0947\u0902"
+            ],
+            "Off by default: a form whose every field can be set from a link is a form whose data you cannot trust.": [
+                "\u0921\u093f\u092b\u093c\u0949\u0932\u094d\u091f \u0930\u0942\u092a \u0938\u0947 \u092c\u0902\u0926: \u091c\u093f\u0938 \u092b\u093c\u0949\u0930\u094d\u092e \u0915\u093e \u0939\u0930 \u092b\u093c\u0940\u0932\u094d\u0921 \u0915\u093f\u0938\u0940 \u0932\u093f\u0902\u0915 \u0938\u0947 \u092d\u0930\u093e \u091c\u093e \u0938\u0915\u0947, \u0909\u0938\u0915\u0947 \u0921\u0947\u091f\u093e \u092a\u0930 \u092d\u0930\u094b\u0938\u093e \u0928\u0939\u0940\u0902 \u0915\u093f\u092f\u093e \u091c\u093e \u0938\u0915\u0924\u093e\u0964"
+            ],
+            "Parameter name": [
+                "\u092a\u0948\u0930\u093e\u092e\u0940\u091f\u0930 \u0915\u093e \u0928\u093e\u092e"
+            ],
+            "Defaults to the field ID. Also reads user_email, first_name, post_id and user_meta_<key>.": [
+                "\u0921\u093f\u092b\u093c\u0949\u0932\u094d\u091f \u0930\u0942\u092a \u0938\u0947 \u092b\u093c\u0940\u0932\u094d\u0921 ID\u0964 user_email, first_name, post_id \u0914\u0930 user_meta_<key> \u092d\u0940 \u092a\u0922\u093c\u0924\u093e \u0939\u0948\u0964"
+            ],
+            "No duplicates": [
+                "\u0926\u094b\u0939\u0930\u093e\u0935 \u0928\u0939\u0940\u0902"
+            ],
+            "Refuse a submission if another entry on this form already has the same value.": [
+                "\u0905\u0917\u0930 \u0907\u0938 \u092b\u093c\u0949\u0930\u094d\u092e \u0915\u0940 \u0915\u093f\u0938\u0940 \u0926\u0942\u0938\u0930\u0940 \u090f\u0902\u091f\u094d\u0930\u0940 \u092e\u0947\u0902 \u092a\u0939\u0932\u0947 \u0938\u0947 \u092f\u0939\u0940 \u092e\u093e\u0928 \u0939\u0948, \u0924\u094b \u0938\u092c\u092e\u093f\u0936\u0928 \u0938\u094d\u0935\u0940\u0915\u093e\u0930 \u0928 \u0915\u0930\u0947\u0902\u0964"
+            ],
+            "Custom error message": [
+                "\u0905\u092a\u0928\u093e \u0924\u094d\u0930\u0941\u091f\u093f \u0938\u0902\u0926\u0947\u0936"
+            ],
+            "Autocomplete": [
+                "\u0911\u091f\u094b\u0915\u092e\u094d\u092a\u094d\u0932\u0940\u091f"
+            ],
+            "The HTML autocomplete hint, e.g. email, given-name, organization.": [
+                "HTML autocomplete \u0938\u0902\u0915\u0947\u0924, \u091c\u0948\u0938\u0947 email, given-name, organization\u0964"
+            ],
+            "Min": [
+                "\u0928\u094d\u092f\u0942\u0928\u0924\u092e"
+            ],
+            "Max": [
+                "\u0905\u0927\u093f\u0915\u0924\u092e"
+            ],
+            "Step": [
+                "\u0938\u094d\u091f\u0947\u092a"
+            ]
+        }
+    }
+}
