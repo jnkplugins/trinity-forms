@@ -61,11 +61,11 @@
             "Any rule matches": [
                 "Se cumple alguna regla"
             ],
-            "Field": [
-                "Campo"
-            ],
             "\u2014 Select \u2014": [
                 "\u2014 Seleccionar \u2014"
+            ],
+            "Field": [
+                "Campo"
             ],
             "Condition": [
                 "Condici\u00f3n"
@@ -451,6 +451,12 @@
             "Templates": [
                 "Plantillas"
             ],
+            "Submit button text, and what visitors see after they submit": [
+                "El texto del bot\u00f3n de env\u00edo y lo que ven los visitantes despu\u00e9s de enviar"
+            ],
+            "Settings": [
+                "Ajustes"
+            ],
             "Copy the shortcode that puts this form on a page or post": [
                 "Copia el shortcode que pone este formulario en una p\u00e1gina o entrada"
             ],
@@ -516,6 +522,48 @@
             ],
             "Reload the form": [
                 "Recargar el formulario"
+            ],
+            "Form settings": [
+                "Ajustes del formulario"
+            ],
+            "Submit button text": [
+                "Texto del bot\u00f3n de env\u00edo"
+            ],
+            "Submit": [
+                "Enviar"
+            ],
+            "After submit": [
+                "Despu\u00e9s de enviar"
+            ],
+            "Show a message": [
+                "Mostrar un mensaje"
+            ],
+            "Go to a page": [
+                "Ir a una p\u00e1gina"
+            ],
+            "Go to a URL": [
+                "Ir a una URL"
+            ],
+            "Confirmation message": [
+                "Mensaje de confirmaci\u00f3n"
+            ],
+            "Thank you!": [
+                "\u00a1Gracias!"
+            ],
+            "Page": [
+                "P\u00e1gina"
+            ],
+            "Choose a page": [
+                "Elige una p\u00e1gina"
+            ],
+            "Redirect URL": [
+                "URL de redirecci\u00f3n"
+            ],
+            "These are saved with the form when you press Save form.": [
+                "Se guardan con el formulario cuando pulsas Guardar formulario."
+            ],
+            "Done": [
+                "Hecho"
             ],
             "Start from a template": [
                 "Empezar desde una plantilla"

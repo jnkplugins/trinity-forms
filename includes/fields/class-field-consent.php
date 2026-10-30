@@ -22,6 +22,12 @@ class Field_Consent extends Field_Base {
     }
 
     public function validate( $value, array $config ): array {
+        // sanitize() turns an unticked box into 0, which the generic "required"
+        // check does not count as empty, so a required consent posted unticked (a
+        // bot, or a browser that skips the HTML check) was saved without consent.
+        if ( ! empty( $config["required"] ) && empty( $value ) ) {
+            return [ __( "This field is required.", "trinity-forms" ) ];
+        }
         return [];
     }
 

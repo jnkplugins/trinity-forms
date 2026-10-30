@@ -82,6 +82,31 @@ class Form_Renderer {
     }
 
     /**
+     * The answers a no-JS visitor sent from a page too old to time (see
+     * REST_API::back_to_the_page()), to fill the fresh form with. This page holds
+     * them, so no page cache may keep it.
+     *
+     * @return array<string,mixed>
+     */
+    private static function plain_post_values( Form $form ): array {
+        $token = isset( $_GET["tf_result"] ) ? sanitize_key( wp_unslash( (string) $_GET["tf_result"] ) ) : ""; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- a read-only lookup key, not an action.
+        if ( "" === $token ) {
+            return [];
+        }
+        $note = get_transient( "trinity_forms_plain_" . $token );
+        if ( ! is_array( $note ) || (int) ( $note["form_id"] ?? 0 ) !== (int) $form->id || empty( $note["values"] ) || ! is_array( $note["values"] ) ) {
+            return [];
+        }
+        if ( ! defined( "DONOTCACHEPAGE" ) ) {
+            define( "DONOTCACHEPAGE", true );
+        }
+        if ( ! headers_sent() ) {
+            nocache_headers();
+        }
+        return map_deep( $note["values"], static fn( $v ) => is_scalar( $v ) ? (string) $v : "" );
+    }
+
+    /**
      * Shown where a form should be when it is gone. Deleting a form left its page
      * published and silently empty; now the people who can fix the page see why.
      * Visitors still get nothing.
@@ -97,6 +122,17 @@ class Form_Renderer {
                 $form_id
             ) )
             . "</p>";
+    }
+
+    /**
+     * The submit button's text. Until 2.17 the classic settings screen saved the
+     * English "Submit" into every form it touched, so a Spanish visitor saw
+     * "Submit" instead of "Enviar". That stored default (and an empty value) now
+     * shows in the site's language; any other text is the owner's own.
+     */
+    public static function submit_text( Form $form ): string {
+        $text = trim( (string) $form->get_setting( "submit_button_text", "" ) );
+        return ( "" === $text || "Submit" === $text ) ? __( "Submit", "trinity-forms" ) : $text;
     }
 
     /** Tests only: start counting forms again. */
@@ -118,13 +154,15 @@ class Form_Renderer {
         $action   = esc_url( rest_url( "trinity-forms/v1/submit/" . $form->id ) );
         $save_url = esc_url( rest_url( "trinity-forms/v1/save-progress/" . $form->id ) );
         $nonce    = wp_create_nonce( "wp_rest" );
-        $submit   = esc_html( $form->get_setting( "submit_button_text", __( "Submit", "trinity-forms" ) ) );
+        $submit   = esc_html( self::submit_text( $form ) );
 
         // Save-&-continue is premium: the resume context (prefilled values + token)
         // is provided by pro/ through this filter. Free build => null => empty form.
         $resume = apply_filters( "trinity_forms_resume_context", null, $form->id );
         $values = is_array( $resume ) ? ( $resume["values"] ?? [] ) : [];
         $token  = is_array( $resume ) ? ( $resume["token"]  ?? "" ) : "";
+        // Sent without JavaScript from a page too old to time: the answers come back.
+        $values = $values ?: self::plain_post_values( $form );
 
         // Group fields into wizard steps (split on step objects and page-break
         // fields). One group => a normal single-page form; more => a stepper.
@@ -202,7 +240,7 @@ class Form_Renderer {
             $html .= '<input type="hidden" name="_trinity_forms_source_url" value="' . esc_url( $source_url ) . '" />';
         }
         $html .= Anti_Spam::honeypot_html();
-        $html .= Anti_Spam::timetrap_html();
+        $html .= Anti_Spam::timetrap_html( (int) $form->id );
         // Without JavaScript nothing evaluates a "show" condition, so its field
         // stayed hidden for ever and a required one could not be answered. Show
         // them all; the server still applies the conditions on submit.
@@ -267,6 +305,7 @@ class Form_Renderer {
         // Premium "conversational" mode turns every field into its own step (one
         // question per view); free core keeps the page-break/step grouping.
         $one_per_step = (bool) apply_filters( "trinity_forms_one_field_per_step", false, $form );
+        $choices      = Conditional_Logic::choices( $form );
         foreach ( $form->steps() as $step ) {
             if ( $has ) {
                 $groups[] = $current;
@@ -307,7 +346,7 @@ class Form_Renderer {
                     $value = Prefill::resolve( $config );
                 }
 
-                $current .= self::wrap_conditional( $field, $field->render( $value ) );
+                $current .= self::wrap_conditional( $field, $field->render( $value ), $choices );
                 $has      = true;
                 // One-question mode: flush after every field so each becomes a step.
                 if ( $one_per_step ) {
@@ -336,6 +375,7 @@ class Form_Renderer {
         $attrs = "";
         $rules = $form->get_setting( "submit_conditional", [] );
         if ( is_array( $rules ) && ! empty( $rules["conditions"] ) ) {
+            $rules = Conditional_Logic::resolve_choices( $rules, Conditional_Logic::choices( $form ) );
             // The same attribute the field wrapper uses, so public.js shows and
             // hides the button with exactly the code that handles every field.
             $attrs = " data-trinity-forms-conditional='" . esc_attr( (string) wp_json_encode( $rules ) ) . "'";
@@ -389,11 +429,13 @@ class Form_Renderer {
      * disabled) until the client evaluates the rule on load; "hide when" rules
      * start visible. This avoids a flash of a field that should be hidden.
      */
-    private static function wrap_conditional( Field $field, string $html ): string {
+    private static function wrap_conditional( Field $field, string $html, array $choices = [] ): string {
         $rules = $field->config["conditional"] ?? null;
         if ( ! is_array( $rules ) || empty( $rules["conditions"] ) ) {
             return $html;
         }
+        // A rule typed as a choice's label reaches the browser as its stored value.
+        $rules = Conditional_Logic::resolve_choices( $rules, $choices );
 
         $payload = wp_json_encode( [
             "action"     => (string) ( $rules["action"] ?? "show" ),
@@ -467,6 +509,6 @@ class Form_Renderer {
             }
         }
 
-        return '<div class="trinity-forms-confirmation">' . esc_html( $message ) . '</div>' . $content;
+        return '<div class="trinity-forms-confirmation">' . Confirmations::html( $message ) . '</div>' . $content;
     }
 }

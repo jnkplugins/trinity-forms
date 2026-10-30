@@ -76,6 +76,14 @@
         box.appendChild( ul );
     }
 
+    // Only for the server's confirmation_html, which wp_kses_post() has cleaned.
+    function showHtml( form, html, type ) {
+        var box = form.querySelector( ".trinity-forms-messages" );
+        if ( ! box ) return;
+        box.className = "trinity-forms-messages trinity-forms-" + ( type || "info" );
+        box.innerHTML = html;
+    }
+
     function clearFieldErrors( form ) {
         form.querySelectorAll( ".trinity-forms-field-error" ).forEach( function ( el ) { el.remove(); } );
         form.querySelectorAll( ".trinity-forms-field.has-error" ).forEach( function ( el ) { el.classList.remove( "has-error" ); } );
@@ -311,9 +319,20 @@
                     return;
                 }
                 if ( typeof form.__ffDone === "function" ) form.__ffDone();
-                // Server returns the form's configured message under data.confirmation.
-                showMessages( form, ( body.data && ( body.data.confirmation || body.data.message ) ) || t( "thanks", "Thanks — your submission was received." ), "success" );
+                // Server returns the form's configured message under data.confirmation,
+                // and as kses-cleaned HTML under data.confirmation_html: an imported
+                // "<p>Thanks</p>" was shown with its tags.
+                if ( body.data && body.data.confirmation_html ) {
+                    showHtml( form, body.data.confirmation_html, "success" );
+                } else {
+                    showMessages( form, ( body.data && ( body.data.confirmation || body.data.message ) ) || t( "thanks", "Thanks — your submission was received." ), "success" );
+                }
                 form.classList.add( "is-submitted" );
+            } else if ( isStalePage( res ) ) {
+                // The page sat open too long to time this visitor. Get a fresh token;
+                // the answers stay in the form for one more press.
+                refreshTimeTokens( [ form ] );
+                showMessages( form, body.errors && body.errors.length ? body.errors : t( "stale", "This page is out of date. Please reload it and try again." ), "error" );
             } else if ( isStaleNonce( res ) ) {
                 // The fresh nonce did not help either. The answers stay in the form.
                 showMessages( form, t( "stale", "This page is out of date. Please reload it and try again." ), "error" );
@@ -1309,8 +1328,40 @@
         } );
     }
 
-    document.addEventListener( "DOMContentLoaded", function () {
-        document.querySelectorAll( ".trinity-forms-form" ).forEach( function ( form ) {
+    // A fresh signed time token for each form, fetched when the page opens. The
+    // page's own token may come from a page cache and be hours old; this one says
+    // when this visitor arrived. Without it (no JavaScript, or the request failed)
+    // the page's token is used as before.
+    function refreshTimeTokens( forms ) {
+        if ( ! forms.length || ! window.fetch ) return Promise.resolve();
+        var url = ( window.TrinityFormsData && window.TrinityFormsData.ajax_url ) || "/wp-admin/admin-ajax.php";
+        var fd  = new FormData();
+        fd.append( "action", "trinity_forms_ts" );
+        forms.forEach( function ( f ) { fd.append( "form_ids[]", f.getAttribute( "data-form-id" ) || "" ); } );
+        return fetch( url, { method: "POST", credentials: "same-origin", body: fd } )
+            .then( function ( r ) { return r.json(); } )
+            .then( function ( j ) {
+                var tokens = ( j && j.success && j.data && j.data.tokens ) || {};
+                forms.forEach( function ( f ) {
+                    var tok = tokens[ f.getAttribute( "data-form-id" ) ];
+                    var input = f.querySelector( 'input[name="trinity_forms_ts"]' );
+                    if ( tok && input ) input.value = tok;
+                } );
+            } )
+            .catch( function () {} );
+    }
+
+    function isStalePage( res ) {
+        return !! ( res && res.status === 409 && res.body && res.body.meta && res.body.meta.reason === "stale_page" );
+    }
+
+    function attachAll( root ) {
+        var fresh = [];
+        ( root || document ).querySelectorAll( ".trinity-forms-form" ).forEach( function ( form ) {
+            // Once per form: Elementor's editor draws a widget again on every change.
+            if ( form.dataset.tfAttached === "1" ) return;
+            form.dataset.tfAttached = "1";
+            fresh.push( form );
             attachRepeaters( form );
             attachConditional( form );
             attachStepper( form );
@@ -1320,5 +1371,25 @@
             attachChained( form );
             attachPartials( form );
         } );
-    } );
+        refreshTimeTokens( fresh );
+    }
+
+    // A script optimizer can run this file after DOMContentLoaded has fired.
+    if ( document.readyState === "loading" ) {
+        document.addEventListener( "DOMContentLoaded", function () { attachAll( document ); } );
+    } else {
+        attachAll( document );
+    }
+
+    // Elementor's editor inserts the widget's HTML after the page loaded.
+    function hookElementor() {
+        var ef = window.elementorFrontend;
+        if ( ! ef || ! ef.hooks || hookElementor.done ) return;
+        hookElementor.done = true;
+        ef.hooks.addAction( "frontend/element_ready/trinity-forms.default", function ( $scope ) {
+            attachAll( $scope && $scope[0] ? $scope[0] : document );
+        } );
+    }
+    hookElementor();
+    if ( window.jQuery ) window.jQuery( window ).on( "elementor/frontend/init", hookElementor );
 })();

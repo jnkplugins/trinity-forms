@@ -18,6 +18,64 @@ abstract class Field_Base {
     }
 
     /**
+     * Turn digits from other scripts into 0-9.
+     *
+     * A Persian or Bengali phone keyboard types ۰۹۱۲ or ০১৭১, Thai can type ๐๘๑.
+     * The numeric fields used to keep only ASCII 0-9, so such a number was deleted
+     * outright and the entry saved without it. Covers every Unicode decimal digit
+     * (\p{Nd}); the Arabic decimal separator ٫ becomes a dot.
+     */
+    /**
+     * Text in composed Unicode form (NFC), arrays walked.
+     *
+     * macOS pastes and some keyboards send decomposed text (NFD): "Hằng" as
+     * a + two combining marks. Stored like that, a search for "Hằng" or "hang"
+     * never finds it. Every answer passes through here before it is sanitised.
+     *
+     * @param mixed $value
+     * @return mixed
+     */
+    public static function nfc( $value ) {
+        if ( is_array( $value ) ) {
+            return array_map( [ self::class, "nfc" ], $value );
+        }
+        if ( ! is_string( $value ) || "" === $value || ! class_exists( "\\Normalizer" ) || ! preg_match( "/[^\x00-\x7F]/", $value ) ) {
+            return $value;
+        }
+        $n = \Normalizer::normalize( $value, \Normalizer::FORM_C );
+        return false === $n ? $value : $n;
+    }
+
+    public static function ascii_digits( string $value ): string {
+        if ( "" === $value || ! preg_match( "/[^\x00-\x7F]/", $value ) ) {
+            return $value;
+        }
+        $value = str_replace( "\u{066B}", ".", $value );
+        $out   = preg_replace_callback(
+            "/\p{Nd}/u",
+            static function ( $m ) {
+                if ( strlen( $m[0] ) === 1 ) {
+                    return $m[0];
+                }
+                if ( class_exists( "IntlChar" ) ) {
+                    $d = \IntlChar::charDigitValue( $m[0] );
+                    return $d >= 0 ? (string) $d : $m[0];
+                }
+                // Without intl: Unicode lays every script's digits out as a run of ten.
+                $cp = mb_ord( $m[0], "UTF-8" );
+                foreach ( [ 0x0660, 0x06F0, 0x07C0, 0x0966, 0x09E6, 0x0A66, 0x0AE6, 0x0B66, 0x0BE6, 0x0C66, 0x0CE6, 0x0D66, 0x0DE6, 0x0E50, 0x0ED0, 0x0F20, 0x1040, 0x1090, 0x17E0, 0x1810, 0xFF10 ] as $zero ) {
+                    if ( $cp >= $zero && $cp <= $zero + 9 ) {
+                        return (string) ( $cp - $zero );
+                    }
+                }
+                return $m[0];
+            },
+            $value
+        );
+        return is_string( $out ) ? $out : $value;
+    }
+
+    /**
      * Standard label + control + help wrapper used by most field types.
      *
      * Every per-field presentation setting is applied here rather than in each of

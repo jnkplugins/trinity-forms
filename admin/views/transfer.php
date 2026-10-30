@@ -85,8 +85,8 @@ if ( ! empty( $_GET["tf_imported"] ) ) {
         </div>
     </div>
     <div class="jnkui-card">
-        <div class="jnkui-card-head"><div><h2><?php esc_html_e( "Coming from Gravity Forms?", "trinity-forms" ); ?></h2>
-            <p><?php esc_html_e( "Bring forms, conditional logic, notifications and entries across, with a dry run first.", "trinity-forms" ); ?></p></div>
+        <div class="jnkui-card-head"><div><h2><?php esc_html_e( "Coming from another form plugin?", "trinity-forms" ); ?></h2>
+            <p><?php esc_html_e( "Import forms from Gravity Forms or Contact Form 7: fields, notifications and, where the plugin kept them, entries. With a dry run first.", "trinity-forms" ); ?></p></div>
             <a class="button button-small" href="<?php echo esc_url( admin_url( \TrinityForms\Admin::PARENT . "&page=" . \TrinityForms\Admin::IMPORT ) ); ?>"><?php esc_html_e( "Open", "trinity-forms" ); ?></a></div>
     </div>
     <p class="description"><?php esc_html_e( "Same files as the WP-CLI commands: wp trinity form export <id> and wp trinity form import <file>.", "trinity-forms" ); ?></p>

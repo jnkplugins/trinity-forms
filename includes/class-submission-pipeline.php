@@ -63,6 +63,13 @@ class Submission_Pipeline {
             return $this->error( 422, __( "Please complete the bot check (CAPTCHA) and submit again. If you can't see it, reload the page or allow its script.", "trinity-forms" ), [], [ "reason" => "captcha_missing" ] );
         }
 
+        // A time token too old to time the visitor (a cached page, or a page open a
+        // long time): not spam and not stored. Asked to send again from a fresh
+        // page; the page script and the no-JS page both keep the answers.
+        if ( ! $honeypot_hit && Anti_Spam::token_stale( $form, $payload ) ) {
+            return $this->error( 409, __( "This page was open for a while, so the form needs one more press. Check your answers and send it again.", "trinity-forms" ), [], [ "reason" => "stale_page" ] );
+        }
+
         $is_spam = ! Anti_Spam::check( $form, $payload );
 
         if ( $is_spam && self::$drop_spam ) {
@@ -172,7 +179,7 @@ class Submission_Pipeline {
         $errors    = [];
         $sanitized = [];
         foreach ( $form->fields() as $field ) {
-            if ( ! Conditional_Logic::is_visible( $field, $payload ) ) {
+            if ( ! Conditional_Logic::is_visible( $field, $payload, $form ) ) {
                 continue;
             }
             $raw   = $payload[ $field->id ] ?? null;
@@ -410,7 +417,7 @@ class Submission_Pipeline {
         // ever licensed, whatever has happened to the licence since. A site that was
         // never licensed falls through to free handling.
         if ( ! License::is_pro_runtime() ) {
-            Logger::warn( "payment", "Payment skipped — this site has never had a Pro licence.", $entry_id );
+            Logger::warn( "payment", __( "Payment skipped: this site has never had a Pro licence.", "trinity-forms" ), $entry_id );
             return null;
         }
 
@@ -420,7 +427,11 @@ class Submission_Pipeline {
         if ( $adapter === null ) {
             // Payment enabled but no premium adapter wired — capture the entry as a
             // normal submission rather than failing the user.
-            Logger::warn( "payment", "Payment enabled but provider '{$provider}' unavailable.", $entry_id );
+            Logger::warn( "payment", sprintf(
+                /* translators: %s: payment provider key, e.g. stripe. */
+                __( "Payment is on, but the provider \"%s\" is not available.", "trinity-forms" ),
+                $provider
+            ), $entry_id );
             return null;
         }
 
@@ -589,6 +600,11 @@ class Submission_Pipeline {
     }
 
     private function ok( array $data ): array {
+        // The confirmation as the visitor should see it: an imported WPForms or
+        // Fluent message is HTML ("<p>Thanks…</p>") and was printed as text.
+        if ( isset( $data["confirmation"] ) ) {
+            $data["confirmation_html"] = Confirmations::html( (string) $data["confirmation"] );
+        }
         return [ "success" => true, "data" => $data, "errors" => [], "meta" => [] ];
     }
 

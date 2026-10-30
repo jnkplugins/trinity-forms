@@ -47,8 +47,18 @@ class Forms_List {
         <div class="notice notice-info" style="padding:14px 16px">
             <p style="margin-top:0"><strong><?php esc_html_e( "Create your first form", "trinity-forms" ); ?></strong></p>
             <p><?php esc_html_e( "Start from one of twelve ready-made forms, or build one from scratch. Either way you get a shortcode to drop on any page, and every submission is stored in your own database.", "trinity-forms" ); ?></p>
+            <?php $tf_found = Importers\Registry::summary(); ?>
+            <?php if ( "" !== $tf_found ) : ?>
+                <p class="tf-import-found">
+                    <?php
+                    /* translators: %s: what was found, e.g. "1 Contact Form 7 form, 2 Gravity Forms forms". */
+                    echo esc_html( sprintf( __( "Found on this site: %s. Import instead of building from scratch.", "trinity-forms" ), $tf_found ) );
+                    ?>
+                    <a class="button button-primary" href="<?php echo esc_url( admin_url( Admin::PARENT . "&page=" . Admin::IMPORT ) ); ?>"><?php esc_html_e( "Import", "trinity-forms" ); ?></a>
+                </p>
+            <?php endif; ?>
             <p style="margin-bottom:0">
-                <a class="button button-primary" href="<?php echo esc_url( admin_url( "edit.php?post_type=trinity_forms_form&page=" . Templates::PAGE ) ); ?>"><?php esc_html_e( "Start from a template", "trinity-forms" ); ?></a>
+                <a class="button <?php echo "" === $tf_found ? "button-primary" : ""; ?>" href="<?php echo esc_url( admin_url( "edit.php?post_type=trinity_forms_form&page=" . Templates::PAGE ) ); ?>"><?php esc_html_e( "Start from a template", "trinity-forms" ); ?></a>
                 <a class="button" href="<?php echo esc_url( admin_url( "post-new.php?post_type=trinity_forms_form" ) ); ?>"><?php esc_html_e( "Add a blank form", "trinity-forms" ); ?></a>
             </p>
         </div>

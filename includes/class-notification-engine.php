@@ -37,7 +37,7 @@ class Notification_Engine {
             if ( ( $notif["event"] ?? "submission" ) !== $event ) {
                 continue;
             }
-            if ( ! self::should_send( $notif, $entry_id ) ) {
+            if ( ! self::should_send( $notif, $entry_id, $form ) ) {
                 continue;
             }
             $to = self::resolve_recipients( $notif, $entry_id );
@@ -46,7 +46,7 @@ class Notification_Engine {
             }
             $to      = apply_filters( "trinity_forms_email_to",      $to, $entry_id, $notif );
             $subject = apply_filters( "trinity_forms_email_subject", self::plain( Merge_Tags::replace( (string) ( $notif["subject"] ?? "" ), $entry_id ) ), $entry_id, $notif );
-            $body    = apply_filters( "trinity_forms_email_body",    Merge_Tags::replace( self::body_html( (string) ( $notif["body"] ?? "" ) ), $entry_id ), $entry_id, $notif );
+            $body    = apply_filters( "trinity_forms_email_body",    self::with_direction( Merge_Tags::replace( self::body_html( (string) ( $notif["body"] ?? "" ) ), $entry_id ) ), $entry_id, $notif );
 
             $headers   = [ "Content-Type: text/html; charset=UTF-8" ];
             $from_name = self::plain( Merge_Tags::replace( (string) ( $notif["from_name"] ?? "" ), $entry_id ) );
@@ -94,7 +94,14 @@ class Notification_Engine {
             if ( $name_only ) {
                 add_filter( "wp_mail_from_name", $name_only, 99 );
             }
+            // A blank From name sends as the site title, like Contact Form 7, not as
+            // WordPress's own "WordPress". Last, and only that exact default: an SMTP
+            // plugin's From name (WP Mail SMTP fills in its own only when it still sees
+            // "WordPress") is already in place by then, and ones that set it in
+            // phpmailer_init run after this anyway.
+            add_filter( "wp_mail_from_name", [ self::class, "site_title_for_default_name" ], PHP_INT_MAX );
             $sent = wp_mail( $to, $subject, $body, $headers, $attachments );
+            remove_filter( "wp_mail_from_name", [ self::class, "site_title_for_default_name" ], PHP_INT_MAX );
             if ( $name_only ) {
                 remove_filter( "wp_mail_from_name", $name_only, 99 );
             }
@@ -161,14 +168,14 @@ class Notification_Engine {
         return Merge_Tags::replace( (string) ( $notif["to"] ?? "" ), $entry_id );
     }
 
-    private static function should_send( array $notif, int $entry_id ): bool {
+    private static function should_send( array $notif, int $entry_id, ?Form $form = null ): bool {
         $cond = $notif["conditional"] ?? null;
         if ( ! $cond || empty( $cond["conditions"] ) ) {
             return true;
         }
         $payload = self::entry_payload( $entry_id );
         $faux    = new Field( [ "id" => "_notif", "type" => "hidden", "conditional" => $cond ] );
-        return Conditional_Logic::is_visible( $faux, $payload );
+        return Conditional_Logic::is_visible( $faux, $payload, $form );
     }
 
     /**
@@ -217,6 +224,22 @@ class Notification_Engine {
         return nl2br( str_replace( [ "\r\n", "\r" ], "\n", $body ), false );
     }
 
+    /**
+     * Give the mail body a text direction.
+     *
+     * The body is a bare fragment, so mail clients laid a Persian or Arabic
+     * notification out left to right: colons and full stops jumped to the wrong
+     * end of every "label: value" line. An RTL site says rtl; anywhere else the
+     * client picks the direction from the text itself (dir="auto"), which keeps
+     * English mail exactly as it was.
+     */
+    public static function with_direction( string $html ): string {
+        if ( "" === trim( $html ) || preg_match( '/^\s*<(div|table|html|body)\b[^>]*\bdir=/i', $html ) ) {
+            return $html;
+        }
+        return '<div dir="' . ( is_rtl() ? "rtl" : "auto" ) . '">' . $html . "</div>";
+    }
+
     private static function entry_payload( int $entry_id ): array {
         global $wpdb;
         $rows = $wpdb->get_results( $wpdb->prepare(
@@ -229,5 +252,18 @@ class Notification_Engine {
             $payload[ $r["field_id"] ] = is_array( $decoded ) ? $decoded : $r["value"];
         }
         return $payload;
+    }
+
+    /**
+     * wp_mail_from_name, for form emails only: WordPress's default "WordPress"
+     * becomes the site title. Any other name (the notification's own, a From
+     * header's, an SMTP plugin's) is left alone.
+     */
+    public static function site_title_for_default_name( $name ) {
+        if ( "WordPress" !== $name ) {
+            return $name;
+        }
+        $title = self::plain( (string) get_bloginfo( "name" ) );
+        return "" !== trim( $title ) ? $title : $name;
     }
 }

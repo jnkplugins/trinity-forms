@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 8.2
-Stable tag: 2.17.0
+Stable tag: 2.18.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -181,6 +181,28 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.18.0 =
+* Fixed: the licence box shows its status, update channel and dates in your site language.
+* Fixed: the Add Trinity form button works inside SiteOrigin's Editor widget, and the Trinity Forms widget no longer shows as missing in SiteOrigin Page Builder after a save.
+* New: import forms from Contact Form 7, WPForms, Fluent Forms, Ninja Forms, Formidable, Forminator, Everest Forms, SureForms and MetForm, with their entries where the plugin keeps them. The forms list says what it found on your site, and anything that could not be brought over is listed after the import.
+* New: a Trinity Forms widget in Elementor, a classic widget for sidebars and SiteOrigin Page Builder, and an "Add Trinity form" button in the classic editor.
+* New: the submit button text and what happens after submit (message, page or address) can be set in the Visual Builder too.
+* New: when a rule is about a choice field, its value is picked from that field's choices. Rules typed as the label now match.
+* New: Arabic translation (review pending).
+* New: after activation the Plugins screen says "Trinity Forms is ready. Start here", once.
+* Changed: the "too fast" spam check uses a signed time token, so a bot posting a copy of a cached page is caught while cached pages keep working for visitors. A page older than 5 minutes asks the visitor to send again instead of filing the entry as spam.
+* Changed: a blank From name sends as your site title instead of "WordPress".
+* Fixed: a notification's sending rules were dropped when the form settings were saved, so a conditional email went out for every entry.
+* Fixed: phone and number answers typed in Persian, Bengali, Thai or Arabic digits were saved empty or refused.
+* Fixed: on a Spanish (or other translated) site, templates, new fields and the submit button started in English, and saving in the block editor turned "Enviar" into "Submit".
+* Fixed: a required consent box sent unticked was accepted by the server.
+* Fixed: entries search finds Persian ی/ک written as ي/ك, Turkish ı/İ in any case, words with or without the Persian ZWNJ, text pasted from a Mac, and phone numbers typed in local digits.
+* Fixed: a Turkish "İstanbul" choice got a value with a hidden dot, so its rule never matched.
+* Fixed: Persian notification emails read right to left; addresses, emails and phone numbers keep their order on right-to-left screens and in mail.
+* Fixed: forms keep the block editor when the Classic Editor plugin is active.
+* Fixed: saving a published form empties the page cache of common cache plugins, so visitors see the change.
+* Fixed: the entry Activity log is in your site language.
 
 = 2.17.0 =
 * New: Hindi translation.

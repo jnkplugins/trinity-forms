@@ -3,6 +3,7 @@ import { PanelBody, SelectControl, TextControl, ToggleControl, TextareaControl }
 import { __ } from "@wordpress/i18n";
 import { useEffect, useRef, useState } from "@wordpress/element";
 import { select } from "@wordpress/data";
+import { choiceValue } from "./choice-value";
 
 // A field id IS its merge tag, so one of these would shadow the built-in tag of the
 // same name and quietly stop resolving.
@@ -243,7 +244,7 @@ export function optionsToText( opts ) {
 export function textToOptions( text ) {
     return text.split( "\n" ).map( ( l ) => l.trim() ).filter( Boolean ).map( ( line ) => {
         const [ label, value ] = line.split( "|" ).map( ( s ) => s.trim() );
-        return { label: label || "", value: ( value || label ).toLowerCase().replace( /\s+/g, "_" ) };
+        return { label: label || "", value: choiceValue( value || label ) };
     } );
 }
 

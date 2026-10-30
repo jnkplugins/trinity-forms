@@ -4,7 +4,7 @@
  * Plugin URI:        https://jnkplugins.com/trinity-forms/
  * Update URI:        https://api.jnkplugins.com/
  * Description:       Lightweight WordPress form builder — drag-and-drop fields, conditional logic, entries, notifications and CSV export.
- * Version:           2.17.0
+ * Version:           2.18.0
  * Requires at least: 6.2
  * Requires PHP:      8.2
  * Author:            JNK Plugins
@@ -17,7 +17,7 @@
 
 defined( "ABSPATH" ) || exit;
 
-define( "TRINITY_FORMS_VERSION", "2.17.0" );
+define( "TRINITY_FORMS_VERSION", "2.18.0" );
 define( "TRINITY_FORMS_FILE", __FILE__ );
 define( "TRINITY_FORMS_PATH", plugin_dir_path( __FILE__ ) );
 define( "TRINITY_FORMS_URL",  plugin_dir_url( __FILE__ ) );
@@ -55,7 +55,7 @@ if ( is_file( TRINITY_FORMS_PATH . "pro/bootstrap.php" ) ) {
     require_once TRINITY_FORMS_PATH . "pro/bootstrap.php";
 }
 
-register_activation_hook(   __FILE__, [ "TrinityForms\\Activator",   "activate"   ] );
+register_activation_hook(   __FILE__, [ "TrinityForms\\Ready_Notice", "activate"   ] );
 register_deactivation_hook( __FILE__, [ "TrinityForms\\Deactivator", "deactivate" ] );
 
 add_action( "plugins_loaded", static function () {

@@ -9,6 +9,7 @@ use TrinityForms\Admin_UI;
 use TrinityForms\Entries;
 use TrinityForms\Entry_Notes;
 use TrinityForms\Dates;
+use TrinityForms\Logger;
 use TrinityForms\Form_Manager;
 
 global $wpdb;
@@ -259,13 +260,15 @@ Admin_UI::open(
                         <dt><?php echo esc_html( $m["field_label"] ?: $m["field_id"] ); ?></dt>
                         <dd>
                             <?php if ( "email" === $m["field_type"] && is_email( $value ) ) : ?>
-                                <a href="<?php echo esc_url( "mailto:" . $value ); ?>"><?php echo esc_html( $value ); ?></a>
+                                <bdi dir="ltr"><a href="<?php echo esc_url( "mailto:" . $value ); ?>"><?php echo esc_html( $value ); ?></a></bdi>
                             <?php elseif ( "phone" === $m["field_type"] && "" !== $value ) : ?>
-                                <a href="<?php echo esc_url( "tel:" . preg_replace( '/[^0-9+]/', "", $value ) ); ?>"><?php echo esc_html( $value ); ?></a>
+                                <bdi dir="ltr"><a href="<?php echo esc_url( "tel:" . preg_replace( '/[^0-9+]/', "", $value ) ); ?>"><?php echo esc_html( $value ); ?></a></bdi>
                             <?php elseif ( in_array( $m["field_type"], [ "rich_text", "file" ], true ) ) : ?>
                                 <?php echo Entries::display_value( (string) $m["field_type"], $m["value"], $map, true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- display_value() escapes (kses for rich text, esc_url/esc_html for file links). ?>
                             <?php elseif ( "" === trim( $value ) ) : ?>
                                 <span class="jnkui-muted"><?php esc_html_e( "Not answered", "trinity-forms" ); ?></span>
+                            <?php elseif ( Entries::is_ltr_value( (string) $m["field_type"], $value ) ) : ?>
+                                <?php echo Entries::ltr( esc_html( $value ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped here, ltr() only wraps it. ?>
                             <?php else : ?>
                                 <?php echo nl2br( esc_html( $value ) ); ?>
                             <?php endif; ?>
@@ -383,17 +386,17 @@ Admin_UI::open(
                         endif;
                     }
                     ?>
-                    <div><dt><?php esc_html_e( "IP address", "trinity-forms" ); ?></dt><dd><?php echo esc_html( $ip ?: "–" ); ?></dd></div>
+                    <div><dt><?php esc_html_e( "IP address", "trinity-forms" ); ?></dt><dd><?php echo $ip ? Entries::ltr( esc_html( $ip ) ) : "–"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?></dd></div>
                     <?php if ( ! empty( $entry["source_url"] ) ) : ?>
                         <div><dt><?php esc_html_e( "Sent from", "trinity-forms" ); ?></dt>
-                            <dd><a href="<?php echo esc_url( (string) $entry["source_url"] ); ?>" target="_blank" rel="noopener"><?php echo esc_html( (string) wp_parse_url( (string) $entry["source_url"], PHP_URL_PATH ) ?: (string) $entry["source_url"] ); ?></a></dd></div>
+                            <dd><a href="<?php echo esc_url( (string) $entry["source_url"] ); ?>" target="_blank" rel="noopener"><bdi dir="ltr"><?php echo esc_html( (string) wp_parse_url( (string) $entry["source_url"], PHP_URL_PATH ) ?: (string) $entry["source_url"] ); ?></bdi></a></dd></div>
                     <?php endif; ?>
                     <?php if ( ! empty( $entry["referer"] ) ) : ?>
-                        <div><dt><?php esc_html_e( "Came from", "trinity-forms" ); ?></dt><dd><?php echo esc_html( (string) $entry["referer"] ); ?></dd></div>
+                        <div><dt><?php esc_html_e( "Came from", "trinity-forms" ); ?></dt><dd><?php echo Entries::ltr( esc_html( (string) $entry["referer"] ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?></dd></div>
                     <?php endif; ?>
                     <?php if ( ! empty( $entry["user_agent"] ) ) : ?>
                         <div><dt><?php esc_html_e( "Browser", "trinity-forms" ); ?></dt>
-                            <dd><span class="jnkui-sub" title="<?php echo esc_attr( (string) $entry["user_agent"] ); ?>"><?php echo esc_html( wp_html_excerpt( (string) $entry["user_agent"], 60, "…" ) ); ?></span></dd></div>
+                            <dd><span class="jnkui-sub" dir="ltr" title="<?php echo esc_attr( (string) $entry["user_agent"] ); ?>"><?php echo esc_html( wp_html_excerpt( (string) $entry["user_agent"], 60, "…" ) ); ?></span></dd></div>
                     <?php endif; ?>
                 </dl>
             </div>
@@ -422,7 +425,7 @@ Admin_UI::open(
                         $tf_reason = (string) ( $tf_ctx["reason"] ?? $tf_ctx["error"] ?? "" );
                         ?>
                         <li>
-                            <?php echo Admin_UI::pill( (string) $l["type"], "error" === $tf_level ? "danger" : ( "warning" === $tf_level ? "warning" : "muted" ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in pill(). ?>
+                            <?php echo Admin_UI::pill( Logger::type_label( (string) $l["type"] ), "error" === $tf_level ? "danger" : ( "warning" === $tf_level ? "warning" : "muted" ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in pill(). ?>
                             <?php echo esc_html( $l["message"] ); ?>
                             <?php if ( "" !== $tf_reason ) : ?>
                                 <span class="jnkui-sub"><?php echo esc_html( $tf_reason ); ?></span>

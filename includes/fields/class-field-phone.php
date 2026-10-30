@@ -26,7 +26,7 @@ class Field_Phone extends Field_Base {
             return "";
         }
         // Keep digits and common phone punctuation; collapse whitespace.
-        $clean = preg_replace( "/[^0-9+()\\-. ]/", "", (string) $raw );
+        $clean = preg_replace( "/[^0-9+()\\-. ]/", "", self::ascii_digits( (string) $raw ) );
         return trim( preg_replace( "/\\s+/", " ", (string) $clean ) );
     }
 

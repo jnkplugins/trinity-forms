@@ -25,6 +25,7 @@ foreach ( $tables as $t ) {
 
 delete_option( "trinity_forms_settings" );
 delete_option( "trinity_forms_version" );
+delete_option( "trinity_forms_ready_notice" );
 delete_option( "trinity_forms_times_utc" );
 delete_option( "trinity_forms_utc_migration" );
 delete_option( "trinity_forms_utc_lock" );

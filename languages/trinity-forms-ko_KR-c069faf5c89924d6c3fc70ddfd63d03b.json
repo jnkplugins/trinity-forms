@@ -61,11 +61,11 @@
             "Any rule matches": [
                 "\ud558\ub098 \uc774\uc0c1\uc758 \uaddc\uce59 \uc77c\uce58"
             ],
-            "Field": [
-                "\ud544\ub4dc"
-            ],
             "\u2014 Select \u2014": [
                 "\u2014 \uc120\ud0dd \u2014"
+            ],
+            "Field": [
+                "\ud544\ub4dc"
             ],
             "Condition": [
                 "\uc870\uac74"
@@ -451,6 +451,12 @@
             "Templates": [
                 "\ud15c\ud50c\ub9bf"
             ],
+            "Submit button text, and what visitors see after they submit": [
+                "\uc81c\ucd9c \ubc84\ud2bc \ud14d\uc2a4\ud2b8\uc640 \ubc29\ubb38\uc790\uac00 \uc81c\ucd9c\ud55c \ub4a4 \ubcf4\uac8c \ub418\ub294 \ud654\uba74"
+            ],
+            "Settings": [
+                "\uc124\uc815"
+            ],
             "Copy the shortcode that puts this form on a page or post": [
                 "\uc774 \uc591\uc2dd\uc744 \ud398\uc774\uc9c0\ub098 \uae00\uc5d0 \ub123\ub294 \uc20f\ucf54\ub4dc \ubcf5\uc0ac"
             ],
@@ -516,6 +522,48 @@
             ],
             "Reload the form": [
                 "\uc591\uc2dd \ub2e4\uc2dc \ubd88\ub7ec\uc624\uae30"
+            ],
+            "Form settings": [
+                "\uc591\uc2dd \uc124\uc815"
+            ],
+            "Submit button text": [
+                "\uc81c\ucd9c \ubc84\ud2bc \ud14d\uc2a4\ud2b8"
+            ],
+            "Submit": [
+                "\uc81c\ucd9c"
+            ],
+            "After submit": [
+                "\uc81c\ucd9c \ud6c4"
+            ],
+            "Show a message": [
+                "\uba54\uc2dc\uc9c0 \ud45c\uc2dc"
+            ],
+            "Go to a page": [
+                "\ud398\uc774\uc9c0\ub85c \uc774\ub3d9"
+            ],
+            "Go to a URL": [
+                "URL\ub85c \uc774\ub3d9"
+            ],
+            "Confirmation message": [
+                "\ud655\uc778 \uba54\uc2dc\uc9c0"
+            ],
+            "Thank you!": [
+                "\uac10\uc0ac\ud569\ub2c8\ub2e4!"
+            ],
+            "Page": [
+                "\ud398\uc774\uc9c0"
+            ],
+            "Choose a page": [
+                "\ud398\uc774\uc9c0 \uc120\ud0dd"
+            ],
+            "Redirect URL": [
+                "\ub9ac\ub514\ub809\uc158 URL"
+            ],
+            "These are saved with the form when you press Save form.": [
+                "\uc591\uc2dd \uc800\uc7a5\uc744 \ub204\ub974\uba74 \uc591\uc2dd\uacfc \ud568\uaed8 \uc800\uc7a5\ub429\ub2c8\ub2e4."
+            ],
+            "Done": [
+                "\uc644\ub8cc"
             ],
             "Start from a template": [
                 "\ud15c\ud50c\ub9bf\uc73c\ub85c \uc2dc\uc791\ud558\uae30"

@@ -17,6 +17,8 @@ final class Plugin {
         add_filter( "register_block_type_args", [ Field_Registry::class, "add_common_attributes" ], 10, 2 );
 
         Field_Registry::bootstrap();
+        // Field blocks' starting labels/placeholders/choices in the site's language.
+        Block_Defaults::register();
         Submission_Pipeline::bootstrap();
         CLI::register();
         Scoring::bootstrap();
@@ -45,6 +47,11 @@ final class Plugin {
         add_action( "rest_api_init", [ $this, "register_builder_routes" ] );
         add_action( "enqueue_block_editor_assets", [ $this, "enqueue_conditional_panel" ] );
         add_action( "enqueue_block_editor_assets", [ $this, "hide_field_blocks_outside_forms" ] );
+        // A form's fields are blocks: the Classic Editor plugin (or any "no block
+        // editor" switch) must not turn the form's "Open in block editor" screen into
+        // a TinyMCE box that shows the form as empty. After Classic Editor (100).
+        add_filter( "use_block_editor_for_post_type", [ self::class, "forms_keep_block_editor" ], 101, 2 );
+        add_filter( "use_block_editor_for_post",      [ self::class, "form_keeps_block_editor" ], 101, 2 );
 
         // Registered outside is_admin(): a form can be created over REST too, and it
         // should email someone just the same.
@@ -57,6 +64,14 @@ final class Plugin {
         add_action( "trinity_forms_daily_cron",    [ Cron::class, "purge_trashed_entries" ] );
         add_action( "trinity_forms_entry_deleted", [ Submission_Pipeline::class, "cleanup_entry_files" ] );
         Private_Files::register();
+        // Classic-editor "Add Trinity form" button (media buttons) with its form picker.
+        Classic_Editor::register();
+        // Classic "Trinity Forms" widget: sidebars, SiteOrigin Page Builder, Legacy Widget block.
+        Form_Widget::register();
+        // Elementor widget "Trinity Forms" (only does anything when Elementor runs).
+        Elementor::register();
+        // A saved published form empties the page cache, so visitors see the new button and labels.
+        Page_Cache::register();
 
         // Bulk "resend notifications" queues one action per entry rather than
         // sending inline, so a 200-entry resend doesn't time out the request.
@@ -67,6 +82,8 @@ final class Plugin {
         add_action( "wp_enqueue_scripts", [ Public_Front::class, "enqueue_assets" ] );
         add_action( "wp_ajax_trinity_forms_nonce",        [ Public_Front::class, "ajax_nonce" ] );
         add_action( "wp_ajax_nopriv_trinity_forms_nonce", [ Public_Front::class, "ajax_nonce" ] );
+        add_action( "wp_ajax_trinity_forms_ts",           [ Public_Front::class, "ajax_time_token" ] );
+        add_action( "wp_ajax_nopriv_trinity_forms_ts",    [ Public_Front::class, "ajax_time_token" ] );
 
         if ( is_admin() ) {
             // Apply pending schema migrations on update (the activation hook does
@@ -75,11 +92,23 @@ final class Plugin {
             Schema_Check::register();
             Admin::bootstrap();
             Onboarding::register();
+            // "Trinity Forms is ready. Start here" once, after a single activation.
+            Ready_Notice::register();
             Templates::bootstrap();
             Results::bootstrap();
             // Visual builder (Phase 7): dormant unless explicitly enabled.
             Form_Builder::register();
         }
+    }
+
+    /** use_block_editor_for_post_type: forms are always edited as blocks. */
+    public static function forms_keep_block_editor( $use, $post_type ) {
+        return "trinity_forms_form" === $post_type ? true : $use;
+    }
+
+    /** use_block_editor_for_post: same, for the per-post switch Classic Editor uses when users may choose. */
+    public static function form_keeps_block_editor( $use, $post ) {
+        return $post instanceof \WP_Post && "trinity_forms_form" === $post->post_type ? true : $use;
     }
 
     public function register_post_type(): void {

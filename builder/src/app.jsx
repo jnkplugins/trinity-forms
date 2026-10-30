@@ -18,7 +18,7 @@ import {
 } from '@dnd-kit/core';
 import { sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import apiFetch from '@wordpress/api-fetch';
-import { Button, Modal, Notice, Spinner } from '@wordpress/components';
+import { Button, Modal, Notice, SelectControl, Spinner, TextareaControl, TextControl } from '@wordpress/components';
 import { useEffect, useState } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 import { attrValue, isField, keyOf, newField, schemaFor, toPayload } from './blocks';
@@ -116,6 +116,16 @@ export default function App( { config } ) {
 		}
 	};
 
+	// Submit text and what happens after submit: the same settings (Form_Basics)
+	// the block editor's settings box writes, so the two editors never disagree.
+	const [ settings, setSettings ] = useState( null );
+	const [ pages, setPages ] = useState( [] );
+	const [ settingsOpen, setSettingsOpen ] = useState( false );
+	const changeSetting = ( key, value ) => {
+		setSettings( ( prev ) => ( { ...( prev || {} ), [ key ]: value } ) );
+		setDirty( true );
+	};
+
 	const [ templatesOpen, setTemplatesOpen ] = useState( false );
 	const [ templates, setTemplates ] = useState( null );
 
@@ -138,6 +148,8 @@ export default function App( { config } ) {
 				setStatus( data.status === 'publish' ? 'publish' : 'draft' );
 				setCanPublish( !! data.can_publish );
 				setUneditable( !! data.uneditable );
+				setSettings( data.settings || null );
+				setPages( Array.isArray( data.pages ) ? data.pages : [] );
 				setLoading( false );
 			} )
 			.catch( ( err ) => {
@@ -372,7 +384,13 @@ export default function App( { config } ) {
 		apiFetch( {
 			path,
 			method: 'POST',
-			data: { content_hash: hash, title, status, blocks: toPayload( blocks ) },
+			data: {
+				content_hash: hash,
+				title,
+				status,
+				blocks: toPayload( blocks ),
+				...( settings ? { settings } : {} ),
+			},
 		} )
 			.then( ( data ) => {
 				// Re-seed from the server's answer: it re-derives the refs, and a stale
@@ -453,6 +471,17 @@ export default function App( { config } ) {
 					<Button variant="tertiary" onClick={ openTemplates }>
 						{ __( 'Templates', 'trinity-forms' ) }
 					</Button>
+					{ settings && (
+						<Button
+							variant="tertiary"
+							className="tf-builder__settings-button"
+							onClick={ () => setSettingsOpen( true ) }
+							label={ __( 'Submit button text, and what visitors see after they submit', 'trinity-forms' ) }
+							showTooltip
+						>
+							{ __( 'Settings', 'trinity-forms' ) }
+						</Button>
+					) }
 					{ config.formId > 0 && (
 						<div className="tf-builder__shortcode">
 							<code
@@ -568,6 +597,65 @@ export default function App( { config } ) {
 				<Notice status={ notice.status } onRemove={ () => setNotice( null ) }>
 					{ notice.text }
 				</Notice>
+			) }
+
+			{ settingsOpen && settings && (
+				<Modal
+					title={ __( 'Form settings', 'trinity-forms' ) }
+					onRequestClose={ () => setSettingsOpen( false ) }
+					className="tf-builder__settings-modal"
+				>
+					<TextControl
+						label={ __( 'Submit button text', 'trinity-forms' ) }
+						value={ settings.submit_button_text || '' }
+						placeholder={ __( 'Submit', 'trinity-forms' ) }
+						onChange={ ( v ) => changeSetting( 'submit_button_text', v ) }
+					/>
+					<SelectControl
+						label={ __( 'After submit', 'trinity-forms' ) }
+						value={ settings.confirmation_type || 'text' }
+						options={ [
+							{ value: 'text', label: __( 'Show a message', 'trinity-forms' ) },
+							{ value: 'page', label: __( 'Go to a page', 'trinity-forms' ) },
+							{ value: 'redirect', label: __( 'Go to a URL', 'trinity-forms' ) },
+						] }
+						onChange={ ( v ) => changeSetting( 'confirmation_type', v ) }
+					/>
+					{ ( settings.confirmation_type || 'text' ) === 'text' && (
+						<TextareaControl
+							label={ __( 'Confirmation message', 'trinity-forms' ) }
+							value={ settings.confirmation_message || '' }
+							placeholder={ __( 'Thank you!', 'trinity-forms' ) }
+							onChange={ ( v ) => changeSetting( 'confirmation_message', v ) }
+						/>
+					) }
+					{ settings.confirmation_type === 'page' && (
+						<SelectControl
+							label={ __( 'Page', 'trinity-forms' ) }
+							value={ String( settings.confirmation_page_id || 0 ) }
+							options={ [
+								{ value: '0', label: __( 'Choose a page', 'trinity-forms' ) },
+								...pages.map( ( pg ) => ( { value: String( pg.id ), label: pg.title } ) ),
+							] }
+							onChange={ ( v ) => changeSetting( 'confirmation_page_id', parseInt( v, 10 ) || 0 ) }
+						/>
+					) }
+					{ settings.confirmation_type === 'redirect' && (
+						<TextControl
+							label={ __( 'Redirect URL', 'trinity-forms' ) }
+							type="url"
+							value={ settings.redirect_url || '' }
+							placeholder="https://…"
+							onChange={ ( v ) => changeSetting( 'redirect_url', v ) }
+						/>
+					) }
+					<p className="tf-builder__palette-hint">
+						{ __( 'These are saved with the form when you press Save form.', 'trinity-forms' ) }
+					</p>
+					<Button variant="primary" onClick={ () => setSettingsOpen( false ) }>
+						{ __( 'Done', 'trinity-forms' ) }
+					</Button>
+				</Modal>
 			) }
 
 			{ templatesOpen && (

@@ -13,6 +13,7 @@ import { PanelBody, SelectControl, TextControl, TextareaControl, ToggleControl }
 import { useEffect, useRef, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { ConditionalRules } from '../../blocks/conditional-rules';
+import { choiceValue } from '../../blocks/choice-value';
 import { attrValue, conditionTargets, declares, schemaFor, setAttr, unsetAttr } from './blocks';
 
 const TEXTS = [
@@ -37,7 +38,7 @@ function textToOptions( text ) {
 			const [ label, val ] = line.split( '|' ).map( ( s ) => s.trim() );
 			return {
 				label: label || '',
-				value: ( val || label || '' ).toLowerCase().replace( /\s+/g, '_' ),
+				value: choiceValue( val || label ),
 			};
 		} );
 }

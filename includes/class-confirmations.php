@@ -46,6 +46,18 @@ class Confirmations {
         return "" !== $text ? $text : __( "Thank you!", "trinity-forms" );
     }
 
+    /**
+     * A confirmation message as safe HTML for the visitor.
+     *
+     * Imported messages carry their own markup (WPForms, Fluent, Formidable save
+     * "<p>…</p>"), which used to reach the page as visible tags. One message typed
+     * in the editor keeps its line breaks. Merge-tag values are already escaped by
+     * Merge_Tags, and wp_kses_post() drops anything a post could not hold.
+     */
+    public static function html( string $message ): string {
+        return wp_kses_post( Notification_Engine::body_html( $message ) );
+    }
+
     public static function spam_message( Form $form, int $entry_id = 0 ): string {
         $custom = trim( (string) $form->get_setting( "spam_confirmation_message", "" ) );
         $text   = "" !== $custom
@@ -64,7 +76,7 @@ class Confirmations {
      */
     public static function resolve( Form $form, int $entry_id, array $payload = [] ): array {
         foreach ( self::all( $form ) as $confirmation ) {
-            if ( self::matches( $confirmation, $payload ) ) {
+            if ( self::matches( $confirmation, $payload, $form ) ) {
                 return self::build( $confirmation, $entry_id );
             }
         }
@@ -107,12 +119,25 @@ class Confirmations {
      */
     public static function fallback( Form $form ): array {
         $redirect = (string) $form->get_setting( "redirect_url", "" );
+        $type     = (string) $form->get_setting( "confirmation_type", "" );
+        $page_id  = (int) $form->get_setting( "confirmation_page_id", 0 );
+
+        // A form saved before the choice existed has no type: a URL meant redirect.
+        if ( ! in_array( $type, [ self::TYPE_TEXT, self::TYPE_PAGE, self::TYPE_REDIRECT ], true ) ) {
+            $type = "" !== $redirect ? self::TYPE_REDIRECT : self::TYPE_TEXT;
+        }
+        // Nowhere to go (no page picked, the page is gone, no URL): show the message.
+        if ( ( self::TYPE_PAGE === $type && ( $page_id <= 0 || "publish" !== get_post_status( $page_id ) ) )
+            || ( self::TYPE_REDIRECT === $type && "" === $redirect ) ) {
+            $type = self::TYPE_TEXT;
+        }
 
         return [
             "is_default" => true,
-            "type"       => "" !== $redirect ? self::TYPE_REDIRECT : self::TYPE_TEXT,
+            "type"       => $type,
             "message"    => self::default_message( $form ),
             "url"        => $redirect,
+            "page_id"    => $page_id,
         ];
     }
 
@@ -122,7 +147,7 @@ class Confirmations {
      * @param array<string,mixed> $confirmation
      * @param array<string,mixed> $payload
      */
-    private static function matches( array $confirmation, array $payload ): bool {
+    private static function matches( array $confirmation, array $payload, ?Form $form = null ): bool {
         $cond = $confirmation["conditional"] ?? null;
         if ( ! $cond || empty( $cond["conditions"] ) ) {
             return false;
@@ -131,7 +156,7 @@ class Confirmations {
         // Same trick as Notification_Engine::should_send(): wrap the rules in a
         // throwaway field so Conditional_Logic can evaluate them unchanged.
         $faux = new Field( [ "id" => "_confirmation", "type" => "hidden", "conditional" => $cond ] );
-        return Conditional_Logic::is_visible( $faux, $payload );
+        return Conditional_Logic::is_visible( $faux, $payload, $form );
     }
 
     /**

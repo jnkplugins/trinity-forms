@@ -195,7 +195,10 @@ class REST_API {
         }
         $status = $result["meta"]["status"] ?? ( $result["success"] ? 200 : 400 );
         if ( $plain ) {
-            return self::back_to_the_page( $form_id, $result, $source_url );
+            // Too old a page without JavaScript: the Back button would bring back the
+            // same old page, so the fresh page shows the form filled in again.
+            $values = "stale_page" === ( $result["meta"]["reason"] ?? "" ) ? (array) $request->get_param( "trinity_forms_fields" ) : [];
+            return self::back_to_the_page( $form_id, $result, $source_url, $values );
         }
         return new \WP_REST_Response( $result, (int) $status );
     }
@@ -221,20 +224,25 @@ class REST_API {
      * The message rides in a short-lived transient, so no visitor text is put in
      * the URL. Form_Renderer::plain_post_notice() shows it.
      */
-    private static function back_to_the_page( int $form_id, array $result, string $source_url ): \WP_REST_Response {
+    private static function back_to_the_page( int $form_id, array $result, string $source_url, array $values = [] ): \WP_REST_Response {
         $redirect = (string) ( $result["data"]["redirect"] ?? "" );
         if ( ! empty( $result["success"] ) && "" !== $redirect ) {
             // The owner's redirect or the payment page, which may be another host.
             $to = wp_sanitize_redirect( $redirect );
         } else {
-            $messages = ! empty( $result["success"] )
-                ? [ (string) ( $result["data"]["confirmation"] ?? "" ) ]
-                : self::plain_errors( $form_id, (array) ( $result["errors"] ?? [] ) );
+            if ( ! empty( $result["success"] ) ) {
+                $messages = [ (string) ( $result["data"]["confirmation_html"] ?? $result["data"]["confirmation"] ?? "" ) ];
+            } elseif ( $values ) {
+                $messages = [ (string) ( $result["errors"][0]["message"] ?? "" ) ];
+            } else {
+                $messages = self::plain_errors( $form_id, (array) ( $result["errors"] ?? [] ) );
+            }
             $token = wp_generate_password( 16, false );
             set_transient( "trinity_forms_plain_" . $token, [
                 "form_id"  => $form_id,
                 "ok"       => ! empty( $result["success"] ),
                 "messages" => $messages,
+                "values"   => $values,
             ], 10 * MINUTE_IN_SECONDS );
             // The page URL comes from the visitor's POST: only this site's own.
             $page = wp_validate_redirect( $source_url, home_url( "/" ) );

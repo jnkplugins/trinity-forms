@@ -1,0 +1,123 @@
+{
+    "translation-revision-date": "2026-10-29 12:00+0000",
+    "generator": "WP-CLI\/2.12.0",
+    "source": "build\/field-total\/index.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "ar",
+                "plural-forms": "nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);"
+            },
+            "Field": [
+                "\u0627\u0644\u062d\u0642\u0644"
+            ],
+            "Field ID": [
+                "\u0645\u0639\u0631\u0651\u0641 \u0627\u0644\u062d\u0642\u0644 (ID)"
+            ],
+            "Used in merge tags and entry export.": [
+                "\u064a\u064f\u0633\u062a\u062e\u062f\u0645 \u0641\u064a \u0648\u0633\u0648\u0645 \u0627\u0644\u062f\u0645\u062c \u0648\u0641\u064a \u062a\u0635\u062f\u064a\u0631 \u0627\u0644\u0625\u062f\u062e\u0627\u0644\u0627\u062a."
+            ],
+            "Label": [
+                "\u0627\u0644\u062a\u0633\u0645\u064a\u0629"
+            ],
+            "Placeholder": [
+                "\u0627\u0644\u0646\u0635 \u0627\u0644\u062a\u0648\u0636\u064a\u062d\u064a"
+            ],
+            "Help text": [
+                "\u0646\u0635 \u0627\u0644\u0645\u0633\u0627\u0639\u062f\u0629"
+            ],
+            "Required": [
+                "\u0645\u0637\u0644\u0648\u0628"
+            ],
+            "Appearance": [
+                "\u0627\u0644\u0645\u0638\u0647\u0631"
+            ],
+            "Field width": [
+                "\u0639\u0631\u0636 \u0627\u0644\u062d\u0642\u0644"
+            ],
+            "Full width": [
+                "\u0627\u0644\u0639\u0631\u0636 \u0627\u0644\u0643\u0627\u0645\u0644"
+            ],
+            "One half": [
+                "\u0627\u0644\u0646\u0635\u0641"
+            ],
+            "One third": [
+                "\u0627\u0644\u062b\u0644\u062b"
+            ],
+            "One quarter": [
+                "\u0627\u0644\u0631\u0628\u0639"
+            ],
+            "Help text position": [
+                "\u0645\u0648\u0636\u0639 \u0646\u0635 \u0627\u0644\u0645\u0633\u0627\u0639\u062f\u0629"
+            ],
+            "Use the form's setting": [
+                "\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0625\u0639\u062f\u0627\u062f \u0627\u0644\u0646\u0645\u0648\u0630\u062c"
+            ],
+            "Below the field": [
+                "\u0623\u0633\u0641\u0644 \u0627\u0644\u062d\u0642\u0644"
+            ],
+            "Above the field": [
+                "\u0623\u0639\u0644\u0649 \u0627\u0644\u062d\u0642\u0644"
+            ],
+            "CSS class": [
+                "\u0641\u0626\u0629 CSS"
+            ],
+            "Added to the field wrapper, for your own styling.": [
+                "\u062a\u064f\u0636\u0627\u0641 \u0625\u0644\u0649 \u063a\u0644\u0627\u0641 \u0627\u0644\u062d\u0642\u0644 \u0644\u062a\u0646\u0633\u064a\u0642\u0643 \u0627\u0644\u062e\u0627\u0635."
+            ],
+            "Advanced": [
+                "\u0645\u062a\u0642\u062f\u0651\u0645"
+            ],
+            "Default value": [
+                "\u0627\u0644\u0642\u064a\u0645\u0629 \u0627\u0644\u0627\u0641\u062a\u0631\u0627\u0636\u064a\u0629"
+            ],
+            "Admin label": [
+                "\u062a\u0633\u0645\u064a\u0629 \u0627\u0644\u0625\u062f\u0627\u0631\u0629"
+            ],
+            "Shown instead of the label in entries and exports.": [
+                "\u062a\u0638\u0647\u0631 \u0628\u062f\u0644 \u0627\u0644\u062a\u0633\u0645\u064a\u0629 \u0641\u064a \u0627\u0644\u0625\u062f\u062e\u0627\u0644\u0627\u062a \u0648\u0645\u0644\u0641\u0627\u062a \u0627\u0644\u062a\u0635\u062f\u064a\u0631."
+            ],
+            "Visible to": [
+                "\u0645\u0631\u0626\u064a \u0644\u0640"
+            ],
+            "Everyone": [
+                "\u0627\u0644\u062c\u0645\u064a\u0639"
+            ],
+            "Logged-in users": [
+                "\u0627\u0644\u0623\u0639\u0636\u0627\u0621 \u0627\u0644\u0645\u0633\u062c\u0651\u0644\u0648\u0646"
+            ],
+            "Administrators only": [
+                "\u0627\u0644\u0645\u062f\u064a\u0631\u0648\u0646 \u0641\u0642\u0637"
+            ],
+            "Allow this field to be pre-filled from the URL": [
+                "\u0627\u0644\u0633\u0645\u0627\u062d \u0628\u062a\u0639\u0628\u0626\u0629 \u0647\u0630\u0627 \u0627\u0644\u062d\u0642\u0644 \u0645\u0633\u0628\u0642\u064b\u0627 \u0645\u0646 \u0627\u0644\u0631\u0627\u0628\u0637"
+            ],
+            "Off by default: a form whose every field can be set from a link is a form whose data you cannot trust.": [
+                "\u0645\u0639\u0637\u0651\u0644 \u0627\u0641\u062a\u0631\u0627\u0636\u064a\u064b\u0627: \u0627\u0644\u0646\u0645\u0648\u0630\u062c \u0627\u0644\u0630\u064a \u064a\u0645\u0643\u0646 \u0636\u0628\u0637 \u0643\u0644 \u062d\u0642\u0648\u0644\u0647 \u0645\u0646 \u0631\u0627\u0628\u0637 \u0647\u0648 \u0646\u0645\u0648\u0630\u062c \u0644\u0627 \u064a\u0645\u0643\u0646\u0643 \u0627\u0644\u0648\u062b\u0648\u0642 \u0628\u0628\u064a\u0627\u0646\u0627\u062a\u0647."
+            ],
+            "Parameter name": [
+                "\u0627\u0633\u0645 \u0627\u0644\u0645\u064f\u0639\u0627\u0645\u0644"
+            ],
+            "Defaults to the field ID. Also reads user_email, first_name, post_id and user_meta_<key>.": [
+                "\u064a\u0643\u0648\u0646 \u0627\u0641\u062a\u0631\u0627\u0636\u064a\u064b\u0627 ID \u0627\u0644\u062d\u0642\u0644. \u0648\u064a\u0642\u0631\u0623 \u0623\u064a\u0636\u064b\u0627 user_email \u0648 first_name \u0648 post_id \u0648 user_meta_<key>."
+            ],
+            "No duplicates": [
+                "\u0628\u0644\u0627 \u062a\u0643\u0631\u0627\u0631"
+            ],
+            "Refuse a submission if another entry on this form already has the same value.": [
+                "\u0631\u0641\u0636 \u0627\u0644\u0625\u0631\u0633\u0627\u0644 \u0625\u0630\u0627 \u0643\u0627\u0646 \u0625\u062f\u062e\u0627\u0644 \u0622\u062e\u0631 \u0641\u064a \u0647\u0630\u0627 \u0627\u0644\u0646\u0645\u0648\u0630\u062c \u064a\u062d\u0645\u0644 \u0627\u0644\u0642\u064a\u0645\u0629 \u0646\u0641\u0633\u0647\u0627."
+            ],
+            "Custom error message": [
+                "\u0631\u0633\u0627\u0644\u0629 \u062e\u0637\u0623 \u0645\u062e\u0635\u0651\u0635\u0629"
+            ],
+            "Autocomplete": [
+                "\u0627\u0644\u0625\u0643\u0645\u0627\u0644 \u0627\u0644\u062a\u0644\u0642\u0627\u0626\u064a"
+            ],
+            "The HTML autocomplete hint, e.g. email, given-name, organization.": [
+                "\u062a\u0644\u0645\u064a\u062d autocomplete \u0641\u064a HTML\u060c \u0645\u062b\u0644 email \u0648 given-name \u0648 organization."
+            ]
+        }
+    }
+}

@@ -7,5 +7,6 @@ class Deactivator {
     public static function deactivate(): void {
         wp_clear_scheduled_hook( "trinity_forms_daily_cron" );
         wp_clear_scheduled_hook( "trinity_forms_weekly_summary" );
+        delete_option( Ready_Notice::OPTION );
     }
 }

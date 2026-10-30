@@ -67,7 +67,7 @@ class Admin_UI {
     private static function more_tabs(): array {
         return [
             "transfer" => [ __( "Import / Export", "trinity-forms" ), self::page_url( Forms_List::TRANSFER_PAGE ), false ],
-            "import"   => [ __( "Import from Gravity Forms", "trinity-forms" ), self::page_url( Admin::IMPORT ), false ],
+            "import"   => [ __( "Import forms", "trinity-forms" ), self::page_url( Admin::IMPORT ), false ],
             "feedback" => [ __( "Send feedback", "trinity-forms" ), self::page_url( Admin::FEEDBACK ), false ],
         ];
     }

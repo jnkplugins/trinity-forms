@@ -106,8 +106,17 @@ export function toPayload( blocks ) {
 export function conditionTargets( blocks, self, palette ) {
 	return blocks
 		.filter( ( b ) => isField( b ) && b !== self && b.attrs && b.attrs.fieldId )
-		.map( ( b ) => ( {
-			value: b.attrs.fieldId,
-			label: attrValue( b, schemaFor( palette, b.name ), 'label' ) || b.attrs.fieldId,
-		} ) );
+		.map( ( b ) => {
+			const schema  = schemaFor( palette, b.name );
+			const options = attrValue( b, schema, 'options' );
+			const entry   = {
+				value: b.attrs.fieldId,
+				label: attrValue( b, schema, 'label' ) || b.attrs.fieldId,
+			};
+			// Choice fields carry their choices so the rule editor can offer them.
+			if ( Array.isArray( options ) && options.length ) {
+				entry.choices = options;
+			}
+			return entry;
+		} );
 }

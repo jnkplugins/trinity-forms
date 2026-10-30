@@ -282,7 +282,13 @@ class Merge_Tags {
             if ( Entries::is_internal_field( (string) $field_id ) || "" === trim( (string) $row["label"] ) && "internal" === $row["type"] ) {
                 continue;
             }
-            $lines[] = esc_html( $row["label"] ) . ": " . self::field_html( $row );
+            $html = self::field_html( $row );
+            // An email, URL or phone inside an Arabic or Hebrew mail kept its
+            // characters but not their order ("/contact/" read "contact//").
+            if ( is_scalar( $row["value"] ) && Entries::is_ltr_value( (string) $row["type"], (string) $row["value"] ) ) {
+                $html = Entries::ltr( $html, "span" );
+            }
+            $lines[] = esc_html( $row["label"] ) . ": " . $html;
         }
         return implode( "<br>\n", $lines );
     }

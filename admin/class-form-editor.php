@@ -59,6 +59,8 @@ class Form_Editor {
             "restUrl"       => esc_url_raw( rest_url( "trinity-forms/v1/integrations/test" ) ),
             "mailTestUrl"   => esc_url_raw( rest_url( "trinity-forms/v1/mail-test" ) ),
             "stylePresets"  => Form_Style::presets(),
+            // Each choice field's choices, so a one-row rule can offer them.
+            "ruleChoices"   => self::rule_choices( $editor_post ? (int) $editor_post->ID : 0 ),
             "userEmail"     => (string) wp_get_current_user()->user_email,
             "nonce"         => wp_create_nonce( "wp_rest" ),
             "i18n"          => [
@@ -68,6 +70,7 @@ class Form_Editor {
                 "networkError" => __( "✗ Network error", "trinity-forms" ),
                 "insertTag"    => __( "Insert a merge tag", "trinity-forms" ),
                 "sending"      => __( "Sending…", "trinity-forms" ),
+                "selectChoice" => __( "— select —", "trinity-forms" ),
                 "noAddress"    => __( "Type an address in Send to first.", "trinity-forms" ),
                 "mergeTagAddress" => __( "A merge tag only becomes an address when someone submits the form. Type a real address to send a test.", "trinity-forms" ),
             ],
@@ -121,11 +124,26 @@ class Form_Editor {
         <div class="trinity-forms-tab-panel active" data-panel="general">
             <table class="form-table">
                 <tr><th><?php esc_html_e( "Submit button text", "trinity-forms" ); ?></th>
-                    <td><input type="text" name="trinity-forms[settings][submit_button_text]" value="<?php echo esc_attr( $settings["submit_button_text"] ?? "Submit" ); ?>" /></td></tr>
-                <tr><th><?php esc_html_e( "Confirmation message", "trinity-forms" ); ?></th>
-                    <td><textarea name="trinity-forms[settings][confirmation_message]" rows="2"><?php echo esc_textarea( $settings["confirmation_message"] ?? "" ); ?></textarea></td></tr>
-                <tr><th><?php esc_html_e( "Redirect URL", "trinity-forms" ); ?></th>
-                    <td><input type="text" name="trinity-forms[settings][redirect_url]" value="<?php echo esc_attr( $settings["redirect_url"] ?? "" ); ?>" placeholder="https://…" /></td></tr>
+                    <td><input type="text" name="trinity-forms[settings][submit_button_text]" value="<?php echo esc_attr( $settings["submit_button_text"] ?? __( "Submit", "trinity-forms" ) ); ?>" /></td></tr>
+                <?php $tf_basics = Form_Basics::get( (int) $post->ID ); ?>
+                <tr><th><label for="tf-confirmation-type"><?php esc_html_e( "After submit", "trinity-forms" ); ?></label></th>
+                    <td><select id="tf-confirmation-type" name="trinity-forms[settings][confirmation_type]" class="tf-confirmation-type">
+                        <option value="text" <?php selected( $tf_basics["confirmation_type"], "text" ); ?>><?php esc_html_e( "Show a message", "trinity-forms" ); ?></option>
+                        <option value="page" <?php selected( $tf_basics["confirmation_type"], "page" ); ?>><?php esc_html_e( "Go to a page", "trinity-forms" ); ?></option>
+                        <option value="redirect" <?php selected( $tf_basics["confirmation_type"], "redirect" ); ?>><?php esc_html_e( "Go to a URL", "trinity-forms" ); ?></option>
+                    </select></td></tr>
+                <tr data-tf-confirm="text"><th><?php esc_html_e( "Confirmation message", "trinity-forms" ); ?></th>
+                    <td><textarea name="trinity-forms[settings][confirmation_message]" rows="2" placeholder="<?php esc_attr_e( "Thank you!", "trinity-forms" ); ?>"><?php echo esc_textarea( $tf_basics["confirmation_message"] ); ?></textarea></td></tr>
+                <tr data-tf-confirm="page"><th><?php esc_html_e( "Page", "trinity-forms" ); ?></th>
+                    <td><select name="trinity-forms[settings][confirmation_page_id]">
+                        <option value="0"><?php esc_html_e( "Choose a page", "trinity-forms" ); ?></option>
+                        <?php foreach ( Form_Basics::pages() as $tf_page ) : ?>
+                            <option value="<?php echo (int) $tf_page["id"]; ?>" <?php selected( $tf_basics["confirmation_page_id"], $tf_page["id"] ); ?>><?php echo esc_html( $tf_page["title"] ); ?></option>
+                        <?php endforeach; ?>
+                    </select></td></tr>
+                <tr data-tf-confirm="redirect"><th><?php esc_html_e( "Redirect URL", "trinity-forms" ); ?></th>
+                    <td><input type="text" name="trinity-forms[settings][redirect_url]" value="<?php echo esc_attr( $tf_basics["redirect_url"] ); ?>" placeholder="https://…" /></td></tr>
+                <script>(function(){var s=document.getElementById("tf-confirmation-type");if(!s)return;function f(){document.querySelectorAll("[data-tf-confirm]").forEach(function(r){r.style.display=r.getAttribute("data-tf-confirm")===s.value?"":"none";});}s.addEventListener("change",f);f();})();</script>
                 <?php // "Save & continue later" is a Pro-only feature. Only render the control
                       // when Pro is active — the free build shows no disabled/teaser UI. With
                       // the Pro tools locked, a form that already uses it can still turn it
@@ -512,6 +530,27 @@ class Form_Editor {
         return $out;
     }
 
+    /**
+     * Choice fields' choices for the one-row rule editors.
+     *
+     * @return array<string,array<int,array{value:string,label:string}>>
+     */
+    public static function rule_choices( int $form_id ): array {
+        $form = $form_id ? Form_Manager::get( $form_id ) : null;
+        if ( ! $form ) {
+            return [];
+        }
+        $out = [];
+        foreach ( Conditional_Logic::choices( $form ) as $fid => $pairs ) {
+            foreach ( $pairs as [ $value, $label ] ) {
+                if ( "" !== $value ) {
+                    $out[ $fid ][] = [ "value" => $value, "label" => $label ];
+                }
+            }
+        }
+        return $out;
+    }
+
     private static function field_options( int $form_id ): array {
         $form = $form_id ? Form_Manager::get( $form_id ) : null;
         if ( ! $form ) {
@@ -532,6 +571,28 @@ class Form_Editor {
      * @param array<string,mixed>  $n
      * @param array<string,string> $fields_options Field id => label, for routing.
      */
+    /**
+     * A rule set in words: "Room type is group, Email is not empty". Nested groups
+     * are joined the same way; "any" rule sets use " / " between rules.
+     *
+     * @param array<string,mixed>  $rules
+     * @param array<string,string> $labels field id => label
+     */
+    private static function describe_rules( array $rules, array $labels ): string {
+        $ops   = Conditional_Logic::operators();
+        $parts = [];
+        foreach ( (array) ( $rules["conditions"] ?? [] ) as $c ) {
+            if ( isset( $c["conditions"] ) ) {
+                $parts[] = "(" . self::describe_rules( (array) $c, $labels ) . ")";
+                continue;
+            }
+            $op      = (string) ( $c["operator"] ?? "equals" );
+            $label   = (string) preg_replace( '/ \([a-z_]+\)$/', "", (string) ( $labels[ (string) ( $c["field"] ?? "" ) ] ?? ( $c["field"] ?? "" ) ) ); // the picker's "Label (type)"
+            $parts[] = trim( $label . " " . ( $ops[ $op ]["label"] ?? $op ) . ( ! empty( $ops[ $op ]["needs_value"] ) ? " " . (string) ( $c["value"] ?? "" ) : "" ) );
+        }
+        return implode( "any" === ( $rules["match"] ?? "all" ) ? " / " : ", ", $parts );
+    }
+
     private static function render_notification_card( int $index, array $n, array $fields_options = [] ): void {
         $enabled = ! isset( $n["enabled"] ) || ! empty( $n["enabled"] );
         $to_type = "field" === ( $n["to_type"] ?? "email" ) ? "field" : "email";
@@ -545,6 +606,20 @@ class Form_Editor {
                 <input type="checkbox" name="trinity-forms[notifications][<?php echo (int) $index; ?>][enabled]" value="1" <?php checked( $enabled ); ?> />
                 <?php esc_html_e( "Enabled", "trinity-forms" ); ?>
             </label>
+
+            <?php if ( ! empty( $n["conditional"]["conditions"] ) ) : ?>
+                <?php // No control edits these rules yet (they come from an import or code), so carry them through a save and say they are there. ?>
+                <input type="hidden" name="trinity-forms[notifications][<?php echo (int) $index; ?>][conditional_json]" value="<?php echo esc_attr( (string) wp_json_encode( $n["conditional"] ) ); ?>" />
+                <p class="description tf-notification-rules">
+                    <?php
+                    echo esc_html( sprintf(
+                        /* translators: %s: the rules in words, e.g. "Room type is group". */
+                        __( "Sent only when: %s. These rules came with an import and are kept when you save.", "trinity-forms" ),
+                        self::describe_rules( (array) $n["conditional"], $fields_options )
+                    ) );
+                    ?>
+                </p>
+            <?php endif; ?>
 
             <label><?php esc_html_e( "Send when", "trinity-forms" ); ?></label>
             <select name="trinity-forms[notifications][<?php echo (int) $index; ?>][event]">
@@ -760,10 +835,8 @@ class Form_Editor {
     }
 
     private static function sanitize_settings( array $raw, array $existing ): array {
-        return array_merge( $existing, [
-            "submit_button_text"   => sanitize_text_field( (string) ( $raw["submit_button_text"]   ?? "Submit" ) ),
-            "confirmation_message" => sanitize_textarea_field( (string) ( $raw["confirmation_message"] ?? "" ) ),
-            "redirect_url"         => esc_url_raw( (string) ( $raw["redirect_url"] ?? "" ) ) ?: null,
+        return array_merge( $existing, Form_Basics::sanitize( $raw ), [
+            // Submit text + default confirmation: Form_Basics, shared with the Visual Builder.
             // Absent from the POST means the control was not on the page (Free, or the
             // Pro tools are locked): keep what was saved. Switching it off silently on
             // every save was how a locked site lost save and continue.
@@ -862,7 +935,11 @@ class Form_Editor {
             // Notification_Engine::should_send() can honour it. No UI collects this
             // yet — a future builder panel or the trinity_forms_save_form_meta filter
             // can supply it — so we only store a well-formed, whitelisted structure.
-            $conditional = self::sanitize_conditional( $n["conditional"] ?? null );
+            $conditional_raw = $n["conditional"] ?? null;
+            if ( null === $conditional_raw && isset( $n["conditional_json"] ) ) {
+                $conditional_raw = json_decode( (string) $n["conditional_json"], true );
+            }
+            $conditional = self::sanitize_conditional( $conditional_raw );
             if ( $conditional ) {
                 $row["conditional"] = $conditional;
             }

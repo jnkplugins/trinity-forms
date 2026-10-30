@@ -31,11 +31,21 @@ class Templates {
 
     /** Serialize one field block from [ type, attrs ]. */
     private static function blk( string $type, array $attrs ): string {
-        return "<!-- wp:trinity-forms/field-" . $type . " " . wp_json_encode( $attrs ) . " /-->";
+        return "<!-- wp:trinity-forms/field-" . $type . " " . serialize_block_attributes( $attrs ) . " /-->";
     }
 
-    private static function opts( array $labels ): array {
-        return array_map( static fn( $l ) => [ "label" => $l, "value" => sanitize_title( $l ) ], $labels );
+    /**
+     * Choices from [ value => label ]. The label is translated; the value stays the
+     * same slug in every language so entries, rules and exports agree across sites.
+     *
+     * @param array<string, string> $choices
+     */
+    private static function opts( array $choices ): array {
+        $out = [];
+        foreach ( $choices as $value => $label ) {
+            $out[] = [ "label" => $label, "value" => (string) $value ];
+        }
+        return $out;
     }
 
     /** Build the block-markup post_content for a template slug. */
@@ -57,87 +67,104 @@ class Templates {
     public static function templates(): array {
         $t = [
             "contact" => [ "name" => __( "Contact form", "trinity-forms" ), "desc" => __( "Name, email and a message. The classic.", "trinity-forms" ), "icon" => "email", "fields" => [
-                [ "name",     [ "fieldId" => "name",    "label" => "Name",    "required" => true ] ],
-                [ "email",    [ "fieldId" => "email",   "label" => "Email",   "required" => true ] ],
-                [ "textarea", [ "fieldId" => "message", "label" => "Message", "required" => true ] ],
+                [ "name",     [ "fieldId" => "name",    "label" => __( "Name", "trinity-forms" ),    "required" => true ] ],
+                [ "email",    [ "fieldId" => "email",   "label" => __( "Email", "trinity-forms" ),   "required" => true ] ],
+                [ "textarea", [ "fieldId" => "message", "label" => __( "Message", "trinity-forms" ), "required" => true ] ],
             ] ],
             "quote" => [ "name" => __( "Quote request", "trinity-forms" ), "desc" => __( "Capture leads with service, budget and details.", "trinity-forms" ), "icon" => "money-alt", "fields" => [
-                [ "name",     [ "fieldId" => "name",    "label" => "Name",    "required" => true ] ],
-                [ "email",    [ "fieldId" => "email",   "label" => "Email",   "required" => true ] ],
-                [ "phone",    [ "fieldId" => "phone",   "label" => "Phone" ] ],
-                [ "select",   [ "fieldId" => "service", "label" => "Service", "required" => true, "placeholder" => "Choose a service", "options" => self::opts( [ "Web design", "SEO", "Consulting", "Other" ] ) ] ],
-                [ "range",    [ "fieldId" => "budget",  "label" => "Budget (USD)", "min" => 500, "max" => 20000, "step" => 500, "default" => 2500 ] ],
-                [ "textarea", [ "fieldId" => "details", "label" => "Project details" ] ],
+                [ "name",     [ "fieldId" => "name",    "label" => __( "Name", "trinity-forms" ),    "required" => true ] ],
+                [ "email",    [ "fieldId" => "email",   "label" => __( "Email", "trinity-forms" ),   "required" => true ] ],
+                [ "phone",    [ "fieldId" => "phone",   "label" => __( "Phone", "trinity-forms" ) ] ],
+                [ "select",   [ "fieldId" => "service", "label" => __( "Service", "trinity-forms" ), "required" => true, "placeholder" => __( "Choose a service", "trinity-forms" ), "options" => self::opts( [ "web-design" => __( "Web design", "trinity-forms" ), "seo" => __( "SEO", "trinity-forms" ), "consulting" => __( "Consulting", "trinity-forms" ), "other" => __( "Other", "trinity-forms" ) ] ) ] ],
+                [ "range",    [ "fieldId" => "budget",  "label" => __( "Budget (USD)", "trinity-forms" ), "min" => 500, "max" => 20000, "step" => 500, "default" => 2500 ] ],
+                [ "textarea", [ "fieldId" => "details", "label" => __( "Project details", "trinity-forms" ) ] ],
             ] ],
             "event" => [ "name" => __( "Event registration", "trinity-forms" ), "desc" => __( "Register attendees with a guest count and session.", "trinity-forms" ), "icon" => "tickets-alt", "fields" => [
-                [ "name",   [ "fieldId" => "name",    "label" => "Name",  "required" => true ] ],
-                [ "email",  [ "fieldId" => "email",   "label" => "Email", "required" => true ] ],
-                [ "phone",  [ "fieldId" => "phone",   "label" => "Phone" ] ],
-                [ "number", [ "fieldId" => "guests",  "label" => "Number attending", "min" => 1, "max" => 10 ] ],
-                [ "select", [ "fieldId" => "session", "label" => "Session", "placeholder" => "Pick a session", "options" => self::opts( [ "Morning", "Afternoon", "Full day" ] ) ] ],
+                [ "name",   [ "fieldId" => "name",    "label" => __( "Name", "trinity-forms" ),  "required" => true ] ],
+                [ "email",  [ "fieldId" => "email",   "label" => __( "Email", "trinity-forms" ), "required" => true ] ],
+                [ "phone",  [ "fieldId" => "phone",   "label" => __( "Phone", "trinity-forms" ) ] ],
+                [ "number", [ "fieldId" => "guests",  "label" => __( "Number attending", "trinity-forms" ), "min" => 1, "max" => 10 ] ],
+                [ "select", [ "fieldId" => "session", "label" => __( "Session", "trinity-forms" ), "placeholder" => __( "Pick a session", "trinity-forms" ), "options" => self::opts( [ "morning" => __( "Morning", "trinity-forms" ), "afternoon" => __( "Afternoon", "trinity-forms" ), "full-day" => __( "Full day", "trinity-forms" ) ] ) ] ],
             ] ],
             "appointment" => [ "name" => __( "Appointment booking", "trinity-forms" ), "desc" => __( "Let visitors request a date and time.", "trinity-forms" ), "icon" => "calendar-alt", "fields" => [
-                [ "name",     [ "fieldId" => "name",  "label" => "Name",  "required" => true ] ],
-                [ "email",    [ "fieldId" => "email", "label" => "Email", "required" => true ] ],
-                [ "phone",    [ "fieldId" => "phone", "label" => "Phone" ] ],
-                [ "date",     [ "fieldId" => "date",  "label" => "Preferred date", "required" => true ] ],
-                [ "time",     [ "fieldId" => "time",  "label" => "Preferred time" ] ],
-                [ "textarea", [ "fieldId" => "notes", "label" => "Notes" ] ],
+                [ "name",     [ "fieldId" => "name",  "label" => __( "Name", "trinity-forms" ),  "required" => true ] ],
+                [ "email",    [ "fieldId" => "email", "label" => __( "Email", "trinity-forms" ), "required" => true ] ],
+                [ "phone",    [ "fieldId" => "phone", "label" => __( "Phone", "trinity-forms" ) ] ],
+                [ "date",     [ "fieldId" => "date",  "label" => __( "Preferred date", "trinity-forms" ), "required" => true ] ],
+                [ "time",     [ "fieldId" => "time",  "label" => __( "Preferred time", "trinity-forms" ) ] ],
+                [ "textarea", [ "fieldId" => "notes", "label" => __( "Notes", "trinity-forms" ) ] ],
             ] ],
             "rsvp" => [ "name" => __( "RSVP", "trinity-forms" ), "desc" => __( "Yes/No plus a guest count.", "trinity-forms" ), "icon" => "yes-alt", "fields" => [
-                [ "name",   [ "fieldId" => "name",      "label" => "Name",  "required" => true ] ],
-                [ "email",  [ "fieldId" => "email",     "label" => "Email", "required" => true ] ],
-                [ "radio",  [ "fieldId" => "attending", "label" => "Will you attend?", "required" => true, "options" => self::opts( [ "Yes", "No" ] ) ] ],
-                [ "number", [ "fieldId" => "guests",    "label" => "Additional guests", "min" => 0, "max" => 10 ] ],
+                [ "name",   [ "fieldId" => "name",      "label" => __( "Name", "trinity-forms" ),  "required" => true ] ],
+                [ "email",  [ "fieldId" => "email",     "label" => __( "Email", "trinity-forms" ), "required" => true ] ],
+                [ "radio",  [ "fieldId" => "attending", "label" => __( "Will you attend?", "trinity-forms" ), "required" => true, "options" => self::opts( [ "yes" => __( "Yes", "trinity-forms" ), "no" => __( "No", "trinity-forms" ) ] ) ] ],
+                [ "number", [ "fieldId" => "guests",    "label" => __( "Additional guests", "trinity-forms" ), "min" => 0, "max" => 10 ] ],
             ] ],
             "newsletter" => [ "name" => __( "Newsletter signup", "trinity-forms" ), "desc" => __( "Email plus a consent checkbox.", "trinity-forms" ), "icon" => "megaphone", "fields" => [
-                [ "name",    [ "fieldId" => "name",    "label" => "Name" ] ],
-                [ "email",   [ "fieldId" => "email",   "label" => "Email", "required" => true ] ],
-                [ "consent", [ "fieldId" => "consent", "label" => "Consent", "consent_text" => "I agree to receive email updates.", "required" => true ] ],
+                [ "name",    [ "fieldId" => "name",    "label" => __( "Name", "trinity-forms" ) ] ],
+                [ "email",   [ "fieldId" => "email",   "label" => __( "Email", "trinity-forms" ), "required" => true ] ],
+                [ "consent", [ "fieldId" => "consent", "label" => __( "Consent", "trinity-forms" ), "consent_text" => __( "I agree to receive email updates.", "trinity-forms" ), "required" => true ] ],
             ] ],
             "support" => [ "name" => __( "Support request", "trinity-forms" ), "desc" => __( "Subject, priority and a message.", "trinity-forms" ), "icon" => "sos", "fields" => [
-                [ "name",     [ "fieldId" => "name",     "label" => "Name",    "required" => true ] ],
-                [ "email",    [ "fieldId" => "email",    "label" => "Email",   "required" => true ] ],
-                [ "text",     [ "fieldId" => "subject",  "label" => "Subject", "required" => true ] ],
-                [ "radio",    [ "fieldId" => "priority", "label" => "Priority", "options" => self::opts( [ "Low", "Normal", "High", "Urgent" ] ) ] ],
-                [ "textarea", [ "fieldId" => "message",  "label" => "How can we help?", "required" => true ] ],
+                [ "name",     [ "fieldId" => "name",     "label" => __( "Name", "trinity-forms" ),    "required" => true ] ],
+                [ "email",    [ "fieldId" => "email",    "label" => __( "Email", "trinity-forms" ),   "required" => true ] ],
+                [ "text",     [ "fieldId" => "subject",  "label" => __( "Subject", "trinity-forms" ), "required" => true ] ],
+                [ "radio",    [ "fieldId" => "priority", "label" => __( "Priority", "trinity-forms" ), "options" => self::opts( [ "low" => __( "Low", "trinity-forms" ), "normal" => __( "Normal", "trinity-forms" ), "high" => __( "High", "trinity-forms" ), "urgent" => __( "Urgent", "trinity-forms" ) ] ) ] ],
+                [ "textarea", [ "fieldId" => "message",  "label" => __( "How can we help?", "trinity-forms" ), "required" => true ] ],
             ] ],
             "feedback" => [ "name" => __( "Feedback & satisfaction", "trinity-forms" ), "desc" => __( "A star rating, an NPS slider and comments.", "trinity-forms" ), "icon" => "star-filled", "fields" => [
-                [ "name",     [ "fieldId" => "name",      "label" => "Name" ] ],
-                [ "rating",   [ "fieldId" => "rating",    "label" => "How would you rate us?" ] ],
-                [ "range",    [ "fieldId" => "recommend", "label" => "How likely are you to recommend us? (0–10)", "min" => 0, "max" => 10, "step" => 1, "default" => 7 ] ],
-                [ "textarea", [ "fieldId" => "comments",  "label" => "Comments" ] ],
+                [ "name",     [ "fieldId" => "name",      "label" => __( "Name", "trinity-forms" ) ] ],
+                [ "rating",   [ "fieldId" => "rating",    "label" => __( "How would you rate us?", "trinity-forms" ) ] ],
+                [ "range",    [ "fieldId" => "recommend", "label" => __( "How likely are you to recommend us? (0–10)", "trinity-forms" ), "min" => 0, "max" => 10, "step" => 1, "default" => 7 ] ],
+                [ "textarea", [ "fieldId" => "comments",  "label" => __( "Comments", "trinity-forms" ) ] ],
             ] ],
             "job" => [ "name" => __( "Job application", "trinity-forms" ), "desc" => __( "Applicant details and a cover letter.", "trinity-forms" ), "icon" => "id", "fields" => [
-                [ "name",     [ "fieldId" => "name",     "label" => "Full name", "required" => true ] ],
-                [ "email",    [ "fieldId" => "email",    "label" => "Email",     "required" => true ] ],
-                [ "phone",    [ "fieldId" => "phone",    "label" => "Phone" ] ],
-                [ "text",     [ "fieldId" => "position", "label" => "Position applying for", "required" => true ] ],
-                [ "textarea", [ "fieldId" => "cover",    "label" => "Cover letter" ] ],
+                [ "name",     [ "fieldId" => "name",     "label" => __( "Full name", "trinity-forms" ), "required" => true ] ],
+                [ "email",    [ "fieldId" => "email",    "label" => __( "Email", "trinity-forms" ),     "required" => true ] ],
+                [ "phone",    [ "fieldId" => "phone",    "label" => __( "Phone", "trinity-forms" ) ] ],
+                [ "text",     [ "fieldId" => "position", "label" => __( "Position applying for", "trinity-forms" ), "required" => true ] ],
+                [ "textarea", [ "fieldId" => "cover",    "label" => __( "Cover letter", "trinity-forms" ) ] ],
             ] ],
             "order" => [ "name" => __( "Order form", "trinity-forms" ), "desc" => __( "Address, country, product and quantity.", "trinity-forms" ), "icon" => "cart", "fields" => [
-                [ "name",    [ "fieldId" => "name",     "label" => "Name",    "required" => true ] ],
-                [ "email",   [ "fieldId" => "email",    "label" => "Email",   "required" => true ] ],
-                [ "address", [ "fieldId" => "address",  "label" => "Shipping address", "required" => true ] ],
-                [ "country", [ "fieldId" => "country",  "label" => "Country", "required" => true ] ],
-                [ "select",  [ "fieldId" => "product",  "label" => "Product", "required" => true, "placeholder" => "Choose a product", "options" => self::opts( [ "Starter", "Standard", "Premium" ] ) ] ],
-                [ "number",  [ "fieldId" => "quantity", "label" => "Quantity", "min" => 1, "default" => 1 ] ],
+                [ "name",    [ "fieldId" => "name",     "label" => __( "Name", "trinity-forms" ),    "required" => true ] ],
+                [ "email",   [ "fieldId" => "email",    "label" => __( "Email", "trinity-forms" ),   "required" => true ] ],
+                [ "address", [ "fieldId" => "address",  "label" => __( "Shipping address", "trinity-forms" ), "required" => true ] ],
+                [ "country", [ "fieldId" => "country",  "label" => __( "Country", "trinity-forms" ), "required" => true ] ],
+                [ "select",  [ "fieldId" => "product",  "label" => __( "Product", "trinity-forms" ), "required" => true, "placeholder" => __( "Choose a product", "trinity-forms" ), "options" => self::opts( [ "starter" => __( "Starter", "trinity-forms" ), "standard" => __( "Standard", "trinity-forms" ), "premium" => __( "Premium", "trinity-forms" ) ] ) ] ],
+                [ "number",  [ "fieldId" => "quantity", "label" => __( "Quantity", "trinity-forms" ), "min" => 1, "default" => 1 ] ],
             ] ],
             "volunteer" => [ "name" => __( "Volunteer signup", "trinity-forms" ), "desc" => __( "Availability and skills.", "trinity-forms" ), "icon" => "groups", "fields" => [
-                [ "name",     [ "fieldId" => "name",         "label" => "Name",  "required" => true ] ],
-                [ "email",    [ "fieldId" => "email",        "label" => "Email", "required" => true ] ],
-                [ "phone",    [ "fieldId" => "phone",        "label" => "Phone" ] ],
-                [ "checkbox", [ "fieldId" => "availability", "label" => "Availability", "options" => self::opts( [ "Weekdays", "Weekends", "Evenings" ] ) ] ],
-                [ "textarea", [ "fieldId" => "skills",       "label" => "Skills / interests" ] ],
+                [ "name",     [ "fieldId" => "name",         "label" => __( "Name", "trinity-forms" ),  "required" => true ] ],
+                [ "email",    [ "fieldId" => "email",        "label" => __( "Email", "trinity-forms" ), "required" => true ] ],
+                [ "phone",    [ "fieldId" => "phone",        "label" => __( "Phone", "trinity-forms" ) ] ],
+                [ "checkbox", [ "fieldId" => "availability", "label" => __( "Availability", "trinity-forms" ), "options" => self::opts( [ "weekdays" => __( "Weekdays", "trinity-forms" ), "weekends" => __( "Weekends", "trinity-forms" ), "evenings" => __( "Evenings", "trinity-forms" ) ] ) ] ],
+                [ "textarea", [ "fieldId" => "skills",       "label" => __( "Skills / interests", "trinity-forms" ) ] ],
             ] ],
             "testimonial" => [ "name" => __( "Testimonial", "trinity-forms" ), "desc" => __( "Collect a rating and a quote with consent to publish.", "trinity-forms" ), "icon" => "format-quote", "fields" => [
-                [ "name",     [ "fieldId" => "name",        "label" => "Name",   "required" => true ] ],
-                [ "rating",   [ "fieldId" => "rating",      "label" => "Your rating" ] ],
-                [ "textarea", [ "fieldId" => "testimonial", "label" => "Your testimonial", "required" => true ] ],
-                [ "consent",  [ "fieldId" => "consent",     "label" => "Consent", "consent_text" => "I agree to have this testimonial published.", "required" => true ] ],
+                [ "name",     [ "fieldId" => "name",        "label" => __( "Name", "trinity-forms" ),   "required" => true ] ],
+                [ "rating",   [ "fieldId" => "rating",      "label" => __( "Your rating", "trinity-forms" ) ] ],
+                [ "textarea", [ "fieldId" => "testimonial", "label" => __( "Your testimonial", "trinity-forms" ), "required" => true ] ],
+                [ "consent",  [ "fieldId" => "consent",     "label" => __( "Consent", "trinity-forms" ), "consent_text" => __( "I agree to have this testimonial published.", "trinity-forms" ), "required" => true ] ],
             ] ],
         ];
         return (array) apply_filters( "trinity_forms_templates", $t );
+    }
+
+    /** Create a published form from a template; 0 when it could not be made. */
+    public static function create( string $slug ): int {
+        $tpl = self::templates()[ $slug ] ?? null;
+        if ( ! $tpl ) {
+            return 0;
+        }
+        // wp_insert_post() unslashes what it is given: unslashed, a translated label
+        // lost the backslash of its \u escapes ("Correo electru00f3nico").
+        $post_id = wp_insert_post( wp_slash( [
+            "post_type"    => "trinity_forms_form",
+            "post_status"  => "publish",
+            "post_title"   => $tpl["name"],
+            "post_content" => self::content_for( $slug ),
+        ] ), true );
+        return is_wp_error( $post_id ) ? 0 : (int) $post_id;
     }
 
     public static function handle_use(): void {
@@ -151,13 +178,8 @@ class Templates {
             wp_safe_redirect( admin_url( "edit.php?post_type=trinity_forms_form&page=" . self::PAGE ) );
             exit;
         }
-        $post_id = wp_insert_post( [
-            "post_type"    => "trinity_forms_form",
-            "post_status"  => "publish",
-            "post_title"   => $tpl["name"],
-            "post_content" => self::content_for( $slug ),
-        ], true );
-        if ( is_wp_error( $post_id ) || ! $post_id ) {
+        $post_id = self::create( $slug );
+        if ( ! $post_id ) {
             wp_die( esc_html__( "Could not create the form.", "trinity-forms" ) );
         }
         do_action( "trinity_forms_form_created", (int) $post_id );

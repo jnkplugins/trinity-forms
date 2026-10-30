@@ -1,0 +1,597 @@
+{
+    "translation-revision-date": "2026-10-29 12:00+0000",
+    "generator": "WP-CLI\/2.12.0",
+    "source": "builder\/build\/index.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "ar",
+                "plural-forms": "nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);"
+            },
+            "is": [
+                "\u064a\u0633\u0627\u0648\u064a"
+            ],
+            "is not": [
+                "\u0644\u0627 \u064a\u0633\u0627\u0648\u064a"
+            ],
+            "contains": [
+                "\u064a\u062d\u062a\u0648\u064a \u0639\u0644\u0649"
+            ],
+            "does not contain": [
+                "\u0644\u0627 \u064a\u062d\u062a\u0648\u064a \u0639\u0644\u0649"
+            ],
+            "starts with": [
+                "\u064a\u0628\u062f\u0623 \u0628\u0640"
+            ],
+            "ends with": [
+                "\u064a\u0646\u062a\u0647\u064a \u0628\u0640"
+            ],
+            "is greater than": [
+                "\u0623\u0643\u0628\u0631 \u0645\u0646"
+            ],
+            "is less than": [
+                "\u0623\u0635\u063a\u0631 \u0645\u0646"
+            ],
+            "is before": [
+                "\u0642\u0628\u0644"
+            ],
+            "is after": [
+                "\u0628\u0639\u062f"
+            ],
+            "is one of": [
+                "\u0623\u062d\u062f \u0647\u0630\u0647 \u0627\u0644\u0642\u064a\u0645"
+            ],
+            "is none of": [
+                "\u0644\u064a\u0633 \u0623\u064a\u064b\u0651\u0627 \u0645\u0646 \u0647\u0630\u0647 \u0627\u0644\u0642\u064a\u0645"
+            ],
+            "matches pattern": [
+                "\u064a\u0637\u0627\u0628\u0642 \u0627\u0644\u0646\u0645\u0637"
+            ],
+            "is empty": [
+                "\u0641\u0627\u0631\u063a"
+            ],
+            "is not empty": [
+                "\u0644\u064a\u0633 \u0641\u0627\u0631\u063a\u064b\u0627"
+            ],
+            "All rules match": [
+                "\u062a\u0637\u0627\u0628\u0642 \u0643\u0644 \u0627\u0644\u0642\u0648\u0627\u0639\u062f"
+            ],
+            "Any rule matches": [
+                "\u062a\u0637\u0627\u0628\u0642 \u0623\u064a \u0642\u0627\u0639\u062f\u0629"
+            ],
+            "\u2014 Select \u2014": [
+                "\u2014 \u0627\u062e\u062a\u0631 \u2014"
+            ],
+            "Field": [
+                "\u0627\u0644\u062d\u0642\u0644"
+            ],
+            "Condition": [
+                "\u0627\u0644\u0634\u0631\u0637"
+            ],
+            "Value": [
+                "\u0627\u0644\u0642\u064a\u0645\u0629"
+            ],
+            "Remove rule": [
+                "\u0625\u0632\u0627\u0644\u0629 \u0627\u0644\u0642\u0627\u0639\u062f\u0629"
+            ],
+            "When": [
+                "\u0639\u0646\u062f\u0645\u0627"
+            ],
+            "Within this group": [
+                "\u062f\u0627\u062e\u0644 \u0647\u0630\u0647 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629"
+            ],
+            "Group": [
+                "\u0645\u062c\u0645\u0648\u0639\u0629"
+            ],
+            "Add rule": [
+                "\u0625\u0636\u0627\u0641\u0629 \u0642\u0627\u0639\u062f\u0629"
+            ],
+            "Add group": [
+                "\u0625\u0636\u0627\u0641\u0629 \u0645\u062c\u0645\u0648\u0639\u0629"
+            ],
+            "Remove group": [
+                "\u0625\u0632\u0627\u0644\u0629 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629"
+            ],
+            "Then": [
+                "\u0625\u0630\u0646"
+            ],
+            "Show this field": [
+                "\u0625\u0638\u0647\u0627\u0631 \u0647\u0630\u0627 \u0627\u0644\u062d\u0642\u0644"
+            ],
+            "Hide this field": [
+                "\u0625\u062e\u0641\u0627\u0621 \u0647\u0630\u0627 \u0627\u0644\u062d\u0642\u0644"
+            ],
+            "Add another field to this form first \u2014 a rule needs a field to test.": [
+                "\u0623\u0636\u0641 \u062d\u0642\u0644\u064b\u0627 \u0622\u062e\u0631 \u0625\u0644\u0649 \u0647\u0630\u0627 \u0627\u0644\u0646\u0645\u0648\u0630\u062c \u0623\u0648\u0644\u064b\u0627\u060c \u0641\u0627\u0644\u0642\u0627\u0639\u062f\u0629 \u062a\u062d\u062a\u0627\u062c \u0625\u0644\u0649 \u062d\u0642\u0644 \u062a\u062e\u062a\u0628\u0631\u0647."
+            ],
+            "Format": [
+                "\u0627\u0644\u062a\u0646\u0633\u064a\u0642"
+            ],
+            "Pattern": [
+                "\u0627\u0644\u0646\u0645\u0637"
+            ],
+            "Error message": [
+                "\u0631\u0633\u0627\u0644\u0629 \u0627\u0644\u062e\u0637\u0623"
+            ],
+            "Conditional logic": [
+                "\u0627\u0644\u0645\u0646\u0637\u0642 \u0627\u0644\u0634\u0631\u0637\u064a"
+            ],
+            "Field ID": [
+                "\u0645\u0639\u0631\u0651\u0641 \u0627\u0644\u062d\u0642\u0644 (ID)"
+            ],
+            "Used in merge tags and entry export.": [
+                "\u064a\u064f\u0633\u062a\u062e\u062f\u0645 \u0641\u064a \u0648\u0633\u0648\u0645 \u0627\u0644\u062f\u0645\u062c \u0648\u0641\u064a \u062a\u0635\u062f\u064a\u0631 \u0627\u0644\u0625\u062f\u062e\u0627\u0644\u0627\u062a."
+            ],
+            "Label": [
+                "\u0627\u0644\u062a\u0633\u0645\u064a\u0629"
+            ],
+            "Placeholder": [
+                "\u0627\u0644\u0646\u0635 \u0627\u0644\u062a\u0648\u0636\u064a\u062d\u064a"
+            ],
+            "Help text": [
+                "\u0646\u0635 \u0627\u0644\u0645\u0633\u0627\u0639\u062f\u0629"
+            ],
+            "Required": [
+                "\u0645\u0637\u0644\u0648\u0628"
+            ],
+            "Appearance": [
+                "\u0627\u0644\u0645\u0638\u0647\u0631"
+            ],
+            "Field width": [
+                "\u0639\u0631\u0636 \u0627\u0644\u062d\u0642\u0644"
+            ],
+            "Full width": [
+                "\u0627\u0644\u0639\u0631\u0636 \u0627\u0644\u0643\u0627\u0645\u0644"
+            ],
+            "One half": [
+                "\u0627\u0644\u0646\u0635\u0641"
+            ],
+            "One third": [
+                "\u0627\u0644\u062b\u0644\u062b"
+            ],
+            "One quarter": [
+                "\u0627\u0644\u0631\u0628\u0639"
+            ],
+            "Help text position": [
+                "\u0645\u0648\u0636\u0639 \u0646\u0635 \u0627\u0644\u0645\u0633\u0627\u0639\u062f\u0629"
+            ],
+            "Use the form's setting": [
+                "\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0625\u0639\u062f\u0627\u062f \u0627\u0644\u0646\u0645\u0648\u0630\u062c"
+            ],
+            "Below the field": [
+                "\u0623\u0633\u0641\u0644 \u0627\u0644\u062d\u0642\u0644"
+            ],
+            "Above the field": [
+                "\u0623\u0639\u0644\u0649 \u0627\u0644\u062d\u0642\u0644"
+            ],
+            "CSS class": [
+                "\u0641\u0626\u0629 CSS"
+            ],
+            "Added to the field wrapper, for your own styling.": [
+                "\u062a\u064f\u0636\u0627\u0641 \u0625\u0644\u0649 \u063a\u0644\u0627\u0641 \u0627\u0644\u062d\u0642\u0644 \u0644\u062a\u0646\u0633\u064a\u0642\u0643 \u0627\u0644\u062e\u0627\u0635."
+            ],
+            "Advanced": [
+                "\u0645\u062a\u0642\u062f\u0651\u0645"
+            ],
+            "Default value": [
+                "\u0627\u0644\u0642\u064a\u0645\u0629 \u0627\u0644\u0627\u0641\u062a\u0631\u0627\u0636\u064a\u0629"
+            ],
+            "Admin label": [
+                "\u062a\u0633\u0645\u064a\u0629 \u0627\u0644\u0625\u062f\u0627\u0631\u0629"
+            ],
+            "Visible to": [
+                "\u0645\u0631\u0626\u064a \u0644\u0640"
+            ],
+            "Everyone": [
+                "\u0627\u0644\u062c\u0645\u064a\u0639"
+            ],
+            "Logged-in users": [
+                "\u0627\u0644\u0623\u0639\u0636\u0627\u0621 \u0627\u0644\u0645\u0633\u062c\u0651\u0644\u0648\u0646"
+            ],
+            "Administrators only": [
+                "\u0627\u0644\u0645\u062f\u064a\u0631\u0648\u0646 \u0641\u0642\u0637"
+            ],
+            "Allow this field to be pre-filled from the URL": [
+                "\u0627\u0644\u0633\u0645\u0627\u062d \u0628\u062a\u0639\u0628\u0626\u0629 \u0647\u0630\u0627 \u0627\u0644\u062d\u0642\u0644 \u0645\u0633\u0628\u0642\u064b\u0627 \u0645\u0646 \u0627\u0644\u0631\u0627\u0628\u0637"
+            ],
+            "Off by default: a form whose every field can be set from a link is a form whose data you cannot trust.": [
+                "\u0645\u0639\u0637\u0651\u0644 \u0627\u0641\u062a\u0631\u0627\u0636\u064a\u064b\u0627: \u0627\u0644\u0646\u0645\u0648\u0630\u062c \u0627\u0644\u0630\u064a \u064a\u0645\u0643\u0646 \u0636\u0628\u0637 \u0643\u0644 \u062d\u0642\u0648\u0644\u0647 \u0645\u0646 \u0631\u0627\u0628\u0637 \u0647\u0648 \u0646\u0645\u0648\u0630\u062c \u0644\u0627 \u064a\u0645\u0643\u0646\u0643 \u0627\u0644\u0648\u062b\u0648\u0642 \u0628\u0628\u064a\u0627\u0646\u0627\u062a\u0647."
+            ],
+            "Parameter name": [
+                "\u0627\u0633\u0645 \u0627\u0644\u0645\u064f\u0639\u0627\u0645\u0644"
+            ],
+            "Defaults to the field ID. Also reads user_email, first_name, post_id and user_meta_<key>.": [
+                "\u064a\u0643\u0648\u0646 \u0627\u0641\u062a\u0631\u0627\u0636\u064a\u064b\u0627 ID \u0627\u0644\u062d\u0642\u0644. \u0648\u064a\u0642\u0631\u0623 \u0623\u064a\u0636\u064b\u0627 user_email \u0648 first_name \u0648 post_id \u0648 user_meta_<key>."
+            ],
+            "No duplicates": [
+                "\u0628\u0644\u0627 \u062a\u0643\u0631\u0627\u0631"
+            ],
+            "Refuse a submission if another entry on this form already has the same value.": [
+                "\u0631\u0641\u0636 \u0627\u0644\u0625\u0631\u0633\u0627\u0644 \u0625\u0630\u0627 \u0643\u0627\u0646 \u0625\u062f\u062e\u0627\u0644 \u0622\u062e\u0631 \u0641\u064a \u0647\u0630\u0627 \u0627\u0644\u0646\u0645\u0648\u0630\u062c \u064a\u062d\u0645\u0644 \u0627\u0644\u0642\u064a\u0645\u0629 \u0646\u0641\u0633\u0647\u0627."
+            ],
+            "Custom error message": [
+                "\u0631\u0633\u0627\u0644\u0629 \u062e\u0637\u0623 \u0645\u062e\u0635\u0651\u0635\u0629"
+            ],
+            "Autocomplete": [
+                "\u0627\u0644\u0625\u0643\u0645\u0627\u0644 \u0627\u0644\u062a\u0644\u0642\u0627\u0626\u064a"
+            ],
+            "The HTML autocomplete hint, e.g. email, given-name, organization.": [
+                "\u062a\u0644\u0645\u064a\u062d autocomplete \u0641\u064a HTML\u060c \u0645\u062b\u0644 email \u0648 given-name \u0648 organization."
+            ],
+            "City": [
+                "\u0627\u0644\u0645\u062f\u064a\u0646\u0629"
+            ],
+            "Consent text": [
+                "\u0646\u0635 \u0627\u0644\u0645\u0648\u0627\u0641\u0642\u0629"
+            ],
+            "Accepted extensions (.pdf, .png \u2026)": [
+                "\u0627\u0644\u0627\u0645\u062a\u062f\u0627\u062f\u0627\u062a \u0627\u0644\u0645\u0642\u0628\u0648\u0644\u0629 (.pdf, .png \u2026)"
+            ],
+            "Max size (MB)": [
+                "\u0627\u0644\u062d\u062c\u0645 \u0627\u0644\u0623\u0642\u0635\u0649 (MB)"
+            ],
+            "Choices": [
+                "\u0627\u0644\u062e\u064a\u0627\u0631\u0627\u062a"
+            ],
+            "One per line. Use \"Label | value\" to store a different value.": [
+                "\u062e\u064a\u0627\u0631 \u0641\u064a \u0643\u0644 \u0633\u0637\u0631. \u0627\u0633\u062a\u062e\u062f\u0645 \"\u0627\u0644\u062a\u0633\u0645\u064a\u0629 | \u0627\u0644\u0642\u064a\u0645\u0629\" \u0644\u062d\u0641\u0638 \u0642\u064a\u0645\u0629 \u0645\u062e\u062a\u0644\u0641\u0629."
+            ],
+            "First": [
+                "\u0627\u0644\u0627\u0633\u0645 \u0627\u0644\u0623\u0648\u0644"
+            ],
+            "Last": [
+                "\u0627\u0633\u0645 \u0627\u0644\u0639\u0627\u0626\u0644\u0629"
+            ],
+            "Page break": [
+                "\u0641\u0627\u0635\u0644 \u0635\u0641\u062d\u0629"
+            ],
+            "Points": [
+                "\u0627\u0644\u0646\u0642\u0627\u0637"
+            ],
+            "Section": [
+                "\u0642\u0633\u0645"
+            ],
+            "Rows": [
+                "\u0627\u0644\u0635\u0641\u0648\u0641"
+            ],
+            "+ %d more": [
+                "+ %d \u0623\u062e\u0631\u0649"
+            ],
+            "No choices yet": [
+                "\u0644\u0627 \u062a\u0648\u062c\u062f \u062e\u064a\u0627\u0631\u0627\u062a \u0628\u0639\u062f"
+            ],
+            "Select an option": [
+                "\u0627\u062e\u062a\u0631 \u062e\u064a\u0627\u0631\u064b\u0627"
+            ],
+            "Select a country": [
+                "\u0627\u062e\u062a\u0631 \u062f\u0648\u0644\u0629"
+            ],
+            "United States": [
+                "\u0627\u0644\u0648\u0644\u0627\u064a\u0627\u062a \u0627\u0644\u0645\u062a\u062d\u062f\u0629"
+            ],
+            "United Kingdom": [
+                "\u0627\u0644\u0645\u0645\u0644\u0643\u0629 \u0627\u0644\u0645\u062a\u062d\u062f\u0629"
+            ],
+            "India": [
+                "\u0627\u0644\u0647\u0646\u062f"
+            ],
+            "Custom HTML": [
+                "\u0634\u064a\u0641\u0631\u0629 HTML \u0645\u062e\u0635\u0651\u0635\u0629"
+            ],
+            "Hidden: not shown to visitors": [
+                "\u0645\u062e\u0641\u064a: \u0644\u0627 \u064a\u0638\u0647\u0631 \u0644\u0644\u0632\u0648\u0651\u0627\u0631"
+            ],
+            "Street": [
+                "\u0627\u0644\u0634\u0627\u0631\u0639"
+            ],
+            "Postcode": [
+                "\u0627\u0644\u0631\u0645\u0632 \u0627\u0644\u0628\u0631\u064a\u062f\u064a"
+            ],
+            "Drop a file here or browse": [
+                "\u0623\u0641\u0644\u062a \u0645\u0644\u0641\u064b\u0627 \u0647\u0646\u0627 \u0623\u0648 \u062a\u0635\u0641\u0651\u062d"
+            ],
+            "Signature pad": [
+                "\u0644\u0648\u062d\u0629 \u0627\u0644\u062a\u0648\u0642\u064a\u0639"
+            ],
+            "Repeatable group": [
+                "\u0645\u062c\u0645\u0648\u0639\u0629 \u0642\u0627\u0628\u0644\u0629 \u0644\u0644\u062a\u0643\u0631\u0627\u0631"
+            ],
+            "Advanced block": [
+                "\u0645\u0643\u0648\u0651\u0646 \u0645\u062a\u0642\u062f\u0651\u0645"
+            ],
+            "Kept exactly as it is. Edit it in the block editor.": [
+                "\u064a\u064f\u062d\u0641\u0638 \u0643\u0645\u0627 \u0647\u0648 \u062a\u0645\u0627\u0645\u064b\u0627. \u062d\u0631\u0651\u0631\u0647 \u0641\u064a \u0645\u062d\u0631\u0631 \u0627\u0644\u0645\u0643\u0648\u0651\u0646\u0627\u062a."
+            ],
+            "Open %s in the block editor": [
+                "\u0641\u062a\u062d %s \u0641\u064a \u0645\u062d\u0631\u0631 \u0627\u0644\u0645\u0643\u0648\u0651\u0646\u0627\u062a"
+            ],
+            "This form is empty. Drag a field here, or click one on the left.": [
+                "\u0647\u0630\u0627 \u0627\u0644\u0646\u0645\u0648\u0630\u062c \u0641\u0627\u0631\u063a. \u0627\u0633\u062d\u0628 \u062d\u0642\u0644\u064b\u0627 \u0625\u0644\u0649 \u0647\u0646\u0627\u060c \u0623\u0648 \u0627\u0646\u0642\u0631 \u0639\u0644\u0649 \u062d\u0642\u0644 \u0645\u0646 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u062d\u0642\u0648\u0644."
+            ],
+            "Or start from a template": [
+                "\u0623\u0648 \u0627\u0628\u062f\u0623 \u0645\u0646 \u0642\u0627\u0644\u0628"
+            ],
+            "conditional": [
+                "\u0634\u0631\u0637\u064a"
+            ],
+            "Reorder %s": [
+                "\u0625\u0639\u0627\u062f\u0629 \u062a\u0631\u062a\u064a\u0628 %s"
+            ],
+            "Move %s up": [
+                "\u0646\u0642\u0644 %s \u0644\u0644\u0623\u0639\u0644\u0649"
+            ],
+            "Move %s down": [
+                "\u0646\u0642\u0644 %s \u0644\u0644\u0623\u0633\u0641\u0644"
+            ],
+            "Remove %s": [
+                "\u0625\u0632\u0627\u0644\u0629 %s"
+            ],
+            "Allow multiple files": [
+                "\u0627\u0644\u0633\u0645\u0627\u062d \u0628\u0639\u062f\u0629 \u0645\u0644\u0641\u0627\u062a"
+            ],
+            "Formula": [
+                "\u0627\u0644\u0645\u0639\u0627\u062f\u0644\u0629"
+            ],
+            "Use field ids in braces, e.g. {quantity} * 12.50": [
+                "\u0627\u0633\u062a\u062e\u062f\u0645 \u0645\u0639\u0631\u0651\u0641\u0627\u062a \u0627\u0644\u062d\u0642\u0648\u0644 \u0628\u064a\u0646 \u0623\u0642\u0648\u0627\u0633 \u0645\u0639\u0642\u0648\u0635\u0629\u060c \u0645\u062b\u0644 {quantity} * 12.50"
+            ],
+            "Prefix": [
+                "\u0627\u0644\u0628\u0627\u062f\u0626\u0629"
+            ],
+            "Suffix": [
+                "\u0627\u0644\u0644\u0627\u062d\u0642\u0629"
+            ],
+            "Decimal places": [
+                "\u0627\u0644\u0645\u0646\u0627\u0632\u0644 \u0627\u0644\u0639\u0634\u0631\u064a\u0629"
+            ],
+            "Fills in": [
+                "\u064a\u0645\u0644\u0623"
+            ],
+            "Data (CSV)": [
+                "\u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a (CSV)"
+            ],
+            "First line names the levels (e.g. Country,State); each further line is one path.": [
+                "\u0627\u0644\u0633\u0637\u0631 \u0627\u0644\u0623\u0648\u0644 \u064a\u0633\u0645\u0651\u064a \u0627\u0644\u0645\u0633\u062a\u0648\u064a\u0627\u062a (\u0645\u062b\u0644 Country,State)\u060c \u0648\u0643\u0644 \u0633\u0637\u0631 \u0628\u0639\u062f\u0647 \u0645\u0633\u0627\u0631 \u0648\u0627\u062d\u062f."
+            ],
+            "Amount mode": [
+                "\u0637\u0631\u064a\u0642\u0629 \u0627\u0644\u0645\u0628\u0644\u063a"
+            ],
+            "Amount": [
+                "\u0627\u0644\u0645\u0628\u0644\u063a"
+            ],
+            "Amount from field (id)": [
+                "\u0627\u0644\u0645\u0628\u0644\u063a \u0645\u0646 \u062d\u0642\u0644 (ID)"
+            ],
+            "Currency": [
+                "\u0627\u0644\u0639\u0645\u0644\u0629"
+            ],
+            "Add button text": [
+                "\u0646\u0635 \u0632\u0631 \u0627\u0644\u0625\u0636\u0627\u0641\u0629"
+            ],
+            "Sub-field schema (JSON array)": [
+                "\u0645\u062e\u0637\u0637 \u0627\u0644\u062d\u0642\u0648\u0644 \u0627\u0644\u0641\u0631\u0639\u064a\u0629 (\u0645\u0635\u0641\u0648\u0641\u0629 JSON)"
+            ],
+            "e.g. [{\"id\":\"name\",\"type\":\"text\",\"label\":\"Name\"}]. Left empty, one \"Item\" column is shown.": [
+                "\u0645\u062b\u0627\u0644: [{\"id\":\"name\",\"type\":\"text\",\"label\":\"Name\"}]. \u0625\u0630\u0627 \u062a\u064f\u0631\u0643 \u0641\u0627\u0631\u063a\u064b\u0627 \u064a\u0638\u0647\u0631 \u0639\u0645\u0648\u062f \u0648\u0627\u062d\u062f \u0628\u0627\u0633\u0645 \"\u0639\u0646\u0635\u0631\"."
+            ],
+            "Correct answer value (quiz)": [
+                "\u0642\u064a\u0645\u0629 \u0627\u0644\u0625\u062c\u0627\u0628\u0629 \u0627\u0644\u0635\u062d\u064a\u062d\u0629 (\u0627\u062e\u062a\u0628\u0627\u0631)"
+            ],
+            "Check it is a full phone number (7 to 15 digits, + allowed)": [
+                "\u0627\u0644\u062a\u062d\u0642\u0642 \u0645\u0646 \u0623\u0646\u0647 \u0631\u0642\u0645 \u0647\u0627\u062a\u0641 \u0643\u0627\u0645\u0644 (\u0645\u0646 7 \u0625\u0644\u0649 15 \u0631\u0642\u0645\u064b\u0627\u060c \u0648\u064a\u064f\u0633\u0645\u062d \u0628\u0640 +)"
+            ],
+            "Field settings": [
+                "\u0625\u0639\u062f\u0627\u062f\u0627\u062a \u0627\u0644\u062d\u0642\u0644"
+            ],
+            "Allow multiple selections": [
+                "\u0627\u0644\u0633\u0645\u0627\u062d \u0628\u0639\u062f\u0629 \u0627\u062e\u062a\u064a\u0627\u0631\u0627\u062a"
+            ],
+            "Select a field to edit its settings.": [
+                "\u0627\u062e\u062a\u0631 \u062d\u0642\u0644\u064b\u0627 \u0644\u062a\u062d\u0631\u064a\u0631 \u0625\u0639\u062f\u0627\u062f\u0627\u062a\u0647."
+            ],
+            "A regular expression the value must match. Leave empty for no check.": [
+                "\u062a\u0639\u0628\u064a\u0631 \u0646\u0645\u0637\u064a (regular expression) \u064a\u062c\u0628 \u0623\u0646 \u062a\u0637\u0627\u0628\u0642\u0647 \u0627\u0644\u0642\u064a\u0645\u0629. \u0627\u062a\u0631\u0643\u0647 \u0641\u0627\u0631\u063a\u064b\u0627 \u0644\u0639\u062f\u0645 \u0627\u0644\u062a\u062d\u0642\u0642."
+            ],
+            "Shown instead of the label in entries and exports. Useful when the public label is a long question.": [
+                "\u062a\u0638\u0647\u0631 \u0628\u062f\u0644 \u0627\u0644\u062a\u0633\u0645\u064a\u0629 \u0641\u064a \u0627\u0644\u0625\u062f\u062e\u0627\u0644\u0627\u062a \u0648\u0645\u0644\u0641\u0627\u062a \u0627\u0644\u062a\u0635\u062f\u064a\u0631. \u0645\u0641\u064a\u062f\u0629 \u0639\u0646\u062f\u0645\u0627 \u062a\u0643\u0648\u0646 \u0627\u0644\u062a\u0633\u0645\u064a\u0629 \u0627\u0644\u0639\u0627\u0645\u0629 \u0633\u0624\u0627\u0644\u064b\u0627 \u0637\u0648\u064a\u0644\u064b\u0627."
+            ],
+            "Replaces the built-in \"this field is required\" wording.": [
+                "\u062a\u062d\u0644 \u0645\u062d\u0644 \u0627\u0644\u0639\u0628\u0627\u0631\u0629 \u0627\u0644\u0645\u062f\u0645\u062c\u0629 \"\u0647\u0630\u0627 \u0627\u0644\u062d\u0642\u0644 \u0645\u0637\u0644\u0648\u0628\"."
+            ],
+            "Could not load this form.": [
+                "\u062a\u0639\u0630\u0651\u0631 \u062a\u062d\u0645\u064a\u0644 \u0647\u0630\u0627 \u0627\u0644\u0646\u0645\u0648\u0630\u062c."
+            ],
+            "new field": [
+                "\u062d\u0642\u0644 \u062c\u062f\u064a\u062f"
+            ],
+            "the end of the form": [
+                "\u0646\u0647\u0627\u064a\u0629 \u0627\u0644\u0646\u0645\u0648\u0630\u062c"
+            ],
+            "field": [
+                "\u062d\u0642\u0644"
+            ],
+            "Picked up %s.": [
+                "\u062a\u0645 \u0627\u0644\u062a\u0642\u0627\u0637 %s."
+            ],
+            "%1$s is over %2$s, %3$s.": [
+                "%1$s \u0641\u0648\u0642 %2$s\u060c %3$s."
+            ],
+            "position %1$d of %2$d": [
+                "\u0627\u0644\u0645\u0648\u0636\u0639 %1$d \u0645\u0646 %2$d"
+            ],
+            "%s is no longer over a drop position.": [
+                "\u0644\u0645 \u064a\u0639\u062f %s \u0641\u0648\u0642 \u0645\u0648\u0636\u0639 \u0625\u0641\u0644\u0627\u062a."
+            ],
+            "%1$s was dropped at %2$s.": [
+                "\u062a\u0645 \u0625\u0641\u0644\u0627\u062a %1$s \u0639\u0646\u062f %2$s."
+            ],
+            "%s was dropped outside the form; nothing changed.": [
+                "\u062a\u0645 \u0625\u0641\u0644\u0627\u062a %s \u062e\u0627\u0631\u062c \u0627\u0644\u0646\u0645\u0648\u0630\u062c\u060c \u0648\u0644\u0645 \u064a\u062a\u063a\u064a\u0651\u0631 \u0634\u064a\u0621."
+            ],
+            "Moving %s was cancelled.": [
+                "\u062a\u0645 \u0625\u0644\u063a\u0627\u0621 \u0646\u0642\u0644 %s."
+            ],
+            "Form title": [
+                "\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u0646\u0645\u0648\u0630\u062c"
+            ],
+            "Undo": [
+                "\u062a\u0631\u0627\u062c\u0639"
+            ],
+            "Ctrl+Z": [
+                "Ctrl+Z"
+            ],
+            "Redo": [
+                "\u0625\u0639\u0627\u062f\u0629"
+            ],
+            "Ctrl+Shift+Z": [
+                "Ctrl+Shift+Z"
+            ],
+            "Templates": [
+                "\u0627\u0644\u0642\u0648\u0627\u0644\u0628"
+            ],
+            "Submit button text, and what visitors see after they submit": [
+                "\u0646\u0635 \u0632\u0631 \u0627\u0644\u0625\u0631\u0633\u0627\u0644\u060c \u0648\u0645\u0627 \u064a\u0631\u0627\u0647 \u0627\u0644\u0632\u0648\u0651\u0627\u0631 \u0628\u0639\u062f \u0627\u0644\u0625\u0631\u0633\u0627\u0644"
+            ],
+            "Settings": [
+                "\u0627\u0644\u0625\u0639\u062f\u0627\u062f\u0627\u062a"
+            ],
+            "Copy the shortcode that puts this form on a page or post": [
+                "\u0627\u0646\u0633\u062e \u0627\u0644\u0631\u0645\u0632 \u0627\u0644\u0642\u0635\u064a\u0631 (shortcode) \u0627\u0644\u0630\u064a \u064a\u0636\u0639 \u0647\u0630\u0627 \u0627\u0644\u0646\u0645\u0648\u0630\u062c \u0641\u064a \u0635\u0641\u062d\u0629 \u0623\u0648 \u0645\u0642\u0627\u0644\u0629"
+            ],
+            "Copied": [
+                "\u062a\u0645 \u0627\u0644\u0646\u0633\u062e"
+            ],
+            "Press Ctrl+C to copy": [
+                "\u0627\u0636\u063a\u0637 Ctrl+C \u0644\u0644\u0646\u0633\u062e"
+            ],
+            "Copy shortcode": [
+                "\u0646\u0633\u062e \u0627\u0644\u0631\u0645\u0632 \u0627\u0644\u0642\u0635\u064a\u0631"
+            ],
+            "Make a draft page holding this form and open it. Save your changes first.": [
+                "\u0623\u0646\u0634\u0626 \u0635\u0641\u062d\u0629 \u0645\u0633\u0648\u062f\u0629 \u062a\u062d\u062a\u0648\u064a \u0647\u0630\u0627 \u0627\u0644\u0646\u0645\u0648\u0630\u062c \u0648\u0627\u0641\u062a\u062d\u0647\u0627. \u0627\u062d\u0641\u0638 \u062a\u063a\u064a\u064a\u0631\u0627\u062a\u0643 \u0623\u0648\u0644\u064b\u0627."
+            ],
+            "Create a page": [
+                "\u0625\u0646\u0634\u0627\u0621 \u0635\u0641\u062d\u0629"
+            ],
+            "Set up the emails sent when this form is submitted": [
+                "\u0625\u0639\u062f\u0627\u062f \u0631\u0633\u0627\u0626\u0644 \u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u062a\u064a \u062a\u064f\u0631\u0633\u0644 \u0639\u0646\u062f \u0625\u0631\u0633\u0627\u0644 \u0647\u0630\u0627 \u0627\u0644\u0646\u0645\u0648\u0630\u062c"
+            ],
+            "Notifications": [
+                "\u0627\u0644\u0625\u0634\u0639\u0627\u0631\u0627\u062a"
+            ],
+            "Open in block editor": [
+                "\u0641\u062a\u062d \u0641\u064a \u0645\u062d\u0631\u0631 \u0627\u0644\u0645\u0643\u0648\u0651\u0646\u0627\u062a"
+            ],
+            "Describe your form and let AI draft the fields (opens the block editor)": [
+                "\u0635\u0650\u0641 \u0646\u0645\u0648\u0630\u062c\u0643 \u0648\u062f\u0639 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u064a\u0643\u062a\u0628 \u0645\u0633\u0648\u062f\u0629 \u0627\u0644\u062d\u0642\u0648\u0644 (\u064a\u0641\u062a\u062d \u0645\u062d\u0631\u0631 \u0627\u0644\u0645\u0643\u0648\u0651\u0646\u0627\u062a)"
+            ],
+            "Draft with AI": [
+                "\u0645\u0633\u0648\u062f\u0629 \u0628\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a"
+            ],
+            "Form status": [
+                "\u062d\u0627\u0644\u0629 \u0627\u0644\u0646\u0645\u0648\u0630\u062c"
+            ],
+            "Draft": [
+                "\u0645\u0633\u0648\u062f\u0629"
+            ],
+            "Published": [
+                "\u0645\u0646\u0634\u0648\u0631"
+            ],
+            "Form saved. It is published, so it shows wherever you embed it.": [
+                "\u062a\u0645 \u062d\u0641\u0638 \u0627\u0644\u0646\u0645\u0648\u0630\u062c. \u0625\u0646\u0647 \u0645\u0646\u0634\u0648\u0631\u060c \u0641\u064a\u0638\u0647\u0631 \u0641\u064a \u0643\u0644 \u0645\u0643\u0627\u0646 \u062a\u0636\u0645\u0651\u0646\u0647 \u0641\u064a\u0647."
+            ],
+            "Form saved as a draft. Visitors will not see it until you publish it.": [
+                "\u062a\u0645 \u062d\u0641\u0638 \u0627\u0644\u0646\u0645\u0648\u0630\u062c \u0643\u0645\u0633\u0648\u062f\u0629. \u0644\u0646 \u064a\u0631\u0627\u0647 \u0627\u0644\u0632\u0648\u0651\u0627\u0631 \u062d\u062a\u0649 \u062a\u0646\u0634\u0631\u0647."
+            ],
+            "Could not save this form.": [
+                "\u062a\u0639\u0630\u0651\u0631 \u062d\u0641\u0638 \u0647\u0630\u0627 \u0627\u0644\u0646\u0645\u0648\u0630\u062c."
+            ],
+            "Saving\u2026": [
+                "\u062c\u0627\u0631\u064d \u0627\u0644\u062d\u0641\u0638\u2026"
+            ],
+            "Save form": [
+                "\u062d\u0641\u0638 \u0627\u0644\u0646\u0645\u0648\u0630\u062c"
+            ],
+            "This form was saved in a format the builder can't open, so its fields don't show here. It still works on your site, and saving is turned off so nothing gets overwritten.": [
+                "\u062d\u064f\u0641\u0638 \u0647\u0630\u0627 \u0627\u0644\u0646\u0645\u0648\u0630\u062c \u0628\u0635\u064a\u063a\u0629 \u0644\u0627 \u064a\u0633\u062a\u0637\u064a\u0639 \u0627\u0644\u0645\u0646\u0634\u0626 \u0641\u062a\u062d\u0647\u0627\u060c \u0644\u0630\u0627 \u0644\u0627 \u062a\u0638\u0647\u0631 \u062d\u0642\u0648\u0644\u0647 \u0647\u0646\u0627. \u0645\u0627 \u0632\u0627\u0644 \u064a\u0639\u0645\u0644 \u0639\u0644\u0649 \u0645\u0648\u0642\u0639\u0643\u060c \u0648\u0627\u0644\u062d\u0641\u0638 \u0645\u0639\u0637\u0651\u0644 \u062d\u062a\u0649 \u0644\u0627 \u064a\u064f\u0633\u062a\u0628\u062f\u0644 \u0634\u064a\u0621."
+            ],
+            "This form changed somewhere else, most likely in the block editor in another tab. Your edits here have not been saved, and saving now would overwrite that change.": [
+                "\u062a\u063a\u064a\u0651\u0631 \u0647\u0630\u0627 \u0627\u0644\u0646\u0645\u0648\u0630\u062c \u0641\u064a \u0645\u0643\u0627\u0646 \u0622\u062e\u0631\u060c \u063a\u0627\u0644\u0628\u064b\u0627 \u0641\u064a \u0645\u062d\u0631\u0631 \u0627\u0644\u0645\u0643\u0648\u0651\u0646\u0627\u062a \u0641\u064a \u062a\u0628\u0648\u064a\u0628 \u0622\u062e\u0631. \u0644\u0645 \u062a\u064f\u062d\u0641\u0638 \u062a\u0639\u062f\u064a\u0644\u0627\u062a\u0643 \u0647\u0646\u0627\u060c \u0648\u0627\u0644\u062d\u0641\u0638 \u0627\u0644\u0622\u0646 \u0633\u064a\u0633\u062a\u0628\u062f\u0644 \u0630\u0644\u0643 \u0627\u0644\u062a\u063a\u064a\u064a\u0631."
+            ],
+            "Reload the form": [
+                "\u0625\u0639\u0627\u062f\u0629 \u062a\u062d\u0645\u064a\u0644 \u0627\u0644\u0646\u0645\u0648\u0630\u062c"
+            ],
+            "Form settings": [
+                "\u0625\u0639\u062f\u0627\u062f\u0627\u062a \u0627\u0644\u0646\u0645\u0648\u0630\u062c"
+            ],
+            "Submit button text": [
+                "\u0646\u0635 \u0632\u0631 \u0627\u0644\u0625\u0631\u0633\u0627\u0644"
+            ],
+            "Submit": [
+                "\u0625\u0631\u0633\u0627\u0644"
+            ],
+            "After submit": [
+                "\u0628\u0639\u062f \u0627\u0644\u0625\u0631\u0633\u0627\u0644"
+            ],
+            "Show a message": [
+                "\u0625\u0638\u0647\u0627\u0631 \u0631\u0633\u0627\u0644\u0629"
+            ],
+            "Go to a page": [
+                "\u0627\u0644\u0627\u0646\u062a\u0642\u0627\u0644 \u0625\u0644\u0649 \u0635\u0641\u062d\u0629"
+            ],
+            "Go to a URL": [
+                "\u0627\u0644\u0627\u0646\u062a\u0642\u0627\u0644 \u0625\u0644\u0649 URL"
+            ],
+            "Confirmation message": [
+                "\u0631\u0633\u0627\u0644\u0629 \u0627\u0644\u062a\u0623\u0643\u064a\u062f"
+            ],
+            "Thank you!": [
+                "\u0634\u0643\u0631\u064b\u0627 \u0644\u0643!"
+            ],
+            "Page": [
+                "\u0627\u0644\u0635\u0641\u062d\u0629"
+            ],
+            "Choose a page": [
+                "\u0627\u062e\u062a\u0631 \u0635\u0641\u062d\u0629"
+            ],
+            "Redirect URL": [
+                "\u0631\u0627\u0628\u0637 \u0625\u0639\u0627\u062f\u0629 \u0627\u0644\u062a\u0648\u062c\u064a\u0647 (URL)"
+            ],
+            "These are saved with the form when you press Save form.": [
+                "\u062a\u064f\u062d\u0641\u0638 \u0647\u0630\u0647 \u0645\u0639 \u0627\u0644\u0646\u0645\u0648\u0630\u062c \u0639\u0646\u062f \u0627\u0644\u0636\u063a\u0637 \u0639\u0644\u0649 \u062d\u0641\u0638 \u0627\u0644\u0646\u0645\u0648\u0630\u062c."
+            ],
+            "Done": [
+                "\u062a\u0645"
+            ],
+            "Start from a template": [
+                "\u0627\u0644\u0628\u062f\u0621 \u0645\u0646 \u0642\u0627\u0644\u0628"
+            ],
+            "Replace the current form with this template? Your unsaved changes will be lost.": [
+                "\u0647\u0644 \u062a\u0631\u064a\u062f \u0627\u0633\u062a\u0628\u062f\u0627\u0644 \u0627\u0644\u0646\u0645\u0648\u0630\u062c \u0627\u0644\u062d\u0627\u0644\u064a \u0628\u0647\u0630\u0627 \u0627\u0644\u0642\u0627\u0644\u0628\u061f \u0633\u062a\u0636\u064a\u0639 \u062a\u063a\u064a\u064a\u0631\u0627\u062a\u0643 \u063a\u064a\u0631 \u0627\u0644\u0645\u062d\u0641\u0648\u0638\u0629."
+            ],
+            "fields": [
+                "\u062d\u0642\u0648\u0644"
+            ],
+            "Add a field": [
+                "\u0625\u0636\u0627\u0641\u0629 \u062d\u0642\u0644"
+            ],
+            "Click to append, or drag onto the canvas to place.": [
+                "\u0627\u0646\u0642\u0631 \u0644\u0644\u0625\u0636\u0627\u0641\u0629 \u0641\u064a \u0627\u0644\u0646\u0647\u0627\u064a\u0629\u060c \u0623\u0648 \u0627\u0633\u062d\u0628 \u0625\u0644\u0649 \u0627\u0644\u0644\u0648\u062d\u0629 \u0644\u0648\u0636\u0639\u0647."
+            ],
+            "Pro fields": [
+                "\u062d\u0642\u0648\u0644 Pro"
+            ],
+            "Activate your Pro license to add these.": [
+                "\u0641\u0639\u0651\u0644 \u062a\u0631\u062e\u064a\u0635 Pro \u0644\u0625\u0636\u0627\u0641\u0629 \u0647\u0630\u0647 \u0627\u0644\u062d\u0642\u0648\u0644."
+            ],
+            "Enter license key": [
+                "\u0623\u062f\u062e\u0644 \u0645\u0641\u062a\u0627\u062d \u0627\u0644\u062a\u0631\u062e\u064a\u0635"
+            ],
+            "Requires an active Pro license": [
+                "\u064a\u062a\u0637\u0644\u0628 \u062a\u0631\u062e\u064a\u0635 Pro \u0646\u0634\u0637\u064b\u0627"
+            ]
+        }
+    }
+}

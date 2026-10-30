@@ -286,6 +286,87 @@
 	syncCardModes();
 
 	/**
+	 * Choice dropdown for the one-row rules (submit button, confirmations).
+	 *
+	 * When the rule's field has choices and the operator compares whole answers,
+	 * the value box becomes a dropdown of that field's choices: the label is shown,
+	 * the stored value is saved. Same behaviour as the block editor and the visual
+	 * builder (blocks/conditional-rules.js). Without JS the text box stays, and a
+	 * label typed there still matches (Conditional_Logic::choice_value()).
+	 */
+	var ruleChoices = data.ruleChoices || {};
+	var CHOICE_OPS  = [ "equals", "not_equals", "contains", "not_contains" ];
+	function fold( s ) {
+		s = String( s == null ? "" : s ).trim();
+		return ( s.normalize ? s.normalize( "NFC" ) : s ).toLowerCase();
+	}
+	function syncRule( row ) {
+		var fieldSel = row.querySelector( 'select[name$="[field]"]' );
+		var opSel    = row.querySelector( 'select[name$="[operator]"]' );
+		var input    = row.querySelector( 'input[name$="[value]"]' );
+		if ( ! fieldSel || ! opSel || ! input ) {
+			return;
+		}
+		var picker  = row.querySelector( "select.tf-rule-choices" );
+		var choices = CHOICE_OPS.indexOf( opSel.value ) !== -1 ? ( ruleChoices[ fieldSel.value ] || [] ) : [];
+		if ( ! choices.length ) {
+			if ( picker ) {
+				input.value = picker.value;
+				picker.remove();
+			}
+			input.hidden   = false;
+			input.disabled = false;
+			return;
+		}
+		var current = picker ? picker.value : input.value;
+		var hit     = null;
+		choices.forEach( function ( c ) { if ( ! hit && c.value === current ) { hit = c; } } );
+		choices.forEach( function ( c ) { if ( ! hit && current !== "" && fold( c.value ) === fold( current ) ) { hit = c; } } );
+		choices.forEach( function ( c ) { if ( ! hit && current !== "" && fold( c.label ) === fold( current ) ) { hit = c; } } );
+		if ( picker ) {
+			picker.remove();
+		}
+		picker           = document.createElement( "select" );
+		picker.className = "tf-rule-choices";
+		picker.name      = input.name;
+		var none         = document.createElement( "option" );
+		none.value       = "";
+		none.textContent = i18n.selectChoice || "— select —";
+		picker.appendChild( none );
+		choices.forEach( function ( c ) {
+			var o         = document.createElement( "option" );
+			o.value       = c.value;
+			o.textContent = c.label;
+			picker.appendChild( o );
+		} );
+		if ( current !== "" && ! hit ) {
+			// No longer a choice: kept as typed so opening the form does not lose it.
+			var keep         = document.createElement( "option" );
+			keep.value       = current;
+			keep.textContent = current;
+			picker.appendChild( keep );
+		}
+		picker.value   = hit ? hit.value : current;
+		input.hidden   = true;
+		input.disabled = true;
+		input.parentNode.insertBefore( picker, input.nextSibling );
+	}
+	function syncRules() {
+		root.querySelectorAll( ".trinity-forms-inline-rule" ).forEach( syncRule );
+	}
+	root.addEventListener( "change", function ( e ) {
+		if ( e.target.matches( '.trinity-forms-inline-rule select[name$="[field]"], .trinity-forms-inline-rule select[name$="[operator]"]' ) ) {
+			syncRule( e.target.closest( ".trinity-forms-inline-rule" ) );
+		}
+	} );
+	root.addEventListener( "click", function ( e ) {
+		if ( e.target.matches( "[data-add]" ) ) {
+			syncRules();
+		}
+	} );
+	syncRules();
+
+	/**
 	 * Merge-tag picker.
 	 *
 	 * A button beside every text input and textarea that can carry tags, dropping

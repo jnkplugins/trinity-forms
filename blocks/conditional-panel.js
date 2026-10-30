@@ -35,7 +35,13 @@ function collectFields( blocks, selfClientId, out = [] ) {
 		if ( block.name.indexOf( PREFIX ) === 0 && block.clientId !== selfClientId ) {
 			const id = block.attributes.fieldId;
 			if ( id ) {
-				out.push( { value: id, label: block.attributes.label || id } );
+				const entry = { value: id, label: block.attributes.label || id };
+				// Choice fields carry their choices, so a rule's value can be picked
+				// from them (label shown, stored value saved).
+				if ( Array.isArray( block.attributes.options ) && block.attributes.options.length ) {
+					entry.choices = block.attributes.options;
+				}
+				out.push( entry );
 			}
 		}
 		if ( block.innerBlocks && block.innerBlocks.length ) {

@@ -13,6 +13,25 @@ class Anti_Spam {
     /** A filled trap is forgiven only when the visitor also took at least this long. */
     private const HUMAN_FILL_SECONDS = 5;
 
+    /**
+     * The time token. Until 2.18 the "too fast" check read a plain timestamp from
+     * the page, so a bot could send any number (or none, or 0), and a page cache
+     * served the same old one to everybody: a bot posting a cached page's HTML at
+     * once passed (persona run shop-elementor, 29 Oct 2026). The token is now
+     * signed with a site secret and names its form, and the page script swaps in
+     * a fresh one when the page opens, so a cached page still times real visitors
+     * from the moment they arrived.
+     *
+     * "p" = drawn into the page (the only one a visitor without JavaScript has);
+     * "f" = fetched by the page script when the page opened.
+     */
+    public const TOKEN_PAGE    = "p";
+    public const TOKEN_FETCHED = "f";
+    /** A page token older than this cannot vouch for when the visitor arrived (it may be a page cache's copy). */
+    private const PAGE_TOKEN_MAX_AGE = 5 * MINUTE_IN_SECONDS;
+    /** A fetched token is kept for a tab left open for a day. */
+    private const FETCHED_TOKEN_MAX_AGE = DAY_IN_SECONDS;
+
     /** A note for the entry log about a check that let the entry through. */
     private static string $note = "";
 
@@ -47,18 +66,72 @@ class Anti_Spam {
      * 43 s after the page opened, marked as spam). A bot posting straight at the
      * endpoint sends neither signal.
      */
-    public static function looks_human( array $payload ): bool {
-        $ts = isset( $payload[ self::TIMETRAP_FIELD ] ) ? (int) $payload[ self::TIMETRAP_FIELD ] : 0;
+    public static function looks_human( array $payload, int $form_id = 0 ): bool {
+        $token = self::read_token( $payload, $form_id );
         return "2" === (string) ( $payload[ self::HUMAN_FIELD ] ?? "" )
-            && $ts > 0
-            && ( time() - $ts ) >= self::HUMAN_FILL_SECONDS;
+            && null !== $token
+            && ( time() - $token["issued"] ) >= self::HUMAN_FILL_SECONDS;
     }
 
     /** True when the trap has text and nothing says a person filled the form in. */
     public static function honeypot_hit( Form $form, array $payload ): bool {
         return $form->get_setting( "honeypot", true )
             && ! empty( $payload[ self::HONEYPOT_FIELD ] )
-            && ! self::looks_human( $payload );
+            && ! self::looks_human( $payload, (int) $form->id );
+    }
+
+    /** A signed time token for a form: "<kind><unix time>.<signature>". */
+    public static function time_token( int $form_id, string $kind = self::TOKEN_PAGE, ?int $issued = null ): string {
+        $kind   = self::TOKEN_FETCHED === $kind ? self::TOKEN_FETCHED : self::TOKEN_PAGE;
+        $issued = null === $issued ? time() : $issued;
+        return $kind . $issued . "." . self::sign( $kind, $form_id, $issued );
+    }
+
+    private static function sign( string $kind, int $form_id, int $issued ): string {
+        return substr( hash_hmac( "sha256", "trinity_forms_ts|" . $kind . "|" . $form_id . "|" . $issued, wp_salt( "nonce" ) ), 0, 24 );
+    }
+
+    /**
+     * The token's issue time and kind, or null when it is missing, malformed,
+     * signed for another form, from the future, or forged.
+     *
+     * @return array{kind:string,issued:int}|null
+     */
+    public static function read_token( array $payload, int $form_id ): ?array {
+        $raw = (string) ( $payload[ self::TIMETRAP_FIELD ] ?? "" );
+        if ( ! preg_match( '/^([pf])([1-9][0-9]{8,10})\.([0-9a-f]{24})$/', $raw, $m ) ) {
+            return null;
+        }
+        $issued = (int) $m[2];
+        if ( $issued > time() + 60 || ! hash_equals( self::sign( $m[1], $form_id, $issued ), $m[3] ) ) {
+            return null;
+        }
+        return [ "kind" => $m[1], "issued" => $issued ];
+    }
+
+    /**
+     * A valid token too old to say when the visitor arrived: a page token from a
+     * cached copy (or a page open longer than five minutes without JavaScript), or
+     * a fetched one from a tab left open for over a day. Not spam, not accepted:
+     * the visitor is asked to send again from a fresh page, answers kept.
+     */
+    public static function token_stale( Form $form, array $payload ): bool {
+        if ( ! array_key_exists( self::TIMETRAP_FIELD, $payload ) ) {
+            return false;
+        }
+        // A plain timestamp is what pages drawn before 2.18 carry: a page cache can
+        // still serve one after the update. Ask that visitor to send again from a
+        // fresh page rather than file them as spam; a bot posting one is not
+        // accepted either way.
+        if ( preg_match( '/^[1-9][0-9]{8,10}$/', (string) $payload[ self::TIMETRAP_FIELD ] ) ) {
+            return true;
+        }
+        $token = self::read_token( $payload, (int) $form->id );
+        if ( null === $token ) {
+            return false;
+        }
+        $max = self::TOKEN_FETCHED === $token["kind"] ? self::FETCHED_TOKEN_MAX_AGE : (int) apply_filters( "trinity_forms_page_token_max_age", self::PAGE_TOKEN_MAX_AGE, $form );
+        return ( time() - $token["issued"] ) > $max;
     }
 
     public static function check( Form $form, array $payload ): bool {
@@ -66,7 +139,7 @@ class Anti_Spam {
         self::$note   = "";
         if ( $form->get_setting( "honeypot", true ) && ! empty( $payload[ self::HONEYPOT_FIELD ] ) ) {
             $trap = mb_substr( sanitize_text_field( (string) $payload[ self::HONEYPOT_FIELD ] ), 0, 80 );
-            if ( ! self::looks_human( $payload ) ) {
+            if ( ! self::looks_human( $payload, (int) $form->id ) ) {
                 /* translators: %s: the text found in the hidden field. */
                 self::flag( sprintf( __( "The hidden trap field was filled in with \"%s\". Bots do that; a browser's autofill can too.", "trinity-forms" ), $trap ) );
                 return false;
@@ -76,10 +149,18 @@ class Anti_Spam {
             self::$note = sprintf( __( "The hidden trap field had \"%s\" in it, most likely the browser's autofill. The visitor typed in the form and took a person's time, so it was not marked as spam.", "trinity-forms" ), $trap );
         }
 
-        $ts = isset( $payload[ self::TIMETRAP_FIELD ] ) ? (int) $payload[ self::TIMETRAP_FIELD ] : 0;
-        if ( $ts > 0 && ( time() - $ts ) < self::MIN_FILL_SECONDS ) {
-            self::flag( __( "Sent faster than a person can fill in a form.", "trinity-forms" ) );
-            return false;
+        // Every submission through the public endpoint carries the field (empty when
+        // a bot left it out). Only PHP code calling the pipeline directly has none.
+        if ( array_key_exists( self::TIMETRAP_FIELD, $payload ) ) {
+            $token = self::read_token( $payload, (int) $form->id );
+            if ( null === $token ) {
+                self::flag( __( "It came without the form's time stamp, or with a forged one. Bots that post straight at the form do that.", "trinity-forms" ) );
+                return false;
+            }
+            if ( ( time() - $token["issued"] ) < self::MIN_FILL_SECONDS ) {
+                self::flag( __( "Sent faster than a person can fill in a form.", "trinity-forms" ) );
+                return false;
+            }
         }
 
         // The per-form "turnstile" flag enables the globally-configured CAPTCHA
@@ -120,8 +201,8 @@ class Anti_Spam {
             . '</div>';
     }
 
-    public static function timetrap_html(): string {
-        return '<input type="hidden" name="' . esc_attr( self::TIMETRAP_FIELD ) . '" value="' . esc_attr( (string) time() ) . '" />'
+    public static function timetrap_html( int $form_id = 0 ): string {
+        return '<input type="hidden" name="' . esc_attr( self::TIMETRAP_FIELD ) . '" value="' . esc_attr( self::time_token( $form_id ) ) . '" />'
             . '<input type="hidden" name="' . esc_attr( self::HUMAN_FIELD ) . '" value="" />';
     }
 

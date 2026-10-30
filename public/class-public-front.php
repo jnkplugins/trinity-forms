@@ -90,6 +90,24 @@ class Public_Front {
         wp_send_json_success( [ "nonce" => wp_create_nonce( "wp_rest" ) ] );
     }
 
+    /**
+     * Fresh time tokens for the forms on the page, fetched by the page script when
+     * the page opens. admin-ajax is never served from a page cache, so a cached
+     * page still times each visitor from when they arrived (Anti_Spam::time_token()).
+     */
+    public static function ajax_time_token(): void {
+        nocache_headers();
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing -- public and read-only: a nonce would itself be stale on a cached page.
+        $ids    = isset( $_POST["form_ids"] ) ? array_slice( array_map( "absint", (array) wp_unslash( $_POST["form_ids"] ) ), 0, 20 ) : [];
+        $tokens = [];
+        foreach ( array_unique( $ids ) as $id ) {
+            if ( $id > 0 && Form_Manager::get_public( $id ) ) {
+                $tokens[ (string) $id ] = Anti_Spam::time_token( $id, Anti_Spam::TOKEN_FETCHED );
+            }
+        }
+        wp_send_json_success( [ "tokens" => (object) $tokens ] );
+    }
+
     /** The configured provider's site key, in plain text (older installs stored it encrypted). */
     public static function captcha_site_key(): string {
         $settings = get_option( "trinity_forms_settings", [] );

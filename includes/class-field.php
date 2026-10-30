@@ -31,7 +31,9 @@ class Field {
     }
 
     public function sanitize( $raw ) {
-        $h = $this->handler();
+        // Decomposed text (a macOS paste) is stored composed, so search finds it.
+        $raw = Fields\Field_Base::nfc( $raw );
+        $h   = $this->handler();
         return $h ? $h->sanitize( $raw, $this->config ) : self::sanitize_unknown( $raw );
     }
 

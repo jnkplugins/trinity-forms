@@ -49,6 +49,62 @@ export const OPERATORS = [
 /** Operators that compare against nothing, so the value input is hidden. */
 const VALUELESS = [ "empty", "not_empty" ];
 
+/**
+ * Operators that compare a whole answer, so a choice field offers its choices
+ * instead of a text box. The others ("starts with", patterns, lists) stay typed.
+ */
+const CHOICE_OPERATORS = [ "equals", "not_equals", "contains", "not_contains" ];
+
+/** How Conditional_Logic::choice_value() compares: trimmed, NFC, any case. */
+const fold = ( s ) => String( s == null ? "" : s ).trim().normalize( "NFC" ).toLowerCase();
+
+/**
+ * The field's choices as { value, label } pairs, or [] for a field without any.
+ *
+ * Hosts pass `choices` on each entry of `fields` (the field's own options).
+ */
+export function choicesOf( fields, fieldId ) {
+	const f = ( fields || [] ).find( ( x ) => x.value === fieldId );
+	if ( ! f || ! Array.isArray( f.choices ) ) {
+		return [];
+	}
+	return f.choices
+		.map( ( o ) =>
+			o && typeof o === "object"
+				? { value: String( o.value != null && o.value !== "" ? o.value : o.label || "" ), label: String( o.label != null && o.label !== "" ? o.label : o.value || "" ) }
+				: { value: String( o ), label: String( o ) }
+		)
+		.filter( ( o ) => o.value !== "" );
+}
+
+/**
+ * Dropdown options for a rule's value, and which one to show as picked.
+ *
+ * A rule saved as the label (typed before this dropdown existed) shows as that
+ * choice; the server reads it the same way. A value that is no longer a choice
+ * stays listed as typed, so opening the rule does not lose it.
+ */
+export function choiceOptions( choices, current ) {
+	const value   = current != null ? String( current ) : "";
+	let selected  = value;
+	const exact   = choices.some( ( c ) => c.value === value );
+	if ( value !== "" && ! exact ) {
+		const hit = choices.find( ( c ) => fold( c.value ) === fold( value ) ) ||
+			choices.find( ( c ) => fold( c.label ) === fold( value ) );
+		if ( hit ) {
+			selected = hit.value;
+		}
+	}
+	const options = [
+		{ value: "", label: __( "— Select —", "trinity-forms" ) },
+		...choices.map( ( c ) => ( { value: c.value, label: c.label } ) ),
+	];
+	if ( selected !== "" && ! choices.some( ( c ) => c.value === selected ) ) {
+		options.push( { value: selected, label: selected } );
+	}
+	return { options, selected };
+}
+
 const DEFAULTS = { action: "show", match: "all", conditions: [] };
 
 /** A group is anything carrying its own conditions; everything else is a leaf. */
@@ -70,6 +126,9 @@ const MAX_DEPTH = 2;
 
 /** One leaf condition. */
 function ConditionRow( { condition, fields, onChange, onRemove } ) {
+	const operator = condition.operator || "equals";
+	const choices  = CHOICE_OPERATORS.includes( operator ) ? choicesOf( fields, condition.field ) : [];
+	const picker   = choices.length ? choiceOptions( choices, condition.value ) : null;
 	return (
 		<div style={ { border: "1px solid #ddd", borderRadius: 4, padding: 8, marginBottom: 8 } }>
 			<SelectControl
@@ -86,7 +145,16 @@ function ConditionRow( { condition, fields, onChange, onRemove } ) {
 				options={ OPERATORS }
 				onChange={ ( operator ) => onChange( { operator } ) }
 			/>
-			{ ! VALUELESS.includes( condition.operator || "equals" ) && (
+			{ picker && (
+				<SelectControl
+					__next40pxDefaultSize
+					label={ __( "Value", "trinity-forms" ) }
+					value={ picker.selected }
+					options={ picker.options }
+					onChange={ ( value ) => onChange( { value } ) }
+				/>
+			) }
+			{ ! picker && ! VALUELESS.includes( operator ) && (
 				<TextControl
 					__next40pxDefaultSize
 					label={ __( "Value", "trinity-forms" ) }

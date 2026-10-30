@@ -169,12 +169,13 @@ class Entries {
             // EXISTS rather than a JOIN: an entry with three matching field values
             // must still be one row, and a JOIN would triple it (and break the count).
             $meta_table = self::meta_table();
-            $like       = "%" . $wpdb->esc_like( $search ) . "%";
+            $likes      = self::search_patterns( $search );
+            $column     = self::search_column( "m.value", $search );
             $where[]    = "( EXISTS (
                     SELECT 1 FROM {$meta_table} m
-                    WHERE m.entry_id = e.id AND m.value LIKE %s
+                    WHERE m.entry_id = e.id AND ( " . implode( " OR ", array_fill( 0, count( $likes ), "{$column} LIKE %s" ) ) . " )
                 ) OR e.id = %d )";
-            $params[]   = $like;
+            array_push( $params, ...$likes );
             $params[]   = ctype_digit( $search ) ? (int) $search : 0;
         }
 
@@ -210,6 +211,80 @@ class Entries {
         }
 
         return [ implode( " AND ", $where ), $params ];
+    }
+
+    /**
+     * LIKE patterns for the keyword search, forgiving the spellings a reader sees as one.
+     *
+     * The column collation already ignores case and Latin accents, but not:
+     * - Persian ی/ک against Arabic ي/ك/ى, which Arabic keyboards type for the same
+     *   word ("علی" did not find "علي");
+     * - Turkish dotless ı, which is its own letter to MySQL, so the natural lowercase
+     *   "ışık" did not find "Işık". When the search has ı or İ, any i matches.
+     * Those letters become the single-character wildcard. Digits typed in Persian,
+     * Bengali or Thai are searched as 0-9 too, since phone numbers are stored that way.
+     *
+     * Turkish all-caps ("IŞIK" for "Işık") has no ı to give it away, so ş/ğ (or a
+     * Turkish site language) switch the i-wildcard on as well. The Persian zero-width
+     * non-joiner (U+200C, "می‌خواهم") is invisible and often left out when typing, so
+     * it is dropped from the search here and from the stored text by search_column().
+     *
+     * @return string[]
+     */
+    public static function search_patterns( string $search ): array {
+        global $wpdb;
+        $one = static function ( string $term ) use ( $wpdb ): string {
+            $term    = str_replace( self::ZWNJ, "", $term );
+            $turkish = self::turkish_search( $term );
+            $out     = "";
+            foreach ( preg_split( "//u", $term, -1, PREG_SPLIT_NO_EMPTY ) as $ch ) {
+                if ( preg_match( "/[\x{064A}\x{06CC}\x{0649}\x{0643}\x{06A9}]/u", $ch ) || ( $turkish && preg_match( "/[\x{0131}\x{0130}Ii]/u", $ch ) ) ) {
+                    $out .= "_";
+                } else {
+                    $out .= $wpdb->esc_like( $ch );
+                }
+            }
+            return "%" . $out . "%";
+        };
+        $patterns = [ $one( $search ) ];
+        // Answers saved by earlier versions can be decomposed (NFD, a macOS paste);
+        // new ones are stored composed. The decomposed spelling of an accented
+        // search finds those old rows too. Plain ASCII never gets here twice.
+        if ( class_exists( "\\Normalizer" ) && preg_match( "/[^\x00-\x7F]/", $search ) ) {
+            $nfd = \Normalizer::normalize( $search, \Normalizer::FORM_D );
+            if ( false !== $nfd && $nfd !== $search ) {
+                $patterns[] = $one( $nfd );
+            }
+        }
+        $ascii    = \TrinityForms\Fields\Field_Base::ascii_digits( $search );
+        if ( $ascii !== $search ) {
+            $patterns[] = $one( $ascii );
+        }
+        return $patterns;
+    }
+
+    /** The Persian zero-width non-joiner. */
+    private const ZWNJ = "\u{200C}";
+
+    /** Does this search want Turkish i/ı/İ forgiveness? */
+    private static function turkish_search( string $term ): bool {
+        if ( preg_match( "/[\x{0131}\x{0130}\x{015E}\x{015F}\x{011E}\x{011F}]/u", $term ) ) {
+            return true;
+        }
+        return 0 === strpos( (string) get_locale(), "tr" ) && false !== stripos( $term, "i" );
+    }
+
+    /**
+     * The column to run search_patterns() against: the column itself, or, for a
+     * search in Arabic script, the column with its zero-width non-joiners removed,
+     * so "میخواهم" finds "می‌خواهم" and the other way round. Only those searches
+     * pay for the REPLACE(); everything else compares the column as before.
+     */
+    public static function search_column( string $column, string $search ): string {
+        if ( ! preg_match( "/[\x{0600}-\x{06FF}\x{200C}]/u", $search ) ) {
+            return $column;
+        }
+        return "REPLACE({$column}, _utf8mb4 0xE2808C, '')";
     }
 
     /**
@@ -764,6 +839,34 @@ class Entries {
             }
         }
         return $out;
+    }
+
+    /**
+     * Is this answer a left-to-right value (URL, email, phone, IP)?
+     *
+     * On an Arabic or Hebrew site such a value sat in a right-to-left line and the
+     * bidi algorithm moved its slashes and dots: "/contact/" read "contact//".
+     */
+    public static function is_ltr_value( string $type, string $value ): bool {
+        $value = trim( $value );
+        if ( "" === $value ) {
+            return false;
+        }
+        if ( in_array( $type, [ "email", "website", "url", "phone" ], true ) ) {
+            return true;
+        }
+        return (bool) preg_match( '#^(https?://|www\.|/)\S*$#i', $value )
+            || false !== is_email( $value )
+            || false !== filter_var( $value, FILTER_VALIDATE_IP );
+    }
+
+    /**
+     * Isolate already-escaped HTML as left-to-right. <bdi> on admin screens;
+     * $tag "span" for mail, where <bdi> is not reliably kept.
+     */
+    public static function ltr( string $escaped_html, string $tag = "bdi" ): string {
+        $tag = "span" === $tag ? "span" : "bdi";
+        return "<{$tag} dir=\"ltr\">" . $escaped_html . "</{$tag}>";
     }
 
     public static function display_value( string $type, $raw, array $map = [], bool $html = false ): string {

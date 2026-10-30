@@ -424,7 +424,7 @@ Admin_UI::open(
                             if ( "" !== $s_name ) {
                                 echo esc_html( $s_name );
                             } elseif ( "" !== $s_email ) {
-                                echo esc_html( $s_email );
+                                echo Entries::ltr( esc_html( $s_email ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside.
                             } else {
                                 /* translators: %d: entry ID. */
                                 echo esc_html( sprintf( __( "Entry #%d", "trinity-forms" ), $rid ) );
@@ -433,7 +433,7 @@ Admin_UI::open(
                         </a>
                         <span class="jnkui-sub">
                             <?php if ( "" !== $s_email && "" !== $s_name ) : ?>
-                                <?php echo esc_html( $s_email ); ?> &middot;
+                                <?php echo Entries::ltr( esc_html( $s_email ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?> &middot;
                             <?php endif; ?>
                             #<?php echo (int) $rid; ?>
                         </span>
@@ -466,7 +466,7 @@ Admin_UI::open(
                                 <?php // Truncated in the cell, full text on hover: a list row is
                                       // a scanning surface, and one long answer must not set the
                                       // height of every row on the page. ?>
-                                <span title="<?php echo esc_attr( $tf_cval ); ?>"><?php echo esc_html( wp_html_excerpt( $tf_cval, 60, "…" ) ); ?></span>
+                                <span title="<?php echo esc_attr( $tf_cval ); ?>"<?php echo Entries::is_ltr_value( "", $tf_cval ) ? ' dir="ltr"' : ""; ?>><?php echo esc_html( wp_html_excerpt( $tf_cval, 60, "…" ) ); ?></span>
                             <?php endif; ?>
                         </td>
                     <?php endforeach; ?>

@@ -4,6 +4,7 @@ import { InspectorControls } from "@wordpress/block-editor";
 import { __ } from "@wordpress/i18n";
 import { CommonControls, FieldPreview, useEnsureFieldId, OptionsTextarea } from "../field-shared";
 import metadata from "./block.json";
+import { choiceValue } from "../choice-value";
 
 const STYLES = [
     { label: __( "Radio buttons (pick one)", "trinity-forms" ),   value: "radio" },
@@ -24,7 +25,7 @@ function fromText( text ) {
         const [ label, val ] = line.split( "|" ).map( ( s ) => s.trim() );
         return {
             label: label || "",
-            value: ( val || label || "" ).toLowerCase().replace( /\s+/g, "_" ),
+            value: choiceValue( val || label ),
         };
     } );
 }

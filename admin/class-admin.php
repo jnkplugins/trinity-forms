@@ -63,6 +63,7 @@ class Admin {
         add_action( "admin_post_trinity_forms_delete_note",   [ self::class, "handle_delete_note" ] );
         add_action( "admin_post_trinity_forms_send_feedback", [ self::class, "handle_send_feedback" ] );
         add_action( "admin_post_trinity_forms_gf_import",      [ self::class, "handle_gf_import" ] );
+        add_action( "admin_post_trinity_forms_import",         [ self::class, "handle_import" ] );
         add_filter( "allowed_block_types_all", [ self::class, "restrict_form_palette" ], 10, 2 );
         add_filter( "plugin_action_links_" . plugin_basename( TRINITY_FORMS_FILE ), [ self::class, "plugin_action_links" ] );
         add_filter( "plugin_row_meta", [ self::class, "plugin_row_meta" ], 10, 2 );
@@ -204,8 +205,8 @@ class Admin {
         // feature. With no Gravity Forms data the screen says so and explains why.
         add_submenu_page(
             self::PARENT,
-            __( "Import from Gravity Forms", "trinity-forms" ),
-            __( "Import from Gravity Forms", "trinity-forms" ),
+            __( "Import forms", "trinity-forms" ),
+            __( "Import forms", "trinity-forms" ),
             self::CAP,
             self::IMPORT,
             [ self::class, "render_import" ]
@@ -780,6 +781,33 @@ class Admin {
         $report = GF_Importer::import_form( $gf_form_id, $with_entries, $dry_run );
         $report["dry_run"] = $dry_run;
         set_transient( "trinity_forms_gf_import_report", $report, 5 * MINUTE_IN_SECONDS );
+
+        wp_safe_redirect( admin_url( self::PARENT . "&page=" . self::IMPORT . "&tf_imported=1" ) );
+        exit;
+    }
+
+    /**
+     * Run an import from any form builder (Importers\Registry). The form posts
+     * source=<importer slug>:<that builder's form id>.
+     */
+    public static function handle_import(): void {
+        if ( ! current_user_can( self::CAP ) ) { wp_die( "forbidden" ); }
+        check_admin_referer( "trinity_forms_import" );
+
+        // phpcs:disable WordPress.Security.NonceVerification.Missing -- nonce verified above.
+        $source       = sanitize_text_field( wp_unslash( (string) ( $_POST["source"] ?? "" ) ) );
+        $with_entries = ! empty( $_POST["with_entries"] );
+        $dry_run      = ! empty( $_POST["dry_run"] );
+        // phpcs:enable WordPress.Security.NonceVerification.Missing
+
+        [ $slug, $id ] = array_pad( explode( ":", $source, 2 ), 2, "" );
+        $importer      = Importers\Registry::get( $slug );
+        $report        = $importer && "" !== $id
+            ? $importer->import( ctype_digit( $id ) ? (int) $id : $id, [ "with_entries" => $with_entries, "dry_run" => $dry_run ] )
+            : [ "form_id" => 0, "title" => "", "fields" => 0, "entries" => 0, "skipped" => [], "notifications" => 0 ];
+        $report["dry_run"] = $dry_run;
+        $report["source"]  = $slug;
+        set_transient( "trinity_forms_import_report_" . get_current_user_id(), $report, 5 * MINUTE_IN_SECONDS );
 
         wp_safe_redirect( admin_url( self::PARENT . "&page=" . self::IMPORT . "&tf_imported=1" ) );
         exit;

@@ -150,15 +150,19 @@ class Conditional_Logic {
      *   ]
      *
      * Returns whether the field should be visible given the current payload.
+     *
+     * Pass the form so a rule can be written against a choice's label as well as
+     * its stored value: "is Tehran" matches the choice "Tehran | thr". Rules typed
+     * before the editor offered a dropdown were often labels, and never matched.
      */
-    public static function is_visible( Field $field, array $payload ): bool {
+    public static function is_visible( Field $field, array $payload, ?Form $form = null ): bool {
         $rules = $field->config["conditional"] ?? null;
         if ( ! $rules || empty( $rules["conditions"] ) ) {
             return true;
         }
 
         $action = $rules["action"] ?? "show";
-        $passed = self::evaluate_group( (array) $rules, $payload );
+        $passed = self::evaluate_group( (array) $rules, $payload, 0, $form ? self::choices( $form ) : [] );
 
         return "hide" === $action ? ! $passed : $passed;
     }
@@ -172,8 +176,9 @@ class Conditional_Logic {
      *
      * @param array<string,mixed> $group
      * @param array<string,mixed> $payload
+     * @param array<string,array<int,array{0:string,1:string}>> $choices field id => [value, label] pairs
      */
-    private static function evaluate_group( array $group, array $payload, int $depth = 0 ): bool {
+    private static function evaluate_group( array $group, array $payload, int $depth = 0, array $choices = [] ): bool {
         // A malformed or hand-edited rule set could nest forever; the limit is far
         // above anything the editors can produce.
         if ( $depth > 10 ) {
@@ -188,11 +193,14 @@ class Conditional_Logic {
                 continue;
             }
             if ( isset( $cond["conditions"] ) ) {
-                $results[] = self::evaluate_group( $cond, $payload, $depth + 1 );
+                $results[] = self::evaluate_group( $cond, $payload, $depth + 1, $choices );
                 continue;
             }
-            $other     = $payload[ $cond["field"] ?? "" ] ?? null;
-            $results[] = self::compare( $other, (string) ( $cond["operator"] ?? "equals" ), $cond["value"] ?? "" );
+            $source    = (string) ( $cond["field"] ?? "" );
+            $op        = (string) ( $cond["operator"] ?? "equals" );
+            $other     = $payload[ $source ] ?? null;
+            $value     = self::choice_value( $cond["value"] ?? "", $op, $choices[ $source ] ?? [] );
+            $results[] = self::compare( $other, $op, $value );
         }
 
         if ( ! $results ) {
@@ -202,6 +210,114 @@ class Conditional_Logic {
         return "any" === $matcher
             ? in_array( true, $results, true )
             : ! in_array( false, $results, true );
+    }
+
+    /**
+     * Every choice field's [stored value, label] pairs.
+     *
+     * @return array<string,array<int,array{0:string,1:string}>>
+     */
+    public static function choices( Form $form ): array {
+        $out = [];
+        foreach ( $form->fields() as $f ) {
+            $opts = $f->config["options"] ?? null;
+            if ( ! is_array( $opts ) || ! $opts ) {
+                continue;
+            }
+            foreach ( $opts as $o ) {
+                if ( is_array( $o ) ) {
+                    $value = (string) ( $o["value"] ?? $o["label"] ?? "" );
+                    $label = (string) ( $o["label"] ?? $value );
+                } elseif ( is_scalar( $o ) ) {
+                    $value = $label = (string) $o;
+                } else {
+                    continue;
+                }
+                $out[ (string) $f->id ][] = [ $value, $label ];
+            }
+        }
+        return $out;
+    }
+
+    /**
+     * The rule's value, read as one of the source field's choices where it names one.
+     *
+     * An exact stored value wins. Otherwise a value equal to a choice's value or
+     * label once case and Unicode form are set aside ("tehran", "Tehran", an NFD
+     * "Hà Nội") becomes that choice's stored value. Only for the operators that
+     * compare whole answers; "starts with" and patterns keep the text as typed.
+     *
+     * @param mixed $value
+     * @param array<int,array{0:string,1:string}> $choices
+     * @return mixed
+     */
+    public static function choice_value( $value, string $op, array $choices ) {
+        if ( ! $choices || is_array( $value ) ) {
+            return $value;
+        }
+        $value = (string) $value;
+        if ( in_array( $op, [ "in_list", "not_in_list" ], true ) ) {
+            $parts = array_map( static fn( $p ) => self::choice_value( trim( $p ), "equals", $choices ), explode( ",", $value ) );
+            return implode( ",", $parts );
+        }
+        if ( ! in_array( $op, [ "equals", "not_equals", "contains", "not_contains" ], true ) || "" === $value ) {
+            return $value;
+        }
+        foreach ( $choices as [ $v ] ) {
+            if ( $v === $value ) {
+                return $value;
+            }
+        }
+        $want = self::fold( $value );
+        foreach ( [ 0, 1 ] as $side ) {
+            foreach ( $choices as $pair ) {
+                if ( self::fold( $pair[ $side ] ) === $want ) {
+                    return $pair[0];
+                }
+            }
+        }
+        return $value;
+    }
+
+    /**
+     * The same rule set with every leaf's value read through choice_value().
+     *
+     * The renderer hands this to public.js, so the browser shows and hides with
+     * exactly the forgiveness the server applies on submit, and the JS keeps
+     * comparing plain stored values.
+     *
+     * @param array<string,mixed> $rules
+     * @param array<string,array<int,array{0:string,1:string}>> $choices
+     * @return array<string,mixed>
+     */
+    public static function resolve_choices( array $rules, array $choices, int $depth = 0 ): array {
+        if ( ! $choices || $depth > 10 || empty( $rules["conditions"] ) || ! is_array( $rules["conditions"] ) ) {
+            return $rules;
+        }
+        foreach ( $rules["conditions"] as $i => $cond ) {
+            if ( ! is_array( $cond ) ) {
+                continue;
+            }
+            if ( isset( $cond["conditions"] ) ) {
+                $rules["conditions"][ $i ] = self::resolve_choices( $cond, $choices, $depth + 1 );
+                continue;
+            }
+            $source = (string) ( $cond["field"] ?? "" );
+            if ( isset( $choices[ $source ] ) && array_key_exists( "value", $cond ) ) {
+                $rules["conditions"][ $i ]["value"] = self::choice_value( $cond["value"], (string) ( $cond["operator"] ?? "equals" ), $choices[ $source ] );
+            }
+        }
+        return $rules;
+    }
+
+    /** Trimmed, NFC, lower case: how a person compares two spellings of a choice. */
+    private static function fold( string $s ): string {
+        $s = trim( $s );
+        if ( class_exists( "\\Normalizer" ) ) {
+            $n = \Normalizer::normalize( $s, \Normalizer::FORM_C );
+            $s = false === $n ? $s : $n;
+        }
+        return mb_strtolower( $s, "UTF-8" );
     }
 
     private static function compare( $left, string $op, $right ): bool {

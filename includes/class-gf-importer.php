@@ -141,8 +141,6 @@ class GF_Importer {
      * @return array{form_id:int,title:string,fields:int,entries:int,skipped:array<int,string>,notifications:int}
      */
     public static function import_form( int $gf_form_id, bool $with_entries = true, bool $dry_run = false ): array {
-        global $wpdb;
-
         $report = [
             "form_id"       => 0,
             "title"         => "",
@@ -152,28 +150,18 @@ class GF_Importer {
             "notifications" => 0,
         ];
 
-        $form_table = $wpdb->prefix . "gf_form";
-        $meta_table = $wpdb->prefix . "gf_form_meta";
-
-        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-        $title = (string) $wpdb->get_var( $wpdb->prepare( "SELECT title FROM {$form_table} WHERE id = %d", $gf_form_id ) );
-        if ( "" === $title ) {
+        $converted = self::convert_form( $gf_form_id );
+        if ( null === $converted ) {
             return $report;
         }
-        $report["title"] = $title;
-
-        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-        $raw = (string) $wpdb->get_var( $wpdb->prepare( "SELECT display_meta FROM {$meta_table} WHERE form_id = %d", $gf_form_id ) );
-        $gf  = json_decode( $raw, true );
-        if ( ! is_array( $gf ) ) {
+        $report["title"] = $converted["title"];
+        if ( null === $converted["fields"] ) {
             return $report;
         }
-
-        [ $fields, $skipped ] = self::convert_fields( (array) ( $gf["fields"] ?? [] ) );
-        $report["fields"]     = count( $fields );
-        $report["skipped"]    = $skipped;
-
-        $notifications         = self::convert_notifications( (array) ( $gf["notifications"] ?? [] ), $fields );
+        $fields                  = $converted["fields"];
+        $report["fields"]        = count( $fields );
+        $report["skipped"]       = $converted["skipped"];
+        $notifications           = $converted["notifications"];
         $report["notifications"] = count( $notifications );
 
         if ( $dry_run ) {
@@ -182,13 +170,10 @@ class GF_Importer {
         }
 
         $schema = Form_Manager::default_schema();
-        $schema["settings"] = array_merge( $schema["settings"], [
-            "submit_button_text"   => (string) ( $gf["button"]["text"] ?? __( "Submit", "trinity-forms" ) ),
-            "confirmation_message" => self::first_confirmation( $gf ),
-        ] );
+        $schema["settings"] = array_merge( $schema["settings"], $converted["settings"] );
         $schema["steps"] = [ [ "id" => "step_1", "title" => "", "fields" => $fields ] ];
 
-        $form_id = Form_Manager::create( $title, $schema );
+        $form_id = Form_Manager::create( $converted["title"], $schema );
         if ( ! $form_id ) {
             return $report;
         }
@@ -208,6 +193,54 @@ class GF_Importer {
         do_action( "trinity_forms_gf_form_imported", $form_id, $gf_form_id, $report );
 
         return $report;
+    }
+
+    /**
+     * One Gravity Forms form as Trinity fields, settings and notifications, without
+     * writing anything. Null when the form does not exist; "fields" is null when its
+     * stored definition cannot be read.
+     *
+     * @return array{title:string,fields:?array,skipped:array<int,string>,settings:array<string,mixed>,notifications:array,source:array}|null
+     */
+    public static function convert_form( int $gf_form_id ): ?array {
+        global $wpdb;
+
+        $form_table = $wpdb->prefix . "gf_form";
+        $meta_table = $wpdb->prefix . "gf_form_meta";
+
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+        $title = (string) $wpdb->get_var( $wpdb->prepare( "SELECT title FROM {$form_table} WHERE id = %d", $gf_form_id ) );
+        if ( "" === $title ) {
+            return null;
+        }
+
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+        $raw = (string) $wpdb->get_var( $wpdb->prepare( "SELECT display_meta FROM {$meta_table} WHERE form_id = %d", $gf_form_id ) );
+        $gf  = json_decode( $raw, true );
+        if ( ! is_array( $gf ) ) {
+            return [ "title" => $title, "fields" => null, "skipped" => [], "settings" => [], "notifications" => [], "source" => [] ];
+        }
+
+        [ $fields, $skipped ] = self::convert_fields( (array) ( $gf["fields"] ?? [] ) );
+
+        return [
+            "title"         => $title,
+            "fields"        => $fields,
+            "skipped"       => $skipped,
+            "settings"      => [
+                "submit_button_text"   => (string) ( $gf["button"]["text"] ?? __( "Submit", "trinity-forms" ) ),
+                "confirmation_message" => self::first_confirmation( $gf ),
+            ],
+            "notifications" => self::convert_notifications( (array) ( $gf["notifications"] ?? [] ), $fields ),
+            "source"        => $gf,
+        ];
+    }
+
+    /**
+     * Entries the import would bring across.
+     */
+    public static function entry_count( int $gf_form_id ): int {
+        return self::count_entries( $gf_form_id );
     }
 
     /**
@@ -539,6 +572,7 @@ class GF_Importer {
                 if ( ! $entry_id ) {
                     continue;
                 }
+                Importers\Base_Importer::record_origin( $entry_id, "gravity-forms", (string) $row["id"] );
 
                 // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.PreparedSQL.InterpolatedNotPrepared
                 $meta_rows = $wpdb->get_results( $wpdb->prepare(

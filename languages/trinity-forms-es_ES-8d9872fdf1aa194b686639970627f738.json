@@ -61,11 +61,11 @@
             "Any rule matches": [
                 "Se cumple alguna regla"
             ],
-            "Field": [
-                "Campo"
-            ],
             "\u2014 Select \u2014": [
                 "\u2014 Seleccionar \u2014"
+            ],
+            "Field": [
+                "Campo"
             ],
             "Condition": [
                 "Condici\u00f3n"
