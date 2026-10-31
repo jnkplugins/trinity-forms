@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.16.2\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-31T16:41:54+00:00\n"
+"POT-Creation-Date: 2026-10-31T17:14:24+00:00\n"
 "PO-Revision-Date: 2026-10-29 12:00+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Hindi\n"
@@ -673,11 +673,11 @@ msgstr "%s ने सूचनाएँ दोबारा भेजीं।"
 msgid "Edited by %1$s — changed: %2$s."
 msgstr "%1$s ने संपादित किया — बदले गए: %2$s।"
 
-#: admin/class-assistants.php:70
+#: admin/class-assistants.php:102 admin/class-assistants.php:114
 msgid "Sorry, you are not allowed to do that."
 msgstr "माफ़ करें, आपको ऐसा करने की अनुमति नहीं है।"
 
-#: admin/class-assistants.php:96
+#: admin/class-assistants.php:140
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr "माफ़ करें, आपको इस साइट पर प्लगइन इंस्टॉल करने की अनुमति नहीं है।"
 
@@ -1581,97 +1581,109 @@ msgstr "इसे ऐप की MCP सेटिंग्स फ़ाइल म
 msgid "Claude Code"
 msgstr "Claude Code"
 
+#: admin/views/assistants.php:184
+msgid "Guide for your assistant"
+msgstr "आपके असिस्टेंट के लिए गाइड"
+
+#: admin/views/assistants.php:185
+msgid "A short file that tells your assistant how to use these abilities safely: preview first, ask before saving, undo when needed. In Claude, add it as a skill; in other apps, paste it into the instructions."
+msgstr "एक छोटी फ़ाइल जो आपके असिस्टेंट को बताती है कि इन क्षमताओं का सुरक्षित इस्तेमाल कैसे करें: पहले पूर्वावलोकन, सेव करने से पहले पूछना, और ज़रूरत हो तो पहले जैसा करना। Claude में इसे skill के रूप में जोड़ें; दूसरे ऐप में इसे निर्देशों में पेस्ट करें।"
+
+#: admin/views/assistants.php:186
+msgid "Download the guide"
+msgstr "गाइड डाउनलोड करें"
+
 #. translators: %s: web address of the other MCP server.
-#: admin/views/assistants.php:189
+#: admin/views/assistants.php:193
 #, php-format
 msgid "Another plugin on this site (for example Rank Math) added an MCP server that signs in with OAuth, at %s. Apps in a web browser, such as ChatGPT or Claude, may be able to connect there; follow that plugin’s instructions. It offers the same Trinity Forms abilities you allow above, with the same privacy settings."
 msgstr "इस साइट पर किसी दूसरे प्लगइन (जैसे Rank Math) ने %s पर एक MCP सर्वर जोड़ा है जो OAuth से साइन इन करता है। वेब ब्राउज़र वाले ऐप, जैसे ChatGPT या Claude, शायद वहाँ कनेक्ट हो सकें; उस प्लगइन के निर्देशों का पालन करें। वह वही Trinity Forms क्षमताएँ देता है जिनकी आप ऊपर अनुमति देते हैं, उन्हीं प्राइवेसी सेटिंग्स के साथ।"
 
-#: admin/views/assistants.php:194
+#: admin/views/assistants.php:198
 msgid "ChatGPT and Claude in a web browser cannot connect to a WordPress site this way yet: they need a sign-in method (OAuth) that WordPress does not offer yet."
 msgstr "वेब ब्राउज़र में ChatGPT और Claude अभी इस तरह WordPress साइट से कनेक्ट नहीं हो सकते: उन्हें साइन इन का एक तरीका (OAuth) चाहिए जो WordPress अभी नहीं देता।"
 
-#: admin/views/assistants.php:196
+#: admin/views/assistants.php:200
 msgid "Try asking: “Which of my forms gets the most views but the fewest entries?”"
 msgstr "पूछकर देखें: “मेरे किस फ़ॉर्म को सबसे ज़्यादा व्यू लेकिन सबसे कम एंट्रियाँ मिलती हैं?”"
 
-#: admin/views/assistants.php:202
+#: admin/views/assistants.php:206
 msgid "4. What an assistant can use"
 msgstr "4. असिस्टेंट क्या इस्तेमाल कर सकता है"
 
-#: admin/views/assistants.php:203
+#: admin/views/assistants.php:207
 msgid "Every Trinity Forms ability on this site and whether assistants can use it now."
 msgstr "इस साइट पर Trinity Forms की हर क्षमता, और क्या असिस्टेंट अभी उसे इस्तेमाल कर सकते हैं।"
 
-#: admin/views/assistants.php:205 admin/views/assistants.php:236
+#: admin/views/assistants.php:209 admin/views/assistants.php:240
 msgid "Ability"
 msgstr "क्षमता"
 
-#: admin/views/assistants.php:205
+#: admin/views/assistants.php:209
 msgid "What it does"
 msgstr "यह क्या करती है"
 
-#: admin/views/assistants.php:205
+#: admin/views/assistants.php:209
 msgid "Kind"
 msgstr "प्रकार"
 
-#: admin/views/assistants.php:205
+#: admin/views/assistants.php:209
 msgid "Assistants"
 msgstr "असिस्टेंट"
 
-#: admin/views/assistants.php:210
+#: admin/views/assistants.php:214
 msgid "Reads"
 msgstr "पढ़ता है"
 
-#: admin/views/assistants.php:211
+#: admin/views/assistants.php:215
 msgid "Changes forms"
 msgstr "फ़ॉर्म बदलता है"
 
-#: admin/views/assistants.php:212
+#: admin/views/assistants.php:216
 msgid "Deletes"
 msgstr "हटाता है"
 
-#: admin/views/assistants.php:221
+#: admin/views/assistants.php:225
 msgid "Allowed"
 msgstr "अनुमति है"
 
-#: admin/views/assistants.php:221
+#: admin/views/assistants.php:225
 msgid "Off"
 msgstr "बंद"
 
-#: admin/views/assistants.php:230
+#: admin/views/assistants.php:234
 msgid "5. What assistants did"
 msgstr "5. असिस्टेंट ने क्या किया"
 
-#: admin/views/assistants.php:231
+#: admin/views/assistants.php:235
 msgid "The last 50 requests. Trinity Forms keeps the newest 200."
 msgstr "आखिरी 50 अनुरोध। Trinity Forms सबसे नए 200 रखता है।"
 
-#: admin/views/assistants.php:233
+#: admin/views/assistants.php:237
 msgid "No requests yet."
 msgstr "अभी तक कोई अनुरोध नहीं।"
 
-#: admin/views/assistants.php:236 blocks/conditional-rules.js:196
+#: admin/views/assistants.php:240 blocks/conditional-rules.js:196
 msgid "When"
 msgstr "जब"
 
-#: admin/views/assistants.php:236 admin/views/entry-detail.php:374
+#: admin/views/assistants.php:240 admin/views/entry-detail.php:374
 msgid "User"
 msgstr "उपयोगकर्ता"
 
-#: admin/views/assistants.php:236
+#: admin/views/assistants.php:240
 msgid "Asked"
 msgstr "क्या माँगा"
 
-#: admin/views/assistants.php:236
+#: admin/views/assistants.php:240
 msgid "Result"
 msgstr "नतीजा"
 
-#: admin/views/assistants.php:246 builder/src/app.jsx:656
+#: admin/views/assistants.php:250 builder/src/app.jsx:656
 msgid "Done"
 msgstr "हो गया"
 
-#: admin/views/assistants.php:246 includes/class-entries.php:50
+#: admin/views/assistants.php:250 includes/class-entries.php:50
 #: includes/class-entries.php:66
 msgid "Failed"
 msgstr "विफल"

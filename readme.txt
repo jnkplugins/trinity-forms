@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.21.0
+Stable tag: 2.22.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,11 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.22.0 =
+* New (Pro): choose where AI requests go. Keep your own OpenAI or Anthropic key, or use WordPress's AI connection (Settings > Connectors, WordPress 7.0 or newer) so every plugin shares one key and more providers work. Sites with a key keep using it; the settings say what each choice means.
+* Improved (Pro): Claude Haiku, Sonnet and Opus 5.5 are offered first for form generation and work with it (they refuse settings older models used).
+* New: the AI assistants screen has a "Guide for your assistant" download, a short file that tells Claude or another AI app how to use the Trinity Forms abilities safely.
 
 = 2.21.0 =
 * New: an AI assistants screen (Trinity Forms > AI assistants). Connect Claude Desktop, Claude Code, Cursor or another MCP app and ask it about your forms: how they are built, how they perform, and what people sent. It shows ready-to-paste settings, installs the free MCP Adapter plugin in one click, and lists every request an assistant made.
