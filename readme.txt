@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.20.0
+Stable tag: 2.21.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +42,7 @@ a real form tool without the renewal shock.
 * Spam protection — honeypot, time-trap, and your pick of Cloudflare Turnstile, Google reCAPTCHA (v2 and invisible v3), or hCaptcha, plus optional Akismet.
 * Per-form and global data retention controls, plus GDPR export/erase built into WordPress' own Personal Data tools.
 * Form analytics — a views → submissions funnel with completion rate, per form.
+* AI assistants — let Claude, Cursor or another MCP app read how your forms are built, their numbers and their entries (WordPress 6.9 or newer). Contact details are masked by default and files and passwords are never shown.
 * Unlimited forms and unlimited submissions.
 
 = Get Pro =
@@ -51,6 +52,7 @@ Pro is available at https://jnkplugins.com/trinity-forms/pricing.php (from $29/y
 * Payments — Stripe, PayPal, and Mollie. Hosted Checkout keeps your site PCI out-of-scope. If a licence ends, forms keep taking payments and everything visitors use keeps working; 30 days after expiry only adding new Pro features in the dashboard locks.
 * CRM & marketing integrations — automatically send submissions to popular email-marketing, CRM, chat, spreadsheet, and automation tools, plus a generic HMAC-signed webhook.
 * AI form generator — describe a form and it builds the fields, using your own OpenAI or Anthropic key (no per-request markup).
+* AI assistants that build forms — your assistant creates forms, changes fields and conditional logic, publishes them and sorts entries, showing each change first; every change can be undone.
 * Guided mode — an optional one-question-at-a-time flow with a progress bar.
 * Advanced fields — signature, repeater, and calculation.
 * Save & resume for partial submissions, and PDF export of submissions.
@@ -181,6 +183,11 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.21.0 =
+* New: an AI assistants screen (Trinity Forms > AI assistants). Connect Claude Desktop, Claude Code, Cursor or another MCP app and ask it about your forms: how they are built, how they perform, and what people sent. It shows ready-to-paste settings, installs the free MCP Adapter plugin in one click, and lists every request an assistant made.
+* New: reading forms and entries is free. Contact details in entries are masked by default (also inside messages), files, passwords, card numbers, signatures and payment fields are never shown, forms you tick are kept from assistants, and each entry an assistant opens gets a note. It stays off until you switch it on.
+* New (Pro): assistants can build forms. Create a form (saved as a draft), add, change, move or remove fields including conditional logic, publish it, import one, and mark entries read, starred or spam; moving entries to the trash has its own switch. Each change is shown first and saved only when the assistant asks again, and can be undone unless the form or entry was changed since. Forms are changed through the visual builder's own rules, so they open the same in the builder and the block editor.
 
 = 2.20.0 =
 * Maintenance release: the changes in this version are in Pro PDFs.

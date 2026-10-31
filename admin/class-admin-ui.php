@@ -29,6 +29,7 @@ class Admin_UI {
         "trinity-forms-import"       => "import",
         "trinity-forms-settings"     => "settings",
         "trinity-forms-feedback"     => "feedback",
+        "trinity-forms-assistants"   => "assistants",
         "trinity-forms-upgrade"      => "upgrade",
     ];
 
@@ -68,6 +69,7 @@ class Admin_UI {
         return [
             "transfer" => [ __( "Import / Export", "trinity-forms" ), self::page_url( Forms_List::TRANSFER_PAGE ), false ],
             "import"   => [ __( "Import forms", "trinity-forms" ), self::page_url( Admin::IMPORT ), false ],
+            "assistants" => [ __( "AI assistants", "trinity-forms" ), self::page_url( "trinity-forms-assistants" ), false ],
             "feedback" => [ __( "Send feedback", "trinity-forms" ), self::page_url( Admin::FEEDBACK ), false ],
         ];
     }

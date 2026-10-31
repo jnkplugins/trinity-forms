@@ -26,6 +26,8 @@ final class Plugin {
         // Free trust/parity features: GDPR export-erase, form analytics funnel,
         // and Akismet spam filtering (self-activates when Akismet is configured).
         Privacy::register();
+        // Forms and entries for AI assistants (WordPress 6.9+ Abilities API).
+        Abilities::register();
         Analytics::register();
         Activity::register();
         Akismet_Check::register();

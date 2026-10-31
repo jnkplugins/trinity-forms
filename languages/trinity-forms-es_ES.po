@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-31T14:38:14+00:00\n"
+"POT-Creation-Date: 2026-10-31T16:41:54+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Spanish (Spain)\n"
@@ -470,9 +470,10 @@ msgid "Permission denied."
 msgstr "Permiso denegado."
 
 #. Plugin Name of the plugin
-#: trinity-forms.php admin/class-admin-ui.php:131
-#: includes/class-entry-notes.php:111 includes/class-form-widget.php:15
-#: includes/class-plugin.php:122 includes/elementor/class-form-widget.php:22
+#: trinity-forms.php admin/class-admin-ui.php:133
+#: includes/class-abilities.php:58 includes/class-entry-notes.php:111
+#: includes/class-form-widget.php:15 includes/class-plugin.php:124
+#: includes/elementor/class-form-widget.php:22
 msgid "Trinity Forms"
 msgstr "Trinity Forms"
 
@@ -496,99 +497,104 @@ msgstr "JnK Plugins"
 msgid "https://jnkplugins.com"
 msgstr "https://jnkplugins.com"
 
-#: admin/class-admin-ui.php:57 admin/class-admin-ui.php:249
+#: admin/class-admin-ui.php:58 admin/class-admin-ui.php:251
 msgid "Forms"
 msgstr "Formularios"
 
-#: admin/class-admin-ui.php:58 includes/class-templates.php:24
+#: admin/class-admin-ui.php:59 includes/class-templates.php:24
 #: includes/class-templates.php:25 includes/class-templates.php:193
 #: builder/src/app.jsx:472
 msgid "Templates"
 msgstr "Plantillas"
 
-#: admin/class-admin-ui.php:59 admin/class-admin-ui.php:290
-#: admin/class-admin.php:174 admin/class-admin.php:175
+#: admin/class-admin-ui.php:60 admin/class-admin-ui.php:292
+#: admin/class-admin.php:176 admin/class-admin.php:177
 #: admin/class-forms-list.php:77 admin/views/entries-list.php:143
 #: admin/views/import.php:110
 msgid "Entries"
 msgstr "Envíos"
 
-#: admin/class-admin-ui.php:60 includes/class-results.php:27
+#: admin/class-admin-ui.php:61 includes/class-results.php:27
 #: includes/class-results.php:28 includes/class-results.php:159
 msgid "Results"
 msgstr "Resultados"
 
-#: admin/class-admin-ui.php:61 admin/class-admin-ui.php:238
+#: admin/class-admin-ui.php:62 admin/class-admin-ui.php:240
 msgid "Views"
 msgstr "Vistas"
 
-#: admin/class-admin-ui.php:62
+#: admin/class-admin-ui.php:63
 msgid "Integrations"
 msgstr "Integraciones"
 
-#: admin/class-admin-ui.php:69 admin/class-forms-list.php:220
+#: admin/class-admin-ui.php:70 admin/class-forms-list.php:220
 #: admin/views/transfer.php:29
 msgid "Import / Export"
 msgstr "Importar / Exportar"
 
-#: admin/class-admin-ui.php:70 admin/class-admin.php:208
-#: admin/class-admin.php:209 admin/views/import.php:17
+#: admin/class-admin-ui.php:71 admin/class-admin.php:221
+#: admin/class-admin.php:222 admin/views/import.php:17
 msgid "Import forms"
 msgstr "Importar formularios"
 
-#: admin/class-admin-ui.php:71
+#: admin/class-admin-ui.php:72 admin/class-admin.php:198
+#: admin/class-admin.php:199 admin/views/assistants.php:39
+msgid "AI assistants"
+msgstr "Asistentes de IA"
+
+#: admin/class-admin-ui.php:73
 msgid "Send feedback"
 msgstr "Enviar opiniones"
 
-#: admin/class-admin-ui.php:117
+#: admin/class-admin-ui.php:119
 msgid "Pro"
 msgstr "Pro"
 
-#: admin/class-admin-ui.php:137
+#: admin/class-admin-ui.php:139
 msgid "Trinity Forms sections"
 msgstr "Secciones de Trinity Forms"
 
-#: admin/class-admin-ui.php:142
+#: admin/class-admin-ui.php:144
 msgid "More"
 msgstr "Más"
 
-#: admin/class-admin-ui.php:149
+#: admin/class-admin-ui.php:151
 msgid "Help"
 msgstr "Ayuda"
 
-#: admin/class-admin-ui.php:150 admin/class-admin.php:82
-#: admin/class-admin.php:187 admin/class-admin.php:188
+#: admin/class-admin-ui.php:152 admin/class-admin.php:84
+#: admin/class-admin.php:189 admin/class-admin.php:190
 #: admin/views/settings.php:27 builder/src/app.jsx:482
 msgid "Settings"
 msgstr "Ajustes"
 
-#: admin/class-admin-ui.php:235
+#: admin/class-admin-ui.php:237
 msgid "New View"
 msgstr "Nueva vista"
 
-#: admin/class-admin-ui.php:239
+#: admin/class-admin-ui.php:241
 msgid "Show entries on your site as a table, a list or cards. Put a View on any page with its shortcode."
 msgstr "Muestra envíos en tu sitio como tabla, lista o tarjetas. Pon una vista en cualquier página con su shortcode."
 
-#: admin/class-admin-ui.php:246 admin/class-forms-list.php:61
+#: admin/class-admin-ui.php:248 admin/class-forms-list.php:61
 #: builder/src/app.jsx:663
 msgid "Start from a template"
 msgstr "Empezar desde una plantilla"
 
-#: admin/class-admin-ui.php:247
+#: admin/class-admin-ui.php:249
 msgid "New form"
 msgstr "Nuevo formulario"
 
-#: admin/class-admin-ui.php:250
+#: admin/class-admin-ui.php:252
 msgid "Every form on your site. Open one to edit it, or copy its shortcode onto a page."
 msgstr "Todos los formularios de tu sitio. Abre uno para editarlo o copia su shortcode en una página."
 
-#: admin/class-admin-ui.php:284
+#: admin/class-admin-ui.php:286
 msgid "Live forms"
 msgstr "Formularios publicados"
 
 #. translators: %s: number of draft forms.
-#: admin/class-admin-ui.php:287
+#: admin/class-admin-ui.php:289
 #, php-format
 msgid "Plus %s draft"
 msgid_plural "Plus %s drafts"
@@ -596,76 +602,84 @@ msgstr[0] "Y %s borrador"
 msgstr[1] "Y %s borradores"
 
 #. translators: %s: number of draft forms.
-#: admin/class-admin-ui.php:287
+#: admin/class-admin-ui.php:289
 msgid "No drafts waiting"
 msgstr "No hay borradores pendientes"
 
-#: admin/class-admin-ui.php:290
+#: admin/class-admin-ui.php:292
 msgid "Kept in your own database"
 msgstr "Guardados en tu propia base de datos"
 
-#: admin/class-admin-ui.php:292 admin/views/entries-list.php:206
+#: admin/class-admin-ui.php:294 admin/views/entries-list.php:206
 #: admin/views/entries-list.php:422
 msgid "Unread"
 msgstr "No leídos"
 
-#: admin/class-admin-ui.php:294
+#: admin/class-admin-ui.php:296
 msgid "Waiting for you to open them"
 msgstr "Esperando a que los abras"
 
-#: admin/class-admin-ui.php:294
+#: admin/class-admin-ui.php:296
 msgid "You are all caught up"
 msgstr "Lo tienes todo al día"
 
-#: admin/class-admin-ui.php:298
+#: admin/class-admin-ui.php:300
 msgid "Last 7 days"
 msgstr "Últimos 7 días"
 
-#: admin/class-admin-ui.php:298
+#: admin/class-admin-ui.php:300
 msgid "New entries this week"
 msgstr "Envíos nuevos esta semana"
 
-#: admin/class-admin.php:89 admin/class-admin.php:221 admin/class-admin.php:222
+#: admin/class-admin.php:91 admin/class-admin.php:234 admin/class-admin.php:235
 msgid "Upgrade to Pro"
 msgstr "Mejorar a Pro"
 
-#: admin/class-admin.php:101
+#: admin/class-admin.php:103
 msgid "Docs"
 msgstr "Documentación"
 
-#: admin/class-admin.php:103
+#: admin/class-admin.php:105
 msgid "Support"
 msgstr "Soporte"
 
-#: admin/class-admin.php:196
+#: admin/class-admin.php:209
 msgid "Feedback & Support"
 msgstr "Opiniones y soporte"
 
-#: admin/class-admin.php:197
+#: admin/class-admin.php:210
 msgid "Feedback"
 msgstr "Opiniones"
 
 #. translators: %s: feedback type (bug report, feature request, …).
-#: admin/class-admin.php:446
+#: admin/class-admin.php:459
 #, php-format
 msgid "Trinity Forms feedback: %s"
 msgstr "Opiniones sobre Trinity Forms: %s"
 
-#: admin/class-admin.php:483
+#: admin/class-admin.php:496
 msgid "You are not allowed to view this entry."
 msgstr "No tienes permiso para ver este envío."
 
 #. translators: %s: display name of the user who resent the notification.
-#: admin/class-admin.php:553 admin/class-admin.php:632
+#: admin/class-admin.php:566 admin/class-admin.php:645
 #, php-format
 msgid "Notifications resent by %s."
 msgstr "Notificaciones reenviadas por %s."
 
 #. translators: 1: user display name, 2: comma-separated list of field labels.
-#: admin/class-admin.php:746
+#: admin/class-admin.php:759
 #, php-format
 msgid "Edited by %1$s — changed: %2$s."
 msgstr "Editado por %1$s, cambios: %2$s."
+
+#: admin/class-assistants.php:70
+msgid "Sorry, you are not allowed to do that."
+msgstr "Lo siento, no tienes permiso para hacer eso."
+
+#: admin/class-assistants.php:96
+msgid "Sorry, you are not allowed to install plugins on this site."
+msgstr "Lo siento, no tienes permiso para instalar plugins en este sitio."
 
 #: admin/class-form-editor.php:67
 msgid "Testing…"
@@ -1355,6 +1369,7 @@ msgid "You do not have permission to export this form."
 msgstr "No tienes permiso para exportar este formulario."
 
 #: admin/class-forms-list.php:178 admin/class-forms-list.php:240
+#: includes/class-abilities.php:203 includes/class-abilities.php:350
 #: includes/class-rest-api.php:138 includes/class-submission-pipeline.php:49
 msgid "Form not found."
 msgstr "Formulario no encontrado."
@@ -1400,6 +1415,266 @@ msgstr "Formulario duplicado."
 #: admin/class-forms-list.php:308
 msgid "Edit copy"
 msgstr "Editar la copia"
+
+#: admin/views/assistants.php:22
+msgid "Read forms and entries"
+msgstr "Leer formularios y envíos"
+
+#: admin/views/assistants.php:23
+msgid "See how your forms are built and how they perform, and read their entries. Nothing is changed. What an assistant sees of each entry is set below."
+msgstr "Ver cómo están hechos tus formularios y cómo funcionan, y leer sus envíos. No se cambia nada. Lo que un asistente ve de cada envío se configura más abajo."
+
+#: admin/views/assistants.php:28
+msgid "Saved."
+msgstr "Guardado."
+
+#: admin/views/assistants.php:29
+msgid "The MCP Adapter plugin is installed and active."
+msgstr "El plugin MCP Adapter está instalado y activo."
+
+#: admin/views/assistants.php:30
+msgid "WordPress could not install the MCP Adapter plugin here (it may not be allowed to write files). Install it from Plugins > Add New: search for “MCP Adapter”."
+msgstr "WordPress no ha podido instalar aquí el plugin MCP Adapter (puede que no tenga permiso para escribir archivos). Instálalo desde Plugins > Añadir nuevo: busca “MCP Adapter”."
+
+#: admin/views/assistants.php:31
+msgid "The MCP Adapter plugin is installed but could not be activated. Activate it on the Plugins screen."
+msgstr "El plugin MCP Adapter está instalado, pero no se ha podido activar. Actívalo en la pantalla de Plugins."
+
+#: admin/views/assistants.php:40
+msgid "Let an AI assistant such as Claude or Cursor work with your forms and entries. You choose what it may do and what it may see."
+msgstr "Deja que un asistente de IA como Claude o Cursor trabaje con tus formularios y envíos. Tú eliges qué puede hacer y qué puede ver."
+
+#: admin/views/assistants.php:50
+msgid "This needs WordPress 6.9 or newer, which added the Abilities API that AI tools use. Update WordPress to use it."
+msgstr "Necesita WordPress 6.9 o posterior, que añadió la Abilities API que usan las herramientas de IA. Actualiza WordPress para usarlo."
+
+#: admin/views/assistants.php:59
+msgid "1. What assistants may do"
+msgstr "1. Qué pueden hacer los asistentes"
+
+#: admin/views/assistants.php:60
+msgid "Off by default. An assistant only ever acts as the user it signs in as, so it can never do more than that user could do on these screens."
+msgstr "Desactivado por defecto. Un asistente siempre actúa como el usuario con el que inicia sesión, así que nunca puede hacer más de lo que ese usuario podría hacer en estas pantallas."
+
+#: admin/views/assistants.php:82
+msgid "2. What assistants may see"
+msgstr "2. Qué pueden ver los asistentes"
+
+#: admin/views/assistants.php:83
+msgid "Your entries hold other people’s personal details. Decide how much of them reaches an AI service."
+msgstr "Tus envíos contienen datos personales de otras personas. Decide cuánto de ellos llega a un servicio de IA."
+
+#: admin/views/assistants.php:87
+msgid "Show contact details"
+msgstr "Mostrar datos de contacto"
+
+#: admin/views/assistants.php:88
+msgid "Off by default: emails become j***@example.com, phone numbers ***42, names their initials, and addresses are left out, also inside messages and notes. Turn it on only if your assistant needs to write to people."
+msgstr "Desactivado por defecto: los correos pasan a ser j***@example.com, los teléfonos ***42, los nombres sus iniciales, y las direcciones se omiten, también dentro de mensajes y notas. Actívalo solo si tu asistente necesita escribir a la gente."
+
+#: admin/views/assistants.php:90
+msgid "Always left out, whatever you choose: uploaded files, passwords, card numbers and signatures."
+msgstr "Se omiten siempre, elijas lo que elijas: archivos subidos, contraseñas, números de tarjeta y firmas."
+
+#: admin/views/assistants.php:92
+msgid "Never show to assistants"
+msgstr "No mostrar nunca a los asistentes"
+
+#: admin/views/assistants.php:93
+msgid "Entries of the forms you tick are not listed and cannot be opened by an assistant, for example a job application or a medical form. The form itself can still be read."
+msgstr "Los envíos de los formularios que marques no se listan y un asistente no puede abrirlos, por ejemplo una solicitud de empleo o un formulario médico. El formulario en sí se puede seguir leyendo."
+
+#. translators: %s: number of entries.
+#: admin/views/assistants.php:104 admin/views/entries-list.php:190
+#: admin/views/entries-list.php:339
+#, php-format
+msgid "%s entry"
+msgid_plural "%s entries"
+msgstr[0] "%s envío"
+msgstr[1] "%s envíos"
+
+#: admin/views/assistants.php:110
+msgid "Every entry an assistant opens gets a note, so you can see what was read."
+msgstr "Cada envío que abre un asistente recibe una nota, para que veas qué se ha leído."
+
+#: admin/views/assistants.php:111
+msgid "Save"
+msgstr "Guardar"
+
+#: admin/views/assistants.php:117
+msgid "3. Connect your assistant"
+msgstr "3. Conecta tu asistente"
+
+#: admin/views/assistants.php:118
+msgid "Assistants reach WordPress through the free MCP Adapter plugin, made by the WordPress AI team."
+msgstr "Los asistentes llegan a WordPress a través del plugin gratuito MCP Adapter, creado por el equipo de IA de WordPress."
+
+#: admin/views/assistants.php:120
+msgid "MCP Adapter plugin"
+msgstr "Plugin MCP Adapter"
+
+#: admin/views/assistants.php:122
+msgid "Active"
+msgstr "Activo"
+
+#: admin/views/assistants.php:124
+msgid "Installed, not active"
+msgstr "Instalado, no activo"
+
+#: admin/views/assistants.php:126
+msgid "Not installed"
+msgstr "No instalado"
+
+#: admin/views/assistants.php:135
+msgid "Install and activate MCP Adapter"
+msgstr "Instalar y activar MCP Adapter"
+
+#: admin/views/assistants.php:135
+msgid "Activate MCP Adapter"
+msgstr "Activar MCP Adapter"
+
+#: admin/views/assistants.php:137
+msgid "From wordpress.org. You can remove it any time on the Plugins screen."
+msgstr "Desde wordpress.org. Puedes quitarlo cuando quieras en la pantalla de Plugins."
+
+#: admin/views/assistants.php:140
+msgid "Ask the site administrator to install and activate the MCP Adapter plugin from wordpress.org."
+msgstr "Pide al administrador del sitio que instale y active el plugin MCP Adapter desde wordpress.org."
+
+#: admin/views/assistants.php:144
+msgid "Application password"
+msgstr "Contraseña de aplicación"
+
+#: admin/views/assistants.php:147
+msgid "Not available"
+msgstr "No disponible"
+
+#: admin/views/assistants.php:148
+msgid "WordPress only offers application passwords on sites served over HTTPS. Switch the site to HTTPS first."
+msgstr "WordPress solo ofrece contraseñas de aplicación en sitios servidos por HTTPS. Pasa primero el sitio a HTTPS."
+
+#: admin/views/assistants.php:149
+msgid "On a site on your own computer with WP-CLI, an assistant can connect without one. Use this as the command in its MCP settings:"
+msgstr "En un sitio en tu propio ordenador con WP-CLI, un asistente puede conectarse sin ella. Usa esto como comando en sus ajustes de MCP:"
+
+#: admin/views/assistants.php:152
+msgid "Your assistant signs in with an application password: a separate password you can revoke without changing your own. Name it after the assistant, for example “Claude”."
+msgstr "Tu asistente inicia sesión con una contraseña de aplicación: una contraseña aparte que puedes revocar sin cambiar la tuya. Ponle el nombre del asistente, por ejemplo “Claude”."
+
+#: admin/views/assistants.php:153
+msgid "Create an application password"
+msgstr "Crear una contraseña de aplicación"
+
+#: admin/views/assistants.php:154
+msgid "Tip: an assistant can do whatever the user it signs in as can do. A separate user with only the role it needs is the safest choice."
+msgstr "Consejo: un asistente puede hacer todo lo que puede hacer el usuario con el que inicia sesión. Lo más seguro es un usuario aparte con solo el perfil que necesita."
+
+#: admin/views/assistants.php:177
+msgid "Claude Desktop, Cursor and other desktop apps"
+msgstr "Claude Desktop, Cursor y otras aplicaciones de escritorio"
+
+#: admin/views/assistants.php:178
+msgid "Add this to the app’s MCP settings file (in Claude Desktop: Settings > Developer > Edit Config), put your application password in, and restart the app. It needs Node.js on your computer."
+msgstr "Añade esto al archivo de ajustes de MCP de la aplicación (en Claude Desktop: Settings > Developer > Edit Config), pon tu contraseña de aplicación y reinicia la aplicación. Necesita Node.js en tu ordenador."
+
+#: admin/views/assistants.php:181
+msgid "Claude Code"
+msgstr "Claude Code"
+
+#. translators: %s: web address of the other MCP server.
+#: admin/views/assistants.php:189
+#, php-format
+msgid "Another plugin on this site (for example Rank Math) added an MCP server that signs in with OAuth, at %s. Apps in a web browser, such as ChatGPT or Claude, may be able to connect there; follow that plugin’s instructions. It offers the same Trinity Forms abilities you allow above, with the same privacy settings."
+msgstr "Otro plugin de este sitio (por ejemplo Rank Math) ha añadido un servidor MCP que inicia sesión con OAuth, en %s. Las aplicaciones en el navegador, como ChatGPT o Claude, quizá puedan conectarse ahí; sigue las instrucciones de ese plugin. Ofrece las mismas habilidades de Trinity Forms que permitas arriba, con los mismos ajustes de privacidad."
+
+#: admin/views/assistants.php:194
+msgid "ChatGPT and Claude in a web browser cannot connect to a WordPress site this way yet: they need a sign-in method (OAuth) that WordPress does not offer yet."
+msgstr "ChatGPT y Claude en el navegador aún no pueden conectarse así a un sitio WordPress: necesitan un método de inicio de sesión (OAuth) que WordPress todavía no ofrece."
+
+#: admin/views/assistants.php:196
+msgid "Try asking: “Which of my forms gets the most views but the fewest entries?”"
+msgstr "Prueba a preguntar: “¿Cuál de mis formularios tiene más vistas pero menos envíos?”"
+
+#: admin/views/assistants.php:202
+msgid "4. What an assistant can use"
+msgstr "4. Qué puede usar un asistente"
+
+#: admin/views/assistants.php:203
+msgid "Every Trinity Forms ability on this site and whether assistants can use it now."
+msgstr "Todas las habilidades de Trinity Forms de este sitio y si los asistentes pueden usarlas ahora."
+
+#: admin/views/assistants.php:205 admin/views/assistants.php:236
+msgid "Ability"
+msgstr "Habilidad"
+
+#: admin/views/assistants.php:205
+msgid "What it does"
+msgstr "Qué hace"
+
+#: admin/views/assistants.php:205
+msgid "Kind"
+msgstr "Tipo"
+
+#: admin/views/assistants.php:205
+msgid "Assistants"
+msgstr "Asistentes"
+
+#: admin/views/assistants.php:210
+msgid "Reads"
+msgstr "Lee"
+
+#: admin/views/assistants.php:211
+msgid "Changes forms"
+msgstr "Cambia formularios"
+
+#: admin/views/assistants.php:212
+msgid "Deletes"
+msgstr "Elimina"
+
+#: admin/views/assistants.php:221
+msgid "Allowed"
+msgstr "Permitido"
+
+#: admin/views/assistants.php:221
+msgid "Off"
+msgstr "Desactivado"
+
+#: admin/views/assistants.php:230
+msgid "5. What assistants did"
+msgstr "5. Qué hicieron los asistentes"
+
+#: admin/views/assistants.php:231
+msgid "The last 50 requests. Trinity Forms keeps the newest 200."
+msgstr "Las últimas 50 peticiones. Trinity Forms guarda las 200 más recientes."
+
+#: admin/views/assistants.php:233
+msgid "No requests yet."
+msgstr "Aún no hay peticiones."
+
+#: admin/views/assistants.php:236 blocks/conditional-rules.js:196
+msgid "When"
+msgstr "Cuando"
+
+#: admin/views/assistants.php:236 admin/views/entry-detail.php:374
+msgid "User"
+msgstr "Usuario"
+
+#: admin/views/assistants.php:236
+msgid "Asked"
+msgstr "Petición"
+
+#: admin/views/assistants.php:236
+msgid "Result"
+msgstr "Resultado"
+
+#: admin/views/assistants.php:246 builder/src/app.jsx:656
+msgid "Done"
+msgstr "Hecho"
+
+#: admin/views/assistants.php:246 includes/class-entries.php:50
+#: includes/class-entries.php:66
+msgid "Failed"
+msgstr "Fallido"
 
 #. translators: %d: form ID.
 #: admin/views/entries-list.php:76 includes/class-classic-editor.php:40
@@ -1495,14 +1770,6 @@ msgstr "Rechazado: %s."
 msgid "Nothing selected."
 msgstr "No hay nada seleccionado."
 
-#. translators: %s: number of entries.
-#: admin/views/entries-list.php:190 admin/views/entries-list.php:339
-#, php-format
-msgid "%s entry"
-msgid_plural "%s entries"
-msgstr[0] "%s envío"
-msgstr[1] "%s envíos"
-
 #: admin/views/entries-list.php:205
 msgid "All"
 msgstr "Todos"
@@ -1533,7 +1800,7 @@ msgstr "Filtrar envíos"
 #: admin/views/entry-detail.php:343 admin/views/import.php:108
 #: includes/class-classic-editor.php:81 includes/class-form-widget.php:103
 #: includes/class-my-submissions.php:50 includes/class-my-submissions.php:56
-#: includes/class-plugin.php:123 includes/class-results.php:146
+#: includes/class-plugin.php:125 includes/class-results.php:146
 #: includes/elementor/class-form-widget.php:55
 #: includes/elementor/class-form-widget.php:60 blocks/form-block/edit.js:29
 msgid "Form"
@@ -1938,10 +2205,6 @@ msgstr "Detalles"
 msgid "Form deleted"
 msgstr "Formulario borrado"
 
-#: admin/views/entry-detail.php:374
-msgid "User"
-msgstr "Usuario"
-
 #: admin/views/entry-detail.php:375 includes/class-entry-notes.php:114
 msgid "Deleted user"
 msgstr "Usuario borrado"
@@ -2004,7 +2267,7 @@ msgstr "No se puede editar. Este valor es un registro de lo que pasó, no un aju
 msgid "Save entry"
 msgstr "Guardar envío"
 
-#: admin/views/entry-print.php:40
+#: admin/views/entry-print.php:40 includes/class-abilities.php:346
 msgid "Entry not found."
 msgstr "Envío no encontrado."
 
@@ -2358,7 +2621,7 @@ msgstr "Editar formulario"
 msgid "Integration and payment keys are never included in an export, so set them up again on this site."
 msgstr "Las claves de integraciones y pagos nunca se incluyen en una exportación, así que vuelve a configurarlas en este sitio."
 
-#: admin/views/transfer.php:52
+#: admin/views/transfer.php:52 includes/class-abilities.php:174
 msgid "Export a form"
 msgstr "Exportar un formulario"
 
@@ -2455,78 +2718,140 @@ msgid "Let visitors save a partial submission and finish later."
 msgstr "Permite a los visitantes guardar un envío a medias y terminarlo más tarde."
 
 #: admin/views/upgrade.php:33
+msgid "AI assistants that build forms"
+msgstr "Asistentes de IA que crean formularios"
+
+#: admin/views/upgrade.php:33
+msgid "Your AI assistant can create forms, add and change fields, publish them and sort entries, showing you each change first. Every change can be undone. Reading forms and entries is free. Needs WordPress 6.9 or newer."
+msgstr "Tu asistente de IA puede crear formularios, añadir y cambiar campos, publicarlos y organizar envíos, mostrándote antes cada cambio. Todos los cambios se pueden deshacer. Leer formularios y envíos es gratis. Necesita WordPress 6.9 o posterior."
+
+#: admin/views/upgrade.php:34
 msgid "Public submissions table"
 msgstr "Tabla pública de envíos"
 
-#: admin/views/upgrade.php:33
+#: admin/views/upgrade.php:34
 msgid "Publish a read-only entries table on the front end with [trinity_forms_submissions]."
 msgstr "Publica una tabla de envíos de solo lectura en la parte pública con [trinity_forms_submissions]."
 
-#: admin/views/upgrade.php:38
+#: admin/views/upgrade.php:39
 msgid "Upgrade to Trinity Forms Pro"
 msgstr "Mejorar a Trinity Forms Pro"
 
-#: admin/views/upgrade.php:39
+#: admin/views/upgrade.php:40
 msgid "You are on free Trinity Forms: a complete builder that stores your entries with no caps. Pro adds the parts you need once you take money or grow."
 msgstr "Usas Trinity Forms gratis: un constructor completo que guarda tus envíos sin límites. Pro añade lo que necesitas cuando empiezas a cobrar o a crecer."
 
-#: admin/views/upgrade.php:40
+#: admin/views/upgrade.php:41
 msgid "See Pro pricing"
 msgstr "Ver precios de Pro"
 
-#: admin/views/upgrade.php:53
+#: admin/views/upgrade.php:54
 msgid "Upgrading keeps everything."
 msgstr "Al mejorar se conserva todo."
 
-#: admin/views/upgrade.php:54
+#: admin/views/upgrade.php:55
 msgid "Install the Pro version over this one. Same plugin, same database. Your forms and entries carry over untouched: no reinstall, no data loss."
 msgstr "Instala la versión Pro encima de esta. Mismo plugin, misma base de datos. Tus formularios y envíos se mantienen intactos: sin reinstalar y sin perder datos."
 
-#: admin/views/upgrade.php:59
+#: admin/views/upgrade.php:60
 msgid "Get Trinity Forms Pro"
 msgstr "Consigue Trinity Forms Pro"
 
-#: admin/views/upgrade.php:64
+#: admin/views/upgrade.php:65
 msgid "Already bought Pro?"
 msgstr "¿Ya has comprado Pro?"
 
-#: admin/views/upgrade.php:65
+#: admin/views/upgrade.php:66
 msgid "Fastest: paste your Pro license key in Trinity Forms Settings, under License, and click Install Pro now. Pro is installed over this version for you. Or do it by hand:"
 msgstr "Lo más rápido: pega tu clave de licencia Pro en Ajustes de Trinity Forms, en Licencia, y haz clic en Instalar Pro ahora. Pro se instala sobre esta versión por ti. O hazlo a mano:"
 
-#: admin/views/upgrade.php:65
+#: admin/views/upgrade.php:66
 msgid "Open the License box"
 msgstr "Abrir el cuadro de licencia"
 
-#: admin/views/upgrade.php:68 admin/views/upgrade.php:69
+#: admin/views/upgrade.php:69 admin/views/upgrade.php:70
 msgid "Download the Pro zip"
 msgstr "Descarga el zip de Pro"
 
-#: admin/views/upgrade.php:68
+#: admin/views/upgrade.php:69
 msgid "From your account on jnkplugins.com, under your license."
 msgstr "Desde tu cuenta en jnkplugins.com, en tu licencia."
 
-#: admin/views/upgrade.php:70
+#: admin/views/upgrade.php:71
 msgid "Upload it over this one"
 msgstr "Súbelo sobre este"
 
-#: admin/views/upgrade.php:70
+#: admin/views/upgrade.php:71
 msgid "Plugins, Add New, Upload Plugin. WordPress shows this copy as Trinity Forms and the upload as Trinity Forms Pro. Choose “Replace current with uploaded”."
 msgstr "Plugins, Añadir nuevo, Subir plugin. WordPress muestra esta copia como Trinity Forms y la subida como Trinity Forms Pro. Elige «Reemplazar el actual con el subido»."
 
-#: admin/views/upgrade.php:71
+#: admin/views/upgrade.php:72
 msgid "Enter your license key"
 msgstr "Introduce tu clave de licencia"
 
-#: admin/views/upgrade.php:71
+#: admin/views/upgrade.php:72
 msgid "A notice at the top of the screen takes you to the box, in Trinity Forms Settings under License. The key is in your purchase email."
 msgstr "Un aviso en la parte superior de la pantalla te lleva al cuadro, en Ajustes de Trinity Forms, en Licencia. La clave está en el correo de tu compra."
 
 #. translators: %s: this site's maximum upload size, e.g. "2 MB".
-#: admin/views/upgrade.php:82
+#: admin/views/upgrade.php:83
 #, php-format
 msgid "The Pro zip is about 6.5 MB and this site accepts uploads up to %s. If WordPress says the file “exceeds the upload_max_filesize directive”, ask your host to raise upload_max_filesize and post_max_size to 16 MB, or unzip it on your computer and upload the trinity-forms folder to wp-content/plugins/ over FTP/SFTP, replacing the existing one. Your forms and entries are kept either way."
 msgstr "El zip de Pro pesa unos 6,5 MB y este sitio acepta subidas de hasta %s. Si WordPress dice que el archivo “excede la directiva upload_max_filesize”, pide a tu proveedor de alojamiento que suba upload_max_filesize y post_max_size a 16 MB, o descomprímelo en tu ordenador y sube la carpeta trinity-forms a wp-content/plugins/ por FTP/SFTP, reemplazando la existente. Tus formularios y envíos se conservan en ambos casos."
+
+#: includes/class-abilities.php:59
+msgid "Forms built with Trinity Forms, their numbers and their entries."
+msgstr "Formularios creados con Trinity Forms, sus cifras y sus envíos."
+
+#: includes/class-abilities.php:113
+msgid "List forms"
+msgstr "Listar formularios"
+
+#: includes/class-abilities.php:114
+msgid "Every form with its status, number of fields, entries, unread entries, views and conversion rate, and the shortcode to place it."
+msgstr "Cada formulario con su estado, número de campos, envíos, envíos no leídos, vistas y tasa de conversión, y el shortcode para insertarlo."
+
+#: includes/class-abilities.php:122
+msgid "Read how a form is built"
+msgstr "Leer cómo está hecho un formulario"
+
+#: includes/class-abilities.php:123
+msgid "One form's steps and fields (type, label, required, choices, conditional logic), its submit button and confirmation, notifications and payment settings. Field ids are what update-form and the conditional rules use."
+msgstr "Los pasos y campos de un formulario (tipo, etiqueta, obligatorio, opciones, lógica condicional), su botón de envío y confirmación, notificaciones y ajustes de pago. Los ids de campo son lo que usan update-form y las reglas condicionales."
+
+#: includes/class-abilities.php:131
+msgid "Get a form's numbers"
+msgstr "Ver las cifras de un formulario"
+
+#: includes/class-abilities.php:132
+msgid "Views, submissions, conversion rate, and entries by status (unread, starred, spam, trash) for one form."
+msgstr "Vistas, envíos, tasa de conversión y envíos por estado (no leídos, destacados, spam, papelera) de un formulario."
+
+#: includes/class-abilities.php:140
+msgid "List entries"
+msgstr "Listar envíos"
+
+#: includes/class-abilities.php:141
+msgid "Entries, newest first, for one form or all of them: unread, starred, spam or all, optionally searched. Contact details are masked unless the site owner allows them."
+msgstr "Envíos, los más recientes primero, de un formulario o de todos: no leídos, destacados, spam o todos, con búsqueda opcional. Los datos de contacto se ocultan salvo que el propietario del sitio los permita."
+
+#: includes/class-abilities.php:160
+msgid "Open an entry"
+msgstr "Abrir un envío"
+
+#: includes/class-abilities.php:161
+msgid "One entry's answers, labelled from the form, with its status and notes. Contact details are masked unless the site owner allows them; files, passwords, card numbers, signatures and payment fields are never included. Opening an entry is noted on it."
+msgstr "Las respuestas de un envío, etiquetadas según el formulario, con su estado y notas. Los datos de contacto se ocultan salvo que el propietario del sitio los permita; los archivos, contraseñas, números de tarjeta, firmas y campos de pago nunca se incluyen. Al abrir un envío se deja una nota en él."
+
+#: includes/class-abilities.php:175
+msgid "A form as the same JSON file Import / Export makes, without API keys or other credentials, so it can be copied to another site."
+msgstr "Un formulario en el mismo archivo JSON que genera Importar / Exportar, sin claves de API ni otras credenciales, para poder copiarlo a otro sitio."
+
+#. translators: %s: user display name the assistant signed in as.
+#: includes/class-abilities.php:394
+#, php-format
+msgid "Opened by an AI assistant signed in as %s"
+msgstr "Abierto por un asistente de IA con sesión iniciada como %s"
 
 #: includes/class-activity.php:28
 msgid "a visitor"
@@ -2613,6 +2938,10 @@ msgstr "Restaurado por %s"
 #, php-format
 msgid "%s could not process this entry."
 msgstr "%s no ha podido procesar este envío."
+
+#: includes/class-ai-privacy.php:108
+msgid "hidden"
+msgstr "oculto"
 
 #: includes/class-akismet-check.php:44
 msgid "Akismet flagged it."
@@ -2936,10 +3265,6 @@ msgstr "Pagado"
 #: includes/class-entries.php:49 includes/class-entries.php:62
 msgid "Pending"
 msgstr "Pendiente"
-
-#: includes/class-entries.php:50 includes/class-entries.php:66
-msgid "Failed"
-msgstr "Fallido"
 
 #: includes/class-entries.php:51
 msgid "Refunded"
@@ -3437,27 +3762,27 @@ msgstr "No se pudo crear la página."
 msgid "Create a page"
 msgstr "Crear una página"
 
-#: includes/class-plugin.php:116
+#: includes/class-plugin.php:118
 msgid "Trinity Forms Forms"
 msgstr "Formularios de Trinity Forms"
 
-#: includes/class-plugin.php:124
+#: includes/class-plugin.php:126
 msgid "All Forms"
 msgstr "Todos los formularios"
 
-#: includes/class-plugin.php:125
+#: includes/class-plugin.php:127
 msgid "Add Form"
 msgstr "Añadir formulario"
 
-#: includes/class-plugin.php:126
+#: includes/class-plugin.php:128
 msgid "Edit Form"
 msgstr "Editar formulario"
 
-#: includes/class-plugin.php:127
+#: includes/class-plugin.php:129
 msgid "No forms yet — start from a template, or add a blank one."
 msgstr "Aún no hay formularios. Empieza desde una plantilla o añade uno en blanco."
 
-#: includes/class-plugin.php:275
+#: includes/class-plugin.php:277
 msgid "Trinity Forms Fields"
 msgstr "Campos de Trinity Forms"
 
@@ -4490,10 +4815,6 @@ msgid "Remove rule"
 msgstr "Quitar regla"
 
 #: blocks/conditional-rules.js:196
-msgid "When"
-msgstr "Cuando"
-
-#: blocks/conditional-rules.js:196
 msgid "Within this group"
 msgstr "Dentro de este grupo"
 
@@ -4974,10 +5295,6 @@ msgstr "Ajustes del formulario"
 #: builder/src/app.jsx:653
 msgid "These are saved with the form when you press Save form."
 msgstr "Se guardan con el formulario cuando pulsas Guardar formulario."
-
-#: builder/src/app.jsx:656
-msgid "Done"
-msgstr "Hecho"
 
 #: builder/src/app.jsx:683
 msgid "fields"

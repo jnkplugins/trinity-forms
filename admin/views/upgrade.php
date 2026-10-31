@@ -30,6 +30,7 @@ $trinity_forms_pro_features = [
     [ __( "Guided forms & landing pages", "trinity-forms" ), __( "One question at a time with a progress bar, or a form on its own full-page URL. (Multi-step page breaks are already free.)", "trinity-forms" ) ],
     [ __( "Advanced fields", "trinity-forms" ), __( "Signature, repeater, calculation, rich text and chained selects.", "trinity-forms" ) ],
     [ __( "Save & resume", "trinity-forms" ), __( "Let visitors save a partial submission and finish later.", "trinity-forms" ) ],
+    [ __( "AI assistants that build forms", "trinity-forms" ), __( "Your AI assistant can create forms, add and change fields, publish them and sort entries, showing you each change first. Every change can be undone. Reading forms and entries is free. Needs WordPress 6.9 or newer.", "trinity-forms" ) ],
     [ __( "Public submissions table", "trinity-forms" ), __( "Publish a read-only entries table on the front end with [trinity_forms_submissions].", "trinity-forms" ) ],
 ];
 ?>

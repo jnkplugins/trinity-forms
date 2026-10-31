@@ -68,6 +68,8 @@ class Admin {
         add_filter( "plugin_action_links_" . plugin_basename( TRINITY_FORMS_FILE ), [ self::class, "plugin_action_links" ] );
         add_filter( "plugin_row_meta", [ self::class, "plugin_row_meta" ], 10, 2 );
         add_action( "admin_menu", [ self::class, "order_submenu" ], 999 );
+        // AI assistants screen: switches, privacy, MCP Adapter install, access log.
+        Assistants::register();
         Form_Editor::bootstrap();
         Forms_List::bootstrap();
         Admin_UI::bootstrap();
@@ -193,6 +195,17 @@ class Admin {
 
         add_submenu_page(
             self::PARENT,
+            __( "AI assistants", "trinity-forms" ),
+            __( "AI assistants", "trinity-forms" ),
+            "manage_options",
+            "trinity-forms-assistants",
+            static function () {
+                ( new Assistants() )->render();
+            }
+        );
+
+        add_submenu_page(
+            self::PARENT,
             __( "Feedback & Support", "trinity-forms" ),
             __( "Feedback", "trinity-forms" ),
             self::CAP,
@@ -241,7 +254,7 @@ class Admin {
             return;
         }
         $head = [ self::PARENT, "post-new.php?post_type=trinity_forms_form", "trinity-forms-builder", "trinity-forms-templates", "edit.php?post_type=trinity_forms_view", self::ENTRIES, "trinity-forms-results" ];
-        $tail = [ "trinity-forms-transfer", self::SETTINGS, self::IMPORT, self::FEEDBACK, "trinity-forms-upgrade" ];
+        $tail = [ "trinity-forms-transfer", self::SETTINGS, "trinity-forms-assistants", self::IMPORT, self::FEEDBACK, "trinity-forms-upgrade" ];
         $rank = static function ( array $item ) use ( $head, $tail ): int {
             $slug = (string) ( $item[2] ?? "" );
             $h    = array_search( $slug, $head, true );
