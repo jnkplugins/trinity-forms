@@ -30,6 +30,9 @@ $tf_names     = implode( ", ", array_map( static fn( $i ) => $i->label(), $tf_im
             delete_transient( "trinity_forms_gf_import_report" );
         }
         delete_transient( "trinity_forms_import_report_" . get_current_user_id() );
+        // One report per form picked (several can be imported in one run).
+        $tf_reports = is_array( $tf_report ) && isset( $tf_report["reports"] ) ? (array) $tf_report["reports"] : [ $tf_report ];
+        foreach ( $tf_reports as $tf_report ) :
         $tf_dry = is_array( $tf_report ) && ! empty( $tf_report["dry_run"] );
         $tf_ok  = is_array( $tf_report ) && ( $tf_dry || ! empty( $tf_report["form_id"] ) );
         ?>
@@ -75,6 +78,7 @@ $tf_names     = implode( ", ", array_map( static fn( $i ) => $i->label(), $tf_im
                 <?php endif; ?>
             <?php endif; ?>
         </div>
+        <?php endforeach; ?>
     <?php endif; ?>
 
     <?php if ( ! $tf_found ) : ?>
@@ -91,8 +95,8 @@ $tf_names     = implode( ", ", array_map( static fn( $i ) => $i->label(), $tf_im
         <?php return; ?>
     <?php endif; ?>
 
-    <h2 class="tf-section-title"><?php esc_html_e( "1. Pick a form", "trinity-forms" ); ?></h2>
-    <p class="description"><?php esc_html_e( "Each import makes a new Trinity Forms form, so you can look at the result and import again if you want to start over.", "trinity-forms" ); ?></p>
+    <h2 class="tf-section-title"><?php esc_html_e( "1. Pick the forms", "trinity-forms" ); ?></h2>
+    <p class="description"><?php esc_html_e( "Tick one form or several. Each import makes a new Trinity Forms form, so you can look at the result and import again if you want to start over.", "trinity-forms" ); ?></p>
     <form method="post" action="<?php echo esc_url( admin_url( "admin-post.php" ) ); ?>">
         <input type="hidden" name="action" value="trinity_forms_import" />
         <?php wp_nonce_field( "trinity_forms_import" ); ?>
@@ -108,7 +112,9 @@ $tf_names     = implode( ", ", array_map( static fn( $i ) => $i->label(), $tf_im
             </thead>
             <tbody>
             <?php
-            $tf_first = true;
+            // Ticked in advance only when it is the one form there is: a pre-ticked
+            // first row was imported along with the ones people ticked (retest 31 Oct 2026).
+            $tf_only = 1 === array_sum( array_map( static fn( $s ) => count( $tf_importers[ $s ]->forms() ), array_keys( $tf_found ) ) );
             foreach ( array_keys( $tf_found ) as $tf_slug ) :
                 $tf_importer = $tf_importers[ $tf_slug ];
                 foreach ( $tf_importer->forms() as $tf_id => $tf_form ) :
@@ -116,13 +122,12 @@ $tf_names     = implode( ", ", array_map( static fn( $i ) => $i->label(), $tf_im
                     $tf_dom   = "tf-import-" . sanitize_html_class( $tf_slug . "-" . $tf_id );
                     ?>
                 <tr>
-                    <td><input type="radio" name="source" value="<?php echo esc_attr( $tf_value ); ?>" id="<?php echo esc_attr( $tf_dom ); ?>" required <?php checked( $tf_first ); ?> /></td>
+                    <td><input type="checkbox" name="source[]" value="<?php echo esc_attr( $tf_value ); ?>" id="<?php echo esc_attr( $tf_dom ); ?>" <?php checked( $tf_only ); ?> /></td>
                     <td><label for="<?php echo esc_attr( $tf_dom ); ?>"><?php echo esc_html( "" !== $tf_form["title"] ? $tf_form["title"] : "#" . $tf_id ); ?></label></td>
                     <td><?php echo esc_html( $tf_importer->label() ); ?></td>
                     <td class="is-num"><?php echo null === $tf_form["entries"] ? '<span title="' . esc_attr__( "This plugin does not keep submissions, so there are none to bring.", "trinity-forms" ) . '">–</span>' : esc_html( number_format_i18n( (int) $tf_form["entries"] ) ); ?></td>
                 </tr>
                     <?php
-                    $tf_first = false;
                 endforeach;
             endforeach;
             ?>

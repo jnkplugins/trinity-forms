@@ -578,6 +578,28 @@ class Ninja_Forms extends Base_Importer {
     }
 
     /**
+     * A Ninja date answer ("02/01/2026" in the field's date format, a moment.js
+     * pattern such as "DD/MM/YYYY", or "default" for the site's own format) as
+     * Y-m-d, what our date field stores. Left as it was when it does not parse.
+     *
+     * @param mixed $value
+     * @return mixed
+     */
+    public static function ymd( $value, string $format ) {
+        if ( is_array( $value ) && isset( $value["date"] ) ) {
+            $value = $value["date"];
+        }
+        if ( ! is_string( $value ) || "" === trim( $value ) || preg_match( '/^\d{4}-\d{2}-\d{2}$/', trim( $value ) ) ) {
+            return $value;
+        }
+        $php = "default" === $format || "" === $format
+            ? (string) get_option( "date_format", "Y-m-d" )
+            : strtr( $format, [ "YYYY" => "Y", "YY" => "y", "MMMM" => "F", "MMM" => "M", "MM" => "m", "M" => "n", "DD" => "d", "Do" => "jS", "D" => "j", "dddd" => "l", "ddd" => "D" ] );
+        $date = \DateTime::createFromFormat( "!" . $php, trim( $value ) );
+        return $date ? $date->format( "Y-m-d" ) : $value;
+    }
+
+    /**
      * Submissions (nf_sub posts), oldest first, with the post's GMT date.
      *
      * @param array<int,array<string,mixed>> $fields
@@ -591,9 +613,13 @@ class Ninja_Forms extends Base_Importer {
         $ids   = self::ids( $data["fields"] );
         $types = array_column( $fields, "type", "id" );
         $map   = [];
+        $dates = [];
         foreach ( $data["fields"] as $f ) {
             if ( isset( $f["id"], $ids[ (string) ( $f["key"] ?? "" ) ] ) ) {
                 $map[ "_field_" . $f["id"] ] = $ids[ (string) $f["key"] ];
+                if ( "date" === ( $f["type"] ?? "" ) ) {
+                    $dates[ "_field_" . $f["id"] ] = (string) ( $f["date_format"] ?? "default" );
+                }
             }
         }
         $count = 0;
@@ -615,7 +641,9 @@ class Ninja_Forms extends Base_Importer {
                     $tid   = $map[ $key ];
                     $value = maybe_unserialize( $stored[0] ?? "" );
                     $type  = $types[ $tid ] ?? "text";
-                    if ( "consent" === $type ) {
+                    if ( isset( $dates[ $key ] ) && "date" === $type ) {
+                        $value = self::ymd( $value, $dates[ $key ] );
+                    } elseif ( "consent" === $type ) {
                         $value = ! empty( $value ) && "unchecked" !== $value ? "1" : "";
                     } elseif ( is_array( $value ) && ! in_array( $type, [ "checkbox", "multiselect" ], true ) ) {
                         $value = implode( ", ", array_map( "strval", $value ) );

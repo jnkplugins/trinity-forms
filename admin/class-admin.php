@@ -795,19 +795,24 @@ class Admin {
         check_admin_referer( "trinity_forms_import" );
 
         // phpcs:disable WordPress.Security.NonceVerification.Missing -- nonce verified above.
-        $source       = sanitize_text_field( wp_unslash( (string) ( $_POST["source"] ?? "" ) ) );
+        // One form (a radio, as before) or several ticked boxes.
+        $sources      = array_map( "sanitize_text_field", (array) wp_unslash( $_POST["source"] ?? [] ) );
         $with_entries = ! empty( $_POST["with_entries"] );
         $dry_run      = ! empty( $_POST["dry_run"] );
         // phpcs:enable WordPress.Security.NonceVerification.Missing
 
-        [ $slug, $id ] = array_pad( explode( ":", $source, 2 ), 2, "" );
-        $importer      = Importers\Registry::get( $slug );
-        $report        = $importer && "" !== $id
-            ? $importer->import( ctype_digit( $id ) ? (int) $id : $id, [ "with_entries" => $with_entries, "dry_run" => $dry_run ] )
-            : [ "form_id" => 0, "title" => "", "fields" => 0, "entries" => 0, "skipped" => [], "notifications" => 0 ];
-        $report["dry_run"] = $dry_run;
-        $report["source"]  = $slug;
-        set_transient( "trinity_forms_import_report_" . get_current_user_id(), $report, 5 * MINUTE_IN_SECONDS );
+        $reports = [];
+        foreach ( array_unique( array_filter( $sources, "strlen" ) ) ?: [ "" ] as $source ) {
+            [ $slug, $id ] = array_pad( explode( ":", (string) $source, 2 ), 2, "" );
+            $importer      = Importers\Registry::get( $slug );
+            $report        = $importer && "" !== $id
+                ? $importer->import( ctype_digit( $id ) ? (int) $id : $id, [ "with_entries" => $with_entries, "dry_run" => $dry_run ] )
+                : [ "form_id" => 0, "title" => "", "fields" => 0, "entries" => 0, "skipped" => [], "notifications" => 0 ];
+            $report["dry_run"] = $dry_run;
+            $report["source"]  = $slug;
+            $reports[]         = $report;
+        }
+        set_transient( "trinity_forms_import_report_" . get_current_user_id(), [ "reports" => $reports ], 5 * MINUTE_IN_SECONDS );
 
         wp_safe_redirect( admin_url( self::PARENT . "&page=" . self::IMPORT . "&tf_imported=1" ) );
         exit;

@@ -77,10 +77,13 @@ export default function FieldPreview( { block, schema } ) {
 			return <Options block={ block } schema={ schema } type="checkbox" />;
 
 		case 'consent':
+			// The text may carry a link (<a href>) the site shows as a link; the
+			// preview shows its words, and the asterisk when it must be ticked.
 			return (
 				<label className="tf-preview__consent">
 					<input type="checkbox" disabled />
-					<span>{ attrValue( block, schema, 'consentText' ) || __( 'Consent text', 'trinity-forms' ) }</span>
+					<span>{ String( attrValue( block, schema, 'consentText' ) || '' ).replace( /<[^>]*>/g, '' ) || __( 'Consent text', 'trinity-forms' ) }</span>
+					{ !! attrValue( block, schema, 'required' ) && <span className="tf-builder__req"> *</span> }
 				</label>
 			);
 

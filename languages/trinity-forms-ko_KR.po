@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-31T08:32:47+00:00\n"
+"POT-Creation-Date: 2026-10-31T13:58:15+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Korean\n"
@@ -153,251 +153,319 @@ msgstr "건너뛰고 비활성화"
 msgid "Cancel"
 msgstr "취소"
 
-#: pro/licensorpro-client/licensorpro-client.php:1366
-#: pro/licensorpro-client/licensorpro-client.php:1382
+#: pro/licensorpro-client/licensorpro-client.php:1376
+#: pro/licensorpro-client/licensorpro-client.php:1392
 msgid "API URL not configured."
 msgstr "API URL이 설정되지 않았습니다."
 
-#: pro/licensorpro-client/licensorpro-client.php:1401
+#: pro/licensorpro-client/licensorpro-client.php:1411
 msgid "Unexpected response from license server."
 msgstr "라이선스 서버에서 예상하지 못한 응답이 왔습니다."
 
 #. translators: %s: human-readable time difference, e.g. "3 months".
-#: pro/licensorpro-client/licensorpro-client.php:1706
+#: pro/licensorpro-client/licensorpro-client.php:1736
 #: includes/class-dates.php:47
 #, php-format
 msgid "in %s"
 msgstr "%s 후"
 
 #. translators: %s: human-readable time difference, e.g. "13 days".
-#: pro/licensorpro-client/licensorpro-client.php:1707
+#: pro/licensorpro-client/licensorpro-client.php:1737
 #: includes/class-dates.php:49
 #, php-format
 msgid "%s ago"
 msgstr "%s 전"
 
-#: pro/licensorpro-client/licensorpro-client.php:1732
+#: pro/licensorpro-client/licensorpro-client.php:1762
 #, php-format
 msgid "%s License"
 msgstr "%s 라이선스"
 
-#: pro/licensorpro-client/licensorpro-client.php:1742
+#: pro/licensorpro-client/licensorpro-client.php:1772
 msgid "This site was deactivated, so its seat is free for another site. Enter the key again here to switch the Pro tools back on."
 msgstr "이 사이트가 비활성화되어 다른 사이트에서 이 자리를 쓸 수 있습니다. Pro 도구를 다시 켜려면 여기에 키를 다시 입력하세요."
 
-#: pro/licensorpro-client/licensorpro-client.php:1752
-#: pro/licensorpro-client/licensorpro-client.php:1783
-#: pro/licensorpro-client/licensorpro-client.php:1847
+#: pro/licensorpro-client/licensorpro-client.php:1782
+#: pro/licensorpro-client/licensorpro-client.php:1813
+#: pro/licensorpro-client/licensorpro-client.php:1877
 msgid "License key"
 msgstr "라이선스 키"
 
-#: pro/licensorpro-client/licensorpro-client.php:1753
+#: pro/licensorpro-client/licensorpro-client.php:1783
 #: admin/views/feedback.php:50
 msgid "Type"
 msgstr "유형"
 
-#: pro/licensorpro-client/licensorpro-client.php:1755
+#: pro/licensorpro-client/licensorpro-client.php:1785
 msgid "Free license: updates of the free version only. It does not switch on Pro."
 msgstr "무료 라이선스: 무료 버전 업데이트만 받습니다. Pro를 켜지 않습니다."
 
-#: pro/licensorpro-client/licensorpro-client.php:1756
+#: pro/licensorpro-client/licensorpro-client.php:1786
 msgid "Free license: updates arrive in your dashboard like any other plugin."
 msgstr "무료 라이선스: 다른 플러그인처럼 대시보드에서 업데이트를 받습니다."
 
-#: pro/licensorpro-client/licensorpro-client.php:1758
-#: pro/licensorpro-client/licensorpro-client.php:1815
+#: pro/licensorpro-client/licensorpro-client.php:1788
+#: pro/licensorpro-client/licensorpro-client.php:1845
 msgid "Last checked"
 msgstr "마지막 확인"
 
-#: pro/licensorpro-client/licensorpro-client.php:1762
-#: pro/licensorpro-client/licensorpro-client.php:1821
+#: pro/licensorpro-client/licensorpro-client.php:1792
+#: pro/licensorpro-client/licensorpro-client.php:1851
 msgid "Check for updates now"
 msgstr "지금 업데이트 확인"
 
-#: pro/licensorpro-client/licensorpro-client.php:1765
+#: pro/licensorpro-client/licensorpro-client.php:1795
 msgid "Bought Pro?"
 msgstr "Pro를 구매하셨나요?"
 
-#: pro/licensorpro-client/licensorpro-client.php:1766
+#: pro/licensorpro-client/licensorpro-client.php:1796
 msgid "Enter your Pro license key and Pro is installed over this version. Everything you set up stays."
 msgstr "Pro 라이선스 키를 입력하면 Pro가 이 버전 위에 설치됩니다. 설정한 내용은 모두 그대로 유지됩니다."
 
-#: pro/licensorpro-client/licensorpro-client.php:1768
+#: pro/licensorpro-client/licensorpro-client.php:1798
 msgid "Pro license key"
 msgstr "Pro 라이선스 키"
 
-#: pro/licensorpro-client/licensorpro-client.php:1771
-#: pro/licensorpro-client/licensorpro-client.php:1828
+#: pro/licensorpro-client/licensorpro-client.php:1801
+#: pro/licensorpro-client/licensorpro-client.php:1858
 msgid "Install Pro now"
 msgstr "지금 Pro 설치"
 
-#: pro/licensorpro-client/licensorpro-client.php:1773
+#: pro/licensorpro-client/licensorpro-client.php:1803
 msgid "Rather do it by hand? Download the Pro zip from your account and upload it over this plugin."
 msgstr "직접 하시겠어요? 계정에서 Pro zip 파일을 내려받아 이 플러그인 위에 업로드하세요."
 
-#: pro/licensorpro-client/licensorpro-client.php:1774
-#: pro/licensorpro-client/licensorpro-client.php:1855
+#: pro/licensorpro-client/licensorpro-client.php:1804
+#: pro/licensorpro-client/licensorpro-client.php:1885
 msgid "Go to your account"
 msgstr "계정으로 이동"
 
-#: pro/licensorpro-client/licensorpro-client.php:1786
+#: pro/licensorpro-client/licensorpro-client.php:1816
 msgid "active"
 msgstr "활성"
 
 #. translators: %s: date the Pro tools lock
-#: pro/licensorpro-client/licensorpro-client.php:1788
+#: pro/licensorpro-client/licensorpro-client.php:1818
 #, php-format
 msgid "expired, Pro tools stay on until %s"
 msgstr "만료됨, %s까지 Pro 도구 사용 가능"
 
-#: pro/licensorpro-client/licensorpro-client.php:1789
+#: pro/licensorpro-client/licensorpro-client.php:1819
 msgid "expired, Pro tools locked"
 msgstr "만료됨, Pro 도구 잠김"
 
-#: pro/licensorpro-client/licensorpro-client.php:1791
+#: pro/licensorpro-client/licensorpro-client.php:1821
 msgid "this site is not activated"
 msgstr "이 사이트는 활성화되지 않았습니다"
 
-#: pro/licensorpro-client/licensorpro-client.php:1792
+#: pro/licensorpro-client/licensorpro-client.php:1822
 msgid "no longer active (refunded or cancelled)"
 msgstr "더 이상 활성 상태가 아님(환불 또는 취소됨)"
 
-#: pro/licensorpro-client/licensorpro-client.php:1794
+#: pro/licensorpro-client/licensorpro-client.php:1824
 #: admin/views/entries-list.php:361 admin/views/entry-detail.php:360
 #: includes/class-my-submissions.php:51
 msgid "Status"
 msgstr "상태"
 
-#: pro/licensorpro-client/licensorpro-client.php:1796
+#: pro/licensorpro-client/licensorpro-client.php:1826
 msgid "Renew"
 msgstr "갱신"
 
-#: pro/licensorpro-client/licensorpro-client.php:1800
+#: pro/licensorpro-client/licensorpro-client.php:1830
 msgid "Offline mode"
 msgstr "오프라인 모드"
 
-#: pro/licensorpro-client/licensorpro-client.php:1802
+#: pro/licensorpro-client/licensorpro-client.php:1832
 #, php-format
 msgid "cached license valid until %s"
 msgstr "캐시된 라이선스, %s까지 유효"
 
-#: pro/licensorpro-client/licensorpro-client.php:1807
+#: pro/licensorpro-client/licensorpro-client.php:1837
 msgctxt "update channel"
 msgid "stable"
 msgstr "안정"
 
-#: pro/licensorpro-client/licensorpro-client.php:1808
+#: pro/licensorpro-client/licensorpro-client.php:1838
 msgctxt "update channel"
 msgid "beta"
 msgstr "베타"
 
-#: pro/licensorpro-client/licensorpro-client.php:1809
+#: pro/licensorpro-client/licensorpro-client.php:1839
 msgctxt "update channel"
 msgid "release candidate"
 msgstr "릴리스 후보"
 
-#: pro/licensorpro-client/licensorpro-client.php:1810
+#: pro/licensorpro-client/licensorpro-client.php:1840
 msgctxt "update channel"
 msgid "development"
 msgstr "개발"
 
-#: pro/licensorpro-client/licensorpro-client.php:1812
+#: pro/licensorpro-client/licensorpro-client.php:1842
 msgid "Update channel"
 msgstr "업데이트 채널"
 
-#: pro/licensorpro-client/licensorpro-client.php:1813
+#: pro/licensorpro-client/licensorpro-client.php:1843
 msgid "Site limit"
 msgstr "사이트 한도"
 
-#: pro/licensorpro-client/licensorpro-client.php:1814
+#: pro/licensorpro-client/licensorpro-client.php:1843
+msgid "Unlimited"
+msgstr "무제한"
+
+#: pro/licensorpro-client/licensorpro-client.php:1844
 msgid "Expires"
 msgstr "만료일"
 
-#: pro/licensorpro-client/licensorpro-client.php:1814
+#: pro/licensorpro-client/licensorpro-client.php:1844
 msgid "Never"
 msgstr "없음"
 
-#: pro/licensorpro-client/licensorpro-client.php:1819
+#: pro/licensorpro-client/licensorpro-client.php:1849
 msgid "Deactivate this site"
 msgstr "이 사이트 비활성화"
 
-#: pro/licensorpro-client/licensorpro-client.php:1826
+#: pro/licensorpro-client/licensorpro-client.php:1856
 msgid "This is the free version, running on your Pro license."
 msgstr "Pro 라이선스로 실행 중인 무료 버전입니다."
 
-#: pro/licensorpro-client/licensorpro-client.php:1843
+#: pro/licensorpro-client/licensorpro-client.php:1873
 msgid "Have a Pro license key? Enter it here to switch on the Pro tools. It replaces the free license on this site."
 msgstr "Pro 라이선스 키가 있나요? 여기에 입력하면 Pro 도구가 켜집니다. 이 사이트의 무료 라이선스를 대신합니다."
 
-#: pro/licensorpro-client/licensorpro-client.php:1844
+#: pro/licensorpro-client/licensorpro-client.php:1874
 msgid "Enter your license key to activate this site."
 msgstr "이 사이트를 활성화하려면 라이선스 키를 입력하세요."
 
-#: pro/licensorpro-client/licensorpro-client.php:1851
+#: pro/licensorpro-client/licensorpro-client.php:1881
 msgid "Activate"
 msgstr "활성화"
 
-#: pro/licensorpro-client/licensorpro-client.php:1854
+#: pro/licensorpro-client/licensorpro-client.php:1884
 msgid "Your key is in your purchase email and in your account."
 msgstr "키는 구매 확인 이메일과 계정에 있습니다."
 
-#: pro/licensorpro-client/licensorpro-client.php:1862
+#: pro/licensorpro-client/licensorpro-client.php:1892
 msgid "Need a hand?"
 msgstr "도움이 필요하신가요?"
 
-#: pro/licensorpro-client/licensorpro-client.php:1863
+#: pro/licensorpro-client/licensorpro-client.php:1893
 msgid "Contact support"
 msgstr "지원팀에 문의"
 
-#: pro/licensorpro-client/licensorpro-client.php:2068
+#: pro/licensorpro-client/licensorpro-client.php:1900
+msgid "Every seat on this license is in use. Deactivate one of your other sites from your account, then try again."
+msgstr "이 라이선스의 모든 사이트 자리가 사용 중입니다. 계정에서 다른 사이트 하나를 비활성화한 뒤 다시 시도하세요."
+
+#: pro/licensorpro-client/licensorpro-client.php:1901
+msgid "This license has expired. Renewing it from your account reactivates this site immediately. Your settings and data are untouched."
+msgstr "이 라이선스는 만료되었습니다. 계정에서 갱신하면 이 사이트가 바로 다시 활성화됩니다. 설정과 데이터는 그대로 유지됩니다."
+
+#: pro/licensorpro-client/licensorpro-client.php:1902
+msgid "That key was not recognised. Check for a missing character, or copy it again from your purchase email."
+msgstr "인식할 수 없는 키입니다. 빠진 글자가 없는지 확인하거나 구매 이메일에서 다시 복사하세요."
+
+#: pro/licensorpro-client/licensorpro-client.php:1903
+msgid "This key has been revoked. If you believe that is a mistake, reply to your purchase email and we will sort it out."
+msgstr "이 키는 취소되었습니다. 잘못된 것 같다면 구매 이메일에 회신해 주세요. 바로 해결해 드리겠습니다."
+
+#: pro/licensorpro-client/licensorpro-client.php:1904
+msgid "Could not reach the licensing server. Your site may be blocking outbound requests. This is usually temporary, so try again in a minute."
+msgstr "라이선스 서버에 연결하지 못했습니다. 사이트가 외부 요청을 막고 있을 수 있습니다. 보통 일시적이니 1분 뒤 다시 시도하세요."
+
+#: pro/licensorpro-client/licensorpro-client.php:1905
+msgid "Too many attempts in a short window. Wait a minute and try again."
+msgstr "짧은 시간에 너무 많이 시도했습니다. 1분 기다린 뒤 다시 시도하세요."
+
+#: pro/licensorpro-client/licensorpro-client.php:1906
+msgid "The licensing server had a problem on its side. Your key was not rejected. Try again in a few minutes, and if it keeps happening, reply to your purchase email."
+msgstr "라이선스 서버 쪽에 문제가 있었습니다. 키가 거부된 것은 아닙니다. 몇 분 뒤 다시 시도하고, 계속되면 구매 이메일에 회신해 주세요."
+
+#: pro/licensorpro-client/licensorpro-client.php:1907
+msgid "Enter your license key first."
+msgstr "먼저 라이선스 키를 입력하세요."
+
+#: pro/licensorpro-client/licensorpro-client.php:1908
+msgid "Installing Pro. This takes a few seconds, keep this page open…"
+msgstr "Pro를 설치하는 중입니다. 몇 초 걸리니 이 페이지를 열어 두세요…"
+
+#: pro/licensorpro-client/licensorpro-client.php:1909
+msgid "Reloading to switch on the Pro tools…"
+msgstr "Pro 도구를 켜기 위해 다시 불러오는 중…"
+
+#: pro/licensorpro-client/licensorpro-client.php:1910
+msgid "Reload now"
+msgstr "지금 새로 고침"
+
+#: pro/licensorpro-client/licensorpro-client.php:1911
+msgid "Could not reach the licensing server. Check your connection and try again."
+msgstr "라이선스 서버에 연결하지 못했습니다. 연결을 확인하고 다시 시도하세요."
+
+#: pro/licensorpro-client/licensorpro-client.php:1912
+msgid "Deactivate this license on this site? Premium features switch off here and the seat is freed for another site."
+msgstr "이 사이트에서 라이선스를 비활성화할까요? 이 사이트의 프리미엄 기능이 꺼지고 자리는 다른 사이트에서 쓸 수 있게 됩니다."
+
+#: pro/licensorpro-client/licensorpro-client.php:1913
+msgid "Done."
+msgstr "완료했습니다."
+
+#: pro/licensorpro-client/licensorpro-client.php:1914
+msgid "Deactivated."
+msgstr "비활성화했습니다."
+
+#: pro/licensorpro-client/licensorpro-client.php:1915
+msgid "Checked."
+msgstr "확인했습니다."
+
+#: pro/licensorpro-client/licensorpro-client.php:2103
 msgid "Only someone who may install plugins on this site can install Pro."
 msgstr "이 사이트에 플러그인을 설치할 수 있는 사용자만 Pro를 설치할 수 있습니다."
 
-#: pro/licensorpro-client/licensorpro-client.php:2081
+#: pro/licensorpro-client/licensorpro-client.php:2116
 msgid "That is a free license key, so it keeps this free version updated. Pro needs the key from your purchase email."
 msgstr "무료 라이선스 키이므로 이 무료 버전의 업데이트를 받는 데 쓰입니다. Pro에는 구매 확인 이메일에 있는 키가 필요합니다."
 
 #. translators: %s: URL of the customer account
-#: pro/licensorpro-client/licensorpro-client.php:2086
+#: pro/licensorpro-client/licensorpro-client.php:2121
 #, php-format
 msgid "Your key is active. Download the Pro zip from your account (%s) and upload it over this plugin instead."
 msgstr "키가 활성화되었습니다. 계정(%s)에서 Pro zip 파일을 내려받아 이 플러그인 위에 업로드하세요."
 
-#: pro/licensorpro-client/licensorpro-client.php:2090
+#: pro/licensorpro-client/licensorpro-client.php:2125
 msgid "This site does not allow installing plugins from the dashboard."
 msgstr "이 사이트는 대시보드에서 플러그인 설치를 허용하지 않습니다."
 
-#: pro/licensorpro-client/licensorpro-client.php:2094
+#: pro/licensorpro-client/licensorpro-client.php:2129
 msgid "The Pro download could not be fetched for this key."
 msgstr "이 키로 Pro 다운로드를 가져오지 못했습니다."
 
-#: pro/licensorpro-client/licensorpro-client.php:2102
+#: pro/licensorpro-client/licensorpro-client.php:2137
 msgid "This site asks for FTP details to install plugins."
 msgstr "이 사이트는 플러그인을 설치할 때 FTP 정보를 요구합니다."
 
-#: pro/licensorpro-client/licensorpro-client.php:2137
+#: pro/licensorpro-client/licensorpro-client.php:2172
 msgid "Installing Pro did not finish."
 msgstr "Pro 설치가 끝나지 않았습니다."
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:2142
+#: pro/licensorpro-client/licensorpro-client.php:2177
 #, php-format
 msgid "%s Pro is installed and your license is active. Reloading…"
 msgstr "%s Pro가 설치되었고 라이선스가 활성화되었습니다. 새로 고치는 중…"
 
-#: pro/licensorpro-client/licensorpro-client.php:2152
+#: pro/licensorpro-client/licensorpro-client.php:2187
 msgid "License activated."
 msgstr "라이선스가 활성화되었습니다."
 
-#: pro/licensorpro-client/licensorpro-client.php:2164
+#: pro/licensorpro-client/licensorpro-client.php:2202
 msgid "Site deactivated."
 msgstr "사이트가 비활성화되었습니다."
 
-#: pro/licensorpro-client/licensorpro-client.php:2175
+#: pro/licensorpro-client/licensorpro-client.php:2213
 msgid "License is valid. Update info refreshed."
 msgstr "라이선스가 유효합니다. 업데이트 정보를 새로 고쳤습니다."
 
-#: pro/licensorpro-client/licensorpro-client.php:2182
+#: pro/licensorpro-client/licensorpro-client.php:2220
 msgid "Permission denied."
 msgstr "권한이 없습니다."
 
@@ -420,8 +488,8 @@ msgstr "가벼운 WordPress 양식 빌더: 끌어서 놓는 필드, 조건부 �
 
 #. Author of the plugin
 #: trinity-forms.php
-msgid "JNK Plugins"
-msgstr "JNK Plugins"
+msgid "JnK Plugins"
+msgstr "JnK Plugins"
 
 #. Author URI of the plugin
 #: trinity-forms.php
@@ -441,7 +509,7 @@ msgstr "템플릿"
 #: admin/class-admin-ui.php:59 admin/class-admin-ui.php:290
 #: admin/class-admin.php:174 admin/class-admin.php:175
 #: admin/class-forms-list.php:77 admin/views/entries-list.php:143
-#: admin/views/import.php:106
+#: admin/views/import.php:110
 msgid "Entries"
 msgstr "항목"
 
@@ -622,7 +690,7 @@ msgstr "병합 태그 삽입"
 msgid "Sending…"
 msgstr "보내는 중…"
 
-#: admin/class-form-editor.php:73 admin/class-form-editor.php:739
+#: admin/class-form-editor.php:73 admin/class-form-editor.php:775
 #: includes/fields/class-field-product.php:55
 msgid "— select —"
 msgstr "— 선택 —"
@@ -686,9 +754,9 @@ msgstr "페이지로 이동"
 msgid "Go to a URL"
 msgstr "URL로 이동"
 
-#: admin/class-form-editor.php:135 includes/importers/class-formidable.php:237
+#: admin/class-form-editor.php:135 includes/importers/class-formidable.php:238
 #: includes/importers/class-forminator.php:231
-#: includes/importers/class-wpforms.php:468 builder/src/app.jsx:626
+#: includes/importers/class-wpforms.php:477 builder/src/app.jsx:626
 msgid "Confirmation message"
 msgstr "확인 메시지"
 
@@ -697,7 +765,7 @@ msgstr "확인 메시지"
 msgid "Thank you!"
 msgstr "감사합니다!"
 
-#: admin/class-form-editor.php:137 admin/class-form-editor.php:734
+#: admin/class-form-editor.php:137 admin/class-form-editor.php:770
 #: builder/src/app.jsx:634
 msgid "Page"
 msgstr "페이지"
@@ -806,7 +874,7 @@ msgstr "+ 확인 메시지 추가"
 msgid "Suspected spam"
 msgstr "스팸 의심"
 
-#: admin/class-form-editor.php:293 admin/class-form-editor.php:731
+#: admin/class-form-editor.php:293 admin/class-form-editor.php:767
 #: admin/views/feedback.php:62 includes/class-block-defaults.php:62
 #: includes/class-templates.php:72
 msgid "Message"
@@ -1074,7 +1142,7 @@ msgstr "로그인하지 않은 방문자용 메시지"
 msgid "Please log in to fill in this form."
 msgstr "이 양식을 작성하려면 로그인하세요."
 
-#: admin/class-form-editor.php:601 admin/class-form-editor.php:721
+#: admin/class-form-editor.php:601 admin/class-form-editor.php:757
 #: includes/class-block-defaults.php:48 includes/class-templates.php:70
 #: includes/class-templates.php:75 includes/class-templates.php:83
 #: includes/class-templates.php:90 includes/class-templates.php:98
@@ -1088,138 +1156,154 @@ msgstr "이름"
 msgid "Enabled"
 msgstr "사용"
 
-#. translators: %s: the rules in words, e.g. "Room type is group".
-#: admin/class-form-editor.php:617
-#, php-format
-msgid "Sent only when: %s. These rules came with an import and are kept when you save."
-msgstr "다음 조건일 때만 보냅니다: %s. 이 규칙은 가져오기로 들어왔으며 저장해도 유지됩니다."
+#: admin/class-form-editor.php:622
+msgid "Rule"
+msgstr "규칙"
 
 #: admin/class-form-editor.php:624
-msgid "Send when"
-msgstr "보내는 시점"
+msgid "Always send"
+msgstr "항상 보내기"
 
-#: admin/class-form-editor.php:628
-msgid "The form is submitted"
-msgstr "양식이 제출될 때"
+#: admin/class-form-editor.php:625
+msgid "Send only when"
+msgstr "다음 경우에만 보내기"
 
-#: admin/class-form-editor.php:629
-msgid "A payment completes"
-msgstr "결제가 완료될 때"
+#: admin/class-form-editor.php:626
+msgid "Don't send when"
+msgstr "다음 경우 보내지 않기"
 
-#: admin/class-form-editor.php:630
-msgid "An entry is approved"
-msgstr "항목이 승인될 때"
-
-#: admin/class-form-editor.php:631
-msgid "An entry is edited"
-msgstr "항목이 수정될 때"
-
-#: admin/class-form-editor.php:649
-msgid "Send to"
-msgstr "받는 사람"
-
-#: admin/class-form-editor.php:651
-msgid "These addresses"
-msgstr "다음 주소"
-
-#: admin/class-form-editor.php:652
-msgid "An email field on the form"
-msgstr "양식의 이메일 필드"
-
-#: admin/class-form-editor.php:660
+#: admin/class-form-editor.php:631 admin/class-form-editor.php:696
 msgid "— choose a field —"
 msgstr "— 필드 선택 —"
 
-#: admin/class-form-editor.php:668
+#. translators: %s: the rules in words, e.g. "Room type is group, Email is not empty".
+#: admin/class-form-editor.php:653
+#, php-format
+msgid "%s. These rules came with an import and are kept as they are when you save. Pick \"Always send\" to remove them."
+msgstr "%s. 이 규칙은 가져오기로 들어왔으며 저장해도 그대로 유지됩니다. 없애려면 \"항상 보내기\"를 고르세요."
+
+#: admin/class-form-editor.php:660
+msgid "Send when"
+msgstr "보내는 시점"
+
+#: admin/class-form-editor.php:664
+msgid "The form is submitted"
+msgstr "양식이 제출될 때"
+
+#: admin/class-form-editor.php:665
+msgid "A payment completes"
+msgstr "결제가 완료될 때"
+
+#: admin/class-form-editor.php:666
+msgid "An entry is approved"
+msgstr "항목이 승인될 때"
+
+#: admin/class-form-editor.php:667
+msgid "An entry is edited"
+msgstr "항목이 수정될 때"
+
+#: admin/class-form-editor.php:685
+msgid "Send to"
+msgstr "받는 사람"
+
+#: admin/class-form-editor.php:687
+msgid "These addresses"
+msgstr "다음 주소"
+
+#: admin/class-form-editor.php:688
+msgid "An email field on the form"
+msgstr "양식의 이메일 필드"
+
+#: admin/class-form-editor.php:704
 msgid "Cc"
 msgstr "참조(Cc)"
 
-#: admin/class-form-editor.php:671
+#: admin/class-form-editor.php:707
 msgid "Bcc"
 msgstr "숨은 참조(Bcc)"
 
-#: admin/class-form-editor.php:674
+#: admin/class-form-editor.php:710
 msgid "Reply-To"
 msgstr "회신 주소(Reply-To)"
 
-#: admin/class-form-editor.php:676
+#: admin/class-form-editor.php:712
 msgid "Where your reply goes when you hit Reply. Put the tag of the form's email field here to answer the sender directly."
 msgstr "답장을 누를 때 회신이 가는 곳입니다. 보낸 사람에게 바로 답장하려면 양식의 이메일 필드 태그를 여기에 넣으세요."
 
-#: admin/class-form-editor.php:678
+#: admin/class-form-editor.php:714
 msgid "From name"
 msgstr "보내는 사람 이름"
 
-#: admin/class-form-editor.php:681
+#: admin/class-form-editor.php:717
 msgid "From email"
 msgstr "보내는 사람 이메일"
 
-#: admin/class-form-editor.php:683
+#: admin/class-form-editor.php:719
 msgid "Leave blank. Sending as the visitor's address makes your notification fail SPF checks and land in spam — use Reply-To above instead."
 msgstr "비워 두세요. 방문자의 주소로 보내면 알림이 SPF 검사에 실패해 스팸함으로 가게 됩니다. 대신 위의 회신 주소를 사용하세요."
 
-#: admin/class-form-editor.php:685 includes/class-templates.php:111
+#: admin/class-form-editor.php:721 includes/class-templates.php:111
 msgid "Subject"
 msgstr "제목"
 
-#: admin/class-form-editor.php:688
+#: admin/class-form-editor.php:724
 msgid "Body"
 msgstr "본문"
 
-#: admin/class-form-editor.php:694
+#: admin/class-form-editor.php:730
 msgid "Attach any files uploaded with the submission"
 msgstr "제출과 함께 업로드된 파일 첨부"
 
-#: admin/class-form-editor.php:699
+#: admin/class-form-editor.php:735
 msgid "Send a test"
 msgstr "테스트 보내기"
 
-#: admin/class-form-editor.php:700 admin/class-forms-list.php:145
+#: admin/class-form-editor.php:736 admin/class-forms-list.php:145
 msgid "Duplicate"
 msgstr "복제"
 
-#: admin/class-form-editor.php:701 admin/class-form-editor.php:780
+#: admin/class-form-editor.php:737 admin/class-form-editor.php:816
 #: public/class-public-front.php:74
 msgid "Remove"
 msgstr "제거"
 
-#: admin/class-form-editor.php:722
+#: admin/class-form-editor.php:758
 msgid "Enterprise enquiries"
 msgstr "기업 문의"
 
-#: admin/class-form-editor.php:724
+#: admin/class-form-editor.php:760
 msgid "Then show"
 msgstr "다음 표시"
 
-#: admin/class-form-editor.php:726
+#: admin/class-form-editor.php:762
 msgid "A message"
 msgstr "메시지"
 
-#: admin/class-form-editor.php:727
+#: admin/class-form-editor.php:763
 msgid "A page on this site"
 msgstr "이 사이트의 페이지"
 
-#: admin/class-form-editor.php:728
+#: admin/class-form-editor.php:764
 msgid "Another URL"
 msgstr "다른 URL"
 
-#: admin/class-form-editor.php:744
+#: admin/class-form-editor.php:780
 msgid "URL"
 msgstr "URL"
 
-#: admin/class-form-editor.php:747
+#: admin/class-form-editor.php:783
 msgid "Query string"
 msgstr "쿼리 문자열"
 
-#: admin/class-form-editor.php:749
+#: admin/class-form-editor.php:785
 msgid "Appended to the page or URL above. Merge tags are resolved first."
 msgstr "위의 페이지 또는 URL 뒤에 붙습니다. 병합 태그가 먼저 처리됩니다."
 
-#: admin/class-form-editor.php:754
+#: admin/class-form-editor.php:790
 msgid "Only when"
 msgstr "다음 경우에만"
 
-#: admin/class-form-editor.php:757
+#: admin/class-form-editor.php:793
 msgid "— always (use the default instead) —"
 msgstr "— 항상 (대신 기본값 사용) —"
 
@@ -1237,7 +1321,7 @@ msgstr "준비된 양식 12개 중 하나로 시작하거나 처음부터 만드
 msgid "Found on this site: %s. Import instead of building from scratch."
 msgstr "이 사이트에서 찾음: %s. 처음부터 만들지 말고 가져오세요."
 
-#: admin/class-forms-list.php:57 admin/views/import.php:148
+#: admin/class-forms-list.php:57 admin/views/import.php:153
 msgid "Import"
 msgstr "가져오기"
 
@@ -1444,7 +1528,7 @@ msgid "Filter entries"
 msgstr "항목 필터"
 
 #: admin/views/entries-list.php:237 admin/views/entries-list.php:356
-#: admin/views/entry-detail.php:343 admin/views/import.php:104
+#: admin/views/entry-detail.php:343 admin/views/import.php:108
 #: includes/class-classic-editor.php:81 includes/class-form-widget.php:103
 #: includes/class-my-submissions.php:50 includes/class-my-submissions.php:56
 #: includes/class-plugin.php:123 includes/class-results.php:146
@@ -2014,85 +2098,85 @@ msgstr "사이트 자체 이메일로 전송됩니다. 그 외에는 아무것�
 msgid "Bring your forms across from %s. Nothing in the other plugin is changed or deleted, and it does not need to be active."
 msgstr "%s에서 양식을 가져옵니다. 다른 플러그인의 내용은 바뀌거나 삭제되지 않으며, 그 플러그인이 활성화되어 있을 필요도 없습니다."
 
-#: admin/views/import.php:39
+#: admin/views/import.php:42
 msgid "Nothing was imported: that form could not be read."
 msgstr "가져온 것이 없습니다: 그 양식을 읽을 수 없습니다."
 
-#: admin/views/import.php:41
+#: admin/views/import.php:44
 msgid "Dry run finished. Nothing was changed."
 msgstr "테스트 실행이 끝났습니다. 아무것도 변경되지 않았습니다."
 
-#: admin/views/import.php:41
+#: admin/views/import.php:44
 msgid "Import finished."
 msgstr "가져오기가 완료되었습니다."
 
 #. translators: 1: form title, 2: number of fields, 3: number of entries.
-#: admin/views/import.php:50
+#: admin/views/import.php:53
 #, php-format
 msgid "Would import %1$s: %2$d fields and %3$d entries."
 msgstr "%1$s 가져오기 예정: 필드 %2$d개, 항목 %3$d개."
 
 #. translators: 1: form title, 2: number of fields, 3: number of entries.
-#: admin/views/import.php:52
+#: admin/views/import.php:55
 #, php-format
 msgid "Imported %1$s: %2$d fields and %3$d entries."
 msgstr "%1$s 가져옴: 필드 %2$d개, 항목 %3$d개."
 
-#: admin/views/import.php:60
+#: admin/views/import.php:63
 msgid "These parts had no equivalent and were not imported. Check them in the new form:"
 msgstr "다음 부분은 대응하는 기능이 없어 가져오지 않았습니다. 새 양식에서 확인하세요:"
 
-#: admin/views/import.php:70
+#: admin/views/import.php:73
 msgid "Open the imported form"
 msgstr "가져온 양식 열기"
 
-#: admin/views/import.php:74
+#: admin/views/import.php:77
 msgid "The page that shows the old form still uses the old shortcode: replace it with the one above."
 msgstr "예전 양식을 보여 주는 페이지는 아직 예전 숏코드를 쓰고 있습니다. 위의 숏코드로 바꾸세요."
 
-#: admin/views/import.php:83
+#: admin/views/import.php:87
 msgid "No forms to import were found on this site"
 msgstr "이 사이트에서 가져올 양식을 찾지 못했습니다"
 
 #. translators: %s: list of form plugins.
-#: admin/views/import.php:85
+#: admin/views/import.php:89
 #, php-format
 msgid "The importer reads the forms that %s left on this site, even when the plugin is deactivated. To move forms from another site, install Trinity Forms there, import, then use Import / Export to copy the forms here."
 msgstr "가져오기 도구는 %s이(가) 이 사이트에 남긴 양식을 읽습니다. 플러그인이 비활성화되어 있어도 됩니다. 다른 사이트의 양식을 옮기려면 그 사이트에 Trinity Forms를 설치해 가져온 다음, 가져오기 / 내보내기로 여기에 복사하세요."
 
-#: admin/views/import.php:86
+#: admin/views/import.php:90
 msgid "Go to Import / Export"
 msgstr "가져오기 / 내보내기로 이동"
 
-#: admin/views/import.php:94
-msgid "1. Pick a form"
+#: admin/views/import.php:98
+msgid "1. Pick the forms"
 msgstr "1. 양식 선택"
 
-#: admin/views/import.php:95
-msgid "Each import makes a new Trinity Forms form, so you can look at the result and import again if you want to start over."
-msgstr "가져올 때마다 새 Trinity Forms 양식이 만들어지므로, 결과를 확인하고 처음부터 다시 하고 싶으면 다시 가져올 수 있습니다."
+#: admin/views/import.php:99
+msgid "Tick one form or several. Each import makes a new Trinity Forms form, so you can look at the result and import again if you want to start over."
+msgstr "양식을 하나 또는 여러 개 선택하세요. 가져올 때마다 새 Trinity Forms 양식이 만들어지므로, 결과를 확인하고 처음부터 다시 하고 싶으면 다시 가져올 수 있습니다."
 
-#: admin/views/import.php:103
+#: admin/views/import.php:107
 msgid "Select"
 msgstr "선택"
 
-#: admin/views/import.php:105
+#: admin/views/import.php:109
 msgid "From"
 msgstr "시작"
 
-#: admin/views/import.php:122
+#: admin/views/import.php:128
 msgid "This plugin does not keep submissions, so there are none to bring."
 msgstr "이 플러그인은 제출 내용을 저장하지 않으므로 가져올 항목이 없습니다."
 
-#: admin/views/import.php:132
+#: admin/views/import.php:137
 msgid "2. Choose what to bring"
 msgstr "2. 가져올 항목 선택"
 
-#: admin/views/import.php:137
+#: admin/views/import.php:142
 msgid "Bring the entries across as well (where the other plugin kept them)"
 msgstr "항목도 함께 가져오기 (다른 플러그인이 저장한 경우)"
 
-#: admin/views/import.php:143
+#: admin/views/import.php:148
 msgid "Dry run: tell me what would happen, change nothing"
 msgstr "테스트 실행: 아무것도 바꾸지 않고 결과만 알려 주기"
 
@@ -2154,7 +2238,7 @@ msgstr "항목 보기"
 msgid "Most of the time this means the site has no working mail setup. An SMTP plugin that sends through your email provider usually fixes it."
 msgstr "대부분은 사이트에 제대로 된 메일 설정이 없다는 뜻입니다. 이메일 제공업체를 통해 보내는 SMTP 플러그인으로 보통 해결됩니다."
 
-#: admin/views/settings.php:110 admin/views/settings.php:203
+#: admin/views/settings.php:110 admin/views/settings.php:218
 msgid "Save settings"
 msgstr "설정 저장"
 
@@ -2242,7 +2326,15 @@ msgstr "플러그인을 삭제할 때 모든 Trinity Forms 데이터 삭제"
 msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete."
 msgstr "기본값은 꺼짐입니다. 플러그인을 비활성화하거나 삭제하거나 Pro 라이선스가 만료되어도 양식과 항목은 유지됩니다. 삭제할 때 데이터도 지우려는 경우에만 체크하세요."
 
-#: admin/views/settings.php:215
+#: admin/views/settings.php:200
+msgid "Deleting Trinity Forms will then permanently remove all your forms, their entries and every setting. This cannot be undone, so export anything you want to keep first."
+msgstr "Trinity Forms를 삭제하면 모든 폼과 그 응답, 모든 설정이 영구히 삭제됩니다. 되돌릴 수 없으니 보관할 내용은 먼저 내보내세요."
+
+#: admin/views/settings.php:201
+msgid "Tick this anyway?"
+msgstr "그래도 선택할까요?"
+
+#: admin/views/settings.php:230
 msgid "License"
 msgstr "라이선스"
 
@@ -2541,26 +2633,26 @@ msgid "%1$d views · %2$d completed · %3$s%% completion"
 msgstr "조회 %1$d회 · 완료 %2$d건 · 완료율 %3$s%%"
 
 #. translators: %s: the text found in the hidden field.
-#: includes/class-anti-spam.php:189
+#: includes/class-anti-spam.php:215
 #, php-format
 msgid "The hidden trap field was filled in with \"%s\". Bots do that; a browser's autofill can too."
 msgstr "숨겨진 함정 필드에 \"%s\" 값이 입력되었습니다. 봇이 주로 이렇게 하지만 브라우저 자동 완성일 수도 있습니다."
 
 #. translators: %s: the text found in the hidden field.
-#: includes/class-anti-spam.php:194
+#: includes/class-anti-spam.php:220
 #, php-format
 msgid "The hidden trap field had \"%s\" in it, most likely the browser's autofill. The visitor typed in the form and took a person's time, so it was not marked as spam."
 msgstr "숨겨진 함정 필드에 \"%s\" 값이 있었습니다. 브라우저 자동 완성일 가능성이 큽니다. 방문자가 양식에 직접 입력했고 사람이 걸리는 만큼 시간이 걸렸으므로 스팸으로 표시하지 않았습니다."
 
-#: includes/class-anti-spam.php:202
+#: includes/class-anti-spam.php:228
 msgid "It came without the form's time stamp, or with a forged one. Bots that post straight at the form do that."
 msgstr "양식의 시간 기록 없이, 또는 위조된 시간 기록으로 들어왔습니다. 양식에 직접 전송하는 봇이 이렇게 합니다."
 
-#: includes/class-anti-spam.php:206
+#: includes/class-anti-spam.php:232
 msgid "Sent faster than a person can fill in a form."
 msgstr "사람이 양식을 채울 수 있는 것보다 빨리 보내졌습니다."
 
-#: includes/class-anti-spam.php:214
+#: includes/class-anti-spam.php:240
 msgid "The bot check (CAPTCHA) did not pass."
 msgstr "봇 확인(CAPTCHA)을 통과하지 못했습니다."
 
@@ -2682,7 +2774,7 @@ msgid "Rating"
 msgstr "평점"
 
 #: includes/class-block-defaults.php:59 blocks/field-section/index.js:15
-#: builder/src/field-preview.jsx:100
+#: builder/src/field-preview.jsx:103
 msgid "Section"
 msgstr "섹션"
 
@@ -2871,11 +2963,11 @@ msgstr "승인됨"
 msgid "Rejected"
 msgstr "거부됨"
 
-#: includes/class-entries.php:883 includes/class-templates.php:100
+#: includes/class-entries.php:933 includes/class-templates.php:100
 msgid "Yes"
 msgstr "예"
 
-#: includes/class-entries.php:883 includes/class-templates.php:100
+#: includes/class-entries.php:933 includes/class-templates.php:100
 msgid "No"
 msgstr "아니요"
 
@@ -2910,34 +3002,34 @@ msgstr "두 편집기 모두 같은 양식을 읽고 저장합니다. 언제든 
 msgid "Open in the visual builder"
 msgstr "비주얼 빌더에서 열기"
 
-#: includes/class-form-builder.php:252 includes/class-form-builder.php:253
-#: includes/class-form-builder.php:266 includes/class-form-builder.php:267
+#: includes/class-form-builder.php:253 includes/class-form-builder.php:254
+#: includes/class-form-builder.php:267 includes/class-form-builder.php:268
 msgid "Visual Builder"
 msgstr "비주얼 빌더"
 
-#: includes/class-form-builder.php:280
+#: includes/class-form-builder.php:281
 msgid "Trinity Forms Visual Builder: run `npm run build:builder` to compile the builder assets."
 msgstr "Trinity Forms 비주얼 빌더: 빌더 에셋을 컴파일하려면 `npm run build:builder`를 실행하세요."
 
 #: includes/class-form-manager.php:241
 #: includes/importers/class-everest-forms.php:267
-#: includes/importers/class-fluent-forms.php:550
-#: includes/importers/class-formidable.php:457
-#: includes/importers/class-forminator.php:485
+#: includes/importers/class-fluent-forms.php:546
+#: includes/importers/class-formidable.php:458
+#: includes/importers/class-forminator.php:481
 #: includes/importers/class-metform.php:197
 #: includes/importers/class-ninja-forms.php:534
 #: includes/importers/class-sureforms.php:215
-#: includes/importers/class-wpforms.php:507
+#: includes/importers/class-wpforms.php:516
 msgid "Admin notification"
 msgstr "관리자 알림"
 
 #. translators: {site_name} is a merge tag and must stay untranslated.
 #: includes/class-form-manager.php:246
 #: includes/importers/class-everest-forms.php:270
-#: includes/importers/class-formidable.php:464
+#: includes/importers/class-formidable.php:465
 #: includes/importers/class-metform.php:200
 #: includes/importers/class-sureforms.php:218
-#: includes/importers/class-wpforms.php:510
+#: includes/importers/class-wpforms.php:519
 msgid "New form entry on {site_name}"
 msgstr "{site_name}에 새 양식 항목이 있습니다"
 
@@ -3005,7 +3097,7 @@ msgstr "양식 설정 %1$s이(가) %2$s의 최상위에 있습니다. \"settings
 #. translators: 1: field name, 2: Contact Form 7 field type, e.g. "quiz".
 #: includes/class-gf-importer.php:263
 #: includes/importers/class-base-importer.php:156
-#: includes/importers/class-contact-form-7.php:153
+#: includes/importers/class-contact-form-7.php:155
 #, php-format
 msgid "%1$s (%2$s)"
 msgstr "%1$s (%2$s)"
@@ -3013,9 +3105,9 @@ msgstr "%1$s (%2$s)"
 #. translators: %s: field label or notification name.
 #: includes/class-gf-importer.php:264
 #: includes/importers/class-base-importer.php:157
-#: includes/importers/class-base-importer.php:165
-#: includes/importers/class-contact-form-7.php:154
-#: includes/importers/class-contact-form-7.php:421
+#: includes/importers/class-base-importer.php:203
+#: includes/importers/class-contact-form-7.php:156
+#: includes/importers/class-contact-form-7.php:423
 msgid "Untitled field"
 msgstr "제목 없는 필드"
 
@@ -3383,12 +3475,12 @@ msgid "File not found."
 msgstr "파일을 찾을 수 없습니다."
 
 #. translators: %s: plugin name.
-#: includes/class-ready-notice.php:81
+#: includes/class-ready-notice.php:88
 #, php-format
 msgid "%s is ready."
 msgstr "%s 준비가 끝났습니다."
 
-#: includes/class-ready-notice.php:83
+#: includes/class-ready-notice.php:90
 msgid "Start here"
 msgstr "여기서 시작하세요"
 
@@ -3548,6 +3640,7 @@ msgid "This page was open for a while, so the form needs one more press. Check y
 msgstr "이 페이지가 한동안 열려 있어서 한 번 더 눌러야 합니다. 답변을 확인하고 다시 보내 주세요."
 
 #: includes/class-submission-pipeline.php:76
+#: includes/class-submission-pipeline.php:105
 msgid "This form needs one more press. Check your answers and send it again."
 msgstr "이 양식은 한 번 더 눌러야 합니다. 답변을 확인하고 다시 보내 주세요."
 
@@ -3556,27 +3649,27 @@ msgid "Validation failed."
 msgstr "유효성 검사에 실패했습니다."
 
 #. translators: %s: why the entry was judged spam.
-#: includes/class-submission-pipeline.php:117
+#: includes/class-submission-pipeline.php:124
 #, php-format
 msgid "Marked as spam: %s"
 msgstr "스팸으로 표시됨: %s"
 
-#: includes/class-submission-pipeline.php:118
+#: includes/class-submission-pipeline.php:125
 msgid "Marked as spam by the spam filter"
 msgstr "스팸 필터가 스팸으로 표시함"
 
-#: includes/class-submission-pipeline.php:206
+#: includes/class-submission-pipeline.php:211
 msgid "This value has already been used."
 msgstr "이미 사용된 값입니다."
 
 #. translators: %s: form title.
-#: includes/class-submission-pipeline.php:412
+#: includes/class-submission-pipeline.php:417
 #, php-format
 msgid "[Trinity Forms] Payments are failing on \"%s\""
 msgstr "[Trinity Forms] \"%s\" 양식에서 결제가 실패하고 있습니다"
 
 #. translators: 1: form title, 2: provider error, 3: entry admin URL.
-#: includes/class-submission-pipeline.php:415
+#: includes/class-submission-pipeline.php:420
 #, php-format
 msgid ""
 "A visitor could not start a payment on \"%1$s\". Nothing was charged.\n"
@@ -3591,28 +3684,28 @@ msgstr ""
 "\n"
 "Trinity Forms > 설정에서 결제 키를 확인하세요. 항목: %3$s"
 
-#: includes/class-submission-pipeline.php:428
+#: includes/class-submission-pipeline.php:433
 msgid "Payment skipped: this site has never had a Pro licence."
 msgstr "결제 건너뜀: 이 사이트에는 Pro 라이선스가 있었던 적이 없습니다."
 
 #. translators: %s: payment provider key, e.g. stripe.
-#: includes/class-submission-pipeline.php:440
+#: includes/class-submission-pipeline.php:445
 #, php-format
 msgid "Payment is on, but the provider \"%s\" is not available."
 msgstr "결제가 켜져 있지만 \"%s\" 결제 서비스를 사용할 수 없습니다."
 
-#: includes/class-submission-pipeline.php:452
+#: includes/class-submission-pipeline.php:457
 msgid "Payment could not be started, so nothing was charged. Please try again later, or contact the site owner if it keeps happening."
 msgstr "결제를 시작할 수 없어 청구된 금액은 없습니다. 나중에 다시 시도하시고, 계속 문제가 생기면 사이트 운영자에게 문의하세요."
 
 #. translators: %s: uploaded file name.
-#: includes/class-submission-pipeline.php:515
+#: includes/class-submission-pipeline.php:520
 #, php-format
 msgid "Upload error for %s."
 msgstr "%s 업로드 중 오류가 발생했습니다."
 
 #. translators: %s: uploaded file name.
-#: includes/class-submission-pipeline.php:521
+#: includes/class-submission-pipeline.php:526
 #, php-format
 msgid "%s is empty."
 msgstr "%s 파일이 비어 있습니다."
@@ -3939,7 +4032,7 @@ msgid "Address line 2"
 msgstr "상세 주소"
 
 #: includes/fields/class-field-address.php:18 blocks/field-address/index.js:20
-#: builder/src/field-preview.jsx:137
+#: builder/src/field-preview.jsx:140
 msgid "City"
 msgstr "시/군/구"
 
@@ -4040,13 +4133,13 @@ msgstr "최대 %d개까지 선택하세요."
 
 #: includes/fields/class-field-name.php:34
 #: includes/fields/class-field-name.php:40 blocks/field-name/index.js:15
-#: builder/src/field-preview.jsx:127
+#: builder/src/field-preview.jsx:130
 msgid "First"
 msgstr "이름"
 
 #: includes/fields/class-field-name.php:35
 #: includes/fields/class-field-name.php:41 blocks/field-name/index.js:16
-#: builder/src/field-preview.jsx:128
+#: builder/src/field-preview.jsx:131
 msgid "Last"
 msgstr "성"
 
@@ -4122,7 +4215,7 @@ msgid "Please enter a valid web address."
 msgstr "올바른 웹 주소를 입력하세요."
 
 #. translators: %s: field label or notification name.
-#: includes/importers/class-base-importer.php:165
+#: includes/importers/class-base-importer.php:203
 #, php-format
 msgid "Show/hide rules on %s"
 msgstr "%s의 표시/숨김 규칙"
@@ -4136,46 +4229,46 @@ msgid "Mail (2)"
 msgstr "메일 (2)"
 
 #. translators: %s: a Contact Form 7 "Additional settings" line, e.g. "demo_mode: on".
-#: includes/importers/class-contact-form-7.php:110
+#: includes/importers/class-contact-form-7.php:112
 #, php-format
 msgid "Additional setting: %s"
 msgstr "추가 설정: %s"
 
 #. translators: %s: field name.
-#: includes/importers/class-contact-form-7.php:223
+#: includes/importers/class-contact-form-7.php:225
 #, php-format
 msgid "The free-text box on the last choice of %s"
 msgstr "%s의 마지막 선택지에 있는 자유 입력 칸"
 
 #. translators: 1: field name, 2: Contact Form 7 option, e.g. "default:user_email".
 #. translators: 1: field label, 2: what the other plugin filled the hidden field with, e.g. "user_ip".
-#: includes/importers/class-contact-form-7.php:255
+#: includes/importers/class-contact-form-7.php:257
 #: includes/importers/class-forminator.php:365
 #, php-format
 msgid "%1$s: filled in from \"%2$s\""
 msgstr "%1$s: \"%2$s\"에서 채워짐"
 
 #. translators: %s: an email header line, e.g. "X-Priority: 1".
-#: includes/importers/class-contact-form-7.php:372
+#: includes/importers/class-contact-form-7.php:374
 #, php-format
 msgid "Mail header: %s"
 msgstr "메일 헤더: %s"
 
-#: includes/importers/class-contact-form-7.php:379
+#: includes/importers/class-contact-form-7.php:381
 msgid "Mail: leave out lines whose tags are empty"
 msgstr "메일: 태그가 비어 있는 줄 빼기"
 
 #. translators: %s: a Contact Form 7 mail tag, e.g. "[_post_author]".
 #. translators: %s: a merge tag from the other plugin, e.g. "[_post_author]".
-#: includes/importers/class-contact-form-7.php:403
+#: includes/importers/class-contact-form-7.php:405
 #: includes/importers/class-everest-forms.php:493
 #: includes/importers/class-fluent-forms.php:620
-#: includes/importers/class-formidable.php:525
-#: includes/importers/class-forminator.php:540
+#: includes/importers/class-formidable.php:526
+#: includes/importers/class-forminator.php:536
 #: includes/importers/class-metform.php:282
 #: includes/importers/class-ninja-forms.php:575
 #: includes/importers/class-sureforms.php:378
-#: includes/importers/class-wpforms.php:563
+#: includes/importers/class-wpforms.php:574
 #, php-format
 msgid "Mail tag %s"
 msgstr "메일 태그 %s"
@@ -4183,23 +4276,23 @@ msgstr "메일 태그 %s"
 #. translators: %s: field label.
 #: includes/importers/class-everest-forms.php:355
 #: includes/importers/class-fluent-forms.php:392
-#: includes/importers/class-wpforms.php:292
+#: includes/importers/class-wpforms.php:301
 #, php-format
 msgid "%s: the time part"
 msgstr "%s: 시간 부분"
 
 #. translators: %s: field label.
 #: includes/importers/class-everest-forms.php:402
-#: includes/importers/class-formidable.php:360
-#: includes/importers/class-wpforms.php:355
+#: includes/importers/class-formidable.php:361
+#: includes/importers/class-wpforms.php:364
 #, php-format
 msgid "%s: rich-text formatting (now a plain text box)"
 msgstr "%s: 서식 있는 텍스트(이제 일반 텍스트 상자)"
 
 #. translators: %s: field label.
 #: includes/importers/class-everest-forms.php:427
-#: includes/importers/class-fluent-forms.php:482
-#: includes/importers/class-wpforms.php:303
+#: includes/importers/class-fluent-forms.php:478
+#: includes/importers/class-wpforms.php:312
 #, php-format
 msgid "%s: the limit on how many choices can be ticked"
 msgstr "%s: 선택할 수 있는 개수 제한"
@@ -4207,7 +4300,7 @@ msgstr "%s: 선택할 수 있는 개수 제한"
 #. translators: %s: field label.
 #: includes/importers/class-fluent-forms.php:348
 #: includes/importers/class-forminator.php:304
-#: includes/importers/class-wpforms.php:267
+#: includes/importers/class-wpforms.php:276
 #, php-format
 msgid "%s: the middle name box"
 msgstr "%s: 중간 이름 칸"
@@ -4220,14 +4313,7 @@ msgid "%s: the input mask"
 msgstr "%s: 입력 마스크"
 
 #. translators: %s: field label.
-#: includes/importers/class-fluent-forms.php:441
-#: includes/importers/class-forminator.php:395
-#, php-format
-msgid "%s: links in the consent text"
-msgstr "%s: 동의 문구 안의 링크"
-
-#. translators: %s: field label.
-#: includes/importers/class-fluent-forms.php:469
+#: includes/importers/class-fluent-forms.php:465
 #, php-format
 msgid "%s: the \"Other\" choice with its own text box"
 msgstr "%s: 자체 입력 칸이 있는 \"기타\" 선택지"
@@ -4255,13 +4341,13 @@ msgstr[0] "%2$s 양식 %1$d개"
 
 #. translators: %s: field label.
 #: includes/importers/class-sureforms.php:278
-#: includes/importers/class-wpforms.php:273
+#: includes/importers/class-wpforms.php:282
 #, php-format
 msgid "%s: the second box that repeats the email"
 msgstr "%s: 이메일을 한 번 더 입력하는 두 번째 칸"
 
 #. translators: %s: field label.
-#: includes/importers/class-wpforms.php:372
+#: includes/importers/class-wpforms.php:381
 #, php-format
 msgid "%s: choices filled from posts or categories"
 msgstr "%s: 글이나 카테고리로 채워지는 선택지"
@@ -4344,27 +4430,27 @@ msgstr "저장했습니다. 이어서 작성하려면 이 URL을 북마크하세
 msgid "Could not save progress."
 msgstr "진행 상황을 저장하지 못했습니다."
 
-#: blocks/conditional-panel.js:72 builder/src/field-panel.jsx:265
+#: blocks/conditional-panel.js:75 builder/src/field-panel.jsx:265
 msgid "Format"
 msgstr "형식"
 
-#: blocks/conditional-panel.js:75 builder/src/field-panel.jsx:268
+#: blocks/conditional-panel.js:78 builder/src/field-panel.jsx:268
 msgid "Pattern"
 msgstr "패턴"
 
-#: blocks/conditional-panel.js:76
+#: blocks/conditional-panel.js:79
 msgid "A regular expression the value must match, e.g. ^[0-9]{5}$ for a 5-digit ZIP. Leave empty for no check."
 msgstr "값이 일치해야 하는 정규식입니다. 예: 5자리 우편번호는 ^[0-9]{5}$. 검사하지 않으려면 비워 두세요."
 
-#: blocks/conditional-panel.js:83 builder/src/field-panel.jsx:276
+#: blocks/conditional-panel.js:86 builder/src/field-panel.jsx:276
 msgid "Error message"
 msgstr "오류 메시지"
 
-#: blocks/conditional-panel.js:84
+#: blocks/conditional-panel.js:87
 msgid "Shown when the value doesn't match."
 msgstr "값이 일치하지 않을 때 표시됩니다."
 
-#: blocks/conditional-panel.js:91 builder/src/field-panel.jsx:391
+#: blocks/conditional-panel.js:94 builder/src/field-panel.jsx:391
 msgid "Conditional logic"
 msgstr "조건부 로직"
 
@@ -4442,7 +4528,7 @@ msgstr "옵션(한 줄에 하나씩, 레이블 | 값)"
 msgid "Internal label"
 msgstr "내부 레이블"
 
-#: blocks/field-consent/index.js:17 builder/src/field-preview.jsx:83
+#: blocks/field-consent/index.js:17 builder/src/field-preview.jsx:85
 msgid "Consent text"
 msgstr "동의 문구"
 
@@ -4535,7 +4621,7 @@ msgid "Step"
 msgstr "간격"
 
 #: blocks/field-page-break/index.js:15 blocks/field-page-break/index.js:20
-#: builder/src/field-preview.jsx:122
+#: builder/src/field-preview.jsx:125
 msgid "Page break"
 msgstr "페이지 나누기"
 
@@ -5064,31 +5150,31 @@ msgstr "영국"
 msgid "India"
 msgstr "인도"
 
-#: builder/src/field-preview.jsx:110
+#: builder/src/field-preview.jsx:113
 msgid "Custom HTML"
 msgstr "사용자 정의 HTML"
 
-#: builder/src/field-preview.jsx:117
+#: builder/src/field-preview.jsx:120
 msgid "Hidden: not shown to visitors"
 msgstr "숨김: 방문자에게 표시되지 않음"
 
-#: builder/src/field-preview.jsx:135
+#: builder/src/field-preview.jsx:138
 msgid "Street"
 msgstr "도로명"
 
-#: builder/src/field-preview.jsx:138
+#: builder/src/field-preview.jsx:141
 msgid "Postcode"
 msgstr "우편번호"
 
-#: builder/src/field-preview.jsx:192
+#: builder/src/field-preview.jsx:195
 msgid "Drop a file here or browse"
 msgstr "여기에 파일을 놓거나 찾아보기"
 
-#: builder/src/field-preview.jsx:197
+#: builder/src/field-preview.jsx:200
 msgid "Signature pad"
 msgstr "서명 패드"
 
-#: builder/src/field-preview.jsx:209
+#: builder/src/field-preview.jsx:212
 msgid "Repeatable group"
 msgstr "반복 그룹"
 

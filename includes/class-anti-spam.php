@@ -153,21 +153,47 @@ class Anti_Spam {
         if ( null === $key ) {
             return false;
         }
-        $max = max( 1, (int) apply_filters( "trinity_forms_page_token_max_uses", self::PAGE_TOKEN_MAX_USES, $form ) );
-        return (int) get_transient( $key ) >= $max;
+        return self::uses( $key ) >= self::max_uses( $form );
     }
 
-    /** Count an accepted entry against its page token (fetched tokens are not counted). */
-    public static function count_use( Form $form, array $payload ): void {
+    /**
+     * Count an accepted entry against its page token (fetched tokens are not
+     * counted). False when the token has no use left: parallel posts of the same
+     * cached page race between token_used_up() and here, and only this answer
+     * is atomic. A form without a page token always gets true.
+     */
+    public static function claim_use( Form $form, array $payload ): bool {
         $key = self::use_key( $form, $payload );
         if ( null === $key ) {
-            return;
+            return true;
         }
+        global $wpdb;
         $token = self::read_token( $payload, (int) $form->id );
-        $max   = (int) apply_filters( "trinity_forms_page_token_max_age", self::PAGE_TOKEN_MAX_AGE, $form );
-        // Kept as long as the token can still be used, then it lapses with it.
-        $ttl   = max( MINUTE_IN_SECONDS, $max - ( time() - (int) $token["issued"] ) + MINUTE_IN_SECONDS );
-        set_transient( $key, (int) get_transient( $key ) + 1, $ttl );
+        $age   = (int) apply_filters( "trinity_forms_page_token_max_age", self::PAGE_TOKEN_MAX_AGE, $form );
+        // Kept as long as the token can still be used, then it lapses with it
+        // (token_stale() refuses the token before the counter goes), and WordPress's
+        // expired-transient sweep removes both rows.
+        $ttl = max( MINUTE_IN_SECONDS, $age - ( time() - (int) $token["issued"] ) + MINUTE_IN_SECONDS );
+        // Written to the options table directly, never through the object cache:
+        // a row-locked UPDATE ... WHERE uses < max is what makes the count atomic.
+        $wpdb->query( $wpdb->prepare( "INSERT IGNORE INTO {$wpdb->options} (option_name, option_value, autoload) VALUES (%s, %s, 'no'), (%s, '0', 'no')", "_transient_timeout_" . $key, (string) ( time() + $ttl ), "_transient_" . $key ) );
+        $claimed = (int) $wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->options} SET option_value = CAST(option_value AS UNSIGNED) + 1 WHERE option_name = %s AND CAST(option_value AS UNSIGNED) < %d", "_transient_" . $key, self::max_uses( $form ) ) );
+        return 1 === $claimed;
+    }
+
+    /** @deprecated Use claim_use(), which says whether the use was allowed. */
+    public static function count_use( Form $form, array $payload ): void {
+        self::claim_use( $form, $payload );
+    }
+
+    private static function max_uses( Form $form ): int {
+        return max( 1, (int) apply_filters( "trinity_forms_page_token_max_uses", self::PAGE_TOKEN_MAX_USES, $form ) );
+    }
+
+    /** Accepted entries counted so far against a page token's key. */
+    private static function uses( string $key ): int {
+        global $wpdb;
+        return (int) $wpdb->get_var( $wpdb->prepare( "SELECT option_value FROM {$wpdb->options} WHERE option_name = %s", "_transient_" . $key ) );
     }
 
     /** The transient that counts a page token's uses, or null when the payload has no valid page token. */

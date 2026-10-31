@@ -435,11 +435,7 @@ class Fluent_Forms extends Base_Importer {
                 break;
             case "terms_and_condition":
             case "gdpr_agreement":
-                $field["consent_text"] = trim( wp_strip_all_tags( (string) ( $set["tnc_html"] ?? $label ) ) );
-                if ( "terms_and_condition" === $type && wp_strip_all_tags( (string) ( $set["tnc_html"] ?? "" ) ) !== (string) ( $set["tnc_html"] ?? "" ) ) {
-                    /* translators: %s: field label. */
-                    $skipped[] = sprintf( __( "%s: links in the consent text", "trinity-forms" ), $label );
-                }
+                $field["consent_text"] = self::consent_html( (string) ( $set["tnc_html"] ?? $label ) );
                 $default = "";
                 break;
             case "ratings":
@@ -610,6 +606,10 @@ class Fluent_Forms extends Base_Importer {
                 $name = substr( $tag, 7 );
                 if ( isset( $ids[ $name ] ) ) {
                     return "{" . $ids[ $name ] . "}";
+                }
+                // A name's parts: {inputs.names.first_name}, {inputs.names.last_name}.
+                if ( preg_match( '/^(.+)\.(first|last)_name$/', $name, $part ) && isset( $ids[ $part[1] ] ) ) {
+                    return "{field:" . $ids[ $part[1] ] . ":" . $part[2] . "}";
                 }
             } elseif ( str_starts_with( $tag, "date." ) ) {
                 return "{today:" . substr( $tag, 5 ) . "}";

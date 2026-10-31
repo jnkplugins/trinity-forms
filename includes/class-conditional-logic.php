@@ -257,7 +257,25 @@ class Conditional_Logic {
         }
         $value = (string) $value;
         if ( in_array( $op, [ "in_list", "not_in_list" ], true ) ) {
-            $parts = array_map( static fn( $p ) => self::choice_value( trim( $p ), "equals", $choices ), explode( ",", $value ) );
+            // A choice whose label has a comma in it ("Group, 5+") would be cut in
+            // two by the list's own commas: the longest run of pieces that names a
+            // choice is read as that one choice first.
+            $pieces = explode( ",", $value );
+            $parts  = [];
+            for ( $i = 0, $n = count( $pieces ); $i < $n; $i++ ) {
+                for ( $j = $n - 1; $j > $i; $j-- ) {
+                    $joined = trim( implode( ",", array_slice( $pieces, $i, $j - $i + 1 ) ) );
+                    $hit    = self::choice_value( $joined, "equals", $choices );
+                    if ( $hit !== $joined || in_array( $joined, array_column( $choices, 0 ), true ) ) {
+                        if ( false === strpos( (string) $hit, "," ) ) {
+                            $parts[] = $hit;
+                            $i       = $j;
+                            continue 2;
+                        }
+                    }
+                }
+                $parts[] = self::choice_value( trim( $pieces[ $i ] ), "equals", $choices );
+            }
             return implode( ",", $parts );
         }
         if ( ! in_array( $op, [ "equals", "not_equals", "contains", "not_contains" ], true ) || "" === $value ) {
@@ -359,9 +377,14 @@ class Conditional_Logic {
             case "in_list":
             case "not_in_list":
                 $list = array_filter( array_map( "trim", explode( ",", $r ) ), static fn( $v ) => "" !== $v );
+                // An answer with a comma of its own ("Group, 5+") matches when the
+                // list holds it whole.
+                $norm = static fn( $v ) => (string) preg_replace( '/\s*,\s*/', ",", trim( (string) $v ) );
+                $all  = "," . $norm( $r ) . ",";
+                $one  = static fn( $v ) => in_array( (string) $v, $list, true ) || ( false !== strpos( (string) $v, "," ) && false !== strpos( $all, "," . $norm( $v ) . "," ) );
                 $hit  = is_array( $l )
-                    ? (bool) array_intersect( $l, $list )
-                    : in_array( $l, $list, true );
+                    ? (bool) array_filter( $l, $one )
+                    : $one( $l );
                 return "in_list" === $op ? $hit : ! $hit;
 
             case "matches_pattern":

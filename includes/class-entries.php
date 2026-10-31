@@ -869,6 +869,56 @@ class Entries {
         return "<{$tag} dir=\"ltr\">" . $escaped_html . "</{$tag}>";
     }
 
+    /**
+     * A file answer as a list of { filename, url } items, whatever shape it was
+     * stored in: our own upload record, a list of them, or one or more plain
+     * addresses (what importers kept from the other plugin).
+     *
+     * @param mixed $value
+     * @return array<int,array<string,mixed>>
+     */
+    public static function file_items( $value ): array {
+        if ( is_string( $value ) ) {
+            $decoded = json_decode( $value, true );
+            if ( is_array( $decoded ) ) {
+                $value = $decoded;
+            } else {
+                $value = (array) preg_split( '/[\r\n]+|,\s*(?=https?:\/\/)/', trim( $value ) );
+            }
+        }
+        if ( ! is_array( $value ) ) {
+            return [];
+        }
+        if ( isset( $value["filename"] ) || isset( $value["url"] ) || isset( $value["file_url"] ) ) {
+            $value = [ $value ];
+        }
+        $out = [];
+        foreach ( $value as $item ) {
+            if ( is_string( $item ) ) {
+                $item = [ "url" => trim( $item ) ];
+            }
+            if ( ! is_array( $item ) ) {
+                continue;
+            }
+            $url = trim( (string) ( $item["url"] ?? ( $item["file_url"] ?? "" ) ) );
+            if ( is_array( $item["file_url"] ?? null ) ) {
+                $url = "";
+            }
+            $name = (string) ( $item["filename"] ?? ( $item["name"] ?? "" ) );
+            if ( "" === $name && "" !== $url ) {
+                $name = rawurldecode( wp_basename( (string) wp_parse_url( $url, PHP_URL_PATH ) ) );
+            }
+            if ( "" === $name ) {
+                continue;
+            }
+            $item["filename"] = $name;
+            $item["url"]      = $url;
+            unset( $item["file_url"] );
+            $out[] = $item;
+        }
+        return $out;
+    }
+
     public static function display_value( string $type, $raw, array $map = [], bool $html = false ): string {
         $value = $raw;
         if ( is_string( $value ) ) {
@@ -884,7 +934,9 @@ class Entries {
         }
 
         if ( "file" === $type ) {
-            $items = is_array( $value ) && isset( $value["filename"] ) ? [ $value ] : ( is_array( $value ) ? $value : [] );
+            // Earlier imports stored the other plugin's file address as plain
+            // text (one per line); those show as links too.
+            $items = self::file_items( $value );
             $out   = [];
             foreach ( $items as $item ) {
                 if ( ! is_array( $item ) || empty( $item["filename"] ) ) {

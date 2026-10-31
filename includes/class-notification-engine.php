@@ -218,6 +218,9 @@ class Notification_Engine {
      * A body that already carries its own block markup is left exactly as written.
      */
     public static function body_html( string $body ): string {
+        // "<{your_email}>" would reach the mail as an unknown tag around the
+        // address and vanish; show the brackets as text.
+        $body = (string) preg_replace( '/<(\{[a-z0-9_:.\-]+(?:[ =][^{}<>]*)?\})>/i', '&lt;$1&gt;', $body );
         if ( "" === trim( $body ) || preg_match( '/<(p|br|div|table|ul|ol|h[1-6])\b/i', $body ) ) {
             return $body;
         }

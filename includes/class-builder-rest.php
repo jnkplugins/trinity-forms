@@ -449,6 +449,14 @@ class Builder_REST {
                 continue;
             }
 
+            if ( $key === "consentText" && is_scalar( $value ) ) {
+                // The consent field prints it through wp_kses_post(): a link to the
+                // privacy policy is the point of the box, and the textarea filter
+                // below stripped it on every Visual Builder save (retest 31 Oct 2026).
+                $clean[ $key ] = wp_kses_post( substr( (string) $value, 0, self::MAX_STRING ) );
+                continue;
+            }
+
             if ( in_array( $key, (array) apply_filters( "trinity_forms_builder_multiline_attrs", self::MULTILINE_ATTRS ), true ) && is_scalar( $value ) ) {
                 // Chained Selects CSV lost every line break here, so the front end said
                 // "No data configured for this field yet".

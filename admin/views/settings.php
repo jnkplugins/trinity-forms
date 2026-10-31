@@ -197,6 +197,21 @@ $secret_attr = static function ( string $stored ): string {
                         <?php esc_html_e( "Delete all Trinity Forms data when the plugin is deleted", "trinity-forms" ); ?>
                     </label>
                     <p class="description"><?php esc_html_e( "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete.", "trinity-forms" ); ?></p>
+                    <?php $tf_delete_warning = __( "Deleting Trinity Forms will then permanently remove all your forms, their entries and every setting. This cannot be undone, so export anything you want to keep first.", "trinity-forms" ); ?>
+                    <div id="tf-delete-data-warning" class="notice notice-warning inline" data-confirm="<?php echo esc_attr( $tf_delete_warning . "\n\n" . __( "Tick this anyway?", "trinity-forms" ) ); ?>"<?php echo $delete_data ? "" : ' style="display:none"'; ?>><p><?php echo esc_html( $tf_delete_warning ); ?></p></div>
+                    <script>
+                    ( function () {
+                        // Ticking it is one click; what it does on delete cannot be undone, so ask once and keep the warning in view.
+                        var box = document.querySelector( 'input[type=checkbox][name="trinity_forms_settings[delete_data_on_uninstall]"]' ), warn = document.getElementById( 'tf-delete-data-warning' );
+                        if ( ! box || ! warn ) { return; }
+                        function show() { warn.style.display = box.checked ? "" : "none"; }
+                        box.addEventListener( "change", function () {
+                            if ( box.checked && ! window.confirm( warn.getAttribute( "data-confirm" ) ) ) { box.checked = false; }
+                            show();
+                        } );
+                        show();
+                    } )();
+                    </script>
                 </td></tr>
         </table>
 

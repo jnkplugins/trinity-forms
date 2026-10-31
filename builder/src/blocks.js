@@ -103,9 +103,12 @@ export function toPayload( blocks ) {
  * sends attributes raw, so a field left on its default label has no label attribute
  * at all, and reading it directly would show the field ID instead of "Email".
  */
+const NO_ANSWER = [ 'trinity-forms/field-page-break', 'trinity-forms/field-section', 'trinity-forms/field-html' ];
+
 export function conditionTargets( blocks, self, palette ) {
 	return blocks
-		.filter( ( b ) => isField( b ) && b !== self && b.attrs && b.attrs.fieldId )
+		// Layout blocks hold no answer, so a rule on them could never match.
+		.filter( ( b ) => isField( b ) && b !== self && b.attrs && b.attrs.fieldId && ! NO_ANSWER.includes( b.name ) )
 		.map( ( b ) => {
 			const schema  = schemaFor( palette, b.name );
 			const options = attrValue( b, schema, 'options' );

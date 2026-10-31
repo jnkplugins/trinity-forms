@@ -1,6 +1,19 @@
 ( function () {
 	var data = window.TrinityFormsFormEditor || {};
 	var i18n = data.i18n || {};
+
+	// Opened in the block editor on purpose (?tf_editor=block): after a save,
+	// Gutenberg rewrites the address without it, and a reload then went to the
+	// Visual Builder. Put it back whenever it goes, for this tab only.
+	if ( /[?&]tf_editor=block\b/.test( window.location.search ) && window.wp && window.wp.data && window.history && window.URL ) {
+		window.wp.data.subscribe( function () {
+			var u = new window.URL( window.location.href );
+			if ( u.searchParams.get( "post" ) && ! u.searchParams.has( "tf_editor" ) ) {
+				u.searchParams.set( "tf_editor", "block" );
+				window.history.replaceState( window.history.state, "", u.toString() );
+			}
+		} );
+	}
 	var root = document.getElementById( "trinity-forms-form-settings" );
 	if ( ! root ) {
 		return;

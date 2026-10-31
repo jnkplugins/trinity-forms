@@ -607,15 +607,51 @@ class Form_Editor {
                 <?php esc_html_e( "Enabled", "trinity-forms" ); ?>
             </label>
 
-            <?php if ( ! empty( $n["conditional"]["conditions"] ) ) : ?>
-                <?php // No control edits these rules yet (they come from an import or code), so carry them through a save and say they are there. ?>
-                <input type="hidden" name="trinity-forms[notifications][<?php echo (int) $index; ?>][conditional_json]" value="<?php echo esc_attr( (string) wp_json_encode( $n["conditional"] ) ); ?>" />
+            <?php
+            // Sending rules. One condition (what an import or a person usually has)
+            // is edited in place, like a confirmation's "Only when" row. A rule set
+            // with several conditions or groups is shown in words and carried through
+            // the save; the select above it can still flip it or remove it.
+            $tf_rules  = (array) ( $n["conditional"] ?? [] );
+            $tf_conds  = array_values( (array) ( $tf_rules["conditions"] ?? [] ) );
+            $tf_simple = count( $tf_conds ) <= 1 && ! isset( $tf_conds[0]["conditions"] );
+            $tf_action = $tf_conds ? ( "hide" === ( $tf_rules["action"] ?? "show" ) ? "hide" : "show" ) : "";
+            $tf_first  = $tf_simple ? (array) ( $tf_conds[0] ?? [] ) : [];
+            $tf_prefix = "trinity-forms[notifications][" . (int) $index . "]";
+            ?>
+            <label><?php esc_html_e( "Rule", "trinity-forms" ); ?></label>
+            <select name="<?php echo esc_attr( $tf_prefix ); ?>[rule_action]" class="tf-notification-rule-action">
+                <option value="" <?php selected( $tf_action, "" ); ?>><?php esc_html_e( "Always send", "trinity-forms" ); ?></option>
+                <option value="show" <?php selected( $tf_action, "show" ); ?>><?php esc_html_e( "Send only when", "trinity-forms" ); ?></option>
+                <option value="hide" <?php selected( $tf_action, "hide" ); ?>><?php esc_html_e( "Don't send when", "trinity-forms" ); ?></option>
+            </select>
+            <?php if ( $tf_simple ) : ?>
+                <div class="trinity-forms-inline-rule">
+                    <select name="<?php echo esc_attr( $tf_prefix ); ?>[rule][conditions][0][field]">
+                        <option value=""><?php esc_html_e( "— choose a field —", "trinity-forms" ); ?></option>
+                        <?php foreach ( $fields_options as $tf_fid => $tf_flabel ) : ?>
+                            <option value="<?php echo esc_attr( $tf_fid ); ?>" <?php selected( (string) ( $tf_first["field"] ?? "" ), (string) $tf_fid ); ?>>
+                                <?php echo esc_html( $tf_flabel ); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <select name="<?php echo esc_attr( $tf_prefix ); ?>[rule][conditions][0][operator]">
+                        <?php foreach ( Conditional_Logic::operators() as $tf_op => $tf_meta ) : ?>
+                            <option value="<?php echo esc_attr( $tf_op ); ?>" <?php selected( (string) ( $tf_first["operator"] ?? "equals" ), $tf_op ); ?>>
+                                <?php echo esc_html( $tf_meta["label"] ); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <input type="text" name="<?php echo esc_attr( $tf_prefix ); ?>[rule][conditions][0][value]" value="<?php echo esc_attr( is_array( $tf_first["value"] ?? "" ) ? implode( ", ", (array) $tf_first["value"] ) : (string) ( $tf_first["value"] ?? "" ) ); ?>" />
+                </div>
+            <?php else : ?>
+                <input type="hidden" name="<?php echo esc_attr( $tf_prefix ); ?>[conditional_json]" value="<?php echo esc_attr( (string) wp_json_encode( $n["conditional"] ) ); ?>" />
                 <p class="description tf-notification-rules">
                     <?php
                     echo esc_html( sprintf(
-                        /* translators: %s: the rules in words, e.g. "Room type is group". */
-                        __( "Sent only when: %s. These rules came with an import and are kept when you save.", "trinity-forms" ),
-                        self::describe_rules( (array) $n["conditional"], $fields_options )
+                        /* translators: %s: the rules in words, e.g. "Room type is group, Email is not empty". */
+                        __( "%s. These rules came with an import and are kept as they are when you save. Pick \"Always send\" to remove them.", "trinity-forms" ),
+                        self::describe_rules( $tf_rules, $fields_options )
                     ) );
                     ?>
                 </p>
@@ -901,6 +937,22 @@ class Form_Editor {
         return $ts ? gmdate( "Y-m-d\TH:i", $ts ) : "";
     }
 
+    /**
+     * The notification body through wp_kses_post, except that a merge tag in
+     * angle brackets ("Name <{your_email}>", common in imports) is kept: kses
+     * read it as an unknown tag and dropped it. The Visual Builder and importers
+     * store the body as written, so both paths now agree.
+     */
+    public static function sanitize_body( string $body ): string {
+        $keep = [];
+        $body = (string) preg_replace_callback( '/<(\{[a-z0-9_:.\-]+(?:[ =][^{}<>]*)?\})>/i', static function ( $m ) use ( &$keep ) {
+            $keep[] = $m[0];
+            return "TFKEEPTAG" . ( count( $keep ) - 1 ) . "X";
+        }, $body );
+        $body = wp_kses_post( $body );
+        return (string) preg_replace_callback( '/TFKEEPTAG(\d+)X/', static fn( $m ) => $keep[ (int) $m[1] ] ?? "", $body );
+    }
+
     private static function sanitize_notifications( $raw ): array {
         $out = [];
         foreach ( (array) $raw as $n ) {
@@ -921,7 +973,7 @@ class Form_Editor {
                 "from_email" => sanitize_text_field( (string) ( $n["from_email"] ?? "" ) ),
                 "from_name"  => sanitize_text_field( (string) ( $n["from_name"] ?? "" ) ),
                 "subject"    => sanitize_text_field( (string) ( $n["subject"] ?? "" ) ),
-                "body"       => wp_kses_post( (string) ( $n["body"] ?? "" ) ),
+                "body"       => self::sanitize_body( (string) ( $n["body"] ?? "" ) ),
                 // Absent means enabled: forms saved before this setting existed must
                 // keep sending, not go quiet on upgrade.
                 "enabled"    => ! isset( $n["enabled"] ) || ! empty( $n["enabled"] ),
@@ -936,7 +988,18 @@ class Form_Editor {
             // yet — a future builder panel or the trinity_forms_save_form_meta filter
             // can supply it — so we only store a well-formed, whitelisted structure.
             $conditional_raw = $n["conditional"] ?? null;
-            if ( null === $conditional_raw && isset( $n["conditional_json"] ) ) {
+            if ( null === $conditional_raw && array_key_exists( "rule_action", $n ) ) {
+                // The card's "Rule" select: Always send / Send only when / Don't send when.
+                $action = in_array( (string) $n["rule_action"], [ "show", "hide" ], true ) ? (string) $n["rule_action"] : "";
+                if ( "" !== $action ) {
+                    $conditional_raw = isset( $n["conditional_json"] )
+                        ? json_decode( (string) $n["conditional_json"], true )
+                        : [ "match" => "all", "conditions" => (array) ( $n["rule"]["conditions"] ?? [] ) ];
+                    if ( is_array( $conditional_raw ) ) {
+                        $conditional_raw["action"] = $action;
+                    }
+                }
+            } elseif ( null === $conditional_raw && isset( $n["conditional_json"] ) ) {
                 $conditional_raw = json_decode( (string) $n["conditional_json"], true );
             }
             $conditional = self::sanitize_conditional( $conditional_raw );

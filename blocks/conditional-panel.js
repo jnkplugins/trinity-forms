@@ -26,13 +26,16 @@ const PREFIX = "trinity-forms/field-";
 // before wrap_conditional() ever sees it, so a rule here would silently do nothing.
 const EXCLUDED = [ PREFIX + "page-break" ];
 
+const NO_ANSWER = [ PREFIX + "page-break", PREFIX + "section", PREFIX + "html" ];
+
 const supportsConditional = ( name ) =>
 	name.indexOf( PREFIX ) === 0 && ! EXCLUDED.includes( name );
 
 /** Flatten the editor's block tree — fields may sit inside columns or groups. */
 function collectFields( blocks, selfClientId, out = [] ) {
 	blocks.forEach( ( block ) => {
-		if ( block.name.indexOf( PREFIX ) === 0 && block.clientId !== selfClientId ) {
+		// Layout blocks hold no answer, so a rule on them could never match.
+		if ( block.name.indexOf( PREFIX ) === 0 && block.clientId !== selfClientId && ! NO_ANSWER.includes( block.name ) ) {
 			const id = block.attributes.fieldId;
 			if ( id ) {
 				const entry = { value: id, label: block.attributes.label || id };

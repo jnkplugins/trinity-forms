@@ -599,6 +599,14 @@ class GF_Importer {
                 foreach ( $collected as $field_id => $parts ) {
                     $field = $by_id[ $field_id ] ?? [ "label" => $field_id, "type" => "text" ];
                     $value = count( $parts ) === 1 ? $parts[0] : implode( " ", $parts );
+                    if ( "file" === ( $field["type"] ?? "" ) ) {
+                        // GF keeps a URL (or a JSON list of them); store our upload shape.
+                        $items = Entries::file_items( $value );
+                        if ( ! $items ) {
+                            continue;
+                        }
+                        $value = (string) wp_json_encode( $items );
+                    }
 
                     $wpdb->insert( $entry_meta, [
                         "entry_id"    => $entry_id,

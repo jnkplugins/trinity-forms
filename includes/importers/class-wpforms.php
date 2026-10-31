@@ -168,7 +168,7 @@ class WPForms extends Base_Importer {
         $ids = [];
         foreach ( $source as $wid => $f ) {
             if ( isset( self::FIELD_MAP[ (string) ( $f["type"] ?? "" ) ] ) && ! self::is_wrapper_break( $f ) ) {
-                $ids[ $wid ] = self::unique_id( self::name_of( $f ), "field_" . $wid, array_values( $ids ) );
+                $ids[ $wid ] = self::unique_id( self::name_of( $f ), self::id_fallback( $f ), array_values( $ids ) );
             }
         }
 
@@ -223,6 +223,15 @@ class WPForms extends Base_Importer {
     }
 
     /** What a field is called: its label, or a page break's title. */
+    /**
+     * The id when the label has no Latin letters to build one from (an Arabic
+     * or Korean label): the field's type, "email", "name", "textarea_2", which
+     * reads better in a merge tag than "field_1".
+     */
+    private static function id_fallback( array $f ): string {
+        return (string) ( self::FIELD_MAP[ (string) ( $f["type"] ?? "" ) ] ?? "field" );
+    }
+
     private static function name_of( array $f ): string {
         return (string) ( "pagebreak" === ( $f["type"] ?? "" ) ? ( $f["title"] ?? "" ) : ( $f["label"] ?? "" ) );
     }
@@ -529,7 +538,9 @@ class WPForms extends Base_Importer {
             $out["attach_files"] = true;
         }
         if ( ! empty( $n["conditional_logic"] ) && ! empty( $n["conditionals"] ) ) {
-            $rules = self::convert_rules( (array) $n["conditionals"], "send" === ( $n["conditional_type"] ?? "send" ) ? "show" : "hide", $source, $ids );
+            // WPForms saves "go" (send) or "stop" (don't send), as on confirmations;
+            // "send" is what older builds wrote. Only "stop" means hide.
+            $rules = self::convert_rules( (array) $n["conditionals"], "stop" === ( $n["conditional_type"] ?? "go" ) ? "hide" : "show", $source, $ids );
             if ( $rules ) {
                 $out["conditional"] = $rules;
             } else {
@@ -582,7 +593,7 @@ class WPForms extends Base_Importer {
         foreach ( $data["fields"] as $key => $f ) {
             $wid = (string) ( $f["id"] ?? $key );
             if ( isset( self::FIELD_MAP[ (string) ( $f["type"] ?? "" ) ] ) && ! self::is_wrapper_break( $f ) ) {
-                $ids[ $wid ] = self::unique_id( self::name_of( $f ), "field_" . $wid, $used );
+                $ids[ $wid ] = self::unique_id( self::name_of( $f ), self::id_fallback( $f ), $used );
                 $used[]      = $ids[ $wid ];
             }
         }

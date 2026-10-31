@@ -164,7 +164,8 @@ class Formidable extends Base_Importer {
                 continue;
             }
             $key  = (string) ( $f["field_key"] ?? "" );
-            $base = preg_match( '/^[a-z0-9]{6}$/', $key ) && preg_match( '/\d/', $key ) ? (string) $f["name"] : $key; // generated keys ("qh4icy") read worse than the label
+            // Generated keys ("qh4icy", "xqo5y": 5 to 8 letters and digits) read worse than the label.
+            $base = preg_match( '/^[a-z0-9]{4,8}$/', $key ) && preg_match( '/\d/', $key ) ? (string) $f["name"] : $key;
             $id   = self::unique_id( $base, "field_" . $f["id"], $used );
             $used[]                   = $id;
             $ids[ (string) $f["id"] ] = $id;

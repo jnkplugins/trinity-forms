@@ -2,9 +2,9 @@
 Contributors: suresh1986
 Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.18.2
+Stable tag: 2.19.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -181,6 +181,32 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.19.0 =
+* New: ticking "Delete all Trinity Forms data" asks you to confirm and shows what deleting the plugin will remove.
+* Changed: deleting the plugin frees this site's licence seat, so you can use it on another site straight away. Your data stays unless you ticked the delete box; if you install the plugin again, enter your key again.
+* Fixed: with the delete box ticked, deleting the plugin also removes the saved licence key.
+* Fixed: the licence box answers in your language (a wrong key, Install Pro, deactivating), an unlimited licence shows Unlimited instead of a site limit of 0, and a free key is no longer told it switches on Pro.
+* Fixed: View details on the Plugins screen is there right after you activate the plugin, and its tabs keep WordPress's order.
+* Fixed: the question shown when you deactivate the plugin closes with Esc.
+* Fixed: WPForms notifications set to "Don't send" when a rule matches are imported that way. They used to be imported the other way round and sent to the wrong people.
+* Fixed: a notification's rule shows in the block editor as it works ("Send only when" or "Don't send when"), and you can change it, flip it or remove it there. Before, a "don't send" rule from an import read as "Sent only when" and could not be changed.
+* Fixed: file uploads in entries imported from Forminator, Fluent Forms, SureForms and the other form plugins show as links to the file. They used to show as blank, and entries imported earlier now show their links too.
+* Fixed: saving a form in the block editor no longer removes merge tags written in angle brackets from a notification, like "Name <{your_email}>", and the mail shows the brackets around the address.
+* Fixed: the 3-send limit on one copy of a cached page holds when a bot sends many copies at the same moment. Before, sends that arrived together could all get through.
+* Fixed: Fluent Forms notifications that greet by first or last name ({inputs.names.first_name}) are imported with the name filled in, using the new {field:<id>:first} and {field:<id>:last} merge tags.
+* Fixed: links in consent text (to a privacy policy or terms page) are kept when importing from Fluent Forms and Forminator.
+* Fixed: imported entries store the choice the visitor picked the same way new entries do, so rules, merge tags and filters match old and new entries alike.
+* Fixed: a required consent box shows its asterisk in the Visual Builder, and a consent text with a link shows as words, not HTML, in both editors.
+* Fixed: with "Delete all Trinity Forms data" ticked, deleting the plugin also removes your forms, the widget settings, the licence state and every saved setting, as the box says. Before, only the entries went. Files visitors uploaded stay in their private folder on the server.
+* Changed: the "Trinity Forms is ready" notice goes away once you open any Trinity Forms screen, not only the forms list.
+* Changed: imported fields get readable ids (and merge tags) when the label is Arabic, Korean or another non-Latin script ({email} instead of {field_1}), and Formidable's generated keys like "xqo5y" give way to the label. A field is never given the id of a built-in merge tag such as {date}.
+* Fixed: dates in entries imported from Ninja Forms are stored the way new entries store a date (2026-01-02), not as the text Ninja Forms showed.
+* Changed: Contact Form 7's demo_mode and skip_mail lines are no longer listed as "not imported" after an import.
+* Fixed: the field list in a rule no longer offers page breaks, sections and HTML blocks, which hold no answer.
+* Fixed: an "is one of" rule matches a choice whose label has a comma in it, like "Group, 5+".
+* Fixed: a form opened in the block editor stays there when you save and reload the page, instead of moving to the Visual Builder.
+* New: Import forms takes several forms in one go. Tick the ones you want, and the result of each is listed after the import.
 
 = 2.18.2 =
 * Fixed: View details on a free install shows the full description, changelog and FAQ, with the video, instead of raw text.

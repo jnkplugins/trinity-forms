@@ -135,6 +135,7 @@ class Merge_Tags {
      *   {post:post_title}   a property or meta key of the page it was submitted from
      *   {today:d/m/Y}       the current date in any PHP date format
      *   {field:<id>:label}  a field's label rather than its value
+     *   {field:<id>:first}  the first word of a name (":last" the rest)
      *
      * @param array<string,mixed> $entry
      */
@@ -199,6 +200,12 @@ class Merge_Tags {
                 }
                 if ( "label" === $modifier ) {
                     return esc_html( (string) $row["label"] );
+                }
+                // A name's first word, or the rest of it: a Name field stores
+                // "First Last" as one answer ({field:<id>:first} in "Hi {...},").
+                if ( in_array( $modifier, [ "first", "last" ], true ) && is_scalar( $row["value"] ?? null ) ) {
+                    $words = preg_split( '/\s+/u', trim( (string) $row["value"] ), 2 );
+                    return esc_html( (string) ( "first" === $modifier ? ( $words[0] ?? "" ) : ( $words[1] ?? "" ) ) );
                 }
                 return self::field_html( (array) $row + [ "type" => "", "label" => "" ] );
             },

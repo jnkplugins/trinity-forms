@@ -204,9 +204,10 @@ class Form_Builder {
      * Send a canvas-mode form to the builder when it is opened for editing.
      *
      * No redirect loop is possible: the builder lives on admin.php, which never fires
-     * load-post.php. `tf_editor` is the per-page-load escape hatch — Gutenberg
-     * history.replaceState()s it away after a save, which is correct: the per-form
-     * setting is the sticky control, not the URL.
+     * load-post.php. `tf_editor` is the per-tab escape hatch: Gutenberg
+     * history.replaceState()s it away after a save, and form-editor.js puts it
+     * back, so a reload of that tab stays in the block editor. The per-form
+     * setting is still what decides for a new visit.
      */
     public static function maybe_redirect_to_canvas(): void {
         // Route page views only. The block editor saves its metaboxes with a POST

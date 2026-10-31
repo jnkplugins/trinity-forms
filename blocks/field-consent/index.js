@@ -20,7 +20,7 @@ registerBlockType( metadata.name, {
                 </InspectorControls>
                 <label>
                     <input type="checkbox" disabled />
-                    { " " }{ attributes.consentText || "" }
+                    { " " }{ String( attributes.consentText || "" ).replace( /<[^>]*>/g, "" ) }
                     { attributes.required && <span style={ { color: "#d63638" } }> *</span> }
                 </label>
             </div>

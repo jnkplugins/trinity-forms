@@ -10,7 +10,7 @@ defined( "ABSPATH" ) || exit;
  * A stranger activated it and then had to find where it lived (persona runs,
  * 29 Oct 2026). The same pattern as the other JnK plugins: no redirect, the
  * owner stays where they were. Gone once the link is followed, the notice is
- * dismissed, the forms list is opened any other way, or the plugin is deactivated.
+ * dismissed, any Trinity Forms screen is opened, or the plugin is deactivated.
  */
 final class Ready_Notice {
 
@@ -49,9 +49,16 @@ final class Ready_Notice {
         return admin_url( Admin::PARENT );
     }
 
-    /** The forms list was opened: the notice has done its job. */
+    /**
+     * Any Trinity Forms screen was opened (the forms list, a form, Entries,
+     * Settings...): the owner found the plugin, the notice has done its job.
+     */
     public static function on_screen( $screen ): void {
-        if ( is_object( $screen ) && "edit-trinity_forms_form" === ( $screen->id ?? "" ) ) {
+        if ( ! is_object( $screen ) ) {
+            return;
+        }
+        $id = (string) ( $screen->id ?? "" );
+        if ( "trinity_forms_form" === ( $screen->post_type ?? "" ) || false !== strpos( $id, "trinity_forms" ) || false !== strpos( $id, "trinity-forms" ) ) {
             self::done();
         }
     }

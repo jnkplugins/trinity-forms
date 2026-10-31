@@ -98,6 +98,13 @@ class Submission_Pipeline {
             return $this->error( 422, __( "Validation failed.", "trinity-forms" ), $errors );
         }
 
+        // The page token's use is claimed here, atomically, before anything is
+        // stored: the check above alone let parallel replays of one cached page
+        // through (7 of 12 in QA). Spam does not use the token up.
+        if ( ! $is_spam && ! Anti_Spam::claim_use( $form, $payload ) ) {
+            return $this->error( 409, __( "This form needs one more press. Check your answers and send it again.", "trinity-forms" ), [], [ "reason" => "stale_page" ] );
+        }
+
         $entry_id = $this->store( $form, $sanitized, (string) ( $payload["_trinity_forms_source_url"] ?? "" ) );
         $this->record_files( $entry_id, $form, $sanitized );
         if ( "" !== Anti_Spam::note() ) {
@@ -133,8 +140,6 @@ class Submission_Pipeline {
                 "spam"         => true,
             ] );
         }
-
-        Anti_Spam::count_use( $form, $payload );
 
         do_action( "trinity_forms_entry_created", $entry_id, $form_id );
 

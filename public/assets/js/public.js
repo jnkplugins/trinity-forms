@@ -424,9 +424,15 @@
             case "not_in_list": {
                 var list = rStr.split( "," ).map( function ( s ) { return s.trim(); } )
                     .filter( function ( s ) { return s !== ""; } );
-                var hit = arr
-                    ? left.some( function ( v ) { return list.indexOf( String( v ) ) !== -1; } )
-                    : list.indexOf( String( left ) ) !== -1;
+                // An answer with a comma of its own ("Group, 5+") matches when the
+                // list holds it whole.
+                var norm = function ( v ) { return String( v ).trim().replace( /\s*,\s*/g, "," ); };
+                var all  = "," + norm( rStr ) + ",";
+                var one  = function ( v ) {
+                    v = String( v );
+                    return list.indexOf( v ) !== -1 || ( v.indexOf( "," ) !== -1 && all.indexOf( "," + norm( v ) + "," ) !== -1 );
+                };
+                var hit = arr ? left.some( one ) : one( left );
                 return op === "in_list" ? hit : ! hit;
             }
 

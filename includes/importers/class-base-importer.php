@@ -160,6 +160,44 @@ abstract class Base_Importer implements Importer {
     }
 
     /** Show/hide rules that could not be carried over, for the skipped list. */
+    /**
+     * An answer the other plugin kept as the choice's label ("Group (5+)"), as
+     * the choice's value ("group"): what a new entry stores, so rules, merge
+     * tags and the entries filter treat old and new entries alike.
+     *
+     * @param mixed                            $value
+     * @param array<int,array<string,mixed>>   $options
+     * @return mixed
+     */
+    protected static function choice_values( $value, array $options ) {
+        $values = [];
+        $labels = [];
+        foreach ( $options as $o ) {
+            if ( is_array( $o ) && isset( $o["value"] ) ) {
+                $values[ (string) $o["value"] ] = true;
+                $labels[ (string) ( $o["label"] ?? "" ) ] = (string) $o["value"];
+            }
+        }
+        $map = static fn( $v ) => is_scalar( $v ) && ! isset( $values[ (string) $v ] ) && isset( $labels[ (string) $v ] ) ? $labels[ (string) $v ] : $v;
+        return is_array( $value ) ? array_map( $map, $value ) : $map( $value );
+    }
+
+    /**
+     * Consent text from another plugin, links kept: "I agree to the <a>privacy
+     * policy</a>" is the point of the box. Only links and simple emphasis stay.
+     */
+    protected static function consent_html( string $html ): string {
+        $html = (string) preg_replace( '@<(script|style)[^>]*?>.*?</\1>@si', "", $html );
+        $html = wp_kses( $html, [
+            "a"      => [ "href" => true, "target" => true, "rel" => true ],
+            "strong" => [],
+            "b"      => [],
+            "em"     => [],
+            "i"      => [],
+        ] );
+        return trim( (string) preg_replace( '/\s+/u', " ", $html ) );
+    }
+
     protected static function rules_skipped( string $label ): string {
         /* translators: %s: field label or notification name. */
         return sprintf( __( "Show/hide rules on %s", "trinity-forms" ), "" !== trim( $label ) ? $label : __( "Untitled field", "trinity-forms" ) );
@@ -250,6 +288,17 @@ abstract class Base_Importer implements Importer {
                 continue;
             }
             $field = $by_id[ $field_id ];
+            if ( ! empty( $field["options"] ) && is_array( $field["options"] ) ) {
+                $value = self::choice_values( $value, $field["options"] );
+            }
+            if ( "file" === ( $field["type"] ?? "" ) ) {
+                // Stored the way our own uploads are, so the entry screen, PDF and
+                // merge tags show a named link instead of nothing.
+                $value = \TrinityForms\Entries::file_items( $value );
+                if ( ! $value ) {
+                    continue;
+                }
+            }
             $wpdb->insert( $wpdb->prefix . "trinity_forms_entry_meta", [
                 "entry_id"    => $entry_id,
                 "field_id"    => (string) $field_id,
@@ -291,6 +340,9 @@ abstract class Base_Importer implements Importer {
         if ( "" === $base ) {
             $base = $fallback;
         }
+        // A core merge tag's name ({date}, {ip}) would win over the field's
+        // answer in every email, so an id never takes one.
+        $used      = array_merge( $used, [ "site_url", "site_name", "admin_email", "date", "ip", "entry_id", "all_fields", "form_id", "form_title", "entry_url", "entry_admin_url", "admin_url", "embed_url", "referer", "user_agent", "payment_status", "payment_amount", "transaction_id" ] );
         $candidate = $base;
         $n         = 2;
         while ( in_array( $candidate, $used, true ) ) {

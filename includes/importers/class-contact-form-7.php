@@ -105,7 +105,9 @@ class Contact_Form_7 extends Base_Importer {
 
         foreach ( preg_split( '/\R/', (string) get_post_meta( $post->ID, "_additional_settings", true ) ) as $line ) {
             $line = trim( (string) $line );
-            if ( "" !== $line && ! str_starts_with( $line, "#" ) ) {
+            // demo_mode / skip_mail only stop CF7 sending while a form is tested;
+            // listing them as "not imported" read as a loss when it is not one.
+            if ( "" !== $line && ! str_starts_with( $line, "#" ) && ! preg_match( '/^(demo_mode|skip_mail)\s*:/i', $line ) ) {
                 /* translators: %s: a Contact Form 7 "Additional settings" line, e.g. "demo_mode: on". */
                 $skipped[] = sprintf( __( "Additional setting: %s", "trinity-forms" ), $line );
             }

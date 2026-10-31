@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-31T08:32:47+00:00\n"
+"POT-Creation-Date: 2026-10-31T13:58:15+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Spanish (Spain)\n"
@@ -153,251 +153,319 @@ msgstr "Omitir y desactivar"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: pro/licensorpro-client/licensorpro-client.php:1366
-#: pro/licensorpro-client/licensorpro-client.php:1382
+#: pro/licensorpro-client/licensorpro-client.php:1376
+#: pro/licensorpro-client/licensorpro-client.php:1392
 msgid "API URL not configured."
 msgstr "La URL de la API no está configurada."
 
-#: pro/licensorpro-client/licensorpro-client.php:1401
+#: pro/licensorpro-client/licensorpro-client.php:1411
 msgid "Unexpected response from license server."
 msgstr "Respuesta inesperada del servidor de licencias."
 
 #. translators: %s: human-readable time difference, e.g. "3 months".
-#: pro/licensorpro-client/licensorpro-client.php:1706
+#: pro/licensorpro-client/licensorpro-client.php:1736
 #: includes/class-dates.php:47
 #, php-format
 msgid "in %s"
-msgstr "en %s"
+msgstr "dentro de %s"
 
 #. translators: %s: human-readable time difference, e.g. "13 days".
-#: pro/licensorpro-client/licensorpro-client.php:1707
+#: pro/licensorpro-client/licensorpro-client.php:1737
 #: includes/class-dates.php:49
 #, php-format
 msgid "%s ago"
 msgstr "hace %s"
 
-#: pro/licensorpro-client/licensorpro-client.php:1732
+#: pro/licensorpro-client/licensorpro-client.php:1762
 #, php-format
 msgid "%s License"
 msgstr "Licencia de %s"
 
-#: pro/licensorpro-client/licensorpro-client.php:1742
+#: pro/licensorpro-client/licensorpro-client.php:1772
 msgid "This site was deactivated, so its seat is free for another site. Enter the key again here to switch the Pro tools back on."
 msgstr "Este sitio se desactivó, así que su plaza queda libre para otro sitio. Vuelve a introducir la clave aquí para activar de nuevo las herramientas Pro."
 
-#: pro/licensorpro-client/licensorpro-client.php:1752
-#: pro/licensorpro-client/licensorpro-client.php:1783
-#: pro/licensorpro-client/licensorpro-client.php:1847
+#: pro/licensorpro-client/licensorpro-client.php:1782
+#: pro/licensorpro-client/licensorpro-client.php:1813
+#: pro/licensorpro-client/licensorpro-client.php:1877
 msgid "License key"
 msgstr "Clave de licencia"
 
-#: pro/licensorpro-client/licensorpro-client.php:1753
+#: pro/licensorpro-client/licensorpro-client.php:1783
 #: admin/views/feedback.php:50
 msgid "Type"
 msgstr "Tipo"
 
-#: pro/licensorpro-client/licensorpro-client.php:1755
+#: pro/licensorpro-client/licensorpro-client.php:1785
 msgid "Free license: updates of the free version only. It does not switch on Pro."
 msgstr "Licencia gratuita: solo actualizaciones de la versión gratuita. No activa Pro."
 
-#: pro/licensorpro-client/licensorpro-client.php:1756
+#: pro/licensorpro-client/licensorpro-client.php:1786
 msgid "Free license: updates arrive in your dashboard like any other plugin."
 msgstr "Licencia gratuita: las actualizaciones llegan a tu escritorio como las de cualquier otro plugin."
 
-#: pro/licensorpro-client/licensorpro-client.php:1758
-#: pro/licensorpro-client/licensorpro-client.php:1815
+#: pro/licensorpro-client/licensorpro-client.php:1788
+#: pro/licensorpro-client/licensorpro-client.php:1845
 msgid "Last checked"
 msgstr "Última comprobación"
 
-#: pro/licensorpro-client/licensorpro-client.php:1762
-#: pro/licensorpro-client/licensorpro-client.php:1821
+#: pro/licensorpro-client/licensorpro-client.php:1792
+#: pro/licensorpro-client/licensorpro-client.php:1851
 msgid "Check for updates now"
 msgstr "Buscar actualizaciones ahora"
 
-#: pro/licensorpro-client/licensorpro-client.php:1765
+#: pro/licensorpro-client/licensorpro-client.php:1795
 msgid "Bought Pro?"
 msgstr "¿Compraste Pro?"
 
-#: pro/licensorpro-client/licensorpro-client.php:1766
+#: pro/licensorpro-client/licensorpro-client.php:1796
 msgid "Enter your Pro license key and Pro is installed over this version. Everything you set up stays."
 msgstr "Introduce tu clave de licencia Pro y Pro se instala sobre esta versión. Todo lo que configuraste se mantiene."
 
-#: pro/licensorpro-client/licensorpro-client.php:1768
+#: pro/licensorpro-client/licensorpro-client.php:1798
 msgid "Pro license key"
 msgstr "Clave de licencia Pro"
 
-#: pro/licensorpro-client/licensorpro-client.php:1771
-#: pro/licensorpro-client/licensorpro-client.php:1828
+#: pro/licensorpro-client/licensorpro-client.php:1801
+#: pro/licensorpro-client/licensorpro-client.php:1858
 msgid "Install Pro now"
 msgstr "Instalar Pro ahora"
 
-#: pro/licensorpro-client/licensorpro-client.php:1773
+#: pro/licensorpro-client/licensorpro-client.php:1803
 msgid "Rather do it by hand? Download the Pro zip from your account and upload it over this plugin."
 msgstr "¿Prefieres hacerlo a mano? Descarga el zip de Pro desde tu cuenta y súbelo sobre este plugin."
 
-#: pro/licensorpro-client/licensorpro-client.php:1774
-#: pro/licensorpro-client/licensorpro-client.php:1855
+#: pro/licensorpro-client/licensorpro-client.php:1804
+#: pro/licensorpro-client/licensorpro-client.php:1885
 msgid "Go to your account"
 msgstr "Ir a tu cuenta"
 
-#: pro/licensorpro-client/licensorpro-client.php:1786
+#: pro/licensorpro-client/licensorpro-client.php:1816
 msgid "active"
 msgstr "activa"
 
 #. translators: %s: date the Pro tools lock
-#: pro/licensorpro-client/licensorpro-client.php:1788
+#: pro/licensorpro-client/licensorpro-client.php:1818
 #, php-format
 msgid "expired, Pro tools stay on until %s"
 msgstr "caducada, las herramientas Pro siguen activas hasta el %s"
 
-#: pro/licensorpro-client/licensorpro-client.php:1789
+#: pro/licensorpro-client/licensorpro-client.php:1819
 msgid "expired, Pro tools locked"
 msgstr "caducada, herramientas Pro bloqueadas"
 
-#: pro/licensorpro-client/licensorpro-client.php:1791
+#: pro/licensorpro-client/licensorpro-client.php:1821
 msgid "this site is not activated"
 msgstr "este sitio no está activado"
 
-#: pro/licensorpro-client/licensorpro-client.php:1792
+#: pro/licensorpro-client/licensorpro-client.php:1822
 msgid "no longer active (refunded or cancelled)"
 msgstr "ya no está activa (reembolsada o cancelada)"
 
-#: pro/licensorpro-client/licensorpro-client.php:1794
+#: pro/licensorpro-client/licensorpro-client.php:1824
 #: admin/views/entries-list.php:361 admin/views/entry-detail.php:360
 #: includes/class-my-submissions.php:51
 msgid "Status"
 msgstr "Estado"
 
-#: pro/licensorpro-client/licensorpro-client.php:1796
+#: pro/licensorpro-client/licensorpro-client.php:1826
 msgid "Renew"
 msgstr "Renovar"
 
-#: pro/licensorpro-client/licensorpro-client.php:1800
+#: pro/licensorpro-client/licensorpro-client.php:1830
 msgid "Offline mode"
 msgstr "Modo sin conexión"
 
-#: pro/licensorpro-client/licensorpro-client.php:1802
+#: pro/licensorpro-client/licensorpro-client.php:1832
 #, php-format
 msgid "cached license valid until %s"
 msgstr "licencia en caché válida hasta el %s"
 
-#: pro/licensorpro-client/licensorpro-client.php:1807
+#: pro/licensorpro-client/licensorpro-client.php:1837
 msgctxt "update channel"
 msgid "stable"
 msgstr "estable"
 
-#: pro/licensorpro-client/licensorpro-client.php:1808
+#: pro/licensorpro-client/licensorpro-client.php:1838
 msgctxt "update channel"
 msgid "beta"
 msgstr "beta"
 
-#: pro/licensorpro-client/licensorpro-client.php:1809
+#: pro/licensorpro-client/licensorpro-client.php:1839
 msgctxt "update channel"
 msgid "release candidate"
 msgstr "versión candidata"
 
-#: pro/licensorpro-client/licensorpro-client.php:1810
+#: pro/licensorpro-client/licensorpro-client.php:1840
 msgctxt "update channel"
 msgid "development"
 msgstr "desarrollo"
 
-#: pro/licensorpro-client/licensorpro-client.php:1812
+#: pro/licensorpro-client/licensorpro-client.php:1842
 msgid "Update channel"
 msgstr "Canal de actualizaciones"
 
-#: pro/licensorpro-client/licensorpro-client.php:1813
+#: pro/licensorpro-client/licensorpro-client.php:1843
 msgid "Site limit"
 msgstr "Límite de sitios"
 
-#: pro/licensorpro-client/licensorpro-client.php:1814
+#: pro/licensorpro-client/licensorpro-client.php:1843
+msgid "Unlimited"
+msgstr "Ilimitado"
+
+#: pro/licensorpro-client/licensorpro-client.php:1844
 msgid "Expires"
 msgstr "Caduca"
 
-#: pro/licensorpro-client/licensorpro-client.php:1814
+#: pro/licensorpro-client/licensorpro-client.php:1844
 msgid "Never"
 msgstr "Nunca"
 
-#: pro/licensorpro-client/licensorpro-client.php:1819
+#: pro/licensorpro-client/licensorpro-client.php:1849
 msgid "Deactivate this site"
 msgstr "Desactivar este sitio"
 
-#: pro/licensorpro-client/licensorpro-client.php:1826
+#: pro/licensorpro-client/licensorpro-client.php:1856
 msgid "This is the free version, running on your Pro license."
 msgstr "Esta es la versión gratuita, funcionando con tu licencia Pro."
 
-#: pro/licensorpro-client/licensorpro-client.php:1843
+#: pro/licensorpro-client/licensorpro-client.php:1873
 msgid "Have a Pro license key? Enter it here to switch on the Pro tools. It replaces the free license on this site."
 msgstr "¿Tienes una clave de licencia Pro? Introdúcela aquí para activar las herramientas Pro. Sustituye a la licencia gratuita en este sitio."
 
-#: pro/licensorpro-client/licensorpro-client.php:1844
+#: pro/licensorpro-client/licensorpro-client.php:1874
 msgid "Enter your license key to activate this site."
 msgstr "Introduce tu clave de licencia para activar este sitio."
 
-#: pro/licensorpro-client/licensorpro-client.php:1851
+#: pro/licensorpro-client/licensorpro-client.php:1881
 msgid "Activate"
 msgstr "Activar"
 
-#: pro/licensorpro-client/licensorpro-client.php:1854
+#: pro/licensorpro-client/licensorpro-client.php:1884
 msgid "Your key is in your purchase email and in your account."
 msgstr "Tu clave está en el correo de tu compra y en tu cuenta."
 
-#: pro/licensorpro-client/licensorpro-client.php:1862
+#: pro/licensorpro-client/licensorpro-client.php:1892
 msgid "Need a hand?"
 msgstr "¿Necesitas ayuda?"
 
-#: pro/licensorpro-client/licensorpro-client.php:1863
+#: pro/licensorpro-client/licensorpro-client.php:1893
 msgid "Contact support"
 msgstr "Contactar con soporte"
 
-#: pro/licensorpro-client/licensorpro-client.php:2068
+#: pro/licensorpro-client/licensorpro-client.php:1900
+msgid "Every seat on this license is in use. Deactivate one of your other sites from your account, then try again."
+msgstr "Todos los sitios de esta licencia están en uso. Desactiva uno de tus otros sitios desde tu cuenta y vuelve a intentarlo."
+
+#: pro/licensorpro-client/licensorpro-client.php:1901
+msgid "This license has expired. Renewing it from your account reactivates this site immediately. Your settings and data are untouched."
+msgstr "Esta licencia ha caducado. Al renovarla desde tu cuenta, este sitio se reactiva al momento. Tus ajustes y datos no se tocan."
+
+#: pro/licensorpro-client/licensorpro-client.php:1902
+msgid "That key was not recognised. Check for a missing character, or copy it again from your purchase email."
+msgstr "No reconocemos esa clave. Comprueba que no falte ningún carácter o vuelve a copiarla del correo de tu compra."
+
+#: pro/licensorpro-client/licensorpro-client.php:1903
+msgid "This key has been revoked. If you believe that is a mistake, reply to your purchase email and we will sort it out."
+msgstr "Esta clave se ha revocado. Si crees que es un error, responde al correo de tu compra y lo solucionamos."
+
+#: pro/licensorpro-client/licensorpro-client.php:1904
+msgid "Could not reach the licensing server. Your site may be blocking outbound requests. This is usually temporary, so try again in a minute."
+msgstr "No se pudo conectar con el servidor de licencias. Puede que tu sitio bloquee las conexiones salientes. Suele ser temporal, así que vuelve a intentarlo en un minuto."
+
+#: pro/licensorpro-client/licensorpro-client.php:1905
+msgid "Too many attempts in a short window. Wait a minute and try again."
+msgstr "Demasiados intentos en poco tiempo. Espera un minuto y vuelve a intentarlo."
+
+#: pro/licensorpro-client/licensorpro-client.php:1906
+msgid "The licensing server had a problem on its side. Your key was not rejected. Try again in a few minutes, and if it keeps happening, reply to your purchase email."
+msgstr "El servidor de licencias tuvo un problema por su parte. Tu clave no se ha rechazado. Vuelve a intentarlo en unos minutos y, si sigue pasando, responde al correo de tu compra."
+
+#: pro/licensorpro-client/licensorpro-client.php:1907
+msgid "Enter your license key first."
+msgstr "Primero introduce tu clave de licencia."
+
+#: pro/licensorpro-client/licensorpro-client.php:1908
+msgid "Installing Pro. This takes a few seconds, keep this page open…"
+msgstr "Instalando Pro. Tarda unos segundos, mantén esta página abierta…"
+
+#: pro/licensorpro-client/licensorpro-client.php:1909
+msgid "Reloading to switch on the Pro tools…"
+msgstr "Recargando para activar las herramientas Pro…"
+
+#: pro/licensorpro-client/licensorpro-client.php:1910
+msgid "Reload now"
+msgstr "Recargar ahora"
+
+#: pro/licensorpro-client/licensorpro-client.php:1911
+msgid "Could not reach the licensing server. Check your connection and try again."
+msgstr "No se pudo conectar con el servidor de licencias. Comprueba tu conexión y vuelve a intentarlo."
+
+#: pro/licensorpro-client/licensorpro-client.php:1912
+msgid "Deactivate this license on this site? Premium features switch off here and the seat is freed for another site."
+msgstr "¿Desactivar esta licencia en este sitio? Las funciones premium se apagan aquí y el hueco queda libre para otro sitio."
+
+#: pro/licensorpro-client/licensorpro-client.php:1913
+msgid "Done."
+msgstr "Hecho."
+
+#: pro/licensorpro-client/licensorpro-client.php:1914
+msgid "Deactivated."
+msgstr "Desactivado."
+
+#: pro/licensorpro-client/licensorpro-client.php:1915
+msgid "Checked."
+msgstr "Comprobado."
+
+#: pro/licensorpro-client/licensorpro-client.php:2103
 msgid "Only someone who may install plugins on this site can install Pro."
 msgstr "Solo alguien que pueda instalar plugins en este sitio puede instalar Pro."
 
-#: pro/licensorpro-client/licensorpro-client.php:2081
+#: pro/licensorpro-client/licensorpro-client.php:2116
 msgid "That is a free license key, so it keeps this free version updated. Pro needs the key from your purchase email."
 msgstr "Esa es una clave de licencia gratuita, así que mantiene actualizada esta versión gratuita. Pro necesita la clave del correo de tu compra."
 
 #. translators: %s: URL of the customer account
-#: pro/licensorpro-client/licensorpro-client.php:2086
+#: pro/licensorpro-client/licensorpro-client.php:2121
 #, php-format
 msgid "Your key is active. Download the Pro zip from your account (%s) and upload it over this plugin instead."
 msgstr "Tu clave está activa. Descarga el zip de Pro desde tu cuenta (%s) y súbelo sobre este plugin."
 
-#: pro/licensorpro-client/licensorpro-client.php:2090
+#: pro/licensorpro-client/licensorpro-client.php:2125
 msgid "This site does not allow installing plugins from the dashboard."
 msgstr "Este sitio no permite instalar plugins desde el escritorio."
 
-#: pro/licensorpro-client/licensorpro-client.php:2094
+#: pro/licensorpro-client/licensorpro-client.php:2129
 msgid "The Pro download could not be fetched for this key."
 msgstr "No se pudo obtener la descarga de Pro para esta clave."
 
-#: pro/licensorpro-client/licensorpro-client.php:2102
+#: pro/licensorpro-client/licensorpro-client.php:2137
 msgid "This site asks for FTP details to install plugins."
 msgstr "Este sitio pide datos de FTP para instalar plugins."
 
-#: pro/licensorpro-client/licensorpro-client.php:2137
+#: pro/licensorpro-client/licensorpro-client.php:2172
 msgid "Installing Pro did not finish."
 msgstr "La instalación de Pro no terminó."
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:2142
+#: pro/licensorpro-client/licensorpro-client.php:2177
 #, php-format
 msgid "%s Pro is installed and your license is active. Reloading…"
 msgstr "%s Pro está instalado y tu licencia está activa. Recargando…"
 
-#: pro/licensorpro-client/licensorpro-client.php:2152
+#: pro/licensorpro-client/licensorpro-client.php:2187
 msgid "License activated."
 msgstr "Licencia activada."
 
-#: pro/licensorpro-client/licensorpro-client.php:2164
+#: pro/licensorpro-client/licensorpro-client.php:2202
 msgid "Site deactivated."
 msgstr "Sitio desactivado."
 
-#: pro/licensorpro-client/licensorpro-client.php:2175
+#: pro/licensorpro-client/licensorpro-client.php:2213
 msgid "License is valid. Update info refreshed."
 msgstr "La licencia es válida. Información de actualizaciones renovada."
 
-#: pro/licensorpro-client/licensorpro-client.php:2182
+#: pro/licensorpro-client/licensorpro-client.php:2220
 msgid "Permission denied."
 msgstr "Permiso denegado."
 
@@ -420,8 +488,8 @@ msgstr "Constructor de formularios ligero para WordPress: campos de arrastrar y 
 
 #. Author of the plugin
 #: trinity-forms.php
-msgid "JNK Plugins"
-msgstr "JNK Plugins"
+msgid "JnK Plugins"
+msgstr "JnK Plugins"
 
 #. Author URI of the plugin
 #: trinity-forms.php
@@ -441,7 +509,7 @@ msgstr "Plantillas"
 #: admin/class-admin-ui.php:59 admin/class-admin-ui.php:290
 #: admin/class-admin.php:174 admin/class-admin.php:175
 #: admin/class-forms-list.php:77 admin/views/entries-list.php:143
-#: admin/views/import.php:106
+#: admin/views/import.php:110
 msgid "Entries"
 msgstr "Envíos"
 
@@ -623,7 +691,7 @@ msgstr "Insertar una etiqueta de combinación"
 msgid "Sending…"
 msgstr "Enviando…"
 
-#: admin/class-form-editor.php:73 admin/class-form-editor.php:739
+#: admin/class-form-editor.php:73 admin/class-form-editor.php:775
 #: includes/fields/class-field-product.php:55
 msgid "— select —"
 msgstr "— elegir —"
@@ -687,9 +755,9 @@ msgstr "Ir a una página"
 msgid "Go to a URL"
 msgstr "Ir a una URL"
 
-#: admin/class-form-editor.php:135 includes/importers/class-formidable.php:237
+#: admin/class-form-editor.php:135 includes/importers/class-formidable.php:238
 #: includes/importers/class-forminator.php:231
-#: includes/importers/class-wpforms.php:468 builder/src/app.jsx:626
+#: includes/importers/class-wpforms.php:477 builder/src/app.jsx:626
 msgid "Confirmation message"
 msgstr "Mensaje de confirmación"
 
@@ -698,7 +766,7 @@ msgstr "Mensaje de confirmación"
 msgid "Thank you!"
 msgstr "¡Gracias!"
 
-#: admin/class-form-editor.php:137 admin/class-form-editor.php:734
+#: admin/class-form-editor.php:137 admin/class-form-editor.php:770
 #: builder/src/app.jsx:634
 msgid "Page"
 msgstr "Página"
@@ -807,7 +875,7 @@ msgstr "+ Añadir confirmación"
 msgid "Suspected spam"
 msgstr "Posible spam"
 
-#: admin/class-form-editor.php:293 admin/class-form-editor.php:731
+#: admin/class-form-editor.php:293 admin/class-form-editor.php:767
 #: admin/views/feedback.php:62 includes/class-block-defaults.php:62
 #: includes/class-templates.php:72
 msgid "Message"
@@ -1075,7 +1143,7 @@ msgstr "Mensaje para visitantes no conectados"
 msgid "Please log in to fill in this form."
 msgstr "Accede para rellenar este formulario."
 
-#: admin/class-form-editor.php:601 admin/class-form-editor.php:721
+#: admin/class-form-editor.php:601 admin/class-form-editor.php:757
 #: includes/class-block-defaults.php:48 includes/class-templates.php:70
 #: includes/class-templates.php:75 includes/class-templates.php:83
 #: includes/class-templates.php:90 includes/class-templates.php:98
@@ -1089,138 +1157,154 @@ msgstr "Nombre"
 msgid "Enabled"
 msgstr "Activado"
 
-#. translators: %s: the rules in words, e.g. "Room type is group".
-#: admin/class-form-editor.php:617
-#, php-format
-msgid "Sent only when: %s. These rules came with an import and are kept when you save."
-msgstr "Solo se envía cuando: %s. Estas reglas llegaron con una importación y se conservan al guardar."
+#: admin/class-form-editor.php:622
+msgid "Rule"
+msgstr "Regla"
 
 #: admin/class-form-editor.php:624
-msgid "Send when"
-msgstr "Enviar cuando"
+msgid "Always send"
+msgstr "Enviar siempre"
 
-#: admin/class-form-editor.php:628
-msgid "The form is submitted"
-msgstr "Se envía el formulario"
+#: admin/class-form-editor.php:625
+msgid "Send only when"
+msgstr "Enviar solo cuando"
 
-#: admin/class-form-editor.php:629
-msgid "A payment completes"
-msgstr "Se completa un pago"
+#: admin/class-form-editor.php:626
+msgid "Don't send when"
+msgstr "No enviar cuando"
 
-#: admin/class-form-editor.php:630
-msgid "An entry is approved"
-msgstr "Se aprueba un envío"
-
-#: admin/class-form-editor.php:631
-msgid "An entry is edited"
-msgstr "Se edita un envío"
-
-#: admin/class-form-editor.php:649
-msgid "Send to"
-msgstr "Enviar a"
-
-#: admin/class-form-editor.php:651
-msgid "These addresses"
-msgstr "Estas direcciones"
-
-#: admin/class-form-editor.php:652
-msgid "An email field on the form"
-msgstr "Un campo de correo electrónico del formulario"
-
-#: admin/class-form-editor.php:660
+#: admin/class-form-editor.php:631 admin/class-form-editor.php:696
 msgid "— choose a field —"
 msgstr "— elige un campo —"
 
-#: admin/class-form-editor.php:668
+#. translators: %s: the rules in words, e.g. "Room type is group, Email is not empty".
+#: admin/class-form-editor.php:653
+#, php-format
+msgid "%s. These rules came with an import and are kept as they are when you save. Pick \"Always send\" to remove them."
+msgstr "%s. Estas reglas llegaron con una importación y se conservan tal cual al guardar. Elige «Enviar siempre» para quitarlas."
+
+#: admin/class-form-editor.php:660
+msgid "Send when"
+msgstr "Enviar cuando"
+
+#: admin/class-form-editor.php:664
+msgid "The form is submitted"
+msgstr "Se envía el formulario"
+
+#: admin/class-form-editor.php:665
+msgid "A payment completes"
+msgstr "Se completa un pago"
+
+#: admin/class-form-editor.php:666
+msgid "An entry is approved"
+msgstr "Se aprueba un envío"
+
+#: admin/class-form-editor.php:667
+msgid "An entry is edited"
+msgstr "Se edita un envío"
+
+#: admin/class-form-editor.php:685
+msgid "Send to"
+msgstr "Enviar a"
+
+#: admin/class-form-editor.php:687
+msgid "These addresses"
+msgstr "Estas direcciones"
+
+#: admin/class-form-editor.php:688
+msgid "An email field on the form"
+msgstr "Un campo de correo electrónico del formulario"
+
+#: admin/class-form-editor.php:704
 msgid "Cc"
 msgstr "Cc"
 
-#: admin/class-form-editor.php:671
+#: admin/class-form-editor.php:707
 msgid "Bcc"
 msgstr "Cco"
 
-#: admin/class-form-editor.php:674
+#: admin/class-form-editor.php:710
 msgid "Reply-To"
 msgstr "Responder a"
 
-#: admin/class-form-editor.php:676
+#: admin/class-form-editor.php:712
 msgid "Where your reply goes when you hit Reply. Put the tag of the form's email field here to answer the sender directly."
 msgstr "A dónde va tu respuesta cuando pulsas Responder. Pon aquí la etiqueta del campo de correo electrónico del formulario para responder directamente al remitente."
 
-#: admin/class-form-editor.php:678
+#: admin/class-form-editor.php:714
 msgid "From name"
 msgstr "Nombre del remitente"
 
-#: admin/class-form-editor.php:681
+#: admin/class-form-editor.php:717
 msgid "From email"
 msgstr "Correo electrónico del remitente"
 
-#: admin/class-form-editor.php:683
+#: admin/class-form-editor.php:719
 msgid "Leave blank. Sending as the visitor's address makes your notification fail SPF checks and land in spam — use Reply-To above instead."
 msgstr "Déjalo en blanco. Enviar con la dirección del visitante hace que tu notificación falle las comprobaciones SPF y acabe en spam; usa en su lugar Responder a, más arriba."
 
-#: admin/class-form-editor.php:685 includes/class-templates.php:111
+#: admin/class-form-editor.php:721 includes/class-templates.php:111
 msgid "Subject"
 msgstr "Asunto"
 
-#: admin/class-form-editor.php:688
+#: admin/class-form-editor.php:724
 msgid "Body"
 msgstr "Cuerpo"
 
-#: admin/class-form-editor.php:694
+#: admin/class-form-editor.php:730
 msgid "Attach any files uploaded with the submission"
 msgstr "Adjuntar los archivos subidos con el envío"
 
-#: admin/class-form-editor.php:699
+#: admin/class-form-editor.php:735
 msgid "Send a test"
 msgstr "Enviar una prueba"
 
-#: admin/class-form-editor.php:700 admin/class-forms-list.php:145
+#: admin/class-form-editor.php:736 admin/class-forms-list.php:145
 msgid "Duplicate"
 msgstr "Duplicar"
 
-#: admin/class-form-editor.php:701 admin/class-form-editor.php:780
+#: admin/class-form-editor.php:737 admin/class-form-editor.php:816
 #: public/class-public-front.php:74
 msgid "Remove"
 msgstr "Quitar"
 
-#: admin/class-form-editor.php:722
+#: admin/class-form-editor.php:758
 msgid "Enterprise enquiries"
 msgstr "Consultas de empresa"
 
-#: admin/class-form-editor.php:724
+#: admin/class-form-editor.php:760
 msgid "Then show"
 msgstr "Después mostrar"
 
-#: admin/class-form-editor.php:726
+#: admin/class-form-editor.php:762
 msgid "A message"
 msgstr "Un mensaje"
 
-#: admin/class-form-editor.php:727
+#: admin/class-form-editor.php:763
 msgid "A page on this site"
 msgstr "Una página de este sitio"
 
-#: admin/class-form-editor.php:728
+#: admin/class-form-editor.php:764
 msgid "Another URL"
 msgstr "Otra URL"
 
-#: admin/class-form-editor.php:744
+#: admin/class-form-editor.php:780
 msgid "URL"
 msgstr "URL"
 
-#: admin/class-form-editor.php:747
+#: admin/class-form-editor.php:783
 msgid "Query string"
 msgstr "Cadena de consulta"
 
-#: admin/class-form-editor.php:749
+#: admin/class-form-editor.php:785
 msgid "Appended to the page or URL above. Merge tags are resolved first."
 msgstr "Se añade a la página o URL de arriba. Las etiquetas de combinación se resuelven primero."
 
-#: admin/class-form-editor.php:754
+#: admin/class-form-editor.php:790
 msgid "Only when"
 msgstr "Solo cuando"
 
-#: admin/class-form-editor.php:757
+#: admin/class-form-editor.php:793
 msgid "— always (use the default instead) —"
 msgstr "— siempre (usa la predeterminada) —"
 
@@ -1238,7 +1322,7 @@ msgstr "Empieza con uno de los doce formularios listos o crea uno desde cero. En
 msgid "Found on this site: %s. Import instead of building from scratch."
 msgstr "Encontrado en este sitio: %s. Puedes importar en lugar de empezar de cero."
 
-#: admin/class-forms-list.php:57 admin/views/import.php:148
+#: admin/class-forms-list.php:57 admin/views/import.php:153
 msgid "Import"
 msgstr "Importar"
 
@@ -1446,7 +1530,7 @@ msgid "Filter entries"
 msgstr "Filtrar envíos"
 
 #: admin/views/entries-list.php:237 admin/views/entries-list.php:356
-#: admin/views/entry-detail.php:343 admin/views/import.php:104
+#: admin/views/entry-detail.php:343 admin/views/import.php:108
 #: includes/class-classic-editor.php:81 includes/class-form-widget.php:103
 #: includes/class-my-submissions.php:50 includes/class-my-submissions.php:56
 #: includes/class-plugin.php:123 includes/class-results.php:146
@@ -2016,85 +2100,85 @@ msgstr "Se envía con el correo electrónico de tu propio sitio. Nada más sale 
 msgid "Bring your forms across from %s. Nothing in the other plugin is changed or deleted, and it does not need to be active."
 msgstr "Trae tus formularios desde %s. En el otro plugin no se cambia ni se borra nada, y no hace falta que esté activo."
 
-#: admin/views/import.php:39
+#: admin/views/import.php:42
 msgid "Nothing was imported: that form could not be read."
 msgstr "No se importó nada: no se pudo leer ese formulario."
 
-#: admin/views/import.php:41
+#: admin/views/import.php:44
 msgid "Dry run finished. Nothing was changed."
 msgstr "Prueba terminada. No se ha cambiado nada."
 
-#: admin/views/import.php:41
+#: admin/views/import.php:44
 msgid "Import finished."
 msgstr "Importación terminada."
 
 #. translators: 1: form title, 2: number of fields, 3: number of entries.
-#: admin/views/import.php:50
+#: admin/views/import.php:53
 #, php-format
 msgid "Would import %1$s: %2$d fields and %3$d entries."
 msgstr "Se importaría %1$s: %2$d campos y %3$d envíos."
 
 #. translators: 1: form title, 2: number of fields, 3: number of entries.
-#: admin/views/import.php:52
+#: admin/views/import.php:55
 #, php-format
 msgid "Imported %1$s: %2$d fields and %3$d entries."
 msgstr "Importado %1$s: %2$d campos y %3$d envíos."
 
-#: admin/views/import.php:60
+#: admin/views/import.php:63
 msgid "These parts had no equivalent and were not imported. Check them in the new form:"
 msgstr "Estas partes no tienen equivalente y no se importaron. Revísalas en el nuevo formulario:"
 
-#: admin/views/import.php:70
+#: admin/views/import.php:73
 msgid "Open the imported form"
 msgstr "Abrir el formulario importado"
 
-#: admin/views/import.php:74
+#: admin/views/import.php:77
 msgid "The page that shows the old form still uses the old shortcode: replace it with the one above."
 msgstr "La página que muestra el formulario antiguo sigue usando el shortcode antiguo: cámbialo por el de arriba."
 
-#: admin/views/import.php:83
+#: admin/views/import.php:87
 msgid "No forms to import were found on this site"
 msgstr "No se encontraron formularios para importar en este sitio"
 
 #. translators: %s: list of form plugins.
-#: admin/views/import.php:85
+#: admin/views/import.php:89
 #, php-format
 msgid "The importer reads the forms that %s left on this site, even when the plugin is deactivated. To move forms from another site, install Trinity Forms there, import, then use Import / Export to copy the forms here."
 msgstr "El importador lee los formularios que %s dejó en este sitio, aunque el plugin esté desactivado. Para traer formularios de otro sitio, instala Trinity Forms allí, impórtalos y luego usa Importar / Exportar para copiarlos aquí."
 
-#: admin/views/import.php:86
+#: admin/views/import.php:90
 msgid "Go to Import / Export"
 msgstr "Ir a Importar / Exportar"
 
-#: admin/views/import.php:94
-msgid "1. Pick a form"
-msgstr "1. Elige un formulario"
+#: admin/views/import.php:98
+msgid "1. Pick the forms"
+msgstr "1. Elige los formularios"
 
-#: admin/views/import.php:95
-msgid "Each import makes a new Trinity Forms form, so you can look at the result and import again if you want to start over."
-msgstr "Cada importación crea un formulario nuevo de Trinity Forms, así que puedes revisar el resultado y volver a importar si quieres empezar de cero."
+#: admin/views/import.php:99
+msgid "Tick one form or several. Each import makes a new Trinity Forms form, so you can look at the result and import again if you want to start over."
+msgstr "Marca uno o varios formularios. Cada importación crea un formulario nuevo de Trinity Forms, así que puedes revisar el resultado y volver a importar si quieres empezar de cero."
 
-#: admin/views/import.php:103
+#: admin/views/import.php:107
 msgid "Select"
 msgstr "Seleccionar"
 
-#: admin/views/import.php:105
+#: admin/views/import.php:109
 msgid "From"
 msgstr "Desde"
 
-#: admin/views/import.php:122
+#: admin/views/import.php:128
 msgid "This plugin does not keep submissions, so there are none to bring."
 msgstr "Este plugin no guarda los envíos, así que no hay ninguno que traer."
 
-#: admin/views/import.php:132
+#: admin/views/import.php:137
 msgid "2. Choose what to bring"
 msgstr "2. Elige qué traer"
 
-#: admin/views/import.php:137
+#: admin/views/import.php:142
 msgid "Bring the entries across as well (where the other plugin kept them)"
 msgstr "Traer también los envíos (si el otro plugin los guardó)"
 
-#: admin/views/import.php:143
+#: admin/views/import.php:148
 msgid "Dry run: tell me what would happen, change nothing"
 msgstr "Prueba: dime qué pasaría, sin cambiar nada"
 
@@ -2156,7 +2240,7 @@ msgstr "Ver la entrada"
 msgid "Most of the time this means the site has no working mail setup. An SMTP plugin that sends through your email provider usually fixes it."
 msgstr "Casi siempre significa que el sitio no tiene un envío de correo que funcione. Un plugin SMTP que envíe a través de tu proveedor de correo suele arreglarlo."
 
-#: admin/views/settings.php:110 admin/views/settings.php:203
+#: admin/views/settings.php:110 admin/views/settings.php:218
 msgid "Save settings"
 msgstr "Guardar ajustes"
 
@@ -2244,7 +2328,15 @@ msgstr "Eliminar todos los datos de Trinity Forms cuando se borre el plugin"
 msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete."
 msgstr "Desactivado por defecto. Tus formularios y envíos se conservan si desactivas o borras el plugin, o si caduca una licencia Pro. Márcalo solo si también quieres eliminar los datos al borrarlo."
 
-#: admin/views/settings.php:215
+#: admin/views/settings.php:200
+msgid "Deleting Trinity Forms will then permanently remove all your forms, their entries and every setting. This cannot be undone, so export anything you want to keep first."
+msgstr "Al eliminar Trinity Forms se borrarán para siempre todos tus formularios, sus entradas y todos los ajustes. No se puede deshacer, así que exporta antes lo que quieras conservar."
+
+#: admin/views/settings.php:201
+msgid "Tick this anyway?"
+msgstr "¿Marcarlo de todos modos?"
+
+#: admin/views/settings.php:230
 msgid "License"
 msgstr "Licencia"
 
@@ -2543,26 +2635,26 @@ msgid "%1$d views · %2$d completed · %3$s%% completion"
 msgstr "%1$d visitas · %2$d completados · %3$s%% completado"
 
 #. translators: %s: the text found in the hidden field.
-#: includes/class-anti-spam.php:189
+#: includes/class-anti-spam.php:215
 #, php-format
 msgid "The hidden trap field was filled in with \"%s\". Bots do that; a browser's autofill can too."
 msgstr "El campo trampa oculto se rellenó con \"%s\". Los bots lo hacen, pero el autocompletado del navegador también puede."
 
 #. translators: %s: the text found in the hidden field.
-#: includes/class-anti-spam.php:194
+#: includes/class-anti-spam.php:220
 #, php-format
 msgid "The hidden trap field had \"%s\" in it, most likely the browser's autofill. The visitor typed in the form and took a person's time, so it was not marked as spam."
 msgstr "El campo trampa oculto tenía \"%s\", seguramente por el autocompletado del navegador. El visitante escribió en el formulario y tardó lo que tardaría una persona, así que no se marcó como spam."
 
-#: includes/class-anti-spam.php:202
+#: includes/class-anti-spam.php:228
 msgid "It came without the form's time stamp, or with a forged one. Bots that post straight at the form do that."
 msgstr "Llegó sin la marca de tiempo del formulario, o con una falsificada. Eso hacen los bots que envían directamente al formulario."
 
-#: includes/class-anti-spam.php:206
+#: includes/class-anti-spam.php:232
 msgid "Sent faster than a person can fill in a form."
 msgstr "Enviado más rápido de lo que una persona puede rellenar un formulario."
 
-#: includes/class-anti-spam.php:214
+#: includes/class-anti-spam.php:240
 msgid "The bot check (CAPTCHA) did not pass."
 msgstr "No superó la comprobación anti-bots (CAPTCHA)."
 
@@ -2684,7 +2776,7 @@ msgid "Rating"
 msgstr "Valoración"
 
 #: includes/class-block-defaults.php:59 blocks/field-section/index.js:15
-#: builder/src/field-preview.jsx:100
+#: builder/src/field-preview.jsx:103
 msgid "Section"
 msgstr "Sección"
 
@@ -2873,11 +2965,11 @@ msgstr "Aprobado"
 msgid "Rejected"
 msgstr "Rechazado"
 
-#: includes/class-entries.php:883 includes/class-templates.php:100
+#: includes/class-entries.php:933 includes/class-templates.php:100
 msgid "Yes"
 msgstr "Sí"
 
-#: includes/class-entries.php:883 includes/class-templates.php:100
+#: includes/class-entries.php:933 includes/class-templates.php:100
 msgid "No"
 msgstr "No"
 
@@ -2912,34 +3004,34 @@ msgstr "Los dos editores leen y guardan el mismo formulario, así que cambia cua
 msgid "Open in the visual builder"
 msgstr "Abrir en el constructor visual"
 
-#: includes/class-form-builder.php:252 includes/class-form-builder.php:253
-#: includes/class-form-builder.php:266 includes/class-form-builder.php:267
+#: includes/class-form-builder.php:253 includes/class-form-builder.php:254
+#: includes/class-form-builder.php:267 includes/class-form-builder.php:268
 msgid "Visual Builder"
 msgstr "Constructor visual"
 
-#: includes/class-form-builder.php:280
+#: includes/class-form-builder.php:281
 msgid "Trinity Forms Visual Builder: run `npm run build:builder` to compile the builder assets."
 msgstr "Constructor visual de Trinity Forms: ejecuta `npm run build:builder` para compilar los recursos del constructor."
 
 #: includes/class-form-manager.php:241
 #: includes/importers/class-everest-forms.php:267
-#: includes/importers/class-fluent-forms.php:550
-#: includes/importers/class-formidable.php:457
-#: includes/importers/class-forminator.php:485
+#: includes/importers/class-fluent-forms.php:546
+#: includes/importers/class-formidable.php:458
+#: includes/importers/class-forminator.php:481
 #: includes/importers/class-metform.php:197
 #: includes/importers/class-ninja-forms.php:534
 #: includes/importers/class-sureforms.php:215
-#: includes/importers/class-wpforms.php:507
+#: includes/importers/class-wpforms.php:516
 msgid "Admin notification"
 msgstr "Notificación al administrador"
 
 #. translators: {site_name} is a merge tag and must stay untranslated.
 #: includes/class-form-manager.php:246
 #: includes/importers/class-everest-forms.php:270
-#: includes/importers/class-formidable.php:464
+#: includes/importers/class-formidable.php:465
 #: includes/importers/class-metform.php:200
 #: includes/importers/class-sureforms.php:218
-#: includes/importers/class-wpforms.php:510
+#: includes/importers/class-wpforms.php:519
 msgid "New form entry on {site_name}"
 msgstr "Nuevo envío de formulario en {site_name}"
 
@@ -3007,7 +3099,7 @@ msgstr "Los ajustes del formulario %1$s están en el nivel superior de %2$s; pon
 #. translators: 1: field name, 2: Contact Form 7 field type, e.g. "quiz".
 #: includes/class-gf-importer.php:263
 #: includes/importers/class-base-importer.php:156
-#: includes/importers/class-contact-form-7.php:153
+#: includes/importers/class-contact-form-7.php:155
 #, php-format
 msgid "%1$s (%2$s)"
 msgstr "%1$s (%2$s)"
@@ -3015,9 +3107,9 @@ msgstr "%1$s (%2$s)"
 #. translators: %s: field label or notification name.
 #: includes/class-gf-importer.php:264
 #: includes/importers/class-base-importer.php:157
-#: includes/importers/class-base-importer.php:165
-#: includes/importers/class-contact-form-7.php:154
-#: includes/importers/class-contact-form-7.php:421
+#: includes/importers/class-base-importer.php:203
+#: includes/importers/class-contact-form-7.php:156
+#: includes/importers/class-contact-form-7.php:423
 msgid "Untitled field"
 msgstr "Campo sin título"
 
@@ -3386,12 +3478,12 @@ msgid "File not found."
 msgstr "Archivo no encontrado."
 
 #. translators: %s: plugin name.
-#: includes/class-ready-notice.php:81
+#: includes/class-ready-notice.php:88
 #, php-format
 msgid "%s is ready."
 msgstr "%s está listo."
 
-#: includes/class-ready-notice.php:83
+#: includes/class-ready-notice.php:90
 msgid "Start here"
 msgstr "Empieza aquí"
 
@@ -3556,6 +3648,7 @@ msgid "This page was open for a while, so the form needs one more press. Check y
 msgstr "Esta página llevaba un rato abierta, así que el formulario necesita un clic más. Revisa tus respuestas y envíalo de nuevo."
 
 #: includes/class-submission-pipeline.php:76
+#: includes/class-submission-pipeline.php:105
 msgid "This form needs one more press. Check your answers and send it again."
 msgstr "Este formulario necesita un clic más. Revisa tus respuestas y envíalo de nuevo."
 
@@ -3564,27 +3657,27 @@ msgid "Validation failed."
 msgstr "La validación ha fallado."
 
 #. translators: %s: why the entry was judged spam.
-#: includes/class-submission-pipeline.php:117
+#: includes/class-submission-pipeline.php:124
 #, php-format
 msgid "Marked as spam: %s"
 msgstr "Marcado como spam: %s"
 
-#: includes/class-submission-pipeline.php:118
+#: includes/class-submission-pipeline.php:125
 msgid "Marked as spam by the spam filter"
 msgstr "Marcado como spam por el filtro de spam"
 
-#: includes/class-submission-pipeline.php:206
+#: includes/class-submission-pipeline.php:211
 msgid "This value has already been used."
 msgstr "Este valor ya se ha usado."
 
 #. translators: %s: form title.
-#: includes/class-submission-pipeline.php:412
+#: includes/class-submission-pipeline.php:417
 #, php-format
 msgid "[Trinity Forms] Payments are failing on \"%s\""
 msgstr "[Trinity Forms] Los pagos están fallando en \"%s\""
 
 #. translators: 1: form title, 2: provider error, 3: entry admin URL.
-#: includes/class-submission-pipeline.php:415
+#: includes/class-submission-pipeline.php:420
 #, php-format
 msgid ""
 "A visitor could not start a payment on \"%1$s\". Nothing was charged.\n"
@@ -3599,28 +3692,28 @@ msgstr ""
 "\n"
 "Revisa las claves de pago en Trinity Forms > Ajustes. El envío: %3$s"
 
-#: includes/class-submission-pipeline.php:428
+#: includes/class-submission-pipeline.php:433
 msgid "Payment skipped: this site has never had a Pro licence."
 msgstr "Pago omitido: este sitio nunca ha tenido una licencia Pro."
 
 #. translators: %s: payment provider key, e.g. stripe.
-#: includes/class-submission-pipeline.php:440
+#: includes/class-submission-pipeline.php:445
 #, php-format
 msgid "Payment is on, but the provider \"%s\" is not available."
 msgstr "El pago está activado, pero el proveedor \"%s\" no está disponible."
 
-#: includes/class-submission-pipeline.php:452
+#: includes/class-submission-pipeline.php:457
 msgid "Payment could not be started, so nothing was charged. Please try again later, or contact the site owner if it keeps happening."
 msgstr "No se ha podido iniciar el pago, así que no se ha cobrado nada. Inténtalo de nuevo más tarde o contacta con el propietario del sitio si sigue pasando."
 
 #. translators: %s: uploaded file name.
-#: includes/class-submission-pipeline.php:515
+#: includes/class-submission-pipeline.php:520
 #, php-format
 msgid "Upload error for %s."
 msgstr "Error al subir %s."
 
 #. translators: %s: uploaded file name.
-#: includes/class-submission-pipeline.php:521
+#: includes/class-submission-pipeline.php:526
 #, php-format
 msgid "%s is empty."
 msgstr "%s está vacío."
@@ -3948,7 +4041,7 @@ msgid "Address line 2"
 msgstr "Línea de dirección 2"
 
 #: includes/fields/class-field-address.php:18 blocks/field-address/index.js:20
-#: builder/src/field-preview.jsx:137
+#: builder/src/field-preview.jsx:140
 msgid "City"
 msgstr "Ciudad"
 
@@ -4049,13 +4142,13 @@ msgstr "Elige como máximo %d opciones."
 
 #: includes/fields/class-field-name.php:34
 #: includes/fields/class-field-name.php:40 blocks/field-name/index.js:15
-#: builder/src/field-preview.jsx:127
+#: builder/src/field-preview.jsx:130
 msgid "First"
 msgstr "Nombre"
 
 #: includes/fields/class-field-name.php:35
 #: includes/fields/class-field-name.php:41 blocks/field-name/index.js:16
-#: builder/src/field-preview.jsx:128
+#: builder/src/field-preview.jsx:131
 msgid "Last"
 msgstr "Apellidos"
 
@@ -4131,7 +4224,7 @@ msgid "Please enter a valid web address."
 msgstr "Introduce una dirección web válida."
 
 #. translators: %s: field label or notification name.
-#: includes/importers/class-base-importer.php:165
+#: includes/importers/class-base-importer.php:203
 #, php-format
 msgid "Show/hide rules on %s"
 msgstr "Reglas de mostrar u ocultar en %s"
@@ -4145,46 +4238,46 @@ msgid "Mail (2)"
 msgstr "Correo (2)"
 
 #. translators: %s: a Contact Form 7 "Additional settings" line, e.g. "demo_mode: on".
-#: includes/importers/class-contact-form-7.php:110
+#: includes/importers/class-contact-form-7.php:112
 #, php-format
 msgid "Additional setting: %s"
 msgstr "Ajuste adicional: %s"
 
 #. translators: %s: field name.
-#: includes/importers/class-contact-form-7.php:223
+#: includes/importers/class-contact-form-7.php:225
 #, php-format
 msgid "The free-text box on the last choice of %s"
 msgstr "La caja de texto libre de la última opción de %s"
 
 #. translators: 1: field name, 2: Contact Form 7 option, e.g. "default:user_email".
 #. translators: 1: field label, 2: what the other plugin filled the hidden field with, e.g. "user_ip".
-#: includes/importers/class-contact-form-7.php:255
+#: includes/importers/class-contact-form-7.php:257
 #: includes/importers/class-forminator.php:365
 #, php-format
 msgid "%1$s: filled in from \"%2$s\""
 msgstr "%1$s: se rellenaba con «%2$s»"
 
 #. translators: %s: an email header line, e.g. "X-Priority: 1".
-#: includes/importers/class-contact-form-7.php:372
+#: includes/importers/class-contact-form-7.php:374
 #, php-format
 msgid "Mail header: %s"
 msgstr "Cabecera de correo: %s"
 
-#: includes/importers/class-contact-form-7.php:379
+#: includes/importers/class-contact-form-7.php:381
 msgid "Mail: leave out lines whose tags are empty"
 msgstr "Correo: omitir las líneas cuyas etiquetas estén vacías"
 
 #. translators: %s: a Contact Form 7 mail tag, e.g. "[_post_author]".
 #. translators: %s: a merge tag from the other plugin, e.g. "[_post_author]".
-#: includes/importers/class-contact-form-7.php:403
+#: includes/importers/class-contact-form-7.php:405
 #: includes/importers/class-everest-forms.php:493
 #: includes/importers/class-fluent-forms.php:620
-#: includes/importers/class-formidable.php:525
-#: includes/importers/class-forminator.php:540
+#: includes/importers/class-formidable.php:526
+#: includes/importers/class-forminator.php:536
 #: includes/importers/class-metform.php:282
 #: includes/importers/class-ninja-forms.php:575
 #: includes/importers/class-sureforms.php:378
-#: includes/importers/class-wpforms.php:563
+#: includes/importers/class-wpforms.php:574
 #, php-format
 msgid "Mail tag %s"
 msgstr "Etiqueta de correo %s"
@@ -4192,23 +4285,23 @@ msgstr "Etiqueta de correo %s"
 #. translators: %s: field label.
 #: includes/importers/class-everest-forms.php:355
 #: includes/importers/class-fluent-forms.php:392
-#: includes/importers/class-wpforms.php:292
+#: includes/importers/class-wpforms.php:301
 #, php-format
 msgid "%s: the time part"
 msgstr "%s: la parte de la hora"
 
 #. translators: %s: field label.
 #: includes/importers/class-everest-forms.php:402
-#: includes/importers/class-formidable.php:360
-#: includes/importers/class-wpforms.php:355
+#: includes/importers/class-formidable.php:361
+#: includes/importers/class-wpforms.php:364
 #, php-format
 msgid "%s: rich-text formatting (now a plain text box)"
 msgstr "%s: el formato de texto enriquecido (ahora es una caja de texto simple)"
 
 #. translators: %s: field label.
 #: includes/importers/class-everest-forms.php:427
-#: includes/importers/class-fluent-forms.php:482
-#: includes/importers/class-wpforms.php:303
+#: includes/importers/class-fluent-forms.php:478
+#: includes/importers/class-wpforms.php:312
 #, php-format
 msgid "%s: the limit on how many choices can be ticked"
 msgstr "%s: el límite de cuántas opciones se pueden marcar"
@@ -4216,7 +4309,7 @@ msgstr "%s: el límite de cuántas opciones se pueden marcar"
 #. translators: %s: field label.
 #: includes/importers/class-fluent-forms.php:348
 #: includes/importers/class-forminator.php:304
-#: includes/importers/class-wpforms.php:267
+#: includes/importers/class-wpforms.php:276
 #, php-format
 msgid "%s: the middle name box"
 msgstr "%s: la casilla del segundo nombre"
@@ -4229,14 +4322,7 @@ msgid "%s: the input mask"
 msgstr "%s: la máscara de entrada"
 
 #. translators: %s: field label.
-#: includes/importers/class-fluent-forms.php:441
-#: includes/importers/class-forminator.php:395
-#, php-format
-msgid "%s: links in the consent text"
-msgstr "%s: los enlaces del texto de consentimiento"
-
-#. translators: %s: field label.
-#: includes/importers/class-fluent-forms.php:469
+#: includes/importers/class-fluent-forms.php:465
 #, php-format
 msgid "%s: the \"Other\" choice with its own text box"
 msgstr "%s: la opción «Otro» con su propia caja de texto"
@@ -4265,13 +4351,13 @@ msgstr[1] "%1$d formularios de %2$s"
 
 #. translators: %s: field label.
 #: includes/importers/class-sureforms.php:278
-#: includes/importers/class-wpforms.php:273
+#: includes/importers/class-wpforms.php:282
 #, php-format
 msgid "%s: the second box that repeats the email"
 msgstr "%s: la segunda casilla para repetir el correo"
 
 #. translators: %s: field label.
-#: includes/importers/class-wpforms.php:372
+#: includes/importers/class-wpforms.php:381
 #, php-format
 msgid "%s: choices filled from posts or categories"
 msgstr "%s: opciones que se llenaban con entradas o categorías"
@@ -4354,27 +4440,27 @@ msgstr "Guardado. Guarda esta URL en marcadores para continuar: %s"
 msgid "Could not save progress."
 msgstr "No se pudo guardar el progreso."
 
-#: blocks/conditional-panel.js:72 builder/src/field-panel.jsx:265
+#: blocks/conditional-panel.js:75 builder/src/field-panel.jsx:265
 msgid "Format"
 msgstr "Formato"
 
-#: blocks/conditional-panel.js:75 builder/src/field-panel.jsx:268
+#: blocks/conditional-panel.js:78 builder/src/field-panel.jsx:268
 msgid "Pattern"
 msgstr "Patrón"
 
-#: blocks/conditional-panel.js:76
+#: blocks/conditional-panel.js:79
 msgid "A regular expression the value must match, e.g. ^[0-9]{5}$ for a 5-digit ZIP. Leave empty for no check."
 msgstr "Una expresión regular que el valor debe cumplir, p. ej. ^[0-9]{5}$ para un código postal de 5 dígitos. Déjalo vacío para no comprobarlo."
 
-#: blocks/conditional-panel.js:83 builder/src/field-panel.jsx:276
+#: blocks/conditional-panel.js:86 builder/src/field-panel.jsx:276
 msgid "Error message"
 msgstr "Mensaje de error"
 
-#: blocks/conditional-panel.js:84
+#: blocks/conditional-panel.js:87
 msgid "Shown when the value doesn't match."
 msgstr "Se muestra cuando el valor no coincide."
 
-#: blocks/conditional-panel.js:91 builder/src/field-panel.jsx:391
+#: blocks/conditional-panel.js:94 builder/src/field-panel.jsx:391
 msgid "Conditional logic"
 msgstr "Lógica condicional"
 
@@ -4452,7 +4538,7 @@ msgstr "Opciones (una por línea, etiqueta | valor)"
 msgid "Internal label"
 msgstr "Etiqueta interna"
 
-#: blocks/field-consent/index.js:17 builder/src/field-preview.jsx:83
+#: blocks/field-consent/index.js:17 builder/src/field-preview.jsx:85
 msgid "Consent text"
 msgstr "Texto de consentimiento"
 
@@ -4545,7 +4631,7 @@ msgid "Step"
 msgstr "Paso"
 
 #: blocks/field-page-break/index.js:15 blocks/field-page-break/index.js:20
-#: builder/src/field-preview.jsx:122
+#: builder/src/field-preview.jsx:125
 msgid "Page break"
 msgstr "Salto de página"
 
@@ -5074,31 +5160,31 @@ msgstr "Reino Unido"
 msgid "India"
 msgstr "India"
 
-#: builder/src/field-preview.jsx:110
+#: builder/src/field-preview.jsx:113
 msgid "Custom HTML"
 msgstr "HTML personalizado"
 
-#: builder/src/field-preview.jsx:117
+#: builder/src/field-preview.jsx:120
 msgid "Hidden: not shown to visitors"
 msgstr "Oculto: no se muestra a los visitantes"
 
-#: builder/src/field-preview.jsx:135
+#: builder/src/field-preview.jsx:138
 msgid "Street"
 msgstr "Calle"
 
-#: builder/src/field-preview.jsx:138
+#: builder/src/field-preview.jsx:141
 msgid "Postcode"
 msgstr "Código postal"
 
-#: builder/src/field-preview.jsx:192
+#: builder/src/field-preview.jsx:195
 msgid "Drop a file here or browse"
 msgstr "Suelta un archivo aquí o búscalo"
 
-#: builder/src/field-preview.jsx:197
+#: builder/src/field-preview.jsx:200
 msgid "Signature pad"
 msgstr "Panel de firma"
 
-#: builder/src/field-preview.jsx:209
+#: builder/src/field-preview.jsx:212
 msgid "Repeatable group"
 msgstr "Grupo repetible"
 

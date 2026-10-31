@@ -389,11 +389,7 @@ class Forminator extends Base_Importer {
             case "consent":
             case "gdprcheckbox":
                 $html                  = (string) ( $f["consent_description"] ?? $f["gdpr_description"] ?? $label );
-                $field["consent_text"] = trim( wp_strip_all_tags( $html ) );
-                if ( wp_strip_all_tags( $html ) !== $html && preg_match( '/<a\s/i', $html ) ) {
-                    /* translators: %s: field label. */
-                    $skipped[] = sprintf( __( "%s: links in the consent text", "trinity-forms" ), $label );
-                }
+                $field["consent_text"] = self::consent_html( $html );
                 $default = "";
                 break;
         }
