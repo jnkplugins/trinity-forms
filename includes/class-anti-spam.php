@@ -31,6 +31,14 @@ class Anti_Spam {
     private const PAGE_TOKEN_MAX_AGE = 5 * MINUTE_IN_SECONDS;
     /** A fetched token is kept for a tab left open for a day. */
     private const FETCHED_TOKEN_MAX_AGE = DAY_IN_SECONDS;
+    /**
+     * Accepted entries one page token can vouch for. A page cache hands the same
+     * token to everybody in its window, and a bot replaying the cached HTML was
+     * accepted every time (persona run shop-elementor, 30 Oct 2026). A few uses
+     * leave room for visitors without JavaScript sharing one cached copy; the page
+     * script swaps in a fetched token, which is per visitor and not counted.
+     */
+    private const PAGE_TOKEN_MAX_USES = 3;
 
     /** A note for the entry log about a check that let the entry through. */
     private static string $note = "";
@@ -132,6 +140,43 @@ class Anti_Spam {
         }
         $max = self::TOKEN_FETCHED === $token["kind"] ? self::FETCHED_TOKEN_MAX_AGE : (int) apply_filters( "trinity_forms_page_token_max_age", self::PAGE_TOKEN_MAX_AGE, $form );
         return ( time() - $token["issued"] ) > $max;
+    }
+
+    /**
+     * A page token that has already vouched for its share of accepted entries.
+     * Answered like a stale page: not accepted, not spam, sent again with a fresh
+     * token (the page script fetches one; without JavaScript the form comes back
+     * filled in, drawn with a new token).
+     */
+    public static function token_used_up( Form $form, array $payload ): bool {
+        $key = self::use_key( $form, $payload );
+        if ( null === $key ) {
+            return false;
+        }
+        $max = max( 1, (int) apply_filters( "trinity_forms_page_token_max_uses", self::PAGE_TOKEN_MAX_USES, $form ) );
+        return (int) get_transient( $key ) >= $max;
+    }
+
+    /** Count an accepted entry against its page token (fetched tokens are not counted). */
+    public static function count_use( Form $form, array $payload ): void {
+        $key = self::use_key( $form, $payload );
+        if ( null === $key ) {
+            return;
+        }
+        $token = self::read_token( $payload, (int) $form->id );
+        $max   = (int) apply_filters( "trinity_forms_page_token_max_age", self::PAGE_TOKEN_MAX_AGE, $form );
+        // Kept as long as the token can still be used, then it lapses with it.
+        $ttl   = max( MINUTE_IN_SECONDS, $max - ( time() - (int) $token["issued"] ) + MINUTE_IN_SECONDS );
+        set_transient( $key, (int) get_transient( $key ) + 1, $ttl );
+    }
+
+    /** The transient that counts a page token's uses, or null when the payload has no valid page token. */
+    private static function use_key( Form $form, array $payload ): ?string {
+        $token = self::read_token( $payload, (int) $form->id );
+        if ( null === $token || self::TOKEN_PAGE !== $token["kind"] ) {
+            return null;
+        }
+        return "trinity_forms_tku_" . substr( hash( "sha256", (string) $payload[ self::TIMETRAP_FIELD ] ), 0, 32 );
     }
 
     public static function check( Form $form, array $payload ): bool {

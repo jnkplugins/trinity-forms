@@ -70,6 +70,12 @@ class Submission_Pipeline {
             return $this->error( 409, __( "This page was open for a while, so the form needs one more press. Check your answers and send it again.", "trinity-forms" ), [], [ "reason" => "stale_page" ] );
         }
 
+        // A page token that already vouched for its share of entries (a bot
+        // replaying a cached page's HTML): the same answer as a stale page.
+        if ( ! $honeypot_hit && Anti_Spam::token_used_up( $form, $payload ) ) {
+            return $this->error( 409, __( "This form needs one more press. Check your answers and send it again.", "trinity-forms" ), [], [ "reason" => "stale_page" ] );
+        }
+
         $is_spam = ! Anti_Spam::check( $form, $payload );
 
         if ( $is_spam && self::$drop_spam ) {
@@ -127,6 +133,8 @@ class Submission_Pipeline {
                 "spam"         => true,
             ] );
         }
+
+        Anti_Spam::count_use( $form, $payload );
 
         do_action( "trinity_forms_entry_created", $entry_id, $form_id );
 

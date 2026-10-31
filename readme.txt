@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 8.2
-Stable tag: 2.18.0
+Stable tag: 2.18.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -181,6 +181,10 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.18.1 =
+* Changed: View details on the Plugins screen shows the plugin's banner, icons and screenshots, loaded from our server.
+* Changed: one copy of a cached page can send the form 3 times. A bot replaying the page's HTML is then asked to send again, like a stale page. Visitors with JavaScript get their own token and are not limited.
 
 = 2.18.0 =
 * Fixed: the licence box shows its status, update channel and dates in your site language.
