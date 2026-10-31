@@ -99,6 +99,13 @@ $secret_attr = static function ( string $stored ): string {
         </div>
     </div>
 
+    <?php
+    /**
+     * Cards with their own forms or buttons (Pro: PDF fonts), outside the settings form.
+     */
+    do_action( "trinity_forms_settings_cards", $settings );
+    ?>
+
     <form method="post" action="options.php" class="tf-settings">
         <?php settings_fields( "trinity_forms_settings_group" ); ?>
         <?php

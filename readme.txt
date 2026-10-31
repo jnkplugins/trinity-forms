@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.19.0
+Stable tag: 2.20.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -181,6 +181,9 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.20.0 =
+* Maintenance release: the changes in this version are in Pro PDFs.
 
 = 2.19.0 =
 * New: ticking "Delete all Trinity Forms data" asks you to confirm and shows what deleting the plugin will remove.

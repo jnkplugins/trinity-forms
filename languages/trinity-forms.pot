@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Trinity Forms 2.19.0\n"
+"Project-Id-Version: Trinity Forms 2.20.0\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-31T13:58:15+00:00\n"
+"POT-Creation-Date: 2026-10-31T14:38:14+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: trinity-forms\n"
@@ -2360,106 +2360,106 @@ msgstr ""
 msgid "Most of the time this means the site has no working mail setup. An SMTP plugin that sends through your email provider usually fixes it."
 msgstr ""
 
-#: admin/views/settings.php:110
-#: admin/views/settings.php:218
+#: admin/views/settings.php:117
+#: admin/views/settings.php:225
 msgid "Save settings"
 msgstr ""
 
-#: admin/views/settings.php:123
+#: admin/views/settings.php:130
 msgid "Form editor"
 msgstr ""
 
-#: admin/views/settings.php:126
+#: admin/views/settings.php:133
 msgid "Open forms in"
 msgstr ""
 
-#: admin/views/settings.php:129
+#: admin/views/settings.php:136
 #: includes/class-form-builder.php:173
 msgid "Visual builder (drag and drop)"
 msgstr ""
 
-#: admin/views/settings.php:130
+#: admin/views/settings.php:137
 #: includes/class-form-builder.php:174
 msgid "Block editor"
 msgstr ""
 
-#: admin/views/settings.php:132
+#: admin/views/settings.php:139
 msgid "The default for new forms. Any form can override this in its own settings. Both editors read and write the same form, so you can switch at any time."
 msgstr ""
 
-#: admin/views/settings.php:133
+#: admin/views/settings.php:140
 msgid "Forms you built before upgrading keep opening in the block editor until you change them individually."
 msgstr ""
 
-#: admin/views/settings.php:137
+#: admin/views/settings.php:144
 msgid "Spam protection (CAPTCHA)"
 msgstr ""
 
-#: admin/views/settings.php:140
+#: admin/views/settings.php:147
 msgid "Provider"
 msgstr ""
 
-#: admin/views/settings.php:147
+#: admin/views/settings.php:154
 msgid "Enter the site + secret keys for your chosen provider below, then enable the challenge in each form's settings."
 msgstr ""
 
-#: admin/views/settings.php:165
+#: admin/views/settings.php:172
 msgid "Selected"
 msgstr ""
 
-#: admin/views/settings.php:167
+#: admin/views/settings.php:174
 msgid "Site key"
 msgstr ""
 
-#: admin/views/settings.php:169
+#: admin/views/settings.php:176
 msgid "Secret key"
 msgstr ""
 
-#: admin/views/settings.php:176
+#: admin/views/settings.php:183
 msgid "Keeping entries"
 msgstr ""
 
-#: admin/views/settings.php:178
+#: admin/views/settings.php:185
 msgid "Keep entries for (days)"
 msgstr ""
 
-#: admin/views/settings.php:181
+#: admin/views/settings.php:188
 msgid "0 keeps entries forever. A form's own setting overrides this."
 msgstr ""
 
-#: admin/views/settings.php:183
+#: admin/views/settings.php:190
 msgid "Empty trash after (days)"
 msgstr ""
 
-#: admin/views/settings.php:186
+#: admin/views/settings.php:193
 msgid "Entries in the trash are deleted for good after this many days. 0 never empties the trash."
 msgstr ""
 
-#: admin/views/settings.php:190
+#: admin/views/settings.php:197
 msgid "Data"
 msgstr ""
 
-#: admin/views/settings.php:192
+#: admin/views/settings.php:199
 msgid "Delete data on uninstall"
 msgstr ""
 
-#: admin/views/settings.php:197
+#: admin/views/settings.php:204
 msgid "Delete all Trinity Forms data when the plugin is deleted"
 msgstr ""
 
-#: admin/views/settings.php:199
+#: admin/views/settings.php:206
 msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete."
 msgstr ""
 
-#: admin/views/settings.php:200
+#: admin/views/settings.php:207
 msgid "Deleting Trinity Forms will then permanently remove all your forms, their entries and every setting. This cannot be undone, so export anything you want to keep first."
 msgstr ""
 
-#: admin/views/settings.php:201
+#: admin/views/settings.php:208
 msgid "Tick this anyway?"
 msgstr ""
 
-#: admin/views/settings.php:230
+#: admin/views/settings.php:237
 msgid "License"
 msgstr ""
 

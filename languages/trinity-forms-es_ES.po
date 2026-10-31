@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-31T13:58:15+00:00\n"
+"POT-Creation-Date: 2026-10-31T14:38:14+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Spanish (Spain)\n"
@@ -2240,103 +2240,103 @@ msgstr "Ver la entrada"
 msgid "Most of the time this means the site has no working mail setup. An SMTP plugin that sends through your email provider usually fixes it."
 msgstr "Casi siempre significa que el sitio no tiene un envío de correo que funcione. Un plugin SMTP que envíe a través de tu proveedor de correo suele arreglarlo."
 
-#: admin/views/settings.php:110 admin/views/settings.php:218
+#: admin/views/settings.php:117 admin/views/settings.php:225
 msgid "Save settings"
 msgstr "Guardar ajustes"
 
-#: admin/views/settings.php:123
+#: admin/views/settings.php:130
 msgid "Form editor"
 msgstr "Editor de formularios"
 
-#: admin/views/settings.php:126
+#: admin/views/settings.php:133
 msgid "Open forms in"
 msgstr "Abrir los formularios en"
 
-#: admin/views/settings.php:129 includes/class-form-builder.php:173
+#: admin/views/settings.php:136 includes/class-form-builder.php:173
 msgid "Visual builder (drag and drop)"
 msgstr "Constructor visual (arrastrar y soltar)"
 
-#: admin/views/settings.php:130 includes/class-form-builder.php:174
+#: admin/views/settings.php:137 includes/class-form-builder.php:174
 msgid "Block editor"
 msgstr "Editor de bloques"
 
-#: admin/views/settings.php:132
+#: admin/views/settings.php:139
 msgid "The default for new forms. Any form can override this in its own settings. Both editors read and write the same form, so you can switch at any time."
 msgstr "El valor predeterminado para los formularios nuevos. Cualquier formulario puede cambiarlo en sus propios ajustes. Los dos editores leen y escriben el mismo formulario, así que puedes cambiar cuando quieras."
 
-#: admin/views/settings.php:133
+#: admin/views/settings.php:140
 msgid "Forms you built before upgrading keep opening in the block editor until you change them individually."
 msgstr "Los formularios que creaste antes de mejorar siguen abriéndose en el editor de bloques hasta que los cambies uno a uno."
 
-#: admin/views/settings.php:137
+#: admin/views/settings.php:144
 msgid "Spam protection (CAPTCHA)"
 msgstr "Protección contra spam (CAPTCHA)"
 
-#: admin/views/settings.php:140
+#: admin/views/settings.php:147
 msgid "Provider"
 msgstr "Proveedor"
 
-#: admin/views/settings.php:147
+#: admin/views/settings.php:154
 msgid "Enter the site + secret keys for your chosen provider below, then enable the challenge in each form's settings."
 msgstr "Introduce abajo la clave del sitio y la clave secreta del proveedor que elijas y luego activa la verificación en los ajustes de cada formulario."
 
-#: admin/views/settings.php:165
+#: admin/views/settings.php:172
 msgid "Selected"
 msgstr "Seleccionado"
 
-#: admin/views/settings.php:167
+#: admin/views/settings.php:174
 msgid "Site key"
 msgstr "Clave del sitio"
 
-#: admin/views/settings.php:169
+#: admin/views/settings.php:176
 msgid "Secret key"
 msgstr "Clave secreta"
 
-#: admin/views/settings.php:176
+#: admin/views/settings.php:183
 msgid "Keeping entries"
 msgstr "Conservación de envíos"
 
-#: admin/views/settings.php:178
+#: admin/views/settings.php:185
 msgid "Keep entries for (days)"
 msgstr "Conservar envíos durante (días)"
 
-#: admin/views/settings.php:181
+#: admin/views/settings.php:188
 msgid "0 keeps entries forever. A form's own setting overrides this."
 msgstr "0 conserva los envíos para siempre. El ajuste propio de un formulario tiene prioridad."
 
-#: admin/views/settings.php:183
+#: admin/views/settings.php:190
 msgid "Empty trash after (days)"
 msgstr "Vaciar la papelera tras (días)"
 
-#: admin/views/settings.php:186
+#: admin/views/settings.php:193
 msgid "Entries in the trash are deleted for good after this many days. 0 never empties the trash."
 msgstr "Los envíos de la papelera se eliminan definitivamente tras este número de días. 0 nunca vacía la papelera."
 
-#: admin/views/settings.php:190
+#: admin/views/settings.php:197
 msgid "Data"
 msgstr "Datos"
 
-#: admin/views/settings.php:192
+#: admin/views/settings.php:199
 msgid "Delete data on uninstall"
 msgstr "Eliminar datos al desinstalar"
 
-#: admin/views/settings.php:197
+#: admin/views/settings.php:204
 msgid "Delete all Trinity Forms data when the plugin is deleted"
 msgstr "Eliminar todos los datos de Trinity Forms cuando se borre el plugin"
 
-#: admin/views/settings.php:199
+#: admin/views/settings.php:206
 msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete."
 msgstr "Desactivado por defecto. Tus formularios y envíos se conservan si desactivas o borras el plugin, o si caduca una licencia Pro. Márcalo solo si también quieres eliminar los datos al borrarlo."
 
-#: admin/views/settings.php:200
+#: admin/views/settings.php:207
 msgid "Deleting Trinity Forms will then permanently remove all your forms, their entries and every setting. This cannot be undone, so export anything you want to keep first."
 msgstr "Al eliminar Trinity Forms se borrarán para siempre todos tus formularios, sus entradas y todos los ajustes. No se puede deshacer, así que exporta antes lo que quieras conservar."
 
-#: admin/views/settings.php:201
+#: admin/views/settings.php:208
 msgid "Tick this anyway?"
 msgstr "¿Marcarlo de todos modos?"
 
-#: admin/views/settings.php:230
+#: admin/views/settings.php:237
 msgid "License"
 msgstr "Licencia"
 

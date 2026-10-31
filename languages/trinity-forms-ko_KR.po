@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-31T13:58:15+00:00\n"
+"POT-Creation-Date: 2026-10-31T14:38:14+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Korean\n"
@@ -2238,103 +2238,103 @@ msgstr "항목 보기"
 msgid "Most of the time this means the site has no working mail setup. An SMTP plugin that sends through your email provider usually fixes it."
 msgstr "대부분은 사이트에 제대로 된 메일 설정이 없다는 뜻입니다. 이메일 제공업체를 통해 보내는 SMTP 플러그인으로 보통 해결됩니다."
 
-#: admin/views/settings.php:110 admin/views/settings.php:218
+#: admin/views/settings.php:117 admin/views/settings.php:225
 msgid "Save settings"
 msgstr "설정 저장"
 
-#: admin/views/settings.php:123
+#: admin/views/settings.php:130
 msgid "Form editor"
 msgstr "양식 편집기"
 
-#: admin/views/settings.php:126
+#: admin/views/settings.php:133
 msgid "Open forms in"
 msgstr "양식 열기 방식"
 
-#: admin/views/settings.php:129 includes/class-form-builder.php:173
+#: admin/views/settings.php:136 includes/class-form-builder.php:173
 msgid "Visual builder (drag and drop)"
 msgstr "비주얼 빌더(끌어서 놓기)"
 
-#: admin/views/settings.php:130 includes/class-form-builder.php:174
+#: admin/views/settings.php:137 includes/class-form-builder.php:174
 msgid "Block editor"
 msgstr "블록 편집기"
 
-#: admin/views/settings.php:132
+#: admin/views/settings.php:139
 msgid "The default for new forms. Any form can override this in its own settings. Both editors read and write the same form, so you can switch at any time."
 msgstr "새 양식의 기본값입니다. 각 양식의 설정에서 바꿀 수 있습니다. 두 편집기는 같은 양식을 읽고 쓰므로 언제든지 전환할 수 있습니다."
 
-#: admin/views/settings.php:133
+#: admin/views/settings.php:140
 msgid "Forms you built before upgrading keep opening in the block editor until you change them individually."
 msgstr "업그레이드 전에 만든 양식은 개별적으로 변경하기 전까지 블록 편집기에서 열립니다."
 
-#: admin/views/settings.php:137
+#: admin/views/settings.php:144
 msgid "Spam protection (CAPTCHA)"
 msgstr "스팸 방지(CAPTCHA)"
 
-#: admin/views/settings.php:140
+#: admin/views/settings.php:147
 msgid "Provider"
 msgstr "제공업체"
 
-#: admin/views/settings.php:147
+#: admin/views/settings.php:154
 msgid "Enter the site + secret keys for your chosen provider below, then enable the challenge in each form's settings."
 msgstr "아래에 선택한 제공업체의 사이트 키와 비밀 키를 입력한 다음, 각 양식의 설정에서 봇 확인을 켜세요."
 
-#: admin/views/settings.php:165
+#: admin/views/settings.php:172
 msgid "Selected"
 msgstr "선택됨"
 
-#: admin/views/settings.php:167
+#: admin/views/settings.php:174
 msgid "Site key"
 msgstr "사이트 키"
 
-#: admin/views/settings.php:169
+#: admin/views/settings.php:176
 msgid "Secret key"
 msgstr "비밀 키"
 
-#: admin/views/settings.php:176
+#: admin/views/settings.php:183
 msgid "Keeping entries"
 msgstr "항목 보관"
 
-#: admin/views/settings.php:178
+#: admin/views/settings.php:185
 msgid "Keep entries for (days)"
 msgstr "항목 보관 기간(일)"
 
-#: admin/views/settings.php:181
+#: admin/views/settings.php:188
 msgid "0 keeps entries forever. A form's own setting overrides this."
 msgstr "0이면 항목을 영구 보관합니다. 양식 자체 설정이 이 값보다 우선합니다."
 
-#: admin/views/settings.php:183
+#: admin/views/settings.php:190
 msgid "Empty trash after (days)"
 msgstr "휴지통 비우기 기간(일)"
 
-#: admin/views/settings.php:186
+#: admin/views/settings.php:193
 msgid "Entries in the trash are deleted for good after this many days. 0 never empties the trash."
 msgstr "휴지통에 있는 항목은 이 일수가 지나면 영구 삭제됩니다. 0이면 휴지통을 비우지 않습니다."
 
-#: admin/views/settings.php:190
+#: admin/views/settings.php:197
 msgid "Data"
 msgstr "데이터"
 
-#: admin/views/settings.php:192
+#: admin/views/settings.php:199
 msgid "Delete data on uninstall"
 msgstr "제거 시 데이터 삭제"
 
-#: admin/views/settings.php:197
+#: admin/views/settings.php:204
 msgid "Delete all Trinity Forms data when the plugin is deleted"
 msgstr "플러그인을 삭제할 때 모든 Trinity Forms 데이터 삭제"
 
-#: admin/views/settings.php:199
+#: admin/views/settings.php:206
 msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete."
 msgstr "기본값은 꺼짐입니다. 플러그인을 비활성화하거나 삭제하거나 Pro 라이선스가 만료되어도 양식과 항목은 유지됩니다. 삭제할 때 데이터도 지우려는 경우에만 체크하세요."
 
-#: admin/views/settings.php:200
+#: admin/views/settings.php:207
 msgid "Deleting Trinity Forms will then permanently remove all your forms, their entries and every setting. This cannot be undone, so export anything you want to keep first."
 msgstr "Trinity Forms를 삭제하면 모든 폼과 그 응답, 모든 설정이 영구히 삭제됩니다. 되돌릴 수 없으니 보관할 내용은 먼저 내보내세요."
 
-#: admin/views/settings.php:201
+#: admin/views/settings.php:208
 msgid "Tick this anyway?"
 msgstr "그래도 선택할까요?"
 
-#: admin/views/settings.php:230
+#: admin/views/settings.php:237
 msgid "License"
 msgstr "라이선스"
 

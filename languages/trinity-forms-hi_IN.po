@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.16.2\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-31T13:58:15+00:00\n"
+"POT-Creation-Date: 2026-10-31T14:38:14+00:00\n"
 "PO-Revision-Date: 2026-10-29 12:00+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Hindi\n"
@@ -2240,103 +2240,103 @@ msgstr "एंट्री देखें"
 msgid "Most of the time this means the site has no working mail setup. An SMTP plugin that sends through your email provider usually fixes it."
 msgstr "ज़्यादातर इसका मतलब है कि साइट पर मेल ठीक से सेट नहीं है। आपके ईमेल प्रदाता से भेजने वाला कोई SMTP प्लगइन आमतौर पर इसे ठीक कर देता है।"
 
-#: admin/views/settings.php:110 admin/views/settings.php:218
+#: admin/views/settings.php:117 admin/views/settings.php:225
 msgid "Save settings"
 msgstr "सेटिंग्स सहेजें"
 
-#: admin/views/settings.php:123
+#: admin/views/settings.php:130
 msgid "Form editor"
 msgstr "फ़ॉर्म एडिटर"
 
-#: admin/views/settings.php:126
+#: admin/views/settings.php:133
 msgid "Open forms in"
 msgstr "फ़ॉर्म यहाँ खोलें"
 
-#: admin/views/settings.php:129 includes/class-form-builder.php:173
+#: admin/views/settings.php:136 includes/class-form-builder.php:173
 msgid "Visual builder (drag and drop)"
 msgstr "विज़ुअल बिल्डर (ड्रैग एंड ड्रॉप)"
 
-#: admin/views/settings.php:130 includes/class-form-builder.php:174
+#: admin/views/settings.php:137 includes/class-form-builder.php:174
 msgid "Block editor"
 msgstr "ब्लॉक एडिटर"
 
-#: admin/views/settings.php:132
+#: admin/views/settings.php:139
 msgid "The default for new forms. Any form can override this in its own settings. Both editors read and write the same form, so you can switch at any time."
 msgstr "नए फ़ॉर्म के लिए डिफ़ॉल्ट। कोई भी फ़ॉर्म अपनी सेटिंग्स में इसे बदल सकता है। दोनों एडिटर एक ही फ़ॉर्म पढ़ते और लिखते हैं, इसलिए आप कभी भी बदल सकते हैं।"
 
-#: admin/views/settings.php:133
+#: admin/views/settings.php:140
 msgid "Forms you built before upgrading keep opening in the block editor until you change them individually."
 msgstr "अपग्रेड से पहले बनाए गए फ़ॉर्म तब तक ब्लॉक एडिटर में खुलते रहेंगे जब तक आप उन्हें एक-एक करके नहीं बदलते।"
 
-#: admin/views/settings.php:137
+#: admin/views/settings.php:144
 msgid "Spam protection (CAPTCHA)"
 msgstr "स्पैम सुरक्षा (कैप्चा)"
 
-#: admin/views/settings.php:140
+#: admin/views/settings.php:147
 msgid "Provider"
 msgstr "प्रदाता"
 
-#: admin/views/settings.php:147
+#: admin/views/settings.php:154
 msgid "Enter the site + secret keys for your chosen provider below, then enable the challenge in each form's settings."
 msgstr "नीचे अपने चुने हुए प्रदाता की site + secret Keys डालें, फिर हर फ़ॉर्म की सेटिंग्स में जाँच चालू करें।"
 
-#: admin/views/settings.php:165
+#: admin/views/settings.php:172
 msgid "Selected"
 msgstr "चुना गया"
 
-#: admin/views/settings.php:167
+#: admin/views/settings.php:174
 msgid "Site key"
 msgstr "Site Key"
 
-#: admin/views/settings.php:169
+#: admin/views/settings.php:176
 msgid "Secret key"
 msgstr "Secret Key"
 
-#: admin/views/settings.php:176
+#: admin/views/settings.php:183
 msgid "Keeping entries"
 msgstr "एंट्रियाँ रखना"
 
-#: admin/views/settings.php:178
+#: admin/views/settings.php:185
 msgid "Keep entries for (days)"
 msgstr "एंट्रियाँ कितने दिन रखें"
 
-#: admin/views/settings.php:181
+#: admin/views/settings.php:188
 msgid "0 keeps entries forever. A form's own setting overrides this."
 msgstr "0 पर एंट्रियाँ हमेशा रहती हैं। फ़ॉर्म की अपनी सेटिंग इसकी जगह लागू होती है।"
 
-#: admin/views/settings.php:183
+#: admin/views/settings.php:190
 msgid "Empty trash after (days)"
 msgstr "इतने दिन बाद ट्रैश खाली करें"
 
-#: admin/views/settings.php:186
+#: admin/views/settings.php:193
 msgid "Entries in the trash are deleted for good after this many days. 0 never empties the trash."
 msgstr "ट्रैश की एंट्रियाँ इतने दिनों बाद हमेशा के लिए हटा दी जाती हैं। 0 पर ट्रैश कभी खाली नहीं होता।"
 
-#: admin/views/settings.php:190
+#: admin/views/settings.php:197
 msgid "Data"
 msgstr "डेटा"
 
-#: admin/views/settings.php:192
+#: admin/views/settings.php:199
 msgid "Delete data on uninstall"
 msgstr "अनइंस्टॉल पर डेटा हटाएँ"
 
-#: admin/views/settings.php:197
+#: admin/views/settings.php:204
 msgid "Delete all Trinity Forms data when the plugin is deleted"
 msgstr "प्लगइन हटाने पर Trinity Forms का सारा डेटा हटा दें"
 
-#: admin/views/settings.php:199
+#: admin/views/settings.php:206
 msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete."
 msgstr "डिफ़ॉल्ट रूप से बंद। निष्क्रिय करने, हटाने या Pro लाइसेंस खत्म होने पर भी आपके फ़ॉर्म और एंट्रियाँ बनी रहती हैं। इसे सिर्फ़ तभी टिक करें जब हटाने पर डेटा भी मिटाना हो।"
 
-#: admin/views/settings.php:200
+#: admin/views/settings.php:207
 msgid "Deleting Trinity Forms will then permanently remove all your forms, their entries and every setting. This cannot be undone, so export anything you want to keep first."
 msgstr "इसके बाद Trinity Forms डिलीट करने पर आपके सारे फ़ॉर्म, उनकी एंट्री और सभी सेटिंग्स हमेशा के लिए हट जाएँगी। इसे वापस नहीं किया जा सकता, इसलिए जो रखना है उसे पहले एक्सपोर्ट कर लें।"
 
-#: admin/views/settings.php:201
+#: admin/views/settings.php:208
 msgid "Tick this anyway?"
 msgstr "फिर भी इसे चुनें?"
 
-#: admin/views/settings.php:230
+#: admin/views/settings.php:237
 msgid "License"
 msgstr "लाइसेंस"
 
