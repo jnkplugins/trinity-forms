@@ -115,6 +115,27 @@ class Entries {
             $where[]  = "e.form_id = %d";
             $params[] = $form_id;
         }
+        // Several forms at once (a Pro View over more than one form).
+        $form_ids = array_values( array_filter( array_map( "absint", (array) ( $args["form_ids"] ?? [] ) ) ) );
+        if ( $form_ids ) {
+            $where[] = "e.form_id IN (" . implode( ",", array_fill( 0, count( $form_ids ), "%d" ) ) . ")";
+            array_push( $params, ...$form_ids );
+        }
+        // Only / never these entries (Pro View pinned entries).
+        foreach ( [ "include_ids" => "IN", "exclude_ids" => "NOT IN" ] as $key => $op ) {
+            if ( ! array_key_exists( $key, $args ) ) {
+                continue;
+            }
+            $list = array_values( array_filter( array_map( "absint", (array) $args[ $key ] ) ) );
+            if ( ! $list ) {
+                if ( "IN" === $op ) {
+                    $where[] = "1=0";
+                }
+                continue;
+            }
+            $where[] = "e.id {$op} (" . implode( ",", array_fill( 0, count( $list ), "%d" ) ) . ")";
+            array_push( $params, ...$list );
+        }
 
         $view = (string) ( $args["view"] ?? "" );
         if ( "unread" === $view ) {
@@ -200,6 +221,11 @@ class Entries {
                     $test  = "m.value LIKE %s";
                     $bound = "%" . $wpdb->esc_like( $value ) . "%";
                     break;
+                case "between":
+                    // Same-format strings (e.g. UTC "Y-m-d H:i:s"): value <= answer <= to.
+                    $test  = "m.value >= %s AND m.value <= %s";
+                    $bound = [ $value, (string) ( $filter["to"] ?? $value ) ];
+                    break;
                 default:
                     $test  = "m.value = %s";
                     $bound = $value;
@@ -207,7 +233,9 @@ class Entries {
 
             $where[]  = "EXISTS ( SELECT 1 FROM {$meta_table} m WHERE m.entry_id = e.id AND m.field_id = %s AND {$test} )";
             $params[] = $field_id;
-            $params[] = $bound;
+            foreach ( (array) $bound as $b ) {
+                $params[] = $b;
+            }
         }
 
         return [ implode( " AND ", $where ), $params ];
@@ -635,7 +663,38 @@ class Entries {
      *
      * @param array<int,int> $ids
      */
-    public static function to_csv( array $ids ): string {
+    /** The entry columns every export can include, before the answers. */
+    public const EXPORT_BASE = [ "id", "submitted_at", "status" ];
+
+    /**
+     * Headers for the entry columns, in the site language: the export panel's
+     * names, not the column keys (QA 3 Nov: "id" and "submitted_at" sat raw
+     * next to translated field labels). The date says its time zone, because a
+     * spreadsheet cell does not: the value is site time (Settings > General).
+     *
+     * @param bool $with_zone Add the site time zone to the date header.
+     * @return array<string,string> key => header
+     */
+    public static function base_headers( bool $with_zone = false ): array {
+        $date = __( "Date submitted", "trinity-forms" );
+        if ( $with_zone ) {
+            $date .= " (" . wp_timezone_string() . ")";
+        }
+        return [
+            "id"           => __( "Entry ID", "trinity-forms" ),
+            "submitted_at" => $date,
+            "status"       => __( "Status", "trinity-forms" ),
+        ];
+    }
+
+    /**
+     * The columns an export of these entries can have, in their natural order:
+     * key => header. Keys are EXPORT_BASE plus field ids.
+     *
+     * @param array<int,int> $ids
+     * @return array<string,string>
+     */
+    public static function export_columns( array $ids ): array {
         global $wpdb;
 
         $ids        = array_values( array_filter( array_map( "absint", $ids ) ) );
@@ -662,8 +721,12 @@ class Entries {
             ), ARRAY_A );
             foreach ( (array) $cols as $c ) {
                 $fid = $c["field_id"];
-                if ( self::is_internal_field( (string) $fid ) ) {
+                if ( self::is_internal_field( (string) $fid ) && ! Campaign::is_campaign_field( (string) $fid ) ) {
                     continue;
+                }
+                if ( Campaign::is_campaign_field( (string) $fid ) ) {
+                    // utm_source etc. under a stable header, whatever language wrote it.
+                    $c["field_label"] = Campaign::label( (string) $fid );
                 }
                 foreach ( explode( ",", (string) ( $c["form_ids"] ?? "" ) ) as $tf_form_of_col ) {
                     if ( (int) $tf_form_of_col > 0 ) {
@@ -683,26 +746,66 @@ class Entries {
         foreach ( array_keys( $col_order ) as $fid ) {
             $ordered_labels[ $fid ] = $field_ids[ $fid ];
         }
-        $ordered_labels = self::unique_headers( $ordered_labels, $col_forms );
+        $base   = self::base_headers( true );
+        $fields = self::unique_headers( $ordered_labels, $col_forms );
+        // A field called "Status" (or "Estado" on a Spanish site) next to the
+        // entry's own Status column: tell them apart by the field id.
+        foreach ( $fields as $fid => $label ) {
+            if ( in_array( $label, $base, true ) || __( "IP address", "trinity-forms" ) === $label ) {
+                $fields[ $fid ] = $label . " [" . $fid . "]";
+            }
+        }
+        $out = $base + $fields;
+        // Optional, only asked for by name (never in the default export), and only
+        // offered when one of these entries still holds an address (TF-34).
+        if ( $ids ) {
+            foreach ( array_chunk( $ids, 500 ) as $chunk ) {
+                $holds = implode( ",", array_fill( 0, count( $chunk ), "%d" ) );
+                // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
+                if ( $wpdb->get_var( $wpdb->prepare( "SELECT 1 FROM " . self::table() . " WHERE id IN ({$holds}) AND ip_address IS NOT NULL LIMIT 1", ...$chunk ) ) ) {
+                    $out[ Ip_Privacy::COLUMN ] = __( "IP address", "trinity-forms" );
+                    break;
+                }
+            }
+        }
+        return $out;
+    }
 
-        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen -- php://temp is an in-memory stream used to assemble the CSV; not a filesystem write (WP_Filesystem has no streaming API).
-        $fp = fopen( "php://temp", "w+" );
-        fputcsv(
-            $fp,
-            array_merge( [ "id", "submitted_at", "status" ], array_map( [ self::class, "csv_safe" ], array_values( $ordered_labels ) ) ),
-            ",",
-            '"',
-            ""
-        );
+    /**
+     * Header and rows for an export, as plain values (nothing escaped).
+     *
+     * @param array<int,int>          $ids
+     * @param array<int,string>|null  $columns Keys to include, in this order. Null
+     *                                         or nothing valid: every column.
+     * @return array{header:array<int,string>,rows:array<int,array<int,string>>}
+     */
+    public static function export_table( array $ids, ?array $columns = null ): array {
+        global $wpdb;
 
+        $ids       = array_values( array_filter( array_map( "absint", $ids ) ) );
+        $available = self::export_columns( $ids );
+        $chosen    = [];
+        foreach ( (array) $columns as $key ) {
+            $key = (string) $key;
+            if ( isset( $available[ $key ] ) && ! isset( $chosen[ $key ] ) ) {
+                $chosen[ $key ] = $available[ $key ];
+            }
+        }
+        if ( ! $chosen ) {
+            $chosen = $available;
+            unset( $chosen[ Ip_Privacy::COLUMN ] );
+        }
+
+        $meta_table    = self::meta_table();
         $entries_table = self::table();
         $labels        = [];
+        $out           = [];
         foreach ( array_chunk( $ids, 200 ) as $chunk ) {
             $holds = implode( ",", array_fill( 0, count( $chunk ), "%d" ) );
 
             // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
             $entry_rows = $wpdb->get_results( $wpdb->prepare(
-                "SELECT id, submitted_at, status FROM {$entries_table} WHERE id IN ({$holds}) ORDER BY submitted_at DESC, id DESC",
+                "SELECT id, submitted_at, status, ip_address FROM {$entries_table} WHERE id IN ({$holds}) ORDER BY submitted_at DESC, id DESC",
                 ...$chunk
             ), ARRAY_A );
 
@@ -716,6 +819,9 @@ class Entries {
             // ("gold", "1", ["a"]) — the same reading the entry screen gives.
             $by_entry = [];
             foreach ( (array) $meta_rows as $m ) {
+                if ( ! isset( $chosen[ $m["field_id"] ] ) ) {
+                    continue;
+                }
                 $form_id = (int) $m["form_id"];
                 if ( ! isset( $labels[ $form_id ] ) ) {
                     $labels[ $form_id ] = Form_Manager::choice_labels( $form_id );
@@ -728,14 +834,42 @@ class Entries {
             }
 
             foreach ( (array) $entry_rows as $r ) {
+                // Site time (Settings > General), as the header says; stored as UTC.
+                // Status as the entry screen names it, in the site language ("Spam", "Completado").
+                $base   = [ "id" => (string) $r["id"], "submitted_at" => Dates::to_site( $r["submitted_at"] ), "status" => self::status_label( (string) $r["status"] ) ];
                 $values = $by_entry[ (int) $r["id"] ] ?? [];
-                // Site time, as before: a spreadsheet built on the export keeps working.
-                $row    = [ $r["id"], Dates::to_site( $r["submitted_at"] ), $r["status"] ];
-                foreach ( array_keys( $ordered_labels ) as $fid ) {
-                    $row[] = self::csv_safe( (string) ( $values[ $fid ] ?? "" ) );
+                $values[ Ip_Privacy::COLUMN ] = Ip_Privacy::readable( $r["ip_address"] ?? null );
+                $row    = [];
+                foreach ( array_keys( $chosen ) as $key ) {
+                    $row[] = isset( $base[ $key ] ) && in_array( $key, self::EXPORT_BASE, true )
+                        ? $base[ $key ]
+                        : (string) ( $values[ $key ] ?? "" );
                 }
-                fputcsv( $fp, $row, ",", '"', "" );
+                $out[] = $row;
             }
+        }
+
+        return [ "header" => array_values( $chosen ), "rows" => $out ];
+    }
+
+    /**
+     * Build a CSV for a set of entry ids.
+     *
+     * Lives here rather than in the REST controller because two callers need it —
+     * the export endpoint and the entries screen's "export selected" bulk action —
+     * and the second one arrived after the first had already grown an N+1 query.
+     *
+     * @param array<int,int>         $ids
+     * @param array<int,string>|null $columns See export_table().
+     */
+    public static function to_csv( array $ids, ?array $columns = null ): string {
+        $table = self::export_table( $ids, $columns );
+
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen -- php://temp is an in-memory stream used to assemble the CSV; not a filesystem write (WP_Filesystem has no streaming API).
+        $fp = fopen( "php://temp", "w+" );
+        fputcsv( $fp, array_map( [ self::class, "csv_safe" ], $table["header"] ), ",", '"', "" );
+        foreach ( $table["rows"] as $row ) {
+            fputcsv( $fp, array_map( [ self::class, "csv_safe" ], $row ), ",", '"', "" );
         }
 
         rewind( $fp );
@@ -746,6 +880,63 @@ class Entries {
         fclose( $fp );
 
         return $csv;
+    }
+
+    /**
+     * The same export as an Excel workbook (.xlsx), or "" when the server has no
+     * ZipArchive. Cells are text, so nothing in an answer can run as a formula and
+     * leading zeros stay; no byte order mark is needed (xlsx is always UTF-8).
+     *
+     * @param array<int,int>         $ids
+     * @param array<int,string>|null $columns See export_table().
+     */
+    public static function to_xlsx( array $ids, ?array $columns = null ): string {
+        $table = self::export_table( $ids, $columns );
+        // The export runs over REST, where wp-admin's file helpers are not loaded.
+        if ( ! function_exists( "wp_tempnam" ) ) {
+            require_once ABSPATH . "wp-admin/includes/file.php";
+        }
+        $path  = wp_tempnam( "trinity-forms-export.xlsx" );
+        if ( ! $path || ! Xlsx_Writer::write( $path, $table["header"], $table["rows"], __( "Entries", "trinity-forms" ) ) ) {
+            if ( $path ) {
+                wp_delete_file( $path );
+            }
+            return "";
+        }
+        $bytes = (string) file_get_contents( $path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- reading back our own temp file.
+        wp_delete_file( $path );
+        return $bytes;
+    }
+
+    /** Stream an .xlsx download and stop. */
+    public static function send_xlsx( string $bytes, string $filename = "trinity-forms-submissions.xlsx" ): void {
+        if ( ! headers_sent() ) {
+            nocache_headers();
+            header( "Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" );
+            header( 'Content-Disposition: attachment; filename="' . $filename . '"' );
+            header( "Content-Length: " . strlen( $bytes ) );
+            header( "X-Content-Type-Options: nosniff" );
+        }
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- binary file download.
+        echo $bytes;
+        exit;
+    }
+
+    /**
+     * Send an export in the chosen format ("xlsx" or CSV), with the chosen columns.
+     * Falls back to CSV where the server cannot build a workbook.
+     *
+     * @param array<int,int>         $ids
+     * @param array<int,string>|null $columns
+     */
+    public static function send_export( array $ids, string $format, ?array $columns, string $basename = "trinity-forms-submissions" ): void {
+        if ( "xlsx" === $format ) {
+            $bytes = self::to_xlsx( $ids, $columns );
+            if ( "" !== $bytes ) {
+                self::send_xlsx( $bytes, $basename . ".xlsx" );
+            }
+        }
+        self::send_csv( self::to_csv( $ids, $columns ), $basename . ".csv" );
     }
 
     /**
@@ -920,6 +1111,12 @@ class Entries {
     }
 
     public static function display_value( string $type, $raw, array $map = [], bool $html = false ): string {
+        // A field type with an answer shape of its own (Pro's survey fields) says
+        // how it reads. Returned HTML must already be escaped.
+        $pre = apply_filters( "trinity_forms_display_value", null, $type, $raw, $map, $html );
+        if ( is_string( $pre ) ) {
+            return $pre;
+        }
         $value = $raw;
         if ( is_string( $value ) ) {
             $decoded = json_decode( $value, true );

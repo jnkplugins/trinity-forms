@@ -20,7 +20,7 @@ class Field_Total extends Field_Pricing_Base {
         // readonly rather than disabled: disabled inputs are not submitted at all,
         // and the running total is updated by the front-end script.
         $control = '<div class="trinity-forms-total">'
-            . '<output class="trinity-forms-total-display" for="' . $id . '">'
+            . '<output class="trinity-forms-total-display" for="' . $id . '" dir="ltr">'
             . esc_html( $this->format_price( 0.0 ) ) . "</output>"
             . '<input type="hidden" id="' . $id . '" name="' . $name . '" value="0"'
             . ' data-total="1" data-currency="' . esc_attr( $this->currency_symbol() ) . '" />'

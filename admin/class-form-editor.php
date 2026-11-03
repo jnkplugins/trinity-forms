@@ -593,32 +593,27 @@ class Form_Editor {
         return implode( "any" === ( $rules["match"] ?? "all" ) ? " / " : ", ", $parts );
     }
 
-    private static function render_notification_card( int $index, array $n, array $fields_options = [] ): void {
-        $enabled = ! isset( $n["enabled"] ) || ! empty( $n["enabled"] );
-        $to_type = "field" === ( $n["to_type"] ?? "email" ) ? "field" : "email";
+    /**
+     * The "Always send / Send only when / Don't send when" rule row.
+     *
+     * Shared by notifications and (Pro) integrations, so both write the same shape
+     * and read their operators from Conditional_Logic::operators(). One condition
+     * (what an import or a person usually has) is edited in place, like a
+     * confirmation's "Only when" row. A rule set with several conditions or groups
+     * is shown in words and carried through the save; the select above it can
+     * still flip it or remove it. Read back with rules_from_post().
+     *
+     * @param string               $prefix         Input name prefix, e.g. trinity-forms[notifications][0].
+     * @param array<string,mixed>  $rules          Saved rule set (may be empty).
+     * @param array<string,string> $fields_options Field id => label.
+     */
+    public static function render_send_rule( string $prefix, array $rules, array $fields_options ): void {
+        $tf_conds  = array_values( (array) ( $rules["conditions"] ?? [] ) );
+        $tf_simple = count( $tf_conds ) <= 1 && ! isset( $tf_conds[0]["conditions"] );
+        $tf_action = $tf_conds ? ( "hide" === ( $rules["action"] ?? "show" ) ? "hide" : "show" ) : "";
+        $tf_first  = $tf_simple ? (array) ( $tf_conds[0] ?? [] ) : [];
+        $tf_prefix = $prefix;
         ?>
-        <div class="trinity-forms-list-card">
-            <label><?php esc_html_e( "Name", "trinity-forms" ); ?></label>
-            <input type="text" name="trinity-forms[notifications][<?php echo (int) $index; ?>][name]" value="<?php echo esc_attr( $n["name"] ?? "" ); ?>" />
-
-            <label>
-                <input type="hidden" name="trinity-forms[notifications][<?php echo (int) $index; ?>][enabled]" value="0" />
-                <input type="checkbox" name="trinity-forms[notifications][<?php echo (int) $index; ?>][enabled]" value="1" <?php checked( $enabled ); ?> />
-                <?php esc_html_e( "Enabled", "trinity-forms" ); ?>
-            </label>
-
-            <?php
-            // Sending rules. One condition (what an import or a person usually has)
-            // is edited in place, like a confirmation's "Only when" row. A rule set
-            // with several conditions or groups is shown in words and carried through
-            // the save; the select above it can still flip it or remove it.
-            $tf_rules  = (array) ( $n["conditional"] ?? [] );
-            $tf_conds  = array_values( (array) ( $tf_rules["conditions"] ?? [] ) );
-            $tf_simple = count( $tf_conds ) <= 1 && ! isset( $tf_conds[0]["conditions"] );
-            $tf_action = $tf_conds ? ( "hide" === ( $tf_rules["action"] ?? "show" ) ? "hide" : "show" ) : "";
-            $tf_first  = $tf_simple ? (array) ( $tf_conds[0] ?? [] ) : [];
-            $tf_prefix = "trinity-forms[notifications][" . (int) $index . "]";
-            ?>
             <label><?php esc_html_e( "Rule", "trinity-forms" ); ?></label>
             <select name="<?php echo esc_attr( $tf_prefix ); ?>[rule_action]" class="tf-notification-rule-action">
                 <option value="" <?php selected( $tf_action, "" ); ?>><?php esc_html_e( "Always send", "trinity-forms" ); ?></option>
@@ -645,17 +640,61 @@ class Form_Editor {
                     <input type="text" name="<?php echo esc_attr( $tf_prefix ); ?>[rule][conditions][0][value]" value="<?php echo esc_attr( is_array( $tf_first["value"] ?? "" ) ? implode( ", ", (array) $tf_first["value"] ) : (string) ( $tf_first["value"] ?? "" ) ); ?>" />
                 </div>
             <?php else : ?>
-                <input type="hidden" name="<?php echo esc_attr( $tf_prefix ); ?>[conditional_json]" value="<?php echo esc_attr( (string) wp_json_encode( $n["conditional"] ) ); ?>" />
+                <input type="hidden" name="<?php echo esc_attr( $tf_prefix ); ?>[conditional_json]" value="<?php echo esc_attr( (string) wp_json_encode( $rules ) ); ?>" />
                 <p class="description tf-notification-rules">
                     <?php
                     echo esc_html( sprintf(
                         /* translators: %s: the rules in words, e.g. "Room type is group, Email is not empty". */
                         __( "%s. These rules came with an import and are kept as they are when you save. Pick \"Always send\" to remove them.", "trinity-forms" ),
-                        self::describe_rules( $tf_rules, $fields_options )
+                        self::describe_rules( $rules, $fields_options )
                     ) );
                     ?>
                 </p>
             <?php endif; ?>
+        <?php
+    }
+
+    /**
+     * The rule set a render_send_rule() row posted, cleaned by
+     * Conditional_Logic::sanitize_rules(). [] means "always send".
+     *
+     * @param array<string,mixed> $n One posted card (notification or integration).
+     * @return array<string,mixed>
+     */
+    public static function rules_from_post( array $n ): array {
+        $conditional_raw = $n["conditional"] ?? null;
+        if ( null === $conditional_raw && array_key_exists( "rule_action", $n ) ) {
+            // The card's "Rule" select: Always send / Send only when / Don't send when.
+            $action = in_array( (string) $n["rule_action"], [ "show", "hide" ], true ) ? (string) $n["rule_action"] : "";
+            if ( "" !== $action ) {
+                $conditional_raw = isset( $n["conditional_json"] )
+                    ? json_decode( (string) $n["conditional_json"], true )
+                    : [ "match" => "all", "conditions" => (array) ( $n["rule"]["conditions"] ?? [] ) ];
+                if ( is_array( $conditional_raw ) ) {
+                    $conditional_raw["action"] = $action;
+                }
+            }
+        } elseif ( null === $conditional_raw && isset( $n["conditional_json"] ) ) {
+            $conditional_raw = json_decode( (string) $n["conditional_json"], true );
+        }
+        return self::sanitize_conditional( $conditional_raw );
+    }
+
+    private static function render_notification_card( int $index, array $n, array $fields_options = [] ): void {
+        $enabled = ! isset( $n["enabled"] ) || ! empty( $n["enabled"] );
+        $to_type = "field" === ( $n["to_type"] ?? "email" ) ? "field" : "email";
+        ?>
+        <div class="trinity-forms-list-card">
+            <label><?php esc_html_e( "Name", "trinity-forms" ); ?></label>
+            <input type="text" name="trinity-forms[notifications][<?php echo (int) $index; ?>][name]" value="<?php echo esc_attr( $n["name"] ?? "" ); ?>" />
+
+            <label>
+                <input type="hidden" name="trinity-forms[notifications][<?php echo (int) $index; ?>][enabled]" value="0" />
+                <input type="checkbox" name="trinity-forms[notifications][<?php echo (int) $index; ?>][enabled]" value="1" <?php checked( $enabled ); ?> />
+                <?php esc_html_e( "Enabled", "trinity-forms" ); ?>
+            </label>
+
+            <?php self::render_send_rule( "trinity-forms[notifications][" . (int) $index . "]", (array) ( $n["conditional"] ?? [] ), $fields_options ); ?>
 
             <label><?php esc_html_e( "Send when", "trinity-forms" ); ?></label>
             <select name="trinity-forms[notifications][<?php echo (int) $index; ?>][event]">
@@ -891,6 +930,8 @@ class Form_Editor {
             "required_indicator"    => in_array( $raw["required_indicator"] ?? "", [ "asterisk", "text", "optional", "none" ], true ) ? (string) $raw["required_indicator"] : "asterisk",
             "validation_placement"  => "above" === ( $raw["validation_placement"] ?? "" ) ? "above" : "below",
             "validation_summary"    => ! empty( $raw["validation_summary"] ),
+            "capture_utm"           => ! empty( $raw["capture_utm"] ) && "0" !== (string) $raw["capture_utm"],
+            "no_store_ip"           => ! empty( $raw["no_store_ip"] ) && "0" !== (string) $raw["no_store_ip"],
             "form_css_class"        => sanitize_text_field( (string) ( $raw["form_css_class"] ?? "" ) ),
         ] + Form_Style::sanitize( $raw ) + [
             "submit_button_image"   => esc_url_raw( (string) ( $raw["submit_button_image"] ?? "" ) ),
@@ -983,26 +1024,8 @@ class Form_Editor {
                     : "submission",
             ];
 
-            // Persist optional per-notification conditional logic so
-            // Notification_Engine::should_send() can honour it. No UI collects this
-            // yet — a future builder panel or the trinity_forms_save_form_meta filter
-            // can supply it — so we only store a well-formed, whitelisted structure.
-            $conditional_raw = $n["conditional"] ?? null;
-            if ( null === $conditional_raw && array_key_exists( "rule_action", $n ) ) {
-                // The card's "Rule" select: Always send / Send only when / Don't send when.
-                $action = in_array( (string) $n["rule_action"], [ "show", "hide" ], true ) ? (string) $n["rule_action"] : "";
-                if ( "" !== $action ) {
-                    $conditional_raw = isset( $n["conditional_json"] )
-                        ? json_decode( (string) $n["conditional_json"], true )
-                        : [ "match" => "all", "conditions" => (array) ( $n["rule"]["conditions"] ?? [] ) ];
-                    if ( is_array( $conditional_raw ) ) {
-                        $conditional_raw["action"] = $action;
-                    }
-                }
-            } elseif ( null === $conditional_raw && isset( $n["conditional_json"] ) ) {
-                $conditional_raw = json_decode( (string) $n["conditional_json"], true );
-            }
-            $conditional = self::sanitize_conditional( $conditional_raw );
+            // Per-notification sending rule, honoured by Notification_Engine::should_send().
+            $conditional = self::rules_from_post( $n );
             if ( $conditional ) {
                 $row["conditional"] = $conditional;
             }

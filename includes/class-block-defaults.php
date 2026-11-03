@@ -69,11 +69,28 @@ class Block_Defaults {
             "Items"                 => __( "Items", "trinity-forms" ),
             "Add item"              => __( "Add item", "trinity-forms" ),
             "Signature"             => __( "Signature", "trinity-forms" ),
+            // Survey fields (Pro).
+            "How much do you agree?" => __( "How much do you agree?", "trinity-forms" ),
+            "The event was well organised\nThe content was useful" => __( "The event was well organised\nThe content was useful", "trinity-forms" ),
+            "Strongly disagree"     => __( "Strongly disagree", "trinity-forms" ),
+            "Disagree"              => __( "Disagree", "trinity-forms" ),
+            "Neutral"               => __( "Neutral", "trinity-forms" ),
+            "Agree"                 => __( "Agree", "trinity-forms" ),
+            "Strongly agree"        => __( "Strongly agree", "trinity-forms" ),
+            "How likely are you to recommend us to a friend?" => __( "How likely are you to recommend us to a friend?", "trinity-forms" ),
+            "Not at all likely"     => __( "Not at all likely", "trinity-forms" ),
+            "Extremely likely"      => __( "Extremely likely", "trinity-forms" ),
+            "Put these in order of importance" => __( "Put these in order of importance", "trinity-forms" ),
+            "Price"                 => __( "Price", "trinity-forms" ),
+            "Quality"               => __( "Quality", "trinity-forms" ),
+            "Support"               => __( "Support", "trinity-forms" ),
+            "Pick a date and time"  => __( "Pick a date and time", "trinity-forms" ),
+            "Choose"                => __( "Choose", "trinity-forms" ),
         ];
     }
 
     /** Attributes whose default is words a visitor reads. */
-    private const TEXT_ATTRS = [ "label", "placeholder", "consentText", "nextText", "prevText", "addButton" ];
+    private const TEXT_ATTRS = [ "label", "placeholder", "consentText", "nextText", "prevText", "addButton", "statements", "lowLabel", "highLabel" ];
 
     /** List attributes whose items carry a visible "label". */
     private const LIST_ATTRS = [ "options", "columns" ];

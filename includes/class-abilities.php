@@ -77,7 +77,14 @@ class Abilities {
 
         $args["category"]         = self::CATEGORY;
         $args["execute_callback"] = static function ( $input = null ) use ( $run, $slug ) {
-            $result = call_user_func( $run, $input );
+            // A form saved by an assistant is kept as a revision labelled as such.
+            Form_Revisions::$source = "assistant";
+            try {
+                $result = call_user_func( $run, $input );
+            } finally {
+                Form_Revisions::flush();
+                Form_Revisions::$source = "";
+            }
             self::log( $slug, $input, $result );
             // "log" is the line for the access log, not part of the answer.
             if ( is_array( $result ) ) {

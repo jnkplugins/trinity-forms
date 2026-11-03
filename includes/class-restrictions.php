@@ -112,7 +112,8 @@ class Restrictions {
             }
         }
 
-        if ( $per_ip > 0 ) {
+        // Counting needs stored addresses; a form that keeps none has nothing to count.
+        if ( $per_ip > 0 && Ip_Privacy::stores( $form ) ) {
             $ip = Submission_Pipeline::client_ip();
             if ( $ip && self::count_entries( $form->id, [ "ip" => $ip ] ) >= $per_ip ) {
                 return [

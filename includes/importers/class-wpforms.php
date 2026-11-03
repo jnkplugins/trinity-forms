@@ -45,6 +45,27 @@ class WPForms extends Base_Importer {
         "rating"        => "rating",
     ];
 
+    /** WPForms Surveys fields => Trinity's Pro survey fields, used only where those are registered. */
+    private const SURVEY_MAP = [
+        "likert_scale"       => "likert",
+        "net_promoter_score" => "nps",
+    ];
+
+    /** The Trinity type for a WPForms field type, or "" when there is none on this site. */
+    private static function target_type( string $type, array $f = [] ): string {
+        if ( isset( self::FIELD_MAP[ $type ] ) ) {
+            return self::FIELD_MAP[ $type ];
+        }
+        // A grid with no rows or no columns would import as a field with nothing to answer.
+        if ( "likert_scale" === $type && ( empty( $f["rows"] ) || empty( $f["columns"] ) ) ) {
+            return "";
+        }
+        if ( isset( self::SURVEY_MAP[ $type ] ) && \TrinityForms\Field_Registry::get( self::SURVEY_MAP[ $type ] ) ) {
+            return self::SURVEY_MAP[ $type ];
+        }
+        return "";
+    }
+
     /** WPForms operator => Trinity operator. */
     private const OPERATORS = [
         "=="  => "equals",
@@ -167,7 +188,7 @@ class WPForms extends Base_Importer {
         // Ids first, so a rule can point at a field further down the form.
         $ids = [];
         foreach ( $source as $wid => $f ) {
-            if ( isset( self::FIELD_MAP[ (string) ( $f["type"] ?? "" ) ] ) && ! self::is_wrapper_break( $f ) ) {
+            if ( "" !== self::target_type( (string) ( $f["type"] ?? "" ), (array) $f ) && ! self::is_wrapper_break( $f ) ) {
                 $ids[ $wid ] = self::unique_id( self::name_of( $f ), self::id_fallback( $f ), array_values( $ids ) );
             }
         }
@@ -229,7 +250,7 @@ class WPForms extends Base_Importer {
      * reads better in a merge tag than "field_1".
      */
     private static function id_fallback( array $f ): string {
-        return (string) ( self::FIELD_MAP[ (string) ( $f["type"] ?? "" ) ] ?? "field" );
+        return "" !== self::target_type( (string) ( $f["type"] ?? "" ), (array) $f ) ? self::target_type( (string) ( $f["type"] ?? "" ), (array) $f ) : "field";
     }
 
     private static function name_of( array $f ): string {
@@ -251,7 +272,7 @@ class WPForms extends Base_Importer {
         $label = (string) ( $f["label"] ?? "" );
         $field = [
             "id"       => $id,
-            "type"     => self::FIELD_MAP[ $type ],
+            "type"     => self::target_type( $type, $f ),
             "label"    => $label,
             "required" => ! empty( $f["required"] ),
         ];
@@ -358,6 +379,25 @@ class WPForms extends Base_Importer {
                 break;
             case "rating":
                 $field["max"] = (string) max( 2, (int) ( $f["scale"] ?? 5 ) );
+                break;
+            case "likert_scale":
+                $field["statements"] = implode( "\n", array_values( array_filter( array_map( static fn( $r ) => trim( wp_strip_all_tags( (string) $r ) ), (array) ( $f["rows"] ?? [] ) ), "strlen" ) ) );
+                $field["options"]    = [];
+                foreach ( (array) ( $f["columns"] ?? [] ) as $k => $col ) {
+                    $field["options"][] = [ "label" => trim( wp_strip_all_tags( (string) $col ) ), "value" => (string) $k ];
+                }
+                if ( ! empty( $f["multiple_responses"] ) ) {
+                    /* translators: %s: field label. */
+                    $skipped[] = sprintf( __( "%s: several answers per row (now one answer per row)", "trinity-forms" ), $label );
+                }
+                break;
+            case "net_promoter_score":
+                if ( "" !== trim( (string) ( $f["lowest_label"] ?? "" ) ) ) {
+                    $field["low_label"] = (string) $f["lowest_label"];
+                }
+                if ( "" !== trim( (string) ( $f["highest_label"] ?? "" ) ) ) {
+                    $field["high_label"] = (string) $f["highest_label"];
+                }
                 break;
             case "richtext":
                 /* translators: %s: field label. */
@@ -592,7 +632,7 @@ class WPForms extends Base_Importer {
         $used = [];
         foreach ( $data["fields"] as $key => $f ) {
             $wid = (string) ( $f["id"] ?? $key );
-            if ( isset( self::FIELD_MAP[ (string) ( $f["type"] ?? "" ) ] ) && ! self::is_wrapper_break( $f ) ) {
+            if ( "" !== self::target_type( (string) ( $f["type"] ?? "" ), (array) $f ) && ! self::is_wrapper_break( $f ) ) {
                 $ids[ $wid ] = self::unique_id( self::name_of( $f ), self::id_fallback( $f ), $used );
                 $used[]      = $ids[ $wid ];
             }

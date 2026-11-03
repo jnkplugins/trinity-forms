@@ -194,7 +194,7 @@ class Background {
     }
 
     /** A REST request on a server that can hand the response over before the work. */
-    private static function can_finish_early(): bool {
+    public static function can_finish_early(): bool {
         $can = defined( "REST_REQUEST" ) && REST_REQUEST
             && ( function_exists( "fastcgi_finish_request" ) || function_exists( "litespeed_finish_request" ) );
         /**

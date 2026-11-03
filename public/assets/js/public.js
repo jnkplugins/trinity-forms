@@ -84,8 +84,49 @@
         box.innerHTML = html;
     }
 
+    // The controls of one field that a person fills in (not hidden carriers).
+    function controlsOf( wrap ) {
+        return Array.prototype.filter.call(
+            wrap.querySelectorAll( "input, select, textarea" ),
+            function ( el ) { return el.type !== "hidden"; }
+        );
+    }
+
+    // Tie an error message to every control of its field: aria-invalid says the
+    // answer is wrong, aria-describedby reads out why when the control gets focus.
+    function markInvalid( wrap, msg ) {
+        var base = wrap.getAttribute( "data-field-id" ) || "field";
+        msg.id = msg.id || ( "tf-err-" + base + "-" + Math.random().toString( 36 ).slice( 2, 7 ) );
+        controlsOf( wrap ).forEach( function ( el ) {
+            el.setAttribute( "aria-invalid", "true" );
+            var ids = ( el.getAttribute( "aria-describedby" ) || "" ).split( /\s+/ ).filter( Boolean );
+            if ( ids.indexOf( msg.id ) === -1 ) ids.push( msg.id );
+            el.setAttribute( "aria-describedby", ids.join( " " ) );
+        } );
+    }
+
+    // The question's own text: the label or legend, without the required/optional
+    // markers (in any language) or text meant only for screen readers.
+    function questionText( wrap ) {
+        var label = wrap.querySelector( "legend, label" );
+        if ( ! label ) return "";
+        var copy = label.cloneNode( true );
+        copy.querySelectorAll( ".trinity-forms-required, .trinity-forms-optional, .trinity-forms-sr" ).forEach( function ( el ) { el.remove(); } );
+        return copy.textContent.replace( /\*/g, "" ).trim();
+    }
+
     function clearFieldErrors( form ) {
-        form.querySelectorAll( ".trinity-forms-field-error" ).forEach( function ( el ) { el.remove(); } );
+        form.querySelectorAll( ".trinity-forms-field-error" ).forEach( function ( el ) {
+            if ( el.id ) {
+                form.querySelectorAll( '[aria-describedby~="' + el.id + '"]' ).forEach( function ( c ) {
+                    var rest = c.getAttribute( "aria-describedby" ).split( /\s+/ ).filter( function ( x ) { return x && x !== el.id; } );
+                    if ( rest.length ) c.setAttribute( "aria-describedby", rest.join( " " ) );
+                    else c.removeAttribute( "aria-describedby" );
+                } );
+            }
+            el.remove();
+        } );
+        form.querySelectorAll( '[aria-invalid="true"]' ).forEach( function ( el ) { el.removeAttribute( "aria-invalid" ); } );
         form.querySelectorAll( ".trinity-forms-field.has-error" ).forEach( function ( el ) { el.classList.remove( "has-error" ); } );
         var summary = form.querySelector( ".trinity-forms-summary" );
         if ( summary ) {
@@ -108,12 +149,13 @@
             msg.className = "trinity-forms-field-error";
             msg.textContent = e.message;
             wrap.appendChild( msg );
+            markInvalid( wrap, msg );
 
             // The label, not the field id — "Email" is what the person sees next to
             // the box they have to go and fix.
-            var label = wrap.querySelector( "label" );
+            var q = questionText( wrap );
             listed.push( {
-                text: ( label ? label.textContent.replace( /\*|\(optional\)|\(required\)/g, "" ).trim() + ": " : "" ) + e.message,
+                text: ( q ? q + ": " : "" ) + e.message,
                 wrap: wrap,
                 control: control
             } );
@@ -132,6 +174,11 @@
         }
 
         if ( ! summary ) {
+            // No summary on this form: take the visitor to the first problem. Its
+            // message is tied to it, so a screen reader reads it out there.
+            if ( listed.length && listed[0].control.focus ) {
+                try { listed[0].control.focus(); } catch ( err ) {}
+            }
             return;
         }
 
@@ -166,6 +213,10 @@
         summary.appendChild( ul );
 
         summary.hidden = false;
+        // Focus goes to the summary, so keyboard and screen-reader users start
+        // from the list of problems instead of wherever the submit button was.
+        summary.setAttribute( "tabindex", "-1" );
+        try { summary.focus( { preventScroll: true } ); } catch ( err ) { summary.focus(); }
         summary.scrollIntoView( { behavior: "smooth", block: "nearest" } );
     }
 
@@ -607,7 +658,7 @@
             if ( st !== current ) show( st );
         } );
 
-        function show( i ) {
+        function show( i, quiet ) {
             current = Math.max( 0, Math.min( i, steps.length - 1 ) );
             steps.forEach( function ( s, idx ) {
                 if ( idx === current ) {
@@ -623,7 +674,11 @@
             if ( nextBtn )   nextBtn.hidden   = last;
             if ( submitBtn ) submitBtn.hidden = ! last;
             if ( status )    status.textContent = fmt( t( "stepOf", "Step %1$d of %2$d" ), current + 1, steps.length );
-            var first = steps[ current ].querySelector( "input, select, textarea" );
+            // Moving between steps takes focus to the new step's first question.
+            // Not on page load: that would scroll the page to the form and steal
+            // the reader's place (WCAG 3.2.1).
+            if ( quiet ) return;
+            var first = Array.prototype.filter.call( steps[ current ].querySelectorAll( "input, select, textarea" ), function ( el ) { return el.type !== "hidden" && ! el.disabled; } )[0];
             if ( first ) { try { first.focus(); } catch ( e ) {} }
         }
 
@@ -645,6 +700,7 @@
                         p.setAttribute( "role", "alert" );
                         p.textContent = el.validationMessage || t( "required", "This field is required." );
                         wrap.appendChild( p );
+                        markInvalid( wrap, p );
                     }
                     el.setAttribute( "aria-invalid", "true" );
                     if ( typeof el.focus === "function" ) el.focus();
@@ -687,7 +743,7 @@
             }
         } );
 
-        show( 0 );
+        show( 0, true );
         remember( 0, true );
     }
 
@@ -832,6 +888,7 @@
         max:   function ( a ) { return Math.max.apply( null, a ); },
         sum:   function ( a ) { return a.reduce( function ( x, y ) { return x + y; }, 0 ); },
         avg:   function ( a ) { return a.reduce( function ( x, y ) { return x + y; }, 0 ) / a.length; },
+        count: function ( a ) { return a.length; },
         "if":  function ( a ) { return a[ 0 ] !== 0 ? a[ 1 ] : a[ 2 ]; }
     };
     var TF_ARITY = { ceil: 1, floor: 1, abs: 1, "if": 3 };
@@ -912,10 +969,46 @@
             var input   = checked || form.querySelector( '[name="trinity_forms_fields[' + fid + ']"]' );
             return tfNum( input ? input.value : 0 );
         }
+        // Repeater columns: the rows with something typed in, as numbers.
+        function column( rep, col ) {
+            var inputs = form.querySelectorAll( '[name^="trinity_forms_fields[' + rep + ']["]' );
+            if ( ! inputs.length && ! form.querySelector( '.trinity-forms-repeater[data-tf-base-id="' + rep + '"], .trinity-forms-repeater#' + rep ) ) return null;
+            var rows = {};
+            inputs.forEach( function ( inp ) {
+                var m = inp.name.match( /\]\[(\d+)\]\[([^\]]+)\]$/ );
+                if ( ! m ) return;
+                rows[ m[ 1 ] ] = rows[ m[ 1 ] ] || {};
+                rows[ m[ 1 ] ][ m[ 2 ] ] = String( inp.value || "" ).trim();
+            } );
+            var out = [];
+            Object.keys( rows ).forEach( function ( k ) {
+                var row = rows[ k ], any = Object.keys( row ).some( function ( c ) { return row[ c ] !== ""; } );
+                if ( ! any ) return;
+                if ( ! col ) { out.push( 1 ); return; }
+                if ( row[ col ] !== undefined && row[ col ] !== "" ) out.push( tfNum( row[ col ] ) );
+            } );
+            return out;
+        }
+        function expandRepeaters( formula ) {
+            formula = formula.replace( /\b(sum|avg|min|max|count)\(\s*\{([a-zA-Z0-9_]+)(?:\.([a-zA-Z0-9_]+))?\}\s*\)/gi, function ( all, fn, rep, col ) {
+                var list = column( rep, col || "" );
+                if ( list === null ) return all;
+                fn = fn.toLowerCase();
+                if ( fn === "count" ) return String( list.length );
+                if ( ! col || ! list.length ) return "0";
+                if ( fn === "avg" ) return String( TF_FUNCTIONS.sum( list ) / list.length );
+                return String( TF_FUNCTIONS[ fn ]( list ) );
+            } );
+            return formula.replace( /\{([a-zA-Z0-9_]+)\.([a-zA-Z0-9_]+)\}/g, function ( all, rep, col ) {
+                var list = column( rep, col );
+                return list === null ? "0" : String( TF_FUNCTIONS.sum( list ) );
+            } );
+        }
         function recompute() {
             calcs.forEach( function ( el ) {
                 var formula = el.getAttribute( "data-formula" ) || "";
                 if ( ! formula ) return;
+                formula = expandRepeaters( formula );
                 var resolved = formula.replace( /\{([a-zA-Z0-9_]+)\}/g, function ( _, fid ) { return String( fieldVal( fid ) ); } );
                 var val;
                 try { val = tfEval( resolved ); } catch ( e ) { val = null; }
@@ -1320,7 +1413,11 @@
                 remove.type = "button";
                 remove.className = "trinity-forms-repeater-remove";
                 remove.textContent = t( "remove", "Remove" );
-                remove.addEventListener( "click", function () { row.parentNode.removeChild( row ); } );
+                remove.addEventListener( "click", function () {
+                    row.parentNode.removeChild( row );
+                    // Calculations over the rows follow a removed row too.
+                    form.dispatchEvent( new Event( "change" ) );
+                } );
                 row.appendChild( remove );
                 list.appendChild( row );
             }
@@ -1361,6 +1458,47 @@
         return !! ( res && res.status === 409 && res.body && res.body.meta && res.body.meta.reason === "stale_page" );
     }
 
+    /**
+     * Campaign source (forms with data-utm, off by default). The first page of
+     * this visit that showed such a form, with its utm_* tags and the outside site
+     * that sent the visitor, kept in sessionStorage for the visit and sent with the
+     * entry. Only on pages with such a form; no cookie. Runs in the browser, so a
+     * cached page records the right visitor.
+     */
+    var UTM_KEYS = [ "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content" ];
+    function campaignData() {
+        var stored = null;
+        try { stored = JSON.parse( window.sessionStorage.getItem( "trinityFormsUtm" ) || "null" ); } catch ( e ) {}
+        var now = {};
+        var params;
+        try { params = new URLSearchParams( window.location.search ); } catch ( e ) { params = null; }
+        UTM_KEYS.forEach( function ( k ) {
+            var v = params ? params.get( k ) : "";
+            if ( v ) now[ k ] = String( v ).slice( 0, 200 );
+        } );
+        var tagged = function ( d ) { return d && UTM_KEYS.some( function ( k ) { return !! d[ k ]; } ); };
+        // First touch wins, unless it carried no campaign and this page does.
+        if ( stored && typeof stored === "object" && ( tagged( stored ) || ! tagged( now ) ) ) {
+            return stored;
+        }
+        var ref = document.referrer || "";
+        if ( ref && ref.indexOf( window.location.origin ) !== 0 ) now.referrer = ref.slice( 0, 500 );
+        now.landing = ( window.location.origin + window.location.pathname + window.location.search ).slice( 0, 500 );
+        try { window.sessionStorage.setItem( "trinityFormsUtm", JSON.stringify( now ) ); } catch ( e ) {}
+        return now;
+    }
+    function attachCampaign( form ) {
+        if ( form.getAttribute( "data-utm" ) !== "1" ) return;
+        var input = form.querySelector( 'input[name="_trinity_forms_utm"]' );
+        if ( ! input ) {
+            input = document.createElement( "input" );
+            input.type = "hidden";
+            input.name = "_trinity_forms_utm";
+            form.appendChild( input );
+        }
+        input.value = JSON.stringify( campaignData() );
+    }
+
     function attachAll( root ) {
         var fresh = [];
         ( root || document ).querySelectorAll( ".trinity-forms-form" ).forEach( function ( form ) {
@@ -1376,6 +1514,7 @@
             attachLists( form );
             attachChained( form );
             attachPartials( form );
+            attachCampaign( form );
         } );
         refreshTimeTokens( fresh );
     }
@@ -1397,5 +1536,7 @@
         } );
     }
     hookElementor();
+    // Beaver Builder's editor draws a module again after each settings change.
+    if ( window.jQuery ) window.jQuery( document ).on( "fl-builder.layout-rendered fl-builder.preview-rendered", function () { attachAll( document ); } );
     if ( window.jQuery ) window.jQuery( window ).on( "elementor/frontend/init", hookElementor );
 })();

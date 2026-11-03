@@ -66,6 +66,11 @@ $brand-soft: var( --jnk-brand-soft, #eef2ff );
 		}
 	}
 
+	/* Toolbar slot for extensions. */
+	&__ext {
+		display: contents;
+	}
+
 	&__bar-actions {
 		display: flex;
 		flex-wrap: wrap;

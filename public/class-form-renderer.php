@@ -509,6 +509,9 @@ class Form_Renderer {
             }
         }
 
+        /** The message after a payment page sends the visitor back (Pro quotes have their own). */
+        $message = (string) apply_filters( "trinity_forms_payment_return_message", $message, $entry_id );
+
         return '<div class="trinity-forms-confirmation">' . Confirmations::html( $message ) . '</div>' . $content;
     }
 }

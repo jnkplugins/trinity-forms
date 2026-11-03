@@ -1,6 +1,16 @@
 .trinity-forms-form { max-width: 640px; }
 .trinity-forms-form .trinity-forms-field { margin: 0 0 1rem; }
-.trinity-forms-form .trinity-forms-field > label { display: block; font-weight: 600; margin-bottom: .25rem; }
+.trinity-forms-form .trinity-forms-field > label,
+.trinity-forms-form .trinity-forms-field > legend { display: block; font-weight: 600; margin-bottom: .25rem; }
+/* Choice groups are a fieldset named by its legend. Undo the browser's frame so it
+   looks exactly like every other field. */
+.trinity-forms-form fieldset.trinity-forms-field { border: 0; padding: 0; margin-inline: 0; min-inline-size: 0; }
+/* Some themes make every fieldset a grid (Twenty Twenty-One); kept below the
+   layout rules (side labels, errors above) in specificity so those still win. */
+fieldset.trinity-forms-field { display: block; }
+/* Themes size a bare legend as a heading (Twenty Twenty-One: 24px); a question
+   should read like the other questions. */
+.trinity-forms-form fieldset.trinity-forms-field > legend { padding: 0; float: none; inline-size: 100%; font-size: inherit; line-height: inherit; text-transform: none; letter-spacing: normal; }
 
 /* Field widths.
 
@@ -25,7 +35,7 @@
    Quiet by design: it is an explanation, not an error the reader caused. */
 .trinity-forms-closed {
     padding: 1rem 1.25rem;
-    border-left: 3px solid #c3c4c7;
+    border-inline-start: 3px solid #c3c4c7;
     background: rgba(0, 0, 0, .03);
 }
 .trinity-forms-closed p:last-child { margin-bottom: 0; }
@@ -80,9 +90,10 @@
 }
 .trinity-forms-form .trinity-forms-field.has-error input,
 .trinity-forms-form .trinity-forms-field.has-error select,
-.trinity-forms-form .trinity-forms-field.has-error textarea { border-color: #d63638; }
-.trinity-forms-form .trinity-forms-field-error { color: #d63638; font-size: .875em; margin-top: .25rem; }
-.trinity-forms-form .trinity-forms-required { color: #d63638; margin-left: 2px; }
+.trinity-forms-form .trinity-forms-field.has-error textarea { border-color: #b32d2e; }
+/* Error red at 6.3:1 on white (was #d63638, 4.7:1, too close to the line for small text). */
+.trinity-forms-form .trinity-forms-field-error { color: #b32d2e; font-size: .875em; margin-top: .25rem; }
+.trinity-forms-form .trinity-forms-required { color: #b32d2e; margin-inline-start: 2px; }
 .trinity-forms-form .trinity-forms-help { color: #50575e; font-size: .875em; display: block; margin-top: .25rem; }
 .trinity-forms-form .trinity-forms-actions { margin-top: 1rem; }
 .trinity-forms-form .trinity-forms-submit {
@@ -91,11 +102,23 @@
 }
 .trinity-forms-form .trinity-forms-submit:disabled { opacity: .6; cursor: wait; }
 .trinity-forms-form .trinity-forms-messages { margin-top: 1rem; }
-.trinity-forms-form .trinity-forms-messages.trinity-forms-error { color: #d63638; }
-.trinity-forms-form .trinity-forms-messages.trinity-forms-success { color: #00a32a; }
-.trinity-forms-confirmation { padding: 1rem; background: #edfaef; border-left: 4px solid #00a32a; margin: 1rem 0; }
+.trinity-forms-form .trinity-forms-messages.trinity-forms-error { color: #b32d2e; }
+/* Success green at 5.5:1 on white (the old #00a32a was 3.4:1). */
+.trinity-forms-form .trinity-forms-messages.trinity-forms-success { color: #007a1f; }
+/* On a dark theme (Twenty Twenty-One's dark mode, any theme with light text) the
+   fixed colours above fall to about 2:1 (QA 2 Nov, ar-news). Mixed half and half
+   with the theme's own text colour they stay dark on light themes and turn light
+   on dark ones, 4.5:1 or better either way. */
+@supports (color: color-mix(in srgb, red 50%, blue)) {
+    .trinity-forms-form .trinity-forms-messages.trinity-forms-success { color: color-mix(in srgb, #007a1f 50%, currentColor); }
+    .trinity-forms-form .trinity-forms-messages.trinity-forms-error,
+    .trinity-forms-form .trinity-forms-field-error,
+    .trinity-forms-form .trinity-forms-required { color: color-mix(in srgb, #b32d2e 50%, currentColor); }
+    .trinity-forms-form .trinity-forms-help { color: color-mix(in srgb, currentColor 75%, transparent); }
+}
+.trinity-forms-confirmation { padding: 1rem; background: #edfaef; color: #1d2327; border-inline-start: 4px solid #00a32a; margin: 1rem 0; }
 table.trinity-forms-submissions { width: 100%; border-collapse: collapse; }
-table.trinity-forms-submissions th, table.trinity-forms-submissions td { padding: .5rem; border-bottom: 1px solid #ddd; text-align: left; }
+table.trinity-forms-submissions th, table.trinity-forms-submissions td { padding: .5rem; border-bottom: 1px solid #ddd; text-align: start; }
 
 /* --- Phase 4 field types ---------------------------------------------------- */
 
@@ -126,7 +149,7 @@ table.trinity-forms-submissions th, table.trinity-forms-submissions td { padding
 /* List field */
 table.trinity-forms-list { width: 100%; border-collapse: collapse; margin-bottom: .5rem; }
 table.trinity-forms-list th,
-table.trinity-forms-list td { padding: .25rem; text-align: left; }
+table.trinity-forms-list td { padding: .25rem; text-align: start; }
 table.trinity-forms-list th { font-size: .85em; font-weight: 600; }
 table.trinity-forms-list input { width: 100%; }
 .trinity-forms-list-actions { width: 2.5rem; }
@@ -164,25 +187,35 @@ table.trinity-forms-list input { width: 100%; }
     gap: .25rem .75rem;
     align-items: start;
 }
-.trinity-forms-labels-left .trinity-forms-field > label { text-align: right; padding-top: .55rem; }
+.trinity-forms-labels-left .trinity-forms-field > label,
+.trinity-forms-labels-left .trinity-forms-field > legend { text-align: end; padding-top: .55rem; }
 .trinity-forms-labels-right .trinity-forms-field { grid-template-columns: 1fr 30%; }
-.trinity-forms-labels-right .trinity-forms-field > label { order: 2; padding-top: .55rem; }
+.trinity-forms-labels-right .trinity-forms-field > label,
+.trinity-forms-labels-right .trinity-forms-field > legend { order: 2; padding-top: .55rem; }
+/* A legend is drawn in the fieldset's frame, not as a grid cell. Floated, it is an
+   ordinary box again and takes the label column. */
+.trinity-forms-labels-left fieldset.trinity-forms-field > legend,
+.trinity-forms-labels-right fieldset.trinity-forms-field > legend { float: inline-start; inline-size: auto; }
 
 /* Help, errors and everything that is not the label span the control column, so
    they line up under the input rather than under the label. */
-.trinity-forms-labels-left .trinity-forms-field > :not(label),
-.trinity-forms-labels-right .trinity-forms-field > :not(label) { grid-column: 2; }
-.trinity-forms-labels-right .trinity-forms-field > :not(label) { grid-column: 1; }
+.trinity-forms-labels-left .trinity-forms-field > :not(label):not(legend),
+.trinity-forms-labels-right .trinity-forms-field > :not(label):not(legend) { grid-column: 2; }
+.trinity-forms-labels-right .trinity-forms-field > :not(label):not(legend) { grid-column: 1; }
 
 @media (max-width: 600px) {
     .trinity-forms-labels-left .trinity-forms-field,
     .trinity-forms-labels-right .trinity-forms-field { display: block; }
-    .trinity-forms-labels-left .trinity-forms-field > label { text-align: left; padding-top: 0; }
+    .trinity-forms-labels-left .trinity-forms-field > label,
+    .trinity-forms-labels-left .trinity-forms-field > legend { text-align: start; padding-top: 0; }
+    .trinity-forms-labels-left fieldset.trinity-forms-field > legend,
+    .trinity-forms-labels-right fieldset.trinity-forms-field > legend { float: none; inline-size: 100%; }
 }
 
 /* Hidden labels stay in the DOM for screen readers — the placeholder is not an
    accessible name, whatever it looks like. */
-.trinity-forms-labels-hidden .trinity-forms-field > label {
+.trinity-forms-labels-hidden .trinity-forms-field > label,
+.trinity-forms-labels-hidden .trinity-forms-field > legend {
     position: absolute;
     width: 1px; height: 1px;
     margin: -1px; padding: 0;
@@ -194,7 +227,8 @@ table.trinity-forms-list input { width: 100%; }
 
 /* Errors above the control instead of below it. */
 .trinity-forms-errors-above .trinity-forms-field { display: flex; flex-direction: column; }
-.trinity-forms-errors-above .trinity-forms-field > label { order: 1; }
+.trinity-forms-errors-above .trinity-forms-field > label,
+.trinity-forms-errors-above .trinity-forms-field > legend { order: 1; }
 .trinity-forms-errors-above .trinity-forms-field-error { order: 2; margin: 0 0 .25rem; }
 
 .trinity-forms-optional { color: #50575e; font-weight: normal; font-size: .875em; }
@@ -206,15 +240,17 @@ table.trinity-forms-list input { width: 100%; }
 
 /* Validation summary. Loud on purpose — it only appears when a submit failed. */
 .trinity-forms-summary {
-    border-left: 4px solid #d63638;
+    border-inline-start: 4px solid #b32d2e;
     background: rgba(214, 54, 56, .06);
     padding: .85rem 1rem;
     margin: 0 0 1rem;
     flex-basis: 100%;
 }
 .trinity-forms-summary p { margin: 0 0 .4rem; font-weight: 600; }
-.trinity-forms-summary ul { margin: 0 0 0 1.1rem; }
-.trinity-forms-summary a { color: inherit; }
+.trinity-forms-summary ul { margin: 0; margin-inline-start: 1.1rem; padding: 0; }
+.trinity-forms-summary a { color: inherit; text-decoration: underline; }
+/* Focus moves here after a failed submit; the frame shows where it went. */
+.trinity-forms-summary:focus { outline: 2px solid #b32d2e; outline-offset: 2px; }
 
 .trinity-forms-submit-image { background: none; border: 0; padding: 0; cursor: pointer; }
 .trinity-forms-submit-image img { display: block; max-width: 100%; height: auto; }
@@ -223,8 +259,8 @@ table.trinity-forms-list input { width: 100%; }
 .trinity-forms-form .trinity-forms-resume-ask { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: .75rem; }
 .trinity-forms-form .trinity-forms-resume-ask label { flex-basis: 100%; font-weight: 600; }
 .trinity-forms-form .trinity-forms-resume-ask input[type="email"] { flex: 1 1 14rem; min-width: 0; }
-.trinity-forms-form .trinity-forms-resume-ask input[aria-invalid="true"] { border-color: #d63638; }
-.tf-view-notice { padding: .5rem .75rem; margin: 0 0 1rem; border-left: 4px solid #00a32a; background: #f0f6f0; }
+.trinity-forms-form .trinity-forms-resume-ask input[aria-invalid="true"] { border-color: #b32d2e; }
+.tf-view-notice { padding: .5rem .75rem; margin: 0 0 1rem; border-inline-start: 4px solid #00a32a; background: #f0f6f0; color: #1d2327; }
 
 /* Repeater rows (Pro field). */
 .trinity-forms-repeater-row { display: flex; flex-wrap: wrap; gap: .5rem; align-items: flex-end; padding: .5rem 0; border-bottom: 1px solid rgba(0,0,0,.08); }
@@ -239,7 +275,9 @@ table.trinity-forms-list input { width: 100%; }
    --------------------------------------------------------------------------- */
 .trinity-forms-form {
     --trinity-forms-accent: #4f46e5;
-    --trinity-forms-border: #d0d5dd;
+    /* 3.3:1 against a white field: the edge of a text box is how a visitor finds
+       it (WCAG 1.4.11). The old #d0d5dd was 1.5:1. */
+    --trinity-forms-border: #868e9c;
     --trinity-forms-radius: 8px;
     /* Fields are white by default, so the browser's own parts of them (the open
        dropdown list, scrollbars, date pickers) must be drawn light too. Without
@@ -276,7 +314,8 @@ table.trinity-forms-list input { width: 100%; }
 }
 .trinity-forms-form .trinity-forms-field input::placeholder,
 .trinity-forms-form .trinity-forms-field textarea::placeholder {
-    color: var(--trinity-forms-placeholder, #98a2b3);
+    /* 5:1 on white; the old #98a2b3 (2.6:1) was too faint to read. */
+    color: var(--trinity-forms-placeholder, #667085);
     opacity: 1;
 }
 .trinity-forms-form .trinity-forms-field input:focus,
@@ -290,7 +329,7 @@ table.trinity-forms-list input { width: 100%; }
 .trinity-forms-form .trinity-forms-field select:not([multiple]) {
     appearance: none;
     -webkit-appearance: none;
-    padding-right: 2.5rem;
+    padding-inline-end: 2.5rem;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23667085' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right .8rem center;
@@ -325,7 +364,8 @@ table.trinity-forms-list input { width: 100%; }
     min-width: 3.5rem; padding: .2rem .5rem; text-align: center; font-variant-numeric: tabular-nums;
     border: 1px solid var(--trinity-forms-border); border-radius: 999px; font-size: .875em;
 }
-.trinity-forms-form .trinity-forms-field > label { margin-bottom: .4rem; }
+.trinity-forms-form .trinity-forms-field > label,
+.trinity-forms-form .trinity-forms-field > legend { margin-bottom: .4rem; }
 .trinity-forms-form .trinity-forms-field { margin-bottom: 1.25rem; }
 .trinity-forms-form .trinity-forms-submit {
     min-height: 2.75rem;
@@ -349,13 +389,15 @@ table.trinity-forms-list input { width: 100%; }
     position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; pointer-events: none;
 }
 .trinity-forms-form .trinity-forms-star-icon {
-    display: block; font-size: 1.75rem; color: #d0d5dd; transition: color .1s ease, transform .1s ease;
+    display: block; font-size: 1.75rem; color: #868e9c; transition: color .1s ease, transform .1s ease;
 }
+/* Both states at 3:1 or more on white, so an empty and a filled star can be told
+   apart from the page and from each other without the hover. */
 .trinity-forms-form .trinity-forms-star:has(input:checked) .trinity-forms-star-icon,
-.trinity-forms-form .trinity-forms-star:has(~ .trinity-forms-star input:checked) .trinity-forms-star-icon { color: #f5b301; }
-.trinity-forms-form .trinity-forms-rating:hover .trinity-forms-star .trinity-forms-star-icon { color: #d0d5dd; }
+.trinity-forms-form .trinity-forms-star:has(~ .trinity-forms-star input:checked) .trinity-forms-star-icon { color: #d97706; }
+.trinity-forms-form .trinity-forms-rating:hover .trinity-forms-star .trinity-forms-star-icon { color: #868e9c; }
 .trinity-forms-form .trinity-forms-rating:hover .trinity-forms-star:hover .trinity-forms-star-icon,
-.trinity-forms-form .trinity-forms-rating:hover .trinity-forms-star:has(~ .trinity-forms-star:hover) .trinity-forms-star-icon { color: #f5b301; }
+.trinity-forms-form .trinity-forms-rating:hover .trinity-forms-star:has(~ .trinity-forms-star:hover) .trinity-forms-star-icon { color: #d97706; }
 .trinity-forms-form .trinity-forms-star:hover .trinity-forms-star-icon { transform: scale(1.12); }
 .trinity-forms-form .trinity-forms-star input:focus-visible + .trinity-forms-star-icon {
     outline: 2px solid var(--trinity-forms-accent); outline-offset: 2px; border-radius: 4px;
@@ -372,7 +414,8 @@ table.trinity-forms-list input { width: 100%; }
    --------------------------------------------------------------------------- */
 .trinity-forms-form { font-size: var(--trinity-forms-font-size, inherit); color: var(--trinity-forms-text, inherit); }
 .trinity-forms-form .trinity-forms-field { margin-bottom: var(--trinity-forms-gap, 1rem); }
-.trinity-forms-form .trinity-forms-field > label { color: var(--trinity-forms-label, inherit); }
+.trinity-forms-form .trinity-forms-field > label,
+.trinity-forms-form .trinity-forms-field > legend { color: var(--trinity-forms-label, inherit); }
 .trinity-forms-form .trinity-forms-field input[type="text"],
 .trinity-forms-form .trinity-forms-field input[type="email"],
 .trinity-forms-form .trinity-forms-field input[type="number"],
@@ -413,8 +456,63 @@ table.trinity-forms-list input { width: 100%; }
 .trinity-forms-form.trinity-forms-style-dark .trinity-forms-field select,
 .trinity-forms-form.trinity-forms-style-dark .trinity-forms-field textarea { color: var(--trinity-forms-text, #f2f4f7); box-shadow: none; }
 .trinity-forms-form.trinity-forms-style-dark .trinity-forms-messages.trinity-forms-success { color: #6ce9a6; }
+.trinity-forms-form.trinity-forms-style-dark .trinity-forms-required,
 .trinity-forms-form.trinity-forms-style-dark .trinity-forms-field-error,
 .trinity-forms-form.trinity-forms-style-dark .trinity-forms-messages.trinity-forms-error { color: #fda29b; }
 /* Theme colours: the field colours come from the theme, which may be dark, so let
    the browser draw native parts (dropdown lists) to match the page, not light. */
 .trinity-forms-form.trinity-forms-style-theme { color-scheme: normal; }
+
+/* ---------------------------------------------------------------------------
+   Accessibility and right-to-left (TF-26).
+   --------------------------------------------------------------------------- */
+/* Every button and link in a form shows where the keyboard is. The theme's own
+   focus style wins where it has one; this is the floor. */
+.trinity-forms-form button:focus-visible,
+.trinity-forms-form a:focus-visible,
+.trinity-forms-form input[type="checkbox"]:focus-visible,
+.trinity-forms-form input[type="radio"]:focus-visible,
+.trinity-forms-form input[type="range"]:focus-visible,
+.trinity-forms-form input[type="file"]:focus-visible {
+    outline: 2px solid var(--trinity-forms-accent, #4f46e5);
+    outline-offset: 2px;
+}
+.trinity-forms-form .trinity-forms-field.has-error input[aria-invalid="true"],
+.trinity-forms-form .trinity-forms-field.has-error select[aria-invalid="true"],
+.trinity-forms-form .trinity-forms-field.has-error textarea[aria-invalid="true"] { border-width: 2px; }
+/* Signature: the pad on its own line, buttons under it, and the type-it-instead box. */
+.trinity-forms-form canvas.trinity-forms-signature-pad { display: block; }
+.trinity-forms-form .trinity-forms-signature-typed { margin-top: .5rem; }
+.trinity-forms-form .trinity-forms-signature-typed label { display: block; font-size: .875em; margin: .5rem 0 .25rem; }
+.trinity-forms-form .trinity-forms-signature-typed input { max-width: 400px; }
+.trinity-forms-form .trinity-forms-signature-clear,
+.trinity-forms-form .trinity-forms-signature-type { margin-top: .5rem; margin-inline-end: .5rem; }
+
+/* Right to left. The dropdown chevron sits at the start edge, and values that are
+   always written left to right (addresses, numbers, phone numbers) stay that way
+   inside an Arabic or Hebrew form, aligned to the field's start. */
+.trinity-forms-form:dir(rtl) .trinity-forms-field select:not([multiple]) { background-position: left .8rem center; }
+[dir="rtl"] .trinity-forms-form .trinity-forms-field select:not([multiple]) { background-position: left .8rem center; }
+.trinity-forms-form .trinity-forms-field input[type="email"],
+.trinity-forms-form .trinity-forms-field input[type="url"],
+.trinity-forms-form .trinity-forms-field input[type="tel"],
+.trinity-forms-form .trinity-forms-field input[type="number"] { direction: ltr; }
+[dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="email"],
+[dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="url"],
+[dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="tel"],
+[dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="number"] { text-align: right; }
+[dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="email"]::placeholder,
+[dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="url"]::placeholder,
+[dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="tel"]::placeholder { direction: rtl; }
+
+@media (prefers-reduced-motion: reduce) {
+    .trinity-forms-form *,
+    .trinity-forms-form *::before { transition: none !important; animation: none !important; }
+}
+@media (forced-colors: active) {
+    .trinity-forms-form .trinity-forms-star:has(input:checked) .trinity-forms-star-icon,
+    .trinity-forms-form .trinity-forms-star:has(~ .trinity-forms-star input:checked) .trinity-forms-star-icon { color: Highlight; }
+    .trinity-forms-form .trinity-forms-field input:focus,
+    .trinity-forms-form .trinity-forms-field select:focus,
+    .trinity-forms-form .trinity-forms-field textarea:focus { outline: 2px solid Highlight; }
+}

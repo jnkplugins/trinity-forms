@@ -1,10 +1,8 @@
-# Translation of Trinity Forms into Arabic.
-# This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.17.0\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-31T17:14:24+00:00\n"
+"POT-Creation-Date: 2026-11-03T06:24:40+00:00\n"
 "PO-Revision-Date: 2026-10-29 12:00+0000\n"
 "Last-Translator: JnK Plugins\n"
 "Language-Team: Arabic\n"
@@ -16,464 +14,548 @@ msgstr ""
 "X-Domain: trinity-forms\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
-#: pro/licensorpro-client/licensorpro-client.php:750
+#: pro/licensorpro-client/licensorpro-client.php:751
 msgid "Manage license"
 msgstr "إدارة الترخيص"
 
-#: pro/licensorpro-client/licensorpro-client.php:753
+#: pro/licensorpro-client/licensorpro-client.php:754
 msgid "Renew license"
 msgstr "تجديد الترخيص"
 
-#: pro/licensorpro-client/licensorpro-client.php:754
+#: pro/licensorpro-client/licensorpro-client.php:755
 msgid "Activate license"
 msgstr "تفعيل الترخيص"
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:781
+#: pro/licensorpro-client/licensorpro-client.php:782
 #, php-format
 msgid "<strong>%s Pro is on.</strong> Thank you! Every Pro tool is switched on for this site, and updates come to your dashboard."
 msgstr "<strong>%s Pro مُفعّل.</strong> شكرًا لك! كل أدوات Pro تعمل على هذا الموقع، والتحديثات تصل إلى لوحة التحكم."
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:830
+#: pro/licensorpro-client/licensorpro-client.php:831
 #, php-format
 msgid "<strong>%s Pro is installed, but no Pro license is active on this site.</strong> Enter your license key to switch on the Pro tools."
 msgstr "<strong>%s Pro مثبّت، لكن لا يوجد ترخيص Pro نشط على هذا الموقع.</strong> أدخل مفتاح الترخيص لتشغيل أدوات Pro."
 
-#: pro/licensorpro-client/licensorpro-client.php:836 builder/src/app.jsx:717
+#: pro/licensorpro-client/licensorpro-client.php:837 builder/src/app.jsx:746
 msgid "Enter license key"
 msgstr "أدخل مفتاح الترخيص"
 
-#: pro/licensorpro-client/licensorpro-client.php:839
+#: pro/licensorpro-client/licensorpro-client.php:840
 msgid "Find your key in your account"
 msgstr "تجد المفتاح في حسابك"
 
-#: pro/licensorpro-client/licensorpro-client.php:865
+#: pro/licensorpro-client/licensorpro-client.php:866
 msgid "Renew your license"
 msgstr "جدّد ترخيصك"
 
 #. translators: 1: plugin name, 2: expiry date, 3: lock date, 4: days left
-#: pro/licensorpro-client/licensorpro-client.php:871
+#: pro/licensorpro-client/licensorpro-client.php:872
 #, php-format
 msgid "<strong>Your %1$s Pro license expired on %2$s.</strong> Pro keeps working as normal until %3$s (%4$d days left). Updates, including security fixes, and email support have stopped. After %3$s, everything you already set up keeps working and your visitors won't notice a thing, but the Pro tools in your dashboard will lock."
 msgstr "<strong>انتهى ترخيص %1$s Pro في %2$s.</strong> يستمر Pro بالعمل كالمعتاد حتى %3$s (بقي %4$d يومًا). توقفت التحديثات، ومنها إصلاحات الأمان، وتوقف الدعم عبر البريد الإلكتروني. بعد %3$s يبقى كل ما أعددته يعمل ولن يلاحظ زوارك أي شيء، لكن أدوات Pro في لوحة التحكم ستُقفل."
 
 #. translators: 1: plugin name, 2: expiry date
-#: pro/licensorpro-client/licensorpro-client.php:881
+#: pro/licensorpro-client/licensorpro-client.php:882
 #, php-format
 msgid "<strong>%1$s Pro tools are locked because your license expired on %2$s.</strong> Your site, and everything visitors see, still works. Renew to unlock the Pro tools and get updates, including security fixes, again."
 msgstr "<strong>أدوات %1$s Pro مقفلة لأن ترخيصك انتهى في %2$s.</strong> موقعك وكل ما يراه الزوار ما زال يعمل. جدّد الترخيص لفتح أدوات Pro والحصول على التحديثات مجددًا، ومنها إصلاحات الأمان."
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:889
+#: pro/licensorpro-client/licensorpro-client.php:890
 #, php-format
 msgid "<strong>This site is no longer activated on your %s Pro license.</strong> The Pro tools in your dashboard are locked until you activate it again. Everything visitors see keeps working."
 msgstr "<strong>هذا الموقع لم يعد مُفعّلًا على ترخيص %s Pro.</strong> أدوات Pro في لوحة التحكم مقفلة حتى تفعّله مجددًا. كل ما يراه الزوار يستمر بالعمل."
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:896
+#: pro/licensorpro-client/licensorpro-client.php:897
 #, php-format
 msgid "<strong>Your %s Pro license is no longer active.</strong> It was refunded or cancelled, so the Pro tools in your dashboard are locked and updates have stopped. Everything visitors see keeps working."
 msgstr "<strong>ترخيص %s Pro لم يعد نشطًا.</strong> تم استرداد المبلغ أو إلغاء الاشتراك، لذا أُقفلت أدوات Pro في لوحة التحكم وتوقفت التحديثات. كل ما يراه الزوار يستمر بالعمل."
 
-#: pro/licensorpro-client/licensorpro-client.php:998
+#. translators: %s: plugin name
+#: pro/licensorpro-client/licensorpro-client.php:906
+#, php-format
+msgid "Your %s Pro license is no longer active on this site."
+msgstr "لم يعد ترخيص %s Pro الخاص بك نشطًا على هذا الموقع."
+
+#: pro/licensorpro-client/licensorpro-client.php:1010
 msgid "Please enter a license key."
 msgstr "الرجاء إدخال مفتاح ترخيص."
 
-#: pro/licensorpro-client/licensorpro-client.php:1010
-#: pro/licensorpro-client/licensorpro-client.php:1069
+#: pro/licensorpro-client/licensorpro-client.php:1025
+#: pro/licensorpro-client/licensorpro-client.php:1085
 msgid "License response failed signature verification."
 msgstr "فشل التحقق من توقيع رد الترخيص."
 
-#: pro/licensorpro-client/licensorpro-client.php:1052
+#: pro/licensorpro-client/licensorpro-client.php:1067
 msgid "No license key set."
 msgstr "لم يتم تعيين مفتاح ترخيص."
 
-#: pro/licensorpro-client/licensorpro-client.php:1184
+#: pro/licensorpro-client/licensorpro-client.php:1200
 msgid "Only deactivating temporarily"
 msgstr "أعطّلها مؤقتًا فقط"
 
-#: pro/licensorpro-client/licensorpro-client.php:1185
+#: pro/licensorpro-client/licensorpro-client.php:1201
 msgid "I could not work out how to use it"
 msgstr "لم أعرف كيف أستخدمها"
 
-#: pro/licensorpro-client/licensorpro-client.php:1186
+#: pro/licensorpro-client/licensorpro-client.php:1202
 msgid "It is missing a feature I need"
 msgstr "تنقصها ميزة أحتاجها"
 
-#: pro/licensorpro-client/licensorpro-client.php:1187
+#: pro/licensorpro-client/licensorpro-client.php:1203
 msgid "It did not work"
 msgstr "لم تعمل"
 
-#: pro/licensorpro-client/licensorpro-client.php:1188
+#: pro/licensorpro-client/licensorpro-client.php:1204
 msgid "It broke something on my site"
 msgstr "تسببت في عطل في موقعي"
 
-#: pro/licensorpro-client/licensorpro-client.php:1189
+#: pro/licensorpro-client/licensorpro-client.php:1205
 msgid "I found a better plugin"
 msgstr "وجدت إضافة أفضل"
 
-#: pro/licensorpro-client/licensorpro-client.php:1190
+#: pro/licensorpro-client/licensorpro-client.php:1206
 msgid "I no longer need it"
 msgstr "لم أعد بحاجة إليها"
 
-#: pro/licensorpro-client/licensorpro-client.php:1191
+#: pro/licensorpro-client/licensorpro-client.php:1207
 msgid "Something else"
 msgstr "سبب آخر"
 
 #. translators: %s: plugin name.
-#: pro/licensorpro-client/licensorpro-client.php:1218
+#: pro/licensorpro-client/licensorpro-client.php:1234
 #, php-format
 msgid "Before you turn %s off"
 msgstr "قبل أن تعطّل %s"
 
-#: pro/licensorpro-client/licensorpro-client.php:1222
+#: pro/licensorpro-client/licensorpro-client.php:1238
 msgid "If you have a moment, what went wrong? It is the only way we hear about it."
 msgstr "إن كان لديك دقيقة، ما الذي لم يعمل؟ هذه هي الطريقة الوحيدة لنعرف بذلك."
 
-#: pro/licensorpro-client/licensorpro-client.php:1233
+#: pro/licensorpro-client/licensorpro-client.php:1249
 msgid "Anything else? (optional)"
 msgstr "هل من شيء آخر؟ (اختياري)"
 
-#: pro/licensorpro-client/licensorpro-client.php:1235
+#: pro/licensorpro-client/licensorpro-client.php:1251
 msgid "Sends your answer, the plugin version and your site address. Nothing else, and nothing from your site content."
 msgstr "يُرسل إجابتك وإصدار الإضافة وعنوان موقعك. لا شيء غير ذلك، ولا شيء من محتوى موقعك."
 
-#: pro/licensorpro-client/licensorpro-client.php:1239
+#: pro/licensorpro-client/licensorpro-client.php:1255
 msgid "Send and deactivate"
 msgstr "أرسل وعطّل"
 
-#: pro/licensorpro-client/licensorpro-client.php:1242
+#: pro/licensorpro-client/licensorpro-client.php:1258
 msgid "Skip and deactivate"
 msgstr "تخطَّ وعطّل"
 
-#: pro/licensorpro-client/licensorpro-client.php:1245
+#: pro/licensorpro-client/licensorpro-client.php:1261
 #: admin/views/entry-edit.php:138 includes/class-classic-editor.php:90
 #: includes/class-classic-editor.php:96 public/class-public-front.php:67
 msgid "Cancel"
 msgstr "إلغاء"
 
-#: pro/licensorpro-client/licensorpro-client.php:1376
 #: pro/licensorpro-client/licensorpro-client.php:1392
+#: pro/licensorpro-client/licensorpro-client.php:1408
 msgid "API URL not configured."
 msgstr "لم يتم إعداد عنوان API URL."
 
-#: pro/licensorpro-client/licensorpro-client.php:1411
+#: pro/licensorpro-client/licensorpro-client.php:1427
 msgid "Unexpected response from license server."
 msgstr "رد غير متوقع من خادم التراخيص."
 
 #. translators: %s: human-readable time difference, e.g. "3 months".
-#: pro/licensorpro-client/licensorpro-client.php:1736
+#: pro/licensorpro-client/licensorpro-client.php:1758
 #: includes/class-dates.php:47
 #, php-format
 msgid "in %s"
 msgstr "خلال %s"
 
 #. translators: %s: human-readable time difference, e.g. "13 days".
-#: pro/licensorpro-client/licensorpro-client.php:1737
+#: pro/licensorpro-client/licensorpro-client.php:1759
 #: includes/class-dates.php:49
 #, php-format
 msgid "%s ago"
 msgstr "قبل %s"
 
-#: pro/licensorpro-client/licensorpro-client.php:1762
+#: pro/licensorpro-client/licensorpro-client.php:1775
 #, php-format
 msgid "%s License"
 msgstr "ترخيص %s"
 
-#: pro/licensorpro-client/licensorpro-client.php:1772
+#: pro/licensorpro-client/licensorpro-client.php:1785
 msgid "This site was deactivated, so its seat is free for another site. Enter the key again here to switch the Pro tools back on."
 msgstr "تم تعطيل هذا الموقع، لذا أصبح مقعده متاحًا لموقع آخر. أدخل المفتاح مجددًا هنا لإعادة تشغيل أدوات Pro."
 
-#: pro/licensorpro-client/licensorpro-client.php:1782
-#: pro/licensorpro-client/licensorpro-client.php:1813
-#: pro/licensorpro-client/licensorpro-client.php:1877
+#: pro/licensorpro-client/licensorpro-client.php:1803
+#: pro/licensorpro-client/licensorpro-client.php:2351
+msgid "Enter your license key first."
+msgstr "أدخل مفتاح الترخيص أولًا."
+
+#: pro/licensorpro-client/licensorpro-client.php:1804
+msgid "Installing Pro. This takes a few seconds, keep this page open…"
+msgstr "جارٍ تثبيت Pro. يستغرق ذلك بضع ثوانٍ، أبقِ هذه الصفحة مفتوحة…"
+
+#: pro/licensorpro-client/licensorpro-client.php:1805
+msgid "Reloading to switch on the Pro tools…"
+msgstr "جارٍ إعادة التحميل لتشغيل أدوات Pro…"
+
+#: pro/licensorpro-client/licensorpro-client.php:1806
+msgid "Reload now"
+msgstr "أعد التحميل الآن"
+
+#: pro/licensorpro-client/licensorpro-client.php:1807
+msgid "Could not reach the licensing server. Check your connection and try again."
+msgstr "تعذّر الوصول إلى خادم التراخيص. تحقق من اتصالك وحاول مجددًا."
+
+#: pro/licensorpro-client/licensorpro-client.php:1808
+msgid "Deactivate this license on this site? Premium features switch off here and the seat is freed for another site."
+msgstr "هل تريد تعطيل هذا الترخيص على هذا الموقع؟ ستتوقف الميزات المميزة هنا ويصبح المكان متاحًا لموقع آخر."
+
+#: pro/licensorpro-client/licensorpro-client.php:1809
+msgid "Done."
+msgstr "تم."
+
+#: pro/licensorpro-client/licensorpro-client.php:1810
+msgid "Deactivated."
+msgstr "تم التعطيل."
+
+#: pro/licensorpro-client/licensorpro-client.php:1811
+msgid "Checked."
+msgstr "تم الفحص."
+
+#: pro/licensorpro-client/licensorpro-client.php:1982
+#: pro/licensorpro-client/licensorpro-client.php:2013
+#: pro/licensorpro-client/licensorpro-client.php:2088
 msgid "License key"
 msgstr "مفتاح الترخيص"
 
-#: pro/licensorpro-client/licensorpro-client.php:1783
+#: pro/licensorpro-client/licensorpro-client.php:1983
 #: admin/views/feedback.php:50
 msgid "Type"
 msgstr "النوع"
 
-#: pro/licensorpro-client/licensorpro-client.php:1785
+#: pro/licensorpro-client/licensorpro-client.php:1985
 msgid "Free license: updates of the free version only. It does not switch on Pro."
 msgstr "ترخيص Free: تحديثات النسخة المجانية فقط. لا يشغّل Pro."
 
-#: pro/licensorpro-client/licensorpro-client.php:1786
+#: pro/licensorpro-client/licensorpro-client.php:1986
 msgid "Free license: updates arrive in your dashboard like any other plugin."
 msgstr "ترخيص Free: تصل التحديثات إلى لوحة التحكم مثل أي إضافة أخرى."
 
-#: pro/licensorpro-client/licensorpro-client.php:1788
-#: pro/licensorpro-client/licensorpro-client.php:1845
+#: pro/licensorpro-client/licensorpro-client.php:1988
+#: pro/licensorpro-client/licensorpro-client.php:2056
 msgid "Last checked"
 msgstr "آخر فحص"
 
-#: pro/licensorpro-client/licensorpro-client.php:1792
-#: pro/licensorpro-client/licensorpro-client.php:1851
+#: pro/licensorpro-client/licensorpro-client.php:1992
+#: pro/licensorpro-client/licensorpro-client.php:2062
 msgid "Check for updates now"
 msgstr "تحقق من التحديثات الآن"
 
-#: pro/licensorpro-client/licensorpro-client.php:1795
+#: pro/licensorpro-client/licensorpro-client.php:1995
 msgid "Bought Pro?"
 msgstr "اشتريت Pro؟"
 
-#: pro/licensorpro-client/licensorpro-client.php:1796
+#: pro/licensorpro-client/licensorpro-client.php:1996
 msgid "Enter your Pro license key and Pro is installed over this version. Everything you set up stays."
 msgstr "أدخل مفتاح ترخيص Pro وسيُثبَّت Pro فوق هذا الإصدار. كل ما أعددته يبقى كما هو."
 
-#: pro/licensorpro-client/licensorpro-client.php:1798
+#: pro/licensorpro-client/licensorpro-client.php:1998
 msgid "Pro license key"
 msgstr "مفتاح ترخيص Pro"
 
-#: pro/licensorpro-client/licensorpro-client.php:1801
-#: pro/licensorpro-client/licensorpro-client.php:1858
+#: pro/licensorpro-client/licensorpro-client.php:2001
+#: pro/licensorpro-client/licensorpro-client.php:2069
 msgid "Install Pro now"
 msgstr "ثبّت Pro الآن"
 
-#: pro/licensorpro-client/licensorpro-client.php:1803
+#: pro/licensorpro-client/licensorpro-client.php:2003
 msgid "Rather do it by hand? Download the Pro zip from your account and upload it over this plugin."
 msgstr "تفضّل القيام بذلك يدويًا؟ نزّل ملف Pro المضغوط (zip) من حسابك وارفعه فوق هذه الإضافة."
 
-#: pro/licensorpro-client/licensorpro-client.php:1804
-#: pro/licensorpro-client/licensorpro-client.php:1885
+#: pro/licensorpro-client/licensorpro-client.php:2004
+#: pro/licensorpro-client/licensorpro-client.php:2096
 msgid "Go to your account"
 msgstr "اذهب إلى حسابك"
 
-#: pro/licensorpro-client/licensorpro-client.php:1816
+#: pro/licensorpro-client/licensorpro-client.php:2017
+msgid "this site is not activated"
+msgstr "هذا الموقع غير مُفعّل"
+
+#: pro/licensorpro-client/licensorpro-client.php:2018
+msgid "this key is for a different plugin"
+msgstr "هذا المفتاح لإضافة أخرى"
+
+#: pro/licensorpro-client/licensorpro-client.php:2019
+msgid "key not recognised"
+msgstr "مفتاح غير معروف"
+
+#: pro/licensorpro-client/licensorpro-client.php:2020
+#: pro/licensorpro-client/licensorpro-client.php:2021
+msgid "revoked"
+msgstr "مُلغى"
+
+#: pro/licensorpro-client/licensorpro-client.php:2025
 msgid "active"
 msgstr "نشط"
 
 #. translators: %s: date the Pro tools lock
-#: pro/licensorpro-client/licensorpro-client.php:1818
+#: pro/licensorpro-client/licensorpro-client.php:2027
 #, php-format
 msgid "expired, Pro tools stay on until %s"
 msgstr "منتهٍ، تبقى أدوات Pro تعمل حتى %s"
 
-#: pro/licensorpro-client/licensorpro-client.php:1819
+#: pro/licensorpro-client/licensorpro-client.php:2028
 msgid "expired, Pro tools locked"
 msgstr "منتهٍ، أدوات Pro مقفلة"
 
-#: pro/licensorpro-client/licensorpro-client.php:1821
-msgid "this site is not activated"
-msgstr "هذا الموقع غير مُفعّل"
-
-#: pro/licensorpro-client/licensorpro-client.php:1822
+#: pro/licensorpro-client/licensorpro-client.php:2029
 msgid "no longer active (refunded or cancelled)"
 msgstr "لم يعد نشطًا (تم الاسترداد أو الإلغاء)"
 
-#: pro/licensorpro-client/licensorpro-client.php:1824
-#: admin/views/entries-list.php:361 admin/views/entry-detail.php:360
-#: includes/class-my-submissions.php:51
+#. translators: %s: date the Pro tools lock
+#: pro/licensorpro-client/licensorpro-client.php:2033
+#, php-format
+msgid "renewal payment failed, Pro tools stay on until %s"
+msgstr "فشل دفع التجديد، تبقى أدوات Pro مفعّلة حتى %s"
+
+#: pro/licensorpro-client/licensorpro-client.php:2035
+#: admin/views/entries-list.php:356 admin/views/entry-detail.php:370
+#: includes/class-entries.php:686 includes/class-my-submissions.php:51
 msgid "Status"
 msgstr "الحالة"
 
-#: pro/licensorpro-client/licensorpro-client.php:1826
+#: pro/licensorpro-client/licensorpro-client.php:2037
 msgid "Renew"
 msgstr "تجديد"
 
-#: pro/licensorpro-client/licensorpro-client.php:1830
+#: pro/licensorpro-client/licensorpro-client.php:2041
 msgid "Offline mode"
 msgstr "وضع عدم الاتصال"
 
-#: pro/licensorpro-client/licensorpro-client.php:1832
+#: pro/licensorpro-client/licensorpro-client.php:2043
 #, php-format
 msgid "cached license valid until %s"
 msgstr "الترخيص المخزّن مؤقتًا صالح حتى %s"
 
-#: pro/licensorpro-client/licensorpro-client.php:1837
+#: pro/licensorpro-client/licensorpro-client.php:2048
 msgctxt "update channel"
 msgid "stable"
 msgstr "مستقر"
 
-#: pro/licensorpro-client/licensorpro-client.php:1838
+#: pro/licensorpro-client/licensorpro-client.php:2049
 msgctxt "update channel"
 msgid "beta"
 msgstr "بيتا"
 
-#: pro/licensorpro-client/licensorpro-client.php:1839
+#: pro/licensorpro-client/licensorpro-client.php:2050
 msgctxt "update channel"
 msgid "release candidate"
 msgstr "إصدار مرشّح"
 
-#: pro/licensorpro-client/licensorpro-client.php:1840
+#: pro/licensorpro-client/licensorpro-client.php:2051
 msgctxt "update channel"
 msgid "development"
 msgstr "تطوير"
 
-#: pro/licensorpro-client/licensorpro-client.php:1842
+#: pro/licensorpro-client/licensorpro-client.php:2053
 msgid "Update channel"
 msgstr "قناة التحديث"
 
-#: pro/licensorpro-client/licensorpro-client.php:1843
+#: pro/licensorpro-client/licensorpro-client.php:2054
 msgid "Site limit"
 msgstr "حد المواقع"
 
-#: pro/licensorpro-client/licensorpro-client.php:1843
+#: pro/licensorpro-client/licensorpro-client.php:2054
 msgid "Unlimited"
 msgstr "غير محدود"
 
-#: pro/licensorpro-client/licensorpro-client.php:1844
+#: pro/licensorpro-client/licensorpro-client.php:2055
 msgid "Expires"
 msgstr "ينتهي في"
 
-#: pro/licensorpro-client/licensorpro-client.php:1844
+#: pro/licensorpro-client/licensorpro-client.php:2055
 msgid "Never"
 msgstr "أبدًا"
 
-#: pro/licensorpro-client/licensorpro-client.php:1849
+#: pro/licensorpro-client/licensorpro-client.php:2060
 msgid "Deactivate this site"
 msgstr "تعطيل هذا الموقع"
 
-#: pro/licensorpro-client/licensorpro-client.php:1856
+#: pro/licensorpro-client/licensorpro-client.php:2067
 msgid "This is the free version, running on your Pro license."
 msgstr "هذه هي النسخة المجانية، تعمل على ترخيص Pro الخاص بك."
 
-#: pro/licensorpro-client/licensorpro-client.php:1873
+#: pro/licensorpro-client/licensorpro-client.php:2084
 msgid "Have a Pro license key? Enter it here to switch on the Pro tools. It replaces the free license on this site."
 msgstr "لديك مفتاح ترخيص Pro؟ أدخله هنا لتشغيل أدوات Pro. سيحل محل الترخيص المجاني على هذا الموقع."
 
-#: pro/licensorpro-client/licensorpro-client.php:1874
+#: pro/licensorpro-client/licensorpro-client.php:2085
 msgid "Enter your license key to activate this site."
 msgstr "أدخل مفتاح الترخيص لتفعيل هذا الموقع."
 
-#: pro/licensorpro-client/licensorpro-client.php:1881
+#: pro/licensorpro-client/licensorpro-client.php:2092
 msgid "Activate"
 msgstr "تفعيل"
 
-#: pro/licensorpro-client/licensorpro-client.php:1884
+#: pro/licensorpro-client/licensorpro-client.php:2095
 msgid "Your key is in your purchase email and in your account."
 msgstr "تجد مفتاحك في رسالة الشراء وفي حسابك."
 
-#: pro/licensorpro-client/licensorpro-client.php:1892
+#: pro/licensorpro-client/licensorpro-client.php:2103
 msgid "Need a hand?"
 msgstr "تحتاج مساعدة؟"
 
-#: pro/licensorpro-client/licensorpro-client.php:1893
+#: pro/licensorpro-client/licensorpro-client.php:2104
 msgid "Contact support"
 msgstr "تواصل مع الدعم"
 
-#: pro/licensorpro-client/licensorpro-client.php:1900
-msgid "Every seat on this license is in use. Deactivate one of your other sites from your account, then try again."
-msgstr "كل المواقع المسموح بها في هذا الترخيص مستخدمة. عطّل أحد مواقعك الأخرى من حسابك ثم حاول مجددًا."
-
-#: pro/licensorpro-client/licensorpro-client.php:1901
-msgid "This license has expired. Renewing it from your account reactivates this site immediately. Your settings and data are untouched."
-msgstr "انتهت صلاحية هذا الترخيص. تجديده من حسابك يعيد تفعيل هذا الموقع فورًا، وتبقى إعداداتك وبياناتك كما هي."
-
-#: pro/licensorpro-client/licensorpro-client.php:1902
-msgid "That key was not recognised. Check for a missing character, or copy it again from your purchase email."
-msgstr "لم نتعرّف على هذا المفتاح. تأكد من عدم نقص أي حرف، أو انسخه مجددًا من رسالة الشراء."
-
-#: pro/licensorpro-client/licensorpro-client.php:1903
-msgid "This key has been revoked. If you believe that is a mistake, reply to your purchase email and we will sort it out."
-msgstr "تم إلغاء هذا المفتاح. إن كنت ترى أن ذلك خطأ، فردّ على رسالة الشراء وسنحلّ الأمر."
-
-#: pro/licensorpro-client/licensorpro-client.php:1904
-msgid "Could not reach the licensing server. Your site may be blocking outbound requests. This is usually temporary, so try again in a minute."
-msgstr "تعذّر الوصول إلى خادم التراخيص. ربما يمنع موقعك الطلبات الخارجية. غالبًا يكون ذلك مؤقتًا، فحاول مجددًا بعد دقيقة."
-
-#: pro/licensorpro-client/licensorpro-client.php:1905
-msgid "Too many attempts in a short window. Wait a minute and try again."
-msgstr "محاولات كثيرة خلال وقت قصير. انتظر دقيقة ثم حاول مجددًا."
-
-#: pro/licensorpro-client/licensorpro-client.php:1906
-msgid "The licensing server had a problem on its side. Your key was not rejected. Try again in a few minutes, and if it keeps happening, reply to your purchase email."
-msgstr "حدثت مشكلة في خادم التراخيص من جهته، ولم يُرفض مفتاحك. حاول مجددًا بعد بضع دقائق، وإن تكرر ذلك فردّ على رسالة الشراء."
-
-#: pro/licensorpro-client/licensorpro-client.php:1907
-msgid "Enter your license key first."
-msgstr "أدخل مفتاح الترخيص أولًا."
-
-#: pro/licensorpro-client/licensorpro-client.php:1908
-msgid "Installing Pro. This takes a few seconds, keep this page open…"
-msgstr "جارٍ تثبيت Pro. يستغرق ذلك بضع ثوانٍ، أبقِ هذه الصفحة مفتوحة…"
-
-#: pro/licensorpro-client/licensorpro-client.php:1909
-msgid "Reloading to switch on the Pro tools…"
-msgstr "جارٍ إعادة التحميل لتشغيل أدوات Pro…"
-
-#: pro/licensorpro-client/licensorpro-client.php:1910
-msgid "Reload now"
-msgstr "أعد التحميل الآن"
-
-#: pro/licensorpro-client/licensorpro-client.php:1911
-msgid "Could not reach the licensing server. Check your connection and try again."
-msgstr "تعذّر الوصول إلى خادم التراخيص. تحقق من اتصالك وحاول مجددًا."
-
-#: pro/licensorpro-client/licensorpro-client.php:1912
-msgid "Deactivate this license on this site? Premium features switch off here and the seat is freed for another site."
-msgstr "هل تريد تعطيل هذا الترخيص على هذا الموقع؟ ستتوقف الميزات المميزة هنا ويصبح المكان متاحًا لموقع آخر."
-
-#: pro/licensorpro-client/licensorpro-client.php:1913
-msgid "Done."
-msgstr "تم."
-
-#: pro/licensorpro-client/licensorpro-client.php:1914
-msgid "Deactivated."
-msgstr "تم التعطيل."
-
-#: pro/licensorpro-client/licensorpro-client.php:1915
-msgid "Checked."
-msgstr "تم الفحص."
-
-#: pro/licensorpro-client/licensorpro-client.php:2103
+#: pro/licensorpro-client/licensorpro-client.php:2151
 msgid "Only someone who may install plugins on this site can install Pro."
 msgstr "فقط من يملك صلاحية تثبيت الإضافات على هذا الموقع يمكنه تثبيت Pro."
 
-#: pro/licensorpro-client/licensorpro-client.php:2116
+#: pro/licensorpro-client/licensorpro-client.php:2164
 msgid "That is a free license key, so it keeps this free version updated. Pro needs the key from your purchase email."
 msgstr "هذا مفتاح ترخيص مجاني، لذا يبقي هذه النسخة المجانية محدّثة. يحتاج Pro إلى المفتاح الموجود في رسالة الشراء."
 
 #. translators: %s: URL of the customer account
-#: pro/licensorpro-client/licensorpro-client.php:2121
+#: pro/licensorpro-client/licensorpro-client.php:2169
 #, php-format
 msgid "Your key is active. Download the Pro zip from your account (%s) and upload it over this plugin instead."
 msgstr "مفتاحك نشط. نزّل ملف Pro المضغوط من حسابك (%s) وارفعه فوق هذه الإضافة بدلًا من ذلك."
 
-#: pro/licensorpro-client/licensorpro-client.php:2125
+#: pro/licensorpro-client/licensorpro-client.php:2173
 msgid "This site does not allow installing plugins from the dashboard."
 msgstr "هذا الموقع لا يسمح بتثبيت الإضافات من لوحة التحكم."
 
-#: pro/licensorpro-client/licensorpro-client.php:2129
+#: pro/licensorpro-client/licensorpro-client.php:2177
 msgid "The Pro download could not be fetched for this key."
 msgstr "تعذّر جلب تنزيل Pro لهذا المفتاح."
 
-#: pro/licensorpro-client/licensorpro-client.php:2137
+#: pro/licensorpro-client/licensorpro-client.php:2185
 msgid "This site asks for FTP details to install plugins."
 msgstr "يطلب هذا الموقع بيانات FTP لتثبيت الإضافات."
 
-#: pro/licensorpro-client/licensorpro-client.php:2172
+#: pro/licensorpro-client/licensorpro-client.php:2220
 msgid "Installing Pro did not finish."
 msgstr "لم يكتمل تثبيت Pro."
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:2177
+#: pro/licensorpro-client/licensorpro-client.php:2225
 #, php-format
 msgid "%s Pro is installed and your license is active. Reloading…"
 msgstr "تم تثبيت %s Pro وترخيصك نشط. جارٍ إعادة التحميل…"
 
-#: pro/licensorpro-client/licensorpro-client.php:2187
+#: pro/licensorpro-client/licensorpro-client.php:2244
 msgid "License activated."
 msgstr "تم تفعيل الترخيص."
 
-#: pro/licensorpro-client/licensorpro-client.php:2202
+#: pro/licensorpro-client/licensorpro-client.php:2256
 msgid "Site deactivated."
 msgstr "تم تعطيل الموقع."
 
-#: pro/licensorpro-client/licensorpro-client.php:2213
+#: pro/licensorpro-client/licensorpro-client.php:2278
 msgid "License is valid. Update info refreshed."
 msgstr "الترخيص صالح. تم تحديث معلومات التحديث."
 
-#: pro/licensorpro-client/licensorpro-client.php:2220
+#: pro/licensorpro-client/licensorpro-client.php:2312
+msgid "Every seat on this license is in use. Deactivate one of your other sites from your account, then try again."
+msgstr "كل المواقع المسموح بها في هذا الترخيص مستخدمة. عطّل أحد مواقعك الأخرى من حسابك ثم حاول مجددًا."
+
+#: pro/licensorpro-client/licensorpro-client.php:2315
+msgid "This license has expired. Renewing it from your account reactivates this site immediately. Your settings and data are untouched."
+msgstr "انتهت صلاحية هذا الترخيص. تجديده من حسابك يعيد تفعيل هذا الموقع فورًا، وتبقى إعداداتك وبياناتك كما هي."
+
+#: pro/licensorpro-client/licensorpro-client.php:2317
+msgid "The last renewal payment for this license did not go through, so it is paused. Update your payment details in your account and it switches back on. Your settings and data are untouched."
+msgstr "لم تكتمل آخر دفعة تجديد لهذا الترخيص، لذا تم إيقافه مؤقتًا. حدّث بيانات الدفع في حسابك وسيعود للعمل. إعداداتك وبياناتك لم تُمس."
+
+#: pro/licensorpro-client/licensorpro-client.php:2320
+msgid "This license was cancelled or refunded, so it no longer switches on Pro. If that is a mistake, reply to your purchase email."
+msgstr "تم إلغاء هذا الترخيص أو استرداد ثمنه، لذا لم يعد يفعّل Pro. إن كان ذلك خطأ، فرُدّ على رسالة الشراء."
+
+#: pro/licensorpro-client/licensorpro-client.php:2323
+msgid "That key was not recognised. Check for a missing character, or copy it again from your purchase email."
+msgstr "لم نتعرّف على هذا المفتاح. تأكد من عدم نقص أي حرف، أو انسخه مجددًا من رسالة الشراء."
+
+#: pro/licensorpro-client/licensorpro-client.php:2325
+msgid "This key is for a different plugin. Each plugin has its own key: use the one from the purchase email for this plugin."
+msgstr "هذا المفتاح لإضافة أخرى. لكل إضافة مفتاحها الخاص: استخدم المفتاح الموجود في رسالة شراء هذه الإضافة."
+
+#: pro/licensorpro-client/licensorpro-client.php:2328
+msgid "This key has been revoked. If you believe that is a mistake, reply to your purchase email and we will sort it out."
+msgstr "تم إلغاء هذا المفتاح. إن كنت ترى أن ذلك خطأ، فردّ على رسالة الشراء وسنحلّ الأمر."
+
+#: pro/licensorpro-client/licensorpro-client.php:2330
+msgid "This site is not activated on this license any more. Enter the key again to activate it."
+msgstr "لم يعد هذا الموقع مفعّلًا على هذا الترخيص. أدخل المفتاح مرة أخرى لتفعيله."
+
+#: pro/licensorpro-client/licensorpro-client.php:2332
+msgid "That is a free license key. It keeps the free version updated but does not switch on Pro. Enter the Pro key from your purchase email."
+msgstr "هذا مفتاح ترخيص مجاني. يُبقي النسخة المجانية محدّثة لكنه لا يفعّل Pro. أدخل مفتاح Pro من رسالة الشراء."
+
+#: pro/licensorpro-client/licensorpro-client.php:2335
+msgid "This plugin has no free license. Use the key from your purchase email."
+msgstr "لا يوجد ترخيص مجاني لهذه الإضافة. استخدم المفتاح من رسالة الشراء."
+
+#: pro/licensorpro-client/licensorpro-client.php:2337
+msgid "The licensing server does not know this plugin. Update the plugin, or reply to your purchase email."
+msgstr "خادم التراخيص لا يعرف هذه الإضافة. حدّث الإضافة أو رُدّ على رسالة الشراء."
+
+#: pro/licensorpro-client/licensorpro-client.php:2339
+msgid "This site's license session ran out. Check the license again to renew it."
+msgstr "انتهت جلسة الترخيص لهذا الموقع. تحقّق من الترخيص مرة أخرى لتجديدها."
+
+#: pro/licensorpro-client/licensorpro-client.php:2342
+msgid "The download link has expired. Check for updates again to get a fresh one."
+msgstr "انتهت صلاحية رابط التنزيل. ابحث عن التحديثات مرة أخرى للحصول على رابط جديد."
+
+#: pro/licensorpro-client/licensorpro-client.php:2344
+msgid "The download is not on the server right now. Try again later, or download the zip from your account."
+msgstr "التنزيل غير متوفر على الخادم حاليًا. حاول لاحقًا أو نزّل ملف zip من حسابك."
+
+#: pro/licensorpro-client/licensorpro-client.php:2346
+msgid "Enter a valid email address."
+msgstr "أدخل عنوان بريد إلكتروني صالحًا."
+
+#: pro/licensorpro-client/licensorpro-client.php:2349
+msgid "The request to the licensing server was missing details. Reload this page and try again."
+msgstr "كان الطلب المرسل إلى خادم التراخيص ينقصه بعض التفاصيل. أعد تحميل هذه الصفحة وحاول مجددًا."
+
+#: pro/licensorpro-client/licensorpro-client.php:2353
+msgid "The answer from the licensing server could not be verified, so it was not trusted. Try again in a few minutes. If it keeps happening, reply to your purchase email."
+msgstr "تعذّر التحقق من رد خادم التراخيص، لذا لم يُعتمد. حاول مجددًا بعد بضع دقائق. إن تكرر ذلك، فرُدّ على رسالة الشراء."
+
+#: pro/licensorpro-client/licensorpro-client.php:2356
+msgid "Could not reach the licensing server. Your site may be blocking outbound requests. This is usually temporary, so try again in a minute."
+msgstr "تعذّر الوصول إلى خادم التراخيص. ربما يمنع موقعك الطلبات الخارجية. غالبًا يكون ذلك مؤقتًا، فحاول مجددًا بعد دقيقة."
+
+#: pro/licensorpro-client/licensorpro-client.php:2359
+msgid "Too many attempts in a short window. Wait a minute and try again."
+msgstr "محاولات كثيرة خلال وقت قصير. انتظر دقيقة ثم حاول مجددًا."
+
+#: pro/licensorpro-client/licensorpro-client.php:2361
+msgid "The licensing server had a problem on its side. Your key was not rejected. Try again in a few minutes, and if it keeps happening, reply to your purchase email."
+msgstr "حدثت مشكلة في خادم التراخيص من جهته، ولم يُرفض مفتاحك. حاول مجددًا بعد بضع دقائق، وإن تكرر ذلك فردّ على رسالة الشراء."
+
+#. translators: %s: short error code from the licensing server
+#: pro/licensorpro-client/licensorpro-client.php:2365
+#, php-format
+msgid "The licensing server could not confirm this license (%s). Try again in a few minutes. If it keeps happening, reply to your purchase email and quote that code."
+msgstr "تعذّر على خادم التراخيص تأكيد هذا الترخيص (%s). حاول مجددًا بعد بضع دقائق. إن تكرر ذلك، فرُدّ على رسالة الشراء واذكر هذا الرمز."
+
+#: pro/licensorpro-client/licensorpro-client.php:2391
 msgid "Permission denied."
 msgstr "تم رفض الإذن."
 
 #. Plugin Name of the plugin
-#: trinity-forms.php admin/class-admin-ui.php:133
-#: includes/class-abilities.php:58 includes/class-entry-notes.php:111
-#: includes/class-form-widget.php:15 includes/class-plugin.php:124
-#: includes/elementor/class-form-widget.php:22
+#: trinity-forms.php admin/class-admin-ui.php:135
+#: includes/beaver-builder/trinity-forms.php:14 includes/class-abilities.php:58
+#: includes/class-entry-notes.php:131 includes/class-form-widget.php:15
+#: includes/class-plugin.php:133 includes/elementor/class-form-widget.php:22
 msgid "Trinity Forms"
 msgstr "Trinity Forms"
 
@@ -497,104 +579,104 @@ msgstr "JnK Plugins"
 msgid "https://jnkplugins.com"
 msgstr "https://jnkplugins.com"
 
-#: admin/class-admin-ui.php:58 admin/class-admin-ui.php:251
+#: admin/class-admin-ui.php:60 admin/class-admin-ui.php:253
 msgid "Forms"
 msgstr "النماذج"
 
-#: admin/class-admin-ui.php:59 includes/class-templates.php:24
+#: admin/class-admin-ui.php:61 includes/class-templates.php:24
 #: includes/class-templates.php:25 includes/class-templates.php:193
-#: builder/src/app.jsx:472
+#: builder/src/app.jsx:500
 msgid "Templates"
 msgstr "القوالب"
 
-#: admin/class-admin-ui.php:60 admin/class-admin-ui.php:292
+#: admin/class-admin-ui.php:62 admin/class-admin-ui.php:294
 #: admin/class-admin.php:176 admin/class-admin.php:177
-#: admin/class-forms-list.php:77 admin/views/entries-list.php:143
-#: admin/views/import.php:110
+#: admin/class-forms-list.php:77 admin/views/entries-list.php:136
+#: admin/views/import.php:110 includes/class-entries.php:900
 msgid "Entries"
 msgstr "الإدخالات"
 
-#: admin/class-admin-ui.php:61 includes/class-results.php:27
-#: includes/class-results.php:28 includes/class-results.php:159
+#: admin/class-admin-ui.php:63 includes/class-results.php:27
+#: includes/class-results.php:28 includes/class-results.php:179
 msgid "Results"
 msgstr "النتائج"
 
-#: admin/class-admin-ui.php:62 admin/class-admin-ui.php:240
+#: admin/class-admin-ui.php:64 admin/class-admin-ui.php:242
 msgid "Views"
 msgstr "العروض"
 
-#: admin/class-admin-ui.php:63
+#: admin/class-admin-ui.php:65
 msgid "Integrations"
 msgstr "التكاملات"
 
-#: admin/class-admin-ui.php:70 admin/class-forms-list.php:220
+#: admin/class-admin-ui.php:72 admin/class-forms-list.php:220
 #: admin/views/transfer.php:29
 msgid "Import / Export"
 msgstr "استيراد / تصدير"
 
-#: admin/class-admin-ui.php:71 admin/class-admin.php:221
+#: admin/class-admin-ui.php:73 admin/class-admin.php:221
 #: admin/class-admin.php:222 admin/views/import.php:17
 msgid "Import forms"
 msgstr "استيراد النماذج"
 
-#: admin/class-admin-ui.php:72 admin/class-admin.php:198
+#: admin/class-admin-ui.php:74 admin/class-admin.php:198
 #: admin/class-admin.php:199 admin/views/assistants.php:39
 msgid "AI assistants"
 msgstr "مساعدات الذكاء الاصطناعي"
 
-#: admin/class-admin-ui.php:73
+#: admin/class-admin-ui.php:75
 msgid "Send feedback"
 msgstr "إرسال ملاحظات"
 
-#: admin/class-admin-ui.php:119
+#: admin/class-admin-ui.php:121
 msgid "Pro"
 msgstr "Pro"
 
-#: admin/class-admin-ui.php:139
+#: admin/class-admin-ui.php:141
 msgid "Trinity Forms sections"
 msgstr "أقسام Trinity Forms"
 
-#: admin/class-admin-ui.php:144
+#: admin/class-admin-ui.php:146
 msgid "More"
 msgstr "المزيد"
 
-#: admin/class-admin-ui.php:151
+#: admin/class-admin-ui.php:153
 msgid "Help"
 msgstr "مساعدة"
 
-#: admin/class-admin-ui.php:152 admin/class-admin.php:84
+#: admin/class-admin-ui.php:154 admin/class-admin.php:84
 #: admin/class-admin.php:189 admin/class-admin.php:190
-#: admin/views/settings.php:27 builder/src/app.jsx:482
+#: admin/views/settings.php:27 builder/src/app.jsx:510
 msgid "Settings"
 msgstr "الإعدادات"
 
-#: admin/class-admin-ui.php:237
+#: admin/class-admin-ui.php:239
 msgid "New View"
 msgstr "عرض جديد"
 
-#: admin/class-admin-ui.php:241
+#: admin/class-admin-ui.php:243
 msgid "Show entries on your site as a table, a list or cards. Put a View on any page with its shortcode."
 msgstr "اعرض الإدخالات على موقعك كجدول أو قائمة أو بطاقات. ضع العرض في أي صفحة باستخدام رمزه القصير."
 
-#: admin/class-admin-ui.php:248 admin/class-forms-list.php:61
-#: builder/src/app.jsx:663
+#: admin/class-admin-ui.php:250 admin/class-forms-list.php:61
+#: builder/src/app.jsx:692
 msgid "Start from a template"
 msgstr "البدء من قالب"
 
-#: admin/class-admin-ui.php:249
+#: admin/class-admin-ui.php:251
 msgid "New form"
 msgstr "نموذج جديد"
 
-#: admin/class-admin-ui.php:252
+#: admin/class-admin-ui.php:254
 msgid "Every form on your site. Open one to edit it, or copy its shortcode onto a page."
 msgstr "كل النماذج على موقعك. افتح نموذجًا لتحريره، أو انسخ رمزه القصير إلى صفحة."
 
-#: admin/class-admin-ui.php:286
+#: admin/class-admin-ui.php:288
 msgid "Live forms"
 msgstr "النماذج المنشورة"
 
 #. translators: %s: number of draft forms.
-#: admin/class-admin-ui.php:289
+#: admin/class-admin-ui.php:291
 #, php-format
 msgid "Plus %s draft"
 msgid_plural "Plus %s drafts"
@@ -606,32 +688,32 @@ msgstr[4] "بالإضافة إلى %s مسودة"
 msgstr[5] "بالإضافة إلى %s مسودة"
 
 #. translators: %s: number of draft forms.
-#: admin/class-admin-ui.php:289
+#: admin/class-admin-ui.php:291
 msgid "No drafts waiting"
 msgstr "لا توجد مسودات بالانتظار"
 
-#: admin/class-admin-ui.php:292
+#: admin/class-admin-ui.php:294
 msgid "Kept in your own database"
 msgstr "محفوظة في قاعدة بياناتك"
 
-#: admin/class-admin-ui.php:294 admin/views/entries-list.php:206
-#: admin/views/entries-list.php:422
+#: admin/class-admin-ui.php:296 admin/views/entries-list.php:200
+#: admin/views/entries-list.php:417
 msgid "Unread"
 msgstr "غير مقروءة"
 
-#: admin/class-admin-ui.php:296
+#: admin/class-admin-ui.php:298
 msgid "Waiting for you to open them"
 msgstr "بانتظار أن تفتحها"
 
-#: admin/class-admin-ui.php:296
+#: admin/class-admin-ui.php:298
 msgid "You are all caught up"
 msgstr "لا جديد بانتظارك"
 
-#: admin/class-admin-ui.php:300
+#: admin/class-admin-ui.php:302
 msgid "Last 7 days"
 msgstr "آخر 7 أيام"
 
-#: admin/class-admin-ui.php:300
+#: admin/class-admin-ui.php:302
 msgid "New entries this week"
 msgstr "إدخالات جديدة هذا الأسبوع"
 
@@ -643,7 +725,7 @@ msgstr "الترقية إلى Pro"
 msgid "Docs"
 msgstr "التوثيق"
 
-#: admin/class-admin.php:105
+#: admin/class-admin.php:105 includes/class-block-defaults.php:86
 msgid "Support"
 msgstr "الدعم"
 
@@ -656,23 +738,23 @@ msgid "Feedback"
 msgstr "الملاحظات"
 
 #. translators: %s: feedback type (bug report, feature request, …).
-#: admin/class-admin.php:459
+#: admin/class-admin.php:462
 #, php-format
 msgid "Trinity Forms feedback: %s"
 msgstr "ملاحظات Trinity Forms: %s"
 
-#: admin/class-admin.php:496
+#: admin/class-admin.php:499
 msgid "You are not allowed to view this entry."
 msgstr "غير مسموح لك بعرض هذا الإدخال."
 
 #. translators: %s: display name of the user who resent the notification.
-#: admin/class-admin.php:566 admin/class-admin.php:645
+#: admin/class-admin.php:569 admin/class-admin.php:650
 #, php-format
 msgid "Notifications resent by %s."
 msgstr "أعاد %s إرسال الإشعارات."
 
 #. translators: 1: user display name, 2: comma-separated list of field labels.
-#: admin/class-admin.php:759
+#: admin/class-admin.php:764
 #, php-format
 msgid "Edited by %1$s — changed: %2$s."
 msgstr "حرّره %1$s، وتغيّر: %2$s."
@@ -709,8 +791,8 @@ msgstr "إدراج وسم دمج"
 msgid "Sending…"
 msgstr "جارٍ الإرسال…"
 
-#: admin/class-form-editor.php:73 admin/class-form-editor.php:775
-#: includes/fields/class-field-product.php:55
+#: admin/class-form-editor.php:73 admin/class-form-editor.php:814
+#: includes/fields/class-field-product.php:65
 msgid "— select —"
 msgstr "— اختر —"
 
@@ -730,7 +812,7 @@ msgstr "Trinity Forms — الإعدادات"
 msgid "General"
 msgstr "عام"
 
-#: admin/class-form-editor.php:114 builder/src/app.jsx:533
+#: admin/class-form-editor.php:114 builder/src/app.jsx:561
 msgid "Notifications"
 msgstr "الإشعارات"
 
@@ -746,54 +828,55 @@ msgstr "التخطيط"
 msgid "Restrictions"
 msgstr "القيود"
 
-#: admin/class-form-editor.php:126 builder/src/app.jsx:609
+#: admin/class-form-editor.php:126 builder/src/app.jsx:638
 msgid "Submit button text"
 msgstr "نص زر الإرسال"
 
 #: admin/class-form-editor.php:127 admin/class-form-editor.php:338
 #: includes/class-form-basics.php:48 includes/class-form-manager.php:275
 #: includes/class-gf-importer.php:231 public/class-form-renderer.php:135
-#: builder/src/app.jsx:611
+#: builder/src/app.jsx:640
 msgid "Submit"
 msgstr "إرسال"
 
-#: admin/class-form-editor.php:129 builder/src/app.jsx:615
+#: admin/class-form-editor.php:129 builder/src/app.jsx:644
 msgid "After submit"
 msgstr "بعد الإرسال"
 
-#: admin/class-form-editor.php:131 builder/src/app.jsx:618
+#: admin/class-form-editor.php:131 builder/src/app.jsx:647
 msgid "Show a message"
 msgstr "إظهار رسالة"
 
-#: admin/class-form-editor.php:132 builder/src/app.jsx:619
+#: admin/class-form-editor.php:132 builder/src/app.jsx:648
 msgid "Go to a page"
 msgstr "الانتقال إلى صفحة"
 
-#: admin/class-form-editor.php:133 builder/src/app.jsx:620
+#: admin/class-form-editor.php:133 builder/src/app.jsx:649
 msgid "Go to a URL"
 msgstr "الانتقال إلى URL"
 
 #: admin/class-form-editor.php:135 includes/importers/class-formidable.php:238
 #: includes/importers/class-forminator.php:231
-#: includes/importers/class-wpforms.php:477 builder/src/app.jsx:626
+#: includes/importers/class-wpforms.php:517 builder/src/app.jsx:655
 msgid "Confirmation message"
 msgstr "رسالة التأكيد"
 
 #: admin/class-form-editor.php:136 includes/class-confirmations.php:46
-#: includes/class-form-manager.php:277 builder/src/app.jsx:628
+#: includes/class-form-manager.php:277 builder/src/app.jsx:657
 msgid "Thank you!"
 msgstr "شكرًا لك!"
 
-#: admin/class-form-editor.php:137 admin/class-form-editor.php:770
-#: builder/src/app.jsx:634
+#: admin/class-form-editor.php:137 admin/class-form-editor.php:809
+#: builder/src/app.jsx:663
 msgid "Page"
 msgstr "الصفحة"
 
-#: admin/class-form-editor.php:139 builder/src/app.jsx:637
+#: admin/class-form-editor.php:139 admin/class-form-qr.php:173
+#: builder/src/app.jsx:666
 msgid "Choose a page"
 msgstr "اختر صفحة"
 
-#: admin/class-form-editor.php:144 builder/src/app.jsx:645
+#: admin/class-form-editor.php:144 builder/src/app.jsx:674
 msgid "Redirect URL"
 msgstr "رابط إعادة التوجيه (URL)"
 
@@ -893,7 +976,7 @@ msgstr "+ إضافة رسالة تأكيد"
 msgid "Suspected spam"
 msgstr "يُشتبه أنه مزعج"
 
-#: admin/class-form-editor.php:293 admin/class-form-editor.php:767
+#: admin/class-form-editor.php:293 admin/class-form-editor.php:806
 #: admin/views/feedback.php:62 includes/class-block-defaults.php:62
 #: includes/class-templates.php:72
 msgid "Message"
@@ -949,7 +1032,7 @@ msgstr "التسميات"
 
 #: admin/class-form-editor.php:347 admin/class-form-editor.php:360
 #: admin/class-form-editor.php:392 blocks/field-shared.js:155
-#: builder/src/field-panel.jsx:307
+#: builder/src/field-panel.jsx:457
 msgid "Above the field"
 msgstr "أعلى الحقل"
 
@@ -970,12 +1053,12 @@ msgid "Hidden keeps the label for screen readers — it is only removed visually
 msgstr "الإخفاء يُبقي التسمية لقارئات الشاشة، فهي تُزال بصريًا فقط."
 
 #: admin/class-form-editor.php:355 blocks/field-shared.js:108
-#: builder/src/field-panel.jsx:22
+#: builder/src/field-panel.jsx:23
 msgid "Help text"
 msgstr "نص المساعدة"
 
 #: admin/class-form-editor.php:359 admin/class-form-editor.php:391
-#: blocks/field-shared.js:154 builder/src/field-panel.jsx:306
+#: blocks/field-shared.js:154 builder/src/field-panel.jsx:456
 msgid "Below the field"
 msgstr "أسفل الحقل"
 
@@ -1137,7 +1220,7 @@ msgid "Message when you've already submitted"
 msgstr "الرسالة عند الإرسال السابق"
 
 #: admin/class-form-editor.php:480 includes/class-restrictions.php:110
-#: includes/class-restrictions.php:121
+#: includes/class-restrictions.php:122
 msgid "You have already submitted this form."
 msgstr "لقد أرسلت هذا النموذج من قبل."
 
@@ -1161,7 +1244,33 @@ msgstr "رسالة للزوّار غير المسجّلين"
 msgid "Please log in to fill in this form."
 msgstr "الرجاء تسجيل الدخول لتعبئة هذا النموذج."
 
-#: admin/class-form-editor.php:601 admin/class-form-editor.php:757
+#: admin/class-form-editor.php:617
+msgid "Rule"
+msgstr "القاعدة"
+
+#: admin/class-form-editor.php:619
+msgid "Always send"
+msgstr "أرسل دائمًا"
+
+#: admin/class-form-editor.php:620
+msgid "Send only when"
+msgstr "أرسل فقط عندما"
+
+#: admin/class-form-editor.php:621
+msgid "Don't send when"
+msgstr "لا ترسل عندما"
+
+#: admin/class-form-editor.php:626 admin/class-form-editor.php:735
+msgid "— choose a field —"
+msgstr "— اختر حقلًا —"
+
+#. translators: %s: the rules in words, e.g. "Room type is group, Email is not empty".
+#: admin/class-form-editor.php:648
+#, php-format
+msgid "%s. These rules came with an import and are kept as they are when you save. Pick \"Always send\" to remove them."
+msgstr "%s. جاءت هذه القواعد مع الاستيراد وتبقى كما هي عند الحفظ. اختر \"أرسل دائمًا\" لإزالتها."
+
+#: admin/class-form-editor.php:688 admin/class-form-editor.php:796
 #: includes/class-block-defaults.php:48 includes/class-templates.php:70
 #: includes/class-templates.php:75 includes/class-templates.php:83
 #: includes/class-templates.php:90 includes/class-templates.php:98
@@ -1171,162 +1280,221 @@ msgstr "الرجاء تسجيل الدخول لتعبئة هذا النموذج.
 msgid "Name"
 msgstr "الاسم"
 
-#: admin/class-form-editor.php:607
+#: admin/class-form-editor.php:694
 msgid "Enabled"
 msgstr "مُفعّل"
 
-#: admin/class-form-editor.php:622
-msgid "Rule"
-msgstr "القاعدة"
-
-#: admin/class-form-editor.php:624
-msgid "Always send"
-msgstr "أرسل دائمًا"
-
-#: admin/class-form-editor.php:625
-msgid "Send only when"
-msgstr "أرسل فقط عندما"
-
-#: admin/class-form-editor.php:626
-msgid "Don't send when"
-msgstr "لا ترسل عندما"
-
-#: admin/class-form-editor.php:631 admin/class-form-editor.php:696
-msgid "— choose a field —"
-msgstr "— اختر حقلًا —"
-
-#. translators: %s: the rules in words, e.g. "Room type is group, Email is not empty".
-#: admin/class-form-editor.php:653
-#, php-format
-msgid "%s. These rules came with an import and are kept as they are when you save. Pick \"Always send\" to remove them."
-msgstr "%s. جاءت هذه القواعد مع الاستيراد وتبقى كما هي عند الحفظ. اختر \"أرسل دائمًا\" لإزالتها."
-
-#: admin/class-form-editor.php:660
+#: admin/class-form-editor.php:699
 msgid "Send when"
 msgstr "الإرسال عندما"
 
-#: admin/class-form-editor.php:664
+#: admin/class-form-editor.php:703
 msgid "The form is submitted"
 msgstr "يُرسل النموذج"
 
-#: admin/class-form-editor.php:665
+#: admin/class-form-editor.php:704
 msgid "A payment completes"
 msgstr "تكتمل عملية دفع"
 
-#: admin/class-form-editor.php:666
+#: admin/class-form-editor.php:705
 msgid "An entry is approved"
 msgstr "تتم الموافقة على إدخال"
 
-#: admin/class-form-editor.php:667
+#: admin/class-form-editor.php:706
 msgid "An entry is edited"
 msgstr "يُحرّر إدخال"
 
-#: admin/class-form-editor.php:685
+#: admin/class-form-editor.php:724
 msgid "Send to"
 msgstr "إرسال إلى"
 
-#: admin/class-form-editor.php:687
+#: admin/class-form-editor.php:726
 msgid "These addresses"
 msgstr "هذه العناوين"
 
-#: admin/class-form-editor.php:688
+#: admin/class-form-editor.php:727
 msgid "An email field on the form"
 msgstr "حقل بريد إلكتروني في النموذج"
 
-#: admin/class-form-editor.php:704
+#: admin/class-form-editor.php:743
 msgid "Cc"
 msgstr "نسخة (Cc)"
 
-#: admin/class-form-editor.php:707
+#: admin/class-form-editor.php:746
 msgid "Bcc"
 msgstr "نسخة مخفية (Bcc)"
 
-#: admin/class-form-editor.php:710
+#: admin/class-form-editor.php:749
 msgid "Reply-To"
 msgstr "الرد إلى (Reply-To)"
 
-#: admin/class-form-editor.php:712
+#: admin/class-form-editor.php:751
 msgid "Where your reply goes when you hit Reply. Put the tag of the form's email field here to answer the sender directly."
 msgstr "إلى أين يذهب ردك عند الضغط على رد. ضع هنا وسم حقل البريد الإلكتروني في النموذج للرد على المرسل مباشرة."
 
-#: admin/class-form-editor.php:714
+#: admin/class-form-editor.php:753
 msgid "From name"
 msgstr "اسم المرسل"
 
-#: admin/class-form-editor.php:717
+#: admin/class-form-editor.php:756
 msgid "From email"
 msgstr "بريد المرسل"
 
-#: admin/class-form-editor.php:719
+#: admin/class-form-editor.php:758
 msgid "Leave blank. Sending as the visitor's address makes your notification fail SPF checks and land in spam — use Reply-To above instead."
 msgstr "اتركه فارغًا. الإرسال من عنوان الزائر يُفشل فحوص SPF لإشعارك فيصل إلى البريد المزعج، استخدم Reply-To أعلاه بدلًا من ذلك."
 
-#: admin/class-form-editor.php:721 includes/class-templates.php:111
+#: admin/class-form-editor.php:760 includes/class-templates.php:111
 msgid "Subject"
 msgstr "الموضوع"
 
-#: admin/class-form-editor.php:724
+#: admin/class-form-editor.php:763
 msgid "Body"
 msgstr "النص"
 
-#: admin/class-form-editor.php:730
+#: admin/class-form-editor.php:769
 msgid "Attach any files uploaded with the submission"
 msgstr "إرفاق أي ملفات رُفعت مع الإرسال"
 
-#: admin/class-form-editor.php:735
+#: admin/class-form-editor.php:774
 msgid "Send a test"
 msgstr "إرسال رسالة تجريبية"
 
-#: admin/class-form-editor.php:736 admin/class-forms-list.php:145
+#: admin/class-form-editor.php:775 admin/class-forms-list.php:145
 msgid "Duplicate"
 msgstr "تكرار"
 
-#: admin/class-form-editor.php:737 admin/class-form-editor.php:816
+#: admin/class-form-editor.php:776 admin/class-form-editor.php:855
 #: public/class-public-front.php:74
 msgid "Remove"
 msgstr "إزالة"
 
-#: admin/class-form-editor.php:758
+#: admin/class-form-editor.php:797
 msgid "Enterprise enquiries"
 msgstr "استفسارات الشركات"
 
-#: admin/class-form-editor.php:760
+#: admin/class-form-editor.php:799
 msgid "Then show"
 msgstr "ثم إظهار"
 
-#: admin/class-form-editor.php:762
+#: admin/class-form-editor.php:801
 msgid "A message"
 msgstr "رسالة"
 
-#: admin/class-form-editor.php:763
+#: admin/class-form-editor.php:802
 msgid "A page on this site"
 msgstr "صفحة في هذا الموقع"
 
-#: admin/class-form-editor.php:764
+#: admin/class-form-editor.php:803
 msgid "Another URL"
 msgstr "عنوان URL آخر"
 
-#: admin/class-form-editor.php:780
+#: admin/class-form-editor.php:819
 msgid "URL"
 msgstr "URL"
 
-#: admin/class-form-editor.php:783
+#: admin/class-form-editor.php:822
 msgid "Query string"
 msgstr "سلسلة الاستعلام"
 
-#: admin/class-form-editor.php:785
+#: admin/class-form-editor.php:824
 msgid "Appended to the page or URL above. Merge tags are resolved first."
 msgstr "تُضاف إلى الصفحة أو URL أعلاه. تُستبدل وسوم الدمج أولًا."
 
-#: admin/class-form-editor.php:790
+#: admin/class-form-editor.php:829
 msgid "Only when"
 msgstr "فقط عندما"
 
-#: admin/class-form-editor.php:793
+#: admin/class-form-editor.php:832
 msgid "— always (use the default instead) —"
 msgstr "— دائمًا (استخدم الافتراضي بدلًا من ذلك) —"
 
-#: admin/class-forms-list.php:48 admin/views/entries-list.php:155
+#: admin/class-form-qr.php:32 admin/class-form-qr.php:35
+#: admin/class-form-qr.php:43 admin/class-form-qr.php:133
+msgid "QR code"
+msgstr "رمز QR"
+
+#. translators: %s: page title.
+#: admin/class-form-qr.php:60
+#, php-format
+msgid "Page with this form: %s"
+msgstr "صفحة فيها هذا النموذج: %s"
+
+#: admin/class-form-qr.php:134 includes/class-form-revisions.php:396
+msgid "Pick a form"
+msgstr "اختر نموذجًا"
+
+#: admin/class-form-qr.php:134
+msgid "Open the QR code from a form's row in the forms list."
+msgstr "افتح رمز QR من صف النموذج في قائمة النماذج."
+
+#: admin/class-form-qr.php:153 admin/views/transfer.php:60
+#: includes/class-form-revisions.php:400
+msgid "(no title)"
+msgstr "(بدون عنوان)"
+
+#. translators: %s: form title.
+#: admin/class-form-qr.php:155
+#, php-format
+msgid "QR code: %s"
+msgstr "رمز QR: %s"
+
+#. translators: %s: form title.
+#: admin/class-form-qr.php:155
+msgid "Print it on a flyer, a poster or a table card: scanning it opens the form."
+msgstr "اطبعه على منشور أو ملصق أو بطاقة طاولة: مسحه يفتح النموذج."
+
+#: admin/class-form-qr.php:164
+msgid "Scanning opens"
+msgstr "المسح يفتح"
+
+#: admin/class-form-qr.php:168
+msgid "Another page:"
+msgstr "صفحة أخرى:"
+
+#: admin/class-form-qr.php:178
+msgid "This address:"
+msgstr "هذا العنوان:"
+
+#: admin/class-form-qr.php:182
+msgid "Mark scans as coming from the QR code (adds utm_source=qr, shown on entries when the form records where visitors came from)"
+msgstr "تمييز عمليات المسح بأنها من رمز QR (يضيف utm_source=qr، ويظهر في الإدخالات إذا كان النموذج يسجّل مصدر الزوار)"
+
+#: admin/class-form-qr.php:183
+msgid "Show QR code"
+msgstr "عرض رمز QR"
+
+#: admin/class-form-qr.php:187
+msgid "This form is not on any published page yet. Choose a page or type an address."
+msgstr "هذا النموذج ليس في أي صفحة منشورة بعد. اختر صفحة أو اكتب عنوانًا."
+
+#: admin/class-form-qr.php:193
+msgid "That is not a web address a phone can open. Start it with https://"
+msgstr "هذا ليس عنوان ويب يمكن للهاتف فتحه. ابدأه بـ https://"
+
+#. translators: %d: number of characters.
+#: admin/class-form-qr.php:199
+#, php-format
+msgid "That address is too long for a QR code (up to %d characters)."
+msgstr "هذا العنوان أطول من أن يتسع له رمز QR (حتى %d حرفًا)."
+
+#: admin/class-form-qr.php:206
+msgid "Opens:"
+msgstr "يفتح:"
+
+#: admin/class-form-qr.php:208
+msgid "Download SVG"
+msgstr "تنزيل SVG"
+
+#: admin/class-form-qr.php:209
+msgid "Download PNG"
+msgstr "تنزيل PNG"
+
+#: admin/class-form-qr.php:211
+msgid "SVG stays sharp at any size, for print. PNG is 1024 pixels, for documents and social posts. Test-scan it with a phone before printing."
+msgstr "يبقى SVG واضحًا بأي حجم، للطباعة. وPNG بحجم 1024 بكسل، للمستندات ومنشورات التواصل. جرّب مسحه بالهاتف قبل الطباعة."
+
+#: admin/class-forms-list.php:48 admin/views/entries-list.php:149
 msgid "Create your first form"
 msgstr "أنشئ نموذجك الأول"
 
@@ -1373,8 +1541,10 @@ msgid "You do not have permission to export this form."
 msgstr "ليست لديك صلاحية تصدير هذا النموذج."
 
 #: admin/class-forms-list.php:178 admin/class-forms-list.php:240
-#: includes/class-abilities.php:203 includes/class-abilities.php:350
-#: includes/class-rest-api.php:138 includes/class-submission-pipeline.php:49
+#: includes/class-abilities.php:210 includes/class-abilities.php:357
+#: includes/class-rest-api.php:151 includes/class-rest-resources.php:228
+#: includes/class-rest-resources.php:236
+#: includes/class-submission-pipeline.php:49
 msgid "Form not found."
 msgstr "لم يتم العثور على النموذج."
 
@@ -1489,8 +1659,8 @@ msgid "Entries of the forms you tick are not listed and cannot be opened by an a
 msgstr "إدخالات النماذج التي تحدّدها لا تظهر في القوائم ولا يمكن للمساعد فتحها، مثل طلب توظيف أو نموذج طبي. يظل بالإمكان قراءة النموذج نفسه."
 
 #. translators: %s: number of entries.
-#: admin/views/assistants.php:104 admin/views/entries-list.php:190
-#: admin/views/entries-list.php:339
+#: admin/views/assistants.php:104 admin/views/entries-list.php:184
+#: admin/views/entries-list.php:334
 #, php-format
 msgid "%s entry"
 msgid_plural "%s entries"
@@ -1675,7 +1845,7 @@ msgstr "لا توجد طلبات بعد."
 msgid "When"
 msgstr "عندما"
 
-#: admin/views/assistants.php:240 admin/views/entry-detail.php:374
+#: admin/views/assistants.php:240 admin/views/entry-detail.php:384
 msgid "User"
 msgstr "العضو"
 
@@ -1687,7 +1857,7 @@ msgstr "الطلب"
 msgid "Result"
 msgstr "النتيجة"
 
-#: admin/views/assistants.php:250 builder/src/app.jsx:656
+#: admin/views/assistants.php:250 builder/src/app.jsx:685
 msgid "Done"
 msgstr "تم"
 
@@ -1697,342 +1867,343 @@ msgid "Failed"
 msgstr "فشل"
 
 #. translators: %d: form ID.
-#: admin/views/entries-list.php:76 includes/class-classic-editor.php:40
+#: admin/views/entries-list.php:77 includes/class-classic-editor.php:40
 #: includes/class-form-manager.php:54
 #, php-format
 msgid "(untitled form #%d)"
 msgstr "(نموذج بلا عنوان #%d)"
 
-#: admin/views/entries-list.php:144
+#: admin/views/entries-list.php:137
 msgid "Everything people have sent through your forms. Open one to read it, reply or add a note."
 msgstr "كل ما أرسله الناس عبر نماذجك. افتح إدخالًا لقراءته أو الرد عليه أو إضافة ملاحظة."
 
-#: admin/views/entries-list.php:145
-msgid "Export CSV"
-msgstr "تصدير CSV"
-
-#: admin/views/entries-list.php:153 admin/views/transfer.php:55
+#: admin/views/entries-list.php:147 admin/views/transfer.php:55
 msgid "No forms yet"
 msgstr "لا توجد نماذج بعد"
 
-#: admin/views/entries-list.php:154
+#: admin/views/entries-list.php:148
 msgid "Build a form, put its shortcode on a page, and every submission is stored here in your own database. No caps, no per-entry fees."
 msgstr "أنشئ نموذجًا، وضع رمزه القصير في صفحة، وسيُحفظ كل إرسال هنا في قاعدة بياناتك. بلا حدود، وبلا رسوم لكل إدخال."
 
-#: admin/views/entries-list.php:170
+#: admin/views/entries-list.php:164
 #, php-format
 msgid "%s marked as read."
 msgstr "تم تعليم %s كمقروءة."
 
-#: admin/views/entries-list.php:171
+#: admin/views/entries-list.php:165
 #, php-format
 msgid "%s marked as unread."
 msgstr "تم تعليم %s كغير مقروءة."
 
-#: admin/views/entries-list.php:172
+#: admin/views/entries-list.php:166
 #, php-format
 msgid "%s starred."
 msgstr "تم تمييز %s بنجمة."
 
-#: admin/views/entries-list.php:173
+#: admin/views/entries-list.php:167
 #, php-format
 msgid "%s unstarred."
 msgstr "أُزيلت النجمة عن %s."
 
-#: admin/views/entries-list.php:174
+#: admin/views/entries-list.php:168
 #, php-format
 msgid "%s marked as spam."
 msgstr "تم تعليم %s كمزعجة."
 
-#: admin/views/entries-list.php:175
+#: admin/views/entries-list.php:169
 #, php-format
 msgid "%s moved to trash."
 msgstr "نُقل %s إلى سلة المهملات."
 
-#: admin/views/entries-list.php:176
+#: admin/views/entries-list.php:170
 #, php-format
 msgid "%s restored."
 msgstr "تمت استعادة %s."
 
-#: admin/views/entries-list.php:177 admin/views/entries-list.php:178
+#: admin/views/entries-list.php:171 admin/views/entries-list.php:172
 #, php-format
 msgid "%s permanently deleted."
 msgstr "حُذف %s نهائيًا."
 
-#: admin/views/entries-list.php:179
+#: admin/views/entries-list.php:173
 #, php-format
 msgid "Notifications resent for %s."
 msgstr "أُعيد إرسال الإشعارات لـ %s."
 
-#: admin/views/entries-list.php:180 admin/views/entry-detail.php:156
+#: admin/views/entries-list.php:174 admin/views/entry-detail.php:156
 msgid "Note added."
 msgstr "أُضيفت الملاحظة."
 
-#: admin/views/entries-list.php:181 admin/views/entry-detail.php:157
+#: admin/views/entries-list.php:175 admin/views/entry-detail.php:157
 msgid "Note deleted."
 msgstr "حُذفت الملاحظة."
 
-#: admin/views/entries-list.php:182
+#: admin/views/entries-list.php:176
 msgid "Columns updated."
 msgstr "تم تحديث الأعمدة."
 
-#: admin/views/entries-list.php:183
+#: admin/views/entries-list.php:177
 #, php-format
 msgid "%s approved."
 msgstr "تمت الموافقة على %s."
 
-#: admin/views/entries-list.php:184
+#: admin/views/entries-list.php:178
 #, php-format
 msgid "%s rejected."
 msgstr "تم رفض %s."
 
-#: admin/views/entries-list.php:185
+#: admin/views/entries-list.php:179
 msgid "Nothing selected."
 msgstr "لم يتم تحديد شيء."
 
-#: admin/views/entries-list.php:205
+#: admin/views/entries-list.php:199
 msgid "All"
 msgstr "الكل"
 
-#: admin/views/entries-list.php:207 admin/views/entries-list.php:354
+#: admin/views/entries-list.php:201 admin/views/entries-list.php:349
 msgid "Starred"
 msgstr "المميّزة بنجمة"
 
-#: admin/views/entries-list.php:208 admin/views/entries-list.php:453
+#: admin/views/entries-list.php:202 admin/views/entries-list.php:448
 #: includes/class-entries.php:63
 msgid "Spam"
 msgstr "مزعج"
 
-#: admin/views/entries-list.php:209 admin/views/entries-list.php:454
+#: admin/views/entries-list.php:203 admin/views/entries-list.php:449
 #: admin/views/entry-detail.php:221 includes/class-entries.php:64
 msgid "Trash"
 msgstr "سلة المهملات"
 
-#: admin/views/entries-list.php:213 includes/class-entries.php:65
+#: admin/views/entries-list.php:207 includes/class-entries.php:65
 msgid "Partial"
 msgstr "جزئي"
 
-#: admin/views/entries-list.php:223
+#: admin/views/entries-list.php:217
 msgid "Filter entries"
 msgstr "تصفية الإدخالات"
 
-#: admin/views/entries-list.php:237 admin/views/entries-list.php:356
-#: admin/views/entry-detail.php:343 admin/views/import.php:108
+#: admin/views/entries-list.php:231 admin/views/entries-list.php:351
+#: admin/views/entry-detail.php:353 admin/views/import.php:108
+#: includes/class-beaver-builder.php:39 includes/class-beaver-builder.php:58
 #: includes/class-classic-editor.php:81 includes/class-form-widget.php:103
 #: includes/class-my-submissions.php:50 includes/class-my-submissions.php:56
-#: includes/class-plugin.php:125 includes/class-results.php:146
+#: includes/class-plugin.php:134 includes/class-results.php:166
 #: includes/elementor/class-form-widget.php:55
 #: includes/elementor/class-form-widget.php:60 blocks/form-block/edit.js:29
 msgid "Form"
 msgstr "النموذج"
 
-#: admin/views/entries-list.php:239
+#: admin/views/entries-list.php:233 includes/class-ip-privacy.php:147
 msgid "All forms"
 msgstr "كل النماذج"
 
-#: admin/views/entries-list.php:246 admin/views/entries-list.php:362
-#: admin/views/entry-detail.php:363
+#: admin/views/entries-list.php:240 admin/views/entries-list.php:357
+#: admin/views/entry-detail.php:373
 msgid "Payment"
 msgstr "الدفع"
 
-#: admin/views/entries-list.php:248
+#: admin/views/entries-list.php:242
 msgid "Any payment"
 msgstr "أي حالة دفع"
 
-#: admin/views/entries-list.php:256
+#: admin/views/entries-list.php:250
 msgid "From date"
 msgstr "من تاريخ"
 
-#: admin/views/entries-list.php:258
+#: admin/views/entries-list.php:252
 msgid "to"
 msgstr "إلى"
 
-#: admin/views/entries-list.php:259
+#: admin/views/entries-list.php:253
 msgid "To date"
 msgstr "إلى تاريخ"
 
-#: admin/views/entries-list.php:263
+#: admin/views/entries-list.php:257
 msgid "Search entries"
 msgstr "البحث في الإدخالات"
 
-#: admin/views/entries-list.php:264
+#: admin/views/entries-list.php:258
 msgid "Search answers…"
 msgstr "البحث في الإجابات…"
 
-#: admin/views/entries-list.php:266
+#: admin/views/entries-list.php:260
 msgid "Filter"
 msgstr "تصفية"
 
-#: admin/views/entries-list.php:269
+#: admin/views/entries-list.php:263
 msgid "Clear"
 msgstr "مسح"
 
-#: admin/views/entries-list.php:278
+#: admin/views/entries-list.php:272
 msgid "Choose answer columns"
 msgstr "اختيار أعمدة الإجابات"
 
-#: admin/views/entries-list.php:285
+#: admin/views/entries-list.php:279
 msgid "Show these answers as columns in the list."
 msgstr "عرض هذه الإجابات كأعمدة في القائمة."
 
-#: admin/views/entries-list.php:295
+#: admin/views/entries-list.php:289
 msgid "Apply columns"
 msgstr "تطبيق الأعمدة"
 
-#: admin/views/entries-list.php:312
+#: admin/views/entries-list.php:306
 msgid "Bulk action"
 msgstr "إجراء جماعي"
 
-#: admin/views/entries-list.php:314
+#: admin/views/entries-list.php:308
 msgid "With selected…"
 msgstr "مع المحدّد…"
 
-#: admin/views/entries-list.php:316 admin/views/entries-list.php:448
-#: admin/views/entry-detail.php:219
+#: admin/views/entries-list.php:310 admin/views/entries-list.php:443
+#: admin/views/entry-detail.php:219 includes/class-form-revisions.php:429
 msgid "Restore"
 msgstr "استعادة"
 
-#: admin/views/entries-list.php:317 admin/views/entries-list.php:450
+#: admin/views/entries-list.php:311 admin/views/entries-list.php:445
 msgid "Delete permanently"
 msgstr "حذف نهائي"
 
-#: admin/views/entries-list.php:319
+#: admin/views/entries-list.php:313
 msgid "Mark as read"
 msgstr "تعليم كمقروء"
 
-#: admin/views/entries-list.php:320
+#: admin/views/entries-list.php:314
 msgid "Mark as unread"
 msgstr "تعليم كغير مقروء"
 
-#: admin/views/entries-list.php:321 admin/views/entry-detail.php:196
+#: admin/views/entries-list.php:315 admin/views/entry-detail.php:196
 msgid "Star"
 msgstr "تمييز بنجمة"
 
-#: admin/views/entries-list.php:322 admin/views/entries-list.php:416
+#: admin/views/entries-list.php:316 admin/views/entries-list.php:411
 msgid "Remove star"
 msgstr "إزالة النجمة"
 
-#: admin/views/entries-list.php:323 admin/views/entry-detail.php:201
+#: admin/views/entries-list.php:317 admin/views/entry-detail.php:201
 msgid "Resend notifications"
 msgstr "إعادة إرسال الإشعارات"
 
-#: admin/views/entries-list.php:324 admin/views/entry-detail.php:217
+#: admin/views/entries-list.php:318 admin/views/entry-detail.php:217
 #: admin/views/entry-print.php:81
 msgid "Print"
 msgstr "طباعة"
 
-#: admin/views/entries-list.php:325
+#: admin/views/entries-list.php:319
 msgid "Export selected to CSV"
 msgstr "تصدير المحدّد إلى CSV"
 
-#: admin/views/entries-list.php:326
+#: admin/views/entries-list.php:320
+msgid "Export selected to Excel"
+msgstr "تصدير المحدد إلى Excel"
+
+#: admin/views/entries-list.php:321
 msgid "Mark as spam"
 msgstr "تعليم كمزعج"
 
-#: admin/views/entries-list.php:327
+#: admin/views/entries-list.php:322
 msgid "Move to trash"
 msgstr "نقل إلى سلة المهملات"
 
-#: admin/views/entries-list.php:333
+#: admin/views/entries-list.php:328
 msgid "Apply"
 msgstr "تطبيق"
 
-#: admin/views/entries-list.php:351
+#: admin/views/entries-list.php:346
 msgid "Select all"
 msgstr "تحديد الكل"
 
-#: admin/views/entries-list.php:355
+#: admin/views/entries-list.php:350
 msgid "Entry"
 msgstr "الإدخال"
 
-#: admin/views/entries-list.php:360 admin/views/entry-detail.php:358
-#: admin/views/entry-detail.php:438
+#: admin/views/entries-list.php:355 admin/views/entry-detail.php:368
+#: admin/views/entry-detail.php:456
 msgid "Submitted"
 msgstr "تاريخ الإرسال"
 
-#: admin/views/entries-list.php:373
+#: admin/views/entries-list.php:368
 msgid "No entries match those filters."
 msgstr "لا توجد إدخالات تطابق عوامل التصفية هذه."
 
-#: admin/views/entries-list.php:373
+#: admin/views/entries-list.php:368
 msgid "Try a wider date range or a different search."
 msgstr "جرّب نطاق تواريخ أوسع أو بحثًا مختلفًا."
 
-#: admin/views/entries-list.php:373
+#: admin/views/entries-list.php:368
 msgid "Clear the filters"
 msgstr "مسح عوامل التصفية"
 
-#: admin/views/entries-list.php:375
+#: admin/views/entries-list.php:370
 msgid "The trash is empty."
 msgstr "سلة المهملات فارغة."
 
-#: admin/views/entries-list.php:375
+#: admin/views/entries-list.php:370
 msgid "Entries you move to the trash wait here before they are deleted for good."
 msgstr "الإدخالات التي تنقلها إلى سلة المهملات تنتظر هنا قبل حذفها نهائيًا."
 
-#: admin/views/entries-list.php:377
+#: admin/views/entries-list.php:372
 msgid "No spam. Nice."
 msgstr "لا يوجد بريد مزعج. رائع."
 
-#: admin/views/entries-list.php:377
+#: admin/views/entries-list.php:372
 msgid "Anything the spam checks catch lands here, so you can rescue a real message."
 msgstr "كل ما تلتقطه فحوص الرسائل المزعجة يصل إلى هنا، لتتمكن من إنقاذ رسالة حقيقية."
 
-#: admin/views/entries-list.php:379
+#: admin/views/entries-list.php:374
 msgid "You are all caught up."
 msgstr "لا جديد بانتظارك."
 
-#: admin/views/entries-list.php:379
+#: admin/views/entries-list.php:374
 msgid "New entries show up here until you open them."
 msgstr "تظهر الإدخالات الجديدة هنا حتى تفتحها."
 
-#: admin/views/entries-list.php:381
+#: admin/views/entries-list.php:376
 msgid "No starred entries yet."
 msgstr "لا توجد إدخالات مميّزة بنجمة بعد."
 
-#: admin/views/entries-list.php:381
+#: admin/views/entries-list.php:376
 msgid "Star an entry from the list to keep it handy here."
 msgstr "ميّز إدخالًا بنجمة من القائمة ليبقى في متناولك هنا."
 
-#: admin/views/entries-list.php:383
+#: admin/views/entries-list.php:378
 msgid "No entries yet."
 msgstr "لا توجد إدخالات بعد."
 
-#: admin/views/entries-list.php:383
+#: admin/views/entries-list.php:378
 msgid "Entries appear here the moment someone submits. Add a form to a page to start collecting."
 msgstr "تظهر الإدخالات هنا لحظة إرسال أحدهم نموذجًا. أضف نموذجًا إلى صفحة لتبدأ الجمع."
 
-#: admin/views/entries-list.php:383 includes/class-results.php:169
+#: admin/views/entries-list.php:378 includes/class-results.php:189
 msgid "Go to your forms"
 msgstr "الذهاب إلى نماذجك"
 
 #. translators: %d: entry ID.
-#: admin/views/entries-list.php:408
+#: admin/views/entries-list.php:403
 #, php-format
 msgid "Select entry %d"
 msgstr "تحديد الإدخال %d"
 
-#: admin/views/entries-list.php:416
+#: admin/views/entries-list.php:411
 msgid "Star this entry"
 msgstr "تمييز هذا الإدخال بنجمة"
 
-#: admin/views/entries-list.php:422
+#: admin/views/entries-list.php:417
 msgid "Unread:"
 msgstr "غير مقروء:"
 
 #. translators: %d: entry ID.
 #. translators: %d: numeric entry ID.
-#: admin/views/entries-list.php:430 admin/views/entry-detail.php:144
+#: admin/views/entries-list.php:425 admin/views/entry-detail.php:144
 #: admin/views/entry-print.php:57 admin/views/entry-print.php:97
 #, php-format
 msgid "Entry #%d"
 msgstr "الإدخال #%d"
 
-#: admin/views/entries-list.php:443
+#: admin/views/entries-list.php:438
 msgid "View"
 msgstr "العرض"
 
-#: admin/views/entries-list.php:445 includes/class-block-defaults.php:38
+#: admin/views/entries-list.php:440 includes/class-block-defaults.php:38
 #: includes/class-templates.php:71 includes/class-templates.php:76
 #: includes/class-templates.php:84 includes/class-templates.php:91
 #: includes/class-templates.php:99 includes/class-templates.php:105
@@ -2041,19 +2212,19 @@ msgstr "العرض"
 msgid "Email"
 msgstr "البريد الإلكتروني"
 
-#: admin/views/entries-list.php:450
+#: admin/views/entries-list.php:445
 msgid "Permanently delete this entry? This cannot be undone."
 msgstr "هل تريد حذف هذا الإدخال نهائيًا؟ لا يمكن التراجع عن ذلك."
 
-#: admin/views/entries-list.php:452
+#: admin/views/entries-list.php:447
 msgid "Mark read"
 msgstr "تعليم كمقروء"
 
-#: admin/views/entries-list.php:452 admin/views/entry-detail.php:198
+#: admin/views/entries-list.php:447 admin/views/entry-detail.php:198
 msgid "Mark unread"
 msgstr "تعليم كغير مقروء"
 
-#: admin/views/entries-list.php:491
+#: admin/views/entries-list.php:486
 msgid "This form does not take payments"
 msgstr "هذا النموذج لا يستقبل مدفوعات"
 
@@ -2184,7 +2355,7 @@ msgid "Files"
 msgstr "الملفات"
 
 #: admin/views/entry-detail.php:289 admin/views/entry-detail.php:291
-#: admin/views/transfer.php:61
+#: admin/views/transfer.php:61 includes/class-export-columns.php:127
 msgid "Download"
 msgstr "تنزيل"
 
@@ -2217,43 +2388,50 @@ msgstr "أضف ملاحظة…"
 msgid "Add note"
 msgstr "إضافة الملاحظة"
 
-#: admin/views/entry-detail.php:341
+#: admin/views/entry-detail.php:351
 msgid "Details"
 msgstr "التفاصيل"
 
-#: admin/views/entry-detail.php:355
+#: admin/views/entry-detail.php:365
 msgid "Form deleted"
 msgstr "النموذج محذوف"
 
-#: admin/views/entry-detail.php:375 includes/class-entry-notes.php:114
+#: admin/views/entry-detail.php:385 includes/class-entry-notes.php:134
+#: includes/class-form-revisions.php:289
 msgid "Deleted user"
 msgstr "عضو محذوف"
 
-#: admin/views/entry-detail.php:383
+#: admin/views/entry-detail.php:393
 msgid "Created post"
 msgstr "المقالة المنشأة"
 
-#: admin/views/entry-detail.php:389 includes/class-merge-tags.php:38
+#: admin/views/entry-detail.php:399 includes/class-entries.php:754
+#: includes/class-entries.php:766 includes/class-export-columns.php:35
+#: includes/class-merge-tags.php:38 includes/class-privacy.php:59
 msgid "IP address"
 msgstr "عنوان IP"
 
-#: admin/views/entry-detail.php:391
+#: admin/views/entry-detail.php:399
+msgid "Not stored"
+msgstr "غير محفوظ"
+
+#: admin/views/entry-detail.php:401
 msgid "Sent from"
 msgstr "أُرسل من"
 
-#: admin/views/entry-detail.php:395
+#: admin/views/entry-detail.php:405
 msgid "Came from"
 msgstr "جاء من"
 
-#: admin/views/entry-detail.php:398
+#: admin/views/entry-detail.php:416 includes/class-privacy.php:62
 msgid "Browser"
 msgstr "المتصفح"
 
-#: admin/views/entry-detail.php:410
+#: admin/views/entry-detail.php:428
 msgid "Activity"
 msgstr "النشاط"
 
-#: admin/views/entry-detail.php:437 includes/class-logger.php:30
+#: admin/views/entry-detail.php:455 includes/class-logger.php:30
 msgid "entry"
 msgstr "إدخال"
 
@@ -2287,7 +2465,8 @@ msgstr "غير قابل للتحرير. هذه القيمة سجل لما حدث
 msgid "Save entry"
 msgstr "حفظ الإدخال"
 
-#: admin/views/entry-print.php:40 includes/class-abilities.php:346
+#: admin/views/entry-print.php:40 includes/class-abilities.php:353
+#: includes/class-rest-resources.php:77 includes/class-rest-resources.php:208
 msgid "Entry not found."
 msgstr "لم يتم العثور على الإدخال."
 
@@ -2523,7 +2702,7 @@ msgstr "عرض الإدخال"
 msgid "Most of the time this means the site has no working mail setup. An SMTP plugin that sends through your email provider usually fixes it."
 msgstr "في أغلب الأحيان يعني هذا أن الموقع ليس لديه إعداد بريد يعمل. عادةً تحل المشكلة إضافة SMTP ترسل عبر مزوّد بريدك الإلكتروني."
 
-#: admin/views/settings.php:117 admin/views/settings.php:225
+#: admin/views/settings.php:117 admin/views/settings.php:234
 msgid "Save settings"
 msgstr "حفظ الإعدادات"
 
@@ -2600,26 +2779,38 @@ msgid "Data"
 msgstr "البيانات"
 
 #: admin/views/settings.php:199
+msgid "Visitor IP addresses"
+msgstr "عناوين IP للزوار"
+
+#: admin/views/settings.php:204
+msgid "Don't store visitor IP addresses with entries (every form)"
+msgstr "لا تحفظ عناوين IP للزوار مع الإدخالات (كل النماذج)"
+
+#: admin/views/settings.php:206
+msgid "Off by default. A single form can also turn this on in its General settings. Spam lists and rate limits still check the address while a form is being sent; the per IP address entry limit stops working. Addresses already stored stay until you remove them with the Stored IP addresses card above."
+msgstr "معطّل افتراضيًا. يمكن لنموذج واحد أيضًا تفعيله من إعداداته العامة. تظل قوائم الرسائل المزعجة وحدود المعدل تفحص العنوان أثناء إرسال النموذج؛ ويتوقف حد الإدخالات لكل عنوان IP عن العمل. تبقى العناوين المحفوظة سابقًا حتى تزيلها من بطاقة عناوين IP المحفوظة أعلاه."
+
+#: admin/views/settings.php:208
 msgid "Delete data on uninstall"
 msgstr "حذف البيانات عند إلغاء التثبيت"
 
-#: admin/views/settings.php:204
+#: admin/views/settings.php:213
 msgid "Delete all Trinity Forms data when the plugin is deleted"
 msgstr "حذف كل بيانات Trinity Forms عند حذف الإضافة"
 
-#: admin/views/settings.php:206
+#: admin/views/settings.php:215
 msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete."
 msgstr "معطّل افتراضيًا. تبقى نماذجك وإدخالاتك محفوظة إذا عطّلت الإضافة أو حذفتها أو انتهى ترخيص Pro. حدّد هذا فقط إن أردت أيضًا إزالة البيانات عند الحذف."
 
-#: admin/views/settings.php:207
+#: admin/views/settings.php:216
 msgid "Deleting Trinity Forms will then permanently remove all your forms, their entries and every setting. This cannot be undone, so export anything you want to keep first."
 msgstr "عند حذف Trinity Forms بعد ذلك ستُحذف نهائيًا كل نماذجك وإدخالاتها وكل الإعدادات. لا يمكن التراجع عن ذلك، فصدّر أولًا ما تريد الاحتفاظ به."
 
-#: admin/views/settings.php:208
+#: admin/views/settings.php:217
 msgid "Tick this anyway?"
 msgstr "هل تريد تحديده رغم ذلك؟"
 
-#: admin/views/settings.php:237
+#: admin/views/settings.php:246
 msgid "License"
 msgstr "الترخيص"
 
@@ -2633,7 +2824,7 @@ msgstr "انقل نموذجًا بين المواقع كملف .json صغير. �
 msgid "Imported “%s”."
 msgstr "تم استيراد “%s”."
 
-#: admin/views/transfer.php:43
+#: admin/views/transfer.php:43 includes/class-form-revisions.php:401
 msgid "Edit form"
 msgstr "تحرير النموذج"
 
@@ -2641,7 +2832,7 @@ msgstr "تحرير النموذج"
 msgid "Integration and payment keys are never included in an export, so set them up again on this site."
 msgstr "مفاتيح التكاملات والدفع لا تُضمَّن أبدًا في التصدير، لذا اضبطها من جديد على هذا الموقع."
 
-#: admin/views/transfer.php:52 includes/class-abilities.php:174
+#: admin/views/transfer.php:52 includes/class-abilities.php:181
 msgid "Export a form"
 msgstr "تصدير نموذج"
 
@@ -2652,10 +2843,6 @@ msgstr "الحقول والإعدادات والإشعارات ورسائل ال
 #: admin/views/transfer.php:55
 msgid "Once you have a form, you can download it here."
 msgstr "عندما يصبح لديك نموذج، يمكنك تنزيله من هنا."
-
-#: admin/views/transfer.php:60
-msgid "(no title)"
-msgstr "(بدون عنوان)"
 
 #: admin/views/transfer.php:70
 msgid "Import a form"
@@ -2819,56 +3006,60 @@ msgstr "يأخذك تنبيه في أعلى الشاشة إلى المربع، �
 msgid "The Pro zip is about 6.5 MB and this site accepts uploads up to %s. If WordPress says the file “exceeds the upload_max_filesize directive”, ask your host to raise upload_max_filesize and post_max_size to 16 MB, or unzip it on your computer and upload the trinity-forms folder to wp-content/plugins/ over FTP/SFTP, replacing the existing one. Your forms and entries are kept either way."
 msgstr "حجم ملف Pro المضغوط نحو 6.5 MB، وهذا الموقع يقبل رفع ملفات حتى %s. إذا قال WordPress إن الملف “exceeds the upload_max_filesize directive”، فاطلب من الاستضافة رفع upload_max_filesize و post_max_size إلى 16 MB، أو فك ضغطه على حاسوبك وارفع مجلد trinity-forms إلى wp-content/plugins/ عبر FTP/SFTP مستبدلًا المجلد الموجود. تبقى نماذجك وإدخالاتك محفوظة في الحالتين."
 
+#: includes/beaver-builder/trinity-forms.php:15
+msgid "Show a Trinity Forms form."
+msgstr "اعرض نموذجًا من Trinity Forms."
+
 #: includes/class-abilities.php:59
 msgid "Forms built with Trinity Forms, their numbers and their entries."
 msgstr "النماذج المُنشأة بواسطة Trinity Forms، وأرقامها، وإدخالاتها."
 
-#: includes/class-abilities.php:113
+#: includes/class-abilities.php:120
 msgid "List forms"
 msgstr "عرض النماذج"
 
-#: includes/class-abilities.php:114
+#: includes/class-abilities.php:121
 msgid "Every form with its status, number of fields, entries, unread entries, views and conversion rate, and the shortcode to place it."
 msgstr "كل نموذج مع حالته، وعدد حقوله، وإدخالاته، والإدخالات غير المقروءة، والعروض، ومعدل التحويل، والرمز القصير لوضعه في الموقع."
 
-#: includes/class-abilities.php:122
+#: includes/class-abilities.php:129
 msgid "Read how a form is built"
 msgstr "قراءة بنية النموذج"
 
-#: includes/class-abilities.php:123
+#: includes/class-abilities.php:130
 msgid "One form's steps and fields (type, label, required, choices, conditional logic), its submit button and confirmation, notifications and payment settings. Field ids are what update-form and the conditional rules use."
 msgstr "خطوات نموذج واحد وحقوله (النوع، والتسمية، والإلزام، والخيارات، والمنطق الشرطي)، وزر الإرسال ورسالة التأكيد، والإشعارات وإعدادات الدفع. معرّفات الحقول هي ما تستخدمه update-form والقواعد الشرطية."
 
-#: includes/class-abilities.php:131
+#: includes/class-abilities.php:138
 msgid "Get a form's numbers"
 msgstr "جلب أرقام النموذج"
 
-#: includes/class-abilities.php:132
+#: includes/class-abilities.php:139
 msgid "Views, submissions, conversion rate, and entries by status (unread, starred, spam, trash) for one form."
 msgstr "العروض، وعمليات الإرسال، ومعدل التحويل، والإدخالات حسب الحالة (غير مقروءة، مميّزة بنجمة، مزعج، سلة المهملات) لنموذج واحد."
 
-#: includes/class-abilities.php:140
+#: includes/class-abilities.php:147
 msgid "List entries"
 msgstr "عرض الإدخالات"
 
-#: includes/class-abilities.php:141
+#: includes/class-abilities.php:148
 msgid "Entries, newest first, for one form or all of them: unread, starred, spam or all, optionally searched. Contact details are masked unless the site owner allows them."
 msgstr "الإدخالات، الأحدث أولًا، لنموذج واحد أو لكل النماذج: غير المقروءة، أو المميّزة بنجمة، أو المزعجة، أو الكل، مع إمكانية البحث. تُخفى بيانات الاتصال جزئيًا ما لم يسمح بها مالك الموقع."
 
-#: includes/class-abilities.php:160
+#: includes/class-abilities.php:167
 msgid "Open an entry"
 msgstr "فتح إدخال"
 
-#: includes/class-abilities.php:161
+#: includes/class-abilities.php:168
 msgid "One entry's answers, labelled from the form, with its status and notes. Contact details are masked unless the site owner allows them; files, passwords, card numbers, signatures and payment fields are never included. Opening an entry is noted on it."
 msgstr "إجابات إدخال واحد، مع تسميات الحقول من النموذج، وحالته وملاحظاته. تُخفى بيانات الاتصال جزئيًا ما لم يسمح بها مالك الموقع؛ ولا تُضمَّن أبدًا الملفات وكلمات المرور وأرقام البطاقات والتوقيعات وحقول الدفع. يُسجَّل فتح الإدخال كملاحظة عليه."
 
-#: includes/class-abilities.php:175
+#: includes/class-abilities.php:182
 msgid "A form as the same JSON file Import / Export makes, without API keys or other credentials, so it can be copied to another site."
 msgstr "النموذج بملف JSON نفسه الذي تُنشئه شاشة استيراد / تصدير، دون API Key أو بيانات اعتماد أخرى، ليمكن نسخه إلى موقع آخر."
 
 #. translators: %s: user display name the assistant signed in as.
-#: includes/class-abilities.php:394
+#: includes/class-abilities.php:401
 #, php-format
 msgid "Opened by an AI assistant signed in as %s"
 msgstr "فتحه مساعد ذكاء اصطناعي مسجّل الدخول باسم %s"
@@ -3006,6 +3197,39 @@ msgstr "أُرسل أسرع مما يستطيع إنسان تعبئة نموذج
 #: includes/class-anti-spam.php:240
 msgid "The bot check (CAPTCHA) did not pass."
 msgstr "لم ينجح فحص الروبوتات (CAPTCHA)."
+
+#: includes/class-beaver-builder.php:42 includes/class-form-widget.php:105
+#: includes/elementor/class-form-widget.php:65
+msgid "Choose a form"
+msgstr "اختر نموذجًا"
+
+#: includes/class-beaver-builder.php:44
+#: includes/elementor/class-form-widget.php:66
+msgid "Published forms"
+msgstr "النماذج المنشورة"
+
+#: includes/class-beaver-builder.php:53
+#: includes/elementor/class-form-widget.php:76
+msgid "Edit your forms"
+msgstr "تحرير نماذجك"
+
+#: includes/class-beaver-builder.php:53 includes/class-beaver-builder.php:54
+#: includes/class-classic-editor.php:97 includes/class-form-widget.php:114
+#: includes/class-onboarding.php:111
+#: includes/elementor/class-form-widget.php:78
+#: includes/elementor/class-form-widget.php:80
+msgid "Create a form"
+msgstr "إنشاء نموذج"
+
+#: includes/class-beaver-builder.php:54 includes/class-classic-editor.php:94
+#: includes/class-form-widget.php:113
+#: includes/elementor/class-form-widget.php:80
+msgid "You have no published forms yet."
+msgstr "ليست لديك نماذج منشورة بعد."
+
+#: includes/class-beaver-builder.php:81
+msgid "Choose a form in the module settings."
+msgstr "اختر نموذجًا من إعدادات الوحدة."
 
 #: includes/class-block-defaults.php:27
 msgid "Address"
@@ -3158,7 +3382,7 @@ msgstr "الموقع الإلكتروني"
 msgid "Location"
 msgstr "الموقع الجغرافي"
 
-#: includes/class-block-defaults.php:68
+#: includes/class-block-defaults.php:68 builder/src/field-panel.jsx:104
 msgid "Post title"
 msgstr "عنوان المقالة"
 
@@ -3174,6 +3398,70 @@ msgstr "إضافة عنصر"
 msgid "Signature"
 msgstr "التوقيع"
 
+#: includes/class-block-defaults.php:73
+msgid "How much do you agree?"
+msgstr "إلى أي مدى توافق؟"
+
+#: includes/class-block-defaults.php:74
+msgid ""
+"The event was well organised\n"
+"The content was useful"
+msgstr ""
+"كان الحدث منظمًا جيدًا\n"
+"كان المحتوى مفيدًا"
+
+#: includes/class-block-defaults.php:75
+msgid "Strongly disagree"
+msgstr "لا أوافق بشدة"
+
+#: includes/class-block-defaults.php:76
+msgid "Disagree"
+msgstr "لا أوافق"
+
+#: includes/class-block-defaults.php:77
+msgid "Neutral"
+msgstr "محايد"
+
+#: includes/class-block-defaults.php:78
+msgid "Agree"
+msgstr "أوافق"
+
+#: includes/class-block-defaults.php:79
+msgid "Strongly agree"
+msgstr "أوافق بشدة"
+
+#: includes/class-block-defaults.php:80
+msgid "How likely are you to recommend us to a friend?"
+msgstr "ما مدى احتمال أن توصي بنا لصديق؟"
+
+#: includes/class-block-defaults.php:81
+msgid "Not at all likely"
+msgstr "غير مرجّح إطلاقًا"
+
+#: includes/class-block-defaults.php:82
+msgid "Extremely likely"
+msgstr "مرجّح جدًا"
+
+#: includes/class-block-defaults.php:83
+msgid "Put these in order of importance"
+msgstr "رتّب هذه حسب الأهمية"
+
+#: includes/class-block-defaults.php:84 builder/src/field-panel.jsx:169
+msgid "Price"
+msgstr "السعر"
+
+#: includes/class-block-defaults.php:85
+msgid "Quality"
+msgstr "الجودة"
+
+#: includes/class-block-defaults.php:87
+msgid "Pick a date and time"
+msgstr "اختر التاريخ والوقت"
+
+#: includes/class-block-defaults.php:88
+msgid "Choose"
+msgstr "اختر"
+
 #: includes/class-builder-rest.php:262
 msgid "This form can't be edited in the builder. Your form is unchanged."
 msgstr "لا يمكن تحرير هذا النموذج في المنشئ. نموذجك لم يتغيّر."
@@ -3185,6 +3473,46 @@ msgstr "تغيّر هذا النموذج منذ فتحته. أعد تحميله 
 #: includes/class-builder-rest.php:314
 msgid "You are not allowed to publish this form."
 msgstr "غير مسموح لك بنشر هذا النموذج."
+
+#: includes/class-campaign.php:58
+msgid "First referrer"
+msgstr "أول موقع مُحيل"
+
+#: includes/class-campaign.php:60
+msgid "Landing page"
+msgstr "صفحة الهبوط"
+
+#: includes/class-campaign.php:170
+msgid "Campaign source (utm_source)"
+msgstr "مصدر الحملة (utm_source)"
+
+#: includes/class-campaign.php:171
+msgid "Campaign medium (utm_medium)"
+msgstr "وسيلة الحملة (utm_medium)"
+
+#: includes/class-campaign.php:172
+msgid "Campaign name (utm_campaign)"
+msgstr "اسم الحملة (utm_campaign)"
+
+#: includes/class-campaign.php:173
+msgid "First page of the visit"
+msgstr "أول صفحة في الزيارة"
+
+#: includes/class-campaign.php:174
+msgid "Site the visitor came from"
+msgstr "الموقع الذي جاء منه الزائر"
+
+#: includes/class-campaign.php:182
+msgid "Campaign source"
+msgstr "مصدر الحملة"
+
+#: includes/class-campaign.php:186
+msgid "Record where visitors came from (utm_ tags, the site that sent them, the first page they saw)"
+msgstr "سجّل من أين جاء الزوار (وسوم utm_، والموقع الذي أرسلهم، وأول صفحة رأوها)"
+
+#: includes/class-campaign.php:188
+msgid "Shown on each entry, added to the CSV export and usable in emails as {utm_source}, {utm_medium}, {utm_campaign}, {landing_page} and {first_referrer}. Kept in the visitor's browser only for the visit, on pages with this form. Works on cached pages."
+msgstr "يظهر في كل إدخال، ويُضاف إلى تصدير CSV، ويمكن استخدامه في الرسائل بصيغة {utm_source} و{utm_medium} و{utm_campaign} و{landing_page} و{first_referrer}. يُحفظ في متصفح الزائر طوال الزيارة فقط، في الصفحات التي فيها هذا النموذج. يعمل على الصفحات المخزنة مؤقتًا."
 
 #: includes/class-classic-editor.php:53
 msgid "Add Trinity form"
@@ -3201,18 +3529,6 @@ msgstr "يضيف هذا الرمز القصير للنموذج في موضع ا�
 #: includes/class-classic-editor.php:91
 msgid "Insert form"
 msgstr "إدراج النموذج"
-
-#: includes/class-classic-editor.php:94 includes/class-form-widget.php:113
-#: includes/elementor/class-form-widget.php:80
-msgid "You have no published forms yet."
-msgstr "ليست لديك نماذج منشورة بعد."
-
-#: includes/class-classic-editor.php:97 includes/class-form-widget.php:114
-#: includes/class-onboarding.php:111
-#: includes/elementor/class-form-widget.php:78
-#: includes/elementor/class-form-widget.php:80
-msgid "Create a form"
-msgstr "إنشاء نموذج"
 
 #: includes/class-conditional-logic.php:26 blocks/conditional-rules.js:32
 msgid "is"
@@ -3310,13 +3626,63 @@ msgstr "مقبول"
 msgid "Rejected"
 msgstr "مرفوض"
 
-#: includes/class-entries.php:933 includes/class-templates.php:100
+#: includes/class-entries.php:679 includes/class-merge-tags.php:36
+#: includes/class-privacy.php:56
+msgid "Date submitted"
+msgstr "تاريخ الإرسال"
+
+#: includes/class-entries.php:684
+msgid "Entry ID"
+msgstr "رقم الإدخال"
+
+#: includes/class-entries.php:1130 includes/class-templates.php:100
 msgid "Yes"
 msgstr "نعم"
 
-#: includes/class-entries.php:933 includes/class-templates.php:100
+#: includes/class-entries.php:1130 includes/class-templates.php:100
 msgid "No"
 msgstr "لا"
+
+#: includes/class-export-columns.php:98
+msgid "Export"
+msgstr "تصدير"
+
+#: includes/class-export-columns.php:107 blocks/conditional-panel.js:75
+#: builder/src/field-panel.jsx:415
+msgid "Format"
+msgstr "التنسيق"
+
+#: includes/class-export-columns.php:108
+msgid "CSV"
+msgstr "CSV"
+
+#: includes/class-export-columns.php:109
+msgid "Excel (.xlsx)"
+msgstr "Excel (.xlsx)"
+
+#: includes/class-export-columns.php:111
+msgid "Excel files need the PHP zip extension, which this server does not have."
+msgstr "تحتاج ملفات Excel إلى امتداد zip في PHP، وهو غير موجود على هذا الخادم."
+
+#: includes/class-export-columns.php:116
+msgid "Columns, in this order"
+msgstr "الأعمدة، بهذا الترتيب"
+
+#: includes/class-export-columns.php:122
+msgid "Your choice is remembered for this form, and used by Export selected too."
+msgstr "يُحفظ اختيارك لهذا النموذج، ويستخدمه أيضًا تصدير المحدد."
+
+#: includes/class-export-columns.php:125
+msgid "Every column is exported. Filter the list to one form to choose and order its columns."
+msgstr "تُصدَّر كل الأعمدة. صفِّ القائمة على نموذج واحد لاختيار أعمدته وترتيبها."
+
+#: includes/class-export-columns.php:134
+msgid "Move up"
+msgstr "نقل للأعلى"
+
+#: includes/class-export-columns.php:134
+msgid "Move down"
+msgstr "نقل للأسفل"
 
 #: includes/class-field.php:65 includes/fields/class-field-consent.php:29
 #: includes/fields/class-field-file.php:32 public/class-public-front.php:63
@@ -3329,7 +3695,7 @@ msgstr "هذا الحقل مطلوب."
 msgid "(no title #%d)"
 msgstr "(بدون عنوان #%d)"
 
-#: includes/class-form-builder.php:110 includes/class-rest-api.php:434
+#: includes/class-form-builder.php:110 includes/class-rest-api.php:453
 msgid "Untitled form"
 msgstr "نموذج بلا عنوان"
 
@@ -3366,7 +3732,7 @@ msgstr "المنشئ المرئي في Trinity Forms: شغّل `npm run build:bu
 #: includes/importers/class-metform.php:197
 #: includes/importers/class-ninja-forms.php:534
 #: includes/importers/class-sureforms.php:215
-#: includes/importers/class-wpforms.php:516
+#: includes/importers/class-wpforms.php:556
 msgid "Admin notification"
 msgstr "إشعار المدير"
 
@@ -3376,9 +3742,140 @@ msgstr "إشعار المدير"
 #: includes/importers/class-formidable.php:465
 #: includes/importers/class-metform.php:200
 #: includes/importers/class-sureforms.php:218
-#: includes/importers/class-wpforms.php:519
+#: includes/importers/class-wpforms.php:559
 msgid "New form entry on {site_name}"
 msgstr "إدخال نموذج جديد على {site_name}"
+
+#: includes/class-form-revisions.php:250
+msgid "The form as it was before revisions were kept."
+msgstr "النموذج كما كان قبل بدء حفظ المراجعات."
+
+#. translators: %s: field labels, comma-separated.
+#: includes/class-form-revisions.php:257
+#, php-format
+msgid "Added: %s"
+msgstr "أُضيف: %s"
+
+#. translators: %s: field labels, comma-separated.
+#: includes/class-form-revisions.php:261
+#, php-format
+msgid "Removed: %s"
+msgstr "أُزيل: %s"
+
+#. translators: %s: field labels, comma-separated.
+#: includes/class-form-revisions.php:265
+#, php-format
+msgid "Changed: %s"
+msgstr "تغيّر: %s"
+
+#: includes/class-form-revisions.php:268
+msgid "Title changed"
+msgstr "تغيّر العنوان"
+
+#: includes/class-form-revisions.php:271
+msgid "Settings changed"
+msgstr "تغيّرت الإعدادات"
+
+#: includes/class-form-revisions.php:274
+msgid "Layout or text changed"
+msgstr "تغيّر التخطيط أو النص"
+
+#. translators: 1: date and time of the restored version, 2: what changed.
+#: includes/class-form-revisions.php:279
+#, php-format
+msgid "Restored the version from %1$s. %2$s"
+msgstr "تمت استعادة إصدار %1$s. %2$s"
+
+#. translators: %s: a person's name.
+#: includes/class-form-revisions.php:291
+#, php-format
+msgid "AI assistant signed in as %s"
+msgstr "مساعد ذكاء اصطناعي مسجّل الدخول باسم %s"
+
+#: includes/class-form-revisions.php:339
+msgid "You do not have permission to edit this form."
+msgstr "ليست لديك صلاحية تعديل هذا النموذج."
+
+#: includes/class-form-revisions.php:354 includes/class-form-revisions.php:358
+#: includes/class-form-revisions.php:373 includes/class-form-revisions.php:395
+msgid "Form revisions"
+msgstr "مراجعات النموذج"
+
+#: includes/class-form-revisions.php:367
+msgid "Revisions"
+msgstr "المراجعات"
+
+#: includes/class-form-revisions.php:379
+msgid "Each save keeps a copy you can go back to. None yet."
+msgstr "كل حفظ يحتفظ بنسخة يمكنك الرجوع إليها. لا توجد نسخ بعد."
+
+#. translators: %d: number of saved copies.
+#: includes/class-form-revisions.php:388
+#, php-format
+msgid "See %d revision"
+msgid_plural "See all %d revisions"
+msgstr[0] "عرض %d مراجعة"
+msgstr[1] "عرض المراجعة %d"
+msgstr[2] "عرض %d مراجعتين"
+msgstr[3] "عرض كل المراجعات الـ %d"
+msgstr[4] "عرض كل المراجعات الـ %d"
+msgstr[5] "عرض كل المراجعات الـ %d"
+
+#: includes/class-form-revisions.php:396
+msgid "Open revisions from a form's row in the forms list."
+msgstr "افتح المراجعات من صف النموذج في قائمة النماذج."
+
+#. translators: %s: form title.
+#: includes/class-form-revisions.php:403
+#, php-format
+msgid "Revisions: %s"
+msgstr "المراجعات: %s"
+
+#. translators: %s: form title.
+#: includes/class-form-revisions.php:403
+msgid "Every save keeps a copy. Restoring one replaces the form's fields and settings, and is kept as a revision too, so it can be undone."
+msgstr "كل حفظ يحتفظ بنسخة. استعادة نسخة تستبدل حقول النموذج وإعداداته، وتُحفظ هي أيضًا كمراجعة، فيمكن التراجع عنها."
+
+#: includes/class-form-revisions.php:407
+msgid "Revision restored."
+msgstr "تمت استعادة المراجعة."
+
+#: includes/class-form-revisions.php:409
+msgid "That revision could not be restored."
+msgstr "تعذّرت استعادة تلك المراجعة."
+
+#: includes/class-form-revisions.php:414
+msgid "No revisions yet"
+msgstr "لا توجد مراجعات بعد"
+
+#: includes/class-form-revisions.php:414
+msgid "The next save of this form keeps the first copy."
+msgstr "سيحتفظ الحفظ التالي لهذا النموذج بأول نسخة."
+
+#: includes/class-form-revisions.php:418
+msgid "Restore this version? The form's fields and settings will be replaced. You can undo this from the list."
+msgstr "استعادة هذا الإصدار؟ ستُستبدل حقول النموذج وإعداداته. يمكنك التراجع عن ذلك من القائمة."
+
+#: includes/class-form-revisions.php:420
+msgid "Saved"
+msgstr "وقت الحفظ"
+
+#: includes/class-form-revisions.php:420
+msgid "By"
+msgstr "بواسطة"
+
+#: includes/class-form-revisions.php:420
+msgid "What changed"
+msgstr "ما الذي تغيّر"
+
+#: includes/class-form-revisions.php:420
+#: includes/fields/class-field-list.php:47
+msgid "Actions"
+msgstr "الإجراءات"
+
+#: includes/class-form-revisions.php:424
+msgid "Current"
+msgstr "الحالية"
 
 #: includes/class-form-style.php:71
 msgid "Default"
@@ -3428,13 +3925,8 @@ msgstr "تعذّر إنشاء النموذج."
 msgid "Show one of your forms."
 msgstr "اعرض أحد نماذجك."
 
-#: includes/class-form-widget.php:105
-#: includes/elementor/class-form-widget.php:65
-msgid "Choose a form"
-msgstr "اختر نموذجًا"
-
 #. translators: 1: list of meta keys, 2: the meta key name.
-#: includes/class-form.php:90
+#: includes/class-form.php:108
 #, php-format
 msgid "Form settings %1$s are at the top level of %2$s; put them under \"settings\"."
 msgstr "إعدادات النموذج %1$s موجودة في المستوى الأعلى من %2$s، ضعها تحت \"settings\"."
@@ -3461,6 +3953,82 @@ msgstr "حقل بلا عنوان"
 #: includes/class-gf-importer.php:455
 msgid "Thanks — we have your submission."
 msgstr "شكرًا، وصلنا إرسالك."
+
+#. translators: %d: number of entries.
+#: includes/class-ip-privacy.php:94
+#, php-format
+msgid "Removed the stored IP address from %d entry"
+msgid_plural "Removed the stored IP addresses from %d entries"
+msgstr[0] "لم يُزل أي عنوان IP محفوظ (%d)"
+msgstr[1] "أُزيل عنوان IP المحفوظ من إدخال واحد (%d)"
+msgstr[2] "أُزيلت عناوين IP المحفوظة من إدخالين (%d)"
+msgstr[3] "أُزيلت عناوين IP المحفوظة من %d إدخالات"
+msgstr[4] "أُزيلت عناوين IP المحفوظة من %d إدخالًا"
+msgstr[5] "أُزيلت عناوين IP المحفوظة من %d إدخال"
+
+#: includes/class-ip-privacy.php:103
+msgid "Visitor IP address"
+msgstr "عنوان IP للزائر"
+
+#: includes/class-ip-privacy.php:107
+msgid "Don't store the visitor's IP address with entries of this form"
+msgstr "لا تحفظ عنوان IP للزائر مع إدخالات هذا النموذج"
+
+#: includes/class-ip-privacy.php:111
+msgid "Turned off for every form in Settings > Data."
+msgstr "معطّل لكل النماذج من الإعدادات > البيانات."
+
+#: includes/class-ip-privacy.php:113
+msgid "Spam lists and rate limits still check the address while the form is being sent. The per IP address entry limit needs stored addresses, so it does nothing while this is on."
+msgstr "تظل قوائم الرسائل المزعجة وحدود المعدل تفحص العنوان أثناء إرسال النموذج. يحتاج حد الإدخالات لكل عنوان IP إلى عناوين محفوظة، لذا لا يعمل ما دام هذا الخيار مفعّلًا."
+
+#: includes/class-ip-privacy.php:129
+msgid "Stored IP addresses"
+msgstr "عناوين IP المحفوظة"
+
+#. translators: %s: number of entries
+#: includes/class-ip-privacy.php:132
+#, php-format
+msgid "%s entry holds a visitor IP address."
+msgid_plural "%s entries hold a visitor IP address."
+msgstr[0] "لا توجد إدخالات (%s) تحمل عنوان IP لزائر."
+msgstr[1] "إدخال واحد (%s) يحمل عنوان IP لزائر."
+msgstr[2] "إدخالان (%s) يحملان عنوان IP لزائر."
+msgstr[3] "%s إدخالات تحمل عنوان IP لزائر."
+msgstr[4] "%s إدخالًا يحمل عنوان IP لزائر."
+msgstr[5] "%s إدخال يحمل عنوان IP لزائر."
+
+#. translators: %s: number of entries
+#: includes/class-ip-privacy.php:139
+#, php-format
+msgid "Removed the IP address from %s entry."
+msgid_plural "Removed the IP address from %s entries."
+msgstr[0] "لم يُزل عنوان IP من أي إدخال (%s)."
+msgstr[1] "أُزيل عنوان IP من إدخال واحد (%s)."
+msgstr[2] "أُزيل عنوان IP من إدخالين (%s)."
+msgstr[3] "أُزيل عنوان IP من %s إدخالات."
+msgstr[4] "أُزيل عنوان IP من %s إدخالًا."
+msgstr[5] "أُزيل عنوان IP من %s إدخال."
+
+#: includes/class-ip-privacy.php:142
+msgid "Remove the stored IP addresses? This cannot be undone. The entries themselves are kept."
+msgstr "إزالة عناوين IP المحفوظة؟ لا يمكن التراجع عن ذلك. تبقى الإدخالات نفسها."
+
+#: includes/class-ip-privacy.php:145
+msgid "Entries of"
+msgstr "إدخالات"
+
+#: includes/class-ip-privacy.php:152
+msgid "Remove stored IP addresses"
+msgstr "إزالة عناوين IP المحفوظة"
+
+#: includes/class-ip-privacy.php:153
+msgid "Entries keep everything else. To stop new entries storing addresses, use the switch under Data below or on a form's General tab."
+msgstr "تحتفظ الإدخالات بكل شيء آخر. لمنع الإدخالات الجديدة من حفظ العناوين، استخدم المفتاح ضمن البيانات أدناه أو في تبويب عام لأي نموذج."
+
+#: includes/class-ip-privacy.php:162
+msgid "You are not allowed to do that."
+msgstr "غير مسموح لك بفعل ذلك."
 
 #: includes/class-logger.php:31
 msgctxt "activity log type"
@@ -3506,6 +4074,16 @@ msgstr "تنبيه"
 msgctxt "activity log type"
 msgid "setup"
 msgstr "تثبيت"
+
+#: includes/class-logger.php:40
+msgctxt "activity log type"
+msgid "quote"
+msgstr "عرض سعر"
+
+#: includes/class-logger.php:41
+msgctxt "activity log type"
+msgid "privacy"
+msgstr "الخصوصية"
 
 #: includes/class-mail-check.php:128
 msgid "This site sends email with PHP mail(), the server's own mailer, not through an email account. Many inboxes put these emails in spam."
@@ -3644,10 +4222,6 @@ msgstr "رابط الإدخال في wp-admin"
 msgid "Form name"
 msgstr "اسم النموذج"
 
-#: includes/class-merge-tags.php:36
-msgid "Date submitted"
-msgstr "تاريخ الإرسال"
-
 #: includes/class-merge-tags.php:37
 msgid "Today, in any date format"
 msgstr "اليوم، بأي تنسيق تاريخ"
@@ -3657,34 +4231,38 @@ msgid "Page it was submitted from"
 msgstr "الصفحة التي أُرسل منها"
 
 #: includes/class-merge-tags.php:43
+msgid "Campaign (when the form records it)"
+msgstr "الحملة (عندما يسجلها النموذج)"
+
+#: includes/class-merge-tags.php:47
 msgid "The person"
 msgstr "الشخص"
 
-#: includes/class-merge-tags.php:45
+#: includes/class-merge-tags.php:49
 msgid "Their display name, if logged in"
 msgstr "اسمه المعروض، إن كان مسجّل الدخول"
 
-#: includes/class-merge-tags.php:46
+#: includes/class-merge-tags.php:50
 msgid "Their account email, if logged in"
 msgstr "بريد حسابه، إن كان مسجّل الدخول"
 
-#: includes/class-merge-tags.php:47
+#: includes/class-merge-tags.php:51
 msgid "Their first name, if logged in"
 msgstr "اسمه الأول، إن كان مسجّل الدخول"
 
-#: includes/class-merge-tags.php:51
+#: includes/class-merge-tags.php:55
 msgid "The site"
 msgstr "الموقع"
 
-#: includes/class-merge-tags.php:53
+#: includes/class-merge-tags.php:57
 msgid "Site name"
 msgstr "اسم الموقع"
 
-#: includes/class-merge-tags.php:54
+#: includes/class-merge-tags.php:58
 msgid "Site address"
 msgstr "عنوان الموقع"
 
-#: includes/class-merge-tags.php:55
+#: includes/class-merge-tags.php:59
 msgid "Admin email"
 msgstr "بريد المدير"
 
@@ -3774,39 +4352,39 @@ msgstr "إخفاء"
 msgid "Contact"
 msgstr "اتصل بنا"
 
-#: includes/class-onboarding.php:202
+#: includes/class-onboarding.php:217
 msgid "You are not allowed to create pages."
 msgstr "غير مسموح لك بإنشاء صفحات."
 
-#: includes/class-onboarding.php:206
+#: includes/class-onboarding.php:221
 msgid "The page could not be created."
 msgstr "تعذّر إنشاء الصفحة."
 
-#: includes/class-onboarding.php:214 builder/src/app.jsx:520
+#: includes/class-onboarding.php:229 builder/src/app.jsx:548
 msgid "Create a page"
 msgstr "إنشاء صفحة"
 
-#: includes/class-plugin.php:118
+#: includes/class-plugin.php:127
 msgid "Trinity Forms Forms"
 msgstr "نماذج Trinity Forms"
 
-#: includes/class-plugin.php:126
+#: includes/class-plugin.php:135
 msgid "All Forms"
 msgstr "كل النماذج"
 
-#: includes/class-plugin.php:127
+#: includes/class-plugin.php:136
 msgid "Add Form"
 msgstr "إضافة نموذج"
 
-#: includes/class-plugin.php:128
+#: includes/class-plugin.php:137
 msgid "Edit Form"
 msgstr "تحرير النموذج"
 
-#: includes/class-plugin.php:129
+#: includes/class-plugin.php:138
 msgid "No forms yet — start from a template, or add a blank one."
 msgstr "لا توجد نماذج بعد، ابدأ من قالب أو أضف نموذجًا فارغًا."
 
-#: includes/class-plugin.php:277
+#: includes/class-plugin.php:286
 msgid "Trinity Forms Fields"
 msgstr "حقول Trinity Forms"
 
@@ -3814,7 +4392,7 @@ msgstr "حقول Trinity Forms"
 msgid "Trinity Forms submissions"
 msgstr "إرسالات Trinity Forms"
 
-#: includes/class-privacy.php:53
+#: includes/class-privacy.php:67
 msgid "Form submissions"
 msgstr "إرسالات النماذج"
 
@@ -3836,36 +4414,36 @@ msgstr "%s جاهز."
 msgid "Start here"
 msgstr "ابدأ من هنا"
 
-#: includes/class-rest-api.php:131 public/class-public-front.php:57
+#: includes/class-rest-api.php:144 public/class-public-front.php:57
 msgid "This page is out of date. Please reload it and try again."
 msgstr "هذه الصفحة قديمة. الرجاء إعادة تحميلها والمحاولة مرة أخرى."
 
-#: includes/class-rest-api.php:131
+#: includes/class-rest-api.php:144
 msgid "Invalid or missing nonce."
 msgstr "رمز الأمان (nonce) غير صالح أو مفقود."
 
 #. translators: 1: field label, 2: what is wrong with it.
-#: includes/class-rest-api.php:279
+#: includes/class-rest-api.php:298
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: includes/class-rest-api.php:282
+#: includes/class-rest-api.php:301
 msgid "Your browser's Back button brings back what you typed."
 msgstr "زر الرجوع في متصفحك يعيد ما كتبته."
 
 #. translators: %s: the largest file size accepted, e.g. "2 MB".
-#: includes/class-rest-api.php:301
+#: includes/class-rest-api.php:320
 #, php-format
 msgid "The file is too big to send. Files can be up to %s."
 msgstr "الملف أكبر من أن يُرسل. يمكن أن يصل حجم الملفات إلى %s."
 
-#: includes/class-rest-api.php:306 includes/class-submission-pipeline.php:92
+#: includes/class-rest-api.php:325 includes/class-submission-pipeline.php:92
 msgid "Upload failed."
 msgstr "فشل الرفع."
 
 #. translators: %d: seconds to wait.
-#: includes/class-rest-api.php:389
+#: includes/class-rest-api.php:408
 #, php-format
 msgid "This form is getting a lot of submissions right now. Please try again in %d second."
 msgid_plural "This form is getting a lot of submissions right now. Please try again in %d seconds."
@@ -3877,7 +4455,7 @@ msgstr[4] "يتلقى هذا النموذج إرسالات كثيرة الآن. 
 msgstr[5] "يتلقى هذا النموذج إرسالات كثيرة الآن. الرجاء المحاولة مرة أخرى بعد %d ثانية."
 
 #. translators: %d: minutes to wait.
-#: includes/class-rest-api.php:392
+#: includes/class-rest-api.php:411
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d minute."
 msgid_plural "Too many submissions from your connection. Please try again in %d minutes."
@@ -3889,7 +4467,7 @@ msgstr[4] "إرسالات كثيرة جدًا من اتصالك. الرجاء ا
 msgstr[5] "إرسالات كثيرة جدًا من اتصالك. الرجاء المحاولة مرة أخرى بعد %d دقيقة."
 
 #. translators: %d: seconds to wait.
-#: includes/class-rest-api.php:394
+#: includes/class-rest-api.php:413
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d second."
 msgid_plural "Too many submissions from your connection. Please try again in %d seconds."
@@ -3900,50 +4478,75 @@ msgstr[3] "إرسالات كثيرة جدًا من اتصالك. الرجاء ا
 msgstr[4] "إرسالات كثيرة جدًا من اتصالك. الرجاء المحاولة مرة أخرى بعد %d ثانية."
 msgstr[5] "إرسالات كثيرة جدًا من اتصالك. الرجاء المحاولة مرة أخرى بعد %d ثانية."
 
-#: includes/class-results.php:152
+#: includes/class-rest-resources.php:81 includes/class-rest-resources.php:103
+msgid "The note is empty."
+msgstr "الملاحظة فارغة."
+
+#: includes/class-rest-resources.php:86
+msgid "The note could not be saved."
+msgstr "تعذّر حفظ الملاحظة."
+
+#: includes/class-rest-resources.php:96 includes/class-rest-resources.php:114
+#: includes/class-rest-resources.php:220
+msgid "Note not found."
+msgstr "لم يتم العثور على الملاحظة."
+
+#: includes/class-rest-resources.php:99
+msgid "Notes the plugin wrote are the entry's history and cannot be changed."
+msgstr "الملاحظات التي كتبتها الإضافة هي سجل الإدخال ولا يمكن تغييرها."
+
+#: includes/class-rest-resources.php:117
+msgid "Notes the plugin wrote are the entry's history and cannot be deleted."
+msgstr "الملاحظات التي كتبتها الإضافة هي سجل الإدخال ولا يمكن حذفها."
+
+#: includes/class-rest-resources.php:243
+msgid "This form has no feed of that kind."
+msgstr "لا يحتوي هذا النموذج على تكامل من هذا النوع."
+
+#: includes/class-results.php:172
 msgid "Show"
 msgstr "عرض"
 
-#: includes/class-results.php:160
+#: includes/class-results.php:180
 msgid "Answers added up across every entry. Choice and rating questions turn into charts, like a poll or survey."
 msgstr "مجموع الإجابات عبر كل الإدخالات. أسئلة الاختيار والتقييم تتحول إلى رسوم بيانية، مثل استطلاع أو استبيان."
 
-#: includes/class-results.php:167
+#: includes/class-results.php:187
 msgid "No published forms yet"
 msgstr "لا توجد نماذج منشورة بعد"
 
-#: includes/class-results.php:168
+#: includes/class-results.php:188
 msgid "Publish a form and collect a few entries. Its results show up here."
 msgstr "انشر نموذجًا واجمع بعض الإدخالات. ستظهر نتائجه هنا."
 
-#: includes/class-results.php:181
+#: includes/class-results.php:201
 msgid "Completed entries"
 msgstr "الإدخالات المكتملة"
 
-#: includes/class-results.php:183
+#: includes/class-results.php:203
 msgid "Spam, trash and unfinished entries are left out"
 msgstr "تُستبعد الإدخالات المزعجة والمحذوفة وغير المكتملة"
 
-#: includes/class-results.php:186
+#: includes/class-results.php:206
 msgid "Questions charted"
 msgstr "الأسئلة الممثّلة بيانيًا"
 
 #. translators: 1: number of choice questions, 2: number of number/rating questions.
-#: includes/class-results.php:190
+#: includes/class-results.php:210
 #, php-format
 msgid "%1$d choice, %2$d number or rating"
 msgstr "%1$d اختيار، %2$d رقم أو تقييم"
 
-#: includes/class-results.php:197
+#: includes/class-results.php:222
 msgid "Nothing to chart yet"
 msgstr "لا يوجد ما يُمثَّل بيانيًا بعد"
 
-#: includes/class-results.php:198
+#: includes/class-results.php:223
 msgid "Add choice questions (radio, dropdown, checkboxes) or rating, range and number fields, then collect a few entries."
 msgstr "أضف أسئلة اختيار (أزرار اختيار، قائمة منسدلة، مربعات اختيار) أو حقول تقييم ونطاق ورقم، ثم اجمع بعض الإدخالات."
 
 #. translators: %d: number of people who answered.
-#: includes/class-results.php:209
+#: includes/class-results.php:234
 #, php-format
 msgid "%d answer"
 msgid_plural "%d answers"
@@ -3955,7 +4558,7 @@ msgstr[4] "%d إجابة"
 msgstr[5] "%d إجابة"
 
 #. translators: 1: lowest value, 2: highest value, 3: count.
-#: includes/class-results.php:217
+#: includes/class-results.php:244
 #, php-format
 msgid "average (range %1$s to %2$s, %3$d responses)"
 msgstr "المتوسط (المدى من %1$s إلى %2$s، عدد الردود %3$d)"
@@ -4004,7 +4607,11 @@ msgstr[5] "كل الجداول التي يحتاجها Trinity Forms وعدده�
 msgid "Trinity Forms: The PHP OpenSSL extension is required to encrypt credentials at rest. Credentials are currently stored in plaintext — please enable the openssl extension."
 msgstr "Trinity Forms: امتداد PHP OpenSSL مطلوب لتشفير بيانات الاعتماد المخزّنة. بيانات الاعتماد مخزّنة حاليًا كنص عادي، الرجاء تفعيل امتداد openssl."
 
-#: includes/class-shortcode.php:29
+#: includes/class-shortcode.php:38
+msgid "Showing poll results to visitors is part of Trinity Forms Pro."
+msgstr "عرض نتائج الاستطلاعات للزوار جزء من Trinity Forms Pro."
+
+#: includes/class-shortcode.php:48
 msgid "The submissions table is available in Trinity Forms Pro."
 msgstr "جدول الإرسالات متاح في Trinity Forms Pro."
 
@@ -4035,18 +4642,18 @@ msgstr "عُلّم كمزعج: %s"
 msgid "Marked as spam by the spam filter"
 msgstr "علّمه مرشّح الرسائل المزعجة كمزعج"
 
-#: includes/class-submission-pipeline.php:211
+#: includes/class-submission-pipeline.php:222
 msgid "This value has already been used."
 msgstr "هذه القيمة مستخدمة من قبل."
 
 #. translators: %s: form title.
-#: includes/class-submission-pipeline.php:417
+#: includes/class-submission-pipeline.php:428
 #, php-format
 msgid "[Trinity Forms] Payments are failing on \"%s\""
 msgstr "[Trinity Forms] المدفوعات تفشل في \"%s\""
 
 #. translators: 1: form title, 2: provider error, 3: entry admin URL.
-#: includes/class-submission-pipeline.php:420
+#: includes/class-submission-pipeline.php:431
 #, php-format
 msgid ""
 "A visitor could not start a payment on \"%1$s\". Nothing was charged.\n"
@@ -4061,28 +4668,28 @@ msgstr ""
 "\n"
 "تحقق من مفاتيح الدفع في Trinity Forms > الإعدادات. الإدخال: %3$s"
 
-#: includes/class-submission-pipeline.php:433
+#: includes/class-submission-pipeline.php:444
 msgid "Payment skipped: this site has never had a Pro licence."
 msgstr "تم تخطي الدفع: لم يكن لهذا الموقع ترخيص Pro من قبل."
 
 #. translators: %s: payment provider key, e.g. stripe.
-#: includes/class-submission-pipeline.php:445
+#: includes/class-submission-pipeline.php:456
 #, php-format
 msgid "Payment is on, but the provider \"%s\" is not available."
 msgstr "الدفع مُفعّل، لكن مزوّد الدفع \"%s\" غير متاح."
 
-#: includes/class-submission-pipeline.php:457
+#: includes/class-submission-pipeline.php:468
 msgid "Payment could not be started, so nothing was charged. Please try again later, or contact the site owner if it keeps happening."
 msgstr "تعذّر بدء عملية الدفع، لذا لم يُخصم أي مبلغ. الرجاء المحاولة لاحقًا، أو التواصل مع مالك الموقع إن استمر ذلك."
 
 #. translators: %s: uploaded file name.
-#: includes/class-submission-pipeline.php:520
+#: includes/class-submission-pipeline.php:531
 #, php-format
 msgid "Upload error for %s."
 msgstr "خطأ في رفع %s."
 
 #. translators: %s: uploaded file name.
-#: includes/class-submission-pipeline.php:526
+#: includes/class-submission-pipeline.php:537
 #, php-format
 msgid "%s is empty."
 msgstr "%s فارغ."
@@ -4393,14 +5000,6 @@ msgctxt "Elementor panel search word"
 msgid "contact"
 msgstr "اتصال"
 
-#: includes/elementor/class-form-widget.php:66
-msgid "Published forms"
-msgstr "النماذج المنشورة"
-
-#: includes/elementor/class-form-widget.php:76
-msgid "Edit your forms"
-msgstr "تحرير نماذجك"
-
 #: includes/elementor/class-form-widget.php:99
 msgid "Choose a form in the Trinity Forms panel."
 msgstr "اختر نموذجًا في لوحة Trinity Forms."
@@ -4426,34 +5025,35 @@ msgstr "الولاية / المنطقة"
 msgid "Postal code"
 msgstr "الرمز البريدي"
 
-#: includes/fields/class-field-base.php:167
-msgid "optional"
-msgstr "اختياري"
-
-#: includes/fields/class-field-base.php:175
+#: includes/fields/class-field-base.php:134
+#: includes/fields/class-field-base.php:207
 msgid "required"
 msgstr "مطلوب"
 
+#: includes/fields/class-field-base.php:199
+msgid "optional"
+msgstr "اختياري"
+
 #. translators: %d: minimum number of characters.
-#: includes/fields/class-field-base.php:251
+#: includes/fields/class-field-base.php:283
 #, php-format
 msgid "Must be at least %d characters."
 msgstr "يجب ألا يقل عدد الأحرف عن %d."
 
 #. translators: %d: maximum number of characters.
-#: includes/fields/class-field-base.php:258
+#: includes/fields/class-field-base.php:290
 #, php-format
 msgid "Must be %d characters or fewer."
 msgstr "يجب ألا يزيد عدد الأحرف عن %d."
 
-#: includes/fields/class-field-base.php:266
+#: includes/fields/class-field-base.php:298
 msgid "Invalid format."
 msgstr "تنسيق غير صالح."
 
 #: includes/fields/class-field-checkbox.php:43
 #: includes/fields/class-field-image-choice.php:73
 #: includes/fields/class-field-multiselect.php:58
-#: includes/fields/class-field-radio.php:37
+#: includes/fields/class-field-radio.php:40
 #: includes/fields/class-field-select.php:39
 msgid "Invalid selection."
 msgstr "اختيار غير صالح."
@@ -4488,10 +5088,6 @@ msgstr "نوع الملف %s غير مسموح."
 #, php-format
 msgid "%1$s is too big. Files can be up to %2$s."
 msgstr "%1$s كبير جدًا. يمكن أن يصل حجم الملفات إلى %2$s."
-
-#: includes/fields/class-field-list.php:47
-msgid "Actions"
-msgstr "الإجراءات"
 
 #: includes/fields/class-field-list.php:65
 msgid "Remove row"
@@ -4544,7 +5140,7 @@ msgstr "يجب ألا يقل عن %s."
 msgid "Must be no more than %s."
 msgstr "يجب ألا يزيد عن %s."
 
-#: includes/fields/class-field-password.php:35
+#: includes/fields/class-field-password.php:35 builder/src/field-panel.jsx:184
 msgid "Confirm password"
 msgstr "تأكيد كلمة المرور"
 
@@ -4579,12 +5175,12 @@ msgid "Please enter a quantity of %d or fewer."
 msgstr "الرجاء إدخال كمية لا تزيد عن %d."
 
 #. translators: 1: rating chosen, 2: highest rating.
-#: includes/fields/class-field-rating.php:24
+#: includes/fields/class-field-rating.php:25
 #, php-format
 msgid "%1$d of %2$d"
 msgstr "%1$d من %2$d"
 
-#: includes/fields/class-field-rating.php:46
+#: includes/fields/class-field-rating.php:47
 msgid "Invalid rating."
 msgstr "تقييم غير صالح."
 
@@ -4650,7 +5246,7 @@ msgstr "البريد: حذف الأسطر التي وسومها فارغة"
 #: includes/importers/class-metform.php:282
 #: includes/importers/class-ninja-forms.php:575
 #: includes/importers/class-sureforms.php:378
-#: includes/importers/class-wpforms.php:574
+#: includes/importers/class-wpforms.php:614
 #, php-format
 msgid "Mail tag %s"
 msgstr "وسم البريد %s"
@@ -4658,7 +5254,7 @@ msgstr "وسم البريد %s"
 #. translators: %s: field label.
 #: includes/importers/class-everest-forms.php:355
 #: includes/importers/class-fluent-forms.php:392
-#: includes/importers/class-wpforms.php:301
+#: includes/importers/class-wpforms.php:322
 #, php-format
 msgid "%s: the time part"
 msgstr "%s: جزء الوقت"
@@ -4666,7 +5262,7 @@ msgstr "%s: جزء الوقت"
 #. translators: %s: field label.
 #: includes/importers/class-everest-forms.php:402
 #: includes/importers/class-formidable.php:361
-#: includes/importers/class-wpforms.php:364
+#: includes/importers/class-wpforms.php:404
 #, php-format
 msgid "%s: rich-text formatting (now a plain text box)"
 msgstr "%s: تنسيق النص المنسّق (أصبح الآن مربع نص عادي)"
@@ -4674,7 +5270,7 @@ msgstr "%s: تنسيق النص المنسّق (أصبح الآن مربع نص 
 #. translators: %s: field label.
 #: includes/importers/class-everest-forms.php:427
 #: includes/importers/class-fluent-forms.php:478
-#: includes/importers/class-wpforms.php:312
+#: includes/importers/class-wpforms.php:333
 #, php-format
 msgid "%s: the limit on how many choices can be ticked"
 msgstr "%s: الحد الأقصى لعدد الخيارات التي يمكن تحديدها"
@@ -4682,7 +5278,7 @@ msgstr "%s: الحد الأقصى لعدد الخيارات التي يمكن ت
 #. translators: %s: field label.
 #: includes/importers/class-fluent-forms.php:348
 #: includes/importers/class-forminator.php:304
-#: includes/importers/class-wpforms.php:276
+#: includes/importers/class-wpforms.php:297
 #, php-format
 msgid "%s: the middle name box"
 msgstr "%s: مربع الاسم الأوسط"
@@ -4728,13 +5324,19 @@ msgstr[5] "%1$d نموذج من %2$s"
 
 #. translators: %s: field label.
 #: includes/importers/class-sureforms.php:278
-#: includes/importers/class-wpforms.php:282
+#: includes/importers/class-wpforms.php:303
 #, php-format
 msgid "%s: the second box that repeats the email"
 msgstr "%s: المربع الثاني الذي يكرر البريد الإلكتروني"
 
 #. translators: %s: field label.
-#: includes/importers/class-wpforms.php:381
+#: includes/importers/class-wpforms.php:391
+#, php-format
+msgid "%s: several answers per row (now one answer per row)"
+msgstr "%s: عدة إجابات لكل صف (الآن إجابة واحدة لكل صف)"
+
+#. translators: %s: field label.
+#: includes/importers/class-wpforms.php:421
 #, php-format
 msgid "%s: choices filled from posts or categories"
 msgstr "%s: خيارات تُملأ من المقالات أو التصنيفات"
@@ -4799,7 +5401,7 @@ msgstr "أرسل لي رابطًا بالبريد لإكمال هذا النمو
 msgid "Send link"
 msgstr "إرسال الرابط"
 
-#: public/class-public-front.php:68 builder/src/app.jsx:566
+#: public/class-public-front.php:68 builder/src/app.jsx:595
 msgid "Saving…"
 msgstr "جارٍ الحفظ…"
 
@@ -4817,11 +5419,7 @@ msgstr "تم الحفظ. احفظ هذا الرابط في المفضلة للم
 msgid "Could not save progress."
 msgstr "تعذّر حفظ التقدّم."
 
-#: blocks/conditional-panel.js:75 builder/src/field-panel.jsx:265
-msgid "Format"
-msgstr "التنسيق"
-
-#: blocks/conditional-panel.js:78 builder/src/field-panel.jsx:268
+#: blocks/conditional-panel.js:78 builder/src/field-panel.jsx:418
 msgid "Pattern"
 msgstr "النمط"
 
@@ -4829,7 +5427,7 @@ msgstr "النمط"
 msgid "A regular expression the value must match, e.g. ^[0-9]{5}$ for a 5-digit ZIP. Leave empty for no check."
 msgstr "تعبير نمطي (regular expression) يجب أن تطابقه القيمة، مثل ^[0-9]{5}$ لرمز بريدي من 5 أرقام. اتركه فارغًا لعدم التحقق."
 
-#: blocks/conditional-panel.js:86 builder/src/field-panel.jsx:276
+#: blocks/conditional-panel.js:86 builder/src/field-panel.jsx:426
 msgid "Error message"
 msgstr "رسالة الخطأ"
 
@@ -4837,7 +5435,7 @@ msgstr "رسالة الخطأ"
 msgid "Shown when the value doesn't match."
 msgstr "تظهر عندما لا تطابق القيمة."
 
-#: blocks/conditional-panel.js:94 builder/src/field-panel.jsx:391
+#: blocks/conditional-panel.js:94 builder/src/field-panel.jsx:545
 msgid "Conditional logic"
 msgstr "المنطق الشرطي"
 
@@ -4850,7 +5448,7 @@ msgid "Any rule matches"
 msgstr "تطابق أي قاعدة"
 
 #: blocks/conditional-rules.js:136 blocks/field-shared.js:88
-#: blocks/field-shared.js:229 builder/src/field-panel.jsx:220
+#: blocks/field-shared.js:229 builder/src/field-panel.jsx:370
 msgid "Field"
 msgstr "الحقل"
 
@@ -4911,16 +5509,17 @@ msgstr "الخيارات (خيار في كل سطر، التسمية | القي�
 msgid "Internal label"
 msgstr "التسمية الداخلية"
 
-#: blocks/field-consent/index.js:17 builder/src/field-preview.jsx:85
+#: blocks/field-consent/index.js:17 builder/src/field-panel.jsx:171
+#: builder/src/field-preview.jsx:85
 msgid "Consent text"
 msgstr "نص الموافقة"
 
 #: blocks/field-consent/index.js:18 blocks/field-shared.js:113
-#: builder/src/field-panel.jsx:242
+#: builder/src/field-panel.jsx:392
 msgid "Required"
 msgstr "مطلوب"
 
-#: blocks/field-file/index.js:17 builder/src/field-panel.jsx:88
+#: blocks/field-file/index.js:17 builder/src/field-panel.jsx:94
 msgid "Accepted extensions (.pdf, .png …)"
 msgstr "الامتدادات المقبولة (.pdf, .png …)"
 
@@ -4928,7 +5527,7 @@ msgstr "الامتدادات المقبولة (.pdf, .png …)"
 msgid "Allow multiple"
 msgstr "السماح بعدة ملفات"
 
-#: blocks/field-file/index.js:19 builder/src/field-panel.jsx:90
+#: blocks/field-file/index.js:19 builder/src/field-panel.jsx:96
 msgid "Max size (MB)"
 msgstr "الحجم الأقصى (MB)"
 
@@ -4937,12 +5536,13 @@ msgid "Hidden field"
 msgstr "حقل مخفي"
 
 #: blocks/field-hidden/index.js:17 blocks/field-shared.js:90
-#: builder/src/field-panel.jsx:223
+#: builder/src/field-panel.jsx:373
 msgid "Field ID"
 msgstr "معرّف الحقل (ID)"
 
 #: blocks/field-hidden/index.js:27 blocks/field-range/index.js:22
-#: blocks/field-shared.js:169 builder/src/field-panel.jsx:325
+#: blocks/field-shared.js:169 builder/src/field-panel.jsx:176
+#: builder/src/field-panel.jsx:475
 msgid "Default value"
 msgstr "القيمة الافتراضية"
 
@@ -4950,36 +5550,39 @@ msgstr "القيمة الافتراضية"
 msgid "HTML"
 msgstr "HTML"
 
-#: blocks/field-html/index.js:17
+#: blocks/field-html/index.js:17 builder/src/field-panel.jsx:175
 msgid "HTML markup"
 msgstr "شيفرة HTML"
 
-#: blocks/field-multiple-choice/index.js:10
+#: blocks/field-multiple-choice/index.js:10 builder/src/field-panel.jsx:155
+#: builder/src/field-panel.jsx:165
 msgid "Radio buttons (pick one)"
 msgstr "أزرار اختيار (اختيار واحد)"
 
-#: blocks/field-multiple-choice/index.js:11
+#: blocks/field-multiple-choice/index.js:11 builder/src/field-panel.jsx:156
 msgid "Checkboxes (pick several)"
 msgstr "مربعات اختيار (عدة اختيارات)"
 
-#: blocks/field-multiple-choice/index.js:12
+#: blocks/field-multiple-choice/index.js:12 builder/src/field-panel.jsx:157
+#: builder/src/field-panel.jsx:166
 msgid "Dropdown (pick one)"
 msgstr "قائمة منسدلة (اختيار واحد)"
 
-#: blocks/field-multiple-choice/index.js:13
+#: blocks/field-multiple-choice/index.js:13 builder/src/field-panel.jsx:158
 msgid "Dropdown (pick several)"
 msgstr "قائمة منسدلة (عدة اختيارات)"
 
-#: blocks/field-multiple-choice/index.js:45 builder/src/field-panel.jsx:64
-#: builder/src/field-panel.jsx:253
+#: blocks/field-multiple-choice/index.js:45 builder/src/field-panel.jsx:65
+#: builder/src/field-panel.jsx:403
 msgid "Choices"
 msgstr "الخيارات"
 
-#: blocks/field-multiple-choice/index.js:47
+#: blocks/field-multiple-choice/index.js:47 builder/src/field-panel.jsx:145
+#: builder/src/field-panel.jsx:152
 msgid "Show as"
 msgstr "العرض كـ"
 
-#: blocks/field-multiple-choice/index.js:48
+#: blocks/field-multiple-choice/index.js:48 builder/src/field-panel.jsx:153
 msgid "Switching style keeps your options — no need to delete the field and start again."
 msgstr "تغيير النمط يحتفظ بخياراتك، فلا داعي لحذف الحقل والبدء من جديد."
 
@@ -4987,19 +5590,22 @@ msgstr "تغيير النمط يحتفظ بخياراتك، فلا داعي لح
 msgid "Options"
 msgstr "الخيارات"
 
-#: blocks/field-multiple-choice/index.js:55 builder/src/field-panel.jsx:65
+#: blocks/field-multiple-choice/index.js:55 builder/src/field-panel.jsx:66
 msgid "One per line. Use \"Label | value\" to store a different value."
 msgstr "خيار في كل سطر. استخدم \"التسمية | القيمة\" لحفظ قيمة مختلفة."
 
 #: blocks/field-number/index.js:19 blocks/field-range/index.js:19
+#: builder/src/field-panel.jsx:177
 msgid "Min"
 msgstr "الأدنى"
 
 #: blocks/field-number/index.js:20 blocks/field-range/index.js:20
+#: builder/src/field-panel.jsx:178
 msgid "Max"
 msgstr "الأقصى"
 
 #: blocks/field-number/index.js:21 blocks/field-range/index.js:21
+#: builder/src/field-panel.jsx:179
 msgid "Step"
 msgstr "الخطوة"
 
@@ -5008,11 +5614,11 @@ msgstr "الخطوة"
 msgid "Page break"
 msgstr "فاصل صفحة"
 
-#: blocks/field-page-break/index.js:16
+#: blocks/field-page-break/index.js:16 builder/src/field-panel.jsx:172
 msgid "Next button text"
 msgstr "نص زر التالي"
 
-#: blocks/field-page-break/index.js:17
+#: blocks/field-page-break/index.js:17 builder/src/field-panel.jsx:173
 msgid "Back button text"
 msgstr "نص زر الرجوع"
 
@@ -5029,11 +5635,11 @@ msgid "The option value that scores points. Leave blank for non-quiz forms."
 msgstr "قيمة الخيار التي تحصد النقاط. اتركها فارغة في النماذج التي ليست اختبارات."
 
 #: blocks/field-radio/index.js:30 blocks/field-select/index.js:30
-#: builder/src/field-panel.jsx:111
+#: builder/src/field-panel.jsx:127
 msgid "Points"
 msgstr "النقاط"
 
-#: blocks/field-rating/index.js:18
+#: blocks/field-rating/index.js:18 builder/src/field-panel.jsx:260
 msgid "Stars"
 msgstr "النجوم"
 
@@ -5041,67 +5647,67 @@ msgstr "النجوم"
 msgid "Heading"
 msgstr "عنوان"
 
-#: blocks/field-section/index.js:17
+#: blocks/field-section/index.js:17 builder/src/field-panel.jsx:174
 msgid "Description"
 msgstr "الوصف"
 
-#: blocks/field-shared.js:91 builder/src/field-panel.jsx:224
+#: blocks/field-shared.js:91 builder/src/field-panel.jsx:374
 msgid "Used in merge tags and entry export."
 msgstr "يُستخدم في وسوم الدمج وفي تصدير الإدخالات."
 
-#: blocks/field-shared.js:96 builder/src/field-panel.jsx:20
+#: blocks/field-shared.js:96 builder/src/field-panel.jsx:21
 msgid "Label"
 msgstr "التسمية"
 
-#: blocks/field-shared.js:102 builder/src/field-panel.jsx:21
+#: blocks/field-shared.js:102 builder/src/field-panel.jsx:22
 msgid "Placeholder"
 msgstr "النص التوضيحي"
 
-#: blocks/field-shared.js:137 builder/src/field-panel.jsx:285
+#: blocks/field-shared.js:137 builder/src/field-panel.jsx:435
 msgid "Appearance"
 msgstr "المظهر"
 
-#: blocks/field-shared.js:139 builder/src/field-panel.jsx:289
+#: blocks/field-shared.js:139 builder/src/field-panel.jsx:439
 msgid "Field width"
 msgstr "عرض الحقل"
 
-#: blocks/field-shared.js:142 builder/src/field-panel.jsx:292
+#: blocks/field-shared.js:142 builder/src/field-panel.jsx:442
 msgid "Full width"
 msgstr "العرض الكامل"
 
-#: blocks/field-shared.js:143 builder/src/field-panel.jsx:293
+#: blocks/field-shared.js:143 builder/src/field-panel.jsx:443
 msgid "One half"
 msgstr "النصف"
 
-#: blocks/field-shared.js:144 builder/src/field-panel.jsx:294
+#: blocks/field-shared.js:144 builder/src/field-panel.jsx:444
 msgid "One third"
 msgstr "الثلث"
 
-#: blocks/field-shared.js:145 builder/src/field-panel.jsx:295
+#: blocks/field-shared.js:145 builder/src/field-panel.jsx:445
 msgid "One quarter"
 msgstr "الربع"
 
-#: blocks/field-shared.js:150 builder/src/field-panel.jsx:302
+#: blocks/field-shared.js:150 builder/src/field-panel.jsx:452
 msgid "Help text position"
 msgstr "موضع نص المساعدة"
 
-#: blocks/field-shared.js:153 builder/src/field-panel.jsx:305
+#: blocks/field-shared.js:153 builder/src/field-panel.jsx:455
 msgid "Use the form's setting"
 msgstr "استخدام إعداد النموذج"
 
-#: blocks/field-shared.js:160 builder/src/field-panel.jsx:313
+#: blocks/field-shared.js:160 builder/src/field-panel.jsx:463
 msgid "CSS class"
 msgstr "فئة CSS"
 
-#: blocks/field-shared.js:161 builder/src/field-panel.jsx:314
+#: blocks/field-shared.js:161 builder/src/field-panel.jsx:464
 msgid "Added to the field wrapper, for your own styling."
 msgstr "تُضاف إلى غلاف الحقل لتنسيقك الخاص."
 
-#: blocks/field-shared.js:167 builder/src/field-panel.jsx:322
+#: blocks/field-shared.js:167 builder/src/field-panel.jsx:472
 msgid "Advanced"
 msgstr "متقدّم"
 
-#: blocks/field-shared.js:174 builder/src/field-panel.jsx:331
+#: blocks/field-shared.js:174 builder/src/field-panel.jsx:481
 msgid "Admin label"
 msgstr "تسمية الإدارة"
 
@@ -5109,59 +5715,59 @@ msgstr "تسمية الإدارة"
 msgid "Shown instead of the label in entries and exports."
 msgstr "تظهر بدل التسمية في الإدخالات وملفات التصدير."
 
-#: blocks/field-shared.js:180 builder/src/field-panel.jsx:339
+#: blocks/field-shared.js:180 builder/src/field-panel.jsx:489
 msgid "Visible to"
 msgstr "مرئي لـ"
 
-#: blocks/field-shared.js:183 builder/src/field-panel.jsx:342
+#: blocks/field-shared.js:183 builder/src/field-panel.jsx:492
 msgid "Everyone"
 msgstr "الجميع"
 
-#: blocks/field-shared.js:184 builder/src/field-panel.jsx:343
+#: blocks/field-shared.js:184 builder/src/field-panel.jsx:493
 msgid "Logged-in users"
 msgstr "الأعضاء المسجّلون"
 
-#: blocks/field-shared.js:185 builder/src/field-panel.jsx:344
+#: blocks/field-shared.js:185 builder/src/field-panel.jsx:494
 msgid "Administrators only"
 msgstr "المديرون فقط"
 
-#: blocks/field-shared.js:190 builder/src/field-panel.jsx:351
+#: blocks/field-shared.js:190 builder/src/field-panel.jsx:501
 msgid "Allow this field to be pre-filled from the URL"
 msgstr "السماح بتعبئة هذا الحقل مسبقًا من الرابط"
 
-#: blocks/field-shared.js:191 builder/src/field-panel.jsx:352
+#: blocks/field-shared.js:191 builder/src/field-panel.jsx:502
 msgid "Off by default: a form whose every field can be set from a link is a form whose data you cannot trust."
 msgstr "معطّل افتراضيًا: النموذج الذي يمكن ضبط كل حقوله من رابط هو نموذج لا يمكنك الوثوق ببياناته."
 
-#: blocks/field-shared.js:197 builder/src/field-panel.jsx:359
+#: blocks/field-shared.js:197 builder/src/field-panel.jsx:509
 msgid "Parameter name"
 msgstr "اسم المُعامل"
 
-#: blocks/field-shared.js:198 builder/src/field-panel.jsx:360
+#: blocks/field-shared.js:198 builder/src/field-panel.jsx:510
 msgid "Defaults to the field ID. Also reads user_email, first_name, post_id and user_meta_<key>."
 msgstr "يكون افتراضيًا ID الحقل. ويقرأ أيضًا user_email و first_name و post_id و user_meta_<key>."
 
-#: blocks/field-shared.js:204 builder/src/field-panel.jsx:368
+#: blocks/field-shared.js:204 builder/src/field-panel.jsx:518
 msgid "No duplicates"
 msgstr "بلا تكرار"
 
-#: blocks/field-shared.js:205 builder/src/field-panel.jsx:369
+#: blocks/field-shared.js:205 builder/src/field-panel.jsx:519
 msgid "Refuse a submission if another entry on this form already has the same value."
 msgstr "رفض الإرسال إذا كان إدخال آخر في هذا النموذج يحمل القيمة نفسها."
 
-#: blocks/field-shared.js:210 builder/src/field-panel.jsx:375
+#: blocks/field-shared.js:210 builder/src/field-panel.jsx:525
 msgid "Custom error message"
 msgstr "رسالة خطأ مخصّصة"
 
-#: blocks/field-shared.js:215 builder/src/field-panel.jsx:382
+#: blocks/field-shared.js:215 builder/src/field-panel.jsx:532
 msgid "Autocomplete"
 msgstr "الإكمال التلقائي"
 
-#: blocks/field-shared.js:216 builder/src/field-panel.jsx:383
+#: blocks/field-shared.js:216 builder/src/field-panel.jsx:533
 msgid "The HTML autocomplete hint, e.g. email, given-name, organization."
 msgstr "تلميح autocomplete في HTML، مثل email و given-name و organization."
 
-#: blocks/field-textarea/index.js:16 builder/src/field-panel.jsx:99
+#: blocks/field-textarea/index.js:16 builder/src/field-panel.jsx:112
 msgid "Rows"
 msgstr "الصفوف"
 
@@ -5189,186 +5795,186 @@ msgstr "اختر نموذجًا من الشريط الجانبي لتضمينه.
 msgid "Could not load this form."
 msgstr "تعذّر تحميل هذا النموذج."
 
-#: builder/src/app.jsx:214
+#: builder/src/app.jsx:242
 msgid "new field"
 msgstr "حقل جديد"
 
-#: builder/src/app.jsx:217
+#: builder/src/app.jsx:245
 msgid "the end of the form"
 msgstr "نهاية النموذج"
 
-#: builder/src/app.jsx:222
+#: builder/src/app.jsx:250
 msgid "field"
 msgstr "حقل"
 
 #. translators: 1: position, 2: total number of fields.
-#: builder/src/app.jsx:233
+#: builder/src/app.jsx:261
 msgid "position %1$d of %2$d"
 msgstr "الموضع %1$d من %2$d"
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:238
+#: builder/src/app.jsx:266
 msgid "Picked up %s."
 msgstr "تم التقاط %s."
 
 #. translators: 1: dragged field label, 2: field it is over, 3: position text.
-#: builder/src/app.jsx:242
+#: builder/src/app.jsx:270
 msgid "%1$s is over %2$s, %3$s."
 msgstr "%1$s فوق %2$s، %3$s."
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:244
+#: builder/src/app.jsx:272
 msgid "%s is no longer over a drop position."
 msgstr "لم يعد %s فوق موضع إفلات."
 
 #. translators: 1: dragged field label, 2: target field label.
-#: builder/src/app.jsx:248
+#: builder/src/app.jsx:276
 msgid "%1$s was dropped at %2$s."
 msgstr "تم إفلات %1$s عند %2$s."
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:250
+#: builder/src/app.jsx:278
 msgid "%s was dropped outside the form; nothing changed."
 msgstr "تم إفلات %s خارج النموذج، ولم يتغيّر شيء."
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:253
+#: builder/src/app.jsx:281
 msgid "Moving %s was cancelled."
 msgstr "تم إلغاء نقل %s."
 
-#: builder/src/app.jsx:370
+#: builder/src/app.jsx:398
 msgid "Replace the current form with this template? Your unsaved changes will be lost."
 msgstr "هل تريد استبدال النموذج الحالي بهذا القالب؟ ستضيع تغييراتك غير المحفوظة."
 
-#: builder/src/app.jsx:414
+#: builder/src/app.jsx:442
 msgid "Form saved. It is published, so it shows wherever you embed it."
 msgstr "تم حفظ النموذج. إنه منشور، فيظهر في كل مكان تضمّنه فيه."
 
-#: builder/src/app.jsx:415
+#: builder/src/app.jsx:443
 msgid "Form saved as a draft. Visitors will not see it until you publish it."
 msgstr "تم حفظ النموذج كمسودة. لن يراه الزوّار حتى تنشره."
 
-#: builder/src/app.jsx:429
+#: builder/src/app.jsx:457
 msgid "Could not save this form."
 msgstr "تعذّر حفظ هذا النموذج."
 
-#: builder/src/app.jsx:449 builder/src/app.jsx:450
+#: builder/src/app.jsx:477 builder/src/app.jsx:478
 msgid "Form title"
 msgstr "عنوان النموذج"
 
-#: builder/src/app.jsx:459
+#: builder/src/app.jsx:487
 msgid "Undo"
 msgstr "تراجع"
 
-#: builder/src/app.jsx:460
+#: builder/src/app.jsx:488
 msgid "Ctrl+Z"
 msgstr "Ctrl+Z"
 
-#: builder/src/app.jsx:466
+#: builder/src/app.jsx:494
 msgid "Redo"
 msgstr "إعادة"
 
-#: builder/src/app.jsx:467
+#: builder/src/app.jsx:495
 msgid "Ctrl+Shift+Z"
 msgstr "Ctrl+Shift+Z"
 
-#: builder/src/app.jsx:479
+#: builder/src/app.jsx:507
 msgid "Submit button text, and what visitors see after they submit"
 msgstr "نص زر الإرسال، وما يراه الزوّار بعد الإرسال"
 
-#: builder/src/app.jsx:502
+#: builder/src/app.jsx:530
 msgid "Copy the shortcode that puts this form on a page or post"
 msgstr "انسخ الرمز القصير (shortcode) الذي يضع هذا النموذج في صفحة أو مقالة"
 
-#: builder/src/app.jsx:505
+#: builder/src/app.jsx:533
 msgid "Copied"
 msgstr "تم النسخ"
 
-#: builder/src/app.jsx:506
+#: builder/src/app.jsx:534
 msgid "Press Ctrl+C to copy"
 msgstr "اضغط Ctrl+C للنسخ"
 
-#: builder/src/app.jsx:509
+#: builder/src/app.jsx:537
 msgid "Copy shortcode"
 msgstr "نسخ الرمز القصير"
 
-#: builder/src/app.jsx:517
+#: builder/src/app.jsx:545
 msgid "Make a draft page holding this form and open it. Save your changes first."
 msgstr "أنشئ صفحة مسودة تحتوي هذا النموذج وافتحها. احفظ تغييراتك أولًا."
 
-#: builder/src/app.jsx:530
+#: builder/src/app.jsx:558
 msgid "Set up the emails sent when this form is submitted"
 msgstr "إعداد رسائل البريد التي تُرسل عند إرسال هذا النموذج"
 
-#: builder/src/app.jsx:538
+#: builder/src/app.jsx:566
 msgid "Open in block editor"
 msgstr "فتح في محرر المكوّنات"
 
-#: builder/src/app.jsx:545
+#: builder/src/app.jsx:573
 msgid "Describe your form and let AI draft the fields (opens the block editor)"
 msgstr "صِف نموذجك ودع الذكاء الاصطناعي يكتب مسودة الحقول (يفتح محرر المكوّنات)"
 
-#: builder/src/app.jsx:548
+#: builder/src/app.jsx:576
 msgid "Draft with AI"
 msgstr "مسودة بالذكاء الاصطناعي"
 
-#: builder/src/app.jsx:553
+#: builder/src/app.jsx:582
 msgid "Form status"
 msgstr "حالة النموذج"
 
-#: builder/src/app.jsx:560
+#: builder/src/app.jsx:589
 msgid "Draft"
 msgstr "مسودة"
 
-#: builder/src/app.jsx:562
+#: builder/src/app.jsx:591
 msgid "Published"
 msgstr "منشور"
 
-#: builder/src/app.jsx:566
+#: builder/src/app.jsx:595
 msgid "Save form"
 msgstr "حفظ النموذج"
 
-#: builder/src/app.jsx:574
+#: builder/src/app.jsx:603
 msgid "This form was saved in a format the builder can't open, so its fields don't show here. It still works on your site, and saving is turned off so nothing gets overwritten."
 msgstr "حُفظ هذا النموذج بصيغة لا يستطيع المنشئ فتحها، لذا لا تظهر حقوله هنا. ما زال يعمل على موقعك، والحفظ معطّل حتى لا يُستبدل شيء."
 
-#: builder/src/app.jsx:585
+#: builder/src/app.jsx:614
 msgid "This form changed somewhere else, most likely in the block editor in another tab. Your edits here have not been saved, and saving now would overwrite that change."
 msgstr "تغيّر هذا النموذج في مكان آخر، غالبًا في محرر المكوّنات في تبويب آخر. لم تُحفظ تعديلاتك هنا، والحفظ الآن سيستبدل ذلك التغيير."
 
-#: builder/src/app.jsx:591
+#: builder/src/app.jsx:620
 msgid "Reload the form"
 msgstr "إعادة تحميل النموذج"
 
-#: builder/src/app.jsx:604
+#: builder/src/app.jsx:633
 msgid "Form settings"
 msgstr "إعدادات النموذج"
 
-#: builder/src/app.jsx:653
+#: builder/src/app.jsx:682
 msgid "These are saved with the form when you press Save form."
 msgstr "تُحفظ هذه مع النموذج عند الضغط على حفظ النموذج."
 
-#: builder/src/app.jsx:683
+#: builder/src/app.jsx:712
 msgid "fields"
 msgstr "حقول"
 
-#: builder/src/app.jsx:704
+#: builder/src/app.jsx:733
 msgid "Add a field"
 msgstr "إضافة حقل"
 
-#: builder/src/app.jsx:706
+#: builder/src/app.jsx:735
 msgid "Click to append, or drag onto the canvas to place."
 msgstr "انقر للإضافة في النهاية، أو اسحب إلى اللوحة لوضعه."
 
-#: builder/src/app.jsx:713
+#: builder/src/app.jsx:742
 msgid "Pro fields"
 msgstr "حقول Pro"
 
-#: builder/src/app.jsx:715
+#: builder/src/app.jsx:744
 msgid "Activate your Pro license to add these."
 msgstr "فعّل ترخيص Pro لإضافة هذه الحقول."
 
-#: builder/src/app.jsx:727
+#: builder/src/app.jsx:756
 msgid "Requires an active Pro license"
 msgstr "يتطلب ترخيص Pro نشطًا"
 
@@ -5404,99 +6010,265 @@ msgstr "نقل %s للأسفل"
 msgid "Remove %s"
 msgstr "إزالة %s"
 
-#: builder/src/field-panel.jsx:89
+#: builder/src/field-panel.jsx:95
 msgid "Allow multiple files"
 msgstr "السماح بعدة ملفات"
 
-#: builder/src/field-panel.jsx:91
+#: builder/src/field-panel.jsx:97
 msgid "Formula"
 msgstr "المعادلة"
 
-#: builder/src/field-panel.jsx:91
-msgid "Use field ids in braces, e.g. {quantity} * 12.50"
-msgstr "استخدم معرّفات الحقول بين أقواس معقوصة، مثل {quantity} * 12.50"
+#: builder/src/field-panel.jsx:97
+msgid "Use field ids in braces, e.g. {quantity} * 12.50. For a repeater column: sum({items.price}), avg({items.price}), min, max, and count({items}) for the number of rows."
+msgstr "استخدم معرّفات الحقول بين أقواس معقوفة، مثل {quantity} * 12.50. لعمود في حقل مكرر: sum({items.price}) و avg({items.price}) و min و max، و count({items}) لعدد الصفوف."
 
-#: builder/src/field-panel.jsx:92
+#: builder/src/field-panel.jsx:98
 msgid "Prefix"
 msgstr "البادئة"
 
-#: builder/src/field-panel.jsx:93
+#: builder/src/field-panel.jsx:99
 msgid "Suffix"
 msgstr "اللاحقة"
 
-#: builder/src/field-panel.jsx:94
+#: builder/src/field-panel.jsx:100
 msgid "Decimal places"
 msgstr "المنازل العشرية"
 
-#: builder/src/field-panel.jsx:96
+#: builder/src/field-panel.jsx:102
 msgid "Fills in"
 msgstr "يملأ"
 
-#: builder/src/field-panel.jsx:100
+#: builder/src/field-panel.jsx:105
+msgid "Post body"
+msgstr "نص المقالة"
+
+#: builder/src/field-panel.jsx:106
+msgid "Post excerpt"
+msgstr "مقتطف المقالة"
+
+#: builder/src/field-panel.jsx:107
+msgid "Post tags"
+msgstr "وسوم المقالة"
+
+#: builder/src/field-panel.jsx:108
+msgid "Post category"
+msgstr "تصنيف المقالة"
+
+#: builder/src/field-panel.jsx:109
+msgid "Custom field"
+msgstr "حقل مخصّص"
+
+#: builder/src/field-panel.jsx:113
 msgid "Data (CSV)"
 msgstr "البيانات (CSV)"
 
-#: builder/src/field-panel.jsx:100
+#: builder/src/field-panel.jsx:113
 msgid "First line names the levels (e.g. Country,State); each further line is one path."
 msgstr "السطر الأول يسمّي المستويات (مثل Country,State)، وكل سطر بعده مسار واحد."
 
-#: builder/src/field-panel.jsx:102
+#: builder/src/field-panel.jsx:115
 msgid "Amount mode"
 msgstr "طريقة المبلغ"
 
-#: builder/src/field-panel.jsx:105
+#: builder/src/field-panel.jsx:117
+msgid "Fixed"
+msgstr "ثابت"
+
+#: builder/src/field-panel.jsx:118
+msgid "From a field"
+msgstr "من حقل"
+
+#: builder/src/field-panel.jsx:121
 msgid "Amount"
 msgstr "المبلغ"
 
-#: builder/src/field-panel.jsx:106
+#: builder/src/field-panel.jsx:122
 msgid "Amount from field (id)"
 msgstr "المبلغ من حقل (ID)"
 
-#: builder/src/field-panel.jsx:107
+#: builder/src/field-panel.jsx:123
 msgid "Currency"
 msgstr "العملة"
 
-#: builder/src/field-panel.jsx:108
+#: builder/src/field-panel.jsx:124
 msgid "Add button text"
 msgstr "نص زر الإضافة"
 
-#: builder/src/field-panel.jsx:109
+#: builder/src/field-panel.jsx:125
 msgid "Sub-field schema (JSON array)"
 msgstr "مخطط الحقول الفرعية (مصفوفة JSON)"
 
-#: builder/src/field-panel.jsx:109
+#: builder/src/field-panel.jsx:125
 msgid "e.g. [{\"id\":\"name\",\"type\":\"text\",\"label\":\"Name\"}]. Left empty, one \"Item\" column is shown."
 msgstr "مثال: [{\"id\":\"name\",\"type\":\"text\",\"label\":\"Name\"}]. إذا تُرك فارغًا يظهر عمود واحد باسم \"عنصر\"."
 
-#: builder/src/field-panel.jsx:110
+#: builder/src/field-panel.jsx:126
 msgid "Correct answer value (quiz)"
 msgstr "قيمة الإجابة الصحيحة (اختبار)"
 
-#: builder/src/field-panel.jsx:112
+#: builder/src/field-panel.jsx:128
 msgid "Check it is a full phone number (7 to 15 digits, + allowed)"
 msgstr "التحقق من أنه رقم هاتف كامل (من 7 إلى 15 رقمًا، ويُسمح بـ +)"
 
+#: builder/src/field-panel.jsx:129
+msgid "Statements (one per line)"
+msgstr "العبارات (واحدة في كل سطر)"
+
+#: builder/src/field-panel.jsx:130
+msgid "Label under 0"
+msgstr "التسمية تحت 0"
+
+#: builder/src/field-panel.jsx:131
+msgid "Label under 10"
+msgstr "التسمية تحت 10"
+
+#: builder/src/field-panel.jsx:132
+msgid "Open days (1 = Monday ... 7 = Sunday)"
+msgstr "أيام العمل (1 = الاثنين ... 7 = الأحد)"
+
+#: builder/src/field-panel.jsx:133
+msgid "Opens at (HH:MM)"
+msgstr "يفتح الساعة (HH:MM)"
+
+#: builder/src/field-panel.jsx:134
+msgid "Closes at (HH:MM)"
+msgstr "يغلق الساعة (HH:MM)"
+
+#: builder/src/field-panel.jsx:135
+msgid "Slot length (minutes)"
+msgstr "مدة الموعد (بالدقائق)"
+
+#: builder/src/field-panel.jsx:136
+msgid "Break between slots (minutes)"
+msgstr "استراحة بين المواعيد (بالدقائق)"
+
 #: builder/src/field-panel.jsx:137
+msgid "People per slot"
+msgstr "عدد الأشخاص في كل موعد"
+
+#: builder/src/field-panel.jsx:138
+msgid "Days ahead people can book"
+msgstr "عدد الأيام المتاحة للحجز مسبقًا"
+
+#: builder/src/field-panel.jsx:139
+msgid "Minimum notice (hours)"
+msgstr "أقل مدة إشعار مسبق (بالساعات)"
+
+#: builder/src/field-panel.jsx:140
+msgid "Closed dates (one per line, YYYY-MM-DD or YYYY-MM-DD..YYYY-MM-DD)"
+msgstr "تواريخ الإغلاق (واحد في كل سطر، YYYY-MM-DD أو YYYY-MM-DD..YYYY-MM-DD)"
+
+#: builder/src/field-panel.jsx:141
+msgid "Attach a calendar file (.ics) to emails"
+msgstr "إرفاق ملف تقويم (.ics) بالرسائل"
+
+#: builder/src/field-panel.jsx:142
+msgid "Take answers from form (form ID)"
+msgstr "خذ الإجابات من النموذج (معرّف النموذج)"
+
+#: builder/src/field-panel.jsx:142
+msgid "The number in the form's shortcode, e.g. 12 in [trinity-forms id=\"12\"]."
+msgstr "الرقم في الرمز المختصر للنموذج، مثل 12 في [trinity-forms id=\"12\"]."
+
+#: builder/src/field-panel.jsx:143
+msgid "Field in that form"
+msgstr "الحقل في ذلك النموذج"
+
+#: builder/src/field-panel.jsx:147
+msgid "Dropdown of the answers"
+msgstr "قائمة منسدلة بالإجابات"
+
+#: builder/src/field-panel.jsx:148
+msgid "Text box filled with the person's latest answer"
+msgstr "مربع نص بآخر إجابة للشخص"
+
+#: builder/src/field-panel.jsx:162
+msgid "Product type"
+msgstr "نوع المنتج"
+
+#: builder/src/field-panel.jsx:164
+msgid "Single item at a fixed price"
+msgstr "عنصر واحد بسعر ثابت"
+
+#: builder/src/field-panel.jsx:170
+msgid "Product (field ID)"
+msgstr "المنتج (ID الحقل)"
+
+#: builder/src/field-panel.jsx:180
+msgid "Minimum length"
+msgstr "الحد الأدنى للطول"
+
+#: builder/src/field-panel.jsx:181
+msgid "Maximum length"
+msgstr "الحد الأقصى للطول"
+
+#: builder/src/field-panel.jsx:182
+msgid "Maximum rows"
+msgstr "الحد الأقصى للصفوف"
+
+#: builder/src/field-panel.jsx:183
+msgid "Maximum choices"
+msgstr "الحد الأقصى للاختيارات"
+
+#: builder/src/field-panel.jsx:185
+msgid "Only the logged-in person's own entries"
+msgstr "إدخالات الشخص المسجّل دخوله فقط"
+
+#: builder/src/field-panel.jsx:185
+msgid "Off: every visitor sees the answers from all entries in the dropdown, so email, phone and name fields can't be used."
+msgstr "عند الإيقاف: يرى كل زائر في القائمة المنسدلة إجابات كل الإدخالات، لذلك لا يمكن استخدام حقول البريد الإلكتروني والهاتف والاسم."
+
+#: builder/src/field-panel.jsx:208
+msgid "Email, phone and name fields are listed only when \"Only the logged-in person's own entries\" is on."
+msgstr "لا تظهر حقول البريد الإلكتروني والهاتف والاسم إلا عند تشغيل \"إدخالات الشخص المسجّل دخوله فقط\"."
+
+#: builder/src/field-panel.jsx:219
+msgid "The saved field can't be used here, so the dropdown stays empty. Pick another field or turn on \"Only the logged-in person's own entries\"."
+msgstr "لا يمكن استخدام الحقل المحفوظ هنا، لذلك تبقى القائمة المنسدلة فارغة. اختر حقلًا آخر أو شغّل \"إدخالات الشخص المسجّل دخوله فقط\"."
+
+#: builder/src/field-panel.jsx:249
 msgid "Field settings"
 msgstr "إعدادات الحقل"
 
-#: builder/src/field-panel.jsx:146
+#: builder/src/field-panel.jsx:258
 msgid "Allow multiple selections"
 msgstr "السماح بعدة اختيارات"
 
-#: builder/src/field-panel.jsx:208
+#: builder/src/field-panel.jsx:335
+msgid "Used by"
+msgstr "مستخدم في"
+
+#. translators: %s: field label
+#: builder/src/field-panel.jsx:341
+msgid "%s (calculation)"
+msgstr "%s (حساب)"
+
+#. translators: %s: field label
+#: builder/src/field-panel.jsx:342
+msgid "%s (show / hide rule)"
+msgstr "%s (قاعدة إظهار / إخفاء)"
+
+#: builder/src/field-panel.jsx:347
+msgid "No other field uses this one in a rule or a calculation."
+msgstr "لا يستخدم أي حقل آخر هذا الحقل في قاعدة أو حساب."
+
+#: builder/src/field-panel.jsx:349
+msgid "Changing this field's ID or choices can break these."
+msgstr "تغيير معرّف هذا الحقل أو خياراته قد يعطّلها."
+
+#: builder/src/field-panel.jsx:358
 msgid "Select a field to edit its settings."
 msgstr "اختر حقلًا لتحرير إعداداته."
 
-#: builder/src/field-panel.jsx:269
+#: builder/src/field-panel.jsx:419
 msgid "A regular expression the value must match. Leave empty for no check."
 msgstr "تعبير نمطي (regular expression) يجب أن تطابقه القيمة. اتركه فارغًا لعدم التحقق."
 
-#: builder/src/field-panel.jsx:332
+#: builder/src/field-panel.jsx:482
 msgid "Shown instead of the label in entries and exports. Useful when the public label is a long question."
 msgstr "تظهر بدل التسمية في الإدخالات وملفات التصدير. مفيدة عندما تكون التسمية العامة سؤالًا طويلًا."
 
-#: builder/src/field-panel.jsx:376
+#: builder/src/field-panel.jsx:526
 msgid "Replaces the built-in \"this field is required\" wording."
 msgstr "تحل محل العبارة المدمجة \"هذا الحقل مطلوب\"."
 
@@ -5554,8 +6326,24 @@ msgid "Signature pad"
 msgstr "لوحة التوقيع"
 
 #: builder/src/field-preview.jsx:212
+msgid "Answers from another form"
+msgstr "إجابات من نموذج آخر"
+
+#: builder/src/field-preview.jsx:215
+msgid "Date, then a free time slot"
+msgstr "التاريخ، ثم موعد متاح"
+
+#: builder/src/field-preview.jsx:218
 msgid "Repeatable group"
 msgstr "مجموعة قابلة للتكرار"
+
+#: builder/src/field-preview.jsx:221
+msgid "Rating grid: one row per statement"
+msgstr "جدول تقييم: صف لكل عبارة"
+
+#: builder/src/field-preview.jsx:227
+msgid "Choices to put in order"
+msgstr "خيارات لترتيبها"
 
 #: builder/src/opaque-card.jsx:15
 msgid "Advanced block"

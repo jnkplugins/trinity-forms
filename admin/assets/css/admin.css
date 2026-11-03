@@ -392,3 +392,25 @@ body.tf-ui-list #screen-meta { margin: 0 28px 0 8px; max-width: 1280px; }
 .jnkui .tf-onboarding .jnkui-steps .jnkui-muted { display: block; font-size: 13px; margin-top: 2px; }
 .jnkui .tf-onboarding .jnkui-steps li.is-done strong { color: var(--jnk-mute); text-decoration: line-through; }
 .jnkui .tf-onboarding-action { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+
+/* Entries > Export panel (TF-17): format and column chooser in a drop-down. */
+.tf-export { position: relative; display: inline-block; }
+.tf-export > summary { list-style: none; cursor: pointer; }
+.tf-export > summary::-webkit-details-marker { display: none; }
+.tf-export-panel {
+    position: absolute; inset-inline-end: 0; inset-block-start: calc(100% + 6px); z-index: 50;
+    inline-size: min(22rem, calc(100vw - 2rem)); max-block-size: 70vh; overflow: auto;
+    padding: 1rem; background: var(--jnk-card, #fff); color: var(--jnk-ink, #1d2327);
+    border: 1px solid var(--jnk-line, #dcdcde); border-radius: 8px; box-shadow: var(--jnk-shadow-lg, 0 8px 24px rgba(0,0,0,.15));
+    text-align: start;
+}
+.tf-export-panel fieldset { border: 0; margin: 0 0 .85rem; padding: 0; }
+.tf-export-panel legend { font-weight: 600; margin-block-end: .35rem; padding: 0; }
+.tf-export-panel fieldset > label { margin-inline-end: 1rem; }
+.tf-export-cols { margin: 0; padding: 0; list-style: none; }
+.tf-export-cols li { display: flex; align-items: center; gap: .35rem; padding: .2rem 0; border-block-end: 1px solid var(--jnk-line-2, #f0f0f1); }
+.tf-export-cols li label { flex: 1; min-inline-size: 0; overflow-wrap: anywhere; }
+.tf-export-move { min-inline-size: 1.75rem; min-block-size: 1.75rem; text-decoration: none; }
+@media (max-width: 600px) {
+    .tf-export-panel { position: fixed; inset-inline: 1rem; inset-block-start: 4rem; inline-size: auto; }
+}

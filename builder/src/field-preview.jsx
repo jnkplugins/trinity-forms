@@ -208,8 +208,23 @@ export default function FieldPreview( { block, schema } ) {
 				</div>
 			);
 
+		case 'lookup':
+			return <div className="tf-preview__signature">{ __( 'Answers from another form', 'trinity-forms' ) }</div>;
+
+		case 'booking':
+			return <div className="tf-preview__signature">{ __( 'Date, then a free time slot', 'trinity-forms' ) }</div>;
+
 		case 'repeater':
 			return <div className="tf-preview__signature">{ __( 'Repeatable group', 'trinity-forms' ) }</div>;
+
+		case 'likert':
+			return <div className="tf-preview__signature">{ __( 'Rating grid: one row per statement', 'trinity-forms' ) }</div>;
+
+		case 'nps':
+			return <div className="tf-preview__signature">0 1 2 3 4 5 6 7 8 9 10</div>;
+
+		case 'ranking':
+			return <div className="tf-preview__signature">{ __( 'Choices to put in order', 'trinity-forms' ) }</div>;
 
 		case 'email':
 			return <input className="tf-preview__control" type="email" disabled placeholder={ placeholder || 'you@example.com' } />;

@@ -21,6 +21,8 @@ class Admin_UI {
     /** Screens drawn with the kit, by ?page= slug. */
     private const PAGES = [
         "trinity-forms-builder"      => "forms",
+        "trinity-forms-revisions"    => "forms",
+        "trinity-forms-qr"           => "forms",
         "trinity-forms-templates"    => "templates",
         "trinity-forms-entries"      => "entries",
         "trinity-forms-results"      => "results",

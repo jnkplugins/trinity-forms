@@ -9,6 +9,9 @@ class Field_Radio extends Field_Base {
         $name    = esc_attr( $this->attr_name( $config ) );
         $current = (string) ( $value ?? "" );
         $items   = "";
+        // `required` on every radio of a group means "pick one", so the browser
+        // checks it and a screen reader says "required" on the group's options.
+        $req     = ! empty( $config["required"] ) ? " required" : "";
         foreach ( ( $config["options"] ?? [] ) as $i => $opt ) {
             $opt_value = (string) ( $opt["value"] ?? $opt["label"] ?? "" );
             $opt_label = (string) ( $opt["label"] ?? $opt_value );
@@ -18,7 +21,7 @@ class Field_Radio extends Field_Base {
             // "note" is extra text after the label, such as "3 left".
             $off       = ! empty( $opt["disabled"] );
             $note      = (string) ( $opt["note"] ?? "" );
-            $items    .= '<label class="trinity-forms-radio' . ( $off ? " is-disabled" : "" ) . '"><input type="radio" id="' . $oid . '" name="' . $name . '" value="' . esc_attr( $opt_value ) . '"' . ( $off ? "" : $checked ) . ( $off ? " disabled" : "" ) . ' /> ' . esc_html( $opt_label )
+            $items    .= '<label class="trinity-forms-radio' . ( $off ? " is-disabled" : "" ) . '"><input type="radio" id="' . $oid . '" name="' . $name . '" value="' . esc_attr( $opt_value ) . '"' . ( $off ? "" : $checked ) . ( $off ? " disabled" : $req ) . ' /> ' . esc_html( $opt_label )
                 . ( "" !== $note ? ' <span class="trinity-forms-option-note">' . esc_html( $note ) . "</span>" : "" ) . '</label>';
         }
         return $this->wrap( $config, '<div class="trinity-forms-radio-group">' . $items . '</div>' );

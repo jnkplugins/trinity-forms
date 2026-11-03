@@ -23,9 +23,13 @@ class Field_Product extends Field_Pricing_Base {
             $price = $this->price_of( $config );
             // A hidden input, because there is nothing to choose — the field exists
             // to put a fixed line item on the order.
-            $control  = '<input type="hidden" id="' . $id . '" name="' . $name . '" value="single" />';
-            $control .= '<p class="trinity-forms-price" data-price="' . esc_attr( (string) $price ) . '">'
-                . esc_html( $this->format_price( $price ) ) . "</p>";
+            // A "note" (Pro stock: "sold out", "3 left") follows the price; a sold-out
+            // product posts nothing, so it adds nothing to the order.
+            $note     = (string) ( $config["note"] ?? "" );
+            $control  = ! empty( $config["disabled"] ) ? "" : '<input type="hidden" id="' . $id . '" name="' . $name . '" value="single" />';
+            $control .= '<p class="trinity-forms-price" data-price="' . esc_attr( (string) ( ! empty( $config["disabled"] ) ? 0 : $price ) ) . '">'
+                . "<bdi>" . esc_html( $this->format_price( $price ) ) . "</bdi>"
+                . ( "" !== $note ? ' <span class="trinity-forms-option-note">' . esc_html( $note ) . "</span>" : "" ) . "</p>";
             return $this->wrap( $config, $control );
         }
 
@@ -36,16 +40,22 @@ class Field_Product extends Field_Pricing_Base {
             $label = (string) ( $opt["label"] ?? $key );
             $price = $this->price_of( (array) $opt );
             $shown = $label . " — " . $this->format_price( $price );
+            // Shown but not pickable when disabled (Pro stock: sold out); "note" after it.
+            $off   = ! empty( $opt["disabled"] );
+            $note  = (string) ( $opt["note"] ?? "" );
+            if ( "" !== $note ) {
+                $shown .= " (" . $note . ")";
+            }
 
             if ( "select" === $mode ) {
-                $options .= '<option value="' . esc_attr( $key ) . '"' . selected( $current, $key, false )
+                $options .= '<option value="' . esc_attr( $key ) . '"' . ( $off ? " disabled" : selected( $current, $key, false ) )
                     . ' data-price="' . esc_attr( (string) $price ) . '">' . esc_html( $shown ) . "</option>";
             } else {
                 $input_id = $id . "_" . (int) $i;
                 $radios  .= '<label class="trinity-forms-radio" for="' . esc_attr( $input_id ) . '">'
                     . '<input type="radio" id="' . esc_attr( $input_id ) . '" name="' . $name . '"'
-                    . ' value="' . esc_attr( $key ) . '"' . checked( $current, $key, false )
-                    . ' data-price="' . esc_attr( (string) $price ) . '"' . $required . " />"
+                    . ' value="' . esc_attr( $key ) . '"' . ( $off ? " disabled" : checked( $current, $key, false ) . $required )
+                    . ' data-price="' . esc_attr( (string) $price ) . '" />'
                     . "<span>" . esc_html( $shown ) . "</span></label>";
             }
         }

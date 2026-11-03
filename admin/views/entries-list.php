@@ -8,6 +8,7 @@ use TrinityForms\Entries;
 use TrinityForms\Dates;
 use TrinityForms\Admin_UI;
 use TrinityForms\Form_Manager;
+use TrinityForms\Export_Columns;
 
 $entry_id = isset( $_GET["entry"] ) ? absint( wp_unslash( $_GET["entry"] ) ) : 0;
 if ( $entry_id > 0 ) {
@@ -125,16 +126,8 @@ $in_spam  = "spam" === $view;
 // checkbox, star, Entry (who sent it), Form, Submitted, Status (+ Payment when shown).
 $col_span = 6 + ( $show_payment ? 1 : 0 ) + count( $chosen_columns );
 
-// Export honours the filters you are looking at: exporting something other than
-// what is on screen is the classic way to lose trust in an export.
-$export_url = add_query_arg( array_filter( [
-    "form_id"  => $form_filter ?: null,
-    "view"     => "all" !== $view ? $view : null,
-    "s"        => $search ?: null,
-    "from"     => $date_from ?: null,
-    "to"       => $date_to ?: null,
-    "_wpnonce" => wp_create_nonce( "wp_rest" ),
-] ), rest_url( "trinity-forms/v1/submissions/export.csv" ) );
+// The Export panel (Export_Columns::panel) honours the filters you are looking at:
+// exporting something other than what is on screen is the classic way to lose trust.
 
 $tf_date_format = (string) get_option( "date_format", "M j, Y" );
 $tf_time_format = (string) get_option( "time_format", "g:i a" );
@@ -142,7 +135,8 @@ $tf_time_format = (string) get_option( "time_format", "g:i a" );
 Admin_UI::open(
     __( "Entries", "trinity-forms" ),
     __( "Everything people have sent through your forms. Open one to read it, reply or add a note.", "trinity-forms" ),
-    $titles_by_id ? '<a class="button" href="' . esc_url( $export_url ) . '">' . esc_html__( "Export CSV", "trinity-forms" ) . "</a>" : ""
+    // Export panel: CSV or Excel, and for one form which columns in which order (TF-17).
+    $titles_by_id ? Export_Columns::panel( [ "form_id" => $form_filter, "view" => $view, "s" => $search, "from" => $date_from, "to" => $date_to ] ) : ""
 );
 ?>
 
@@ -323,6 +317,7 @@ Admin_UI::open(
                         <option value="resend"><?php esc_html_e( "Resend notifications", "trinity-forms" ); ?></option>
                         <option value="print"><?php esc_html_e( "Print", "trinity-forms" ); ?></option>
                         <option value="export"><?php esc_html_e( "Export selected to CSV", "trinity-forms" ); ?></option>
+                        <option value="export_xlsx"><?php esc_html_e( "Export selected to Excel", "trinity-forms" ); ?></option>
                         <option value="spam"><?php esc_html_e( "Mark as spam", "trinity-forms" ); ?></option>
                         <option value="trash"><?php esc_html_e( "Move to trash", "trinity-forms" ); ?></option>
                         <?php foreach ( (array) apply_filters( "trinity_forms_entry_bulk_actions", [] ) as $tf_bulk_key => $tf_bulk_label ) : ?>

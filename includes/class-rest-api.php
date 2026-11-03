@@ -69,14 +69,21 @@ class REST_API {
             ],
         ] );
 
-        register_rest_route( self::NS, "/submissions/export.csv", [
-            "methods"             => "GET",
-            "callback"            => [ $this, "export_submissions" ],
-            // The Export button is a plain <a href> GET that passes the nonce as a
-            // ?_wpnonce= query param (no X-WP-Nonce header), so use the param-aware
-            // capability check here.
-            "permission_callback" => [ $this, "can_manage_param" ],
-        ] );
+        // export.csv is the old address (bookmarks, scripts); both take ?format=xlsx
+        // and ?cols[]= since TF-17.
+        foreach ( [ "/submissions/export.csv", "/submissions/export" ] as $route ) {
+            register_rest_route( self::NS, $route, [
+                "methods"             => "GET",
+                "callback"            => [ $this, "export_submissions" ],
+                // The Export button is a plain GET that passes the nonce as a
+                // ?_wpnonce= query param (no X-WP-Nonce header), so use the
+                // param-aware capability check here.
+                "permission_callback" => [ $this, "can_manage_param" ],
+            ] );
+        }
+
+        // Entry notes and integration feeds (TF-32): reads here, writes from pro/.
+        REST_Resources::register( self::NS );
     }
 
     public function can_manage( \WP_REST_Request $request ): bool {
@@ -84,6 +91,12 @@ class REST_API {
         // PII) requires an administrator-level capability, not just post-editing.
         if ( ! current_user_can( "manage_options" ) ) {
             return false;
+        }
+        // A script signed in with an application password (Users > Profile) has no
+        // cookie and so no nonce; WordPress only accepts that password over HTTPS
+        // and never from a browser cookie, so CSRF does not apply to it.
+        if ( function_exists( "rest_get_authenticated_app_password" ) && rest_get_authenticated_app_password() ) {
+            return true;
         }
         // Accept the wp_rest nonce from either the X-WP-Nonce header or the
         // _wpnonce query param (the latter for plain GET <a href> links).
@@ -163,6 +176,12 @@ class REST_API {
         $partial_token = (string) $request->get_param( "partial_token" );
         if ( "" !== $partial_token ) {
             $payload["partial_token"] = $partial_token;
+        }
+
+        // Campaign source (TF-31): the browser's JSON, cleaned by Campaign::clean().
+        $campaign = $request->get_param( Campaign::INPUT );
+        if ( is_string( $campaign ) && "" !== $campaign ) {
+            $payload[ Campaign::INPUT ] = substr( $campaign, 0, 4000 );
         }
 
         $resume_token = (string) $request->get_param( "_trinity_forms_resume_token" );
@@ -547,8 +566,10 @@ class REST_API {
 
         // Building and streaming both live on Entries so the "export selected" bulk
         // action on the entries screen produces a byte-identical file.
-        $ids = \TrinityForms\Entries::ids( $args );
-        \TrinityForms\Entries::send_csv( \TrinityForms\Entries::to_csv( $ids ) );
+        $ids     = \TrinityForms\Entries::ids( $args );
+        $format  = "xlsx" === $request->get_param( "format" ) ? "xlsx" : "csv";
+        $columns = \TrinityForms\Export_Columns::from_request( (array) $request->get_param( "cols" ), (int) $args["form_id"] );
+        \TrinityForms\Entries::send_export( $ids, $format, $columns );
     }
 
 

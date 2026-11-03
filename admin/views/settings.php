@@ -196,6 +196,15 @@ $secret_attr = static function ( string $stored ): string {
 
         <h2><?php esc_html_e( "Data", "trinity-forms" ); ?></h2>
         <table class="form-table">
+            <tr><th scope="row"><?php esc_html_e( "Visitor IP addresses", "trinity-forms" ); ?></th>
+                <td>
+                    <label>
+                        <input type="hidden" name="trinity_forms_settings[no_store_ip]" value="0" />
+                        <input type="checkbox" name="trinity_forms_settings[no_store_ip]" value="1" <?php checked( ! empty( $settings["no_store_ip"] ) ); ?> />
+                        <?php esc_html_e( "Don't store visitor IP addresses with entries (every form)", "trinity-forms" ); ?>
+                    </label>
+                    <p class="description"><?php esc_html_e( "Off by default. A single form can also turn this on in its General settings. Spam lists and rate limits still check the address while a form is being sent; the per IP address entry limit stops working. Addresses already stored stay until you remove them with the Stored IP addresses card above.", "trinity-forms" ); ?></p>
+                </td></tr>
             <tr><th scope="row"><?php esc_html_e( "Delete data on uninstall", "trinity-forms" ); ?></th>
                 <td>
                     <label>

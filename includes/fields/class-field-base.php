@@ -116,18 +116,50 @@ abstract class Field_Base {
         $help_above = "above" === (string) ( $config["description_placement"] ?? "below" );
 
         // A grouped control (name parts, checkbox/radio groups, rating) has no single
-        // element with this id, and <label for> pointing at nothing is invalid: the
-        // label then names the group instead.
+        // element with this id, and <label for> pointing at nothing is invalid. Such
+        // a field is a <fieldset> whose <legend> is the question, so a screen reader
+        // says "Colour, group" before the first option rather than leaving the
+        // options without their question (WCAG 1.3.1, 3.3.2).
         $targets_control = "" !== $id && (bool) preg_match( '/\sid="' . preg_quote( esc_attr( $id ), "/" ) . '"/', $control );
-        $group_attrs     = ( "" !== $label && ! $targets_control )
-            ? ' role="group" aria-labelledby="' . esc_attr( $id ) . '-label"'
-            : "";
+        $is_group        = "" !== $label && ! $targets_control;
 
-        $out = '<div class="' . esc_attr( implode( " ", $classes ) ) . '" data-field-id="' . esc_attr( $id ) . '"' . $group_attrs . '>';
+        if ( $is_group ) {
+            $described = "" !== $help ? ' aria-describedby="' . esc_attr( $id ) . '-help"' : "";
+            $out       = '<fieldset class="' . esc_attr( implode( " ", array_merge( $classes, [ "trinity-forms-fieldset" ] ) ) ) . '" data-field-id="' . esc_attr( $id ) . '"' . $described . '>';
+            $out      .= '<legend id="' . esc_attr( $id ) . '-label" class="trinity-forms-legend">' . esc_html( $label ) . self::required_marker( $config, $required );
+            // Radios carry `required` themselves, so the browser and screen readers
+            // know; a checkbox group cannot (each box would become mandatory), and
+            // the asterisk is hidden from assistive tech. Say it in words.
+            if ( $required && "asterisk" === (string) ( $config["required_indicator"] ?? "asterisk" ) && ! preg_match( '/\srequired[\s\/>]/', $control ) ) {
+                $out .= '<span class="trinity-forms-sr"> ' . esc_html__( "required", "trinity-forms" ) . "</span>";
+            }
+            $out .= "</legend>";
+            $out .= $help_above ? $help_html . $control : $control . $help_html;
+            return $out . "</fieldset>";
+        }
+
+        // Help text read out with its input. Most field classes never called
+        // common_attrs(), so their descriptions were unattached prose; tie them
+        // here, once, unless the control already points somewhere.
+        if ( "" !== $help && "" !== $id ) {
+            $control = (string) preg_replace_callback(
+                '/<(input|select|textarea)\b([^>]*\sid="' . preg_quote( esc_attr( $id ), "/" ) . '"[^>]*)>/',
+                static function ( $m ) use ( $id ) {
+                    if ( false !== strpos( $m[2], "aria-describedby=" ) ) {
+                        return $m[0];
+                    }
+                    $attrs = rtrim( $m[2], " /" );
+                    $close = "/" === substr( rtrim( $m[2] ), -1 ) ? " />" : ">";
+                    return "<" . $m[1] . $attrs . ' aria-describedby="' . esc_attr( $id ) . '-help"' . $close;
+                },
+                $control,
+                1
+            );
+        }
+
+        $out = '<div class="' . esc_attr( implode( " ", $classes ) ) . '" data-field-id="' . esc_attr( $id ) . '">';
         if ( "" !== $label ) {
-            $out .= $targets_control
-                ? '<label for="' . esc_attr( $id ) . '">'
-                : '<label id="' . esc_attr( $id ) . '-label">';
+            $out .= '<label for="' . esc_attr( $id ) . '">';
             $out .= esc_html( $label ) . self::required_marker( $config, $required );
             $out .= "</label>";
         }

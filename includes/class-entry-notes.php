@@ -105,6 +105,26 @@ class Entry_Notes {
         return (bool) $wpdb->delete( $table, [ "id" => absint( $note_id ) ], [ "%d" ] );
     }
 
+    /**
+     * Change the text of a user note. System notes are the audit trail and stay
+     * as written.
+     */
+    public static function update( int $note_id, string $note ): bool {
+        global $wpdb;
+
+        $note = trim( $note );
+        if ( "" === $note ) {
+            return false;
+        }
+        $table = self::table();
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+        $type = (string) $wpdb->get_var( $wpdb->prepare( "SELECT note_type FROM {$table} WHERE id = %d", absint( $note_id ) ) );
+        if ( self::TYPE_USER !== $type ) {
+            return false;
+        }
+        return false !== $wpdb->update( $table, [ "note" => $note ], [ "id" => absint( $note_id ) ], [ "%s" ], [ "%d" ] );
+    }
+
     /** Display name for a note's author, falling back to something honest. */
     public static function author_name( ?int $author_id ): string {
         if ( ! $author_id ) {

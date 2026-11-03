@@ -37,6 +37,8 @@ class Logger {
             case "geolocation":   return _x( "location", "activity log type", "trinity-forms" );
             case "alert":         return _x( "alert", "activity log type", "trinity-forms" );
             case "activation":    return _x( "setup", "activity log type", "trinity-forms" );
+            case "quote":         return _x( "quote", "activity log type", "trinity-forms" );
+            case "privacy":       return _x( "privacy", "activity log type", "trinity-forms" );
             case "paypal":        return "PayPal";
             case "stripe":        return "Stripe";
             case "mollie":        return "Mollie";

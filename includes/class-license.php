@@ -50,6 +50,11 @@ final class License {
         "chained_selects"   => true,
         "rich_text"         => true,
         "landing_page"      => true,
+        "field_dropoff"     => true,
+        "quotes"            => true,
+        "ai_entries"        => true,
+        "smart_edit"        => true,
+        "ai_chat"           => true,
     ];
 
     /** @var object|null The licensing SDK client (only present in the Pro build). */

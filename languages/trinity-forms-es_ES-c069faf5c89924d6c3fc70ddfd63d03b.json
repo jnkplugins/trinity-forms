@@ -232,8 +232,29 @@
             "Max size (MB)": [
                 "Tama\u00f1o m\u00e1ximo (MB)"
             ],
+            "HTML markup": [
+                "C\u00f3digo HTML"
+            ],
+            "Radio buttons (pick one)": [
+                "Botones de opci\u00f3n (elige uno)"
+            ],
+            "Checkboxes (pick several)": [
+                "Casillas (elige varias)"
+            ],
+            "Dropdown (pick one)": [
+                "Desplegable (elige uno)"
+            ],
+            "Dropdown (pick several)": [
+                "Desplegable (elige varios)"
+            ],
             "Choices": [
                 "Opciones"
+            ],
+            "Show as": [
+                "Mostrar como"
+            ],
+            "Switching style keeps your options \u2014 no need to delete the field and start again.": [
+                "Cambiar el estilo conserva tus opciones, no hace falta borrar el campo y empezar de nuevo."
             ],
             "One per line. Use \"Label | value\" to store a different value.": [
                 "Una por l\u00ednea. Usa \"Etiqueta | valor\" para guardar un valor distinto."
@@ -244,14 +265,35 @@
             "Last": [
                 "Apellidos"
             ],
+            "Min": [
+                "M\u00edn."
+            ],
+            "Max": [
+                "M\u00e1x."
+            ],
+            "Step": [
+                "Paso"
+            ],
             "Page break": [
                 "Salto de p\u00e1gina"
+            ],
+            "Next button text": [
+                "Texto del bot\u00f3n Siguiente"
+            ],
+            "Back button text": [
+                "Texto del bot\u00f3n Atr\u00e1s"
             ],
             "Points": [
                 "Puntos"
             ],
+            "Stars": [
+                "Estrellas"
+            ],
             "Section": [
                 "Secci\u00f3n"
+            ],
+            "Description": [
+                "Descripci\u00f3n"
             ],
             "Rows": [
                 "Filas"
@@ -295,8 +337,20 @@
             "Signature pad": [
                 "Panel de firma"
             ],
+            "Answers from another form": [
+                "Respuestas de otro formulario"
+            ],
+            "Date, then a free time slot": [
+                "Fecha y luego una franja horaria libre"
+            ],
             "Repeatable group": [
                 "Grupo repetible"
+            ],
+            "Rating grid: one row per statement": [
+                "Tabla de valoraci\u00f3n: una fila por afirmaci\u00f3n"
+            ],
+            "Choices to put in order": [
+                "Opciones para ordenar"
             ],
             "Advanced block": [
                 "Bloque avanzado"
@@ -334,8 +388,8 @@
             "Formula": [
                 "F\u00f3rmula"
             ],
-            "Use field ids in braces, e.g. {quantity} * 12.50": [
-                "Usa los ID de los campos entre llaves, p. ej. {quantity} * 12.50"
+            "Use field ids in braces, e.g. {quantity} * 12.50. For a repeater column: sum({items.price}), avg({items.price}), min, max, and count({items}) for the number of rows.": [
+                "Usa los ID de los campos entre llaves, p. ej. {quantity} * 12.50. Para una columna de un repetidor: sum({items.price}), avg({items.price}), min, max, y count({items}) para el n\u00famero de filas."
             ],
             "Prefix": [
                 "Prefijo"
@@ -349,6 +403,24 @@
             "Fills in": [
                 "Rellena"
             ],
+            "Post title": [
+                "T\u00edtulo de la entrada"
+            ],
+            "Post body": [
+                "Contenido de la entrada"
+            ],
+            "Post excerpt": [
+                "Extracto de la entrada"
+            ],
+            "Post tags": [
+                "Etiquetas de la entrada"
+            ],
+            "Post category": [
+                "Categor\u00eda de la entrada"
+            ],
+            "Custom field": [
+                "Campo personalizado"
+            ],
             "Data (CSV)": [
                 "Datos (CSV)"
             ],
@@ -357,6 +429,12 @@
             ],
             "Amount mode": [
                 "Modo del importe"
+            ],
+            "Fixed": [
+                "Fijo"
+            ],
+            "From a field": [
+                "De un campo"
             ],
             "Amount": [
                 "Importe"
@@ -382,11 +460,119 @@
             "Check it is a full phone number (7 to 15 digits, + allowed)": [
                 "Comprobar que es un n\u00famero de tel\u00e9fono completo (de 7 a 15 d\u00edgitos, se admite +)"
             ],
+            "Statements (one per line)": [
+                "Afirmaciones (una por l\u00ednea)"
+            ],
+            "Label under 0": [
+                "Texto bajo el 0"
+            ],
+            "Label under 10": [
+                "Texto bajo el 10"
+            ],
+            "Open days (1 = Monday ... 7 = Sunday)": [
+                "D\u00edas abiertos (1 = lunes ... 7 = domingo)"
+            ],
+            "Opens at (HH:MM)": [
+                "Abre a las (HH:MM)"
+            ],
+            "Closes at (HH:MM)": [
+                "Cierra a las (HH:MM)"
+            ],
+            "Slot length (minutes)": [
+                "Duraci\u00f3n de cada franja (minutos)"
+            ],
+            "Break between slots (minutes)": [
+                "Pausa entre franjas (minutos)"
+            ],
+            "People per slot": [
+                "Personas por franja"
+            ],
+            "Days ahead people can book": [
+                "D\u00edas de antelaci\u00f3n para reservar"
+            ],
+            "Minimum notice (hours)": [
+                "Antelaci\u00f3n m\u00ednima (horas)"
+            ],
+            "Closed dates (one per line, YYYY-MM-DD or YYYY-MM-DD..YYYY-MM-DD)": [
+                "Fechas cerradas (una por l\u00ednea, AAAA-MM-DD o AAAA-MM-DD..AAAA-MM-DD)"
+            ],
+            "Attach a calendar file (.ics) to emails": [
+                "Adjuntar un archivo de calendario (.ics) a los correos"
+            ],
+            "Take answers from form (form ID)": [
+                "Tomar respuestas del formulario (ID del formulario)"
+            ],
+            "The number in the form's shortcode, e.g. 12 in [trinity-forms id=\"12\"].": [
+                "El n\u00famero del shortcode del formulario, p. ej. 12 en [trinity-forms id=\"12\"]."
+            ],
+            "Field in that form": [
+                "Campo de ese formulario"
+            ],
+            "Dropdown of the answers": [
+                "Desplegable con las respuestas"
+            ],
+            "Text box filled with the person's latest answer": [
+                "Casilla de texto con la \u00faltima respuesta de la persona"
+            ],
+            "Product type": [
+                "Tipo de producto"
+            ],
+            "Single item at a fixed price": [
+                "Un solo art\u00edculo a precio fijo"
+            ],
+            "Price": [
+                "Precio"
+            ],
+            "Product (field ID)": [
+                "Producto (ID del campo)"
+            ],
+            "Minimum length": [
+                "Longitud m\u00ednima"
+            ],
+            "Maximum length": [
+                "Longitud m\u00e1xima"
+            ],
+            "Maximum rows": [
+                "M\u00e1ximo de filas"
+            ],
+            "Maximum choices": [
+                "M\u00e1ximo de opciones"
+            ],
+            "Confirm password": [
+                "Confirmar contrase\u00f1a"
+            ],
+            "Only the logged-in person's own entries": [
+                "Solo las entradas de la persona que ha iniciado sesi\u00f3n"
+            ],
+            "Off: every visitor sees the answers from all entries in the dropdown, so email, phone and name fields can't be used.": [
+                "Desactivado: todos los visitantes ven en el desplegable las respuestas de todas las entradas, as\u00ed que no se pueden usar campos de correo electr\u00f3nico, tel\u00e9fono ni nombre."
+            ],
+            "Email, phone and name fields are listed only when \"Only the logged-in person's own entries\" is on.": [
+                "Los campos de correo electr\u00f3nico, tel\u00e9fono y nombre solo aparecen si \u00abSolo las entradas de la persona que ha iniciado sesi\u00f3n\u00bb est\u00e1 activado."
+            ],
+            "The saved field can't be used here, so the dropdown stays empty. Pick another field or turn on \"Only the logged-in person's own entries\".": [
+                "El campo guardado no se puede usar aqu\u00ed, as\u00ed que el desplegable queda vac\u00edo. Elige otro campo o activa \u00abSolo las entradas de la persona que ha iniciado sesi\u00f3n\u00bb."
+            ],
             "Field settings": [
                 "Ajustes del campo"
             ],
             "Allow multiple selections": [
                 "Permitir varias selecciones"
+            ],
+            "Used by": [
+                "Usado por"
+            ],
+            "%s (calculation)": [
+                "%s (c\u00e1lculo)"
+            ],
+            "%s (show \/ hide rule)": [
+                "%s (regla de mostrar \/ ocultar)"
+            ],
+            "No other field uses this one in a rule or a calculation.": [
+                "Ning\u00fan otro campo usa este en una regla o un c\u00e1lculo."
+            ],
+            "Changing this field's ID or choices can break these.": [
+                "Cambiar el ID o las opciones de este campo puede romperlos."
             ],
             "Select a field to edit its settings.": [
                 "Selecciona un campo para editar sus ajustes."

@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.22.0
+Stable tag: 2.23.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,22 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.23.0 =
+* Changed: entry exports (CSV, Excel, View downloads, WP-CLI) name the entry columns in the site language ("Entry ID", "Date submitted", "Status", "IP address") instead of id / submitted_at / status / ip_address, the Status column reads like the entry screen ("Completed", "Spam") instead of the stored key, and the date header names the site time zone, e.g. "Date submitted (Europe/Madrid)". Dates are in the time zone set under Settings > General (stored as UTC). A spreadsheet or script that looked for the old column names needs the new ones.
+* Fixed: Visual Builder field settings show readable, translated choices instead of stored values (Product type, Show as, Fills in, Amount mode: "Dropdown of the answers", not "select"), and settings such as Minimum length, Maximum rows or Next button text have translated names instead of English ones made from the setting's key.
+* Fixed: success and error messages, required stars and help text stay readable on dark themes (they fell to about 2:1 contrast, e.g. Twenty Twenty-One in dark mode).
+* Fixed: "Create a page" on a site where pages open in the Classic Editor puts the form's shortcode on the page, so the page no longer looks empty in the editor.
+* New: Form revisions. Every save of a form (block editor, Visual Builder, form settings, REST, AI assistants) keeps a copy; the last 20 are listed with who, when and what changed (fields added, removed or changed, title, settings). Restore one with a confirmation; the restore is kept as a revision too. "Revisions" on the forms list and a box on the form edit screen.
+* New: QR code that opens a form. "QR code" on the forms list: pick a page the form is on (blocks, shortcode, Elementor, Beaver Builder), another page or any address, optionally tag scans with utm_source=qr, then download SVG or a 1024px PNG. Made on your own site, no outside service.
+* New: Beaver Builder module "Trinity Forms" (works with the free Beaver Builder Lite): pick a form, see it in the editor.
+* New: REST API: read, add, edit and delete an entry's notes (/submissions/{id}/notes; notes the plugin wrote stay read-only), and read a form's integration feeds with secrets hidden (GET /forms/{id}/feeds). Same permissions as the admin screens.
+* Improved: REST API requests signed in with an application password no longer need a nonce.
+* New: Visual Builder: a toolbar slot and a small bridge for extensions.
+* Improved: accessibility and right-to-left pass on visitor forms. Choice groups (radios, checkboxes, ratings, name, address, survey fields) are a fieldset named by their question; help text is read out with every input; a failed submit marks each wrong answer for screen readers, ties the message to it and moves focus to the error summary or the first problem; a multi-step form no longer jumps to itself on page load. Darker default borders, placeholder, error, success and star colours for easier reading, visible keyboard focus on every button, and Arabic and Hebrew forms put the dropdown arrow, labels and side borders on the right side while emails, phone numbers and totals stay left to right. The Pro signature field can be signed by typing a name.
+* New: campaign source capture. Turn on "Record where visitors came from" on a form's General tab and each entry keeps the utm_source, utm_medium, utm_campaign, utm_term and utm_content of the visit, the site that sent the visitor and the first page they saw. Shown on the entry, added to the CSV export and available in emails as {utm_source}, {utm_medium}, {utm_campaign}, {landing_page} and {first_referrer}. Kept in the visitor's browser only for the visit, with no cookie, and works on cached pages.
+* New: choose and order the columns of an entry export, and export to Excel (.xlsx) as well as CSV. Entries > Export opens a small panel; filtered to one form, it lists that form's columns to tick and move up or down, and remembers your choice (also used by "Export selected", which gains "Export selected to Excel"). Excel cells are plain text, so leading zeros stay and nothing runs as a formula. CSV files keep the byte order mark Excel needs.
+* New: an option to not store visitor IP addresses. Settings > Data turns it off for every form, or a form's General tab for that form; the default is unchanged. A Stored IP addresses card on Settings removes the addresses already kept (all forms or one). Spam lists, Akismet and rate limits still check the address while a form is sent; the per IP address entry limit needs stored addresses. The personal data export now lists the IP address (when kept), date and browser of each entry, and the CSV/Excel export can include an IP address column when you tick it.
 
 = 2.22.0 =
 * New (Pro): choose where AI requests go. Keep your own OpenAI or Anthropic key, or use WordPress's AI connection (Settings > Connectors, WordPress 7.0 or newer) so every plugin shares one key and more providers work. Sites with a key keep using it; the settings say what each choice means.

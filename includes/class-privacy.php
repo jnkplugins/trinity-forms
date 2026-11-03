@@ -48,6 +48,20 @@ class Privacy {
             foreach ( self::entry_fields( $entry_id ) as $row ) {
                 $data[] = [ "name" => $row["label"], "value" => $row["value"] ];
             }
+            // What the entry holds about the visit itself. The IP address only when
+            // it was stored (TF-34: a form or the site can switch that off).
+            global $wpdb;
+            $visit = $wpdb->get_row( $wpdb->prepare( "SELECT submitted_at, ip_address, user_agent FROM {$wpdb->prefix}trinity_forms_entries WHERE id = %d", $entry_id ), ARRAY_A );
+            if ( $visit ) {
+                $data[] = [ "name" => __( "Date submitted", "trinity-forms" ), "value" => Dates::to_site( (string) $visit["submitted_at"] ) ];
+                $ip = Ip_Privacy::readable( $visit["ip_address"] ?? null );
+                if ( "" !== $ip ) {
+                    $data[] = [ "name" => __( "IP address", "trinity-forms" ), "value" => $ip ];
+                }
+                if ( "" !== (string) ( $visit["user_agent"] ?? "" ) ) {
+                    $data[] = [ "name" => __( "Browser", "trinity-forms" ), "value" => (string) $visit["user_agent"] ];
+                }
+            }
             $items[] = [
                 "group_id"    => "trinity-forms-entries",
                 "group_label" => __( "Form submissions", "trinity-forms" ),

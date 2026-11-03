@@ -40,6 +40,10 @@ class Merge_Tags {
                 ],
             ],
             [
+                "label" => __( "Campaign (when the form records it)", "trinity-forms" ),
+                "tags"  => Campaign::picker_tags(),
+            ],
+            [
                 "label" => __( "The person", "trinity-forms" ),
                 "tags"  => [
                     [ "tag" => "{user:display_name}", "label" => __( "Their display name, if logged in", "trinity-forms" ) ],
@@ -81,6 +85,13 @@ class Merge_Tags {
         }
 
         $core_tags = self::core_tags( $entry, $entry_id );
+
+        // Tags that cost a query (Pro's {poll_results}) look at the template first,
+        // so they only run when it uses them.
+        $template = (string) apply_filters( "trinity_forms_merge_template", $template, $entry_id, (int) $entry["form_id"] );
+        // Without Pro (or before it is licensed) nothing fills {poll_results}: print
+        // nothing rather than the raw tag to the person who just voted.
+        $template = (string) preg_replace( '/\{poll_results(?::[a-z0-9_\-]+)?\}/i', "", $template );
 
         // Tags that carry an argument ({user:first_name}, {today:d/m/Y}) can't live
         // in a flat strtr map, so they are resolved by pattern first.
@@ -125,7 +136,7 @@ class Merge_Tags {
             "{payment_status}" => esc_html( (string) $entry["payment"]["status"] ),
             "{payment_amount}" => esc_html( trim( $entry["payment"]["amount"] . " " . $entry["payment"]["currency"] ) ),
             "{transaction_id}" => esc_html( (string) $entry["payment"]["id"] ),
-        ];
+        ] + Campaign::tags( (array) $entry["fields"] );
     }
 
     /**
@@ -309,6 +320,10 @@ class Merge_Tags {
      */
     private static function field_html( array $row ): string {
         $type = (string) $row["type"];
+        $pre  = apply_filters( "trinity_forms_display_value", null, $type, $row["value"], [], true );
+        if ( is_string( $pre ) ) {
+            return $pre;
+        }
         if ( in_array( $type, [ "consent", "file", "rich_text", "repeater" ], true ) ) {
             return Entries::display_value( $type, $row["value"], [], true );
         }

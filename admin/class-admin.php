@@ -369,6 +369,9 @@ class Admin {
         // Normalise the uninstall data-deletion flag to a real bool. The settings
         // form posts a hidden "0" plus the checkbox "1", so the key is always
         // present and unchecking reliably turns it off.
+        if ( array_key_exists( "no_store_ip", $merged ) ) {
+            $merged["no_store_ip"] = ! empty( $merged["no_store_ip"] ) && "0" !== $merged["no_store_ip"];
+        }
         if ( array_key_exists( "delete_data_on_uninstall", $merged ) ) {
             $merged["delete_data_on_uninstall"] = ! empty( $merged["delete_data_on_uninstall"] )
                 && $merged["delete_data_on_uninstall"] !== "0";
@@ -602,8 +605,10 @@ class Admin {
 
         // These two answer with a document rather than a redirect, so they short-
         // circuit before the "what changed" bookkeeping below.
-        if ( "export" === $verb ) {
-            Entries::send_csv( Entries::to_csv( $ids ), "trinity-forms-selected.csv" );
+        if ( "export" === $verb || "export_xlsx" === $verb ) {
+            // The columns last chosen for the form being filtered, if any.
+            $tf_form = absint( wp_unslash( $_REQUEST["form_id"] ?? 0 ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- the bulk action's nonce was checked above.
+            Entries::send_export( $ids, "export_xlsx" === $verb ? "xlsx" : "csv", Export_Columns::saved( $tf_form ), "trinity-forms-selected" );
         }
         if ( "print" === $verb ) {
             $tf_print_entry_ids = $ids;

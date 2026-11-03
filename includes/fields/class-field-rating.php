@@ -10,6 +10,7 @@ class Field_Rating extends Field_Base {
         $current = (int) ( $value ?? 0 );
         $max     = (int) ( $config["max"] ?? 5 );
         $items   = "";
+        $req     = ! empty( $config["required"] ) ? " required" : "";
         // Stars, not bare numbered radios. The radios stay (keyboard and screen
         // readers use them as normal) but are hidden visually; each label shows a
         // star and says "3 of 5" to assistive tech. public.css fills the stars up to
@@ -17,7 +18,7 @@ class Field_Rating extends Field_Base {
         for ( $i = 1; $i <= $max; $i++ ) {
             $checked = checked( $current, $i, false );
             $items  .= '<label class="trinity-forms-star">'
-                . '<input type="radio" name="' . $name . '" value="' . $i . '"' . $checked . ' />'
+                . '<input type="radio" name="' . $name . '" value="' . $i . '"' . $checked . $req . ' />'
                 . '<span class="trinity-forms-star-icon" aria-hidden="true">&#9733;</span>'
                 . '<span class="trinity-forms-sr">' . esc_html( sprintf(
                     /* translators: 1: rating chosen, 2: highest rating. */
@@ -27,7 +28,7 @@ class Field_Rating extends Field_Base {
                 ) ) . '</span>'
                 . '</label>';
         }
-        return $this->wrap( $config, '<div class="trinity-forms-rating" role="radiogroup">' . $items . '</div>' );
+        return $this->wrap( $config, '<div class="trinity-forms-rating">' . $items . '</div>' );
     }
 
     public function sanitize( $raw, array $config ) {

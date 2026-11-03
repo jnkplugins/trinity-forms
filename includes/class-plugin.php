@@ -29,6 +29,9 @@ final class Plugin {
         // Forms and entries for AI assistants (WordPress 6.9+ Abilities API).
         Abilities::register();
         Analytics::register();
+        Campaign::register();
+        // Visitor IP addresses: site-wide / per-form "don't store" switch and the clear tool.
+        Ip_Privacy::register();
         Activity::register();
         Akismet_Check::register();
         // Email check: keeps the reason a form email failed, warns about recent
@@ -68,10 +71,14 @@ final class Plugin {
         Private_Files::register();
         // Classic-editor "Add Trinity form" button (media buttons) with its form picker.
         Classic_Editor::register();
+        // Form revisions with restore (TF-18): saves over REST are kept too.
+        Form_Revisions::register();
         // Classic "Trinity Forms" widget: sidebars, SiteOrigin Page Builder, Legacy Widget block.
         Form_Widget::register();
         // Elementor widget "Trinity Forms" (only does anything when Elementor runs).
         Elementor::register();
+        // Beaver Builder module "Trinity Forms" (TF-25; Beaver Builder Lite and paid).
+        Beaver_Builder::register();
         // A saved published form empties the page cache, so visitors see the new button and labels.
         Page_Cache::register();
 
@@ -100,6 +107,8 @@ final class Plugin {
             Results::bootstrap();
             // Visual builder (Phase 7): dormant unless explicitly enabled.
             Form_Builder::register();
+            // QR code that opens a form (TF-21).
+            Form_QR::register();
         }
     }
 

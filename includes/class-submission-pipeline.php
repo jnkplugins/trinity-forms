@@ -162,7 +162,16 @@ class Submission_Pipeline {
             }
         }
 
-        self::send_notifications( $entry_id );
+        /**
+         * Hold the notifications and/or integrations of this entry for later (Pro
+         * double opt-in sends them once the email address is confirmed). Return
+         * [ "notifications" => bool, "integrations" => bool ].
+         */
+        $hold = (array) apply_filters( "trinity_forms_hold_after_submit", [], $entry_id, $form );
+
+        if ( empty( $hold["notifications"] ) ) {
+            self::send_notifications( $entry_id );
+        }
 
         // Premium ESP/webhook integrations (pro/ only) and add-ons subscribe to this
         // action. Start a job only when something listens: the free build used to
@@ -170,7 +179,7 @@ class Submission_Pipeline {
         // every single submission. Background queues it only where a queue runner
         // works; with WP-Cron off it runs here, so a webhook is not held until the
         // owner opens wp-admin.
-        if ( has_action( "trinity_forms_run_integrations" ) ) {
+        if ( empty( $hold["integrations"] ) && has_action( "trinity_forms_run_integrations" ) ) {
             Background::run( "trinity_forms_run_integrations", [ $entry_id ] );
         }
 
@@ -179,6 +188,8 @@ class Submission_Pipeline {
         // Resolved against the sanitized answers, so a confirmation can branch on
         // what was actually submitted ("budget over 10k → send them to /enterprise").
         $confirmation = Confirmations::resolve( $form, $entry_id, $sanitized );
+        /** Lets a feature add to what the visitor is told (e.g. "check your inbox"). */
+        $confirmation = (array) apply_filters( "trinity_forms_confirmation", $confirmation, $form, $entry_id );
 
         return $this->ok( [
             "entry_id"     => $entry_id,
@@ -269,14 +280,14 @@ class Submission_Pipeline {
     private function store( Form $form, array $sanitized, string $source_url = "" ): int {
         global $wpdb;
 
-        $ip = self::client_ip();
+        $ip = Ip_Privacy::for_entry( $form );
         $wpdb->insert(
             $wpdb->prefix . "trinity_forms_entries",
             [
                 "form_id"      => $form->id,
                 "status"       => $form->payment_enabled() ? "pending" : "completed",
                 "submitted_at" => Dates::now(),
-                "ip_address"   => $ip ? inet_pton( $ip ) : null,
+                "ip_address"   => $ip,
                 "user_agent"   => substr( sanitize_text_field( wp_unslash( (string) ( $_SERVER["HTTP_USER_AGENT"] ?? "" ) ) ), 0, 500 ),
                 "user_id"      => get_current_user_id() ?: null,
                 "referer"      => substr( sanitize_text_field( wp_unslash( (string) ( $_SERVER["HTTP_REFERER"] ?? "" ) ) ), 0, 500 ),

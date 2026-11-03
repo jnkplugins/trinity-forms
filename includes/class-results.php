@@ -66,6 +66,10 @@ class Results {
         // same wherever it is shown (Form_Manager::choice_labels).
         $choice_labels = Form_Manager::choice_labels( $form_id );
 
+        // Field types that add up their own way (Pro's survey fields): their raw
+        // answers are collected and summarised by the trinity_forms_results_field filter.
+        $custom = (array) apply_filters( "trinity_forms_results_custom_types", [] );
+
         $by_field = [];
         foreach ( (array) $rows as $r ) {
             $fid = (string) $r["field_id"];
@@ -98,12 +102,28 @@ class Results {
                 }
             } elseif ( in_array( $type, self::NUMERIC_TYPES, true ) && is_numeric( $val ) ) {
                 $by_field[ $fid ]["numbers"][] = (float) $val;
+            } elseif ( in_array( $type, $custom, true ) ) {
+                $by_field[ $fid ]["raw"][] = $val;
             }
         }
 
         // Only surface fields we can chart (choice or numeric with data).
         $fields = [];
         foreach ( $by_field as $f ) {
+            if ( ! empty( $f["raw"] ) ) {
+                /**
+                 * Summarise a custom field type. Set "summary_html" (kses-safe) to chart it.
+                 *
+                 * @param array<string,mixed> $f       id, label, type, answered, raw (stored values)
+                 * @param int                 $form_id
+                 */
+                $f = (array) apply_filters( "trinity_forms_results_field", $f, $form_id );
+                unset( $f["raw"] );
+                if ( ! empty( $f["summary_html"] ) ) {
+                    $fields[] = $f;
+                }
+                continue;
+            }
             $charty = in_array( $f["type"], self::CHOICE_TYPES, true ) && ! empty( $f["counts"] );
             $numy   = in_array( $f["type"], self::NUMERIC_TYPES, true ) && ! empty( $f["numbers"] );
             if ( ! $charty && ! $numy ) {
@@ -192,6 +212,11 @@ class Results {
             </div>
         </div>
 
+        <?php
+        // Extension point: the Pro build adds its per-question report here.
+        do_action( "trinity_forms_results_after_summary", $form_id );
+        ?>
+
         <?php if ( empty( $data["fields"] ) ) : ?>
             <?php echo Admin_UI::empty_state( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside.
                 __( "Nothing to chart yet", "trinity-forms" ),
@@ -209,7 +234,9 @@ class Results {
                             echo esc_html( sprintf( _n( "%d answer", "%d answers", (int) $f["answered"], "trinity-forms" ), (int) $f["answered"] ) );
                         ?></p></div></div>
                     <div class="jnkui-card-body">
-                    <?php if ( in_array( $f["type"], self::NUMERIC_TYPES, true ) ) : ?>
+                    <?php if ( ! empty( $f["summary_html"] ) ) : ?>
+                        <?php echo wp_kses_post( (string) $f["summary_html"] ); ?>
+                    <?php elseif ( in_array( $f["type"], self::NUMERIC_TYPES, true ) ) : ?>
                         <div class="tf-res-avg">
                             <b><?php echo esc_html( number_format_i18n( $f["avg"], floor( $f["avg"] ) == $f["avg"] ? 0 : 2 ) ); ?></b>
                             <span class="jnkui-muted"><?php

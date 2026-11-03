@@ -334,6 +334,16 @@ Admin_UI::open(
                     <p><button type="submit" class="button"><?php esc_html_e( "Add note", "trinity-forms" ); ?></button></p>
                 </form>
             </div>
+
+            <?php
+            /**
+             * More cards in the entry's main column (Pro: Quote).
+             *
+             * @param int   $entry_id
+             * @param array $entry    The entry row.
+             */
+            do_action( "trinity_forms_entry_detail_cards", $entry_id, $entry );
+            ?>
         </div>
 
         <div class="tf-entry-side">
@@ -386,7 +396,7 @@ Admin_UI::open(
                         endif;
                     }
                     ?>
-                    <div><dt><?php esc_html_e( "IP address", "trinity-forms" ); ?></dt><dd><?php echo $ip ? Entries::ltr( esc_html( $ip ) ) : "–"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?></dd></div>
+                    <div><dt><?php esc_html_e( "IP address", "trinity-forms" ); ?></dt><dd><?php echo $ip ? Entries::ltr( esc_html( $ip ) ) : esc_html__( "Not stored", "trinity-forms" ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?></dd></div>
                     <?php if ( ! empty( $entry["source_url"] ) ) : ?>
                         <div><dt><?php esc_html_e( "Sent from", "trinity-forms" ); ?></dt>
                             <dd><a href="<?php echo esc_url( (string) $entry["source_url"] ); ?>" target="_blank" rel="noopener"><bdi dir="ltr"><?php echo esc_html( (string) wp_parse_url( (string) $entry["source_url"], PHP_URL_PATH ) ?: (string) $entry["source_url"] ); ?></bdi></a></dd></div>
@@ -394,6 +404,14 @@ Admin_UI::open(
                     <?php if ( ! empty( $entry["referer"] ) ) : ?>
                         <div><dt><?php esc_html_e( "Came from", "trinity-forms" ); ?></dt><dd><?php echo Entries::ltr( esc_html( (string) $entry["referer"] ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?></dd></div>
                     <?php endif; ?>
+                    <?php
+                    // Campaign source (TF-31), when the form records it.
+                    foreach ( \TrinityForms\Campaign::for_entry( (int) $entry_id ) as $tf_ck => $tf_cv ) :
+                        $tf_is_url = in_array( $tf_ck, [ "_utm_referrer", "_utm_landing" ], true );
+                        ?>
+                        <div><dt><?php echo esc_html( \TrinityForms\Campaign::label( $tf_ck ) ); ?></dt>
+                            <dd><?php if ( $tf_is_url ) : ?><a href="<?php echo esc_url( $tf_cv ); ?>" target="_blank" rel="noopener noreferrer"><bdi dir="ltr"><?php echo esc_html( wp_html_excerpt( $tf_cv, 70, "…" ) ); ?></bdi></a><?php else : ?><bdi><?php echo esc_html( $tf_cv ); ?></bdi><?php endif; ?></dd></div>
+                    <?php endforeach; ?>
                     <?php if ( ! empty( $entry["user_agent"] ) ) : ?>
                         <div><dt><?php esc_html_e( "Browser", "trinity-forms" ); ?></dt>
                             <dd><span class="jnkui-sub" dir="ltr" title="<?php echo esc_attr( (string) $entry["user_agent"] ); ?>"><?php echo esc_html( wp_html_excerpt( (string) $entry["user_agent"], 60, "…" ) ); ?></span></dd></div>

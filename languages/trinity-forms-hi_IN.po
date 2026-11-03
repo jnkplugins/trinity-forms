@@ -1,10 +1,8 @@
-# Translation of Trinity Forms into Hindi.
-# This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.16.2\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-10-31T17:14:24+00:00\n"
+"POT-Creation-Date: 2026-11-03T06:24:40+00:00\n"
 "PO-Revision-Date: 2026-10-29 12:00+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Hindi\n"
@@ -16,464 +14,548 @@ msgstr ""
 "X-Domain: trinity-forms\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
-#: pro/licensorpro-client/licensorpro-client.php:750
+#: pro/licensorpro-client/licensorpro-client.php:751
 msgid "Manage license"
 msgstr "लाइसेंस प्रबंधित करें"
 
-#: pro/licensorpro-client/licensorpro-client.php:753
+#: pro/licensorpro-client/licensorpro-client.php:754
 msgid "Renew license"
 msgstr "लाइसेंस रिन्यू करें"
 
-#: pro/licensorpro-client/licensorpro-client.php:754
+#: pro/licensorpro-client/licensorpro-client.php:755
 msgid "Activate license"
 msgstr "लाइसेंस सक्रिय करें"
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:781
+#: pro/licensorpro-client/licensorpro-client.php:782
 #, php-format
 msgid "<strong>%s Pro is on.</strong> Thank you! Every Pro tool is switched on for this site, and updates come to your dashboard."
 msgstr "<strong>%s Pro चालू है।</strong> धन्यवाद! इस साइट पर हर Pro टूल चालू है, और अपडेट आपके डैशबोर्ड में आते हैं।"
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:830
+#: pro/licensorpro-client/licensorpro-client.php:831
 #, php-format
 msgid "<strong>%s Pro is installed, but no Pro license is active on this site.</strong> Enter your license key to switch on the Pro tools."
 msgstr "<strong>%s Pro इंस्टॉल है, लेकिन इस साइट पर कोई Pro लाइसेंस सक्रिय नहीं है।</strong> Pro टूल चालू करने के लिए अपनी लाइसेंस Key डालें।"
 
-#: pro/licensorpro-client/licensorpro-client.php:836 builder/src/app.jsx:717
+#: pro/licensorpro-client/licensorpro-client.php:837 builder/src/app.jsx:746
 msgid "Enter license key"
 msgstr "लाइसेंस Key डालें"
 
-#: pro/licensorpro-client/licensorpro-client.php:839
+#: pro/licensorpro-client/licensorpro-client.php:840
 msgid "Find your key in your account"
 msgstr "अपनी Key अपने अकाउंट में देखें"
 
-#: pro/licensorpro-client/licensorpro-client.php:865
+#: pro/licensorpro-client/licensorpro-client.php:866
 msgid "Renew your license"
 msgstr "अपना लाइसेंस रिन्यू करें"
 
 #. translators: 1: plugin name, 2: expiry date, 3: lock date, 4: days left
-#: pro/licensorpro-client/licensorpro-client.php:871
+#: pro/licensorpro-client/licensorpro-client.php:872
 #, php-format
 msgid "<strong>Your %1$s Pro license expired on %2$s.</strong> Pro keeps working as normal until %3$s (%4$d days left). Updates, including security fixes, and email support have stopped. After %3$s, everything you already set up keeps working and your visitors won't notice a thing, but the Pro tools in your dashboard will lock."
 msgstr "<strong>आपका %1$s Pro लाइसेंस %2$s को समाप्त हो गया।</strong> Pro %3$s तक पहले की तरह काम करता रहेगा (%4$d दिन बाकी)। अपडेट, जिनमें सुरक्षा सुधार भी शामिल हैं, और ईमेल सहायता बंद हो गई है। %3$s के बाद, आपने जो कुछ सेट किया है वह काम करता रहेगा और आपके विज़िटर को कुछ पता नहीं चलेगा, लेकिन आपके डैशबोर्ड के Pro टूल लॉक हो जाएँगे।"
 
 #. translators: 1: plugin name, 2: expiry date
-#: pro/licensorpro-client/licensorpro-client.php:881
+#: pro/licensorpro-client/licensorpro-client.php:882
 #, php-format
 msgid "<strong>%1$s Pro tools are locked because your license expired on %2$s.</strong> Your site, and everything visitors see, still works. Renew to unlock the Pro tools and get updates, including security fixes, again."
 msgstr "<strong>%1$s Pro टूल लॉक हैं क्योंकि आपका लाइसेंस %2$s को समाप्त हो गया।</strong> आपकी साइट, और विज़िटर को दिखने वाली हर चीज़, अब भी काम करती है। Pro टूल अनलॉक करने और फिर से अपडेट (सुरक्षा सुधार समेत) पाने के लिए रिन्यू करें।"
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:889
+#: pro/licensorpro-client/licensorpro-client.php:890
 #, php-format
 msgid "<strong>This site is no longer activated on your %s Pro license.</strong> The Pro tools in your dashboard are locked until you activate it again. Everything visitors see keeps working."
 msgstr "<strong>यह साइट अब आपके %s Pro लाइसेंस पर सक्रिय नहीं है।</strong> जब तक आप इसे फिर से सक्रिय नहीं करते, आपके डैशबोर्ड के Pro टूल लॉक रहेंगे। विज़िटर को दिखने वाली हर चीज़ काम करती रहेगी।"
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:896
+#: pro/licensorpro-client/licensorpro-client.php:897
 #, php-format
 msgid "<strong>Your %s Pro license is no longer active.</strong> It was refunded or cancelled, so the Pro tools in your dashboard are locked and updates have stopped. Everything visitors see keeps working."
 msgstr "<strong>आपका %s Pro लाइसेंस अब सक्रिय नहीं है।</strong> इसका पैसा लौटाया गया या इसे रद्द किया गया, इसलिए आपके डैशबोर्ड के Pro टूल लॉक हैं और अपडेट बंद हो गए हैं। विज़िटर को दिखने वाली हर चीज़ काम करती रहेगी।"
 
-#: pro/licensorpro-client/licensorpro-client.php:998
+#. translators: %s: plugin name
+#: pro/licensorpro-client/licensorpro-client.php:906
+#, php-format
+msgid "Your %s Pro license is no longer active on this site."
+msgstr "इस साइट पर आपका %s Pro लाइसेंस अब सक्रिय नहीं है।"
+
+#: pro/licensorpro-client/licensorpro-client.php:1010
 msgid "Please enter a license key."
 msgstr "कृपया लाइसेंस Key डालें।"
 
-#: pro/licensorpro-client/licensorpro-client.php:1010
-#: pro/licensorpro-client/licensorpro-client.php:1069
+#: pro/licensorpro-client/licensorpro-client.php:1025
+#: pro/licensorpro-client/licensorpro-client.php:1085
 msgid "License response failed signature verification."
 msgstr "लाइसेंस सर्वर के जवाब का सिग्नेचर सत्यापित नहीं हुआ।"
 
-#: pro/licensorpro-client/licensorpro-client.php:1052
+#: pro/licensorpro-client/licensorpro-client.php:1067
 msgid "No license key set."
 msgstr "कोई लाइसेंस Key सेट नहीं है।"
 
-#: pro/licensorpro-client/licensorpro-client.php:1184
+#: pro/licensorpro-client/licensorpro-client.php:1200
 msgid "Only deactivating temporarily"
 msgstr "बस कुछ समय के लिए बंद कर रहा/रही हूँ"
 
-#: pro/licensorpro-client/licensorpro-client.php:1185
+#: pro/licensorpro-client/licensorpro-client.php:1201
 msgid "I could not work out how to use it"
 msgstr "मुझे समझ नहीं आया कि इसे कैसे इस्तेमाल करें"
 
-#: pro/licensorpro-client/licensorpro-client.php:1186
+#: pro/licensorpro-client/licensorpro-client.php:1202
 msgid "It is missing a feature I need"
 msgstr "इसमें वह सुविधा नहीं है जो मुझे चाहिए"
 
-#: pro/licensorpro-client/licensorpro-client.php:1187
+#: pro/licensorpro-client/licensorpro-client.php:1203
 msgid "It did not work"
 msgstr "यह काम नहीं किया"
 
-#: pro/licensorpro-client/licensorpro-client.php:1188
+#: pro/licensorpro-client/licensorpro-client.php:1204
 msgid "It broke something on my site"
 msgstr "इससे मेरी साइट पर कुछ खराब हो गया"
 
-#: pro/licensorpro-client/licensorpro-client.php:1189
+#: pro/licensorpro-client/licensorpro-client.php:1205
 msgid "I found a better plugin"
 msgstr "मुझे इससे बेहतर प्लगइन मिल गया"
 
-#: pro/licensorpro-client/licensorpro-client.php:1190
+#: pro/licensorpro-client/licensorpro-client.php:1206
 msgid "I no longer need it"
 msgstr "अब मुझे इसकी ज़रूरत नहीं है"
 
-#: pro/licensorpro-client/licensorpro-client.php:1191
+#: pro/licensorpro-client/licensorpro-client.php:1207
 msgid "Something else"
 msgstr "कुछ और"
 
 #. translators: %s: plugin name.
-#: pro/licensorpro-client/licensorpro-client.php:1218
+#: pro/licensorpro-client/licensorpro-client.php:1234
 #, php-format
 msgid "Before you turn %s off"
 msgstr "%s बंद करने से पहले"
 
-#: pro/licensorpro-client/licensorpro-client.php:1222
+#: pro/licensorpro-client/licensorpro-client.php:1238
 msgid "If you have a moment, what went wrong? It is the only way we hear about it."
 msgstr "अगर आपके पास एक पल हो, तो बताएँ क्या गड़बड़ हुई? हमें इसके बारे में जानने का यही एकमात्र तरीका है।"
 
-#: pro/licensorpro-client/licensorpro-client.php:1233
+#: pro/licensorpro-client/licensorpro-client.php:1249
 msgid "Anything else? (optional)"
 msgstr "कुछ और? (वैकल्पिक)"
 
-#: pro/licensorpro-client/licensorpro-client.php:1235
+#: pro/licensorpro-client/licensorpro-client.php:1251
 msgid "Sends your answer, the plugin version and your site address. Nothing else, and nothing from your site content."
 msgstr "आपका जवाब, प्लगइन का वर्शन और आपकी साइट का पता भेजता है। इसके अलावा कुछ नहीं, और आपकी साइट की सामग्री से कुछ भी नहीं।"
 
-#: pro/licensorpro-client/licensorpro-client.php:1239
+#: pro/licensorpro-client/licensorpro-client.php:1255
 msgid "Send and deactivate"
 msgstr "भेजें और निष्क्रिय करें"
 
-#: pro/licensorpro-client/licensorpro-client.php:1242
+#: pro/licensorpro-client/licensorpro-client.php:1258
 msgid "Skip and deactivate"
 msgstr "छोड़ें और निष्क्रिय करें"
 
-#: pro/licensorpro-client/licensorpro-client.php:1245
+#: pro/licensorpro-client/licensorpro-client.php:1261
 #: admin/views/entry-edit.php:138 includes/class-classic-editor.php:90
 #: includes/class-classic-editor.php:96 public/class-public-front.php:67
 msgid "Cancel"
 msgstr "रद्द करें"
 
-#: pro/licensorpro-client/licensorpro-client.php:1376
 #: pro/licensorpro-client/licensorpro-client.php:1392
+#: pro/licensorpro-client/licensorpro-client.php:1408
 msgid "API URL not configured."
 msgstr "API URL कॉन्फ़िगर नहीं है।"
 
-#: pro/licensorpro-client/licensorpro-client.php:1411
+#: pro/licensorpro-client/licensorpro-client.php:1427
 msgid "Unexpected response from license server."
 msgstr "लाइसेंस सर्वर से अनपेक्षित जवाब मिला।"
 
 #. translators: %s: human-readable time difference, e.g. "3 months".
-#: pro/licensorpro-client/licensorpro-client.php:1736
+#: pro/licensorpro-client/licensorpro-client.php:1758
 #: includes/class-dates.php:47
 #, php-format
 msgid "in %s"
 msgstr "%s में"
 
 #. translators: %s: human-readable time difference, e.g. "13 days".
-#: pro/licensorpro-client/licensorpro-client.php:1737
+#: pro/licensorpro-client/licensorpro-client.php:1759
 #: includes/class-dates.php:49
 #, php-format
 msgid "%s ago"
 msgstr "%s पहले"
 
-#: pro/licensorpro-client/licensorpro-client.php:1762
+#: pro/licensorpro-client/licensorpro-client.php:1775
 #, php-format
 msgid "%s License"
 msgstr "%s लाइसेंस"
 
-#: pro/licensorpro-client/licensorpro-client.php:1772
+#: pro/licensorpro-client/licensorpro-client.php:1785
 msgid "This site was deactivated, so its seat is free for another site. Enter the key again here to switch the Pro tools back on."
 msgstr "इस साइट को निष्क्रिय कर दिया गया, इसलिए इसकी सीट किसी दूसरी साइट के लिए खाली है। Pro टूल फिर से चालू करने के लिए यहाँ Key दोबारा डालें।"
 
-#: pro/licensorpro-client/licensorpro-client.php:1782
-#: pro/licensorpro-client/licensorpro-client.php:1813
-#: pro/licensorpro-client/licensorpro-client.php:1877
+#: pro/licensorpro-client/licensorpro-client.php:1803
+#: pro/licensorpro-client/licensorpro-client.php:2351
+msgid "Enter your license key first."
+msgstr "पहले अपनी लाइसेंस Key डालें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:1804
+msgid "Installing Pro. This takes a few seconds, keep this page open…"
+msgstr "Pro इंस्टॉल हो रहा है। इसमें कुछ सेकंड लगेंगे, यह पेज खुला रखें…"
+
+#: pro/licensorpro-client/licensorpro-client.php:1805
+msgid "Reloading to switch on the Pro tools…"
+msgstr "Pro टूल चालू करने के लिए पेज फिर से लोड हो रहा है…"
+
+#: pro/licensorpro-client/licensorpro-client.php:1806
+msgid "Reload now"
+msgstr "अभी फिर से लोड करें"
+
+#: pro/licensorpro-client/licensorpro-client.php:1807
+msgid "Could not reach the licensing server. Check your connection and try again."
+msgstr "लाइसेंस सर्वर तक नहीं पहुँच सके। अपना कनेक्शन जाँचें और फिर कोशिश करें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:1808
+msgid "Deactivate this license on this site? Premium features switch off here and the seat is freed for another site."
+msgstr "इस साइट पर यह लाइसेंस निष्क्रिय करें? यहाँ प्रीमियम फ़ीचर बंद हो जाएँगे और यह जगह किसी दूसरी साइट के लिए खाली हो जाएगी।"
+
+#: pro/licensorpro-client/licensorpro-client.php:1809
+msgid "Done."
+msgstr "हो गया।"
+
+#: pro/licensorpro-client/licensorpro-client.php:1810
+msgid "Deactivated."
+msgstr "निष्क्रिय हो गया।"
+
+#: pro/licensorpro-client/licensorpro-client.php:1811
+msgid "Checked."
+msgstr "जाँच हो गई।"
+
+#: pro/licensorpro-client/licensorpro-client.php:1982
+#: pro/licensorpro-client/licensorpro-client.php:2013
+#: pro/licensorpro-client/licensorpro-client.php:2088
 msgid "License key"
 msgstr "लाइसेंस Key"
 
-#: pro/licensorpro-client/licensorpro-client.php:1783
+#: pro/licensorpro-client/licensorpro-client.php:1983
 #: admin/views/feedback.php:50
 msgid "Type"
 msgstr "प्रकार"
 
-#: pro/licensorpro-client/licensorpro-client.php:1785
+#: pro/licensorpro-client/licensorpro-client.php:1985
 msgid "Free license: updates of the free version only. It does not switch on Pro."
 msgstr "Free लाइसेंस: सिर्फ़ Free वर्शन के अपडेट। इससे Pro चालू नहीं होता।"
 
-#: pro/licensorpro-client/licensorpro-client.php:1786
+#: pro/licensorpro-client/licensorpro-client.php:1986
 msgid "Free license: updates arrive in your dashboard like any other plugin."
 msgstr "Free लाइसेंस: अपडेट किसी भी दूसरे प्लगइन की तरह आपके डैशबोर्ड में आते हैं।"
 
-#: pro/licensorpro-client/licensorpro-client.php:1788
-#: pro/licensorpro-client/licensorpro-client.php:1845
+#: pro/licensorpro-client/licensorpro-client.php:1988
+#: pro/licensorpro-client/licensorpro-client.php:2056
 msgid "Last checked"
 msgstr "पिछली जाँच"
 
-#: pro/licensorpro-client/licensorpro-client.php:1792
-#: pro/licensorpro-client/licensorpro-client.php:1851
+#: pro/licensorpro-client/licensorpro-client.php:1992
+#: pro/licensorpro-client/licensorpro-client.php:2062
 msgid "Check for updates now"
 msgstr "अभी अपडेट जाँचें"
 
-#: pro/licensorpro-client/licensorpro-client.php:1795
+#: pro/licensorpro-client/licensorpro-client.php:1995
 msgid "Bought Pro?"
 msgstr "Pro खरीदा है?"
 
-#: pro/licensorpro-client/licensorpro-client.php:1796
+#: pro/licensorpro-client/licensorpro-client.php:1996
 msgid "Enter your Pro license key and Pro is installed over this version. Everything you set up stays."
 msgstr "अपनी Pro लाइसेंस Key डालें और Pro इस वर्शन के ऊपर इंस्टॉल हो जाएगा। आपने जो कुछ सेट किया है, वह बना रहेगा।"
 
-#: pro/licensorpro-client/licensorpro-client.php:1798
+#: pro/licensorpro-client/licensorpro-client.php:1998
 msgid "Pro license key"
 msgstr "Pro लाइसेंस Key"
 
-#: pro/licensorpro-client/licensorpro-client.php:1801
-#: pro/licensorpro-client/licensorpro-client.php:1858
+#: pro/licensorpro-client/licensorpro-client.php:2001
+#: pro/licensorpro-client/licensorpro-client.php:2069
 msgid "Install Pro now"
 msgstr "अभी Pro इंस्टॉल करें"
 
-#: pro/licensorpro-client/licensorpro-client.php:1803
+#: pro/licensorpro-client/licensorpro-client.php:2003
 msgid "Rather do it by hand? Download the Pro zip from your account and upload it over this plugin."
 msgstr "खुद करना चाहते हैं? अपने अकाउंट से Pro zip डाउनलोड करें और इसे इस प्लगइन के ऊपर अपलोड करें।"
 
-#: pro/licensorpro-client/licensorpro-client.php:1804
-#: pro/licensorpro-client/licensorpro-client.php:1885
+#: pro/licensorpro-client/licensorpro-client.php:2004
+#: pro/licensorpro-client/licensorpro-client.php:2096
 msgid "Go to your account"
 msgstr "अपने अकाउंट पर जाएँ"
 
-#: pro/licensorpro-client/licensorpro-client.php:1816
+#: pro/licensorpro-client/licensorpro-client.php:2017
+msgid "this site is not activated"
+msgstr "यह साइट सक्रिय नहीं है"
+
+#: pro/licensorpro-client/licensorpro-client.php:2018
+msgid "this key is for a different plugin"
+msgstr "यह कुंजी किसी दूसरे प्लगइन की है"
+
+#: pro/licensorpro-client/licensorpro-client.php:2019
+msgid "key not recognised"
+msgstr "कुंजी पहचानी नहीं गई"
+
+#: pro/licensorpro-client/licensorpro-client.php:2020
+#: pro/licensorpro-client/licensorpro-client.php:2021
+msgid "revoked"
+msgstr "रद्द किया गया"
+
+#: pro/licensorpro-client/licensorpro-client.php:2025
 msgid "active"
 msgstr "सक्रिय"
 
 #. translators: %s: date the Pro tools lock
-#: pro/licensorpro-client/licensorpro-client.php:1818
+#: pro/licensorpro-client/licensorpro-client.php:2027
 #, php-format
 msgid "expired, Pro tools stay on until %s"
 msgstr "समाप्त, Pro टूल %s तक चालू रहेंगे"
 
-#: pro/licensorpro-client/licensorpro-client.php:1819
+#: pro/licensorpro-client/licensorpro-client.php:2028
 msgid "expired, Pro tools locked"
 msgstr "समाप्त, Pro टूल लॉक हैं"
 
-#: pro/licensorpro-client/licensorpro-client.php:1821
-msgid "this site is not activated"
-msgstr "यह साइट सक्रिय नहीं है"
-
-#: pro/licensorpro-client/licensorpro-client.php:1822
+#: pro/licensorpro-client/licensorpro-client.php:2029
 msgid "no longer active (refunded or cancelled)"
 msgstr "अब सक्रिय नहीं (पैसा लौटाया गया या रद्द)"
 
-#: pro/licensorpro-client/licensorpro-client.php:1824
-#: admin/views/entries-list.php:361 admin/views/entry-detail.php:360
-#: includes/class-my-submissions.php:51
+#. translators: %s: date the Pro tools lock
+#: pro/licensorpro-client/licensorpro-client.php:2033
+#, php-format
+msgid "renewal payment failed, Pro tools stay on until %s"
+msgstr "नवीनीकरण भुगतान विफल रहा, Pro टूल %s तक चालू रहेंगे"
+
+#: pro/licensorpro-client/licensorpro-client.php:2035
+#: admin/views/entries-list.php:356 admin/views/entry-detail.php:370
+#: includes/class-entries.php:686 includes/class-my-submissions.php:51
 msgid "Status"
 msgstr "स्थिति"
 
-#: pro/licensorpro-client/licensorpro-client.php:1826
+#: pro/licensorpro-client/licensorpro-client.php:2037
 msgid "Renew"
 msgstr "रिन्यू करें"
 
-#: pro/licensorpro-client/licensorpro-client.php:1830
+#: pro/licensorpro-client/licensorpro-client.php:2041
 msgid "Offline mode"
 msgstr "ऑफ़लाइन मोड"
 
-#: pro/licensorpro-client/licensorpro-client.php:1832
+#: pro/licensorpro-client/licensorpro-client.php:2043
 #, php-format
 msgid "cached license valid until %s"
 msgstr "कैश किया गया लाइसेंस %s तक मान्य"
 
-#: pro/licensorpro-client/licensorpro-client.php:1837
+#: pro/licensorpro-client/licensorpro-client.php:2048
 msgctxt "update channel"
 msgid "stable"
 msgstr "स्टेबल"
 
-#: pro/licensorpro-client/licensorpro-client.php:1838
+#: pro/licensorpro-client/licensorpro-client.php:2049
 msgctxt "update channel"
 msgid "beta"
 msgstr "बीटा"
 
-#: pro/licensorpro-client/licensorpro-client.php:1839
+#: pro/licensorpro-client/licensorpro-client.php:2050
 msgctxt "update channel"
 msgid "release candidate"
 msgstr "रिलीज़ कैंडिडेट"
 
-#: pro/licensorpro-client/licensorpro-client.php:1840
+#: pro/licensorpro-client/licensorpro-client.php:2051
 msgctxt "update channel"
 msgid "development"
 msgstr "डेवलपमेंट"
 
-#: pro/licensorpro-client/licensorpro-client.php:1842
+#: pro/licensorpro-client/licensorpro-client.php:2053
 msgid "Update channel"
 msgstr "अपडेट चैनल"
 
-#: pro/licensorpro-client/licensorpro-client.php:1843
+#: pro/licensorpro-client/licensorpro-client.php:2054
 msgid "Site limit"
 msgstr "साइट सीमा"
 
-#: pro/licensorpro-client/licensorpro-client.php:1843
+#: pro/licensorpro-client/licensorpro-client.php:2054
 msgid "Unlimited"
 msgstr "असीमित"
 
-#: pro/licensorpro-client/licensorpro-client.php:1844
+#: pro/licensorpro-client/licensorpro-client.php:2055
 msgid "Expires"
 msgstr "समाप्त होता है"
 
-#: pro/licensorpro-client/licensorpro-client.php:1844
+#: pro/licensorpro-client/licensorpro-client.php:2055
 msgid "Never"
 msgstr "कभी नहीं"
 
-#: pro/licensorpro-client/licensorpro-client.php:1849
+#: pro/licensorpro-client/licensorpro-client.php:2060
 msgid "Deactivate this site"
 msgstr "इस साइट को निष्क्रिय करें"
 
-#: pro/licensorpro-client/licensorpro-client.php:1856
+#: pro/licensorpro-client/licensorpro-client.php:2067
 msgid "This is the free version, running on your Pro license."
 msgstr "यह Free वर्शन है, जो आपके Pro लाइसेंस पर चल रहा है।"
 
-#: pro/licensorpro-client/licensorpro-client.php:1873
+#: pro/licensorpro-client/licensorpro-client.php:2084
 msgid "Have a Pro license key? Enter it here to switch on the Pro tools. It replaces the free license on this site."
 msgstr "क्या आपके पास Pro लाइसेंस Key है? Pro टूल चालू करने के लिए उसे यहाँ डालें। यह इस साइट के Free लाइसेंस की जगह ले लेगी।"
 
-#: pro/licensorpro-client/licensorpro-client.php:1874
+#: pro/licensorpro-client/licensorpro-client.php:2085
 msgid "Enter your license key to activate this site."
 msgstr "इस साइट को सक्रिय करने के लिए अपनी लाइसेंस Key डालें।"
 
-#: pro/licensorpro-client/licensorpro-client.php:1881
+#: pro/licensorpro-client/licensorpro-client.php:2092
 msgid "Activate"
 msgstr "सक्रिय करें"
 
-#: pro/licensorpro-client/licensorpro-client.php:1884
+#: pro/licensorpro-client/licensorpro-client.php:2095
 msgid "Your key is in your purchase email and in your account."
 msgstr "आपकी Key आपके खरीद वाले ईमेल में और आपके अकाउंट में है।"
 
-#: pro/licensorpro-client/licensorpro-client.php:1892
+#: pro/licensorpro-client/licensorpro-client.php:2103
 msgid "Need a hand?"
 msgstr "मदद चाहिए?"
 
-#: pro/licensorpro-client/licensorpro-client.php:1893
+#: pro/licensorpro-client/licensorpro-client.php:2104
 msgid "Contact support"
 msgstr "सहायता से संपर्क करें"
 
-#: pro/licensorpro-client/licensorpro-client.php:1900
-msgid "Every seat on this license is in use. Deactivate one of your other sites from your account, then try again."
-msgstr "इस लाइसेंस की सभी साइटें इस्तेमाल में हैं। अपने अकाउंट से कोई दूसरी साइट निष्क्रिय करें, फिर दोबारा कोशिश करें।"
-
-#: pro/licensorpro-client/licensorpro-client.php:1901
-msgid "This license has expired. Renewing it from your account reactivates this site immediately. Your settings and data are untouched."
-msgstr "इस लाइसेंस की अवधि खत्म हो गई है। अपने अकाउंट से रिन्यू करते ही यह साइट फिर से सक्रिय हो जाएगी। आपकी सेटिंग्स और डेटा जैसे हैं वैसे रहेंगे।"
-
-#: pro/licensorpro-client/licensorpro-client.php:1902
-msgid "That key was not recognised. Check for a missing character, or copy it again from your purchase email."
-msgstr "यह Key पहचानी नहीं गई। देखें कि कोई अक्षर छूटा तो नहीं, या खरीद वाले ईमेल से इसे फिर से कॉपी करें।"
-
-#: pro/licensorpro-client/licensorpro-client.php:1903
-msgid "This key has been revoked. If you believe that is a mistake, reply to your purchase email and we will sort it out."
-msgstr "यह Key रद्द कर दी गई है। अगर आपको लगता है कि यह गलती है, तो खरीद वाले ईमेल का जवाब दें, हम इसे ठीक कर देंगे।"
-
-#: pro/licensorpro-client/licensorpro-client.php:1904
-msgid "Could not reach the licensing server. Your site may be blocking outbound requests. This is usually temporary, so try again in a minute."
-msgstr "लाइसेंस सर्वर तक नहीं पहुँच सके। हो सकता है आपकी साइट बाहर जाने वाले अनुरोध रोक रही हो। यह अक्सर कुछ देर के लिए होता है, इसलिए एक मिनट बाद फिर कोशिश करें।"
-
-#: pro/licensorpro-client/licensorpro-client.php:1905
-msgid "Too many attempts in a short window. Wait a minute and try again."
-msgstr "थोड़े समय में बहुत ज़्यादा कोशिशें हो गईं। एक मिनट रुकें और फिर कोशिश करें।"
-
-#: pro/licensorpro-client/licensorpro-client.php:1906
-msgid "The licensing server had a problem on its side. Your key was not rejected. Try again in a few minutes, and if it keeps happening, reply to your purchase email."
-msgstr "लाइसेंस सर्वर की तरफ से कोई दिक्कत आई। आपकी Key अस्वीकार नहीं हुई है। कुछ मिनट बाद फिर कोशिश करें, और अगर यह बार-बार हो तो खरीद वाले ईमेल का जवाब दें।"
-
-#: pro/licensorpro-client/licensorpro-client.php:1907
-msgid "Enter your license key first."
-msgstr "पहले अपनी लाइसेंस Key डालें।"
-
-#: pro/licensorpro-client/licensorpro-client.php:1908
-msgid "Installing Pro. This takes a few seconds, keep this page open…"
-msgstr "Pro इंस्टॉल हो रहा है। इसमें कुछ सेकंड लगेंगे, यह पेज खुला रखें…"
-
-#: pro/licensorpro-client/licensorpro-client.php:1909
-msgid "Reloading to switch on the Pro tools…"
-msgstr "Pro टूल चालू करने के लिए पेज फिर से लोड हो रहा है…"
-
-#: pro/licensorpro-client/licensorpro-client.php:1910
-msgid "Reload now"
-msgstr "अभी फिर से लोड करें"
-
-#: pro/licensorpro-client/licensorpro-client.php:1911
-msgid "Could not reach the licensing server. Check your connection and try again."
-msgstr "लाइसेंस सर्वर तक नहीं पहुँच सके। अपना कनेक्शन जाँचें और फिर कोशिश करें।"
-
-#: pro/licensorpro-client/licensorpro-client.php:1912
-msgid "Deactivate this license on this site? Premium features switch off here and the seat is freed for another site."
-msgstr "इस साइट पर यह लाइसेंस निष्क्रिय करें? यहाँ प्रीमियम फ़ीचर बंद हो जाएँगे और यह जगह किसी दूसरी साइट के लिए खाली हो जाएगी।"
-
-#: pro/licensorpro-client/licensorpro-client.php:1913
-msgid "Done."
-msgstr "हो गया।"
-
-#: pro/licensorpro-client/licensorpro-client.php:1914
-msgid "Deactivated."
-msgstr "निष्क्रिय हो गया।"
-
-#: pro/licensorpro-client/licensorpro-client.php:1915
-msgid "Checked."
-msgstr "जाँच हो गई।"
-
-#: pro/licensorpro-client/licensorpro-client.php:2103
+#: pro/licensorpro-client/licensorpro-client.php:2151
 msgid "Only someone who may install plugins on this site can install Pro."
 msgstr "Pro सिर्फ़ वही इंस्टॉल कर सकता है जिसे इस साइट पर प्लगइन इंस्टॉल करने की अनुमति है।"
 
-#: pro/licensorpro-client/licensorpro-client.php:2116
+#: pro/licensorpro-client/licensorpro-client.php:2164
 msgid "That is a free license key, so it keeps this free version updated. Pro needs the key from your purchase email."
 msgstr "यह Free लाइसेंस Key है, इसलिए यह इस Free वर्शन को अपडेट रखती है। Pro के लिए आपके खरीद वाले ईमेल की Key चाहिए।"
 
 #. translators: %s: URL of the customer account
-#: pro/licensorpro-client/licensorpro-client.php:2121
+#: pro/licensorpro-client/licensorpro-client.php:2169
 #, php-format
 msgid "Your key is active. Download the Pro zip from your account (%s) and upload it over this plugin instead."
 msgstr "आपकी Key सक्रिय है। इसके बजाय अपने अकाउंट (%s) से Pro zip डाउनलोड करें और इसे इस प्लगइन के ऊपर अपलोड करें।"
 
-#: pro/licensorpro-client/licensorpro-client.php:2125
+#: pro/licensorpro-client/licensorpro-client.php:2173
 msgid "This site does not allow installing plugins from the dashboard."
 msgstr "यह साइट डैशबोर्ड से प्लगइन इंस्टॉल करने की अनुमति नहीं देती।"
 
-#: pro/licensorpro-client/licensorpro-client.php:2129
+#: pro/licensorpro-client/licensorpro-client.php:2177
 msgid "The Pro download could not be fetched for this key."
 msgstr "इस Key के लिए Pro डाउनलोड नहीं मिल सका।"
 
-#: pro/licensorpro-client/licensorpro-client.php:2137
+#: pro/licensorpro-client/licensorpro-client.php:2185
 msgid "This site asks for FTP details to install plugins."
 msgstr "प्लगइन इंस्टॉल करने के लिए यह साइट FTP विवरण माँगती है।"
 
-#: pro/licensorpro-client/licensorpro-client.php:2172
+#: pro/licensorpro-client/licensorpro-client.php:2220
 msgid "Installing Pro did not finish."
 msgstr "Pro इंस्टॉल करना पूरा नहीं हुआ।"
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:2177
+#: pro/licensorpro-client/licensorpro-client.php:2225
 #, php-format
 msgid "%s Pro is installed and your license is active. Reloading…"
 msgstr "%s Pro इंस्टॉल है और आपका लाइसेंस सक्रिय है। फिर से लोड हो रहा है…"
 
-#: pro/licensorpro-client/licensorpro-client.php:2187
+#: pro/licensorpro-client/licensorpro-client.php:2244
 msgid "License activated."
 msgstr "लाइसेंस सक्रिय हो गया।"
 
-#: pro/licensorpro-client/licensorpro-client.php:2202
+#: pro/licensorpro-client/licensorpro-client.php:2256
 msgid "Site deactivated."
 msgstr "साइट निष्क्रिय हो गई।"
 
-#: pro/licensorpro-client/licensorpro-client.php:2213
+#: pro/licensorpro-client/licensorpro-client.php:2278
 msgid "License is valid. Update info refreshed."
 msgstr "लाइसेंस मान्य है। अपडेट जानकारी ताज़ा की गई।"
 
-#: pro/licensorpro-client/licensorpro-client.php:2220
+#: pro/licensorpro-client/licensorpro-client.php:2312
+msgid "Every seat on this license is in use. Deactivate one of your other sites from your account, then try again."
+msgstr "इस लाइसेंस की सभी साइटें इस्तेमाल में हैं। अपने अकाउंट से कोई दूसरी साइट निष्क्रिय करें, फिर दोबारा कोशिश करें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2315
+msgid "This license has expired. Renewing it from your account reactivates this site immediately. Your settings and data are untouched."
+msgstr "इस लाइसेंस की अवधि खत्म हो गई है। अपने अकाउंट से रिन्यू करते ही यह साइट फिर से सक्रिय हो जाएगी। आपकी सेटिंग्स और डेटा जैसे हैं वैसे रहेंगे।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2317
+msgid "The last renewal payment for this license did not go through, so it is paused. Update your payment details in your account and it switches back on. Your settings and data are untouched."
+msgstr "इस लाइसेंस का पिछला नवीनीकरण भुगतान पूरा नहीं हुआ, इसलिए इसे रोक दिया गया है। अपने खाते में भुगतान विवरण अपडेट करें और यह फिर से चालू हो जाएगा। आपकी सेटिंग्स और डेटा सुरक्षित हैं।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2320
+msgid "This license was cancelled or refunded, so it no longer switches on Pro. If that is a mistake, reply to your purchase email."
+msgstr "यह लाइसेंस रद्द या रिफ़ंड कर दिया गया था, इसलिए यह अब Pro चालू नहीं करता। अगर यह गलती है, तो अपने खरीद ईमेल का जवाब दें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2323
+msgid "That key was not recognised. Check for a missing character, or copy it again from your purchase email."
+msgstr "यह Key पहचानी नहीं गई। देखें कि कोई अक्षर छूटा तो नहीं, या खरीद वाले ईमेल से इसे फिर से कॉपी करें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2325
+msgid "This key is for a different plugin. Each plugin has its own key: use the one from the purchase email for this plugin."
+msgstr "यह Key किसी दूसरे प्लगइन की है। हर प्लगइन की अपनी Key होती है: इस प्लगइन के खरीद वाले ईमेल में दी गई Key इस्तेमाल करें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2328
+msgid "This key has been revoked. If you believe that is a mistake, reply to your purchase email and we will sort it out."
+msgstr "यह Key रद्द कर दी गई है। अगर आपको लगता है कि यह गलती है, तो खरीद वाले ईमेल का जवाब दें, हम इसे ठीक कर देंगे।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2330
+msgid "This site is not activated on this license any more. Enter the key again to activate it."
+msgstr "यह साइट अब इस लाइसेंस पर सक्रिय नहीं है। इसे सक्रिय करने के लिए कुंजी फिर से दर्ज करें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2332
+msgid "That is a free license key. It keeps the free version updated but does not switch on Pro. Enter the Pro key from your purchase email."
+msgstr "यह एक मुफ़्त लाइसेंस कुंजी है। यह मुफ़्त संस्करण को अपडेट रखती है, लेकिन Pro चालू नहीं करती। अपने खरीद ईमेल से Pro कुंजी दर्ज करें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2335
+msgid "This plugin has no free license. Use the key from your purchase email."
+msgstr "इस प्लगइन का कोई मुफ़्त लाइसेंस नहीं है। अपने खरीद ईमेल वाली कुंजी का उपयोग करें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2337
+msgid "The licensing server does not know this plugin. Update the plugin, or reply to your purchase email."
+msgstr "लाइसेंस सर्वर इस प्लगइन को नहीं पहचानता। प्लगइन अपडेट करें, या अपने खरीद ईमेल का जवाब दें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2339
+msgid "This site's license session ran out. Check the license again to renew it."
+msgstr "इस साइट का लाइसेंस सत्र समाप्त हो गया। इसे नवीनीकृत करने के लिए लाइसेंस फिर से जाँचें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2342
+msgid "The download link has expired. Check for updates again to get a fresh one."
+msgstr "डाउनलोड लिंक की समय-सीमा समाप्त हो गई। नया लिंक पाने के लिए फिर से अपडेट जाँचें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2344
+msgid "The download is not on the server right now. Try again later, or download the zip from your account."
+msgstr "डाउनलोड अभी सर्वर पर नहीं है। बाद में फिर से कोशिश करें, या अपने खाते से zip डाउनलोड करें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2346
+msgid "Enter a valid email address."
+msgstr "एक मान्य ईमेल पता दर्ज करें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2349
+msgid "The request to the licensing server was missing details. Reload this page and try again."
+msgstr "लाइसेंस सर्वर को भेजे गए अनुरोध में जानकारी अधूरी थी। यह पेज फिर से लोड करें और दोबारा कोशिश करें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2353
+msgid "The answer from the licensing server could not be verified, so it was not trusted. Try again in a few minutes. If it keeps happening, reply to your purchase email."
+msgstr "लाइसेंस सर्वर के उत्तर की पुष्टि नहीं हो सकी, इसलिए उस पर भरोसा नहीं किया गया। कुछ मिनट बाद फिर से कोशिश करें। अगर ऐसा होता रहे, तो अपने खरीद ईमेल का जवाब दें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2356
+msgid "Could not reach the licensing server. Your site may be blocking outbound requests. This is usually temporary, so try again in a minute."
+msgstr "लाइसेंस सर्वर तक नहीं पहुँच सके। हो सकता है आपकी साइट बाहर जाने वाले अनुरोध रोक रही हो। यह अक्सर कुछ देर के लिए होता है, इसलिए एक मिनट बाद फिर कोशिश करें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2359
+msgid "Too many attempts in a short window. Wait a minute and try again."
+msgstr "थोड़े समय में बहुत ज़्यादा कोशिशें हो गईं। एक मिनट रुकें और फिर कोशिश करें।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2361
+msgid "The licensing server had a problem on its side. Your key was not rejected. Try again in a few minutes, and if it keeps happening, reply to your purchase email."
+msgstr "लाइसेंस सर्वर की तरफ से कोई दिक्कत आई। आपकी Key अस्वीकार नहीं हुई है। कुछ मिनट बाद फिर कोशिश करें, और अगर यह बार-बार हो तो खरीद वाले ईमेल का जवाब दें।"
+
+#. translators: %s: short error code from the licensing server
+#: pro/licensorpro-client/licensorpro-client.php:2365
+#, php-format
+msgid "The licensing server could not confirm this license (%s). Try again in a few minutes. If it keeps happening, reply to your purchase email and quote that code."
+msgstr "लाइसेंस सर्वर इस लाइसेंस की पुष्टि नहीं कर सका (%s)। कुछ मिनट बाद फिर से कोशिश करें। अगर ऐसा होता रहे, तो अपने खरीद ईमेल का जवाब दें और यह कोड बताएँ।"
+
+#: pro/licensorpro-client/licensorpro-client.php:2391
 msgid "Permission denied."
 msgstr "अनुमति नहीं है।"
 
 #. Plugin Name of the plugin
-#: trinity-forms.php admin/class-admin-ui.php:133
-#: includes/class-abilities.php:58 includes/class-entry-notes.php:111
-#: includes/class-form-widget.php:15 includes/class-plugin.php:124
-#: includes/elementor/class-form-widget.php:22
+#: trinity-forms.php admin/class-admin-ui.php:135
+#: includes/beaver-builder/trinity-forms.php:14 includes/class-abilities.php:58
+#: includes/class-entry-notes.php:131 includes/class-form-widget.php:15
+#: includes/class-plugin.php:133 includes/elementor/class-form-widget.php:22
 msgid "Trinity Forms"
 msgstr "Trinity Forms"
 
@@ -497,104 +579,104 @@ msgstr "JnK Plugins"
 msgid "https://jnkplugins.com"
 msgstr "https://jnkplugins.com"
 
-#: admin/class-admin-ui.php:58 admin/class-admin-ui.php:251
+#: admin/class-admin-ui.php:60 admin/class-admin-ui.php:253
 msgid "Forms"
 msgstr "फ़ॉर्म"
 
-#: admin/class-admin-ui.php:59 includes/class-templates.php:24
+#: admin/class-admin-ui.php:61 includes/class-templates.php:24
 #: includes/class-templates.php:25 includes/class-templates.php:193
-#: builder/src/app.jsx:472
+#: builder/src/app.jsx:500
 msgid "Templates"
 msgstr "टेम्पलेट"
 
-#: admin/class-admin-ui.php:60 admin/class-admin-ui.php:292
+#: admin/class-admin-ui.php:62 admin/class-admin-ui.php:294
 #: admin/class-admin.php:176 admin/class-admin.php:177
-#: admin/class-forms-list.php:77 admin/views/entries-list.php:143
-#: admin/views/import.php:110
+#: admin/class-forms-list.php:77 admin/views/entries-list.php:136
+#: admin/views/import.php:110 includes/class-entries.php:900
 msgid "Entries"
 msgstr "एंट्रियाँ"
 
-#: admin/class-admin-ui.php:61 includes/class-results.php:27
-#: includes/class-results.php:28 includes/class-results.php:159
+#: admin/class-admin-ui.php:63 includes/class-results.php:27
+#: includes/class-results.php:28 includes/class-results.php:179
 msgid "Results"
 msgstr "नतीजे"
 
-#: admin/class-admin-ui.php:62 admin/class-admin-ui.php:240
+#: admin/class-admin-ui.php:64 admin/class-admin-ui.php:242
 msgid "Views"
 msgstr "व्यू"
 
-#: admin/class-admin-ui.php:63
+#: admin/class-admin-ui.php:65
 msgid "Integrations"
 msgstr "इंटीग्रेशन"
 
-#: admin/class-admin-ui.php:70 admin/class-forms-list.php:220
+#: admin/class-admin-ui.php:72 admin/class-forms-list.php:220
 #: admin/views/transfer.php:29
 msgid "Import / Export"
 msgstr "इंपोर्ट / एक्सपोर्ट"
 
-#: admin/class-admin-ui.php:71 admin/class-admin.php:221
+#: admin/class-admin-ui.php:73 admin/class-admin.php:221
 #: admin/class-admin.php:222 admin/views/import.php:17
 msgid "Import forms"
 msgstr "फ़ॉर्म इंपोर्ट करें"
 
-#: admin/class-admin-ui.php:72 admin/class-admin.php:198
+#: admin/class-admin-ui.php:74 admin/class-admin.php:198
 #: admin/class-admin.php:199 admin/views/assistants.php:39
 msgid "AI assistants"
 msgstr "AI असिस्टेंट"
 
-#: admin/class-admin-ui.php:73
+#: admin/class-admin-ui.php:75
 msgid "Send feedback"
 msgstr "फ़ीडबैक भेजें"
 
-#: admin/class-admin-ui.php:119
+#: admin/class-admin-ui.php:121
 msgid "Pro"
 msgstr "Pro"
 
-#: admin/class-admin-ui.php:139
+#: admin/class-admin-ui.php:141
 msgid "Trinity Forms sections"
 msgstr "Trinity Forms सेक्शन"
 
-#: admin/class-admin-ui.php:144
+#: admin/class-admin-ui.php:146
 msgid "More"
 msgstr "और"
 
-#: admin/class-admin-ui.php:151
+#: admin/class-admin-ui.php:153
 msgid "Help"
 msgstr "सहायता"
 
-#: admin/class-admin-ui.php:152 admin/class-admin.php:84
+#: admin/class-admin-ui.php:154 admin/class-admin.php:84
 #: admin/class-admin.php:189 admin/class-admin.php:190
-#: admin/views/settings.php:27 builder/src/app.jsx:482
+#: admin/views/settings.php:27 builder/src/app.jsx:510
 msgid "Settings"
 msgstr "सेटिंग्स"
 
-#: admin/class-admin-ui.php:237
+#: admin/class-admin-ui.php:239
 msgid "New View"
 msgstr "नया व्यू"
 
-#: admin/class-admin-ui.php:241
+#: admin/class-admin-ui.php:243
 msgid "Show entries on your site as a table, a list or cards. Put a View on any page with its shortcode."
 msgstr "अपनी साइट पर एंट्रियों को टेबल, सूची या कार्ड के रूप में दिखाएँ। किसी भी पेज पर व्यू को उसके शॉर्टकोड से लगाएँ।"
 
-#: admin/class-admin-ui.php:248 admin/class-forms-list.php:61
-#: builder/src/app.jsx:663
+#: admin/class-admin-ui.php:250 admin/class-forms-list.php:61
+#: builder/src/app.jsx:692
 msgid "Start from a template"
 msgstr "किसी टेम्पलेट से शुरू करें"
 
-#: admin/class-admin-ui.php:249
+#: admin/class-admin-ui.php:251
 msgid "New form"
 msgstr "नया फ़ॉर्म"
 
-#: admin/class-admin-ui.php:252
+#: admin/class-admin-ui.php:254
 msgid "Every form on your site. Open one to edit it, or copy its shortcode onto a page."
 msgstr "आपकी साइट के सभी फ़ॉर्म। किसी को संपादित करने के लिए खोलें, या उसका शॉर्टकोड किसी पेज पर कॉपी करें।"
 
-#: admin/class-admin-ui.php:286
+#: admin/class-admin-ui.php:288
 msgid "Live forms"
 msgstr "लाइव फ़ॉर्म"
 
 #. translators: %s: number of draft forms.
-#: admin/class-admin-ui.php:289
+#: admin/class-admin-ui.php:291
 #, php-format
 msgid "Plus %s draft"
 msgid_plural "Plus %s drafts"
@@ -602,32 +684,32 @@ msgstr[0] "साथ में %s ड्राफ़्ट"
 msgstr[1] "साथ में %s ड्राफ़्ट"
 
 #. translators: %s: number of draft forms.
-#: admin/class-admin-ui.php:289
+#: admin/class-admin-ui.php:291
 msgid "No drafts waiting"
 msgstr "कोई ड्राफ़्ट बाकी नहीं"
 
-#: admin/class-admin-ui.php:292
+#: admin/class-admin-ui.php:294
 msgid "Kept in your own database"
 msgstr "आपके अपने डेटाबेस में रखी गईं"
 
-#: admin/class-admin-ui.php:294 admin/views/entries-list.php:206
-#: admin/views/entries-list.php:422
+#: admin/class-admin-ui.php:296 admin/views/entries-list.php:200
+#: admin/views/entries-list.php:417
 msgid "Unread"
 msgstr "बिना पढ़ी"
 
-#: admin/class-admin-ui.php:296
+#: admin/class-admin-ui.php:298
 msgid "Waiting for you to open them"
 msgstr "आपके खोलने का इंतज़ार कर रही हैं"
 
-#: admin/class-admin-ui.php:296
+#: admin/class-admin-ui.php:298
 msgid "You are all caught up"
 msgstr "आपने सब देख लिया है"
 
-#: admin/class-admin-ui.php:300
+#: admin/class-admin-ui.php:302
 msgid "Last 7 days"
 msgstr "पिछले 7 दिन"
 
-#: admin/class-admin-ui.php:300
+#: admin/class-admin-ui.php:302
 msgid "New entries this week"
 msgstr "इस हफ़्ते की नई एंट्रियाँ"
 
@@ -639,7 +721,7 @@ msgstr "Pro में अपग्रेड करें"
 msgid "Docs"
 msgstr "डॉक्स"
 
-#: admin/class-admin.php:105
+#: admin/class-admin.php:105 includes/class-block-defaults.php:86
 msgid "Support"
 msgstr "सपोर्ट"
 
@@ -652,23 +734,23 @@ msgid "Feedback"
 msgstr "फ़ीडबैक"
 
 #. translators: %s: feedback type (bug report, feature request, …).
-#: admin/class-admin.php:459
+#: admin/class-admin.php:462
 #, php-format
 msgid "Trinity Forms feedback: %s"
 msgstr "Trinity Forms फ़ीडबैक: %s"
 
-#: admin/class-admin.php:496
+#: admin/class-admin.php:499
 msgid "You are not allowed to view this entry."
 msgstr "आपको यह एंट्री देखने की अनुमति नहीं है।"
 
 #. translators: %s: display name of the user who resent the notification.
-#: admin/class-admin.php:566 admin/class-admin.php:645
+#: admin/class-admin.php:569 admin/class-admin.php:650
 #, php-format
 msgid "Notifications resent by %s."
 msgstr "%s ने सूचनाएँ दोबारा भेजीं।"
 
 #. translators: 1: user display name, 2: comma-separated list of field labels.
-#: admin/class-admin.php:759
+#: admin/class-admin.php:764
 #, php-format
 msgid "Edited by %1$s — changed: %2$s."
 msgstr "%1$s ने संपादित किया — बदले गए: %2$s।"
@@ -705,8 +787,8 @@ msgstr "मर्ज टैग डालें"
 msgid "Sending…"
 msgstr "भेजा जा रहा है…"
 
-#: admin/class-form-editor.php:73 admin/class-form-editor.php:775
-#: includes/fields/class-field-product.php:55
+#: admin/class-form-editor.php:73 admin/class-form-editor.php:814
+#: includes/fields/class-field-product.php:65
 msgid "— select —"
 msgstr "— चुनें —"
 
@@ -726,7 +808,7 @@ msgstr "Trinity Forms — सेटिंग्स"
 msgid "General"
 msgstr "सामान्य"
 
-#: admin/class-form-editor.php:114 builder/src/app.jsx:533
+#: admin/class-form-editor.php:114 builder/src/app.jsx:561
 msgid "Notifications"
 msgstr "सूचनाएँ"
 
@@ -742,54 +824,55 @@ msgstr "लेआउट"
 msgid "Restrictions"
 msgstr "पाबंदियाँ"
 
-#: admin/class-form-editor.php:126 builder/src/app.jsx:609
+#: admin/class-form-editor.php:126 builder/src/app.jsx:638
 msgid "Submit button text"
 msgstr "सबमिट बटन का टेक्स्ट"
 
 #: admin/class-form-editor.php:127 admin/class-form-editor.php:338
 #: includes/class-form-basics.php:48 includes/class-form-manager.php:275
 #: includes/class-gf-importer.php:231 public/class-form-renderer.php:135
-#: builder/src/app.jsx:611
+#: builder/src/app.jsx:640
 msgid "Submit"
 msgstr "भेजें"
 
-#: admin/class-form-editor.php:129 builder/src/app.jsx:615
+#: admin/class-form-editor.php:129 builder/src/app.jsx:644
 msgid "After submit"
 msgstr "सबमिट करने के बाद"
 
-#: admin/class-form-editor.php:131 builder/src/app.jsx:618
+#: admin/class-form-editor.php:131 builder/src/app.jsx:647
 msgid "Show a message"
 msgstr "संदेश दिखाएँ"
 
-#: admin/class-form-editor.php:132 builder/src/app.jsx:619
+#: admin/class-form-editor.php:132 builder/src/app.jsx:648
 msgid "Go to a page"
 msgstr "किसी पेज पर भेजें"
 
-#: admin/class-form-editor.php:133 builder/src/app.jsx:620
+#: admin/class-form-editor.php:133 builder/src/app.jsx:649
 msgid "Go to a URL"
 msgstr "किसी URL पर भेजें"
 
 #: admin/class-form-editor.php:135 includes/importers/class-formidable.php:238
 #: includes/importers/class-forminator.php:231
-#: includes/importers/class-wpforms.php:477 builder/src/app.jsx:626
+#: includes/importers/class-wpforms.php:517 builder/src/app.jsx:655
 msgid "Confirmation message"
 msgstr "पुष्टि संदेश"
 
 #: admin/class-form-editor.php:136 includes/class-confirmations.php:46
-#: includes/class-form-manager.php:277 builder/src/app.jsx:628
+#: includes/class-form-manager.php:277 builder/src/app.jsx:657
 msgid "Thank you!"
 msgstr "धन्यवाद!"
 
-#: admin/class-form-editor.php:137 admin/class-form-editor.php:770
-#: builder/src/app.jsx:634
+#: admin/class-form-editor.php:137 admin/class-form-editor.php:809
+#: builder/src/app.jsx:663
 msgid "Page"
 msgstr "पेज"
 
-#: admin/class-form-editor.php:139 builder/src/app.jsx:637
+#: admin/class-form-editor.php:139 admin/class-form-qr.php:173
+#: builder/src/app.jsx:666
 msgid "Choose a page"
 msgstr "कोई पेज चुनें"
 
-#: admin/class-form-editor.php:144 builder/src/app.jsx:645
+#: admin/class-form-editor.php:144 builder/src/app.jsx:674
 msgid "Redirect URL"
 msgstr "रीडायरेक्ट URL"
 
@@ -889,7 +972,7 @@ msgstr "+ पुष्टि संदेश जोड़ें"
 msgid "Suspected spam"
 msgstr "संदिग्ध स्पैम"
 
-#: admin/class-form-editor.php:293 admin/class-form-editor.php:767
+#: admin/class-form-editor.php:293 admin/class-form-editor.php:806
 #: admin/views/feedback.php:62 includes/class-block-defaults.php:62
 #: includes/class-templates.php:72
 msgid "Message"
@@ -945,7 +1028,7 @@ msgstr "लेबल"
 
 #: admin/class-form-editor.php:347 admin/class-form-editor.php:360
 #: admin/class-form-editor.php:392 blocks/field-shared.js:155
-#: builder/src/field-panel.jsx:307
+#: builder/src/field-panel.jsx:457
 msgid "Above the field"
 msgstr "फ़ील्ड के ऊपर"
 
@@ -966,12 +1049,12 @@ msgid "Hidden keeps the label for screen readers — it is only removed visually
 msgstr "छिपाने पर भी लेबल स्क्रीन रीडर के लिए रहता है — यह सिर्फ़ दिखने से हटता है।"
 
 #: admin/class-form-editor.php:355 blocks/field-shared.js:108
-#: builder/src/field-panel.jsx:22
+#: builder/src/field-panel.jsx:23
 msgid "Help text"
 msgstr "सहायता टेक्स्ट"
 
 #: admin/class-form-editor.php:359 admin/class-form-editor.php:391
-#: blocks/field-shared.js:154 builder/src/field-panel.jsx:306
+#: blocks/field-shared.js:154 builder/src/field-panel.jsx:456
 msgid "Below the field"
 msgstr "फ़ील्ड के नीचे"
 
@@ -1133,7 +1216,7 @@ msgid "Message when you've already submitted"
 msgstr "पहले से सबमिट करने पर संदेश"
 
 #: admin/class-form-editor.php:480 includes/class-restrictions.php:110
-#: includes/class-restrictions.php:121
+#: includes/class-restrictions.php:122
 msgid "You have already submitted this form."
 msgstr "आप यह फ़ॉर्म पहले ही सबमिट कर चुके हैं।"
 
@@ -1157,7 +1240,33 @@ msgstr "लॉग-आउट विज़िटर के लिए संदे�
 msgid "Please log in to fill in this form."
 msgstr "यह फ़ॉर्म भरने के लिए कृपया लॉग इन करें।"
 
-#: admin/class-form-editor.php:601 admin/class-form-editor.php:757
+#: admin/class-form-editor.php:617
+msgid "Rule"
+msgstr "नियम"
+
+#: admin/class-form-editor.php:619
+msgid "Always send"
+msgstr "हमेशा भेजें"
+
+#: admin/class-form-editor.php:620
+msgid "Send only when"
+msgstr "सिर्फ़ तब भेजें जब"
+
+#: admin/class-form-editor.php:621
+msgid "Don't send when"
+msgstr "तब न भेजें जब"
+
+#: admin/class-form-editor.php:626 admin/class-form-editor.php:735
+msgid "— choose a field —"
+msgstr "— कोई फ़ील्ड चुनें —"
+
+#. translators: %s: the rules in words, e.g. "Room type is group, Email is not empty".
+#: admin/class-form-editor.php:648
+#, php-format
+msgid "%s. These rules came with an import and are kept as they are when you save. Pick \"Always send\" to remove them."
+msgstr "%s। ये नियम इंपोर्ट के साथ आए थे और सेव करने पर जैसे के तैसे बने रहते हैं। इन्हें हटाने के लिए \"हमेशा भेजें\" चुनें।"
+
+#: admin/class-form-editor.php:688 admin/class-form-editor.php:796
 #: includes/class-block-defaults.php:48 includes/class-templates.php:70
 #: includes/class-templates.php:75 includes/class-templates.php:83
 #: includes/class-templates.php:90 includes/class-templates.php:98
@@ -1167,162 +1276,221 @@ msgstr "यह फ़ॉर्म भरने के लिए कृपया 
 msgid "Name"
 msgstr "नाम"
 
-#: admin/class-form-editor.php:607
+#: admin/class-form-editor.php:694
 msgid "Enabled"
 msgstr "चालू"
 
-#: admin/class-form-editor.php:622
-msgid "Rule"
-msgstr "नियम"
-
-#: admin/class-form-editor.php:624
-msgid "Always send"
-msgstr "हमेशा भेजें"
-
-#: admin/class-form-editor.php:625
-msgid "Send only when"
-msgstr "सिर्फ़ तब भेजें जब"
-
-#: admin/class-form-editor.php:626
-msgid "Don't send when"
-msgstr "तब न भेजें जब"
-
-#: admin/class-form-editor.php:631 admin/class-form-editor.php:696
-msgid "— choose a field —"
-msgstr "— कोई फ़ील्ड चुनें —"
-
-#. translators: %s: the rules in words, e.g. "Room type is group, Email is not empty".
-#: admin/class-form-editor.php:653
-#, php-format
-msgid "%s. These rules came with an import and are kept as they are when you save. Pick \"Always send\" to remove them."
-msgstr "%s। ये नियम इंपोर्ट के साथ आए थे और सेव करने पर जैसे के तैसे बने रहते हैं। इन्हें हटाने के लिए \"हमेशा भेजें\" चुनें।"
-
-#: admin/class-form-editor.php:660
+#: admin/class-form-editor.php:699
 msgid "Send when"
 msgstr "कब भेजें"
 
-#: admin/class-form-editor.php:664
+#: admin/class-form-editor.php:703
 msgid "The form is submitted"
 msgstr "फ़ॉर्म सबमिट होने पर"
 
-#: admin/class-form-editor.php:665
+#: admin/class-form-editor.php:704
 msgid "A payment completes"
 msgstr "भुगतान पूरा होने पर"
 
-#: admin/class-form-editor.php:666
+#: admin/class-form-editor.php:705
 msgid "An entry is approved"
 msgstr "एंट्री स्वीकृत होने पर"
 
-#: admin/class-form-editor.php:667
+#: admin/class-form-editor.php:706
 msgid "An entry is edited"
 msgstr "एंट्री संपादित होने पर"
 
-#: admin/class-form-editor.php:685
+#: admin/class-form-editor.php:724
 msgid "Send to"
 msgstr "किसे भेजें"
 
-#: admin/class-form-editor.php:687
+#: admin/class-form-editor.php:726
 msgid "These addresses"
 msgstr "ये पते"
 
-#: admin/class-form-editor.php:688
+#: admin/class-form-editor.php:727
 msgid "An email field on the form"
 msgstr "फ़ॉर्म का कोई ईमेल फ़ील्ड"
 
-#: admin/class-form-editor.php:704
+#: admin/class-form-editor.php:743
 msgid "Cc"
 msgstr "Cc"
 
-#: admin/class-form-editor.php:707
+#: admin/class-form-editor.php:746
 msgid "Bcc"
 msgstr "Bcc"
 
-#: admin/class-form-editor.php:710
+#: admin/class-form-editor.php:749
 msgid "Reply-To"
 msgstr "Reply-To"
 
-#: admin/class-form-editor.php:712
+#: admin/class-form-editor.php:751
 msgid "Where your reply goes when you hit Reply. Put the tag of the form's email field here to answer the sender directly."
 msgstr "Reply दबाने पर आपका जवाब कहाँ जाए। भेजने वाले को सीधे जवाब देने के लिए यहाँ फ़ॉर्म के ईमेल फ़ील्ड का टैग डालें।"
 
-#: admin/class-form-editor.php:714
+#: admin/class-form-editor.php:753
 msgid "From name"
 msgstr "भेजने वाले का नाम"
 
-#: admin/class-form-editor.php:717
+#: admin/class-form-editor.php:756
 msgid "From email"
 msgstr "भेजने वाले का ईमेल"
 
-#: admin/class-form-editor.php:719
+#: admin/class-form-editor.php:758
 msgid "Leave blank. Sending as the visitor's address makes your notification fail SPF checks and land in spam — use Reply-To above instead."
 msgstr "खाली छोड़ें। विज़िटर के पते से भेजने पर आपकी सूचना SPF जाँच में फ़ेल होकर स्पैम में चली जाती है — इसकी जगह ऊपर Reply-To इस्तेमाल करें।"
 
-#: admin/class-form-editor.php:721 includes/class-templates.php:111
+#: admin/class-form-editor.php:760 includes/class-templates.php:111
 msgid "Subject"
 msgstr "विषय"
 
-#: admin/class-form-editor.php:724
+#: admin/class-form-editor.php:763
 msgid "Body"
 msgstr "मुख्य भाग"
 
-#: admin/class-form-editor.php:730
+#: admin/class-form-editor.php:769
 msgid "Attach any files uploaded with the submission"
 msgstr "सबमिशन के साथ अपलोड की गई फ़ाइलें अटैच करें"
 
-#: admin/class-form-editor.php:735
+#: admin/class-form-editor.php:774
 msgid "Send a test"
 msgstr "टेस्ट भेजें"
 
-#: admin/class-form-editor.php:736 admin/class-forms-list.php:145
+#: admin/class-form-editor.php:775 admin/class-forms-list.php:145
 msgid "Duplicate"
 msgstr "डुप्लिकेट करें"
 
-#: admin/class-form-editor.php:737 admin/class-form-editor.php:816
+#: admin/class-form-editor.php:776 admin/class-form-editor.php:855
 #: public/class-public-front.php:74
 msgid "Remove"
 msgstr "हटाएँ"
 
-#: admin/class-form-editor.php:758
+#: admin/class-form-editor.php:797
 msgid "Enterprise enquiries"
 msgstr "एंटरप्राइज़ पूछताछ"
 
-#: admin/class-form-editor.php:760
+#: admin/class-form-editor.php:799
 msgid "Then show"
 msgstr "तब दिखाएँ"
 
-#: admin/class-form-editor.php:762
+#: admin/class-form-editor.php:801
 msgid "A message"
 msgstr "एक संदेश"
 
-#: admin/class-form-editor.php:763
+#: admin/class-form-editor.php:802
 msgid "A page on this site"
 msgstr "इस साइट का कोई पेज"
 
-#: admin/class-form-editor.php:764
+#: admin/class-form-editor.php:803
 msgid "Another URL"
 msgstr "कोई दूसरा URL"
 
-#: admin/class-form-editor.php:780
+#: admin/class-form-editor.php:819
 msgid "URL"
 msgstr "URL"
 
-#: admin/class-form-editor.php:783
+#: admin/class-form-editor.php:822
 msgid "Query string"
 msgstr "क्वेरी स्ट्रिंग"
 
-#: admin/class-form-editor.php:785
+#: admin/class-form-editor.php:824
 msgid "Appended to the page or URL above. Merge tags are resolved first."
 msgstr "ऊपर वाले पेज या URL के अंत में जोड़ी जाती है। मर्ज टैग पहले बदले जाते हैं।"
 
-#: admin/class-form-editor.php:790
+#: admin/class-form-editor.php:829
 msgid "Only when"
 msgstr "सिर्फ़ तब जब"
 
-#: admin/class-form-editor.php:793
+#: admin/class-form-editor.php:832
 msgid "— always (use the default instead) —"
 msgstr "— हमेशा (इसकी जगह डिफ़ॉल्ट इस्तेमाल करें) —"
 
-#: admin/class-forms-list.php:48 admin/views/entries-list.php:155
+#: admin/class-form-qr.php:32 admin/class-form-qr.php:35
+#: admin/class-form-qr.php:43 admin/class-form-qr.php:133
+msgid "QR code"
+msgstr "QR कोड"
+
+#. translators: %s: page title.
+#: admin/class-form-qr.php:60
+#, php-format
+msgid "Page with this form: %s"
+msgstr "इस फ़ॉर्म वाला पेज: %s"
+
+#: admin/class-form-qr.php:134 includes/class-form-revisions.php:396
+msgid "Pick a form"
+msgstr "एक फ़ॉर्म चुनें"
+
+#: admin/class-form-qr.php:134
+msgid "Open the QR code from a form's row in the forms list."
+msgstr "फ़ॉर्म सूची में किसी फ़ॉर्म की पंक्ति से QR कोड खोलें।"
+
+#: admin/class-form-qr.php:153 admin/views/transfer.php:60
+#: includes/class-form-revisions.php:400
+msgid "(no title)"
+msgstr "(कोई शीर्षक नहीं)"
+
+#. translators: %s: form title.
+#: admin/class-form-qr.php:155
+#, php-format
+msgid "QR code: %s"
+msgstr "QR कोड: %s"
+
+#. translators: %s: form title.
+#: admin/class-form-qr.php:155
+msgid "Print it on a flyer, a poster or a table card: scanning it opens the form."
+msgstr "इसे पर्चे, पोस्टर या टेबल कार्ड पर छापें: स्कैन करते ही फ़ॉर्म खुल जाता है।"
+
+#: admin/class-form-qr.php:164
+msgid "Scanning opens"
+msgstr "स्कैन करने पर खुलता है"
+
+#: admin/class-form-qr.php:168
+msgid "Another page:"
+msgstr "दूसरा पेज:"
+
+#: admin/class-form-qr.php:178
+msgid "This address:"
+msgstr "यह पता:"
+
+#: admin/class-form-qr.php:182
+msgid "Mark scans as coming from the QR code (adds utm_source=qr, shown on entries when the form records where visitors came from)"
+msgstr "स्कैन को QR कोड से आया हुआ चिह्नित करें (utm_source=qr जोड़ता है; अगर फ़ॉर्म रिकॉर्ड करता है कि विज़िटर कहाँ से आए, तो एंट्री पर दिखता है)"
+
+#: admin/class-form-qr.php:183
+msgid "Show QR code"
+msgstr "QR कोड दिखाएँ"
+
+#: admin/class-form-qr.php:187
+msgid "This form is not on any published page yet. Choose a page or type an address."
+msgstr "यह फ़ॉर्म अभी किसी प्रकाशित पेज पर नहीं है। एक पेज चुनें या पता लिखें।"
+
+#: admin/class-form-qr.php:193
+msgid "That is not a web address a phone can open. Start it with https://"
+msgstr "यह ऐसा वेब पता नहीं है जिसे फ़ोन खोल सके। इसे https:// से शुरू करें"
+
+#. translators: %d: number of characters.
+#: admin/class-form-qr.php:199
+#, php-format
+msgid "That address is too long for a QR code (up to %d characters)."
+msgstr "यह पता QR कोड के लिए बहुत लंबा है (अधिकतम %d अक्षर)।"
+
+#: admin/class-form-qr.php:206
+msgid "Opens:"
+msgstr "खुलता है:"
+
+#: admin/class-form-qr.php:208
+msgid "Download SVG"
+msgstr "SVG डाउनलोड करें"
+
+#: admin/class-form-qr.php:209
+msgid "Download PNG"
+msgstr "PNG डाउनलोड करें"
+
+#: admin/class-form-qr.php:211
+msgid "SVG stays sharp at any size, for print. PNG is 1024 pixels, for documents and social posts. Test-scan it with a phone before printing."
+msgstr "SVG हर आकार में साफ़ रहता है, छपाई के लिए। PNG 1024 पिक्सेल का है, दस्तावेज़ों और सोशल पोस्ट के लिए। छापने से पहले फ़ोन से स्कैन करके जाँच लें।"
+
+#: admin/class-forms-list.php:48 admin/views/entries-list.php:149
 msgid "Create your first form"
 msgstr "अपना पहला फ़ॉर्म बनाएँ"
 
@@ -1369,8 +1537,10 @@ msgid "You do not have permission to export this form."
 msgstr "आपको यह फ़ॉर्म एक्सपोर्ट करने की अनुमति नहीं है।"
 
 #: admin/class-forms-list.php:178 admin/class-forms-list.php:240
-#: includes/class-abilities.php:203 includes/class-abilities.php:350
-#: includes/class-rest-api.php:138 includes/class-submission-pipeline.php:49
+#: includes/class-abilities.php:210 includes/class-abilities.php:357
+#: includes/class-rest-api.php:151 includes/class-rest-resources.php:228
+#: includes/class-rest-resources.php:236
+#: includes/class-submission-pipeline.php:49
 msgid "Form not found."
 msgstr "फ़ॉर्म नहीं मिला।"
 
@@ -1485,8 +1655,8 @@ msgid "Entries of the forms you tick are not listed and cannot be opened by an a
 msgstr "जिन फ़ॉर्म पर आप टिक लगाते हैं, उनकी एंट्रियाँ असिस्टेंट की सूची में नहीं आतीं और वह उन्हें खोल नहीं सकता, जैसे नौकरी का आवेदन या मेडिकल फ़ॉर्म। फ़ॉर्म खुद अब भी पढ़ा जा सकता है।"
 
 #. translators: %s: number of entries.
-#: admin/views/assistants.php:104 admin/views/entries-list.php:190
-#: admin/views/entries-list.php:339
+#: admin/views/assistants.php:104 admin/views/entries-list.php:184
+#: admin/views/entries-list.php:334
 #, php-format
 msgid "%s entry"
 msgid_plural "%s entries"
@@ -1667,7 +1837,7 @@ msgstr "अभी तक कोई अनुरोध नहीं।"
 msgid "When"
 msgstr "जब"
 
-#: admin/views/assistants.php:240 admin/views/entry-detail.php:374
+#: admin/views/assistants.php:240 admin/views/entry-detail.php:384
 msgid "User"
 msgstr "उपयोगकर्ता"
 
@@ -1679,7 +1849,7 @@ msgstr "क्या माँगा"
 msgid "Result"
 msgstr "नतीजा"
 
-#: admin/views/assistants.php:250 builder/src/app.jsx:656
+#: admin/views/assistants.php:250 builder/src/app.jsx:685
 msgid "Done"
 msgstr "हो गया"
 
@@ -1689,342 +1859,343 @@ msgid "Failed"
 msgstr "विफल"
 
 #. translators: %d: form ID.
-#: admin/views/entries-list.php:76 includes/class-classic-editor.php:40
+#: admin/views/entries-list.php:77 includes/class-classic-editor.php:40
 #: includes/class-form-manager.php:54
 #, php-format
 msgid "(untitled form #%d)"
 msgstr "(बिना शीर्षक का फ़ॉर्म #%d)"
 
-#: admin/views/entries-list.php:144
+#: admin/views/entries-list.php:137
 msgid "Everything people have sent through your forms. Open one to read it, reply or add a note."
 msgstr "लोगों ने आपके फ़ॉर्म से जो कुछ भेजा है, सब यहाँ है। पढ़ने, जवाब देने या नोट जोड़ने के लिए किसी को खोलें।"
 
-#: admin/views/entries-list.php:145
-msgid "Export CSV"
-msgstr "CSV एक्सपोर्ट करें"
-
-#: admin/views/entries-list.php:153 admin/views/transfer.php:55
+#: admin/views/entries-list.php:147 admin/views/transfer.php:55
 msgid "No forms yet"
 msgstr "अभी कोई फ़ॉर्म नहीं"
 
-#: admin/views/entries-list.php:154
+#: admin/views/entries-list.php:148
 msgid "Build a form, put its shortcode on a page, and every submission is stored here in your own database. No caps, no per-entry fees."
 msgstr "एक फ़ॉर्म बनाएँ, उसका शॉर्टकोड किसी पेज पर लगाएँ, और हर सबमिशन यहाँ आपके अपने डेटाबेस में रखा जाएगा। कोई सीमा नहीं, हर एंट्री का कोई शुल्क नहीं।"
 
-#: admin/views/entries-list.php:170
+#: admin/views/entries-list.php:164
 #, php-format
 msgid "%s marked as read."
 msgstr "%s पढ़ी हुई चिह्नित की गई।"
 
-#: admin/views/entries-list.php:171
+#: admin/views/entries-list.php:165
 #, php-format
 msgid "%s marked as unread."
 msgstr "%s बिना पढ़ी चिह्नित की गई।"
 
-#: admin/views/entries-list.php:172
+#: admin/views/entries-list.php:166
 #, php-format
 msgid "%s starred."
 msgstr "%s पर स्टार लगाया गया।"
 
-#: admin/views/entries-list.php:173
+#: admin/views/entries-list.php:167
 #, php-format
 msgid "%s unstarred."
 msgstr "%s से स्टार हटाया गया।"
 
-#: admin/views/entries-list.php:174
+#: admin/views/entries-list.php:168
 #, php-format
 msgid "%s marked as spam."
 msgstr "%s स्पैम चिह्नित की गई।"
 
-#: admin/views/entries-list.php:175
+#: admin/views/entries-list.php:169
 #, php-format
 msgid "%s moved to trash."
 msgstr "%s ट्रैश में भेजी गई।"
 
-#: admin/views/entries-list.php:176
+#: admin/views/entries-list.php:170
 #, php-format
 msgid "%s restored."
 msgstr "%s वापस लाई गई।"
 
-#: admin/views/entries-list.php:177 admin/views/entries-list.php:178
+#: admin/views/entries-list.php:171 admin/views/entries-list.php:172
 #, php-format
 msgid "%s permanently deleted."
 msgstr "%s हमेशा के लिए हटा दी गई।"
 
-#: admin/views/entries-list.php:179
+#: admin/views/entries-list.php:173
 #, php-format
 msgid "Notifications resent for %s."
 msgstr "%s के लिए सूचनाएँ दोबारा भेजी गईं।"
 
-#: admin/views/entries-list.php:180 admin/views/entry-detail.php:156
+#: admin/views/entries-list.php:174 admin/views/entry-detail.php:156
 msgid "Note added."
 msgstr "नोट जोड़ा गया।"
 
-#: admin/views/entries-list.php:181 admin/views/entry-detail.php:157
+#: admin/views/entries-list.php:175 admin/views/entry-detail.php:157
 msgid "Note deleted."
 msgstr "नोट हटाया गया।"
 
-#: admin/views/entries-list.php:182
+#: admin/views/entries-list.php:176
 msgid "Columns updated."
 msgstr "कॉलम अपडेट किए गए।"
 
-#: admin/views/entries-list.php:183
+#: admin/views/entries-list.php:177
 #, php-format
 msgid "%s approved."
 msgstr "%s स्वीकृत की गई।"
 
-#: admin/views/entries-list.php:184
+#: admin/views/entries-list.php:178
 #, php-format
 msgid "%s rejected."
 msgstr "%s अस्वीकार की गई।"
 
-#: admin/views/entries-list.php:185
+#: admin/views/entries-list.php:179
 msgid "Nothing selected."
 msgstr "कुछ भी नहीं चुना गया।"
 
-#: admin/views/entries-list.php:205
+#: admin/views/entries-list.php:199
 msgid "All"
 msgstr "सभी"
 
-#: admin/views/entries-list.php:207 admin/views/entries-list.php:354
+#: admin/views/entries-list.php:201 admin/views/entries-list.php:349
 msgid "Starred"
 msgstr "स्टार वाली"
 
-#: admin/views/entries-list.php:208 admin/views/entries-list.php:453
+#: admin/views/entries-list.php:202 admin/views/entries-list.php:448
 #: includes/class-entries.php:63
 msgid "Spam"
 msgstr "स्पैम"
 
-#: admin/views/entries-list.php:209 admin/views/entries-list.php:454
+#: admin/views/entries-list.php:203 admin/views/entries-list.php:449
 #: admin/views/entry-detail.php:221 includes/class-entries.php:64
 msgid "Trash"
 msgstr "ट्रैश"
 
-#: admin/views/entries-list.php:213 includes/class-entries.php:65
+#: admin/views/entries-list.php:207 includes/class-entries.php:65
 msgid "Partial"
 msgstr "अधूरी"
 
-#: admin/views/entries-list.php:223
+#: admin/views/entries-list.php:217
 msgid "Filter entries"
 msgstr "एंट्रियाँ फ़िल्टर करें"
 
-#: admin/views/entries-list.php:237 admin/views/entries-list.php:356
-#: admin/views/entry-detail.php:343 admin/views/import.php:108
+#: admin/views/entries-list.php:231 admin/views/entries-list.php:351
+#: admin/views/entry-detail.php:353 admin/views/import.php:108
+#: includes/class-beaver-builder.php:39 includes/class-beaver-builder.php:58
 #: includes/class-classic-editor.php:81 includes/class-form-widget.php:103
 #: includes/class-my-submissions.php:50 includes/class-my-submissions.php:56
-#: includes/class-plugin.php:125 includes/class-results.php:146
+#: includes/class-plugin.php:134 includes/class-results.php:166
 #: includes/elementor/class-form-widget.php:55
 #: includes/elementor/class-form-widget.php:60 blocks/form-block/edit.js:29
 msgid "Form"
 msgstr "फ़ॉर्म"
 
-#: admin/views/entries-list.php:239
+#: admin/views/entries-list.php:233 includes/class-ip-privacy.php:147
 msgid "All forms"
 msgstr "सभी फ़ॉर्म"
 
-#: admin/views/entries-list.php:246 admin/views/entries-list.php:362
-#: admin/views/entry-detail.php:363
+#: admin/views/entries-list.php:240 admin/views/entries-list.php:357
+#: admin/views/entry-detail.php:373
 msgid "Payment"
 msgstr "भुगतान"
 
-#: admin/views/entries-list.php:248
+#: admin/views/entries-list.php:242
 msgid "Any payment"
 msgstr "कोई भी भुगतान"
 
-#: admin/views/entries-list.php:256
+#: admin/views/entries-list.php:250
 msgid "From date"
 msgstr "शुरुआती तारीख"
 
-#: admin/views/entries-list.php:258
+#: admin/views/entries-list.php:252
 msgid "to"
 msgstr "से"
 
-#: admin/views/entries-list.php:259
+#: admin/views/entries-list.php:253
 msgid "To date"
 msgstr "अंतिम तारीख"
 
-#: admin/views/entries-list.php:263
+#: admin/views/entries-list.php:257
 msgid "Search entries"
 msgstr "एंट्रियाँ खोजें"
 
-#: admin/views/entries-list.php:264
+#: admin/views/entries-list.php:258
 msgid "Search answers…"
 msgstr "जवाबों में खोजें…"
 
-#: admin/views/entries-list.php:266
+#: admin/views/entries-list.php:260
 msgid "Filter"
 msgstr "फ़िल्टर करें"
 
-#: admin/views/entries-list.php:269
+#: admin/views/entries-list.php:263
 msgid "Clear"
 msgstr "साफ़ करें"
 
-#: admin/views/entries-list.php:278
+#: admin/views/entries-list.php:272
 msgid "Choose answer columns"
 msgstr "जवाब वाले कॉलम चुनें"
 
-#: admin/views/entries-list.php:285
+#: admin/views/entries-list.php:279
 msgid "Show these answers as columns in the list."
 msgstr "इन जवाबों को सूची में कॉलम के रूप में दिखाएँ।"
 
-#: admin/views/entries-list.php:295
+#: admin/views/entries-list.php:289
 msgid "Apply columns"
 msgstr "कॉलम लागू करें"
 
-#: admin/views/entries-list.php:312
+#: admin/views/entries-list.php:306
 msgid "Bulk action"
 msgstr "बल्क एक्शन"
 
-#: admin/views/entries-list.php:314
+#: admin/views/entries-list.php:308
 msgid "With selected…"
 msgstr "चुनी गई के साथ…"
 
-#: admin/views/entries-list.php:316 admin/views/entries-list.php:448
-#: admin/views/entry-detail.php:219
+#: admin/views/entries-list.php:310 admin/views/entries-list.php:443
+#: admin/views/entry-detail.php:219 includes/class-form-revisions.php:429
 msgid "Restore"
 msgstr "वापस लाएँ"
 
-#: admin/views/entries-list.php:317 admin/views/entries-list.php:450
+#: admin/views/entries-list.php:311 admin/views/entries-list.php:445
 msgid "Delete permanently"
 msgstr "हमेशा के लिए हटाएँ"
 
-#: admin/views/entries-list.php:319
+#: admin/views/entries-list.php:313
 msgid "Mark as read"
 msgstr "पढ़ी हुई चिह्नित करें"
 
-#: admin/views/entries-list.php:320
+#: admin/views/entries-list.php:314
 msgid "Mark as unread"
 msgstr "बिना पढ़ी चिह्नित करें"
 
-#: admin/views/entries-list.php:321 admin/views/entry-detail.php:196
+#: admin/views/entries-list.php:315 admin/views/entry-detail.php:196
 msgid "Star"
 msgstr "स्टार लगाएँ"
 
-#: admin/views/entries-list.php:322 admin/views/entries-list.php:416
+#: admin/views/entries-list.php:316 admin/views/entries-list.php:411
 msgid "Remove star"
 msgstr "स्टार हटाएँ"
 
-#: admin/views/entries-list.php:323 admin/views/entry-detail.php:201
+#: admin/views/entries-list.php:317 admin/views/entry-detail.php:201
 msgid "Resend notifications"
 msgstr "सूचनाएँ दोबारा भेजें"
 
-#: admin/views/entries-list.php:324 admin/views/entry-detail.php:217
+#: admin/views/entries-list.php:318 admin/views/entry-detail.php:217
 #: admin/views/entry-print.php:81
 msgid "Print"
 msgstr "प्रिंट करें"
 
-#: admin/views/entries-list.php:325
+#: admin/views/entries-list.php:319
 msgid "Export selected to CSV"
 msgstr "चुनी गई को CSV में एक्सपोर्ट करें"
 
-#: admin/views/entries-list.php:326
+#: admin/views/entries-list.php:320
+msgid "Export selected to Excel"
+msgstr "चुनी हुई को Excel में एक्सपोर्ट करें"
+
+#: admin/views/entries-list.php:321
 msgid "Mark as spam"
 msgstr "स्पैम चिह्नित करें"
 
-#: admin/views/entries-list.php:327
+#: admin/views/entries-list.php:322
 msgid "Move to trash"
 msgstr "ट्रैश में भेजें"
 
-#: admin/views/entries-list.php:333
+#: admin/views/entries-list.php:328
 msgid "Apply"
 msgstr "लागू करें"
 
-#: admin/views/entries-list.php:351
+#: admin/views/entries-list.php:346
 msgid "Select all"
 msgstr "सभी चुनें"
 
-#: admin/views/entries-list.php:355
+#: admin/views/entries-list.php:350
 msgid "Entry"
 msgstr "एंट्री"
 
-#: admin/views/entries-list.php:360 admin/views/entry-detail.php:358
-#: admin/views/entry-detail.php:438
+#: admin/views/entries-list.php:355 admin/views/entry-detail.php:368
+#: admin/views/entry-detail.php:456
 msgid "Submitted"
 msgstr "सबमिट किया गया"
 
-#: admin/views/entries-list.php:373
+#: admin/views/entries-list.php:368
 msgid "No entries match those filters."
 msgstr "इन फ़िल्टर से कोई एंट्री मेल नहीं खाती।"
 
-#: admin/views/entries-list.php:373
+#: admin/views/entries-list.php:368
 msgid "Try a wider date range or a different search."
 msgstr "लंबी तारीख सीमा या कोई दूसरी खोज आज़माएँ।"
 
-#: admin/views/entries-list.php:373
+#: admin/views/entries-list.php:368
 msgid "Clear the filters"
 msgstr "फ़िल्टर साफ़ करें"
 
-#: admin/views/entries-list.php:375
+#: admin/views/entries-list.php:370
 msgid "The trash is empty."
 msgstr "ट्रैश खाली है।"
 
-#: admin/views/entries-list.php:375
+#: admin/views/entries-list.php:370
 msgid "Entries you move to the trash wait here before they are deleted for good."
 msgstr "जिन एंट्रियों को आप ट्रैश में भेजते हैं, वे हमेशा के लिए हटने से पहले यहाँ रहती हैं।"
 
-#: admin/views/entries-list.php:377
+#: admin/views/entries-list.php:372
 msgid "No spam. Nice."
 msgstr "कोई स्पैम नहीं। बढ़िया।"
 
-#: admin/views/entries-list.php:377
+#: admin/views/entries-list.php:372
 msgid "Anything the spam checks catch lands here, so you can rescue a real message."
 msgstr "स्पैम जाँच में जो भी पकड़ा जाता है वह यहाँ आता है, ताकि आप असली संदेश को बचा सकें।"
 
-#: admin/views/entries-list.php:379
+#: admin/views/entries-list.php:374
 msgid "You are all caught up."
 msgstr "आपने सब देख लिया है।"
 
-#: admin/views/entries-list.php:379
+#: admin/views/entries-list.php:374
 msgid "New entries show up here until you open them."
 msgstr "नई एंट्रियाँ तब तक यहाँ दिखती हैं जब तक आप उन्हें खोलते नहीं।"
 
-#: admin/views/entries-list.php:381
+#: admin/views/entries-list.php:376
 msgid "No starred entries yet."
 msgstr "अभी स्टार वाली कोई एंट्री नहीं।"
 
-#: admin/views/entries-list.php:381
+#: admin/views/entries-list.php:376
 msgid "Star an entry from the list to keep it handy here."
 msgstr "किसी एंट्री को यहाँ आसानी से पाने के लिए सूची में उस पर स्टार लगाएँ।"
 
-#: admin/views/entries-list.php:383
+#: admin/views/entries-list.php:378
 msgid "No entries yet."
 msgstr "अभी कोई एंट्री नहीं।"
 
-#: admin/views/entries-list.php:383
+#: admin/views/entries-list.php:378
 msgid "Entries appear here the moment someone submits. Add a form to a page to start collecting."
 msgstr "जैसे ही कोई सबमिट करता है, एंट्रियाँ यहाँ दिखती हैं। एंट्रियाँ पाना शुरू करने के लिए किसी पेज पर फ़ॉर्म लगाएँ।"
 
-#: admin/views/entries-list.php:383 includes/class-results.php:169
+#: admin/views/entries-list.php:378 includes/class-results.php:189
 msgid "Go to your forms"
 msgstr "अपने फ़ॉर्म पर जाएँ"
 
 #. translators: %d: entry ID.
-#: admin/views/entries-list.php:408
+#: admin/views/entries-list.php:403
 #, php-format
 msgid "Select entry %d"
 msgstr "एंट्री %d चुनें"
 
-#: admin/views/entries-list.php:416
+#: admin/views/entries-list.php:411
 msgid "Star this entry"
 msgstr "इस एंट्री पर स्टार लगाएँ"
 
-#: admin/views/entries-list.php:422
+#: admin/views/entries-list.php:417
 msgid "Unread:"
 msgstr "बिना पढ़ी:"
 
 #. translators: %d: entry ID.
 #. translators: %d: numeric entry ID.
-#: admin/views/entries-list.php:430 admin/views/entry-detail.php:144
+#: admin/views/entries-list.php:425 admin/views/entry-detail.php:144
 #: admin/views/entry-print.php:57 admin/views/entry-print.php:97
 #, php-format
 msgid "Entry #%d"
 msgstr "एंट्री #%d"
 
-#: admin/views/entries-list.php:443
+#: admin/views/entries-list.php:438
 msgid "View"
 msgstr "व्यू"
 
-#: admin/views/entries-list.php:445 includes/class-block-defaults.php:38
+#: admin/views/entries-list.php:440 includes/class-block-defaults.php:38
 #: includes/class-templates.php:71 includes/class-templates.php:76
 #: includes/class-templates.php:84 includes/class-templates.php:91
 #: includes/class-templates.php:99 includes/class-templates.php:105
@@ -2033,19 +2204,19 @@ msgstr "व्यू"
 msgid "Email"
 msgstr "ईमेल"
 
-#: admin/views/entries-list.php:450
+#: admin/views/entries-list.php:445
 msgid "Permanently delete this entry? This cannot be undone."
 msgstr "इस एंट्री को हमेशा के लिए हटाएँ? यह वापस नहीं हो सकता।"
 
-#: admin/views/entries-list.php:452
+#: admin/views/entries-list.php:447
 msgid "Mark read"
 msgstr "पढ़ी हुई"
 
-#: admin/views/entries-list.php:452 admin/views/entry-detail.php:198
+#: admin/views/entries-list.php:447 admin/views/entry-detail.php:198
 msgid "Mark unread"
 msgstr "बिना पढ़ी"
 
-#: admin/views/entries-list.php:491
+#: admin/views/entries-list.php:486
 msgid "This form does not take payments"
 msgstr "यह फ़ॉर्म भुगतान नहीं लेता"
 
@@ -2176,7 +2347,7 @@ msgid "Files"
 msgstr "फ़ाइलें"
 
 #: admin/views/entry-detail.php:289 admin/views/entry-detail.php:291
-#: admin/views/transfer.php:61
+#: admin/views/transfer.php:61 includes/class-export-columns.php:127
 msgid "Download"
 msgstr "डाउनलोड करें"
 
@@ -2209,43 +2380,50 @@ msgstr "नोट जोड़ें…"
 msgid "Add note"
 msgstr "नोट जोड़ें"
 
-#: admin/views/entry-detail.php:341
+#: admin/views/entry-detail.php:351
 msgid "Details"
 msgstr "विवरण"
 
-#: admin/views/entry-detail.php:355
+#: admin/views/entry-detail.php:365
 msgid "Form deleted"
 msgstr "फ़ॉर्म हटा दिया गया"
 
-#: admin/views/entry-detail.php:375 includes/class-entry-notes.php:114
+#: admin/views/entry-detail.php:385 includes/class-entry-notes.php:134
+#: includes/class-form-revisions.php:289
 msgid "Deleted user"
 msgstr "हटाया गया उपयोगकर्ता"
 
-#: admin/views/entry-detail.php:383
+#: admin/views/entry-detail.php:393
 msgid "Created post"
 msgstr "बनाई गई पोस्ट"
 
-#: admin/views/entry-detail.php:389 includes/class-merge-tags.php:38
+#: admin/views/entry-detail.php:399 includes/class-entries.php:754
+#: includes/class-entries.php:766 includes/class-export-columns.php:35
+#: includes/class-merge-tags.php:38 includes/class-privacy.php:59
 msgid "IP address"
 msgstr "IP पता"
 
-#: admin/views/entry-detail.php:391
+#: admin/views/entry-detail.php:399
+msgid "Not stored"
+msgstr "सहेजा नहीं गया"
+
+#: admin/views/entry-detail.php:401
 msgid "Sent from"
 msgstr "यहाँ से भेजा गया"
 
-#: admin/views/entry-detail.php:395
+#: admin/views/entry-detail.php:405
 msgid "Came from"
 msgstr "यहाँ से आया"
 
-#: admin/views/entry-detail.php:398
+#: admin/views/entry-detail.php:416 includes/class-privacy.php:62
 msgid "Browser"
 msgstr "ब्राउज़र"
 
-#: admin/views/entry-detail.php:410
+#: admin/views/entry-detail.php:428
 msgid "Activity"
 msgstr "गतिविधि"
 
-#: admin/views/entry-detail.php:437 includes/class-logger.php:30
+#: admin/views/entry-detail.php:455 includes/class-logger.php:30
 msgid "entry"
 msgstr "एंट्री"
 
@@ -2279,7 +2457,8 @@ msgstr "संपादित नहीं किया जा सकता। �
 msgid "Save entry"
 msgstr "एंट्री सहेजें"
 
-#: admin/views/entry-print.php:40 includes/class-abilities.php:346
+#: admin/views/entry-print.php:40 includes/class-abilities.php:353
+#: includes/class-rest-resources.php:77 includes/class-rest-resources.php:208
 msgid "Entry not found."
 msgstr "एंट्री नहीं मिली।"
 
@@ -2515,7 +2694,7 @@ msgstr "एंट्री देखें"
 msgid "Most of the time this means the site has no working mail setup. An SMTP plugin that sends through your email provider usually fixes it."
 msgstr "ज़्यादातर इसका मतलब है कि साइट पर मेल ठीक से सेट नहीं है। आपके ईमेल प्रदाता से भेजने वाला कोई SMTP प्लगइन आमतौर पर इसे ठीक कर देता है।"
 
-#: admin/views/settings.php:117 admin/views/settings.php:225
+#: admin/views/settings.php:117 admin/views/settings.php:234
 msgid "Save settings"
 msgstr "सेटिंग्स सहेजें"
 
@@ -2592,26 +2771,38 @@ msgid "Data"
 msgstr "डेटा"
 
 #: admin/views/settings.php:199
+msgid "Visitor IP addresses"
+msgstr "विज़िटर के IP पते"
+
+#: admin/views/settings.php:204
+msgid "Don't store visitor IP addresses with entries (every form)"
+msgstr "एंट्री के साथ विज़िटर का IP पता न सहेजें (सभी फ़ॉर्म)"
+
+#: admin/views/settings.php:206
+msgid "Off by default. A single form can also turn this on in its General settings. Spam lists and rate limits still check the address while a form is being sent; the per IP address entry limit stops working. Addresses already stored stay until you remove them with the Stored IP addresses card above."
+msgstr "डिफ़ॉल्ट रूप से बंद। कोई एक फ़ॉर्म भी इसे अपनी General सेटिंग में चालू कर सकता है। फ़ॉर्म भेजे जाते समय स्पैम सूचियाँ और रेट लिमिट अब भी पता जाँचती हैं; प्रति IP पता एंट्री सीमा काम करना बंद कर देती है। पहले से सहेजे गए पते तब तक रहते हैं जब तक आप उन्हें ऊपर के सहेजे गए IP पते कार्ड से न हटाएँ।"
+
+#: admin/views/settings.php:208
 msgid "Delete data on uninstall"
 msgstr "अनइंस्टॉल पर डेटा हटाएँ"
 
-#: admin/views/settings.php:204
+#: admin/views/settings.php:213
 msgid "Delete all Trinity Forms data when the plugin is deleted"
 msgstr "प्लगइन हटाने पर Trinity Forms का सारा डेटा हटा दें"
 
-#: admin/views/settings.php:206
+#: admin/views/settings.php:215
 msgid "Off by default. Your forms and entries are kept if you deactivate, delete, or let a Pro license lapse. Tick this only to also remove data on delete."
 msgstr "डिफ़ॉल्ट रूप से बंद। निष्क्रिय करने, हटाने या Pro लाइसेंस खत्म होने पर भी आपके फ़ॉर्म और एंट्रियाँ बनी रहती हैं। इसे सिर्फ़ तभी टिक करें जब हटाने पर डेटा भी मिटाना हो।"
 
-#: admin/views/settings.php:207
+#: admin/views/settings.php:216
 msgid "Deleting Trinity Forms will then permanently remove all your forms, their entries and every setting. This cannot be undone, so export anything you want to keep first."
 msgstr "इसके बाद Trinity Forms डिलीट करने पर आपके सारे फ़ॉर्म, उनकी एंट्री और सभी सेटिंग्स हमेशा के लिए हट जाएँगी। इसे वापस नहीं किया जा सकता, इसलिए जो रखना है उसे पहले एक्सपोर्ट कर लें।"
 
-#: admin/views/settings.php:208
+#: admin/views/settings.php:217
 msgid "Tick this anyway?"
 msgstr "फिर भी इसे चुनें?"
 
-#: admin/views/settings.php:237
+#: admin/views/settings.php:246
 msgid "License"
 msgstr "लाइसेंस"
 
@@ -2625,7 +2816,7 @@ msgstr "किसी फ़ॉर्म को एक छोटी .json फ़�
 msgid "Imported “%s”."
 msgstr "“%s” इंपोर्ट हुआ।"
 
-#: admin/views/transfer.php:43
+#: admin/views/transfer.php:43 includes/class-form-revisions.php:401
 msgid "Edit form"
 msgstr "फ़ॉर्म संपादित करें"
 
@@ -2633,7 +2824,7 @@ msgstr "फ़ॉर्म संपादित करें"
 msgid "Integration and payment keys are never included in an export, so set them up again on this site."
 msgstr "इंटीग्रेशन और भुगतान की Keys एक्सपोर्ट में कभी शामिल नहीं होतीं, इसलिए इन्हें इस साइट पर दोबारा सेट करें।"
 
-#: admin/views/transfer.php:52 includes/class-abilities.php:174
+#: admin/views/transfer.php:52 includes/class-abilities.php:181
 msgid "Export a form"
 msgstr "फ़ॉर्म एक्सपोर्ट करें"
 
@@ -2644,10 +2835,6 @@ msgstr "फ़ील्ड, सेटिंग्स, सूचनाएँ औ�
 #: admin/views/transfer.php:55
 msgid "Once you have a form, you can download it here."
 msgstr "फ़ॉर्म बन जाने के बाद आप उसे यहाँ से डाउनलोड कर सकते हैं।"
-
-#: admin/views/transfer.php:60
-msgid "(no title)"
-msgstr "(कोई शीर्षक नहीं)"
 
 #: admin/views/transfer.php:70
 msgid "Import a form"
@@ -2811,56 +2998,60 @@ msgstr "स्क्रीन के ऊपर दिखने वाली स�
 msgid "The Pro zip is about 6.5 MB and this site accepts uploads up to %s. If WordPress says the file “exceeds the upload_max_filesize directive”, ask your host to raise upload_max_filesize and post_max_size to 16 MB, or unzip it on your computer and upload the trinity-forms folder to wp-content/plugins/ over FTP/SFTP, replacing the existing one. Your forms and entries are kept either way."
 msgstr "Pro zip लगभग 6.5 MB की है और यह साइट %s तक के अपलोड स्वीकार करती है। अगर WordPress कहे कि फ़ाइल “exceeds the upload_max_filesize directive”, तो अपने होस्ट से upload_max_filesize और post_max_size को 16 MB करने को कहें, या इसे अपने कंप्यूटर पर unzip करके trinity-forms फ़ोल्डर को FTP/SFTP से wp-content/plugins/ में अपलोड करें और मौजूदा फ़ोल्डर को बदल दें। दोनों तरह से आपके फ़ॉर्म और एंट्रियाँ बनी रहती हैं।"
 
+#: includes/beaver-builder/trinity-forms.php:15
+msgid "Show a Trinity Forms form."
+msgstr "एक Trinity Forms फ़ॉर्म दिखाएँ।"
+
 #: includes/class-abilities.php:59
 msgid "Forms built with Trinity Forms, their numbers and their entries."
 msgstr "Trinity Forms से बने फ़ॉर्म, उनके आँकड़े और उनकी एंट्रियाँ।"
 
-#: includes/class-abilities.php:113
+#: includes/class-abilities.php:120
 msgid "List forms"
 msgstr "फ़ॉर्म की सूची"
 
-#: includes/class-abilities.php:114
+#: includes/class-abilities.php:121
 msgid "Every form with its status, number of fields, entries, unread entries, views and conversion rate, and the shortcode to place it."
 msgstr "हर फ़ॉर्म, उसकी स्थिति, फ़ील्ड की संख्या, एंट्रियाँ, बिना पढ़ी एंट्रियाँ, व्यू और कन्वर्ज़न रेट के साथ, और उसे लगाने का शॉर्टकोड।"
 
-#: includes/class-abilities.php:122
+#: includes/class-abilities.php:129
 msgid "Read how a form is built"
 msgstr "पढ़ें कि फ़ॉर्म कैसे बना है"
 
-#: includes/class-abilities.php:123
+#: includes/class-abilities.php:130
 msgid "One form's steps and fields (type, label, required, choices, conditional logic), its submit button and confirmation, notifications and payment settings. Field ids are what update-form and the conditional rules use."
 msgstr "एक फ़ॉर्म के स्टेप और फ़ील्ड (type, label, required, choices, कंडीशनल लॉजिक), उसका सबमिट बटन और पुष्टि संदेश, सूचनाएँ और भुगतान सेटिंग्स। update-form और कंडीशनल नियम फ़ील्ड ID का ही इस्तेमाल करते हैं।"
 
-#: includes/class-abilities.php:131
+#: includes/class-abilities.php:138
 msgid "Get a form's numbers"
 msgstr "फ़ॉर्म के आँकड़े पाएँ"
 
-#: includes/class-abilities.php:132
+#: includes/class-abilities.php:139
 msgid "Views, submissions, conversion rate, and entries by status (unread, starred, spam, trash) for one form."
 msgstr "एक फ़ॉर्म के व्यू, सबमिशन, कन्वर्ज़न रेट, और स्थिति के हिसाब से एंट्रियाँ (बिना पढ़ी, स्टार वाली, स्पैम, ट्रैश)।"
 
-#: includes/class-abilities.php:140
+#: includes/class-abilities.php:147
 msgid "List entries"
 msgstr "एंट्रियों की सूची"
 
-#: includes/class-abilities.php:141
+#: includes/class-abilities.php:148
 msgid "Entries, newest first, for one form or all of them: unread, starred, spam or all, optionally searched. Contact details are masked unless the site owner allows them."
 msgstr "एक फ़ॉर्म या सभी फ़ॉर्म की एंट्रियाँ, सबसे नई पहले: बिना पढ़ी, स्टार वाली, स्पैम या सभी, चाहें तो खोज के साथ। जब तक साइट का मालिक अनुमति न दे, संपर्क जानकारी छिपी रहती है।"
 
-#: includes/class-abilities.php:160
+#: includes/class-abilities.php:167
 msgid "Open an entry"
 msgstr "एंट्री खोलें"
 
-#: includes/class-abilities.php:161
+#: includes/class-abilities.php:168
 msgid "One entry's answers, labelled from the form, with its status and notes. Contact details are masked unless the site owner allows them; files, passwords, card numbers, signatures and payment fields are never included. Opening an entry is noted on it."
 msgstr "एक एंट्री के जवाब, फ़ॉर्म के लेबल के साथ, उसकी स्थिति और नोट समेत। जब तक साइट का मालिक अनुमति न दे, संपर्क जानकारी छिपी रहती है; फ़ाइलें, पासवर्ड, कार्ड नंबर, हस्ताक्षर और भुगतान फ़ील्ड कभी शामिल नहीं होते। एंट्री खोलने पर उस पर इसका नोट जुड़ जाता है।"
 
-#: includes/class-abilities.php:175
+#: includes/class-abilities.php:182
 msgid "A form as the same JSON file Import / Export makes, without API keys or other credentials, so it can be copied to another site."
 msgstr "फ़ॉर्म उसी JSON फ़ाइल के रूप में जो इंपोर्ट / एक्सपोर्ट बनाता है, API Keys या दूसरे क्रेडेंशियल के बिना, ताकि उसे किसी दूसरी साइट पर कॉपी किया जा सके।"
 
 #. translators: %s: user display name the assistant signed in as.
-#: includes/class-abilities.php:394
+#: includes/class-abilities.php:401
 #, php-format
 msgid "Opened by an AI assistant signed in as %s"
 msgstr "%s के रूप में साइन इन किए AI असिस्टेंट ने खोला"
@@ -2998,6 +3189,39 @@ msgstr "किसी इंसान के फ़ॉर्म भरने स�
 #: includes/class-anti-spam.php:240
 msgid "The bot check (CAPTCHA) did not pass."
 msgstr "बॉट जाँच (कैप्चा) पास नहीं हुई।"
+
+#: includes/class-beaver-builder.php:42 includes/class-form-widget.php:105
+#: includes/elementor/class-form-widget.php:65
+msgid "Choose a form"
+msgstr "फ़ॉर्म चुनें"
+
+#: includes/class-beaver-builder.php:44
+#: includes/elementor/class-form-widget.php:66
+msgid "Published forms"
+msgstr "प्रकाशित फ़ॉर्म"
+
+#: includes/class-beaver-builder.php:53
+#: includes/elementor/class-form-widget.php:76
+msgid "Edit your forms"
+msgstr "अपने फ़ॉर्म संपादित करें"
+
+#: includes/class-beaver-builder.php:53 includes/class-beaver-builder.php:54
+#: includes/class-classic-editor.php:97 includes/class-form-widget.php:114
+#: includes/class-onboarding.php:111
+#: includes/elementor/class-form-widget.php:78
+#: includes/elementor/class-form-widget.php:80
+msgid "Create a form"
+msgstr "फ़ॉर्म बनाएँ"
+
+#: includes/class-beaver-builder.php:54 includes/class-classic-editor.php:94
+#: includes/class-form-widget.php:113
+#: includes/elementor/class-form-widget.php:80
+msgid "You have no published forms yet."
+msgstr "आपका अभी तक कोई प्रकाशित फ़ॉर्म नहीं है।"
+
+#: includes/class-beaver-builder.php:81
+msgid "Choose a form in the module settings."
+msgstr "मॉड्यूल सेटिंग्स में एक फ़ॉर्म चुनें।"
 
 #: includes/class-block-defaults.php:27
 msgid "Address"
@@ -3150,7 +3374,7 @@ msgstr "वेबसाइट"
 msgid "Location"
 msgstr "स्थान"
 
-#: includes/class-block-defaults.php:68
+#: includes/class-block-defaults.php:68 builder/src/field-panel.jsx:104
 msgid "Post title"
 msgstr "पोस्ट का शीर्षक"
 
@@ -3166,6 +3390,70 @@ msgstr "आइटम जोड़ें"
 msgid "Signature"
 msgstr "हस्ताक्षर"
 
+#: includes/class-block-defaults.php:73
+msgid "How much do you agree?"
+msgstr "आप कितना सहमत हैं?"
+
+#: includes/class-block-defaults.php:74
+msgid ""
+"The event was well organised\n"
+"The content was useful"
+msgstr ""
+"कार्यक्रम अच्छी तरह आयोजित था\n"
+"सामग्री उपयोगी थी"
+
+#: includes/class-block-defaults.php:75
+msgid "Strongly disagree"
+msgstr "पूरी तरह असहमत"
+
+#: includes/class-block-defaults.php:76
+msgid "Disagree"
+msgstr "असहमत"
+
+#: includes/class-block-defaults.php:77
+msgid "Neutral"
+msgstr "तटस्थ"
+
+#: includes/class-block-defaults.php:78
+msgid "Agree"
+msgstr "सहमत"
+
+#: includes/class-block-defaults.php:79
+msgid "Strongly agree"
+msgstr "पूरी तरह सहमत"
+
+#: includes/class-block-defaults.php:80
+msgid "How likely are you to recommend us to a friend?"
+msgstr "आप हमें किसी दोस्त को सुझाने की कितनी संभावना रखते हैं?"
+
+#: includes/class-block-defaults.php:81
+msgid "Not at all likely"
+msgstr "बिल्कुल संभावना नहीं"
+
+#: includes/class-block-defaults.php:82
+msgid "Extremely likely"
+msgstr "बहुत संभावना है"
+
+#: includes/class-block-defaults.php:83
+msgid "Put these in order of importance"
+msgstr "इन्हें महत्व के क्रम में लगाएँ"
+
+#: includes/class-block-defaults.php:84 builder/src/field-panel.jsx:169
+msgid "Price"
+msgstr "कीमत"
+
+#: includes/class-block-defaults.php:85
+msgid "Quality"
+msgstr "गुणवत्ता"
+
+#: includes/class-block-defaults.php:87
+msgid "Pick a date and time"
+msgstr "तारीख और समय चुनें"
+
+#: includes/class-block-defaults.php:88
+msgid "Choose"
+msgstr "चुनें"
+
 #: includes/class-builder-rest.php:262
 msgid "This form can't be edited in the builder. Your form is unchanged."
 msgstr "यह फ़ॉर्म बिल्डर में संपादित नहीं हो सकता। आपका फ़ॉर्म नहीं बदला।"
@@ -3177,6 +3465,46 @@ msgstr "आपके खोलने के बाद यह फ़ॉर्म 
 #: includes/class-builder-rest.php:314
 msgid "You are not allowed to publish this form."
 msgstr "आपको यह फ़ॉर्म प्रकाशित करने की अनुमति नहीं है।"
+
+#: includes/class-campaign.php:58
+msgid "First referrer"
+msgstr "पहला रेफ़रर"
+
+#: includes/class-campaign.php:60
+msgid "Landing page"
+msgstr "लैंडिंग पेज"
+
+#: includes/class-campaign.php:170
+msgid "Campaign source (utm_source)"
+msgstr "कैंपेन स्रोत (utm_source)"
+
+#: includes/class-campaign.php:171
+msgid "Campaign medium (utm_medium)"
+msgstr "कैंपेन माध्यम (utm_medium)"
+
+#: includes/class-campaign.php:172
+msgid "Campaign name (utm_campaign)"
+msgstr "कैंपेन का नाम (utm_campaign)"
+
+#: includes/class-campaign.php:173
+msgid "First page of the visit"
+msgstr "विज़िट का पहला पेज"
+
+#: includes/class-campaign.php:174
+msgid "Site the visitor came from"
+msgstr "वह साइट जहाँ से विज़िटर आया"
+
+#: includes/class-campaign.php:182
+msgid "Campaign source"
+msgstr "कैंपेन स्रोत"
+
+#: includes/class-campaign.php:186
+msgid "Record where visitors came from (utm_ tags, the site that sent them, the first page they saw)"
+msgstr "दर्ज करें कि विज़िटर कहाँ से आए (utm_ टैग, उन्हें भेजने वाली साइट, पहला पेज जो उन्होंने देखा)"
+
+#: includes/class-campaign.php:188
+msgid "Shown on each entry, added to the CSV export and usable in emails as {utm_source}, {utm_medium}, {utm_campaign}, {landing_page} and {first_referrer}. Kept in the visitor's browser only for the visit, on pages with this form. Works on cached pages."
+msgstr "हर एंट्री पर दिखता है, CSV एक्सपोर्ट में जुड़ता है और ईमेल में {utm_source}, {utm_medium}, {utm_campaign}, {landing_page} और {first_referrer} के रूप में इस्तेमाल हो सकता है। सिर्फ़ विज़िट के दौरान, इस फ़ॉर्म वाले पेजों पर, विज़िटर के ब्राउज़र में रखा जाता है। कैश किए गए पेजों पर भी काम करता है।"
 
 #: includes/class-classic-editor.php:53
 msgid "Add Trinity form"
@@ -3193,18 +3521,6 @@ msgstr "यह फ़ॉर्म का शॉर्टकोड वहाँ �
 #: includes/class-classic-editor.php:91
 msgid "Insert form"
 msgstr "फ़ॉर्म डालें"
-
-#: includes/class-classic-editor.php:94 includes/class-form-widget.php:113
-#: includes/elementor/class-form-widget.php:80
-msgid "You have no published forms yet."
-msgstr "आपका अभी तक कोई प्रकाशित फ़ॉर्म नहीं है।"
-
-#: includes/class-classic-editor.php:97 includes/class-form-widget.php:114
-#: includes/class-onboarding.php:111
-#: includes/elementor/class-form-widget.php:78
-#: includes/elementor/class-form-widget.php:80
-msgid "Create a form"
-msgstr "फ़ॉर्म बनाएँ"
 
 #: includes/class-conditional-logic.php:26 blocks/conditional-rules.js:32
 msgid "is"
@@ -3302,13 +3618,63 @@ msgstr "स्वीकृत"
 msgid "Rejected"
 msgstr "अस्वीकृत"
 
-#: includes/class-entries.php:933 includes/class-templates.php:100
+#: includes/class-entries.php:679 includes/class-merge-tags.php:36
+#: includes/class-privacy.php:56
+msgid "Date submitted"
+msgstr "सबमिट करने की तारीख"
+
+#: includes/class-entries.php:684
+msgid "Entry ID"
+msgstr "एंट्री ID"
+
+#: includes/class-entries.php:1130 includes/class-templates.php:100
 msgid "Yes"
 msgstr "हाँ"
 
-#: includes/class-entries.php:933 includes/class-templates.php:100
+#: includes/class-entries.php:1130 includes/class-templates.php:100
 msgid "No"
 msgstr "नहीं"
+
+#: includes/class-export-columns.php:98
+msgid "Export"
+msgstr "एक्सपोर्ट"
+
+#: includes/class-export-columns.php:107 blocks/conditional-panel.js:75
+#: builder/src/field-panel.jsx:415
+msgid "Format"
+msgstr "फ़ॉर्मेट"
+
+#: includes/class-export-columns.php:108
+msgid "CSV"
+msgstr "CSV"
+
+#: includes/class-export-columns.php:109
+msgid "Excel (.xlsx)"
+msgstr "Excel (.xlsx)"
+
+#: includes/class-export-columns.php:111
+msgid "Excel files need the PHP zip extension, which this server does not have."
+msgstr "Excel फ़ाइलों के लिए PHP zip एक्सटेंशन चाहिए, जो इस सर्वर पर नहीं है।"
+
+#: includes/class-export-columns.php:116
+msgid "Columns, in this order"
+msgstr "कॉलम, इसी क्रम में"
+
+#: includes/class-export-columns.php:122
+msgid "Your choice is remembered for this form, and used by Export selected too."
+msgstr "आपकी पसंद इस फ़ॉर्म के लिए याद रखी जाती है, और चुनी हुई एक्सपोर्ट भी इसे इस्तेमाल करता है।"
+
+#: includes/class-export-columns.php:125
+msgid "Every column is exported. Filter the list to one form to choose and order its columns."
+msgstr "हर कॉलम एक्सपोर्ट होता है। किसी एक फ़ॉर्म के कॉलम चुनने और क्रम बदलने के लिए सूची को उस फ़ॉर्म पर फ़िल्टर करें।"
+
+#: includes/class-export-columns.php:134
+msgid "Move up"
+msgstr "ऊपर ले जाएँ"
+
+#: includes/class-export-columns.php:134
+msgid "Move down"
+msgstr "नीचे ले जाएँ"
 
 #: includes/class-field.php:65 includes/fields/class-field-consent.php:29
 #: includes/fields/class-field-file.php:32 public/class-public-front.php:63
@@ -3321,7 +3687,7 @@ msgstr "यह फ़ील्ड ज़रूरी है।"
 msgid "(no title #%d)"
 msgstr "(कोई शीर्षक नहीं #%d)"
 
-#: includes/class-form-builder.php:110 includes/class-rest-api.php:434
+#: includes/class-form-builder.php:110 includes/class-rest-api.php:453
 msgid "Untitled form"
 msgstr "बिना शीर्षक का फ़ॉर्म"
 
@@ -3358,7 +3724,7 @@ msgstr "Trinity Forms विज़ुअल बिल्डर: बिल्ड�
 #: includes/importers/class-metform.php:197
 #: includes/importers/class-ninja-forms.php:534
 #: includes/importers/class-sureforms.php:215
-#: includes/importers/class-wpforms.php:516
+#: includes/importers/class-wpforms.php:556
 msgid "Admin notification"
 msgstr "एडमिन सूचना"
 
@@ -3368,9 +3734,136 @@ msgstr "एडमिन सूचना"
 #: includes/importers/class-formidable.php:465
 #: includes/importers/class-metform.php:200
 #: includes/importers/class-sureforms.php:218
-#: includes/importers/class-wpforms.php:519
+#: includes/importers/class-wpforms.php:559
 msgid "New form entry on {site_name}"
 msgstr "{site_name} पर नई फ़ॉर्म एंट्री"
+
+#: includes/class-form-revisions.php:250
+msgid "The form as it was before revisions were kept."
+msgstr "रिविज़न रखे जाने से पहले फ़ॉर्म जैसा था।"
+
+#. translators: %s: field labels, comma-separated.
+#: includes/class-form-revisions.php:257
+#, php-format
+msgid "Added: %s"
+msgstr "जोड़ा गया: %s"
+
+#. translators: %s: field labels, comma-separated.
+#: includes/class-form-revisions.php:261
+#, php-format
+msgid "Removed: %s"
+msgstr "हटाया गया: %s"
+
+#. translators: %s: field labels, comma-separated.
+#: includes/class-form-revisions.php:265
+#, php-format
+msgid "Changed: %s"
+msgstr "बदला गया: %s"
+
+#: includes/class-form-revisions.php:268
+msgid "Title changed"
+msgstr "शीर्षक बदला"
+
+#: includes/class-form-revisions.php:271
+msgid "Settings changed"
+msgstr "सेटिंग्स बदलीं"
+
+#: includes/class-form-revisions.php:274
+msgid "Layout or text changed"
+msgstr "लेआउट या टेक्स्ट बदला"
+
+#. translators: 1: date and time of the restored version, 2: what changed.
+#: includes/class-form-revisions.php:279
+#, php-format
+msgid "Restored the version from %1$s. %2$s"
+msgstr "%1$s का वर्ज़न वापस लाया गया। %2$s"
+
+#. translators: %s: a person's name.
+#: includes/class-form-revisions.php:291
+#, php-format
+msgid "AI assistant signed in as %s"
+msgstr "%s के रूप में साइन इन AI असिस्टेंट"
+
+#: includes/class-form-revisions.php:339
+msgid "You do not have permission to edit this form."
+msgstr "आपको यह फ़ॉर्म संपादित करने की अनुमति नहीं है।"
+
+#: includes/class-form-revisions.php:354 includes/class-form-revisions.php:358
+#: includes/class-form-revisions.php:373 includes/class-form-revisions.php:395
+msgid "Form revisions"
+msgstr "फ़ॉर्म रिविज़न"
+
+#: includes/class-form-revisions.php:367
+msgid "Revisions"
+msgstr "रिविज़न"
+
+#: includes/class-form-revisions.php:379
+msgid "Each save keeps a copy you can go back to. None yet."
+msgstr "हर बार सेव करने पर एक कॉपी रखी जाती है जिस पर आप लौट सकते हैं। अभी कोई नहीं है।"
+
+#. translators: %d: number of saved copies.
+#: includes/class-form-revisions.php:388
+#, php-format
+msgid "See %d revision"
+msgid_plural "See all %d revisions"
+msgstr[0] "%d रिविज़न देखें"
+msgstr[1] "सभी %d रिविज़न देखें"
+
+#: includes/class-form-revisions.php:396
+msgid "Open revisions from a form's row in the forms list."
+msgstr "फ़ॉर्म सूची में किसी फ़ॉर्म की पंक्ति से रिविज़न खोलें।"
+
+#. translators: %s: form title.
+#: includes/class-form-revisions.php:403
+#, php-format
+msgid "Revisions: %s"
+msgstr "रिविज़न: %s"
+
+#. translators: %s: form title.
+#: includes/class-form-revisions.php:403
+msgid "Every save keeps a copy. Restoring one replaces the form's fields and settings, and is kept as a revision too, so it can be undone."
+msgstr "हर बार सेव करने पर एक कॉपी रखी जाती है। किसी कॉपी को वापस लाने से फ़ॉर्म के फ़ील्ड और सेटिंग्स बदल जाती हैं, और यह भी एक रिविज़न के रूप में रखा जाता है, ताकि इसे पलटा जा सके।"
+
+#: includes/class-form-revisions.php:407
+msgid "Revision restored."
+msgstr "रिविज़न वापस लाया गया।"
+
+#: includes/class-form-revisions.php:409
+msgid "That revision could not be restored."
+msgstr "वह रिविज़न वापस नहीं लाया जा सका।"
+
+#: includes/class-form-revisions.php:414
+msgid "No revisions yet"
+msgstr "अभी कोई रिविज़न नहीं"
+
+#: includes/class-form-revisions.php:414
+msgid "The next save of this form keeps the first copy."
+msgstr "इस फ़ॉर्म को अगली बार सेव करने पर पहली कॉपी रखी जाएगी।"
+
+#: includes/class-form-revisions.php:418
+msgid "Restore this version? The form's fields and settings will be replaced. You can undo this from the list."
+msgstr "यह वर्ज़न वापस लाएँ? फ़ॉर्म के फ़ील्ड और सेटिंग्स बदल दी जाएँगी। आप सूची से इसे पलट सकते हैं।"
+
+#: includes/class-form-revisions.php:420
+msgid "Saved"
+msgstr "सेव किया गया"
+
+#: includes/class-form-revisions.php:420
+msgid "By"
+msgstr "किसने"
+
+#: includes/class-form-revisions.php:420
+msgid "What changed"
+msgstr "क्या बदला"
+
+#: includes/class-form-revisions.php:420
+#: includes/fields/class-field-list.php:47
+msgid "Actions"
+msgstr "कार्रवाइयाँ"
+
+#: includes/class-form-revisions.php:424
+msgid "Current"
+msgstr "मौजूदा"
 
 #: includes/class-form-style.php:71
 msgid "Default"
@@ -3420,13 +3913,8 @@ msgstr "फ़ॉर्म नहीं बनाया जा सका।"
 msgid "Show one of your forms."
 msgstr "अपना कोई एक फ़ॉर्म दिखाएँ।"
 
-#: includes/class-form-widget.php:105
-#: includes/elementor/class-form-widget.php:65
-msgid "Choose a form"
-msgstr "फ़ॉर्म चुनें"
-
 #. translators: 1: list of meta keys, 2: the meta key name.
-#: includes/class-form.php:90
+#: includes/class-form.php:108
 #, php-format
 msgid "Form settings %1$s are at the top level of %2$s; put them under \"settings\"."
 msgstr "फ़ॉर्म सेटिंग्स %1$s, %2$s के सबसे ऊपरी स्तर पर हैं; इन्हें \"settings\" के अंदर रखें।"
@@ -3453,6 +3941,70 @@ msgstr "बिना शीर्षक का फ़ील्ड"
 #: includes/class-gf-importer.php:455
 msgid "Thanks — we have your submission."
 msgstr "धन्यवाद — हमें आपका सबमिशन मिल गया है।"
+
+#. translators: %d: number of entries.
+#: includes/class-ip-privacy.php:94
+#, php-format
+msgid "Removed the stored IP address from %d entry"
+msgid_plural "Removed the stored IP addresses from %d entries"
+msgstr[0] "%d एंट्री से सहेजा गया IP पता हटाया गया"
+msgstr[1] "%d एंट्री से सहेजे गए IP पते हटाए गए"
+
+#: includes/class-ip-privacy.php:103
+msgid "Visitor IP address"
+msgstr "विज़िटर का IP पता"
+
+#: includes/class-ip-privacy.php:107
+msgid "Don't store the visitor's IP address with entries of this form"
+msgstr "इस फ़ॉर्म की एंट्री के साथ विज़िटर का IP पता न सहेजें"
+
+#: includes/class-ip-privacy.php:111
+msgid "Turned off for every form in Settings > Data."
+msgstr "सेटिंग > डेटा में सभी फ़ॉर्म के लिए बंद है।"
+
+#: includes/class-ip-privacy.php:113
+msgid "Spam lists and rate limits still check the address while the form is being sent. The per IP address entry limit needs stored addresses, so it does nothing while this is on."
+msgstr "फ़ॉर्म भेजे जाते समय स्पैम सूचियाँ और रेट लिमिट अब भी पता जाँचती हैं। प्रति IP पता एंट्री सीमा को सहेजे गए पतों की ज़रूरत होती है, इसलिए यह चालू रहने पर वह कुछ नहीं करती।"
+
+#: includes/class-ip-privacy.php:129
+msgid "Stored IP addresses"
+msgstr "सहेजे गए IP पते"
+
+#. translators: %s: number of entries
+#: includes/class-ip-privacy.php:132
+#, php-format
+msgid "%s entry holds a visitor IP address."
+msgid_plural "%s entries hold a visitor IP address."
+msgstr[0] "%s एंट्री में विज़िटर का IP पता है।"
+msgstr[1] "%s एंट्री में विज़िटर का IP पता है।"
+
+#. translators: %s: number of entries
+#: includes/class-ip-privacy.php:139
+#, php-format
+msgid "Removed the IP address from %s entry."
+msgid_plural "Removed the IP address from %s entries."
+msgstr[0] "%s एंट्री से IP पता हटा दिया गया।"
+msgstr[1] "%s एंट्री से IP पता हटा दिया गया।"
+
+#: includes/class-ip-privacy.php:142
+msgid "Remove the stored IP addresses? This cannot be undone. The entries themselves are kept."
+msgstr "सहेजे गए IP पते हटाएँ? इसे वापस नहीं किया जा सकता। एंट्री खुद बनी रहती हैं।"
+
+#: includes/class-ip-privacy.php:145
+msgid "Entries of"
+msgstr "इनकी एंट्री"
+
+#: includes/class-ip-privacy.php:152
+msgid "Remove stored IP addresses"
+msgstr "सहेजे गए IP पते हटाएँ"
+
+#: includes/class-ip-privacy.php:153
+msgid "Entries keep everything else. To stop new entries storing addresses, use the switch under Data below or on a form's General tab."
+msgstr "एंट्री बाकी सब कुछ रखती हैं। नई एंट्री में पते सहेजना रोकने के लिए नीचे डेटा वाला स्विच या किसी फ़ॉर्म के General टैब वाला स्विच इस्तेमाल करें।"
+
+#: includes/class-ip-privacy.php:162
+msgid "You are not allowed to do that."
+msgstr "आपको ऐसा करने की अनुमति नहीं है।"
 
 #: includes/class-logger.php:31
 msgctxt "activity log type"
@@ -3498,6 +4050,16 @@ msgstr "अलर्ट"
 msgctxt "activity log type"
 msgid "setup"
 msgstr "सेटअप"
+
+#: includes/class-logger.php:40
+msgctxt "activity log type"
+msgid "quote"
+msgstr "कोटेशन"
+
+#: includes/class-logger.php:41
+msgctxt "activity log type"
+msgid "privacy"
+msgstr "गोपनीयता"
 
 #: includes/class-mail-check.php:128
 msgid "This site sends email with PHP mail(), the server's own mailer, not through an email account. Many inboxes put these emails in spam."
@@ -3632,10 +4194,6 @@ msgstr "wp-admin में एंट्री का लिंक"
 msgid "Form name"
 msgstr "फ़ॉर्म का नाम"
 
-#: includes/class-merge-tags.php:36
-msgid "Date submitted"
-msgstr "सबमिट करने की तारीख"
-
 #: includes/class-merge-tags.php:37
 msgid "Today, in any date format"
 msgstr "आज की तारीख, किसी भी फ़ॉर्मेट में"
@@ -3645,34 +4203,38 @@ msgid "Page it was submitted from"
 msgstr "जिस पेज से सबमिट किया गया"
 
 #: includes/class-merge-tags.php:43
+msgid "Campaign (when the form records it)"
+msgstr "कैंपेन (जब फ़ॉर्म इसे दर्ज करता है)"
+
+#: includes/class-merge-tags.php:47
 msgid "The person"
 msgstr "व्यक्ति"
 
-#: includes/class-merge-tags.php:45
+#: includes/class-merge-tags.php:49
 msgid "Their display name, if logged in"
 msgstr "उनका डिस्प्ले नाम, अगर लॉग इन हैं"
 
-#: includes/class-merge-tags.php:46
+#: includes/class-merge-tags.php:50
 msgid "Their account email, if logged in"
 msgstr "उनके अकाउंट का ईमेल, अगर लॉग इन हैं"
 
-#: includes/class-merge-tags.php:47
+#: includes/class-merge-tags.php:51
 msgid "Their first name, if logged in"
 msgstr "उनका पहला नाम, अगर लॉग इन हैं"
 
-#: includes/class-merge-tags.php:51
+#: includes/class-merge-tags.php:55
 msgid "The site"
 msgstr "साइट"
 
-#: includes/class-merge-tags.php:53
+#: includes/class-merge-tags.php:57
 msgid "Site name"
 msgstr "साइट का नाम"
 
-#: includes/class-merge-tags.php:54
+#: includes/class-merge-tags.php:58
 msgid "Site address"
 msgstr "साइट का पता"
 
-#: includes/class-merge-tags.php:55
+#: includes/class-merge-tags.php:59
 msgid "Admin email"
 msgstr "एडमिन ईमेल"
 
@@ -3762,39 +4324,39 @@ msgstr "इसे छिपाएँ"
 msgid "Contact"
 msgstr "संपर्क"
 
-#: includes/class-onboarding.php:202
+#: includes/class-onboarding.php:217
 msgid "You are not allowed to create pages."
 msgstr "आपको पेज बनाने की अनुमति नहीं है।"
 
-#: includes/class-onboarding.php:206
+#: includes/class-onboarding.php:221
 msgid "The page could not be created."
 msgstr "पेज नहीं बनाया जा सका।"
 
-#: includes/class-onboarding.php:214 builder/src/app.jsx:520
+#: includes/class-onboarding.php:229 builder/src/app.jsx:548
 msgid "Create a page"
 msgstr "पेज बनाएँ"
 
-#: includes/class-plugin.php:118
+#: includes/class-plugin.php:127
 msgid "Trinity Forms Forms"
 msgstr "Trinity Forms फ़ॉर्म"
 
-#: includes/class-plugin.php:126
+#: includes/class-plugin.php:135
 msgid "All Forms"
 msgstr "सभी फ़ॉर्म"
 
-#: includes/class-plugin.php:127
+#: includes/class-plugin.php:136
 msgid "Add Form"
 msgstr "फ़ॉर्म जोड़ें"
 
-#: includes/class-plugin.php:128
+#: includes/class-plugin.php:137
 msgid "Edit Form"
 msgstr "फ़ॉर्म संपादित करें"
 
-#: includes/class-plugin.php:129
+#: includes/class-plugin.php:138
 msgid "No forms yet — start from a template, or add a blank one."
 msgstr "अभी कोई फ़ॉर्म नहीं — किसी टेम्पलेट से शुरू करें, या खाली फ़ॉर्म जोड़ें।"
 
-#: includes/class-plugin.php:277
+#: includes/class-plugin.php:286
 msgid "Trinity Forms Fields"
 msgstr "Trinity Forms फ़ील्ड"
 
@@ -3802,7 +4364,7 @@ msgstr "Trinity Forms फ़ील्ड"
 msgid "Trinity Forms submissions"
 msgstr "Trinity Forms सबमिशन"
 
-#: includes/class-privacy.php:53
+#: includes/class-privacy.php:67
 msgid "Form submissions"
 msgstr "फ़ॉर्म सबमिशन"
 
@@ -3824,36 +4386,36 @@ msgstr "%s तैयार है।"
 msgid "Start here"
 msgstr "यहाँ से शुरू करें"
 
-#: includes/class-rest-api.php:131 public/class-public-front.php:57
+#: includes/class-rest-api.php:144 public/class-public-front.php:57
 msgid "This page is out of date. Please reload it and try again."
 msgstr "यह पेज पुराना हो गया है। कृपया इसे दोबारा लोड करके फिर से कोशिश करें।"
 
-#: includes/class-rest-api.php:131
+#: includes/class-rest-api.php:144
 msgid "Invalid or missing nonce."
 msgstr "nonce अमान्य है या मौजूद नहीं है।"
 
 #. translators: 1: field label, 2: what is wrong with it.
-#: includes/class-rest-api.php:279
+#: includes/class-rest-api.php:298
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: includes/class-rest-api.php:282
+#: includes/class-rest-api.php:301
 msgid "Your browser's Back button brings back what you typed."
 msgstr "आपके ब्राउज़र का Back बटन आपका लिखा हुआ वापस ले आएगा।"
 
 #. translators: %s: the largest file size accepted, e.g. "2 MB".
-#: includes/class-rest-api.php:301
+#: includes/class-rest-api.php:320
 #, php-format
 msgid "The file is too big to send. Files can be up to %s."
 msgstr "फ़ाइल भेजने के लिए बहुत बड़ी है। फ़ाइलें %s तक की हो सकती हैं।"
 
-#: includes/class-rest-api.php:306 includes/class-submission-pipeline.php:92
+#: includes/class-rest-api.php:325 includes/class-submission-pipeline.php:92
 msgid "Upload failed."
 msgstr "अपलोड विफल रहा।"
 
 #. translators: %d: seconds to wait.
-#: includes/class-rest-api.php:389
+#: includes/class-rest-api.php:408
 #, php-format
 msgid "This form is getting a lot of submissions right now. Please try again in %d second."
 msgid_plural "This form is getting a lot of submissions right now. Please try again in %d seconds."
@@ -3861,7 +4423,7 @@ msgstr[0] "इस फ़ॉर्म पर अभी बहुत सारे 
 msgstr[1] "इस फ़ॉर्म पर अभी बहुत सारे सबमिशन आ रहे हैं। कृपया %d सेकंड बाद फिर से कोशिश करें।"
 
 #. translators: %d: minutes to wait.
-#: includes/class-rest-api.php:392
+#: includes/class-rest-api.php:411
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d minute."
 msgid_plural "Too many submissions from your connection. Please try again in %d minutes."
@@ -3869,57 +4431,82 @@ msgstr[0] "आपके कनेक्शन से बहुत ज़्य�
 msgstr[1] "आपके कनेक्शन से बहुत ज़्यादा सबमिशन हुए हैं। कृपया %d मिनट बाद फिर से कोशिश करें।"
 
 #. translators: %d: seconds to wait.
-#: includes/class-rest-api.php:394
+#: includes/class-rest-api.php:413
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d second."
 msgid_plural "Too many submissions from your connection. Please try again in %d seconds."
 msgstr[0] "आपके कनेक्शन से बहुत ज़्यादा सबमिशन हुए हैं। कृपया %d सेकंड बाद फिर से कोशिश करें।"
 msgstr[1] "आपके कनेक्शन से बहुत ज़्यादा सबमिशन हुए हैं। कृपया %d सेकंड बाद फिर से कोशिश करें।"
 
-#: includes/class-results.php:152
+#: includes/class-rest-resources.php:81 includes/class-rest-resources.php:103
+msgid "The note is empty."
+msgstr "नोट खाली है।"
+
+#: includes/class-rest-resources.php:86
+msgid "The note could not be saved."
+msgstr "नोट सेव नहीं हो सका।"
+
+#: includes/class-rest-resources.php:96 includes/class-rest-resources.php:114
+#: includes/class-rest-resources.php:220
+msgid "Note not found."
+msgstr "नोट नहीं मिला।"
+
+#: includes/class-rest-resources.php:99
+msgid "Notes the plugin wrote are the entry's history and cannot be changed."
+msgstr "प्लगइन के लिखे नोट एंट्री का इतिहास हैं और बदले नहीं जा सकते।"
+
+#: includes/class-rest-resources.php:117
+msgid "Notes the plugin wrote are the entry's history and cannot be deleted."
+msgstr "प्लगइन के लिखे नोट एंट्री का इतिहास हैं और हटाए नहीं जा सकते।"
+
+#: includes/class-rest-resources.php:243
+msgid "This form has no feed of that kind."
+msgstr "इस फ़ॉर्म में इस तरह का इंटीग्रेशन नहीं है।"
+
+#: includes/class-results.php:172
 msgid "Show"
 msgstr "दिखाएँ"
 
-#: includes/class-results.php:160
+#: includes/class-results.php:180
 msgid "Answers added up across every entry. Choice and rating questions turn into charts, like a poll or survey."
 msgstr "हर एंट्री के जवाब जोड़कर दिखाए गए हैं। विकल्प और रेटिंग वाले सवाल पोल या सर्वे की तरह चार्ट बन जाते हैं।"
 
-#: includes/class-results.php:167
+#: includes/class-results.php:187
 msgid "No published forms yet"
 msgstr "अभी कोई प्रकाशित फ़ॉर्म नहीं"
 
-#: includes/class-results.php:168
+#: includes/class-results.php:188
 msgid "Publish a form and collect a few entries. Its results show up here."
 msgstr "एक फ़ॉर्म प्रकाशित करें और कुछ एंट्रियाँ इकट्ठा करें। उसके नतीजे यहाँ दिखेंगे।"
 
-#: includes/class-results.php:181
+#: includes/class-results.php:201
 msgid "Completed entries"
 msgstr "पूरी एंट्रियाँ"
 
-#: includes/class-results.php:183
+#: includes/class-results.php:203
 msgid "Spam, trash and unfinished entries are left out"
 msgstr "स्पैम, ट्रैश और अधूरी एंट्रियाँ शामिल नहीं हैं"
 
-#: includes/class-results.php:186
+#: includes/class-results.php:206
 msgid "Questions charted"
 msgstr "चार्ट वाले सवाल"
 
 #. translators: 1: number of choice questions, 2: number of number/rating questions.
-#: includes/class-results.php:190
+#: includes/class-results.php:210
 #, php-format
 msgid "%1$d choice, %2$d number or rating"
 msgstr "%1$d विकल्प वाले, %2$d संख्या या रेटिंग वाले"
 
-#: includes/class-results.php:197
+#: includes/class-results.php:222
 msgid "Nothing to chart yet"
 msgstr "अभी चार्ट के लिए कुछ नहीं"
 
-#: includes/class-results.php:198
+#: includes/class-results.php:223
 msgid "Add choice questions (radio, dropdown, checkboxes) or rating, range and number fields, then collect a few entries."
 msgstr "विकल्प वाले सवाल (रेडियो, ड्रॉपडाउन, चेकबॉक्स) या रेटिंग, रेंज और संख्या फ़ील्ड जोड़ें, फिर कुछ एंट्रियाँ इकट्ठा करें।"
 
 #. translators: %d: number of people who answered.
-#: includes/class-results.php:209
+#: includes/class-results.php:234
 #, php-format
 msgid "%d answer"
 msgid_plural "%d answers"
@@ -3927,7 +4514,7 @@ msgstr[0] "%d जवाब"
 msgstr[1] "%d जवाब"
 
 #. translators: 1: lowest value, 2: highest value, 3: count.
-#: includes/class-results.php:217
+#: includes/class-results.php:244
 #, php-format
 msgid "average (range %1$s to %2$s, %3$d responses)"
 msgstr "औसत (%1$s से %2$s तक, %3$d जवाब)"
@@ -3972,7 +4559,11 @@ msgstr[1] "Trinity Forms को जिन सभी %d टेबल की ज�
 msgid "Trinity Forms: The PHP OpenSSL extension is required to encrypt credentials at rest. Credentials are currently stored in plaintext — please enable the openssl extension."
 msgstr "Trinity Forms: सेव किए गए क्रेडेंशियल एन्क्रिप्ट करने के लिए PHP OpenSSL एक्सटेंशन ज़रूरी है। क्रेडेंशियल अभी सादे टेक्स्ट में रखे हैं — कृपया openssl एक्सटेंशन चालू करें।"
 
-#: includes/class-shortcode.php:29
+#: includes/class-shortcode.php:38
+msgid "Showing poll results to visitors is part of Trinity Forms Pro."
+msgstr "आगंतुकों को पोल के नतीजे दिखाना Trinity Forms Pro का हिस्सा है।"
+
+#: includes/class-shortcode.php:48
 msgid "The submissions table is available in Trinity Forms Pro."
 msgstr "सबमिशन टेबल Trinity Forms Pro में उपलब्ध है।"
 
@@ -4003,18 +4594,18 @@ msgstr "स्पैम चिह्नित किया गया: %s"
 msgid "Marked as spam by the spam filter"
 msgstr "स्पैम फ़िल्टर ने स्पैम चिह्नित किया"
 
-#: includes/class-submission-pipeline.php:211
+#: includes/class-submission-pipeline.php:222
 msgid "This value has already been used."
 msgstr "यह मान पहले ही इस्तेमाल हो चुका है।"
 
 #. translators: %s: form title.
-#: includes/class-submission-pipeline.php:417
+#: includes/class-submission-pipeline.php:428
 #, php-format
 msgid "[Trinity Forms] Payments are failing on \"%s\""
 msgstr "[Trinity Forms] \"%s\" पर भुगतान विफल हो रहे हैं"
 
 #. translators: 1: form title, 2: provider error, 3: entry admin URL.
-#: includes/class-submission-pipeline.php:420
+#: includes/class-submission-pipeline.php:431
 #, php-format
 msgid ""
 "A visitor could not start a payment on \"%1$s\". Nothing was charged.\n"
@@ -4029,28 +4620,28 @@ msgstr ""
 "\n"
 "Trinity Forms > सेटिंग्स में भुगतान Keys जाँचें। एंट्री: %3$s"
 
-#: includes/class-submission-pipeline.php:433
+#: includes/class-submission-pipeline.php:444
 msgid "Payment skipped: this site has never had a Pro licence."
 msgstr "भुगतान छोड़ा गया: इस साइट पर कभी Pro लाइसेंस नहीं रहा।"
 
 #. translators: %s: payment provider key, e.g. stripe.
-#: includes/class-submission-pipeline.php:445
+#: includes/class-submission-pipeline.php:456
 #, php-format
 msgid "Payment is on, but the provider \"%s\" is not available."
 msgstr "भुगतान चालू है, पर प्रोवाइडर \"%s\" उपलब्ध नहीं है।"
 
-#: includes/class-submission-pipeline.php:457
+#: includes/class-submission-pipeline.php:468
 msgid "Payment could not be started, so nothing was charged. Please try again later, or contact the site owner if it keeps happening."
 msgstr "भुगतान शुरू नहीं हो सका, इसलिए कोई पैसा नहीं कटा। कृपया बाद में फिर से कोशिश करें, या अगर यह बार-बार हो तो साइट के मालिक से संपर्क करें।"
 
 #. translators: %s: uploaded file name.
-#: includes/class-submission-pipeline.php:520
+#: includes/class-submission-pipeline.php:531
 #, php-format
 msgid "Upload error for %s."
 msgstr "%s के लिए अपलोड में त्रुटि।"
 
 #. translators: %s: uploaded file name.
-#: includes/class-submission-pipeline.php:526
+#: includes/class-submission-pipeline.php:537
 #, php-format
 msgid "%s is empty."
 msgstr "%s खाली है।"
@@ -4357,14 +4948,6 @@ msgctxt "Elementor panel search word"
 msgid "contact"
 msgstr "संपर्क"
 
-#: includes/elementor/class-form-widget.php:66
-msgid "Published forms"
-msgstr "प्रकाशित फ़ॉर्म"
-
-#: includes/elementor/class-form-widget.php:76
-msgid "Edit your forms"
-msgstr "अपने फ़ॉर्म संपादित करें"
-
 #: includes/elementor/class-form-widget.php:99
 msgid "Choose a form in the Trinity Forms panel."
 msgstr "Trinity Forms पैनल में कोई फ़ॉर्म चुनें।"
@@ -4390,34 +4973,35 @@ msgstr "राज्य / क्षेत्र"
 msgid "Postal code"
 msgstr "पिन कोड"
 
-#: includes/fields/class-field-base.php:167
-msgid "optional"
-msgstr "वैकल्पिक"
-
-#: includes/fields/class-field-base.php:175
+#: includes/fields/class-field-base.php:134
+#: includes/fields/class-field-base.php:207
 msgid "required"
 msgstr "ज़रूरी"
 
+#: includes/fields/class-field-base.php:199
+msgid "optional"
+msgstr "वैकल्पिक"
+
 #. translators: %d: minimum number of characters.
-#: includes/fields/class-field-base.php:251
+#: includes/fields/class-field-base.php:283
 #, php-format
 msgid "Must be at least %d characters."
 msgstr "कम से कम %d अक्षर होने चाहिए।"
 
 #. translators: %d: maximum number of characters.
-#: includes/fields/class-field-base.php:258
+#: includes/fields/class-field-base.php:290
 #, php-format
 msgid "Must be %d characters or fewer."
 msgstr "%d या उससे कम अक्षर होने चाहिए।"
 
-#: includes/fields/class-field-base.php:266
+#: includes/fields/class-field-base.php:298
 msgid "Invalid format."
 msgstr "फ़ॉर्मेट सही नहीं है।"
 
 #: includes/fields/class-field-checkbox.php:43
 #: includes/fields/class-field-image-choice.php:73
 #: includes/fields/class-field-multiselect.php:58
-#: includes/fields/class-field-radio.php:37
+#: includes/fields/class-field-radio.php:40
 #: includes/fields/class-field-select.php:39
 msgid "Invalid selection."
 msgstr "चुनाव सही नहीं है।"
@@ -4452,10 +5036,6 @@ msgstr "फ़ाइल %s का प्रकार अनुमत नही�
 #, php-format
 msgid "%1$s is too big. Files can be up to %2$s."
 msgstr "%1$s बहुत बड़ी है। फ़ाइलें %2$s तक की हो सकती हैं।"
-
-#: includes/fields/class-field-list.php:47
-msgid "Actions"
-msgstr "कार्रवाइयाँ"
 
 #: includes/fields/class-field-list.php:65
 msgid "Remove row"
@@ -4508,7 +5088,7 @@ msgstr "कम से कम %s होना चाहिए।"
 msgid "Must be no more than %s."
 msgstr "%s से ज़्यादा नहीं होना चाहिए।"
 
-#: includes/fields/class-field-password.php:35
+#: includes/fields/class-field-password.php:35 builder/src/field-panel.jsx:184
 msgid "Confirm password"
 msgstr "पासवर्ड की पुष्टि करें"
 
@@ -4543,12 +5123,12 @@ msgid "Please enter a quantity of %d or fewer."
 msgstr "कृपया %d या उससे कम की मात्रा डालें।"
 
 #. translators: 1: rating chosen, 2: highest rating.
-#: includes/fields/class-field-rating.php:24
+#: includes/fields/class-field-rating.php:25
 #, php-format
 msgid "%1$d of %2$d"
 msgstr "%2$d में से %1$d"
 
-#: includes/fields/class-field-rating.php:46
+#: includes/fields/class-field-rating.php:47
 msgid "Invalid rating."
 msgstr "रेटिंग सही नहीं है।"
 
@@ -4614,7 +5194,7 @@ msgstr "मेल: जिन पंक्तियों के टैग खा
 #: includes/importers/class-metform.php:282
 #: includes/importers/class-ninja-forms.php:575
 #: includes/importers/class-sureforms.php:378
-#: includes/importers/class-wpforms.php:574
+#: includes/importers/class-wpforms.php:614
 #, php-format
 msgid "Mail tag %s"
 msgstr "मेल टैग %s"
@@ -4622,7 +5202,7 @@ msgstr "मेल टैग %s"
 #. translators: %s: field label.
 #: includes/importers/class-everest-forms.php:355
 #: includes/importers/class-fluent-forms.php:392
-#: includes/importers/class-wpforms.php:301
+#: includes/importers/class-wpforms.php:322
 #, php-format
 msgid "%s: the time part"
 msgstr "%s: समय वाला हिस्सा"
@@ -4630,7 +5210,7 @@ msgstr "%s: समय वाला हिस्सा"
 #. translators: %s: field label.
 #: includes/importers/class-everest-forms.php:402
 #: includes/importers/class-formidable.php:361
-#: includes/importers/class-wpforms.php:364
+#: includes/importers/class-wpforms.php:404
 #, php-format
 msgid "%s: rich-text formatting (now a plain text box)"
 msgstr "%s: रिच-टेक्स्ट फ़ॉर्मैटिंग (अब सादा टेक्स्ट बॉक्स)"
@@ -4638,7 +5218,7 @@ msgstr "%s: रिच-टेक्स्ट फ़ॉर्मैटिंग (�
 #. translators: %s: field label.
 #: includes/importers/class-everest-forms.php:427
 #: includes/importers/class-fluent-forms.php:478
-#: includes/importers/class-wpforms.php:312
+#: includes/importers/class-wpforms.php:333
 #, php-format
 msgid "%s: the limit on how many choices can be ticked"
 msgstr "%s: कितने विकल्प चुने जा सकते हैं, इसकी सीमा"
@@ -4646,7 +5226,7 @@ msgstr "%s: कितने विकल्प चुने जा सकते 
 #. translators: %s: field label.
 #: includes/importers/class-fluent-forms.php:348
 #: includes/importers/class-forminator.php:304
-#: includes/importers/class-wpforms.php:276
+#: includes/importers/class-wpforms.php:297
 #, php-format
 msgid "%s: the middle name box"
 msgstr "%s: मध्य नाम वाला बॉक्स"
@@ -4688,13 +5268,19 @@ msgstr[1] "%2$s के %1$d फ़ॉर्म"
 
 #. translators: %s: field label.
 #: includes/importers/class-sureforms.php:278
-#: includes/importers/class-wpforms.php:282
+#: includes/importers/class-wpforms.php:303
 #, php-format
 msgid "%s: the second box that repeats the email"
 msgstr "%s: ईमेल दोबारा लिखने वाला दूसरा बॉक्स"
 
 #. translators: %s: field label.
-#: includes/importers/class-wpforms.php:381
+#: includes/importers/class-wpforms.php:391
+#, php-format
+msgid "%s: several answers per row (now one answer per row)"
+msgstr "%s: हर पंक्ति में कई उत्तर (अब हर पंक्ति में एक)"
+
+#. translators: %s: field label.
+#: includes/importers/class-wpforms.php:421
 #, php-format
 msgid "%s: choices filled from posts or categories"
 msgstr "%s: पोस्ट या श्रेणियों से भरे जाने वाले विकल्प"
@@ -4759,7 +5345,7 @@ msgstr "यह फ़ॉर्म बाद में पूरा करने 
 msgid "Send link"
 msgstr "लिंक भेजें"
 
-#: public/class-public-front.php:68 builder/src/app.jsx:566
+#: public/class-public-front.php:68 builder/src/app.jsx:595
 msgid "Saving…"
 msgstr "सेव किया जा रहा है…"
 
@@ -4777,11 +5363,7 @@ msgstr "सेव किया गया। फिर से शुरू कर
 msgid "Could not save progress."
 msgstr "प्रगति सेव नहीं की जा सकी।"
 
-#: blocks/conditional-panel.js:75 builder/src/field-panel.jsx:265
-msgid "Format"
-msgstr "फ़ॉर्मेट"
-
-#: blocks/conditional-panel.js:78 builder/src/field-panel.jsx:268
+#: blocks/conditional-panel.js:78 builder/src/field-panel.jsx:418
 msgid "Pattern"
 msgstr "पैटर्न"
 
@@ -4789,7 +5371,7 @@ msgstr "पैटर्न"
 msgid "A regular expression the value must match, e.g. ^[0-9]{5}$ for a 5-digit ZIP. Leave empty for no check."
 msgstr "एक रेगुलर एक्सप्रेशन जिससे मान का मेल खाना ज़रूरी है, जैसे 5 अंकों के ZIP के लिए ^[0-9]{5}$। जाँच न करनी हो तो खाली छोड़ें।"
 
-#: blocks/conditional-panel.js:86 builder/src/field-panel.jsx:276
+#: blocks/conditional-panel.js:86 builder/src/field-panel.jsx:426
 msgid "Error message"
 msgstr "त्रुटि संदेश"
 
@@ -4797,7 +5379,7 @@ msgstr "त्रुटि संदेश"
 msgid "Shown when the value doesn't match."
 msgstr "तब दिखता है जब मान मेल नहीं खाता।"
 
-#: blocks/conditional-panel.js:94 builder/src/field-panel.jsx:391
+#: blocks/conditional-panel.js:94 builder/src/field-panel.jsx:545
 msgid "Conditional logic"
 msgstr "कंडीशनल लॉजिक"
 
@@ -4810,7 +5392,7 @@ msgid "Any rule matches"
 msgstr "कोई भी नियम मेल खाए"
 
 #: blocks/conditional-rules.js:136 blocks/field-shared.js:88
-#: blocks/field-shared.js:229 builder/src/field-panel.jsx:220
+#: blocks/field-shared.js:229 builder/src/field-panel.jsx:370
 msgid "Field"
 msgstr "फ़ील्ड"
 
@@ -4871,16 +5453,17 @@ msgstr "विकल्प (हर पंक्ति में एक, label | 
 msgid "Internal label"
 msgstr "आंतरिक लेबल"
 
-#: blocks/field-consent/index.js:17 builder/src/field-preview.jsx:85
+#: blocks/field-consent/index.js:17 builder/src/field-panel.jsx:171
+#: builder/src/field-preview.jsx:85
 msgid "Consent text"
 msgstr "सहमति टेक्स्ट"
 
 #: blocks/field-consent/index.js:18 blocks/field-shared.js:113
-#: builder/src/field-panel.jsx:242
+#: builder/src/field-panel.jsx:392
 msgid "Required"
 msgstr "ज़रूरी"
 
-#: blocks/field-file/index.js:17 builder/src/field-panel.jsx:88
+#: blocks/field-file/index.js:17 builder/src/field-panel.jsx:94
 msgid "Accepted extensions (.pdf, .png …)"
 msgstr "मान्य एक्सटेंशन (.pdf, .png …)"
 
@@ -4888,7 +5471,7 @@ msgstr "मान्य एक्सटेंशन (.pdf, .png …)"
 msgid "Allow multiple"
 msgstr "एक से ज़्यादा की अनुमति दें"
 
-#: blocks/field-file/index.js:19 builder/src/field-panel.jsx:90
+#: blocks/field-file/index.js:19 builder/src/field-panel.jsx:96
 msgid "Max size (MB)"
 msgstr "अधिकतम आकार (MB)"
 
@@ -4897,12 +5480,13 @@ msgid "Hidden field"
 msgstr "छिपा फ़ील्ड"
 
 #: blocks/field-hidden/index.js:17 blocks/field-shared.js:90
-#: builder/src/field-panel.jsx:223
+#: builder/src/field-panel.jsx:373
 msgid "Field ID"
 msgstr "फ़ील्ड ID"
 
 #: blocks/field-hidden/index.js:27 blocks/field-range/index.js:22
-#: blocks/field-shared.js:169 builder/src/field-panel.jsx:325
+#: blocks/field-shared.js:169 builder/src/field-panel.jsx:176
+#: builder/src/field-panel.jsx:475
 msgid "Default value"
 msgstr "डिफ़ॉल्ट मान"
 
@@ -4910,36 +5494,39 @@ msgstr "डिफ़ॉल्ट मान"
 msgid "HTML"
 msgstr "HTML"
 
-#: blocks/field-html/index.js:17
+#: blocks/field-html/index.js:17 builder/src/field-panel.jsx:175
 msgid "HTML markup"
 msgstr "HTML मार्कअप"
 
-#: blocks/field-multiple-choice/index.js:10
+#: blocks/field-multiple-choice/index.js:10 builder/src/field-panel.jsx:155
+#: builder/src/field-panel.jsx:165
 msgid "Radio buttons (pick one)"
 msgstr "रेडियो बटन (एक चुनें)"
 
-#: blocks/field-multiple-choice/index.js:11
+#: blocks/field-multiple-choice/index.js:11 builder/src/field-panel.jsx:156
 msgid "Checkboxes (pick several)"
 msgstr "चेकबॉक्स (कई चुनें)"
 
-#: blocks/field-multiple-choice/index.js:12
+#: blocks/field-multiple-choice/index.js:12 builder/src/field-panel.jsx:157
+#: builder/src/field-panel.jsx:166
 msgid "Dropdown (pick one)"
 msgstr "ड्रॉपडाउन (एक चुनें)"
 
-#: blocks/field-multiple-choice/index.js:13
+#: blocks/field-multiple-choice/index.js:13 builder/src/field-panel.jsx:158
 msgid "Dropdown (pick several)"
 msgstr "ड्रॉपडाउन (कई चुनें)"
 
-#: blocks/field-multiple-choice/index.js:45 builder/src/field-panel.jsx:64
-#: builder/src/field-panel.jsx:253
+#: blocks/field-multiple-choice/index.js:45 builder/src/field-panel.jsx:65
+#: builder/src/field-panel.jsx:403
 msgid "Choices"
 msgstr "विकल्प"
 
-#: blocks/field-multiple-choice/index.js:47
+#: blocks/field-multiple-choice/index.js:47 builder/src/field-panel.jsx:145
+#: builder/src/field-panel.jsx:152
 msgid "Show as"
 msgstr "इस रूप में दिखाएँ"
 
-#: blocks/field-multiple-choice/index.js:48
+#: blocks/field-multiple-choice/index.js:48 builder/src/field-panel.jsx:153
 msgid "Switching style keeps your options — no need to delete the field and start again."
 msgstr "स्टाइल बदलने पर आपके विकल्प बने रहते हैं — फ़ील्ड हटाकर दोबारा शुरू करने की ज़रूरत नहीं।"
 
@@ -4947,19 +5534,22 @@ msgstr "स्टाइल बदलने पर आपके विकल्�
 msgid "Options"
 msgstr "विकल्प"
 
-#: blocks/field-multiple-choice/index.js:55 builder/src/field-panel.jsx:65
+#: blocks/field-multiple-choice/index.js:55 builder/src/field-panel.jsx:66
 msgid "One per line. Use \"Label | value\" to store a different value."
 msgstr "हर पंक्ति में एक। अलग मान सेव करने के लिए \"Label | value\" लिखें।"
 
 #: blocks/field-number/index.js:19 blocks/field-range/index.js:19
+#: builder/src/field-panel.jsx:177
 msgid "Min"
 msgstr "न्यूनतम"
 
 #: blocks/field-number/index.js:20 blocks/field-range/index.js:20
+#: builder/src/field-panel.jsx:178
 msgid "Max"
 msgstr "अधिकतम"
 
 #: blocks/field-number/index.js:21 blocks/field-range/index.js:21
+#: builder/src/field-panel.jsx:179
 msgid "Step"
 msgstr "स्टेप"
 
@@ -4968,11 +5558,11 @@ msgstr "स्टेप"
 msgid "Page break"
 msgstr "पेज ब्रेक"
 
-#: blocks/field-page-break/index.js:16
+#: blocks/field-page-break/index.js:16 builder/src/field-panel.jsx:172
 msgid "Next button text"
 msgstr "आगे बटन का टेक्स्ट"
 
-#: blocks/field-page-break/index.js:17
+#: blocks/field-page-break/index.js:17 builder/src/field-panel.jsx:173
 msgid "Back button text"
 msgstr "पीछे बटन का टेक्स्ट"
 
@@ -4989,11 +5579,11 @@ msgid "The option value that scores points. Leave blank for non-quiz forms."
 msgstr "वह विकल्प मान जिस पर अंक मिलते हैं। क्विज़ के अलावा फ़ॉर्म के लिए खाली छोड़ें।"
 
 #: blocks/field-radio/index.js:30 blocks/field-select/index.js:30
-#: builder/src/field-panel.jsx:111
+#: builder/src/field-panel.jsx:127
 msgid "Points"
 msgstr "अंक"
 
-#: blocks/field-rating/index.js:18
+#: blocks/field-rating/index.js:18 builder/src/field-panel.jsx:260
 msgid "Stars"
 msgstr "स्टार"
 
@@ -5001,67 +5591,67 @@ msgstr "स्टार"
 msgid "Heading"
 msgstr "शीर्षक"
 
-#: blocks/field-section/index.js:17
+#: blocks/field-section/index.js:17 builder/src/field-panel.jsx:174
 msgid "Description"
 msgstr "विवरण"
 
-#: blocks/field-shared.js:91 builder/src/field-panel.jsx:224
+#: blocks/field-shared.js:91 builder/src/field-panel.jsx:374
 msgid "Used in merge tags and entry export."
 msgstr "मर्ज टैग और एंट्री एक्सपोर्ट में इस्तेमाल होता है।"
 
-#: blocks/field-shared.js:96 builder/src/field-panel.jsx:20
+#: blocks/field-shared.js:96 builder/src/field-panel.jsx:21
 msgid "Label"
 msgstr "लेबल"
 
-#: blocks/field-shared.js:102 builder/src/field-panel.jsx:21
+#: blocks/field-shared.js:102 builder/src/field-panel.jsx:22
 msgid "Placeholder"
 msgstr "प्लेसहोल्डर"
 
-#: blocks/field-shared.js:137 builder/src/field-panel.jsx:285
+#: blocks/field-shared.js:137 builder/src/field-panel.jsx:435
 msgid "Appearance"
 msgstr "अपीयरेंस"
 
-#: blocks/field-shared.js:139 builder/src/field-panel.jsx:289
+#: blocks/field-shared.js:139 builder/src/field-panel.jsx:439
 msgid "Field width"
 msgstr "फ़ील्ड की चौड़ाई"
 
-#: blocks/field-shared.js:142 builder/src/field-panel.jsx:292
+#: blocks/field-shared.js:142 builder/src/field-panel.jsx:442
 msgid "Full width"
 msgstr "पूरी चौड़ाई"
 
-#: blocks/field-shared.js:143 builder/src/field-panel.jsx:293
+#: blocks/field-shared.js:143 builder/src/field-panel.jsx:443
 msgid "One half"
 msgstr "आधी"
 
-#: blocks/field-shared.js:144 builder/src/field-panel.jsx:294
+#: blocks/field-shared.js:144 builder/src/field-panel.jsx:444
 msgid "One third"
 msgstr "एक तिहाई"
 
-#: blocks/field-shared.js:145 builder/src/field-panel.jsx:295
+#: blocks/field-shared.js:145 builder/src/field-panel.jsx:445
 msgid "One quarter"
 msgstr "एक चौथाई"
 
-#: blocks/field-shared.js:150 builder/src/field-panel.jsx:302
+#: blocks/field-shared.js:150 builder/src/field-panel.jsx:452
 msgid "Help text position"
 msgstr "सहायता टेक्स्ट की जगह"
 
-#: blocks/field-shared.js:153 builder/src/field-panel.jsx:305
+#: blocks/field-shared.js:153 builder/src/field-panel.jsx:455
 msgid "Use the form's setting"
 msgstr "फ़ॉर्म की सेटिंग इस्तेमाल करें"
 
-#: blocks/field-shared.js:160 builder/src/field-panel.jsx:313
+#: blocks/field-shared.js:160 builder/src/field-panel.jsx:463
 msgid "CSS class"
 msgstr "CSS क्लास"
 
-#: blocks/field-shared.js:161 builder/src/field-panel.jsx:314
+#: blocks/field-shared.js:161 builder/src/field-panel.jsx:464
 msgid "Added to the field wrapper, for your own styling."
 msgstr "फ़ील्ड रैपर में जोड़ी जाती है, आपकी अपनी स्टाइलिंग के लिए।"
 
-#: blocks/field-shared.js:167 builder/src/field-panel.jsx:322
+#: blocks/field-shared.js:167 builder/src/field-panel.jsx:472
 msgid "Advanced"
 msgstr "एडवांस्ड"
 
-#: blocks/field-shared.js:174 builder/src/field-panel.jsx:331
+#: blocks/field-shared.js:174 builder/src/field-panel.jsx:481
 msgid "Admin label"
 msgstr "एडमिन लेबल"
 
@@ -5069,59 +5659,59 @@ msgstr "एडमिन लेबल"
 msgid "Shown instead of the label in entries and exports."
 msgstr "एंट्रियों और एक्सपोर्ट में लेबल की जगह दिखता है।"
 
-#: blocks/field-shared.js:180 builder/src/field-panel.jsx:339
+#: blocks/field-shared.js:180 builder/src/field-panel.jsx:489
 msgid "Visible to"
 msgstr "किसे दिखे"
 
-#: blocks/field-shared.js:183 builder/src/field-panel.jsx:342
+#: blocks/field-shared.js:183 builder/src/field-panel.jsx:492
 msgid "Everyone"
 msgstr "सभी को"
 
-#: blocks/field-shared.js:184 builder/src/field-panel.jsx:343
+#: blocks/field-shared.js:184 builder/src/field-panel.jsx:493
 msgid "Logged-in users"
 msgstr "लॉग-इन उपयोगकर्ता"
 
-#: blocks/field-shared.js:185 builder/src/field-panel.jsx:344
+#: blocks/field-shared.js:185 builder/src/field-panel.jsx:494
 msgid "Administrators only"
 msgstr "सिर्फ़ एडमिनिस्ट्रेटर"
 
-#: blocks/field-shared.js:190 builder/src/field-panel.jsx:351
+#: blocks/field-shared.js:190 builder/src/field-panel.jsx:501
 msgid "Allow this field to be pre-filled from the URL"
 msgstr "इस फ़ील्ड को URL से पहले से भरने दें"
 
-#: blocks/field-shared.js:191 builder/src/field-panel.jsx:352
+#: blocks/field-shared.js:191 builder/src/field-panel.jsx:502
 msgid "Off by default: a form whose every field can be set from a link is a form whose data you cannot trust."
 msgstr "डिफ़ॉल्ट रूप से बंद: जिस फ़ॉर्म का हर फ़ील्ड किसी लिंक से भरा जा सके, उसके डेटा पर भरोसा नहीं किया जा सकता।"
 
-#: blocks/field-shared.js:197 builder/src/field-panel.jsx:359
+#: blocks/field-shared.js:197 builder/src/field-panel.jsx:509
 msgid "Parameter name"
 msgstr "पैरामीटर का नाम"
 
-#: blocks/field-shared.js:198 builder/src/field-panel.jsx:360
+#: blocks/field-shared.js:198 builder/src/field-panel.jsx:510
 msgid "Defaults to the field ID. Also reads user_email, first_name, post_id and user_meta_<key>."
 msgstr "डिफ़ॉल्ट रूप से फ़ील्ड ID। user_email, first_name, post_id और user_meta_<key> भी पढ़ता है।"
 
-#: blocks/field-shared.js:204 builder/src/field-panel.jsx:368
+#: blocks/field-shared.js:204 builder/src/field-panel.jsx:518
 msgid "No duplicates"
 msgstr "दोहराव नहीं"
 
-#: blocks/field-shared.js:205 builder/src/field-panel.jsx:369
+#: blocks/field-shared.js:205 builder/src/field-panel.jsx:519
 msgid "Refuse a submission if another entry on this form already has the same value."
 msgstr "अगर इस फ़ॉर्म की किसी दूसरी एंट्री में पहले से यही मान है, तो सबमिशन स्वीकार न करें।"
 
-#: blocks/field-shared.js:210 builder/src/field-panel.jsx:375
+#: blocks/field-shared.js:210 builder/src/field-panel.jsx:525
 msgid "Custom error message"
 msgstr "अपना त्रुटि संदेश"
 
-#: blocks/field-shared.js:215 builder/src/field-panel.jsx:382
+#: blocks/field-shared.js:215 builder/src/field-panel.jsx:532
 msgid "Autocomplete"
 msgstr "ऑटोकम्प्लीट"
 
-#: blocks/field-shared.js:216 builder/src/field-panel.jsx:383
+#: blocks/field-shared.js:216 builder/src/field-panel.jsx:533
 msgid "The HTML autocomplete hint, e.g. email, given-name, organization."
 msgstr "HTML autocomplete संकेत, जैसे email, given-name, organization।"
 
-#: blocks/field-textarea/index.js:16 builder/src/field-panel.jsx:99
+#: blocks/field-textarea/index.js:16 builder/src/field-panel.jsx:112
 msgid "Rows"
 msgstr "पंक्तियाँ"
 
@@ -5149,186 +5739,186 @@ msgstr "एम्बेड करने के लिए साइडबार �
 msgid "Could not load this form."
 msgstr "यह फ़ॉर्म लोड नहीं हो सका।"
 
-#: builder/src/app.jsx:214
+#: builder/src/app.jsx:242
 msgid "new field"
 msgstr "नया फ़ील्ड"
 
-#: builder/src/app.jsx:217
+#: builder/src/app.jsx:245
 msgid "the end of the form"
 msgstr "फ़ॉर्म का अंत"
 
-#: builder/src/app.jsx:222
+#: builder/src/app.jsx:250
 msgid "field"
 msgstr "फ़ील्ड"
 
 #. translators: 1: position, 2: total number of fields.
-#: builder/src/app.jsx:233
+#: builder/src/app.jsx:261
 msgid "position %1$d of %2$d"
 msgstr "%2$d में से स्थान %1$d"
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:238
+#: builder/src/app.jsx:266
 msgid "Picked up %s."
 msgstr "%s उठाया गया।"
 
 #. translators: 1: dragged field label, 2: field it is over, 3: position text.
-#: builder/src/app.jsx:242
+#: builder/src/app.jsx:270
 msgid "%1$s is over %2$s, %3$s."
 msgstr "%1$s, %2$s के ऊपर है, %3$s।"
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:244
+#: builder/src/app.jsx:272
 msgid "%s is no longer over a drop position."
 msgstr "%s अब किसी ड्रॉप स्थान के ऊपर नहीं है।"
 
 #. translators: 1: dragged field label, 2: target field label.
-#: builder/src/app.jsx:248
+#: builder/src/app.jsx:276
 msgid "%1$s was dropped at %2$s."
 msgstr "%1$s को %2$s पर छोड़ा गया।"
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:250
+#: builder/src/app.jsx:278
 msgid "%s was dropped outside the form; nothing changed."
 msgstr "%s को फ़ॉर्म के बाहर छोड़ा गया; कुछ नहीं बदला।"
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:253
+#: builder/src/app.jsx:281
 msgid "Moving %s was cancelled."
 msgstr "%s को ले जाना रद्द किया गया।"
 
-#: builder/src/app.jsx:370
+#: builder/src/app.jsx:398
 msgid "Replace the current form with this template? Your unsaved changes will be lost."
 msgstr "मौजूदा फ़ॉर्म को इस टेम्पलेट से बदलें? आपके बिना सेव किए बदलाव खो जाएँगे।"
 
-#: builder/src/app.jsx:414
+#: builder/src/app.jsx:442
 msgid "Form saved. It is published, so it shows wherever you embed it."
 msgstr "फ़ॉर्म सेव किया गया। यह प्रकाशित है, इसलिए जहाँ भी आप इसे एम्बेड करेंगे वहाँ दिखेगा।"
 
-#: builder/src/app.jsx:415
+#: builder/src/app.jsx:443
 msgid "Form saved as a draft. Visitors will not see it until you publish it."
 msgstr "फ़ॉर्म ड्राफ़्ट के रूप में सेव किया गया। जब तक आप इसे प्रकाशित नहीं करते, विज़िटर इसे नहीं देखेंगे।"
 
-#: builder/src/app.jsx:429
+#: builder/src/app.jsx:457
 msgid "Could not save this form."
 msgstr "यह फ़ॉर्म सेव नहीं किया जा सका।"
 
-#: builder/src/app.jsx:449 builder/src/app.jsx:450
+#: builder/src/app.jsx:477 builder/src/app.jsx:478
 msgid "Form title"
 msgstr "फ़ॉर्म का शीर्षक"
 
-#: builder/src/app.jsx:459
+#: builder/src/app.jsx:487
 msgid "Undo"
 msgstr "पहले जैसा करें"
 
-#: builder/src/app.jsx:460
+#: builder/src/app.jsx:488
 msgid "Ctrl+Z"
 msgstr "Ctrl+Z"
 
-#: builder/src/app.jsx:466
+#: builder/src/app.jsx:494
 msgid "Redo"
 msgstr "फिर से करें"
 
-#: builder/src/app.jsx:467
+#: builder/src/app.jsx:495
 msgid "Ctrl+Shift+Z"
 msgstr "Ctrl+Shift+Z"
 
-#: builder/src/app.jsx:479
+#: builder/src/app.jsx:507
 msgid "Submit button text, and what visitors see after they submit"
 msgstr "सबमिट बटन का टेक्स्ट, और सबमिट करने के बाद विज़िटर को क्या दिखे"
 
-#: builder/src/app.jsx:502
+#: builder/src/app.jsx:530
 msgid "Copy the shortcode that puts this form on a page or post"
 msgstr "वह शॉर्टकोड कॉपी करें जो इस फ़ॉर्म को किसी पेज या पोस्ट पर लगाता है"
 
-#: builder/src/app.jsx:505
+#: builder/src/app.jsx:533
 msgid "Copied"
 msgstr "कॉपी हो गया"
 
-#: builder/src/app.jsx:506
+#: builder/src/app.jsx:534
 msgid "Press Ctrl+C to copy"
 msgstr "कॉपी करने के लिए Ctrl+C दबाएँ"
 
-#: builder/src/app.jsx:509
+#: builder/src/app.jsx:537
 msgid "Copy shortcode"
 msgstr "शॉर्टकोड कॉपी करें"
 
-#: builder/src/app.jsx:517
+#: builder/src/app.jsx:545
 msgid "Make a draft page holding this form and open it. Save your changes first."
 msgstr "इस फ़ॉर्म वाला एक ड्राफ़्ट पेज बनाएँ और उसे खोलें। पहले अपने बदलाव सहेजें।"
 
-#: builder/src/app.jsx:530
+#: builder/src/app.jsx:558
 msgid "Set up the emails sent when this form is submitted"
 msgstr "इस फ़ॉर्म के सबमिट होने पर भेजे जाने वाले ईमेल सेट करें"
 
-#: builder/src/app.jsx:538
+#: builder/src/app.jsx:566
 msgid "Open in block editor"
 msgstr "ब्लॉक एडिटर में खोलें"
 
-#: builder/src/app.jsx:545
+#: builder/src/app.jsx:573
 msgid "Describe your form and let AI draft the fields (opens the block editor)"
 msgstr "अपने फ़ॉर्म का वर्णन करें और AI से फ़ील्ड का ड्राफ़्ट बनवाएँ (ब्लॉक एडिटर खुलता है)"
 
-#: builder/src/app.jsx:548
+#: builder/src/app.jsx:576
 msgid "Draft with AI"
 msgstr "AI से ड्राफ़्ट बनाएँ"
 
-#: builder/src/app.jsx:553
+#: builder/src/app.jsx:582
 msgid "Form status"
 msgstr "फ़ॉर्म की स्थिति"
 
-#: builder/src/app.jsx:560
+#: builder/src/app.jsx:589
 msgid "Draft"
 msgstr "ड्राफ़्ट"
 
-#: builder/src/app.jsx:562
+#: builder/src/app.jsx:591
 msgid "Published"
 msgstr "प्रकाशित"
 
-#: builder/src/app.jsx:566
+#: builder/src/app.jsx:595
 msgid "Save form"
 msgstr "फ़ॉर्म सहेजें"
 
-#: builder/src/app.jsx:574
+#: builder/src/app.jsx:603
 msgid "This form was saved in a format the builder can't open, so its fields don't show here. It still works on your site, and saving is turned off so nothing gets overwritten."
 msgstr "यह फ़ॉर्म ऐसे फ़ॉर्मेट में सेव किया गया था जिसे बिल्डर नहीं खोल सकता, इसलिए इसके फ़ील्ड यहाँ नहीं दिखते। यह आपकी साइट पर अब भी काम करता है, और सेव करना बंद है ताकि कुछ भी ओवरराइट न हो।"
 
-#: builder/src/app.jsx:585
+#: builder/src/app.jsx:614
 msgid "This form changed somewhere else, most likely in the block editor in another tab. Your edits here have not been saved, and saving now would overwrite that change."
 msgstr "यह फ़ॉर्म कहीं और बदला गया है, शायद किसी दूसरे टैब में ब्लॉक एडिटर में। आपके यहाँ के बदलाव सेव नहीं किए गए हैं, और अभी सेव करने से वह बदलाव ओवरराइट हो जाएगा।"
 
-#: builder/src/app.jsx:591
+#: builder/src/app.jsx:620
 msgid "Reload the form"
 msgstr "फ़ॉर्म दोबारा लोड करें"
 
-#: builder/src/app.jsx:604
+#: builder/src/app.jsx:633
 msgid "Form settings"
 msgstr "फ़ॉर्म सेटिंग्स"
 
-#: builder/src/app.jsx:653
+#: builder/src/app.jsx:682
 msgid "These are saved with the form when you press Save form."
 msgstr "ये \"फ़ॉर्म सहेजें\" दबाने पर फ़ॉर्म के साथ सहेजे जाते हैं।"
 
-#: builder/src/app.jsx:683
+#: builder/src/app.jsx:712
 msgid "fields"
 msgstr "फ़ील्ड"
 
-#: builder/src/app.jsx:704
+#: builder/src/app.jsx:733
 msgid "Add a field"
 msgstr "फ़ील्ड जोड़ें"
 
-#: builder/src/app.jsx:706
+#: builder/src/app.jsx:735
 msgid "Click to append, or drag onto the canvas to place."
 msgstr "अंत में जोड़ने के लिए क्लिक करें, या जगह चुनने के लिए कैनवास पर खींचें।"
 
-#: builder/src/app.jsx:713
+#: builder/src/app.jsx:742
 msgid "Pro fields"
 msgstr "Pro फ़ील्ड"
 
-#: builder/src/app.jsx:715
+#: builder/src/app.jsx:744
 msgid "Activate your Pro license to add these."
 msgstr "इन्हें जोड़ने के लिए अपना Pro लाइसेंस सक्रिय करें।"
 
-#: builder/src/app.jsx:727
+#: builder/src/app.jsx:756
 msgid "Requires an active Pro license"
 msgstr "सक्रिय Pro लाइसेंस ज़रूरी है"
 
@@ -5364,99 +5954,265 @@ msgstr "%s को नीचे ले जाएँ"
 msgid "Remove %s"
 msgstr "%s हटाएँ"
 
-#: builder/src/field-panel.jsx:89
+#: builder/src/field-panel.jsx:95
 msgid "Allow multiple files"
 msgstr "एक से ज़्यादा फ़ाइलों की अनुमति दें"
 
-#: builder/src/field-panel.jsx:91
+#: builder/src/field-panel.jsx:97
 msgid "Formula"
 msgstr "फ़ॉर्मूला"
 
-#: builder/src/field-panel.jsx:91
-msgid "Use field ids in braces, e.g. {quantity} * 12.50"
-msgstr "ब्रेसेस में फ़ील्ड ID लिखें, जैसे {quantity} * 12.50"
+#: builder/src/field-panel.jsx:97
+msgid "Use field ids in braces, e.g. {quantity} * 12.50. For a repeater column: sum({items.price}), avg({items.price}), min, max, and count({items}) for the number of rows."
+msgstr "फ़ील्ड ID ब्रेस में लिखें, जैसे {quantity} * 12.50। रिपीटर के कॉलम के लिए: sum({items.price}), avg({items.price}), min, max, और पंक्तियों की संख्या के लिए count({items})।"
 
-#: builder/src/field-panel.jsx:92
+#: builder/src/field-panel.jsx:98
 msgid "Prefix"
 msgstr "प्रीफ़िक्स"
 
-#: builder/src/field-panel.jsx:93
+#: builder/src/field-panel.jsx:99
 msgid "Suffix"
 msgstr "सफ़िक्स"
 
-#: builder/src/field-panel.jsx:94
+#: builder/src/field-panel.jsx:100
 msgid "Decimal places"
 msgstr "दशमलव स्थान"
 
-#: builder/src/field-panel.jsx:96
+#: builder/src/field-panel.jsx:102
 msgid "Fills in"
 msgstr "भरता है"
 
-#: builder/src/field-panel.jsx:100
+#: builder/src/field-panel.jsx:105
+msgid "Post body"
+msgstr "पोस्ट का मुख्य भाग"
+
+#: builder/src/field-panel.jsx:106
+msgid "Post excerpt"
+msgstr "पोस्ट का सारांश"
+
+#: builder/src/field-panel.jsx:107
+msgid "Post tags"
+msgstr "पोस्ट टैग"
+
+#: builder/src/field-panel.jsx:108
+msgid "Post category"
+msgstr "पोस्ट की श्रेणी"
+
+#: builder/src/field-panel.jsx:109
+msgid "Custom field"
+msgstr "कस्टम फ़ील्ड"
+
+#: builder/src/field-panel.jsx:113
 msgid "Data (CSV)"
 msgstr "डेटा (CSV)"
 
-#: builder/src/field-panel.jsx:100
+#: builder/src/field-panel.jsx:113
 msgid "First line names the levels (e.g. Country,State); each further line is one path."
 msgstr "पहली पंक्ति में स्तरों के नाम हों (जैसे Country,State); बाकी हर पंक्ति एक पथ है।"
 
-#: builder/src/field-panel.jsx:102
+#: builder/src/field-panel.jsx:115
 msgid "Amount mode"
 msgstr "राशि मोड"
 
-#: builder/src/field-panel.jsx:105
+#: builder/src/field-panel.jsx:117
+msgid "Fixed"
+msgstr "तय"
+
+#: builder/src/field-panel.jsx:118
+msgid "From a field"
+msgstr "किसी फ़ील्ड से"
+
+#: builder/src/field-panel.jsx:121
 msgid "Amount"
 msgstr "राशि"
 
-#: builder/src/field-panel.jsx:106
+#: builder/src/field-panel.jsx:122
 msgid "Amount from field (id)"
 msgstr "फ़ील्ड से राशि (id)"
 
-#: builder/src/field-panel.jsx:107
+#: builder/src/field-panel.jsx:123
 msgid "Currency"
 msgstr "मुद्रा"
 
-#: builder/src/field-panel.jsx:108
+#: builder/src/field-panel.jsx:124
 msgid "Add button text"
 msgstr "जोड़ें बटन का टेक्स्ट"
 
-#: builder/src/field-panel.jsx:109
+#: builder/src/field-panel.jsx:125
 msgid "Sub-field schema (JSON array)"
 msgstr "सब-फ़ील्ड स्कीमा (JSON array)"
 
-#: builder/src/field-panel.jsx:109
+#: builder/src/field-panel.jsx:125
 msgid "e.g. [{\"id\":\"name\",\"type\":\"text\",\"label\":\"Name\"}]. Left empty, one \"Item\" column is shown."
 msgstr "जैसे [{\"id\":\"name\",\"type\":\"text\",\"label\":\"Name\"}]। खाली छोड़ने पर एक \"Item\" कॉलम दिखता है।"
 
-#: builder/src/field-panel.jsx:110
+#: builder/src/field-panel.jsx:126
 msgid "Correct answer value (quiz)"
 msgstr "सही उत्तर का मान (क्विज़)"
 
-#: builder/src/field-panel.jsx:112
+#: builder/src/field-panel.jsx:128
 msgid "Check it is a full phone number (7 to 15 digits, + allowed)"
 msgstr "जाँचें कि यह पूरा फ़ोन नंबर है (7 से 15 अंक, + की अनुमति है)"
 
+#: builder/src/field-panel.jsx:129
+msgid "Statements (one per line)"
+msgstr "कथन (हर पंक्ति में एक)"
+
+#: builder/src/field-panel.jsx:130
+msgid "Label under 0"
+msgstr "0 के नीचे का लेबल"
+
+#: builder/src/field-panel.jsx:131
+msgid "Label under 10"
+msgstr "10 के नीचे का लेबल"
+
+#: builder/src/field-panel.jsx:132
+msgid "Open days (1 = Monday ... 7 = Sunday)"
+msgstr "खुले दिन (1 = सोमवार ... 7 = रविवार)"
+
+#: builder/src/field-panel.jsx:133
+msgid "Opens at (HH:MM)"
+msgstr "खुलने का समय (HH:MM)"
+
+#: builder/src/field-panel.jsx:134
+msgid "Closes at (HH:MM)"
+msgstr "बंद होने का समय (HH:MM)"
+
+#: builder/src/field-panel.jsx:135
+msgid "Slot length (minutes)"
+msgstr "हर स्लॉट की अवधि (मिनट)"
+
+#: builder/src/field-panel.jsx:136
+msgid "Break between slots (minutes)"
+msgstr "स्लॉट के बीच ब्रेक (मिनट)"
+
 #: builder/src/field-panel.jsx:137
+msgid "People per slot"
+msgstr "हर स्लॉट में लोग"
+
+#: builder/src/field-panel.jsx:138
+msgid "Days ahead people can book"
+msgstr "कितने दिन आगे तक बुकिंग हो सकती है"
+
+#: builder/src/field-panel.jsx:139
+msgid "Minimum notice (hours)"
+msgstr "न्यूनतम पूर्व सूचना (घंटे)"
+
+#: builder/src/field-panel.jsx:140
+msgid "Closed dates (one per line, YYYY-MM-DD or YYYY-MM-DD..YYYY-MM-DD)"
+msgstr "बंद तारीखें (हर पंक्ति में एक, YYYY-MM-DD या YYYY-MM-DD..YYYY-MM-DD)"
+
+#: builder/src/field-panel.jsx:141
+msgid "Attach a calendar file (.ics) to emails"
+msgstr "ईमेल के साथ कैलेंडर फ़ाइल (.ics) जोड़ें"
+
+#: builder/src/field-panel.jsx:142
+msgid "Take answers from form (form ID)"
+msgstr "इस फ़ॉर्म से जवाब लें (फ़ॉर्म ID)"
+
+#: builder/src/field-panel.jsx:142
+msgid "The number in the form's shortcode, e.g. 12 in [trinity-forms id=\"12\"]."
+msgstr "फ़ॉर्म के शॉर्टकोड में दी गई संख्या, जैसे [trinity-forms id=\"12\"] में 12।"
+
+#: builder/src/field-panel.jsx:143
+msgid "Field in that form"
+msgstr "उस फ़ॉर्म का फ़ील्ड"
+
+#: builder/src/field-panel.jsx:147
+msgid "Dropdown of the answers"
+msgstr "जवाबों का ड्रॉपडाउन"
+
+#: builder/src/field-panel.jsx:148
+msgid "Text box filled with the person's latest answer"
+msgstr "व्यक्ति के आख़िरी जवाब से भरा टेक्स्ट बॉक्स"
+
+#: builder/src/field-panel.jsx:162
+msgid "Product type"
+msgstr "प्रोडक्ट का प्रकार"
+
+#: builder/src/field-panel.jsx:164
+msgid "Single item at a fixed price"
+msgstr "तय कीमत वाला एक आइटम"
+
+#: builder/src/field-panel.jsx:170
+msgid "Product (field ID)"
+msgstr "प्रोडक्ट (फ़ील्ड ID)"
+
+#: builder/src/field-panel.jsx:180
+msgid "Minimum length"
+msgstr "न्यूनतम लंबाई"
+
+#: builder/src/field-panel.jsx:181
+msgid "Maximum length"
+msgstr "अधिकतम लंबाई"
+
+#: builder/src/field-panel.jsx:182
+msgid "Maximum rows"
+msgstr "अधिकतम पंक्तियाँ"
+
+#: builder/src/field-panel.jsx:183
+msgid "Maximum choices"
+msgstr "अधिकतम विकल्प"
+
+#: builder/src/field-panel.jsx:185
+msgid "Only the logged-in person's own entries"
+msgstr "सिर्फ़ लॉग-इन व्यक्ति की अपनी एंट्री"
+
+#: builder/src/field-panel.jsx:185
+msgid "Off: every visitor sees the answers from all entries in the dropdown, so email, phone and name fields can't be used."
+msgstr "बंद: हर विज़िटर ड्रॉपडाउन में सभी एंट्री के जवाब देखता है, इसलिए ईमेल, फ़ोन और नाम फ़ील्ड इस्तेमाल नहीं किए जा सकते।"
+
+#: builder/src/field-panel.jsx:208
+msgid "Email, phone and name fields are listed only when \"Only the logged-in person's own entries\" is on."
+msgstr "ईमेल, फ़ोन और नाम फ़ील्ड तभी दिखते हैं जब \"सिर्फ़ लॉग-इन व्यक्ति की अपनी एंट्री\" चालू हो।"
+
+#: builder/src/field-panel.jsx:219
+msgid "The saved field can't be used here, so the dropdown stays empty. Pick another field or turn on \"Only the logged-in person's own entries\"."
+msgstr "सेव किया गया फ़ील्ड यहाँ इस्तेमाल नहीं हो सकता, इसलिए ड्रॉपडाउन खाली रहता है। कोई दूसरा फ़ील्ड चुनें या \"सिर्फ़ लॉग-इन व्यक्ति की अपनी एंट्री\" चालू करें।"
+
+#: builder/src/field-panel.jsx:249
 msgid "Field settings"
 msgstr "फ़ील्ड सेटिंग्स"
 
-#: builder/src/field-panel.jsx:146
+#: builder/src/field-panel.jsx:258
 msgid "Allow multiple selections"
 msgstr "एक से ज़्यादा चुनने की अनुमति दें"
 
-#: builder/src/field-panel.jsx:208
+#: builder/src/field-panel.jsx:335
+msgid "Used by"
+msgstr "इनमें इस्तेमाल"
+
+#. translators: %s: field label
+#: builder/src/field-panel.jsx:341
+msgid "%s (calculation)"
+msgstr "%s (गणना)"
+
+#. translators: %s: field label
+#: builder/src/field-panel.jsx:342
+msgid "%s (show / hide rule)"
+msgstr "%s (दिखाने / छिपाने का नियम)"
+
+#: builder/src/field-panel.jsx:347
+msgid "No other field uses this one in a rule or a calculation."
+msgstr "कोई दूसरा फ़ील्ड इसे किसी नियम या गणना में इस्तेमाल नहीं करता।"
+
+#: builder/src/field-panel.jsx:349
+msgid "Changing this field's ID or choices can break these."
+msgstr "इस फ़ील्ड का ID या विकल्प बदलने से ये टूट सकते हैं।"
+
+#: builder/src/field-panel.jsx:358
 msgid "Select a field to edit its settings."
 msgstr "सेटिंग्स बदलने के लिए कोई फ़ील्ड चुनें।"
 
-#: builder/src/field-panel.jsx:269
+#: builder/src/field-panel.jsx:419
 msgid "A regular expression the value must match. Leave empty for no check."
 msgstr "एक रेगुलर एक्सप्रेशन जिससे मान का मेल खाना ज़रूरी है। जाँच न करनी हो तो खाली छोड़ें।"
 
-#: builder/src/field-panel.jsx:332
+#: builder/src/field-panel.jsx:482
 msgid "Shown instead of the label in entries and exports. Useful when the public label is a long question."
 msgstr "एंट्रियों और एक्सपोर्ट में लेबल की जगह दिखता है। तब काम का है जब सार्वजनिक लेबल एक लंबा सवाल हो।"
 
-#: builder/src/field-panel.jsx:376
+#: builder/src/field-panel.jsx:526
 msgid "Replaces the built-in \"this field is required\" wording."
 msgstr "पहले से बने \"यह फ़ील्ड ज़रूरी है\" संदेश की जगह लेता है।"
 
@@ -5514,8 +6270,24 @@ msgid "Signature pad"
 msgstr "हस्ताक्षर पैड"
 
 #: builder/src/field-preview.jsx:212
+msgid "Answers from another form"
+msgstr "दूसरे फ़ॉर्म के जवाब"
+
+#: builder/src/field-preview.jsx:215
+msgid "Date, then a free time slot"
+msgstr "तारीख, फिर कोई खाली समय"
+
+#: builder/src/field-preview.jsx:218
 msgid "Repeatable group"
 msgstr "दोहराने योग्य समूह"
+
+#: builder/src/field-preview.jsx:221
+msgid "Rating grid: one row per statement"
+msgstr "रेटिंग ग्रिड: हर कथन के लिए एक पंक्ति"
+
+#: builder/src/field-preview.jsx:227
+msgid "Choices to put in order"
+msgstr "क्रम में लगाने के विकल्प"
 
 #: builder/src/opaque-card.jsx:15
 msgid "Advanced block"

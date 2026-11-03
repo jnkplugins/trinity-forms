@@ -19,7 +19,7 @@ import {
 import { sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import apiFetch from '@wordpress/api-fetch';
 import { Button, Modal, Notice, SelectControl, Spinner, TextareaControl, TextControl } from '@wordpress/components';
-import { useEffect, useState } from '@wordpress/element';
+import { useEffect, useRef, useState } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 import { attrValue, isField, keyOf, newField, schemaFor, toPayload } from './blocks';
 import Canvas from './canvas';
@@ -198,6 +198,34 @@ export default function App( { config } ) {
 		setBlocks( next, mergeKey );
 		setDirty( true );
 	};
+
+	// A small bridge for extensions that sit in the toolbar slot below: read the
+	// canvas, put a whole new canvas on it as one undoable step, and undo. Rebuilt every render so it always sees the current state.
+	const bridge = useRef( {} );
+	Object.assign( bridge.current, {
+		formId: config.formId,
+		getBlocks: () => blocks,
+		getHash: () => hash,
+		getTitle: () => title,
+		isDirty: () => dirty,
+		replaceBlocks: ( next ) => {
+			commit( Array.isArray( next ) ? next : [] );
+			setSelectedKey( null );
+		},
+		setTitle: ( next ) => {
+			setTitle( String( next ) );
+			setDirty( true );
+		},
+		undo: () => undo(),
+		canUndo: () => canUndo,
+	} );
+	useEffect( () => {
+		if ( loading || uneditable ) {
+			return;
+		}
+		window.trinityFormsBuilder = bridge.current;
+		window.dispatchEvent( new window.CustomEvent( 'trinity-forms-builder-ready', { detail: bridge.current } ) );
+	}, [ loading, uneditable ] );
 
 	const ids = blocks.map( ( b, i ) => keyOf( b, i ) );
 	const selectedIndex = ids.indexOf( selectedKey );
@@ -548,6 +576,7 @@ export default function App( { config } ) {
 							{ __( 'Draft with AI', 'trinity-forms' ) }
 						</Button>
 					) }
+					<div className="tf-builder__ext" id="tf-builder-ext" />
 					<select
 						className="tf-builder__status"
 						aria-label={ __( 'Form status', 'trinity-forms' ) }

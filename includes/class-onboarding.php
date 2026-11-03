@@ -190,9 +190,24 @@ class Onboarding {
             "post_type"    => "page",
             "post_status"  => "draft",
             "post_title"   => $form->post_title ?: __( "Contact", "trinity-forms" ),
-            "post_content" => '<!-- wp:trinity-forms/form {"formId":' . (int) $form_id . '} /-->',
+            "post_content" => self::page_content( (int) $form_id ),
         ], true );
         return is_wp_error( $page_id ) ? 0 : (int) $page_id;
+    }
+
+    /**
+     * What goes into the new page: the form block, or the shortcode where pages
+     * open in the Classic Editor. A block is an HTML comment there, so the page
+     * looked empty (QA 2 Nov, ar-news with Classic Editor) and invited deleting it.
+     */
+    public static function page_content( int $form_id ): string {
+        if ( ! function_exists( "use_block_editor_for_post_type" ) ) {
+            require_once ABSPATH . "wp-admin/includes/post.php";
+        }
+        if ( ! use_block_editor_for_post_type( "page" ) ) {
+            return '[trinity-forms id="' . $form_id . '"]';
+        }
+        return '<!-- wp:trinity-forms/form {"formId":' . $form_id . '} /-->';
     }
 
     public static function handle_create_page(): void {

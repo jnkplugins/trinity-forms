@@ -22,6 +22,16 @@ class Form {
      * Schema key => block attribute. The inverse of the mapping in schema_from_blocks();
      * a key missing here cannot be written as block markup.
      */
+    /** Scalar field settings copied as they are between block attributes and the schema. */
+    public const PLAIN_ATTRS = [
+        "slot_days" => "slotDays", "slot_start" => "slotStart", "slot_end" => "slotEnd",
+        "slot_length" => "slotLength", "slot_buffer" => "slotBuffer", "slot_capacity" => "slotCapacity",
+        "slot_blocked" => "slotBlocked", "slot_days_ahead" => "slotDaysAhead", "slot_notice" => "slotNotice",
+        "slot_ics" => "slotIcs",
+        "lookup_form" => "lookupForm", "lookup_field" => "lookupField", "lookup_mine" => "lookupMine",
+        "lookup_mode" => "lookupMode",
+    ];
+
     private const ATTR_MAP = [
         "label" => "label", "required" => "required", "placeholder" => "placeholder", "help" => "help",
         "min_length" => "minLength", "max_length" => "maxLength", "pattern" => "pattern",
@@ -42,6 +52,14 @@ class Form {
         "description_placement" => "descriptionPlacement", "add_button" => "addButton",
         "amount_mode" => "amountMode", "amount" => "amount", "amount_field" => "amountField",
         "currency" => "currency", "options" => "options", "conditional" => "conditional",
+        "statements" => "statements", "low_label" => "lowLabel", "high_label" => "highLabel",
+        // Booking (time slots) and lookup fields (Pro).
+        "slot_days" => "slotDays", "slot_start" => "slotStart", "slot_end" => "slotEnd",
+        "slot_length" => "slotLength", "slot_buffer" => "slotBuffer", "slot_capacity" => "slotCapacity",
+        "slot_blocked" => "slotBlocked", "slot_days_ahead" => "slotDaysAhead", "slot_notice" => "slotNotice",
+        "slot_ics" => "slotIcs",
+        "lookup_form" => "lookupForm", "lookup_field" => "lookupField", "lookup_mine" => "lookupMine",
+        "lookup_mode" => "lookupMode",
     ];
 
     public int    $id;
@@ -267,6 +285,16 @@ class Form {
             if ( isset( $attrs["postTarget"] ) )   { $field["post_target"]   = (string) $attrs["postTarget"]; }
             if ( isset( $attrs["chainedData"] ) )  { $field["chained_data"]  = (string) $attrs["chainedData"]; }
             if ( isset( $attrs["choiceStyle"] ) )  { $field["choice_style"]  = (string) $attrs["choiceStyle"]; }
+            // Survey fields (Pro): a matrix's statements, a 0-10 scale's end labels.
+            if ( isset( $attrs["statements"] ) )   { $field["statements"]    = (string) $attrs["statements"]; }
+            if ( isset( $attrs["lowLabel"] ) )     { $field["low_label"]     = (string) $attrs["lowLabel"]; }
+            if ( isset( $attrs["highLabel"] ) )    { $field["high_label"]    = (string) $attrs["highLabel"]; }
+            // Booking (time slots) and lookup fields (Pro): scalar settings, same names.
+            foreach ( self::PLAIN_ATTRS as $snake => $camel ) {
+                if ( isset( $attrs[ $camel ] ) && is_scalar( $attrs[ $camel ] ) ) {
+                    $field[ $snake ] = is_bool( $attrs[ $camel ] ) ? $attrs[ $camel ] : ( is_int( $attrs[ $camel ] ) ? $attrs[ $camel ] : (string) $attrs[ $camel ] );
+                }
+            }
 
             // Settings shared by every field type (Field_Registry::COMMON_ATTRIBUTES),
             // injected into all field blocks rather than declared twenty times.

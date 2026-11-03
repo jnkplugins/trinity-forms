@@ -123,3 +123,40 @@ export function conditionTargets( blocks, self, palette ) {
 			return entry;
 		} );
 }
+
+/** Does a conditional rule (or a nested group of rules) name this field? */
+function rulesName( rules, id ) {
+	if ( ! rules || typeof rules !== 'object' ) {
+		return false;
+	}
+	const list = Array.isArray( rules.conditions ) ? rules.conditions : [];
+	return list.some( ( c ) => c && ( c.field === id || ( c.conditions && rulesName( c, id ) ) ) );
+}
+
+/**
+ * The fields whose conditional rules or calculation formula use this field
+ * ("Used by" in the field settings). Formulas count {id} and repeater columns {id.col}.
+ *
+ * @return {Array<{label:string, how:string}>} how: 'condition' | 'formula'
+ */
+export function dependents( blocks, self, palette ) {
+	const id = self && self.attrs && self.attrs.fieldId;
+	if ( ! id ) {
+		return [];
+	}
+	const ref = new RegExp( '\\{' + id.replace( /[^a-zA-Z0-9_]/g, '' ) + '(\\.[a-zA-Z0-9_]+)?\\}' );
+	const out = [];
+	blocks.forEach( ( b ) => {
+		if ( b === self || ! isField( b ) || ! b.attrs ) {
+			return;
+		}
+		const label = attrValue( b, schemaFor( palette, b.name ), 'label' ) || b.attrs.fieldId || b.name;
+		if ( rulesName( b.attrs.conditional, id ) ) {
+			out.push( { label, how: 'condition' } );
+		}
+		if ( typeof b.attrs.formula === 'string' && ref.test( b.attrs.formula ) ) {
+			out.push( { label, how: 'formula' } );
+		}
+	} );
+	return out;
+}

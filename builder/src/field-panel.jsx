@@ -11,10 +11,11 @@
  */
 import { PanelBody, SelectControl, TextControl, TextareaControl, ToggleControl } from '@wordpress/components';
 import { useEffect, useRef, useState } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
+import apiFetch from '@wordpress/api-fetch';
+import { __, sprintf } from '@wordpress/i18n';
 import { ConditionalRules } from '../../blocks/conditional-rules';
 import { choiceValue } from '../../blocks/choice-value';
-import { attrValue, conditionTargets, declares, schemaFor, setAttr, unsetAttr } from './blocks';
+import { attrValue, conditionTargets, declares, dependents, schemaFor, setAttr, unsetAttr } from './blocks';
 
 const TEXTS = [
 	{ key: 'label', label: __( 'Label', 'trinity-forms' ) },
@@ -83,24 +84,39 @@ const HANDLED = [
 	'className', 'lock', 'metadata', 'style',
 ];
 
-/** Friendly labels (and fixed choices) for type-specific settings, premium fields included. */
+/**
+ * Friendly labels (and fixed choices) for type-specific settings, premium fields
+ * included. Choices are { value, label } with the same translated labels the block
+ * editor uses: the raw value (post_title, autofill...) meant nothing to an owner,
+ * and a key without an entry here falls back to an untranslated humanized name.
+ */
 const EXTRA = {
 	accept: { label: __( 'Accepted extensions (.pdf, .png …)', 'trinity-forms' ) },
 	multiple: { label: __( 'Allow multiple files', 'trinity-forms' ) },
 	maxSize: { label: __( 'Max size (MB)', 'trinity-forms' ) },
-	formula: { label: __( 'Formula', 'trinity-forms' ), textarea: true, help: __( 'Use field ids in braces, e.g. {quantity} * 12.50', 'trinity-forms' ) },
+	formula: { label: __( 'Formula', 'trinity-forms' ), textarea: true, help: __( 'Use field ids in braces, e.g. {quantity} * 12.50. For a repeater column: sum({items.price}), avg({items.price}), min, max, and count({items}) for the number of rows.', 'trinity-forms' ) },
 	prefix: { label: __( 'Prefix', 'trinity-forms' ) },
 	suffix: { label: __( 'Suffix', 'trinity-forms' ) },
 	decimals: { label: __( 'Decimal places', 'trinity-forms' ) },
 	postTarget: {
 		label: __( 'Fills in', 'trinity-forms' ),
-		choices: [ 'post_title', 'post_content', 'post_excerpt', 'post_tags', 'post_category', 'post_custom' ],
+		choices: [
+			{ value: 'post_title', label: __( 'Post title', 'trinity-forms' ) },
+			{ value: 'post_content', label: __( 'Post body', 'trinity-forms' ) },
+			{ value: 'post_excerpt', label: __( 'Post excerpt', 'trinity-forms' ) },
+			{ value: 'post_tags', label: __( 'Post tags', 'trinity-forms' ) },
+			{ value: 'post_category', label: __( 'Post category', 'trinity-forms' ) },
+			{ value: 'post_custom', label: __( 'Custom field', 'trinity-forms' ) },
+		],
 	},
 	rows: { label: __( 'Rows', 'trinity-forms' ) },
 	chainedData: { label: __( 'Data (CSV)', 'trinity-forms' ), textarea: true, help: __( 'First line names the levels (e.g. Country,State); each further line is one path.', 'trinity-forms' ) },
 	amountMode: {
 		label: __( 'Amount mode', 'trinity-forms' ),
-		choices: [ 'fixed', 'field' ],
+		choices: [
+			{ value: 'fixed', label: __( 'Fixed', 'trinity-forms' ) },
+			{ value: 'field', label: __( 'From a field', 'trinity-forms' ) },
+		],
 	},
 	amount: { label: __( 'Amount', 'trinity-forms' ) },
 	amountField: { label: __( 'Amount from field (id)', 'trinity-forms' ) },
@@ -110,7 +126,103 @@ const EXTRA = {
 	correctAnswer: { label: __( 'Correct answer value (quiz)', 'trinity-forms' ) },
 	points: { label: __( 'Points', 'trinity-forms' ) },
 	intl: { label: __( 'Check it is a full phone number (7 to 15 digits, + allowed)', 'trinity-forms' ) },
+	statements: { label: __( 'Statements (one per line)', 'trinity-forms' ), textarea: true },
+	lowLabel: { label: __( 'Label under 0', 'trinity-forms' ) },
+	highLabel: { label: __( 'Label under 10', 'trinity-forms' ) },
+	slotDays: { label: __( 'Open days (1 = Monday ... 7 = Sunday)', 'trinity-forms' ) },
+	slotStart: { label: __( 'Opens at (HH:MM)', 'trinity-forms' ) },
+	slotEnd: { label: __( 'Closes at (HH:MM)', 'trinity-forms' ) },
+	slotLength: { label: __( 'Slot length (minutes)', 'trinity-forms' ) },
+	slotBuffer: { label: __( 'Break between slots (minutes)', 'trinity-forms' ) },
+	slotCapacity: { label: __( 'People per slot', 'trinity-forms' ) },
+	slotDaysAhead: { label: __( 'Days ahead people can book', 'trinity-forms' ) },
+	slotNotice: { label: __( 'Minimum notice (hours)', 'trinity-forms' ) },
+	slotBlocked: { label: __( 'Closed dates (one per line, YYYY-MM-DD or YYYY-MM-DD..YYYY-MM-DD)', 'trinity-forms' ), textarea: true },
+	slotIcs: { label: __( 'Attach a calendar file (.ics) to emails', 'trinity-forms' ) },
+	lookupForm: { label: __( 'Take answers from form (form ID)', 'trinity-forms' ), help: __( 'The number in the form\'s shortcode, e.g. 12 in [trinity-forms id="12"].', 'trinity-forms' ) },
+	lookupField: { label: __( 'Field in that form', 'trinity-forms' ), lookupPicker: true },
+	lookupMode: {
+		label: __( 'Show as', 'trinity-forms' ),
+		choices: [
+			{ value: 'select', label: __( 'Dropdown of the answers', 'trinity-forms' ) },
+			{ value: 'autofill', label: __( 'Text box filled with the person\'s latest answer', 'trinity-forms' ) },
+		],
+	},
+	choiceStyle: {
+		label: __( 'Show as', 'trinity-forms' ),
+		help: __( 'Switching style keeps your options — no need to delete the field and start again.', 'trinity-forms' ),
+		choices: [
+			{ value: 'radio', label: __( 'Radio buttons (pick one)', 'trinity-forms' ) },
+			{ value: 'checkbox', label: __( 'Checkboxes (pick several)', 'trinity-forms' ) },
+			{ value: 'select', label: __( 'Dropdown (pick one)', 'trinity-forms' ) },
+			{ value: 'multi', label: __( 'Dropdown (pick several)', 'trinity-forms' ) },
+		],
+	},
+	productType: {
+		label: __( 'Product type', 'trinity-forms' ),
+		choices: [
+			{ value: 'single', label: __( 'Single item at a fixed price', 'trinity-forms' ) },
+			{ value: 'radio', label: __( 'Radio buttons (pick one)', 'trinity-forms' ) },
+			{ value: 'select', label: __( 'Dropdown (pick one)', 'trinity-forms' ) },
+		],
+	},
+	price: { label: __( 'Price', 'trinity-forms' ) },
+	productField: { label: __( 'Product (field ID)', 'trinity-forms' ) },
+	consentText: { label: __( 'Consent text', 'trinity-forms' ) },
+	nextText: { label: __( 'Next button text', 'trinity-forms' ) },
+	prevText: { label: __( 'Back button text', 'trinity-forms' ) },
+	description: { label: __( 'Description', 'trinity-forms' ) },
+	html: { label: __( 'HTML markup', 'trinity-forms' ), textarea: true },
+	default: { label: __( 'Default value', 'trinity-forms' ) },
+	min: { label: __( 'Min', 'trinity-forms' ) },
+	max: { label: __( 'Max', 'trinity-forms' ) },
+	step: { label: __( 'Step', 'trinity-forms' ) },
+	minLength: { label: __( 'Minimum length', 'trinity-forms' ) },
+	maxLength: { label: __( 'Maximum length', 'trinity-forms' ) },
+	maxRows: { label: __( 'Maximum rows', 'trinity-forms' ) },
+	maxChoices: { label: __( 'Maximum choices', 'trinity-forms' ) },
+	confirm: { label: __( 'Confirm password', 'trinity-forms' ) },
+	lookupMine: { label: __( 'Only the logged-in person\'s own entries', 'trinity-forms' ), help: __( 'Off: every visitor sees the answers from all entries in the dropdown, so email, phone and name fields can\'t be used.', 'trinity-forms' ) },
 };
+
+/**
+ * Lookup source field: a dropdown of the fields the server allows (email, phone
+ * and name only with "own entries" on). Falls back to a text box when the route
+ * is not there.
+ */
+function LookupFieldPicker( { label, formId, mine, value, onChange } ) {
+	const [ fields, setFields ] = useState( null );
+	useEffect( () => {
+		if ( ! formId ) {
+			setFields( [] );
+			return undefined;
+		}
+		let live = true;
+		apiFetch( { path: `/trinity-forms/v1/lookup/fields?form=${ formId }&mine=${ mine ? 1 : 0 }` } )
+			.then( ( list ) => live && setFields( Array.isArray( list ) ? list : [] ) )
+			.catch( () => live && setFields( false ) );
+		return () => {
+			live = false;
+		};
+	}, [ formId, mine ] );
+	const help = __( 'Email, phone and name fields are listed only when "Only the logged-in person\'s own entries" is on.', 'trinity-forms' );
+	if ( fields === false ) {
+		return <TextControl __next40pxDefaultSize __nextHasNoMarginBottom label={ label } help={ help } value={ value || '' } onChange={ onChange } />;
+	}
+	const list = fields || [];
+	const missing = value && fields && ! list.some( ( f ) => f.id === value );
+	return (
+		<SelectControl
+			__next40pxDefaultSize
+			__nextHasNoMarginBottom
+			label={ label }
+			help={ missing ? __( 'The saved field can\'t be used here, so the dropdown stays empty. Pick another field or turn on "Only the logged-in person\'s own entries".', 'trinity-forms' ) : help }
+			value={ value || '' }
+			options={ [ { label: '—', value: '' } ].concat( list.map( ( f ) => ( { label: `${ f.label } (${ f.id })`, value: f.id } ) ) ) }
+			onChange={ onChange }
+		/>
+	);
+}
 
 function humanize( key ) {
 	const words = key.replace( /([A-Z])/g, ' $1' ).replace( /_/g, ' ' ).trim().toLowerCase();
@@ -141,10 +253,12 @@ function TypeSettings( { block, schema, set } ) {
 				// "multiple" means several files only on the File field; on Image
 				// Choice and Option it allows several selections.
 				const isFile = block.name === 'trinity-forms/field-file';
-				const label =
-					key === 'multiple' && ! isFile
-						? __( 'Allow multiple selections', 'trinity-forms' )
-						: meta.label || humanize( key );
+				let label = meta.label || humanize( key );
+				if ( key === 'multiple' && ! isFile ) {
+					label = __( 'Allow multiple selections', 'trinity-forms' );
+				} else if ( key === 'max' && block.name === 'trinity-forms/field-rating' ) {
+					label = __( 'Stars', 'trinity-forms' );
+				}
 				const value = attrValue( block, schema, key );
 				if ( type === 'boolean' ) {
 					return (
@@ -152,7 +266,20 @@ function TypeSettings( { block, schema, set } ) {
 							__nextHasNoMarginBottom
 							key={ key }
 							label={ label }
+							help={ meta.help }
 							checked={ !! value }
+							onChange={ ( v ) => set( key, v ) }
+						/>
+					);
+				}
+				if ( meta.lookupPicker ) {
+					return (
+						<LookupFieldPicker
+							key={ key }
+							label={ label }
+							formId={ Number( attrValue( block, schema, 'lookupForm' ) ) || 0 }
+							mine={ !! attrValue( block, schema, 'lookupMine' ) }
+							value={ value }
 							onChange={ ( v ) => set( key, v ) }
 						/>
 					);
@@ -164,8 +291,9 @@ function TypeSettings( { block, schema, set } ) {
 							__nextHasNoMarginBottom
 							key={ key }
 							label={ label }
-							value={ value || meta.choices[ 0 ] }
-							options={ meta.choices.map( ( c ) => ( { label: c, value: c } ) ) }
+							help={ meta.help }
+							value={ value || meta.choices[ 0 ].value }
+							options={ meta.choices }
 							onChange={ ( v ) => set( key, v ) }
 						/>
 					);
@@ -197,6 +325,28 @@ function TypeSettings( { block, schema, set } ) {
 					/>
 				);
 			} ) }
+		</PanelBody>
+	);
+}
+
+/** "Used by": fields whose rules or formulas depend on this one (shown when an extension turns it on). */
+function UsedBy( { items } ) {
+	return (
+		<PanelBody title={ __( 'Used by', 'trinity-forms' ) } initialOpen={ items.length > 0 }>
+			{ items.length ? (
+				<ul className="tf-builder__used-by">
+					{ items.map( ( it, i ) => (
+						<li key={ i }>
+							{ it.how === 'formula'
+								? sprintf( /* translators: %s: field label */ __( '%s (calculation)', 'trinity-forms' ), it.label )
+								: sprintf( /* translators: %s: field label */ __( '%s (show / hide rule)', 'trinity-forms' ), it.label ) }
+						</li>
+					) ) }
+				</ul>
+			) : (
+				<p className="description">{ __( 'No other field uses this one in a rule or a calculation.', 'trinity-forms' ) }</p>
+			) }
+			{ items.length > 0 && <p className="description">{ __( 'Changing this field\'s ID or choices can break these.', 'trinity-forms' ) }</p> }
 		</PanelBody>
 	);
 }
@@ -385,6 +535,10 @@ export default function FieldPanel( { block, blocks, palette, onChange } ) {
 						onChange={ ( v ) => set( 'autocomplete', v ) }
 					/>
 				</PanelBody>
+			) }
+
+			{ window.TrinityFormsBuilder && window.TrinityFormsBuilder.logicMap && (
+				<UsedBy items={ dependents( blocks, block, palette ) } />
 			) }
 
 			{ declares( schema, 'conditional' ) && (
