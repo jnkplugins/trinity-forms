@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.23.0
+Stable tag: 2.24.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,11 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.24.0 =
+* Fixed: a Page break's "Next button text" and "Previous button text" are used on the form. They were saved but every step showed "Next" / "Previous".
+* Fixed: on a multi-step form the Next button looks like Submit and Previous gets a matching outlined style (both were plain browser buttons), with even spacing, wrapping on a phone, the right order in right-to-left languages and readable on dark themes.
+* Fixed: the Visual Builder's Settings now has the Restrictions: when the form opens and closes, entry limits (total, per user, per IP address) with their messages, and Require login. They are the same settings as the block editor's Restrictions tab, so a change in either editor shows in the other. Before, they were only in the block editor's settings box.
 
 = 2.23.0 =
 * Changed: entry exports (CSV, Excel, View downloads, WP-CLI) name the entry columns in the site language ("Entry ID", "Date submitted", "Status", "IP address") instead of id / submitted_at / status / ip_address, the Status column reads like the entry screen ("Completed", "Spam") instead of the stored key, and the date header names the site time zone, e.g. "Date submitted (Europe/Madrid)". Dates are in the time zone set under Settings > General (stored as UTC). A spreadsheet or script that looked for the old column names needs the new ones.

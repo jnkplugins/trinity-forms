@@ -637,8 +637,8 @@
             "Templates": [
                 "Plantillas"
             ],
-            "Submit button text, and what visitors see after they submit": [
-                "El texto del bot\u00f3n de env\u00edo y lo que ven los visitantes despu\u00e9s de enviar"
+            "Submit button text, what visitors see after they submit, schedule and entry limits": [
+                "El texto del bot\u00f3n de env\u00edo, lo que ven los visitantes despu\u00e9s de enviar, la programaci\u00f3n y los l\u00edmites de env\u00edos"
             ],
             "Settings": [
                 "Ajustes"
@@ -744,6 +744,78 @@
             ],
             "Redirect URL": [
                 "URL de redirecci\u00f3n"
+            ],
+            "Restrictions": [
+                "Restricciones"
+            ],
+            "Control when the form accepts submissions, and how many it takes. Leave a field blank or at 0 to leave that rule off.": [
+                "Controla cu\u00e1ndo acepta env\u00edos el formulario y cu\u00e1ntos admite. Deja un campo en blanco o en 0 para desactivar esa regla."
+            ],
+            "Schedule": [
+                "Programaci\u00f3n"
+            ],
+            "Opens": [
+                "Se abre"
+            ],
+            "Before this, visitors see the message below instead of the form. Uses your site's timezone.": [
+                "Antes de esto, los visitantes ven el mensaje de abajo en lugar del formulario. Usa la zona horaria de tu sitio."
+            ],
+            "Message before it opens": [
+                "Mensaje antes de abrirse"
+            ],
+            "This form is not open yet.": [
+                "Este formulario a\u00fan no est\u00e1 abierto."
+            ],
+            "Closes": [
+                "Se cierra"
+            ],
+            "Message after it closes": [
+                "Mensaje despu\u00e9s de cerrarse"
+            ],
+            "This form is now closed.": [
+                "Este formulario ya est\u00e1 cerrado."
+            ],
+            "Entry limits": [
+                "L\u00edmites de env\u00edos"
+            ],
+            "Total entries": [
+                "Env\u00edos totales"
+            ],
+            "0 = unlimited. Spam and trashed entries do not count towards the limit.": [
+                "0 = ilimitado. Los env\u00edos de spam y los de la papelera no cuentan para el l\u00edmite."
+            ],
+            "Per logged-in user": [
+                "Por usuario conectado"
+            ],
+            "Per IP address": [
+                "Por direcci\u00f3n IP"
+            ],
+            "Blunt: everyone behind one office router or mobile network shares an address.": [
+                "Es un m\u00e9todo tosco: todos los que est\u00e9n detr\u00e1s del mismo router de oficina o red m\u00f3vil comparten direcci\u00f3n."
+            ],
+            "Message when full": [
+                "Mensaje cuando est\u00e9 completo"
+            ],
+            "This form is no longer accepting submissions.": [
+                "Este formulario ya no acepta env\u00edos."
+            ],
+            "Message when you've already submitted": [
+                "Mensaje si ya lo has enviado"
+            ],
+            "You have already submitted this form.": [
+                "Ya has enviado este formulario."
+            ],
+            "Who can submit": [
+                "Qui\u00e9n puede enviar"
+            ],
+            "Only logged-in users may see and submit this form": [
+                "Solo los usuarios conectados pueden ver y enviar este formulario"
+            ],
+            "Message for logged-out visitors": [
+                "Mensaje para visitantes no conectados"
+            ],
+            "Please log in to fill in this form.": [
+                "Accede para rellenar este formulario."
             ],
             "These are saved with the form when you press Save form.": [
                 "Se guardan con el formulario cuando pulsas Guardar formulario."

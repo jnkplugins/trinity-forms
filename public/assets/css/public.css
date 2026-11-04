@@ -96,11 +96,16 @@ fieldset.trinity-forms-field { display: block; }
 .trinity-forms-form .trinity-forms-required { color: #b32d2e; margin-inline-start: 2px; }
 .trinity-forms-form .trinity-forms-help { color: #50575e; font-size: .875em; display: block; margin-top: .25rem; }
 .trinity-forms-form .trinity-forms-actions { margin-top: 1rem; }
-.trinity-forms-form .trinity-forms-submit {
+/* Next is the step's main action, so it wears the Submit look (2.23.1: it had no
+   rule at all and showed as a bare browser button). Previous and Save & continue
+   are secondary: outlined, in the form's text colour. */
+.trinity-forms-form .trinity-forms-submit,
+.trinity-forms-form .trinity-forms-next {
     background: #2271b1; color: #fff; border: 0; padding: .6rem 1.2rem;
     border-radius: 4px; font-weight: 600; cursor: pointer;
 }
-.trinity-forms-form .trinity-forms-submit:disabled { opacity: .6; cursor: wait; }
+.trinity-forms-form .trinity-forms-submit:disabled,
+.trinity-forms-form .trinity-forms-next:disabled { opacity: .6; cursor: wait; }
 .trinity-forms-form .trinity-forms-messages { margin-top: 1rem; }
 .trinity-forms-form .trinity-forms-messages.trinity-forms-error { color: #b32d2e; }
 /* Success green at 5.5:1 on white (the old #00a32a was 3.4:1). */
@@ -367,7 +372,8 @@ table.trinity-forms-list input { width: 100%; }
 .trinity-forms-form .trinity-forms-field > label,
 .trinity-forms-form .trinity-forms-field > legend { margin-bottom: .4rem; }
 .trinity-forms-form .trinity-forms-field { margin-bottom: 1.25rem; }
-.trinity-forms-form .trinity-forms-submit {
+.trinity-forms-form .trinity-forms-submit,
+.trinity-forms-form .trinity-forms-next {
     min-height: 2.75rem;
     padding: .65rem 1.4rem;
     border-radius: var(--trinity-forms-radius);
@@ -377,9 +383,16 @@ table.trinity-forms-list input { width: 100%; }
     box-shadow: 0 1px 2px rgba(16, 24, 40, .1);
     transition: filter .15s ease, transform .05s ease;
 }
-.trinity-forms-form .trinity-forms-submit:hover { filter: brightness(1.08); }
-.trinity-forms-form .trinity-forms-submit:active { transform: translateY(1px); }
-.trinity-forms-form .trinity-forms-submit:focus-visible {
+.trinity-forms-form .trinity-forms-submit:hover,
+.trinity-forms-form .trinity-forms-next:hover { filter: brightness(1.08); }
+.trinity-forms-form .trinity-forms-submit:active,
+.trinity-forms-form .trinity-forms-next:active,
+.trinity-forms-form .trinity-forms-prev:active,
+.trinity-forms-form .trinity-forms-save-progress:active { transform: translateY(1px); }
+.trinity-forms-form .trinity-forms-submit:focus-visible,
+.trinity-forms-form .trinity-forms-next:focus-visible,
+.trinity-forms-form .trinity-forms-prev:focus-visible,
+.trinity-forms-form .trinity-forms-save-progress:focus-visible {
     outline: 2px solid var(--trinity-forms-accent); outline-offset: 2px;
 }
 /* Star rating: hidden radios, stars filled up to the chosen one, hover preview. */
@@ -432,10 +445,47 @@ table.trinity-forms-list input { width: 100%; }
     border-width: var(--trinity-forms-stroke, 1px);
     font-size: inherit;
 }
-.trinity-forms-form .trinity-forms-submit {
+.trinity-forms-form .trinity-forms-submit,
+.trinity-forms-form .trinity-forms-next {
     border-radius: var(--trinity-forms-button-radius, var(--trinity-forms-radius));
     color: var(--trinity-forms-button-text, #fff);
 }
+/* Secondary buttons: same size and shape as Submit, no fill, so the step's main
+   action stays the obvious one. currentColor for the text and a half-strength
+   mix of it for the edge keeps them readable on light and dark themes alike. */
+/* The class is doubled on purpose: Twenty Twenty-One fills every button through
+   button:not(:hover):not(:active):not(.has-background), which outranks a plain
+   two-class rule and made Previous a second Submit. */
+.trinity-forms-form .trinity-forms-actions .trinity-forms-prev.trinity-forms-prev,
+.trinity-forms-form .trinity-forms-actions .trinity-forms-save-progress.trinity-forms-save-progress {
+    min-height: 2.75rem;
+    /* 1px less than Submit's padding: the edge makes up the difference, so the
+       two sit at the same height side by side. */
+    padding: calc(.65rem - 1px) calc(1.4rem - 1px);
+    border: 1px solid color-mix(in srgb, currentColor 45%, transparent);
+    border-radius: var(--trinity-forms-button-radius, var(--trinity-forms-radius));
+    background: transparent;
+    color: var(--trinity-forms-text, inherit);
+    font: inherit;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
+    box-shadow: none;
+    cursor: pointer;
+    transition: background-color .15s ease, transform .05s ease;
+}
+.trinity-forms-form .trinity-forms-actions .trinity-forms-prev.trinity-forms-prev:hover,
+.trinity-forms-form .trinity-forms-actions .trinity-forms-save-progress.trinity-forms-save-progress:hover {
+    background: color-mix(in srgb, currentColor 8%, transparent);
+}
+.trinity-forms-form .trinity-forms-prev:disabled,
+.trinity-forms-form .trinity-forms-save-progress:disabled { opacity: .6; cursor: wait; }
+/* Buttons in a row with an even gap (the markup's spaces made it uneven), wrapping
+   on a phone. Flex follows the writing direction, so in Arabic Previous sits on
+   the right. [hidden] must still hide them: a display rule here would beat it. */
+.trinity-forms-form .trinity-forms-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
+.trinity-forms-form .trinity-forms-actions > [hidden] { display: none; }
+.trinity-forms-form .trinity-forms-actions > .trinity-forms-resume-ask { flex-basis: 100%; margin-top: 0; }
 
 /* Choice limits (2.10.0): a full option is shown but cannot be picked. */
 .trinity-forms-form .is-disabled { opacity: .55; cursor: not-allowed; }

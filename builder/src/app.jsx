@@ -18,7 +18,7 @@ import {
 } from '@dnd-kit/core';
 import { sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import apiFetch from '@wordpress/api-fetch';
-import { Button, Modal, Notice, SelectControl, Spinner, TextareaControl, TextControl } from '@wordpress/components';
+import { Button, CheckboxControl, Modal, Notice, SelectControl, Spinner, TextareaControl, TextControl } from '@wordpress/components';
 import { useEffect, useRef, useState } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 import { attrValue, isField, keyOf, newField, schemaFor, toPayload } from './blocks';
@@ -504,7 +504,7 @@ export default function App( { config } ) {
 							variant="tertiary"
 							className="tf-builder__settings-button"
 							onClick={ () => setSettingsOpen( true ) }
-							label={ __( 'Submit button text, and what visitors see after they submit', 'trinity-forms' ) }
+							label={ __( 'Submit button text, what visitors see after they submit, schedule and entry limits', 'trinity-forms' ) }
 							showTooltip
 						>
 							{ __( 'Settings', 'trinity-forms' ) }
@@ -678,6 +678,78 @@ export default function App( { config } ) {
 							onChange={ ( v ) => changeSetting( 'redirect_url', v ) }
 						/>
 					) }
+					{ /* Restrictions: the keys the block editor's Restrictions tab writes and
+					     Restrictions::check() reads (Restriction_Settings on the server). */ }
+					<h3 className="tf-builder__settings-heading">{ __( 'Restrictions', 'trinity-forms' ) }</h3>
+					<p className="tf-builder__palette-hint">
+						{ __( 'Control when the form accepts submissions, and how many it takes. Leave a field blank or at 0 to leave that rule off.', 'trinity-forms' ) }
+					</p>
+					<h4 className="tf-builder__settings-subheading">{ __( 'Schedule', 'trinity-forms' ) }</h4>
+					<TextControl
+						label={ __( 'Opens', 'trinity-forms' ) }
+						type="datetime-local"
+						value={ settings.schedule_start || '' }
+						help={ __( "Before this, visitors see the message below instead of the form. Uses your site's timezone.", 'trinity-forms' ) }
+						onChange={ ( v ) => changeSetting( 'schedule_start', v ) }
+					/>
+					<TextControl
+						label={ __( 'Message before it opens', 'trinity-forms' ) }
+						value={ settings.schedule_pending_message || '' }
+						placeholder={ __( 'This form is not open yet.', 'trinity-forms' ) }
+						onChange={ ( v ) => changeSetting( 'schedule_pending_message', v ) }
+					/>
+					<TextControl
+						label={ __( 'Closes', 'trinity-forms' ) }
+						type="datetime-local"
+						value={ settings.schedule_end || '' }
+						onChange={ ( v ) => changeSetting( 'schedule_end', v ) }
+					/>
+					<TextControl
+						label={ __( 'Message after it closes', 'trinity-forms' ) }
+						value={ settings.schedule_closed_message || '' }
+						placeholder={ __( 'This form is now closed.', 'trinity-forms' ) }
+						onChange={ ( v ) => changeSetting( 'schedule_closed_message', v ) }
+					/>
+					<h4 className="tf-builder__settings-subheading">{ __( 'Entry limits', 'trinity-forms' ) }</h4>
+					{ [
+						[ 'entry_limit', __( 'Total entries', 'trinity-forms' ), __( '0 = unlimited. Spam and trashed entries do not count towards the limit.', 'trinity-forms' ) ],
+						[ 'entry_limit_per_user', __( 'Per logged-in user', 'trinity-forms' ), null ],
+						[ 'entry_limit_per_ip', __( 'Per IP address', 'trinity-forms' ), __( 'Blunt: everyone behind one office router or mobile network shares an address.', 'trinity-forms' ) ],
+					].map( ( [ key, label, help ] ) => (
+						<TextControl
+							key={ key }
+							label={ label }
+							type="number"
+							min={ 0 }
+							value={ String( settings[ key ] || 0 ) }
+							help={ help || undefined }
+							onChange={ ( v ) => changeSetting( key, Math.max( 0, parseInt( v, 10 ) || 0 ) ) }
+						/>
+					) ) }
+					<TextControl
+						label={ __( 'Message when full', 'trinity-forms' ) }
+						value={ settings.entry_limit_message || '' }
+						placeholder={ __( 'This form is no longer accepting submissions.', 'trinity-forms' ) }
+						onChange={ ( v ) => changeSetting( 'entry_limit_message', v ) }
+					/>
+					<TextControl
+						label={ __( "Message when you've already submitted", 'trinity-forms' ) }
+						value={ settings.entry_limit_user_message || '' }
+						placeholder={ __( 'You have already submitted this form.', 'trinity-forms' ) }
+						onChange={ ( v ) => changeSetting( 'entry_limit_user_message', v ) }
+					/>
+					<h4 className="tf-builder__settings-subheading">{ __( 'Who can submit', 'trinity-forms' ) }</h4>
+					<CheckboxControl
+						label={ __( 'Only logged-in users may see and submit this form', 'trinity-forms' ) }
+						checked={ !! settings.require_login }
+						onChange={ ( v ) => changeSetting( 'require_login', v ) }
+					/>
+					<TextControl
+						label={ __( 'Message for logged-out visitors', 'trinity-forms' ) }
+						value={ settings.login_required_message || '' }
+						placeholder={ __( 'Please log in to fill in this form.', 'trinity-forms' ) }
+						onChange={ ( v ) => changeSetting( 'login_required_message', v ) }
+					/>
 					<p className="tf-builder__palette-hint">
 						{ __( 'These are saved with the form when you press Save form.', 'trinity-forms' ) }
 					</p>

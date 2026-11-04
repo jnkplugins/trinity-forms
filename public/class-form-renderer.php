@@ -166,14 +166,23 @@ class Form_Renderer {
 
         // Group fields into wizard steps (split on step objects and page-break
         // fields). One group => a normal single-page form; more => a stepper.
-        $groups = self::step_groups( $form, $values );
+        $step_labels = [];
+        $groups      = self::step_groups( $form, $values, $step_labels );
         $multi  = count( $groups ) > 1;
 
         $fields_html = "";
         if ( $multi ) {
             foreach ( $groups as $i => $group_html ) {
-                $hidden       = 0 === $i ? "" : " hidden";
-                $fields_html .= '<div class="trinity-forms-step" data-step="' . (int) $i . '"' . $hidden . '>' . $group_html . '</div>';
+                $hidden = 0 === $i ? "" : " hidden";
+                // The page break's own button texts for this step (TF-35, video
+                // findings 4 Nov): the stepper reads them when the step shows.
+                $labels = "";
+                foreach ( [ "next" => "data-next-text", "prev" => "data-prev-text" ] as $k => $attr ) {
+                    if ( "" !== ( $step_labels[ $i ][ $k ] ?? "" ) ) {
+                        $labels .= " " . $attr . '="' . esc_attr( $step_labels[ $i ][ $k ] ) . '"';
+                    }
+                }
+                $fields_html .= '<div class="trinity-forms-step" data-step="' . (int) $i . '"' . $labels . $hidden . '>' . $group_html . '</div>';
             }
         } else {
             $fields_html = $groups[0] ?? "";
@@ -298,7 +307,13 @@ class Form_Renderer {
      * @param array<string,mixed> $values Prefilled values (resume context).
      * @return string[]
      */
-    private static function step_groups( Form $form, array $values ): array {
+    /**
+     * @param array<int,array{next?:string,prev?:string}> $labels Filled with each
+     *        step's button texts from the page break that ends it (next) and the
+     *        one that starts it (prev). Empty, or the untranslated block default,
+     *        means the stepper keeps its translated "Next" / "Previous".
+     */
+    private static function step_groups( Form $form, array $values, array &$labels = [] ): array {
         $groups  = [];
         $current = "";
         $has     = false;
@@ -322,6 +337,18 @@ class Form_Renderer {
                         $groups[] = $current;
                         $current  = "";
                         $has      = false;
+                        $ended    = count( $groups ) - 1;
+                        $next     = trim( (string) ( $config["next_text"] ?? "" ) );
+                        $prev     = trim( (string) ( $config["prev_text"] ?? "" ) );
+                        // The block's defaults ("Next", "Back"), as stored or as
+                        // Block_Defaults translates them, mean "not set".
+                        $defaults = [ "Next", "Back", "Previous", __( "Next", "trinity-forms" ), __( "Back", "trinity-forms" ), __( "Previous", "trinity-forms" ) ];
+                        if ( "" !== $next && ! in_array( $next, $defaults, true ) ) {
+                            $labels[ $ended ]["next"] = $next;
+                        }
+                        if ( "" !== $prev && ! in_array( $prev, $defaults, true ) ) {
+                            $labels[ $ended + 1 ]["prev"] = $prev;
+                        }
                     }
                     continue;
                 }

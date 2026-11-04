@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-03T06:24:40+00:00\n"
+"POT-Creation-Date: 2026-11-04T07:06:12+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Korean\n"
@@ -38,7 +38,7 @@ msgstr "<strong>%s Pro가 켜졌습니다.</strong> 감사합니다! 이 사이�
 msgid "<strong>%s Pro is installed, but no Pro license is active on this site.</strong> Enter your license key to switch on the Pro tools."
 msgstr "<strong>%s Pro가 설치되었지만 이 사이트에 활성화된 Pro 라이선스가 없습니다.</strong> Pro 도구를 켜려면 라이선스 키를 입력하세요."
 
-#: pro/licensorpro-client/licensorpro-client.php:837 builder/src/app.jsx:746
+#: pro/licensorpro-client/licensorpro-client.php:837 builder/src/app.jsx:818
 msgid "Enter license key"
 msgstr "라이선스 키 입력"
 
@@ -659,7 +659,7 @@ msgid "Show entries on your site as a table, a list or cards. Put a View on any 
 msgstr "사이트에 항목을 표, 목록 또는 카드로 표시합니다. 숏코드로 어떤 페이지에든 뷰를 넣을 수 있습니다."
 
 #: admin/class-admin-ui.php:250 admin/class-forms-list.php:61
-#: builder/src/app.jsx:692
+#: builder/src/app.jsx:764
 msgid "Start from a template"
 msgstr "템플릿으로 시작하기"
 
@@ -819,7 +819,7 @@ msgstr "확인 메시지"
 msgid "Layout"
 msgstr "레이아웃"
 
-#: admin/class-form-editor.php:117
+#: admin/class-form-editor.php:117 builder/src/app.jsx:683
 msgid "Restrictions"
 msgstr "제한"
 
@@ -1142,84 +1142,87 @@ msgstr "— 항상 표시 —"
 msgid "Useful for a consent checkbox that has to be ticked before the form can be sent."
 msgstr "양식을 보내기 전에 체크해야 하는 동의 체크박스에 유용합니다."
 
-#: admin/class-form-editor.php:446
+#: admin/class-form-editor.php:446 builder/src/app.jsx:685
 msgid "Control when the form accepts submissions, and how many it takes. Leave a field blank or at 0 to leave that rule off."
 msgstr "양식이 제출을 받는 시기와 받는 개수를 설정합니다. 해당 규칙을 끄려면 필드를 비워 두거나 0으로 두세요."
 
-#: admin/class-form-editor.php:448
+#: admin/class-form-editor.php:448 builder/src/app.jsx:687
 msgid "Schedule"
 msgstr "일정"
 
-#: admin/class-form-editor.php:450
+#: admin/class-form-editor.php:450 builder/src/app.jsx:689
 msgid "Opens"
 msgstr "시작"
 
-#: admin/class-form-editor.php:453
+#: admin/class-form-editor.php:453 builder/src/app.jsx:692
 msgid "Before this, visitors see the message below instead of the form. Uses your site's timezone."
 msgstr "이 시간 전에는 방문자에게 양식 대신 아래 메시지가 표시됩니다. 사이트의 시간대를 사용합니다."
 
-#: admin/class-form-editor.php:455
+#: admin/class-form-editor.php:455 builder/src/app.jsx:696
 msgid "Message before it opens"
 msgstr "시작 전 메시지"
 
 #: admin/class-form-editor.php:456 includes/class-restrictions.php:73
+#: builder/src/app.jsx:698
 msgid "This form is not open yet."
 msgstr "이 양식은 아직 열리지 않았습니다."
 
-#: admin/class-form-editor.php:457
+#: admin/class-form-editor.php:457 builder/src/app.jsx:702
 msgid "Closes"
 msgstr "마감"
 
-#: admin/class-form-editor.php:459
+#: admin/class-form-editor.php:459 builder/src/app.jsx:708
 msgid "Message after it closes"
 msgstr "마감 후 메시지"
 
 #: admin/class-form-editor.php:460 includes/class-restrictions.php:81
+#: builder/src/app.jsx:710
 msgid "This form is now closed."
 msgstr "이 양식은 마감되었습니다."
 
-#: admin/class-form-editor.php:463
+#: admin/class-form-editor.php:463 builder/src/app.jsx:713
 msgid "Entry limits"
 msgstr "항목 제한"
 
-#: admin/class-form-editor.php:465
+#: admin/class-form-editor.php:465 builder/src/app.jsx:715
 msgid "Total entries"
 msgstr "총 항목 수"
 
-#: admin/class-form-editor.php:468
+#: admin/class-form-editor.php:468 builder/src/app.jsx:715
 msgid "0 = unlimited. Spam and trashed entries do not count towards the limit."
 msgstr "0 = 무제한. 스팸 및 휴지통의 항목은 제한에 포함되지 않습니다."
 
-#: admin/class-form-editor.php:470
+#: admin/class-form-editor.php:470 builder/src/app.jsx:716
 msgid "Per logged-in user"
 msgstr "로그인한 사용자당"
 
-#: admin/class-form-editor.php:472
+#: admin/class-form-editor.php:472 builder/src/app.jsx:717
 msgid "Per IP address"
 msgstr "IP 주소당"
 
-#: admin/class-form-editor.php:475
+#: admin/class-form-editor.php:475 builder/src/app.jsx:717
 msgid "Blunt: everyone behind one office router or mobile network shares an address."
 msgstr "대략적인 방법입니다. 같은 사무실 라우터나 모바일 네트워크를 쓰는 사람은 모두 같은 주소를 공유합니다."
 
-#: admin/class-form-editor.php:477
+#: admin/class-form-editor.php:477 builder/src/app.jsx:730
 msgid "Message when full"
 msgstr "한도 도달 시 메시지"
 
 #: admin/class-form-editor.php:478 includes/class-restrictions.php:99
+#: builder/src/app.jsx:732
 msgid "This form is no longer accepting submissions."
 msgstr "이 양식은 더 이상 제출을 받지 않습니다."
 
-#: admin/class-form-editor.php:479
+#: admin/class-form-editor.php:479 builder/src/app.jsx:736
 msgid "Message when you've already submitted"
 msgstr "이미 제출한 경우 메시지"
 
 #: admin/class-form-editor.php:480 includes/class-restrictions.php:110
-#: includes/class-restrictions.php:122
+#: includes/class-restrictions.php:122 builder/src/app.jsx:738
 msgid "You have already submitted this form."
 msgstr "이미 이 양식을 제출했습니다."
 
-#: admin/class-form-editor.php:483
+#: admin/class-form-editor.php:483 builder/src/app.jsx:741
 msgid "Who can submit"
 msgstr "제출할 수 있는 사람"
 
@@ -1227,15 +1230,16 @@ msgstr "제출할 수 있는 사람"
 msgid "Require login"
 msgstr "로그인 필요"
 
-#: admin/class-form-editor.php:490
+#: admin/class-form-editor.php:490 builder/src/app.jsx:743
 msgid "Only logged-in users may see and submit this form"
 msgstr "로그인한 사용자만 이 양식을 보고 제출할 수 있습니다"
 
-#: admin/class-form-editor.php:493
+#: admin/class-form-editor.php:493 builder/src/app.jsx:748
 msgid "Message for logged-out visitors"
 msgstr "로그인하지 않은 방문자용 메시지"
 
 #: admin/class-form-editor.php:494 includes/class-restrictions.php:52
+#: builder/src/app.jsx:750
 msgid "Please log in to fill in this form."
 msgstr "이 양식을 작성하려면 로그인하세요."
 
@@ -1847,7 +1851,7 @@ msgstr "요청 내용"
 msgid "Result"
 msgstr "결과"
 
-#: admin/views/assistants.php:250 builder/src/app.jsx:685
+#: admin/views/assistants.php:250 builder/src/app.jsx:757
 msgid "Done"
 msgstr "완료"
 
@@ -3304,11 +3308,12 @@ msgstr "숫자"
 msgid "Option"
 msgstr "옵션"
 
-#: includes/class-block-defaults.php:51 public/class-form-renderer.php:270
+#: includes/class-block-defaults.php:51 public/class-form-renderer.php:279
+#: public/class-form-renderer.php:345
 msgid "Next"
 msgstr "다음"
 
-#: includes/class-block-defaults.php:52
+#: includes/class-block-defaults.php:52 public/class-form-renderer.php:345
 msgid "Back"
 msgstr "뒤로"
 
@@ -3452,15 +3457,15 @@ msgstr "날짜와 시간을 고르세요"
 msgid "Choose"
 msgstr "선택"
 
-#: includes/class-builder-rest.php:262
+#: includes/class-builder-rest.php:264
 msgid "This form can't be edited in the builder. Your form is unchanged."
 msgstr "이 양식은 빌더에서 편집할 수 없습니다. 양식은 변경되지 않았습니다."
 
-#: includes/class-builder-rest.php:278
+#: includes/class-builder-rest.php:280
 msgid "This form changed since you opened it. Reload before saving."
 msgstr "양식을 연 뒤에 변경되었습니다. 저장하기 전에 새로고침하세요."
 
-#: includes/class-builder-rest.php:314
+#: includes/class-builder-rest.php:316
 msgid "You are not allowed to publish this form."
 msgstr "이 양식을 게시할 권한이 없습니다."
 
@@ -5277,19 +5282,19 @@ msgstr "%s: 글이나 카테고리로 채워지는 선택지"
 msgid "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note."
 msgstr "방문자에게는 여기에 아무것도 보이지 않습니다. 양식 #%d이(가) 삭제되었거나 게시되지 않았습니다. 이 안내는 사이트를 편집할 수 있는 사람에게만 보입니다."
 
-#: public/class-form-renderer.php:229
+#: public/class-form-renderer.php:238
 msgid "Welcome back — we restored the answers you saved. Check them and carry on."
 msgstr "다시 오셨군요. 저장한 답변을 복원했습니다. 확인하고 계속 진행하세요."
 
-#: public/class-form-renderer.php:269
+#: public/class-form-renderer.php:278 public/class-form-renderer.php:345
 msgid "Previous"
 msgstr "이전"
 
-#: public/class-form-renderer.php:280
+#: public/class-form-renderer.php:289
 msgid "Save & continue later"
 msgstr "저장 후 나중에 계속"
 
-#: public/class-form-renderer.php:496
+#: public/class-form-renderer.php:523
 msgid "Thank you — your submission was received."
 msgstr "감사합니다. 제출이 접수되었습니다."
 
@@ -5809,8 +5814,8 @@ msgid "Ctrl+Shift+Z"
 msgstr "Ctrl+Shift+Z"
 
 #: builder/src/app.jsx:507
-msgid "Submit button text, and what visitors see after they submit"
-msgstr "제출 버튼 텍스트와 방문자가 제출한 뒤 보게 되는 화면"
+msgid "Submit button text, what visitors see after they submit, schedule and entry limits"
+msgstr "제출 버튼 텍스트, 방문자가 제출한 뒤 보게 되는 화면, 일정과 항목 제한"
 
 #: builder/src/app.jsx:530
 msgid "Copy the shortcode that puts this form on a page or post"
@@ -5880,31 +5885,31 @@ msgstr "양식 다시 불러오기"
 msgid "Form settings"
 msgstr "양식 설정"
 
-#: builder/src/app.jsx:682
+#: builder/src/app.jsx:754
 msgid "These are saved with the form when you press Save form."
 msgstr "양식 저장을 누르면 양식과 함께 저장됩니다."
 
-#: builder/src/app.jsx:712
+#: builder/src/app.jsx:784
 msgid "fields"
 msgstr "필드"
 
-#: builder/src/app.jsx:733
+#: builder/src/app.jsx:805
 msgid "Add a field"
 msgstr "필드 추가"
 
-#: builder/src/app.jsx:735
+#: builder/src/app.jsx:807
 msgid "Click to append, or drag onto the canvas to place."
 msgstr "클릭하면 끝에 추가되고, 캔버스로 끌어다 놓으면 원하는 위치에 놓입니다."
 
-#: builder/src/app.jsx:742
+#: builder/src/app.jsx:814
 msgid "Pro fields"
 msgstr "Pro 필드"
 
-#: builder/src/app.jsx:744
+#: builder/src/app.jsx:816
 msgid "Activate your Pro license to add these."
 msgstr "이 필드를 추가하려면 Pro 라이선스를 활성화하세요."
 
-#: builder/src/app.jsx:756
+#: builder/src/app.jsx:828
 msgid "Requires an active Pro license"
 msgstr "활성 Pro 라이선스가 필요합니다"
 

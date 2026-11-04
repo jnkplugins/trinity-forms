@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Trinity Forms 2.23.0\n"
+"Project-Id-Version: Trinity Forms 2.24.0\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-03T06:24:40+00:00\n"
+"POT-Creation-Date: 2026-11-04T07:06:12+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: trinity-forms\n"
@@ -39,7 +39,7 @@ msgid "<strong>%s Pro is installed, but no Pro license is active on this site.</
 msgstr ""
 
 #: pro/licensorpro-client/licensorpro-client.php:837
-#: builder/src/app.jsx:746
+#: builder/src/app.jsx:818
 msgid "Enter license key"
 msgstr ""
 
@@ -687,7 +687,7 @@ msgstr ""
 
 #: admin/class-admin-ui.php:250
 #: admin/class-forms-list.php:61
-#: builder/src/app.jsx:692
+#: builder/src/app.jsx:764
 msgid "Start from a template"
 msgstr ""
 
@@ -857,6 +857,7 @@ msgid "Layout"
 msgstr ""
 
 #: admin/class-form-editor.php:117
+#: builder/src/app.jsx:683
 msgid "Restrictions"
 msgstr ""
 
@@ -1204,87 +1205,107 @@ msgid "Useful for a consent checkbox that has to be ticked before the form can b
 msgstr ""
 
 #: admin/class-form-editor.php:446
+#: builder/src/app.jsx:685
 msgid "Control when the form accepts submissions, and how many it takes. Leave a field blank or at 0 to leave that rule off."
 msgstr ""
 
 #: admin/class-form-editor.php:448
+#: builder/src/app.jsx:687
 msgid "Schedule"
 msgstr ""
 
 #: admin/class-form-editor.php:450
+#: builder/src/app.jsx:689
 msgid "Opens"
 msgstr ""
 
 #: admin/class-form-editor.php:453
+#: builder/src/app.jsx:692
 msgid "Before this, visitors see the message below instead of the form. Uses your site's timezone."
 msgstr ""
 
 #: admin/class-form-editor.php:455
+#: builder/src/app.jsx:696
 msgid "Message before it opens"
 msgstr ""
 
 #: admin/class-form-editor.php:456
 #: includes/class-restrictions.php:73
+#: builder/src/app.jsx:698
 msgid "This form is not open yet."
 msgstr ""
 
 #: admin/class-form-editor.php:457
+#: builder/src/app.jsx:702
 msgid "Closes"
 msgstr ""
 
 #: admin/class-form-editor.php:459
+#: builder/src/app.jsx:708
 msgid "Message after it closes"
 msgstr ""
 
 #: admin/class-form-editor.php:460
 #: includes/class-restrictions.php:81
+#: builder/src/app.jsx:710
 msgid "This form is now closed."
 msgstr ""
 
 #: admin/class-form-editor.php:463
+#: builder/src/app.jsx:713
 msgid "Entry limits"
 msgstr ""
 
 #: admin/class-form-editor.php:465
+#: builder/src/app.jsx:715
 msgid "Total entries"
 msgstr ""
 
 #: admin/class-form-editor.php:468
+#: builder/src/app.jsx:715
 msgid "0 = unlimited. Spam and trashed entries do not count towards the limit."
 msgstr ""
 
 #: admin/class-form-editor.php:470
+#: builder/src/app.jsx:716
 msgid "Per logged-in user"
 msgstr ""
 
 #: admin/class-form-editor.php:472
+#: builder/src/app.jsx:717
 msgid "Per IP address"
 msgstr ""
 
 #: admin/class-form-editor.php:475
+#: builder/src/app.jsx:717
 msgid "Blunt: everyone behind one office router or mobile network shares an address."
 msgstr ""
 
 #: admin/class-form-editor.php:477
+#: builder/src/app.jsx:730
 msgid "Message when full"
 msgstr ""
 
 #: admin/class-form-editor.php:478
 #: includes/class-restrictions.php:99
+#: builder/src/app.jsx:732
 msgid "This form is no longer accepting submissions."
 msgstr ""
 
 #: admin/class-form-editor.php:479
+#: builder/src/app.jsx:736
 msgid "Message when you've already submitted"
 msgstr ""
 
 #: admin/class-form-editor.php:480
 #: includes/class-restrictions.php:110
 #: includes/class-restrictions.php:122
+#: builder/src/app.jsx:738
 msgid "You have already submitted this form."
 msgstr ""
 
 #: admin/class-form-editor.php:483
+#: builder/src/app.jsx:741
 msgid "Who can submit"
 msgstr ""
 
@@ -1293,15 +1314,18 @@ msgid "Require login"
 msgstr ""
 
 #: admin/class-form-editor.php:490
+#: builder/src/app.jsx:743
 msgid "Only logged-in users may see and submit this form"
 msgstr ""
 
 #: admin/class-form-editor.php:493
+#: builder/src/app.jsx:748
 msgid "Message for logged-out visitors"
 msgstr ""
 
 #: admin/class-form-editor.php:494
 #: includes/class-restrictions.php:52
+#: builder/src/app.jsx:750
 msgid "Please log in to fill in this form."
 msgstr ""
 
@@ -1939,7 +1963,7 @@ msgid "Result"
 msgstr ""
 
 #: admin/views/assistants.php:250
-#: builder/src/app.jsx:685
+#: builder/src/app.jsx:757
 msgid "Done"
 msgstr ""
 
@@ -3472,11 +3496,13 @@ msgid "Option"
 msgstr ""
 
 #: includes/class-block-defaults.php:51
-#: public/class-form-renderer.php:270
+#: public/class-form-renderer.php:279
+#: public/class-form-renderer.php:345
 msgid "Next"
 msgstr ""
 
 #: includes/class-block-defaults.php:52
+#: public/class-form-renderer.php:345
 msgid "Back"
 msgstr ""
 
@@ -3628,15 +3654,15 @@ msgstr ""
 msgid "Choose"
 msgstr ""
 
-#: includes/class-builder-rest.php:262
+#: includes/class-builder-rest.php:264
 msgid "This form can't be edited in the builder. Your form is unchanged."
 msgstr ""
 
-#: includes/class-builder-rest.php:278
+#: includes/class-builder-rest.php:280
 msgid "This form changed since you opened it. Reload before saving."
 msgstr ""
 
-#: includes/class-builder-rest.php:314
+#: includes/class-builder-rest.php:316
 msgid "You are not allowed to publish this form."
 msgstr ""
 
@@ -5506,19 +5532,20 @@ msgstr ""
 msgid "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note."
 msgstr ""
 
-#: public/class-form-renderer.php:229
+#: public/class-form-renderer.php:238
 msgid "Welcome back — we restored the answers you saved. Check them and carry on."
 msgstr ""
 
-#: public/class-form-renderer.php:269
+#: public/class-form-renderer.php:278
+#: public/class-form-renderer.php:345
 msgid "Previous"
 msgstr ""
 
-#: public/class-form-renderer.php:280
+#: public/class-form-renderer.php:289
 msgid "Save & continue later"
 msgstr ""
 
-#: public/class-form-renderer.php:496
+#: public/class-form-renderer.php:523
 msgid "Thank you — your submission was received."
 msgstr ""
 
@@ -6112,7 +6139,7 @@ msgid "Ctrl+Shift+Z"
 msgstr ""
 
 #: builder/src/app.jsx:507
-msgid "Submit button text, and what visitors see after they submit"
+msgid "Submit button text, what visitors see after they submit, schedule and entry limits"
 msgstr ""
 
 #: builder/src/app.jsx:530
@@ -6183,31 +6210,31 @@ msgstr ""
 msgid "Form settings"
 msgstr ""
 
-#: builder/src/app.jsx:682
+#: builder/src/app.jsx:754
 msgid "These are saved with the form when you press Save form."
 msgstr ""
 
-#: builder/src/app.jsx:712
+#: builder/src/app.jsx:784
 msgid "fields"
 msgstr ""
 
-#: builder/src/app.jsx:733
+#: builder/src/app.jsx:805
 msgid "Add a field"
 msgstr ""
 
-#: builder/src/app.jsx:735
+#: builder/src/app.jsx:807
 msgid "Click to append, or drag onto the canvas to place."
 msgstr ""
 
-#: builder/src/app.jsx:742
+#: builder/src/app.jsx:814
 msgid "Pro fields"
 msgstr ""
 
-#: builder/src/app.jsx:744
+#: builder/src/app.jsx:816
 msgid "Activate your Pro license to add these."
 msgstr ""
 
-#: builder/src/app.jsx:756
+#: builder/src/app.jsx:828
 msgid "Requires an active Pro license"
 msgstr ""
 

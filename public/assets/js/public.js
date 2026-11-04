@@ -619,6 +619,10 @@
         var submitBtn = form.querySelector( ".trinity-forms-submit" );
         var status    = form.querySelector( ".trinity-forms-step-status" );
         var current   = 0;
+        // A page break can name its own buttons ("Continue to payment"); the
+        // translated defaults come from the server-rendered buttons.
+        var nextDefault = nextBtn ? nextBtn.textContent : "";
+        var prevDefault = prevBtn ? prevBtn.textContent : "";
 
         function setStepRequired( step, on ) {
             step.querySelectorAll( "[required], [data-ff-required]" ).forEach( function ( el ) {
@@ -672,6 +676,8 @@
             var last = current === steps.length - 1;
             if ( prevBtn )   prevBtn.hidden   = current === 0;
             if ( nextBtn )   nextBtn.hidden   = last;
+            if ( nextBtn )   nextBtn.textContent = steps[ current ].getAttribute( "data-next-text" ) || nextDefault;
+            if ( prevBtn )   prevBtn.textContent = steps[ current ].getAttribute( "data-prev-text" ) || prevDefault;
             if ( submitBtn ) submitBtn.hidden = ! last;
             if ( status )    status.textContent = fmt( t( "stepOf", "Step %1$d of %2$d" ), current + 1, steps.length );
             // Moving between steps takes focus to the new step's first question.

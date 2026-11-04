@@ -140,7 +140,9 @@ class Builder_REST {
             "locked"       => array_values( array_filter( (array) apply_filters( "trinity_forms_builder_locked_palette", [] ), "is_array" ) ),
             // Submit text and the default confirmation, the same settings the block
             // editor's settings box writes (Form_Basics), plus pages to send people to.
-            "settings"     => Form_Basics::get( (int) $post->ID ),
+            // Restrictions (schedule, entry limits, login) ride along in the same
+            // object: the keys the block editor's Restrictions tab writes.
+            "settings"     => Form_Basics::get( (int) $post->ID ) + Restriction_Settings::get( (int) $post->ID ),
             "pages"        => Form_Basics::pages(),
         ] );
     }
@@ -334,10 +336,12 @@ class Builder_REST {
         // However the form was started, a saved form emails the site admin by default.
         Form_Manager::seed_default_notification( (int) $post->ID );
 
-        // Submit text and the default confirmation, from the builder's Settings.
+        // Submit text, the default confirmation and the Restrictions, from the
+        // builder's Settings.
         $settings = $request->get_param( "settings" );
         if ( is_array( $settings ) ) {
             Form_Basics::save( (int) $post->ID, $settings );
+            Restriction_Settings::save( (int) $post->ID, $settings );
         }
 
         $fresh = get_post( $post->ID );

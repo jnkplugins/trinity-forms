@@ -800,3 +800,23 @@ $tf-ctrl-text: #98a2b3;
 	.tf-builder__palette-item.is-locked { opacity: .65; cursor: not-allowed; }
 	.dashicons-lock { font-size: 14px; width: 14px; height: 14px; vertical-align: text-bottom; }
 }
+
+// Form settings modal: the Restrictions section under submit + confirmation.
+.tf-builder__settings-modal {
+	.tf-builder__settings-heading {
+		margin: 24px 0 4px;
+		padding-block-start: 16px;
+		border-block-start: 1px solid var( --jnk-line, #e2e8f0 );
+		font-size: 14px;
+	}
+	.tf-builder__settings-subheading {
+		margin: 16px 0 8px;
+		font-size: 11px;
+		font-weight: 650;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var( --jnk-mute, #64748b );
+	}
+	input[type="datetime-local"],
+	input[type="number"] { max-inline-size: 16rem; }
+}

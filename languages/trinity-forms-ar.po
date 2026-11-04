@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.17.0\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-03T06:24:40+00:00\n"
+"POT-Creation-Date: 2026-11-04T07:06:12+00:00\n"
 "PO-Revision-Date: 2026-10-29 12:00+0000\n"
 "Last-Translator: JnK Plugins\n"
 "Language-Team: Arabic\n"
@@ -38,7 +38,7 @@ msgstr "<strong>%s Pro مُفعّل.</strong> شكرًا لك! كل أدوات P
 msgid "<strong>%s Pro is installed, but no Pro license is active on this site.</strong> Enter your license key to switch on the Pro tools."
 msgstr "<strong>%s Pro مثبّت، لكن لا يوجد ترخيص Pro نشط على هذا الموقع.</strong> أدخل مفتاح الترخيص لتشغيل أدوات Pro."
 
-#: pro/licensorpro-client/licensorpro-client.php:837 builder/src/app.jsx:746
+#: pro/licensorpro-client/licensorpro-client.php:837 builder/src/app.jsx:818
 msgid "Enter license key"
 msgstr "أدخل مفتاح الترخيص"
 
@@ -659,7 +659,7 @@ msgid "Show entries on your site as a table, a list or cards. Put a View on any 
 msgstr "اعرض الإدخالات على موقعك كجدول أو قائمة أو بطاقات. ضع العرض في أي صفحة باستخدام رمزه القصير."
 
 #: admin/class-admin-ui.php:250 admin/class-forms-list.php:61
-#: builder/src/app.jsx:692
+#: builder/src/app.jsx:764
 msgid "Start from a template"
 msgstr "البدء من قالب"
 
@@ -824,7 +824,7 @@ msgstr "رسائل التأكيد"
 msgid "Layout"
 msgstr "التخطيط"
 
-#: admin/class-form-editor.php:117
+#: admin/class-form-editor.php:117 builder/src/app.jsx:683
 msgid "Restrictions"
 msgstr "القيود"
 
@@ -1147,84 +1147,87 @@ msgstr "— الإظهار دائمًا —"
 msgid "Useful for a consent checkbox that has to be ticked before the form can be sent."
 msgstr "مفيد لمربع موافقة يجب تحديده قبل إرسال النموذج."
 
-#: admin/class-form-editor.php:446
+#: admin/class-form-editor.php:446 builder/src/app.jsx:685
 msgid "Control when the form accepts submissions, and how many it takes. Leave a field blank or at 0 to leave that rule off."
 msgstr "تحكّم في متى يقبل النموذج الإرسالات، وكم إرسالًا يقبل. اترك الحقل فارغًا أو 0 لتعطيل تلك القاعدة."
 
-#: admin/class-form-editor.php:448
+#: admin/class-form-editor.php:448 builder/src/app.jsx:687
 msgid "Schedule"
 msgstr "الجدولة"
 
-#: admin/class-form-editor.php:450
+#: admin/class-form-editor.php:450 builder/src/app.jsx:689
 msgid "Opens"
 msgstr "يُفتح في"
 
-#: admin/class-form-editor.php:453
+#: admin/class-form-editor.php:453 builder/src/app.jsx:692
 msgid "Before this, visitors see the message below instead of the form. Uses your site's timezone."
 msgstr "قبل ذلك يرى الزوّار الرسالة أدناه بدل النموذج. يستخدم المنطقة الزمنية لموقعك."
 
-#: admin/class-form-editor.php:455
+#: admin/class-form-editor.php:455 builder/src/app.jsx:696
 msgid "Message before it opens"
 msgstr "الرسالة قبل الفتح"
 
 #: admin/class-form-editor.php:456 includes/class-restrictions.php:73
+#: builder/src/app.jsx:698
 msgid "This form is not open yet."
 msgstr "هذا النموذج لم يُفتح بعد."
 
-#: admin/class-form-editor.php:457
+#: admin/class-form-editor.php:457 builder/src/app.jsx:702
 msgid "Closes"
 msgstr "يُغلق في"
 
-#: admin/class-form-editor.php:459
+#: admin/class-form-editor.php:459 builder/src/app.jsx:708
 msgid "Message after it closes"
 msgstr "الرسالة بعد الإغلاق"
 
 #: admin/class-form-editor.php:460 includes/class-restrictions.php:81
+#: builder/src/app.jsx:710
 msgid "This form is now closed."
 msgstr "هذا النموذج مغلق الآن."
 
-#: admin/class-form-editor.php:463
+#: admin/class-form-editor.php:463 builder/src/app.jsx:713
 msgid "Entry limits"
 msgstr "حدود الإدخالات"
 
-#: admin/class-form-editor.php:465
+#: admin/class-form-editor.php:465 builder/src/app.jsx:715
 msgid "Total entries"
 msgstr "إجمالي الإدخالات"
 
-#: admin/class-form-editor.php:468
+#: admin/class-form-editor.php:468 builder/src/app.jsx:715
 msgid "0 = unlimited. Spam and trashed entries do not count towards the limit."
 msgstr "0 = بلا حد. الإدخالات المزعجة والمحذوفة لا تُحسب ضمن الحد."
 
-#: admin/class-form-editor.php:470
+#: admin/class-form-editor.php:470 builder/src/app.jsx:716
 msgid "Per logged-in user"
 msgstr "لكل عضو مسجّل"
 
-#: admin/class-form-editor.php:472
+#: admin/class-form-editor.php:472 builder/src/app.jsx:717
 msgid "Per IP address"
 msgstr "لكل عنوان IP"
 
-#: admin/class-form-editor.php:475
+#: admin/class-form-editor.php:475 builder/src/app.jsx:717
 msgid "Blunt: everyone behind one office router or mobile network shares an address."
 msgstr "تقييد حاد: كل من يتصل عبر موجّه مكتب واحد أو شبكة جوال واحدة يتشاركون العنوان نفسه."
 
-#: admin/class-form-editor.php:477
+#: admin/class-form-editor.php:477 builder/src/app.jsx:730
 msgid "Message when full"
 msgstr "الرسالة عند امتلاء الحد"
 
 #: admin/class-form-editor.php:478 includes/class-restrictions.php:99
+#: builder/src/app.jsx:732
 msgid "This form is no longer accepting submissions."
 msgstr "هذا النموذج لم يعد يقبل الإرسالات."
 
-#: admin/class-form-editor.php:479
+#: admin/class-form-editor.php:479 builder/src/app.jsx:736
 msgid "Message when you've already submitted"
 msgstr "الرسالة عند الإرسال السابق"
 
 #: admin/class-form-editor.php:480 includes/class-restrictions.php:110
-#: includes/class-restrictions.php:122
+#: includes/class-restrictions.php:122 builder/src/app.jsx:738
 msgid "You have already submitted this form."
 msgstr "لقد أرسلت هذا النموذج من قبل."
 
-#: admin/class-form-editor.php:483
+#: admin/class-form-editor.php:483 builder/src/app.jsx:741
 msgid "Who can submit"
 msgstr "من يمكنه الإرسال"
 
@@ -1232,15 +1235,16 @@ msgstr "من يمكنه الإرسال"
 msgid "Require login"
 msgstr "اشتراط تسجيل الدخول"
 
-#: admin/class-form-editor.php:490
+#: admin/class-form-editor.php:490 builder/src/app.jsx:743
 msgid "Only logged-in users may see and submit this form"
 msgstr "فقط الأعضاء المسجّلون يمكنهم رؤية هذا النموذج وإرساله"
 
-#: admin/class-form-editor.php:493
+#: admin/class-form-editor.php:493 builder/src/app.jsx:748
 msgid "Message for logged-out visitors"
 msgstr "رسالة للزوّار غير المسجّلين"
 
 #: admin/class-form-editor.php:494 includes/class-restrictions.php:52
+#: builder/src/app.jsx:750
 msgid "Please log in to fill in this form."
 msgstr "الرجاء تسجيل الدخول لتعبئة هذا النموذج."
 
@@ -1857,7 +1861,7 @@ msgstr "الطلب"
 msgid "Result"
 msgstr "النتيجة"
 
-#: admin/views/assistants.php:250 builder/src/app.jsx:685
+#: admin/views/assistants.php:250 builder/src/app.jsx:757
 msgid "Done"
 msgstr "تم"
 
@@ -3314,11 +3318,12 @@ msgstr "رقم"
 msgid "Option"
 msgstr "خيار"
 
-#: includes/class-block-defaults.php:51 public/class-form-renderer.php:270
+#: includes/class-block-defaults.php:51 public/class-form-renderer.php:279
+#: public/class-form-renderer.php:345
 msgid "Next"
 msgstr "التالي"
 
-#: includes/class-block-defaults.php:52
+#: includes/class-block-defaults.php:52 public/class-form-renderer.php:345
 msgid "Back"
 msgstr "رجوع"
 
@@ -3462,15 +3467,15 @@ msgstr "اختر التاريخ والوقت"
 msgid "Choose"
 msgstr "اختر"
 
-#: includes/class-builder-rest.php:262
+#: includes/class-builder-rest.php:264
 msgid "This form can't be edited in the builder. Your form is unchanged."
 msgstr "لا يمكن تحرير هذا النموذج في المنشئ. نموذجك لم يتغيّر."
 
-#: includes/class-builder-rest.php:278
+#: includes/class-builder-rest.php:280
 msgid "This form changed since you opened it. Reload before saving."
 msgstr "تغيّر هذا النموذج منذ فتحته. أعد تحميله قبل الحفظ."
 
-#: includes/class-builder-rest.php:314
+#: includes/class-builder-rest.php:316
 msgid "You are not allowed to publish this form."
 msgstr "غير مسموح لك بنشر هذا النموذج."
 
@@ -5347,19 +5352,19 @@ msgstr "%s: خيارات تُملأ من المقالات أو التصنيفا�
 msgid "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note."
 msgstr "لا يرى الزوّار شيئًا هنا: النموذج #%d محذوف أو غير منشور. هذه الملاحظة تظهر فقط لمن يمكنهم تحرير الموقع."
 
-#: public/class-form-renderer.php:229
+#: public/class-form-renderer.php:238
 msgid "Welcome back — we restored the answers you saved. Check them and carry on."
 msgstr "مرحبًا بعودتك، استعدنا الإجابات التي حفظتها. راجعها وتابع."
 
-#: public/class-form-renderer.php:269
+#: public/class-form-renderer.php:278 public/class-form-renderer.php:345
 msgid "Previous"
 msgstr "السابق"
 
-#: public/class-form-renderer.php:280
+#: public/class-form-renderer.php:289
 msgid "Save & continue later"
 msgstr "الحفظ والمتابعة لاحقًا"
 
-#: public/class-form-renderer.php:496
+#: public/class-form-renderer.php:523
 msgid "Thank you — your submission was received."
 msgstr "شكرًا لك، تم استلام إرسالك."
 
@@ -5879,8 +5884,8 @@ msgid "Ctrl+Shift+Z"
 msgstr "Ctrl+Shift+Z"
 
 #: builder/src/app.jsx:507
-msgid "Submit button text, and what visitors see after they submit"
-msgstr "نص زر الإرسال، وما يراه الزوّار بعد الإرسال"
+msgid "Submit button text, what visitors see after they submit, schedule and entry limits"
+msgstr "نص زر الإرسال، وما يراه الزوّار بعد الإرسال، والجدولة وحدود الإدخالات"
 
 #: builder/src/app.jsx:530
 msgid "Copy the shortcode that puts this form on a page or post"
@@ -5950,31 +5955,31 @@ msgstr "إعادة تحميل النموذج"
 msgid "Form settings"
 msgstr "إعدادات النموذج"
 
-#: builder/src/app.jsx:682
+#: builder/src/app.jsx:754
 msgid "These are saved with the form when you press Save form."
 msgstr "تُحفظ هذه مع النموذج عند الضغط على حفظ النموذج."
 
-#: builder/src/app.jsx:712
+#: builder/src/app.jsx:784
 msgid "fields"
 msgstr "حقول"
 
-#: builder/src/app.jsx:733
+#: builder/src/app.jsx:805
 msgid "Add a field"
 msgstr "إضافة حقل"
 
-#: builder/src/app.jsx:735
+#: builder/src/app.jsx:807
 msgid "Click to append, or drag onto the canvas to place."
 msgstr "انقر للإضافة في النهاية، أو اسحب إلى اللوحة لوضعه."
 
-#: builder/src/app.jsx:742
+#: builder/src/app.jsx:814
 msgid "Pro fields"
 msgstr "حقول Pro"
 
-#: builder/src/app.jsx:744
+#: builder/src/app.jsx:816
 msgid "Activate your Pro license to add these."
 msgstr "فعّل ترخيص Pro لإضافة هذه الحقول."
 
-#: builder/src/app.jsx:756
+#: builder/src/app.jsx:828
 msgid "Requires an active Pro license"
 msgstr "يتطلب ترخيص Pro نشطًا"
 

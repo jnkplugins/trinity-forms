@@ -449,13 +449,13 @@ class Form_Editor {
             <table class="form-table">
                 <tr><th><?php esc_html_e( "Opens", "trinity-forms" ); ?></th>
                     <td>
-                        <input type="datetime-local" name="trinity-forms[settings][schedule_start]" value="<?php echo esc_attr( self::to_local_input( $settings["schedule_start"] ?? "" ) ); ?>" />
+                        <input type="datetime-local" name="trinity-forms[settings][schedule_start]" value="<?php echo esc_attr( Restriction_Settings::to_local_input( $settings["schedule_start"] ?? "" ) ); ?>" />
                         <p class="description"><?php esc_html_e( "Before this, visitors see the message below instead of the form. Uses your site's timezone.", "trinity-forms" ); ?></p>
                     </td></tr>
                 <tr><th><?php esc_html_e( "Message before it opens", "trinity-forms" ); ?></th>
                     <td><input type="text" class="large-text" name="trinity-forms[settings][schedule_pending_message]" value="<?php echo esc_attr( (string) ( $settings["schedule_pending_message"] ?? "" ) ); ?>" placeholder="<?php esc_attr_e( "This form is not open yet.", "trinity-forms" ); ?>" /></td></tr>
                 <tr><th><?php esc_html_e( "Closes", "trinity-forms" ); ?></th>
-                    <td><input type="datetime-local" name="trinity-forms[settings][schedule_end]" value="<?php echo esc_attr( self::to_local_input( $settings["schedule_end"] ?? "" ) ); ?>" /></td></tr>
+                    <td><input type="datetime-local" name="trinity-forms[settings][schedule_end]" value="<?php echo esc_attr( Restriction_Settings::to_local_input( $settings["schedule_end"] ?? "" ) ); ?>" /></td></tr>
                 <tr><th><?php esc_html_e( "Message after it closes", "trinity-forms" ); ?></th>
                     <td><input type="text" class="large-text" name="trinity-forms[settings][schedule_closed_message]" value="<?php echo esc_attr( (string) ( $settings["schedule_closed_message"] ?? "" ) ); ?>" placeholder="<?php esc_attr_e( "This form is now closed.", "trinity-forms" ); ?>" /></td></tr>
             </table>
@@ -936,46 +936,9 @@ class Form_Editor {
         ] + Form_Style::sanitize( $raw ) + [
             "submit_button_image"   => esc_url_raw( (string) ( $raw["submit_button_image"] ?? "" ) ),
             "submit_conditional"    => Conditional_Logic::sanitize_rules( $raw["submit_conditional"] ?? [] ),
-
-            // Restrictions.
-            "schedule_start"           => self::from_local_input( (string) ( $raw["schedule_start"] ?? "" ) ),
-            "schedule_end"             => self::from_local_input( (string) ( $raw["schedule_end"] ?? "" ) ),
-            "schedule_pending_message" => sanitize_text_field( (string) ( $raw["schedule_pending_message"] ?? "" ) ),
-            "schedule_closed_message"  => sanitize_text_field( (string) ( $raw["schedule_closed_message"] ?? "" ) ),
-            "entry_limit"              => max( 0, (int) ( $raw["entry_limit"] ?? 0 ) ),
-            "entry_limit_per_user"     => max( 0, (int) ( $raw["entry_limit_per_user"] ?? 0 ) ),
-            "entry_limit_per_ip"       => max( 0, (int) ( $raw["entry_limit_per_ip"] ?? 0 ) ),
-            "entry_limit_message"      => sanitize_text_field( (string) ( $raw["entry_limit_message"] ?? "" ) ),
-            "entry_limit_user_message" => sanitize_text_field( (string) ( $raw["entry_limit_user_message"] ?? "" ) ),
-            "require_login"            => ! empty( $raw["require_login"] ),
-            "login_required_message"   => sanitize_text_field( (string) ( $raw["login_required_message"] ?? "" ) ),
-        ] );
-    }
-
-    /**
-     * Store a datetime-local value ("2026-08-30T17:00") as the plain "Y-m-d H:i:s"
-     * this codebase uses everywhere else.
-     *
-     * Plain, never ISO-8601: an ISO string with a timezone offset once reached the
-     * database through a payment webhook and every date comparison downstream broke.
-     */
-    private static function from_local_input( string $value ): string {
-        $value = trim( $value );
-        if ( "" === $value ) {
-            return "";
-        }
-        $ts = strtotime( str_replace( "T", " ", $value ) );
-        return $ts ? gmdate( "Y-m-d H:i:s", $ts ) : "";
-    }
-
-    /** The inverse: stored "Y-m-d H:i:s" back into what datetime-local expects. */
-    private static function to_local_input( string $value ): string {
-        $value = trim( $value );
-        if ( "" === $value ) {
-            return "";
-        }
-        $ts = strtotime( $value );
-        return $ts ? gmdate( "Y-m-d\TH:i", $ts ) : "";
+        ]
+        // Restrictions (schedule, entry limits, login): shared with the Visual Builder.
+        + Restriction_Settings::sanitize( $raw ) );
     }
 
     /**

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.16.2\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-03T06:24:40+00:00\n"
+"POT-Creation-Date: 2026-11-04T07:06:12+00:00\n"
 "PO-Revision-Date: 2026-10-29 12:00+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Hindi\n"
@@ -38,7 +38,7 @@ msgstr "<strong>%s Pro चालू है।</strong> धन्यवाद! �
 msgid "<strong>%s Pro is installed, but no Pro license is active on this site.</strong> Enter your license key to switch on the Pro tools."
 msgstr "<strong>%s Pro इंस्टॉल है, लेकिन इस साइट पर कोई Pro लाइसेंस सक्रिय नहीं है।</strong> Pro टूल चालू करने के लिए अपनी लाइसेंस Key डालें।"
 
-#: pro/licensorpro-client/licensorpro-client.php:837 builder/src/app.jsx:746
+#: pro/licensorpro-client/licensorpro-client.php:837 builder/src/app.jsx:818
 msgid "Enter license key"
 msgstr "लाइसेंस Key डालें"
 
@@ -659,7 +659,7 @@ msgid "Show entries on your site as a table, a list or cards. Put a View on any 
 msgstr "अपनी साइट पर एंट्रियों को टेबल, सूची या कार्ड के रूप में दिखाएँ। किसी भी पेज पर व्यू को उसके शॉर्टकोड से लगाएँ।"
 
 #: admin/class-admin-ui.php:250 admin/class-forms-list.php:61
-#: builder/src/app.jsx:692
+#: builder/src/app.jsx:764
 msgid "Start from a template"
 msgstr "किसी टेम्पलेट से शुरू करें"
 
@@ -820,7 +820,7 @@ msgstr "पुष्टि संदेश"
 msgid "Layout"
 msgstr "लेआउट"
 
-#: admin/class-form-editor.php:117
+#: admin/class-form-editor.php:117 builder/src/app.jsx:683
 msgid "Restrictions"
 msgstr "पाबंदियाँ"
 
@@ -1143,84 +1143,87 @@ msgstr "— हमेशा दिखाएँ —"
 msgid "Useful for a consent checkbox that has to be ticked before the form can be sent."
 msgstr "सहमति चेकबॉक्स के लिए काम का, जिसे फ़ॉर्म भेजने से पहले टिक करना ज़रूरी हो।"
 
-#: admin/class-form-editor.php:446
+#: admin/class-form-editor.php:446 builder/src/app.jsx:685
 msgid "Control when the form accepts submissions, and how many it takes. Leave a field blank or at 0 to leave that rule off."
 msgstr "तय करें कि फ़ॉर्म कब सबमिशन ले और कितने ले। किसी नियम को बंद रखने के लिए फ़ील्ड खाली या 0 पर छोड़ें।"
 
-#: admin/class-form-editor.php:448
+#: admin/class-form-editor.php:448 builder/src/app.jsx:687
 msgid "Schedule"
 msgstr "समय-सारणी"
 
-#: admin/class-form-editor.php:450
+#: admin/class-form-editor.php:450 builder/src/app.jsx:689
 msgid "Opens"
 msgstr "खुलता है"
 
-#: admin/class-form-editor.php:453
+#: admin/class-form-editor.php:453 builder/src/app.jsx:692
 msgid "Before this, visitors see the message below instead of the form. Uses your site's timezone."
 msgstr "इससे पहले विज़िटर को फ़ॉर्म की जगह नीचे वाला संदेश दिखता है। आपकी साइट के टाइमज़ोन का इस्तेमाल होता है।"
 
-#: admin/class-form-editor.php:455
+#: admin/class-form-editor.php:455 builder/src/app.jsx:696
 msgid "Message before it opens"
 msgstr "खुलने से पहले का संदेश"
 
 #: admin/class-form-editor.php:456 includes/class-restrictions.php:73
+#: builder/src/app.jsx:698
 msgid "This form is not open yet."
 msgstr "यह फ़ॉर्म अभी खुला नहीं है।"
 
-#: admin/class-form-editor.php:457
+#: admin/class-form-editor.php:457 builder/src/app.jsx:702
 msgid "Closes"
 msgstr "बंद होता है"
 
-#: admin/class-form-editor.php:459
+#: admin/class-form-editor.php:459 builder/src/app.jsx:708
 msgid "Message after it closes"
 msgstr "बंद होने के बाद का संदेश"
 
 #: admin/class-form-editor.php:460 includes/class-restrictions.php:81
+#: builder/src/app.jsx:710
 msgid "This form is now closed."
 msgstr "यह फ़ॉर्म अब बंद हो चुका है।"
 
-#: admin/class-form-editor.php:463
+#: admin/class-form-editor.php:463 builder/src/app.jsx:713
 msgid "Entry limits"
 msgstr "एंट्री की सीमाएँ"
 
-#: admin/class-form-editor.php:465
+#: admin/class-form-editor.php:465 builder/src/app.jsx:715
 msgid "Total entries"
 msgstr "कुल एंट्रियाँ"
 
-#: admin/class-form-editor.php:468
+#: admin/class-form-editor.php:468 builder/src/app.jsx:715
 msgid "0 = unlimited. Spam and trashed entries do not count towards the limit."
 msgstr "0 = असीमित। स्पैम और ट्रैश की गई एंट्रियाँ सीमा में नहीं गिनी जातीं।"
 
-#: admin/class-form-editor.php:470
+#: admin/class-form-editor.php:470 builder/src/app.jsx:716
 msgid "Per logged-in user"
 msgstr "हर लॉग-इन उपयोगकर्ता के लिए"
 
-#: admin/class-form-editor.php:472
+#: admin/class-form-editor.php:472 builder/src/app.jsx:717
 msgid "Per IP address"
 msgstr "हर IP पते के लिए"
 
-#: admin/class-form-editor.php:475
+#: admin/class-form-editor.php:475 builder/src/app.jsx:717
 msgid "Blunt: everyone behind one office router or mobile network shares an address."
 msgstr "मोटा तरीका: एक ही ऑफ़िस राउटर या मोबाइल नेटवर्क के पीछे सभी लोग एक ही पता साझा करते हैं।"
 
-#: admin/class-form-editor.php:477
+#: admin/class-form-editor.php:477 builder/src/app.jsx:730
 msgid "Message when full"
 msgstr "भर जाने पर संदेश"
 
 #: admin/class-form-editor.php:478 includes/class-restrictions.php:99
+#: builder/src/app.jsx:732
 msgid "This form is no longer accepting submissions."
 msgstr "यह फ़ॉर्म अब सबमिशन स्वीकार नहीं कर रहा है।"
 
-#: admin/class-form-editor.php:479
+#: admin/class-form-editor.php:479 builder/src/app.jsx:736
 msgid "Message when you've already submitted"
 msgstr "पहले से सबमिट करने पर संदेश"
 
 #: admin/class-form-editor.php:480 includes/class-restrictions.php:110
-#: includes/class-restrictions.php:122
+#: includes/class-restrictions.php:122 builder/src/app.jsx:738
 msgid "You have already submitted this form."
 msgstr "आप यह फ़ॉर्म पहले ही सबमिट कर चुके हैं।"
 
-#: admin/class-form-editor.php:483
+#: admin/class-form-editor.php:483 builder/src/app.jsx:741
 msgid "Who can submit"
 msgstr "कौन सबमिट कर सकता है"
 
@@ -1228,15 +1231,16 @@ msgstr "कौन सबमिट कर सकता है"
 msgid "Require login"
 msgstr "लॉग-इन ज़रूरी करें"
 
-#: admin/class-form-editor.php:490
+#: admin/class-form-editor.php:490 builder/src/app.jsx:743
 msgid "Only logged-in users may see and submit this form"
 msgstr "सिर्फ़ लॉग-इन उपयोगकर्ता यह फ़ॉर्म देख और सबमिट कर सकें"
 
-#: admin/class-form-editor.php:493
+#: admin/class-form-editor.php:493 builder/src/app.jsx:748
 msgid "Message for logged-out visitors"
 msgstr "लॉग-आउट विज़िटर के लिए संदेश"
 
 #: admin/class-form-editor.php:494 includes/class-restrictions.php:52
+#: builder/src/app.jsx:750
 msgid "Please log in to fill in this form."
 msgstr "यह फ़ॉर्म भरने के लिए कृपया लॉग इन करें।"
 
@@ -1849,7 +1853,7 @@ msgstr "क्या माँगा"
 msgid "Result"
 msgstr "नतीजा"
 
-#: admin/views/assistants.php:250 builder/src/app.jsx:685
+#: admin/views/assistants.php:250 builder/src/app.jsx:757
 msgid "Done"
 msgstr "हो गया"
 
@@ -3306,11 +3310,12 @@ msgstr "संख्या"
 msgid "Option"
 msgstr "विकल्प"
 
-#: includes/class-block-defaults.php:51 public/class-form-renderer.php:270
+#: includes/class-block-defaults.php:51 public/class-form-renderer.php:279
+#: public/class-form-renderer.php:345
 msgid "Next"
 msgstr "अगला"
 
-#: includes/class-block-defaults.php:52
+#: includes/class-block-defaults.php:52 public/class-form-renderer.php:345
 msgid "Back"
 msgstr "वापस"
 
@@ -3454,15 +3459,15 @@ msgstr "तारीख और समय चुनें"
 msgid "Choose"
 msgstr "चुनें"
 
-#: includes/class-builder-rest.php:262
+#: includes/class-builder-rest.php:264
 msgid "This form can't be edited in the builder. Your form is unchanged."
 msgstr "यह फ़ॉर्म बिल्डर में संपादित नहीं हो सकता। आपका फ़ॉर्म नहीं बदला।"
 
-#: includes/class-builder-rest.php:278
+#: includes/class-builder-rest.php:280
 msgid "This form changed since you opened it. Reload before saving."
 msgstr "आपके खोलने के बाद यह फ़ॉर्म बदल गया है। सेव करने से पहले दोबारा लोड करें।"
 
-#: includes/class-builder-rest.php:314
+#: includes/class-builder-rest.php:316
 msgid "You are not allowed to publish this form."
 msgstr "आपको यह फ़ॉर्म प्रकाशित करने की अनुमति नहीं है।"
 
@@ -5291,19 +5296,19 @@ msgstr "%s: पोस्ट या श्रेणियों से भरे 
 msgid "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note."
 msgstr "विज़िटर को यहाँ कुछ नहीं दिखता: फ़ॉर्म #%d हटा दिया गया है या प्रकाशित नहीं है। यह नोट सिर्फ़ वे लोग देखते हैं जो साइट संपादित कर सकते हैं।"
 
-#: public/class-form-renderer.php:229
+#: public/class-form-renderer.php:238
 msgid "Welcome back — we restored the answers you saved. Check them and carry on."
 msgstr "फिर से स्वागत है — आपके सेव किए गए जवाब वापस भर दिए गए हैं। उन्हें जाँचें और आगे बढ़ें।"
 
-#: public/class-form-renderer.php:269
+#: public/class-form-renderer.php:278 public/class-form-renderer.php:345
 msgid "Previous"
 msgstr "पिछला"
 
-#: public/class-form-renderer.php:280
+#: public/class-form-renderer.php:289
 msgid "Save & continue later"
 msgstr "सहेजें और बाद में जारी रखें"
 
-#: public/class-form-renderer.php:496
+#: public/class-form-renderer.php:523
 msgid "Thank you — your submission was received."
 msgstr "धन्यवाद — आपका सबमिशन मिल गया है।"
 
@@ -5823,8 +5828,8 @@ msgid "Ctrl+Shift+Z"
 msgstr "Ctrl+Shift+Z"
 
 #: builder/src/app.jsx:507
-msgid "Submit button text, and what visitors see after they submit"
-msgstr "सबमिट बटन का टेक्स्ट, और सबमिट करने के बाद विज़िटर को क्या दिखे"
+msgid "Submit button text, what visitors see after they submit, schedule and entry limits"
+msgstr "सबमिट बटन का टेक्स्ट, सबमिट करने के बाद विज़िटर को क्या दिखे, समय-सारणी और एंट्री की सीमाएँ"
 
 #: builder/src/app.jsx:530
 msgid "Copy the shortcode that puts this form on a page or post"
@@ -5894,31 +5899,31 @@ msgstr "फ़ॉर्म दोबारा लोड करें"
 msgid "Form settings"
 msgstr "फ़ॉर्म सेटिंग्स"
 
-#: builder/src/app.jsx:682
+#: builder/src/app.jsx:754
 msgid "These are saved with the form when you press Save form."
 msgstr "ये \"फ़ॉर्म सहेजें\" दबाने पर फ़ॉर्म के साथ सहेजे जाते हैं।"
 
-#: builder/src/app.jsx:712
+#: builder/src/app.jsx:784
 msgid "fields"
 msgstr "फ़ील्ड"
 
-#: builder/src/app.jsx:733
+#: builder/src/app.jsx:805
 msgid "Add a field"
 msgstr "फ़ील्ड जोड़ें"
 
-#: builder/src/app.jsx:735
+#: builder/src/app.jsx:807
 msgid "Click to append, or drag onto the canvas to place."
 msgstr "अंत में जोड़ने के लिए क्लिक करें, या जगह चुनने के लिए कैनवास पर खींचें।"
 
-#: builder/src/app.jsx:742
+#: builder/src/app.jsx:814
 msgid "Pro fields"
 msgstr "Pro फ़ील्ड"
 
-#: builder/src/app.jsx:744
+#: builder/src/app.jsx:816
 msgid "Activate your Pro license to add these."
 msgstr "इन्हें जोड़ने के लिए अपना Pro लाइसेंस सक्रिय करें।"
 
-#: builder/src/app.jsx:756
+#: builder/src/app.jsx:828
 msgid "Requires an active Pro license"
 msgstr "सक्रिय Pro लाइसेंस ज़रूरी है"
 
