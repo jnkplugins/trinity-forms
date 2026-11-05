@@ -326,6 +326,24 @@
         return errors;
     }
 
+    // Add-ons can do async work before the POST (a card field turning the card into
+    // a one-time token). Each hook in window.TrinityFormsHooks.beforeSubmit gets the
+    // form and may return a promise; they run in order, and a rejection stops the
+    // submit with its message.
+    function runBeforeSubmit( form ) {
+        var hooks = ( window.TrinityFormsHooks && window.TrinityFormsHooks.beforeSubmit ) || [];
+        return hooks.reduce( function ( p, fn ) {
+            return p.then( function () { return typeof fn === "function" ? fn( form ) : null; } );
+        }, Promise.resolve() );
+    }
+
+    // Poll mode: the server refused because this voter already voted (a per-user or
+    // per-IP entry limit). The poll script turns that into the results.
+    function isPollRepeat( form, res ) {
+        var reason = res && res.body && res.body.meta ? res.body.meta.reason : "";
+        return ( reason === "user_limit_reached" || reason === "ip_limit_reached" ) && !! form.closest( ".trinity-forms-poll" );
+    }
+
     function submit( form ) {
         if ( form.dataset.submitting === "1" ) return;
         markHuman( form );
@@ -346,7 +364,8 @@
         var url       = form.getAttribute( "action" );
         var multipart = hasFiles( form );
 
-        postWithNonce( form, url, function ( nonce ) {
+        runBeforeSubmit( form ).then( function () {
+        return postWithNonce( form, url, function ( nonce ) {
             var headers = { "Accept": "application/json", "X-WP-Nonce": nonce };
             var body;
             if ( multipart ) {
@@ -379,6 +398,9 @@
                     showMessages( form, ( body.data && ( body.data.confirmation || body.data.message ) ) || t( "thanks", "Thanks — your submission was received." ), "success" );
                 }
                 form.classList.add( "is-submitted" );
+            } else if ( isPollRepeat( form, res ) ) {
+                // Poll mode: a limit refused a repeat vote. Show the results, not an error.
+                try { form.dispatchEvent( new CustomEvent( "trinity-forms:poll-repeat" ) ); } catch ( e ) {}
             } else if ( isStalePage( res ) ) {
                 // The page sat open too long to time this visitor. Get a fresh token;
                 // the answers stay in the form for one more press.
@@ -393,6 +415,13 @@
             } else {
                 paintFieldErrors( form, body.errors );
                 showMessages( form, body.errors && body.errors.length ? body.errors : t( "failed", "Submission failed." ), "error" );
+            }
+        } );
+        }, function ( err ) {
+            // A before-submit step said no (a card the gateway could not read):
+            // nothing was sent, the answers stay, and its message is shown.
+            if ( ! ( err && err.tfShown ) ) {
+                showMessages( form, ( err && err.message ) || t( "failed", "Submission failed." ), "error" );
             }
         } )
         .catch( function () {

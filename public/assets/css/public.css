@@ -122,6 +122,8 @@ fieldset.trinity-forms-field { display: block; }
     .trinity-forms-form .trinity-forms-help { color: color-mix(in srgb, currentColor 75%, transparent); }
 }
 .trinity-forms-confirmation { padding: 1rem; background: #edfaef; color: #1d2327; border-inline-start: 4px solid #00a32a; margin: 1rem 0; }
+.trinity-forms-payment-cancelled { padding: 1rem; background: #fcf9e8; color: #1d2327; border-inline-start: 4px solid #dba617; margin: 1rem 0; }
+.trinity-forms-payment-cancelled p { margin: 0; }
 table.trinity-forms-submissions { width: 100%; border-collapse: collapse; }
 table.trinity-forms-submissions th, table.trinity-forms-submissions td { padding: .5rem; border-bottom: 1px solid #ddd; text-align: start; }
 

@@ -98,6 +98,7 @@ class Builder_REST {
                 "desc"   => (string) ( $tpl["desc"] ?? "" ),
                 "icon"   => (string) ( $tpl["icon"] ?? "feedback" ),
                 "blocks" => self::blocks_for( Templates::content_for( (string) $slug ) ),
+                "settings" => isset( $tpl["settings"] ) && is_array( $tpl["settings"] ) ? $tpl["settings"] : new \stdClass(),
             ];
         }
         return rest_ensure_response( $out );

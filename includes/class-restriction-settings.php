@@ -19,6 +19,8 @@ final class Restriction_Settings {
         "schedule_start", "schedule_end", "schedule_pending_message", "schedule_closed_message",
         "entry_limit", "entry_limit_per_user", "entry_limit_per_ip", "entry_limit_message", "entry_limit_user_message",
         "require_login", "login_required_message",
+        // Poll mode (5 Nov 2026) rides along: both editors already read and write this class.
+        "poll_mode",
     ];
 
     /**
@@ -41,6 +43,7 @@ final class Restriction_Settings {
             "entry_limit_user_message" => (string) ( $settings["entry_limit_user_message"] ?? "" ),
             "require_login"            => ! empty( $settings["require_login"] ),
             "login_required_message"   => (string) ( $settings["login_required_message"] ?? "" ),
+            "poll_mode"                => ! empty( $settings["poll_mode"] ),
         ];
     }
 
@@ -70,6 +73,7 @@ final class Restriction_Settings {
             "entry_limit_user_message" => sanitize_text_field( (string) ( $raw["entry_limit_user_message"] ?? "" ) ),
             "require_login"            => ! empty( $raw["require_login"] ) && "0" !== (string) $raw["require_login"] && "false" !== (string) $raw["require_login"],
             "login_required_message"   => sanitize_text_field( (string) ( $raw["login_required_message"] ?? "" ) ),
+            "poll_mode"                => ! empty( $raw["poll_mode"] ) && "0" !== (string) $raw["poll_mode"] && "false" !== (string) $raw["poll_mode"],
         ];
     }
 

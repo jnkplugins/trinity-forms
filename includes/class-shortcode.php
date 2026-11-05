@@ -24,21 +24,6 @@ class Shortcode {
         if ( ! shortcode_exists( "trinity_forms_popup" ) ) {
             add_shortcode( "trinity_forms_popup", [ self::class, "render_form" ] );
         }
-
-        // Same for Pro's poll results.
-        if ( ! shortcode_exists( "trinity_forms_poll_results" ) ) {
-            add_shortcode( "trinity_forms_poll_results", [ self::class, "render_poll_results_stub" ] );
-        }
-    }
-
-    /** Free stub for [trinity_forms_poll_results]: empty for visitors, a note for admins. */
-    public static function render_poll_results_stub( $atts ): string {
-        if ( current_user_can( "manage_options" ) ) {
-            return '<p class="trinity-forms-pro-note"><em>'
-                . esc_html__( "Showing poll results to visitors is part of Trinity Forms Pro.", "trinity-forms" )
-                . '</em></p>';
-        }
-        return "";
     }
 
     /** No-op free stub: empty for visitors; a quiet Pro note for admins only. */

@@ -42,6 +42,8 @@ class Logger {
             case "paypal":        return "PayPal";
             case "stripe":        return "Stripe";
             case "mollie":        return "Mollie";
+            case "square":        return "Square";
+            case "authorizenet":  return "Authorize.Net";
         }
         return $type;
     }

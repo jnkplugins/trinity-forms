@@ -228,7 +228,11 @@ class Anti_Spam {
                 self::flag( __( "It came without the form's time stamp, or with a forged one. Bots that post straight at the form do that.", "trinity-forms" ) );
                 return false;
             }
-            if ( ( time() - $token["issued"] ) < self::MIN_FILL_SECONDS ) {
+            // A poll is one click: a person can vote in under three seconds, and the
+            // page told them it counted. For a poll-mode form only, the too-fast rule
+            // is off; the signed token must still be genuine and fresh, and the
+            // honeypot, CAPTCHA, spam filters and per-token use cap all still apply.
+            if ( ! Poll_Results::is_poll( $form ) && ( time() - $token["issued"] ) < self::MIN_FILL_SECONDS ) {
                 self::flag( __( "Sent faster than a person can fill in a form.", "trinity-forms" ) );
                 return false;
             }

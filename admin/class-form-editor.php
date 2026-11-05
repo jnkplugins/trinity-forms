@@ -480,6 +480,19 @@ class Form_Editor {
                     <td><input type="text" class="large-text" name="trinity-forms[settings][entry_limit_user_message]" value="<?php echo esc_attr( (string) ( $settings["entry_limit_user_message"] ?? "" ) ); ?>" placeholder="<?php esc_attr_e( "You have already submitted this form.", "trinity-forms" ); ?>" /></td></tr>
             </table>
 
+            <h3><?php esc_html_e( "Poll", "trinity-forms" ); ?></h3>
+            <table class="form-table">
+                <tr><th><?php esc_html_e( "Poll mode", "trinity-forms" ); ?></th>
+                    <td>
+                        <label>
+                            <input type="hidden" name="trinity-forms[settings][poll_mode]" value="0" />
+                            <input type="checkbox" name="trinity-forms[settings][poll_mode]" value="1" <?php checked( ! empty( $settings["poll_mode"] ) ); ?> />
+                            <?php esc_html_e( "Poll: after a vote, show the results instead of the form", "trinity-forms" ); ?>
+                        </label>
+                        <p class="description"><?php esc_html_e( "The browser remembers the vote, so there is no IP check. The results show right after voting and on later visits from the same browser. The limits above, if you set one, also show the results instead of an error.", "trinity-forms" ); ?></p>
+                    </td></tr>
+            </table>
+
             <h3><?php esc_html_e( "Who can submit", "trinity-forms" ); ?></h3>
             <table class="form-table">
                 <tr><th><?php esc_html_e( "Require login", "trinity-forms" ); ?></th>

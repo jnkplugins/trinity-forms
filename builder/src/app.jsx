@@ -401,6 +401,10 @@ export default function App( { config } ) {
 			return;
 		}
 		commit( tpl.blocks || [] );
+		// A template can switch settings on (Quick poll turns Poll mode on).
+		if ( tpl.settings && Object.keys( tpl.settings ).length ) {
+			setSettings( ( prev ) => ( { ...( prev || {} ), ...tpl.settings } ) );
+		}
 		setSelectedKey( null );
 		setDirty( true );
 		setTemplatesOpen( false );
@@ -737,6 +741,13 @@ export default function App( { config } ) {
 						value={ settings.entry_limit_user_message || '' }
 						placeholder={ __( 'You have already submitted this form.', 'trinity-forms' ) }
 						onChange={ ( v ) => changeSetting( 'entry_limit_user_message', v ) }
+					/>
+					<h4 className="tf-builder__settings-subheading">{ __( 'Poll', 'trinity-forms' ) }</h4>
+					<CheckboxControl
+						label={ __( 'Poll: after a vote, show the results instead of the form', 'trinity-forms' ) }
+						help={ __( 'The browser remembers the vote, so there is no IP check. The results show right after voting and on later visits from the same browser. The limits above, if you set one, also show the results instead of an error.', 'trinity-forms' ) }
+						checked={ !! settings.poll_mode }
+						onChange={ ( v ) => changeSetting( 'poll_mode', v ) }
 					/>
 					<h4 className="tf-builder__settings-subheading">{ __( 'Who can submit', 'trinity-forms' ) }</h4>
 					<CheckboxControl

@@ -25,7 +25,7 @@ $trinity_forms_content = in_array( $trinity_forms_src, $trinity_forms_allowed, t
 $trinity_forms_pricing_url = apply_filters( "trinity_forms_upgrade_url", "https://jnkplugins.com/trinity-forms/pricing.php?utm_source=trinity-forms&utm_medium=plugin&utm_campaign=pro-upgrade&utm_content=" . rawurlencode( $trinity_forms_content ) );
 
 $trinity_forms_pro_features = [
-    [ __( "Payments", "trinity-forms" ), __( "Collect payments with Stripe, PayPal and Mollie, including recurring billing and coupons.", "trinity-forms" ) ],
+    [ __( "Payments", "trinity-forms" ), __( "Collect payments with Stripe, PayPal, Mollie, Square and Authorize.Net, including recurring billing and coupons.", "trinity-forms" ) ],
     [ __( "CRM & marketing integrations", "trinity-forms" ), __( "Send submissions to your email-marketing and CRM tools automatically.", "trinity-forms" ) ],
     [ __( "Guided forms & landing pages", "trinity-forms" ), __( "One question at a time with a progress bar, or a form on its own full-page URL. (Multi-step page breaks are already free.)", "trinity-forms" ) ],
     [ __( "Advanced fields", "trinity-forms" ), __( "Signature, repeater, calculation, rich text and chained selects.", "trinity-forms" ) ],

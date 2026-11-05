@@ -31,6 +31,12 @@ class Submission_Pipeline {
      */
     public static bool $drop_spam = false;
 
+    /**
+     * Exception code a payment adapter throws when the payer's card was refused:
+     * the message is shown to the visitor as it is, and the admin is not alerted.
+     */
+    public const DECLINED = 402;
+
     /** The payload being processed, for listeners that need a value beyond the fields. */
     private static array $current_payload = [];
 
@@ -462,6 +468,13 @@ class Submission_Pipeline {
         try {
             $checkout_url = (string) call_user_func( $adapter, $entry_id, $form, $sanitized );
         } catch ( \Throwable $e ) {
+            if ( self::DECLINED === (int) $e->getCode() ) {
+                // An on-page card was refused by the gateway. Not a broken setup, so
+                // no admin alert: the adapter logged it, and its (translated) words
+                // tell the visitor what to fix. The answers stay in the form.
+                do_action( "trinity_forms_payment_declined", $entry_id, $form, $e->getMessage() );
+                return $this->error( self::DECLINED, $e->getMessage() );
+            }
             Logger::error( "payment", $e->getMessage(), $entry_id );
             self::alert_admin_payment_failure( $form, $entry_id, $e->getMessage() );
             do_action( "trinity_forms_payment_start_failed", $entry_id, $form, $e->getMessage() );

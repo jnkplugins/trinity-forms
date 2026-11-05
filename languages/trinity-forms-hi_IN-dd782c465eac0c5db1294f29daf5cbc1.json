@@ -1,0 +1,42 @@
+{
+    "translation-revision-date": "2026-10-29 12:00+0000",
+    "generator": "WP-CLI\/2.12.0",
+    "source": "build\/poll-results\/index.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "hi_IN",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "\u2014 Select a form \u2014": [
+                "\u2014 \u092b\u093c\u0949\u0930\u094d\u092e \u091a\u0941\u0928\u0947\u0902 \u2014"
+            ],
+            "Choose form": [
+                "\u092b\u093c\u0949\u0930\u094d\u092e \u091a\u0941\u0928\u0947\u0902"
+            ],
+            "Poll results": [
+                "\u092a\u094b\u0932 \u0915\u0947 \u0928\u0924\u0940\u091c\u0947"
+            ],
+            "Only this question (field ID)": [
+                "\u0915\u0947\u0935\u0932 \u092f\u0939 \u092a\u094d\u0930\u0936\u094d\u0928 (\u092b\u093c\u0940\u0932\u094d\u0921 ID)"
+            ],
+            "Leave empty to show every choice and rating question.": [
+                "\u0939\u0930 \u0935\u093f\u0915\u0932\u094d\u092a \u0914\u0930 \u0930\u0947\u091f\u093f\u0902\u0917 \u0935\u093e\u0932\u093e \u092a\u094d\u0930\u0936\u094d\u0928 \u0926\u093f\u0916\u093e\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u0916\u093e\u0932\u0940 \u091b\u094b\u0921\u093c\u0947\u0902\u0964"
+            ],
+            "Show the results only after the visitor votes": [
+                "\u0928\u0924\u0940\u091c\u0947 \u0915\u0947\u0935\u0932 \u0906\u0917\u0902\u0924\u0941\u0915 \u0915\u0947 \u0935\u094b\u091f \u0926\u0947\u0928\u0947 \u0915\u0947 \u092c\u093e\u0926 \u0926\u093f\u0916\u093e\u090f\u0901"
+            ],
+            "Trinity Forms Poll Results": [
+                "Trinity Forms \u092a\u094b\u0932 \u0915\u0947 \u0928\u0924\u0940\u091c\u0947"
+            ],
+            "The results appear here on the published page.": [
+                "\u0928\u0924\u0940\u091c\u0947 \u092a\u094d\u0930\u0915\u093e\u0936\u093f\u0924 \u092a\u0947\u091c \u092a\u0930 \u092f\u0939\u093e\u0901 \u0926\u093f\u0916\u0947\u0902\u0917\u0947\u0964"
+            ],
+            "Pick the poll whose results visitors should see.": [
+                "\u0935\u0939 \u092a\u094b\u0932 \u091a\u0941\u0928\u0947\u0902 \u091c\u093f\u0938\u0915\u0947 \u0928\u0924\u0940\u091c\u0947 \u0906\u0917\u0902\u0924\u0941\u0915 \u0926\u0947\u0916\u0947\u0902\u0964"
+            ]
+        }
+    }
+}

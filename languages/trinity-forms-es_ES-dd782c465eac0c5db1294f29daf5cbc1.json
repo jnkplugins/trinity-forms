@@ -1,0 +1,42 @@
+{
+    "translation-revision-date": "2026-10-10 16:35+0000",
+    "generator": "WP-CLI\/2.12.0",
+    "source": "build\/poll-results\/index.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "es_ES",
+                "plural-forms": "nplurals=2; plural=n != 1;"
+            },
+            "\u2014 Select a form \u2014": [
+                "\u2014 Selecciona un formulario \u2014"
+            ],
+            "Choose form": [
+                "Elige un formulario"
+            ],
+            "Poll results": [
+                "Resultados de la encuesta"
+            ],
+            "Only this question (field ID)": [
+                "Solo esta pregunta (ID del campo)"
+            ],
+            "Leave empty to show every choice and rating question.": [
+                "D\u00e9jalo vac\u00edo para mostrar todas las preguntas de opci\u00f3n y valoraci\u00f3n."
+            ],
+            "Show the results only after the visitor votes": [
+                "Mostrar los resultados solo despu\u00e9s de que el visitante vote"
+            ],
+            "Trinity Forms Poll Results": [
+                "Resultados de encuesta de Trinity Forms"
+            ],
+            "The results appear here on the published page.": [
+                "Los resultados aparecen aqu\u00ed en la p\u00e1gina publicada."
+            ],
+            "Pick the poll whose results visitors should see.": [
+                "Elige la encuesta cuyos resultados ver\u00e1n los visitantes."
+            ]
+        }
+    }
+}

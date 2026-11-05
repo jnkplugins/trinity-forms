@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.24.0
+Stable tag: 2.25.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,12 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.25.0 =
+* Fixed: a vote on a Poll-mode form sent within about three seconds of the page loading was counted as spam while the visitor was told thanks. Polls no longer use the too-fast rule (the honeypot, the signed page token and the other spam checks still apply); other forms are unchanged.
+* New: Poll mode. Tick "Poll: after a vote, show the results instead of the form" in a form's Restrictions settings (block editor or Visual Builder) and visitors see the results bars with percentages and counts right after voting, and on every later visit from the same browser. The browser remembers the vote, so there is no IP check to block people on shared networks; the optional per-user and per-IP limits, if you set one, show the results instead of an error. The page markup is the same for everyone, so full-page caches are fine, and with JavaScript off the form simply shows. Free-text answers are never shown.
+* New: a "Quick poll" template: one required question with three answers, Poll mode on, no entry limits and no email per vote.
+* New: visitors can see poll results. Put {poll_results} in a confirmation (or {poll_results:field_id} for one question), or add the [trinity_forms_poll_results id="12"] shortcode or the Poll Results block to a page, with an option to show the results only after the visitor votes. Works on cached pages; free-text answers are never shown.
 
 = 2.24.0 =
 * Fixed: a Page break's "Next button text" and "Previous button text" are used on the form. They were saved but every step showed "Next" / "Previous".

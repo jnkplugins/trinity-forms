@@ -145,6 +145,17 @@ class Form_Renderer {
         // its message rather than drawn and then rejected on submit. Same gate the
         // pipeline runs, so the two can't drift.
         $blocked = Restrictions::check( $form );
+        // Poll mode: a visitor a per-user limit stopped has voted, so show the results
+        // rather than "you have already submitted". (A per-IP stop is handled on
+        // submit, below: the page may come from a cache that was built for someone else.)
+        if ( $blocked && "user_limit_reached" === $blocked["reason"] && Poll_Results::is_poll( $form ) ) {
+            return Poll_Results::results_instead_of_form( $form );
+        }
+        // A per-IP stop on a poll is not allowed to change the page: the form is drawn
+        // as for everyone (a cache may keep this HTML), and the submit shows the results.
+        if ( $blocked && "ip_limit_reached" === $blocked["reason"] && Poll_Results::is_poll( $form ) ) {
+            $blocked = null;
+        }
         if ( $blocked ) {
             return '<div class="trinity-forms-closed trinity-forms-closed-' . esc_attr( $blocked["reason"] ) . '">'
                 . wp_kses_post( wpautop( $blocked["message"] ) )
@@ -273,6 +284,9 @@ class Form_Renderer {
 
         $html .= $fields_html;
         $html .= self::turnstile_widget( $form );
+        // Extension point just above the buttons (Pro card fields). Filtered value
+        // must be pre-escaped HTML; free core adds nothing.
+        $html .= (string) apply_filters( "trinity_forms_form_before_actions", "", $form );
         $html .= '<div class="trinity-forms-actions">';
         if ( $multi ) {
             $html .= '<button type="button" class="trinity-forms-prev" hidden>' . esc_html__( "Previous", "trinity-forms" ) . '</button> ';
@@ -295,7 +309,7 @@ class Form_Renderer {
         // Analytics + add-ons: a form was rendered on the page.
         do_action( "trinity_forms_form_rendered", $form->id );
 
-        return $html;
+        return Poll_Results::is_poll( $form ) ? Poll_Results::wrap_form( $form, $html ) : $html;
     }
 
     /**

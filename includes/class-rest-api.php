@@ -184,6 +184,13 @@ class REST_API {
             $payload[ Campaign::INPUT ] = substr( $campaign, 0, 4000 );
         }
 
+        // One-time card token from an on-page card field (Pro Square / Authorize.Net):
+        // the gateway's stand-in for the card, never card data itself.
+        $card_token = $request->get_param( "_trinity_forms_card_token" );
+        if ( is_string( $card_token ) && "" !== $card_token ) {
+            $payload["_trinity_forms_card_token"] = substr( $card_token, 0, 4096 );
+        }
+
         $resume_token = (string) $request->get_param( "_trinity_forms_resume_token" );
         if ( $resume_token ) {
             $payload["_trinity_forms_resume_token"] = $resume_token;

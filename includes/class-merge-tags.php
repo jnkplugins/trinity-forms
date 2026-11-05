@@ -86,11 +86,11 @@ class Merge_Tags {
 
         $core_tags = self::core_tags( $entry, $entry_id );
 
-        // Tags that cost a query (Pro's {poll_results}) look at the template first,
+        // Tags that cost a query ({poll_results}) look at the template first,
         // so they only run when it uses them.
         $template = (string) apply_filters( "trinity_forms_merge_template", $template, $entry_id, (int) $entry["form_id"] );
-        // Without Pro (or before it is licensed) nothing fills {poll_results}: print
-        // nothing rather than the raw tag to the person who just voted.
+        // Anything the filter above left alone (no form, or a filter removed by a
+        // plugin): print nothing rather than the raw tag to the person who just voted.
         $template = (string) preg_replace( '/\{poll_results(?::[a-z0-9_\-]+)?\}/i', "", $template );
 
         // Tags that carry an argument ({user:first_name}, {today:d/m/Y}) can't live

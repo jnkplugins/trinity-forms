@@ -805,6 +805,15 @@
             "You have already submitted this form.": [
                 "Ya has enviado este formulario."
             ],
+            "Poll": [
+                "Encuesta"
+            ],
+            "Poll: after a vote, show the results instead of the form": [
+                "Encuesta: tras votar, mostrar los resultados en lugar del formulario"
+            ],
+            "The browser remembers the vote, so there is no IP check. The results show right after voting and on later visits from the same browser. The limits above, if you set one, also show the results instead of an error.": [
+                "El navegador recuerda el voto, as\u00ed que no hay comprobaci\u00f3n de IP. Los resultados aparecen justo despu\u00e9s de votar y en las visitas posteriores desde el mismo navegador. Los l\u00edmites de arriba, si pones alguno, tambi\u00e9n muestran los resultados en lugar de un error."
+            ],
             "Who can submit": [
                 "Qui\u00e9n puede enviar"
             ],

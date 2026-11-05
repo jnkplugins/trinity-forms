@@ -376,6 +376,9 @@ Admin_UI::open(
                                 <?php if ( ! empty( $entry["payment_amount"] ) ) : ?>
                                     <span class="jnkui-sub"><?php echo esc_html( $entry["payment_amount"] . " " . (string) $entry["payment_currency"] ); ?></span>
                                 <?php endif; ?>
+                                <?php if ( ! empty( $entry["payment_id"] ) ) : ?>
+                                    <span class="jnkui-sub"><?php esc_html_e( "Transaction ID", "trinity-forms" ); ?>: <bdi dir="ltr"><code><?php echo esc_html( (string) $entry["payment_id"] ); ?></code></bdi></span>
+                                <?php endif; ?>
                             </dd></div>
                     <?php endif; ?>
                     <?php if ( ! empty( $entry["user_id"] ) ) :

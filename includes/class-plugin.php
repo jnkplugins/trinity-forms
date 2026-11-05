@@ -19,6 +19,8 @@ final class Plugin {
         Field_Registry::bootstrap();
         // Field blocks' starting labels/placeholders/choices in the site's language.
         Block_Defaults::register();
+        // Poll results and Poll mode for visitors (free): {poll_results}, the shortcode, the block.
+        Poll_Results::register();
         Submission_Pipeline::bootstrap();
         CLI::register();
         Scoring::bootstrap();
@@ -192,6 +194,7 @@ final class Plugin {
             "field-rating",
             "field-consent",
             "field-file",
+            "poll-results",
         ];
         foreach ( $blocks as $slug ) {
             self::register_block_dir( TRINITY_FORMS_PATH . "build/{$slug}", TRINITY_FORMS_PATH . "blocks/{$slug}" );

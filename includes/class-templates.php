@@ -146,6 +146,14 @@ class Templates {
                 [ "textarea", [ "fieldId" => "testimonial", "label" => __( "Your testimonial", "trinity-forms" ), "required" => true ] ],
                 [ "consent",  [ "fieldId" => "consent",     "label" => __( "Consent", "trinity-forms" ), "consent_text" => __( "I agree to have this testimonial published.", "trinity-forms" ), "required" => true ] ],
             ] ],
+            // One required question, poll mode on, no IP limit: the browser remembers the vote.
+            "quick-poll" => [ "name" => __( "Quick poll", "trinity-forms" ), "desc" => __( "One question with a few answers. After voting, visitors see the results.", "trinity-forms" ), "icon" => "chart-bar", "fields" => [
+                [ "radio", [ "fieldId" => "choice", "label" => __( "Which do you prefer?", "trinity-forms" ), "required" => true, "options" => self::opts( [ "a" => __( "Option A", "trinity-forms" ), "b" => __( "Option B", "trinity-forms" ), "c" => __( "Option C", "trinity-forms" ) ] ) ] ],
+            ], "settings" => [
+                "poll_mode"            => true,
+                "submit_button_text"   => __( "Vote", "trinity-forms" ),
+                "confirmation_message" => __( "Thanks for your vote!", "trinity-forms" ),
+            ] ],
         ];
         return (array) apply_filters( "trinity_forms_templates", $t );
     }
@@ -164,7 +172,20 @@ class Templates {
             "post_title"   => $tpl["name"],
             "post_content" => self::content_for( $slug ),
         ] ), true );
-        return is_wp_error( $post_id ) ? 0 : (int) $post_id;
+        if ( is_wp_error( $post_id ) ) {
+            return 0;
+        }
+        // Settings the template switches on. They live in the form's settings meta,
+        // which replaces the defaults as a whole, so start from the defaults. A
+        // template that sets any also owns its notifications: a poll does not email
+        // the owner once per vote.
+        if ( ! empty( $tpl["settings"] ) && is_array( $tpl["settings"] ) ) {
+            update_post_meta( (int) $post_id, Form::SETTINGS_META, [
+                "settings"      => array_merge( Form_Manager::default_schema()["settings"], $tpl["settings"] ),
+                "notifications" => [],
+            ] );
+        }
+        return (int) $post_id;
     }
 
     public static function handle_use(): void {

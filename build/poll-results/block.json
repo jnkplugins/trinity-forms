@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "trinity-forms/poll-results",
+  "title": "Trinity Forms Poll Results",
+  "description": "Show visitors the results of a poll or survey form.",
+  "category": "widgets",
+  "icon": "chart-bar",
+  "textdomain": "trinity-forms",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "formId": {
+      "type": "number",
+      "default": 0
+    },
+    "field": {
+      "type": "string",
+      "default": ""
+    },
+    "afterVote": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}
