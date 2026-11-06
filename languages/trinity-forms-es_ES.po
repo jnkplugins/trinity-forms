@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-06T15:21:23+00:00\n"
+"POT-Creation-Date: 2026-11-06T16:02:53+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Spanish (Spain)\n"
@@ -3331,12 +3331,12 @@ msgstr "Número"
 msgid "Option"
 msgstr "Opción"
 
-#: includes/class-block-defaults.php:51 public/class-form-renderer.php:293
-#: public/class-form-renderer.php:359
+#: includes/class-block-defaults.php:51 public/class-form-renderer.php:300
+#: public/class-form-renderer.php:366
 msgid "Next"
 msgstr "Siguiente"
 
-#: includes/class-block-defaults.php:52 public/class-form-renderer.php:359
+#: includes/class-block-defaults.php:52 public/class-form-renderer.php:366
 msgid "Back"
 msgstr "Atrás"
 
@@ -5382,19 +5382,19 @@ msgstr "%s: opciones que se llenaban con entradas o categorías"
 msgid "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note."
 msgstr "Los visitantes no ven nada aquí: el formulario #%d se eliminó o no está publicado. Solo quienes pueden editar el sitio ven este aviso."
 
-#: public/class-form-renderer.php:249
+#: public/class-form-renderer.php:256
 msgid "Welcome back — we restored the answers you saved. Check them and carry on."
 msgstr "Hola de nuevo. Hemos recuperado las respuestas que guardaste. Revísalas y continúa."
 
-#: public/class-form-renderer.php:292 public/class-form-renderer.php:359
+#: public/class-form-renderer.php:299 public/class-form-renderer.php:366
 msgid "Previous"
 msgstr "Anterior"
 
-#: public/class-form-renderer.php:303
+#: public/class-form-renderer.php:310
 msgid "Save & continue later"
 msgstr "Guardar y continuar más tarde"
 
-#: public/class-form-renderer.php:537
+#: public/class-form-renderer.php:577
 msgid "Thank you — your submission was received."
 msgstr "Gracias, hemos recibido tu envío."
 

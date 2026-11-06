@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.25.1
+Stable tag: 2.25.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,9 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.25.2 =
+* Changed: nothing changes in the free version. This release fixes where Pro payment pages send visitors back to.
 
 = 2.25.1 =
 * Changed: nothing changes in the free version. This release updates the Stripe library used by Pro payments (no notice on PHP 8.5).

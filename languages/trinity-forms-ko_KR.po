@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-06T15:21:23+00:00\n"
+"POT-Creation-Date: 2026-11-06T16:02:53+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Korean\n"
@@ -3329,12 +3329,12 @@ msgstr "숫자"
 msgid "Option"
 msgstr "옵션"
 
-#: includes/class-block-defaults.php:51 public/class-form-renderer.php:293
-#: public/class-form-renderer.php:359
+#: includes/class-block-defaults.php:51 public/class-form-renderer.php:300
+#: public/class-form-renderer.php:366
 msgid "Next"
 msgstr "다음"
 
-#: includes/class-block-defaults.php:52 public/class-form-renderer.php:359
+#: includes/class-block-defaults.php:52 public/class-form-renderer.php:366
 msgid "Back"
 msgstr "뒤로"
 
@@ -5367,19 +5367,19 @@ msgstr "%s: 글이나 카테고리로 채워지는 선택지"
 msgid "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note."
 msgstr "방문자에게는 여기에 아무것도 보이지 않습니다. 양식 #%d이(가) 삭제되었거나 게시되지 않았습니다. 이 안내는 사이트를 편집할 수 있는 사람에게만 보입니다."
 
-#: public/class-form-renderer.php:249
+#: public/class-form-renderer.php:256
 msgid "Welcome back — we restored the answers you saved. Check them and carry on."
 msgstr "다시 오셨군요. 저장한 답변을 복원했습니다. 확인하고 계속 진행하세요."
 
-#: public/class-form-renderer.php:292 public/class-form-renderer.php:359
+#: public/class-form-renderer.php:299 public/class-form-renderer.php:366
 msgid "Previous"
 msgstr "이전"
 
-#: public/class-form-renderer.php:303
+#: public/class-form-renderer.php:310
 msgid "Save & continue later"
 msgstr "저장 후 나중에 계속"
 
-#: public/class-form-renderer.php:537
+#: public/class-form-renderer.php:577
 msgid "Thank you — your submission was received."
 msgstr "감사합니다. 제출이 접수되었습니다."
 

@@ -88,7 +88,7 @@ final class Plugin {
         // sending inline, so a 200-entry resend doesn't time out the request.
         add_action( "trinity_forms_resend_notification", [ Notification_Engine::class, "dispatch" ] );
 
-        add_filter( "the_content", [ Form_Renderer::class, "maybe_render_resume_notice" ] );
+        add_filter( "the_content", [ Form_Renderer::class, "maybe_render_resume_notice" ], 20 );
 
         add_action( "wp_enqueue_scripts", [ Public_Front::class, "enqueue_assets" ] );
         add_action( "wp_ajax_trinity_forms_nonce",        [ Public_Front::class, "ajax_nonce" ] );

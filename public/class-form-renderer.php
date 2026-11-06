@@ -141,6 +141,13 @@ class Form_Renderer {
     }
 
     private static function render_form( Form $form ): string {
+        // Back from a payment page for this form: show its confirmation where the
+        // form was (as an AJAX submit does), not an empty form under a notice.
+        $paid_entry = self::payment_return_for( $form );
+        if ( $paid_entry ) {
+            return self::payment_return_html( $paid_entry );
+        }
+
         // A form that is closed, not open yet, full, or login-gated is replaced by
         // its message rather than drawn and then rejected on submit. Same gate the
         // pipeline runs, so the two can't drift.
@@ -517,29 +524,58 @@ class Form_Renderer {
         return '<div class="' . esc_attr( $class ) . '" data-sitekey="' . esc_attr( $site_key ) . '"></div>';
     }
 
-    public static function maybe_render_resume_notice( string $content ): string {
-        if ( empty( $_GET["trinity_forms_success"] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only list/UI parameter from GET; no state change.
-            return $content;
+    /** The payment return in this request: its token, the entry it names, and whether its message was shown. */
+    private static array $payment_return = [ "token" => null, "entry" => 0, "shown" => false ];
+
+    /**
+     * The entry a payment page just sent the visitor back for (?trinity_forms_success=<token>),
+     * or 0. The token is single-use, so it is read once per request and remembered: the form
+     * on the page and the the_content fallback must agree on it.
+     */
+    public static function payment_return_entry(): int {
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only display token, validated against a transient.
+        $token = isset( $_GET["trinity_forms_success"] ) ? sanitize_text_field( wp_unslash( (string) $_GET["trinity_forms_success"] ) ) : "";
+        if ( self::$payment_return["token"] === $token ) {
+            return self::$payment_return["entry"];
         }
+        self::$payment_return = [ "token" => $token, "entry" => 0, "shown" => false ];
         // HIGH-04: validate the opaque token; never expose or accept raw entry IDs.
-        $token = sanitize_text_field( wp_unslash( (string) $_GET["trinity_forms_success"] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only list/UI parameter from GET; no state change.
         if ( ! preg_match( '/^[0-9a-f]{32}$/', $token ) ) {
-            return $content;
+            return 0;
         }
         $entry_id = (int) get_transient( "trinity_forms_success_" . $token );
-        if ( ! $entry_id ) {
-            return $content;
+        if ( $entry_id ) {
+            delete_transient( "trinity_forms_success_" . $token );
+            self::$payment_return["entry"] = $entry_id;
         }
-        delete_transient( "trinity_forms_success_" . $token );
+        return $entry_id;
+    }
+
+    /** The form a payment return is for, when it is $form and its message has not been shown yet. */
+    private static function payment_return_for( Form $form ): int {
+        $entry_id = self::payment_return_entry();
+        if ( ! $entry_id || self::$payment_return["shown"] ) {
+            return 0;
+        }
+        return self::entry_form_id( $entry_id ) === (int) $form->id ? $entry_id : 0;
+    }
+
+    private static function entry_form_id( int $entry_id ): int {
+        global $wpdb;
+        return (int) $wpdb->get_var( $wpdb->prepare(
+            "SELECT form_id FROM {$wpdb->prefix}trinity_forms_entries WHERE id = %d",
+            $entry_id
+        ) );
+    }
+
+    /** The confirmation shown after a payment page sends the visitor back. */
+    private static function payment_return_html( int $entry_id ): string {
+        self::$payment_return["shown"] = true;
 
         // Use the form's configured confirmation message (matching the AJAX path)
         // rather than a hardcoded string. Fall back to a generic default.
         $message = __( "Thank you — your submission was received.", "trinity-forms" );
-        global $wpdb;
-        $form_id = (int) $wpdb->get_var( $wpdb->prepare(
-            "SELECT form_id FROM {$wpdb->prefix}trinity_forms_entries WHERE id = %d",
-            $entry_id
-        ) );
+        $form_id = self::entry_form_id( $entry_id );
         if ( $form_id > 0 ) {
             $form = Form_Manager::get( $form_id );
             if ( $form ) {
@@ -553,6 +589,20 @@ class Form_Renderer {
         /** The message after a payment page sends the visitor back (Pro quotes have their own). */
         $message = (string) apply_filters( "trinity_forms_payment_return_message", $message, $entry_id );
 
-        return '<div class="trinity-forms-confirmation">' . Confirmations::html( $message ) . '</div>' . $content;
+        return '<div class="trinity-forms-confirmation" role="status">' . Confirmations::html( $message ) . '</div>';
+    }
+
+    /**
+     * Fallback for a payment return on a page that does not draw the form (the form moved,
+     * or an old checkout sent the visitor to the home page): the message goes above the
+     * content, once. Runs after blocks and shortcodes (priority 20), so a form on the page
+     * has already put the message in its own place and this does nothing.
+     */
+    public static function maybe_render_resume_notice( string $content ): string {
+        $entry_id = self::payment_return_entry();
+        if ( ! $entry_id || self::$payment_return["shown"] ) {
+            return $content;
+        }
+        return self::payment_return_html( $entry_id ) . $content;
     }
 }
