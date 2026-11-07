@@ -619,6 +619,15 @@
             "Moving %s was cancelled.": [
                 "Se ha cancelado el movimiento de %s."
             ],
+            "Form saved. It is published, so it shows wherever you embed it.": [
+                "Formulario guardado. Est\u00e1 publicado, as\u00ed que aparece donde lo insertes."
+            ],
+            "Form saved as a draft. Visitors will not see it until you publish it.": [
+                "Formulario guardado como borrador. Los visitantes no lo ver\u00e1n hasta que lo publiques."
+            ],
+            "Could not save this form.": [
+                "No se ha podido guardar este formulario."
+            ],
             "Form title": [
                 "T\u00edtulo del formulario"
             ],
@@ -642,6 +651,12 @@
             ],
             "Settings": [
                 "Ajustes"
+            ],
+            "Every setting of this form: emails, layout, save and continue, popup, payments, integrations and more": [
+                "Todos los ajustes de este formulario: correos, dise\u00f1o, guardar y continuar, ventana emergente, pagos, integraciones y m\u00e1s"
+            ],
+            "All settings": [
+                "Todos los ajustes"
             ],
             "Copy the shortcode that puts this form on a page or post": [
                 "Copia el shortcode que pone este formulario en una p\u00e1gina o entrada"
@@ -685,15 +700,6 @@
             "Published": [
                 "Publicado"
             ],
-            "Form saved. It is published, so it shows wherever you embed it.": [
-                "Formulario guardado. Est\u00e1 publicado, as\u00ed que aparece donde lo insertes."
-            ],
-            "Form saved as a draft. Visitors will not see it until you publish it.": [
-                "Formulario guardado como borrador. Los visitantes no lo ver\u00e1n hasta que lo publiques."
-            ],
-            "Could not save this form.": [
-                "No se ha podido guardar este formulario."
-            ],
             "Saving\u2026": [
                 "Guardando\u2026"
             ],
@@ -711,6 +717,12 @@
             ],
             "Form settings": [
                 "Ajustes del formulario"
+            ],
+            "Emails, layout, save and continue, popup, payments and the rest are under All settings.": [
+                "Los correos, el dise\u00f1o, guardar y continuar, la ventana emergente, los pagos y lo dem\u00e1s est\u00e1n en Todos los ajustes."
+            ],
+            "Open All settings": [
+                "Abrir Todos los ajustes"
             ],
             "Submit button text": [
                 "Texto del bot\u00f3n de env\u00edo"
@@ -831,6 +843,9 @@
             ],
             "Done": [
                 "Hecho"
+            ],
+            "Press Save settings at the bottom before you close this window.": [
+                "Pulsa Guardar ajustes abajo antes de cerrar esta ventana."
             ],
             "Start from a template": [
                 "Empezar desde una plantilla"

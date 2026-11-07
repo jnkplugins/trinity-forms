@@ -121,6 +121,9 @@ export default function App( { config } ) {
 	const [ settings, setSettings ] = useState( null );
 	const [ pages, setPages ] = useState( [] );
 	const [ settingsOpen, setSettingsOpen ] = useState( false );
+	// "All settings": the form's full settings box (notifications, payments, save
+	// and continue, popup, workflow...) in a window. Holds the tab to open, or null.
+	const [ allSettings, setAllSettings ] = useState( null );
 	const changeSetting = ( key, value ) => {
 		setSettings( ( prev ) => ( { ...( prev || {} ), [ key ]: value } ) );
 		setDirty( true );
@@ -413,7 +416,7 @@ export default function App( { config } ) {
 	const save = () => {
 		setSaving( true );
 		setNotice( null );
-		apiFetch( {
+		return apiFetch( {
 			path,
 			method: 'POST',
 			data: {
@@ -446,6 +449,7 @@ export default function App( { config } ) {
 							? __( 'Form saved. It is published, so it shows wherever you embed it.', 'trinity-forms' )
 							: __( 'Form saved as a draft. Visitors will not see it until you publish it.', 'trinity-forms' ),
 				} );
+				return true;
 			} )
 			.catch( ( err ) => {
 				setSaving( false );
@@ -454,14 +458,40 @@ export default function App( { config } ) {
 				const status = err && err.data ? err.data.status : null;
 				if ( status === 409 || ( err && err.code === 'trinity_forms_builder_conflict' ) ) {
 					setConflict( true );
-					return;
+					return false;
 				}
 				setNotice( {
 					status: 'error',
 					text: ( err && err.message ) || __( 'Could not save this form.', 'trinity-forms' ),
 				} );
+				return false;
 			} );
 	};
+
+	// The settings window saves the same settings this screen holds (submit text,
+	// confirmation, restrictions), so unsaved changes here go first, or the window
+	// would show, and a save there keep, the old values.
+	const openAllSettings = ( tab ) => {
+		setSettingsOpen( false );
+		if ( ! dirty ) {
+			setAllSettings( tab );
+			return;
+		}
+		save().then( ( ok ) => ok && setAllSettings( tab ) );
+	};
+
+	// After a save in the window, take its values, or the next Save form here would
+	// put the old ones back.
+	useEffect( () => {
+		const onMessage = ( e ) => {
+			if ( e.origin !== window.location.origin || ! e.data || Number( e.data.trinityFormsSettingsSaved ) !== Number( config.formId ) ) {
+				return;
+			}
+			apiFetch( { path } ).then( ( data ) => setSettings( data.settings || null ) ).catch( () => {} );
+		};
+		window.addEventListener( 'message', onMessage );
+		return () => window.removeEventListener( 'message', onMessage );
+	}, [ path ] );
 
 	if ( loading ) {
 		return (
@@ -514,6 +544,16 @@ export default function App( { config } ) {
 							{ __( 'Settings', 'trinity-forms' ) }
 						</Button>
 					) }
+					{ config.allSettingsUrl && (
+						<Button
+							variant="tertiary"
+							onClick={ () => openAllSettings( 'general' ) }
+							label={ __( 'Every setting of this form: emails, layout, save and continue, popup, payments, integrations and more', 'trinity-forms' ) }
+							showTooltip
+						>
+							{ __( 'All settings', 'trinity-forms' ) }
+						</Button>
+					) }
 					{ config.formId > 0 && (
 						<div className="tf-builder__shortcode">
 							<code
@@ -552,7 +592,17 @@ export default function App( { config } ) {
 							{ __( 'Create a page', 'trinity-forms' ) }
 						</Button>
 					) }
-					{ config.blockEditorUrl && (
+					{ config.allSettingsUrl && (
+						<Button
+							variant="tertiary"
+							onClick={ () => openAllSettings( 'notifications' ) }
+							label={ __( 'Set up the emails sent when this form is submitted', 'trinity-forms' ) }
+							showTooltip
+						>
+							{ __( 'Notifications', 'trinity-forms' ) }
+						</Button>
+					) }
+					{ ! config.allSettingsUrl && config.blockEditorUrl && (
 						<Button
 							variant="tertiary"
 							href={ `${ config.blockEditorUrl }#trinity-forms-notifications` }
@@ -638,6 +688,14 @@ export default function App( { config } ) {
 					onRequestClose={ () => setSettingsOpen( false ) }
 					className="tf-builder__settings-modal"
 				>
+					{ config.allSettingsUrl && (
+						<p className="tf-builder__palette-hint">
+							{ __( 'Emails, layout, save and continue, popup, payments and the rest are under All settings.', 'trinity-forms' ) }{ ' ' }
+							<Button variant="link" onClick={ () => openAllSettings( 'general' ) }>
+								{ __( 'Open All settings', 'trinity-forms' ) }
+							</Button>
+						</p>
+					) }
 					<TextControl
 						label={ __( 'Submit button text', 'trinity-forms' ) }
 						value={ settings.submit_button_text || '' }
@@ -767,6 +825,23 @@ export default function App( { config } ) {
 					<Button variant="primary" onClick={ () => setSettingsOpen( false ) }>
 						{ __( 'Done', 'trinity-forms' ) }
 					</Button>
+				</Modal>
+			) }
+
+			{ allSettings && config.allSettingsUrl && (
+				<Modal
+					title={ __( 'All settings', 'trinity-forms' ) }
+					onRequestClose={ () => setAllSettings( null ) }
+					className="tf-builder__all-settings-modal"
+				>
+					<p className="tf-builder__palette-hint">
+						{ __( 'Press Save settings at the bottom before you close this window.', 'trinity-forms' ) }
+					</p>
+					<iframe
+						title={ __( 'All settings', 'trinity-forms' ) }
+						src={ `${ config.allSettingsUrl }#tf-tab-${ allSettings }` }
+						className="tf-builder__all-settings-frame"
+					/>
 				</Modal>
 			) }
 

@@ -41,7 +41,7 @@ class Field_Password extends Field_Base {
     public function sanitize( $raw, array $config ) {
         // No sanitizing beyond a string cast: stripping characters would silently
         // change somebody's password into one they cannot type again.
-        return is_scalar( $raw ) ? (string) $raw : "";
+        return self::text( $raw );
     }
 
     public function validate( $value, array $config ): array {

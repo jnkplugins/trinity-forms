@@ -58,7 +58,7 @@ class Poll_Results {
     public static function register_assets(): void {
         wp_register_script(
             "trinity-forms-poll-results",
-            TRINITY_FORMS_URL . "public/assets/js/poll-results.js",
+            \TrinityForms\Public_Front::asset_url( "public/assets/js/poll-results.js" ),
             [],
             TRINITY_FORMS_VERSION,
             true
@@ -216,6 +216,7 @@ class Poll_Results {
 
     /** @param array<string,mixed>|string $atts */
     public static function shortcode( $atts ): string {
+        Public_Front::need_assets();
         $atts     = shortcode_atts( [ "id" => 0, "field" => "", "after_vote" => "0" ], (array) $atts, self::SHORTCODE );
         $form_id  = (int) $atts["id"];
         $field_id = sanitize_key( (string) $atts["field"] );

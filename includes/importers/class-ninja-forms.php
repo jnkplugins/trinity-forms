@@ -212,7 +212,7 @@ class Ninja_Forms extends Base_Importer {
         $rows = $wpdb->get_results( "SELECT parent_id, `key`, value FROM " . self::table( $table ) . " WHERE parent_id IN ({$in}) ORDER BY id ASC", ARRAY_A );
         $out  = [];
         foreach ( (array) $rows as $r ) {
-            $out[ (int) $r["parent_id"] ][ (string) $r["key"] ] = maybe_unserialize( $r["value"] );
+            $out[ (int) $r["parent_id"] ][ (string) $r["key"] ] = self::unserialize_safe( $r["value"] );
         }
         return $out;
     }
@@ -639,7 +639,7 @@ class Ninja_Forms extends Base_Importer {
                         continue;
                     }
                     $tid   = $map[ $key ];
-                    $value = maybe_unserialize( $stored[0] ?? "" );
+                    $value = self::unserialize_safe( $stored[0] ?? "" );
                     $type  = $types[ $tid ] ?? "text";
                     if ( isset( $dates[ $key ] ) && "date" === $type ) {
                         $value = self::ymd( $value, $dates[ $key ] );

@@ -202,9 +202,12 @@ class Notification_Engine {
             if ( "" === $path ) {
                 continue;
             }
-            // Private root (2.4.1+) or uploads (older entries); nothing else.
-            if ( Private_Files::is_managed_path( $path ) && is_readable( $path ) ) {
-                $out[] = $path;
+            // Private root (2.4.1+) or uploads (older entries); nothing else. The
+            // resolved path is what gets attached, so a row holding "../" or a
+            // symlink can never reach outside those folders.
+            $real = Private_Files::real_managed_path( $path );
+            if ( "" !== $real && is_readable( $real ) ) {
+                $out[] = $real;
             }
         }
         return $out;

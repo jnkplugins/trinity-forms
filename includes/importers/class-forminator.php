@@ -575,7 +575,7 @@ class Forminator extends Base_Importer {
                     }
                     $tid   = $ids[ $key ];
                     $type  = $types[ $tid ] ?? "text";
-                    $value = maybe_unserialize( $m["meta_value"] );
+                    $value = self::unserialize_safe( $m["meta_value"] );
                     if ( "file" === $type && is_array( $value ) ) {
                         $urls  = (array) ( $value["file"]["file_url"] ?? [] );
                         $value = implode( "\n", array_map( "strval", $urls ) );

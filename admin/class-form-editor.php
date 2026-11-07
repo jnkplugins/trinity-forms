@@ -12,7 +12,7 @@ defined( "ABSPATH" ) || exit;
  */
 class Form_Editor {
 
-    private const NONCE = "trinity_forms_form_editor_nonce";
+    public const NONCE = "trinity_forms_form_editor_nonce";
 
     /**
      * The moments a notification can be attached to.
@@ -40,6 +40,16 @@ class Form_Editor {
         if ( ! $screen || $screen->post_type !== "trinity_forms_form" || ! in_array( $screen->base, [ "post", "post-new" ], true ) ) {
             return;
         }
+        $editor_post = get_post();
+        self::enqueue_for( $editor_post ? (int) $editor_post->ID : 0 );
+    }
+
+    /**
+     * The settings box's CSS/JS for one form. Also used by the Visual Builder's
+     * "All settings" window (Form_Builder::render_settings), which shows the same box.
+     */
+    public static function enqueue_for( int $post_id ): void {
+        $editor_post = $post_id ? get_post( $post_id ) : null;
         // The front-end stylesheet too, for the style preview on the Layout tab.
         wp_enqueue_style( "trinity-forms", TRINITY_FORMS_URL . "public/assets/css/public.css", [], TRINITY_FORMS_VERSION );
         do_action( "trinity_forms_enqueue_style_preview" );
@@ -47,7 +57,6 @@ class Form_Editor {
         wp_enqueue_script( "trinity-forms-form-editor", TRINITY_FORMS_URL . "admin/assets/js/form-editor.js", [], TRINITY_FORMS_VERSION, true );
         // The "add notification" template needs the form's fields so a newly added
         // notification can be routed to one without saving and reloading first.
-        $editor_post = get_post();
         $tpl_fields  = $editor_post ? self::field_options( (int) $editor_post->ID ) : [];
 
         wp_localize_script( "trinity-forms-form-editor", "TrinityFormsFormEditor", [
@@ -888,7 +897,7 @@ class Form_Editor {
     public static function save( int $post_id, \WP_Post $post ): void {
         if ( $post->post_type !== "trinity_forms_form" ) { return; }
         if ( wp_is_post_autosave( $post_id ) || wp_is_post_revision( $post_id ) ) { return; }
-        if ( ! current_user_can( "edit_post", $post_id ) ) { return; }
+        if ( ! current_user_can( Admin::CAP ) || ! current_user_can( "edit_post", $post_id ) ) { return; }
         if ( empty( $_POST[ self::NONCE ] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST[ self::NONCE ] ) ), self::NONCE ) ) { return; }
         if ( empty( $_POST["trinity-forms"] ) || ! is_array( $_POST["trinity-forms"] ) ) { return; }
 

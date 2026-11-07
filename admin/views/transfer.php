@@ -11,7 +11,7 @@ defined( "ABSPATH" ) || exit;
 
 use TrinityForms\Forms_List;
 
-if ( ! current_user_can( "edit_posts" ) ) {
+if ( ! current_user_can( \TrinityForms\Admin::CAP ) ) {
     return;
 }
 

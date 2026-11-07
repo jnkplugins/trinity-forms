@@ -15,6 +15,7 @@ defined( "ABSPATH" ) || exit;
 class My_Submissions {
 
     public static function render( $atts ): string {
+        Public_Front::need_assets();
         if ( ! is_user_logged_in() ) {
             return '<p class="trinity-forms-my-submissions-empty">'
                 . esc_html__( "Please log in to see your submissions.", "trinity-forms" ) . '</p>';

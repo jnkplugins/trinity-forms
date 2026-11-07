@@ -142,11 +142,11 @@ class Formidable extends Base_Importer {
         }
         foreach ( $fields as $i => $f ) {
             foreach ( [ "options", "field_options", "default_value" ] as $k ) {
-                $fields[ $i ][ $k ] = maybe_unserialize( $f[ $k ] ?? "" );
+                $fields[ $i ][ $k ] = self::unserialize_safe( $f[ $k ] ?? "" );
             }
             $fields[ $i ]["field_options"] = is_array( $fields[ $i ]["field_options"] ) ? $fields[ $i ]["field_options"] : [];
         }
-        $options = maybe_unserialize( $form["options"] );
+        $options = self::unserialize_safe( $form["options"] );
         return [ "name" => (string) $form["name"], "options" => is_array( $options ) ? $options : [], "fields" => $fields ];
     }
 
@@ -558,7 +558,7 @@ class Formidable extends Base_Importer {
                     if ( null === $tid ) {
                         continue;
                     }
-                    $value = maybe_unserialize( $m["meta_value"] );
+                    $value = self::unserialize_safe( $m["meta_value"] );
                     $type  = $types[ $tid ] ?? "text";
                     if ( is_array( $value ) && in_array( $type, [ "name", "address" ], true ) ) {
                         $value = implode( "name" === $type ? " " : ", ", array_filter( array_map( "strval", $value ), static fn( $v ) => "" !== trim( $v ) ) );
@@ -569,7 +569,7 @@ class Formidable extends Base_Importer {
                 }
                 // JSON in current versions, a serialized array in older ones.
                 $about = json_decode( (string) $item["description"], true );
-                $about = is_array( $about ) ? $about : maybe_unserialize( $item["description"] );
+                $about = is_array( $about ) ? $about : self::unserialize_safe( $item["description"] );
                 if ( self::add_entry( $form_id, [
                     "source_entry_id" => $last,
                     "submitted_at" => (string) $item["created_at"],

@@ -387,8 +387,11 @@ class Submission_Pipeline {
             $path = (string) $row->filepath;
             // Only unlink files this plugin manages: the private upload root, or the
             // uploads directory for entries stored before 2.4.1.
-            if ( $path && Private_Files::is_managed_path( $path ) && is_file( $path ) ) {
-                wp_delete_file( $path );
+            // Resolved first: a row whose path climbs out with "../" (or is a
+            // symlink to somewhere else) is left alone, only its row goes.
+            $real = "" !== $path ? Private_Files::real_managed_path( $path ) : "";
+            if ( "" !== $real ) {
+                wp_delete_file( $real );
             }
         }
         $wpdb->delete( $wpdb->prefix . "trinity_forms_files", [ "entry_id" => $entry_id ], [ "%d" ] );
@@ -494,6 +497,14 @@ class Submission_Pipeline {
         // so we suppress NonceVerification + ValidatedSanitizedInput across this $_FILES traversal.
         // phpcs:disable WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized,WordPress.Security.ValidatedSanitizedInput.MissingUnslash,WordPress.Security.ValidatedSanitizedInput.InputNotValidated
         $errors = [];
+        // A file field's value is only ever what this method builds from a real
+        // upload. Whatever the request body carried under that field id (a made-up
+        // "path" to any file on the server) is thrown away before anything reads it.
+        foreach ( $form->fields() as $field ) {
+            if ( "file" === $field->type ) {
+                unset( $payload[ $field->id ] );
+            }
+        }
         if ( empty( $_FILES ) ) {
             return [ $payload, $errors ];
         }
@@ -556,13 +567,13 @@ class Submission_Pipeline {
                     $errors[ $field->id ][] = (string) $result["error"];
                     continue;
                 }
-                $stored[] = [
+                $stored[] = Fields\Field_File::issue( [
                     "filename" => basename( $result["file"] ),
                     "url"      => Private_Files::url_for( (string) $result["file"] ),
                     "type"     => $result["type"],
                     "size"     => (int) $file["size"],
                     "path"     => $result["file"],
-                ];
+                ] );
             }
 
             if ( $stored ) {

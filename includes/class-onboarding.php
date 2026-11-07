@@ -80,7 +80,7 @@ class Onboarding {
 
     /** Shown once a form exists, until every step is done or it is dismissed. */
     public static function visible(): bool {
-        if ( ! current_user_can( "edit_posts" ) || ! empty( self::state()["dismissed"] ) ) {
+        if ( ! current_user_can( Admin::CAP ) || ! empty( self::state()["dismissed"] ) ) {
             return false;
         }
         $steps = self::steps();
@@ -161,7 +161,7 @@ class Onboarding {
     }
 
     public static function handle_step(): void {
-        if ( ! current_user_can( "edit_posts" ) ) {
+        if ( ! current_user_can( Admin::CAP ) ) {
             wp_die( esc_html__( "You are not allowed to do this.", "trinity-forms" ) );
         }
         check_admin_referer( self::STEP_ACTION );

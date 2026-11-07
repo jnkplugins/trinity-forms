@@ -26,6 +26,42 @@ abstract class Base_Importer implements Importer {
     /** The slug of the importer whose entries add_entry() is storing. */
     private static string $importing = "";
 
+    /**
+     * Another plugin's stored value, unserialized without creating objects.
+     *
+     * maybe_unserialize() would build whatever class a serialized string names;
+     * a row in the other plugin's table is data we did not write. Objects come
+     * back as the raw string, anything else as it was.
+     *
+     * @param mixed $value
+     * @return mixed
+     */
+    protected static function unserialize_safe( $value ) {
+        if ( ! is_string( $value ) || ! is_serialized( $value ) ) {
+            return $value;
+        }
+        $out = @unserialize( trim( $value ), [ "allowed_classes" => false ] ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- a corrupt value is kept as text.
+        if ( false === $out && "b:0;" !== trim( $value ) ) {
+            return $value;
+        }
+        return self::without_objects( $out ) ? $out : $value;
+    }
+
+    /** @param mixed $value */
+    private static function without_objects( $value ): bool {
+        if ( is_object( $value ) ) {
+            return false;
+        }
+        if ( is_array( $value ) ) {
+            foreach ( $value as $v ) {
+                if ( ! self::without_objects( $v ) ) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public function supports_entries(): bool {
         return false;
     }

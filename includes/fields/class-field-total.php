@@ -31,6 +31,6 @@ class Field_Total extends Field_Pricing_Base {
 
     public function sanitize( $raw, array $config ) {
         // Kept numeric for tidiness only; the pipeline replaces it regardless.
-        return (string) (float) preg_replace( '/[^0-9.\-]/', "", (string) $raw );
+        return (string) (float) preg_replace( '/[^0-9.\-]/', "", self::text( $raw ) );
     }
 }

@@ -20,6 +20,7 @@ class Form_Renderer {
     private static int $depth = 0;
 
     public static function render( Form $form ): string {
+        Public_Front::need_assets();
         $previous        = self::$rendering;
         self::$rendering = $form;
         self::$depth++;
@@ -571,6 +572,7 @@ class Form_Renderer {
     /** The confirmation shown after a payment page sends the visitor back. */
     private static function payment_return_html( int $entry_id ): string {
         self::$payment_return["shown"] = true;
+        Public_Front::need_assets();
 
         // Use the form's configured confirmation message (matching the AJAX path)
         // rather than a hardcoded string. Fall back to a generic default.

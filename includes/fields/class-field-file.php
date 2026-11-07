@@ -20,10 +20,50 @@ class Field_File extends Field_Base {
         return $this->wrap( $config, $control );
     }
 
+    /**
+     * Uploads stored during this request, by path. The only values sanitize() lets
+     * through.
+     *
+     * @var array<string,array<string,mixed>>
+     */
+    private static array $issued = [];
+
+    /**
+     * Register a file the server itself just stored (Submission_Pipeline does this
+     * for every upload). Returns the same item, for chaining.
+     *
+     * @param array<string,mixed> $item filename, url, type, size, path.
+     * @return array<string,mixed>
+     */
+    public static function issue( array $item ): array {
+        $path = (string) ( $item["path"] ?? "" );
+        if ( "" !== $path ) {
+            self::$issued[ $path ] = $item;
+        }
+        return $item;
+    }
+
     public function sanitize( $raw, array $config ) {
-        // File uploads come through $_FILES; the pipeline replaces the raw value
-        // with a metadata array (filename, attachment_id, etc.) before storage.
-        return is_array( $raw ) ? $raw : null;
+        // A file value never comes from the request: the upload arrives in $_FILES
+        // and the pipeline builds the metadata (filename, path, size). Anything
+        // else, e.g. a posted {"path": "/any/file/on/the/server"}, is dropped; it
+        // used to be stored, mailed as an attachment and deleted with the entry.
+        if ( ! is_array( $raw ) ) {
+            return null;
+        }
+        $single = isset( $raw["path"] ) || isset( $raw["filename"] );
+        $out    = [];
+        foreach ( $single ? [ $raw ] : $raw as $item ) {
+            $path = is_array( $item ) && is_string( $item["path"] ?? null ) ? $item["path"] : "";
+            if ( "" !== $path && isset( self::$issued[ $path ] ) ) {
+                // Our own copy, not the caller's: nothing in it can be edited.
+                $out[] = self::$issued[ $path ];
+            }
+        }
+        if ( ! $out ) {
+            return null;
+        }
+        return $single ? $out[0] : $out;
     }
 
     public function validate( $value, array $config ): array {

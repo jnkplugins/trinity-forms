@@ -5,9 +5,106 @@ defined( "ABSPATH" ) || exit;
 
 class Public_Front {
 
+    /** Set once something on this request draws Trinity output (see need_assets()). */
+    private static bool $wanted = false;
+
+    /** The page CSS/JS were put in the queue on this request. */
+    private static bool $queued = false;
+
+    /**
+     * wp_enqueue_scripts: register the page CSS/JS, and queue them only when this page
+     * shows a form. A page without one gets no Trinity file at all (until 2.26.0 every
+     * page of the site loaded about 105 KB). Found two ways:
+     *  - early, here: a Trinity shortcode or block in the content of the posts this page
+     *    shows, so the CSS goes in <head> as before;
+     *  - late, from need_assets(): a form drawn anywhere else (a widget, a page builder,
+     *    a theme template, a popup). The script still runs; the stylesheet is printed in
+     *    the footer, which WordPress supports for styles queued after <head>.
+     * Forms fetched by AJAX are invisible to both: the trinity_forms_load_assets_everywhere
+     * filter loads the files on every page for such sites.
+     */
     public static function enqueue_assets(): void {
-        wp_enqueue_style( "trinity-forms", TRINITY_FORMS_URL . "public/assets/css/public.css", [], TRINITY_FORMS_VERSION );
-        wp_enqueue_script( "trinity-forms", TRINITY_FORMS_URL . "public/assets/js/public.js", [], TRINITY_FORMS_VERSION, true );
+        self::register_assets();
+        if ( self::$wanted || self::page_needs_assets() ) {
+            self::queue();
+        }
+    }
+
+    /**
+     * Something on this page draws Trinity output: make sure its CSS/JS load. Safe to
+     * call any number of times, before or after wp_enqueue_scripts.
+     */
+    public static function need_assets(): void {
+        self::$wanted = true;
+        if ( ! did_action( "wp_enqueue_scripts" ) ) {
+            return; // enqueue_assets() will see the flag.
+        }
+        if ( ! wp_script_is( "trinity-forms", "registered" ) ) {
+            self::register_assets();
+        }
+        self::queue();
+    }
+
+    /** Whether the posts this request shows hold a Trinity shortcode or block. */
+    public static function page_needs_assets(): bool {
+        /**
+         * Filter: trinity_forms_load_assets_everywhere. Return true to load the form
+         * CSS/JS on every front-end page, for a site that fetches forms with AJAX
+         * (infinite scroll, a modal that loads a page) where no form is in the page
+         * at first.
+         */
+        if ( apply_filters( "trinity_forms_load_assets_everywhere", false ) ) {
+            return true;
+        }
+        global $wp_query;
+        foreach ( (array) ( $wp_query->posts ?? [] ) as $post ) {
+            if ( $post instanceof \WP_Post && self::content_has_trinity( (string) $post->post_content ) ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** A Trinity shortcode ([trinity-forms ...], [trinity_forms_...]) or block. */
+    public static function content_has_trinity( string $content ): bool {
+        return false !== strpos( $content, "[trinity" ) || false !== strpos( $content, "<!-- wp:trinity-forms/" );
+    }
+
+    private static function queue(): void {
+        if ( self::$queued ) {
+            return;
+        }
+        self::$queued = true;
+        $styles_before  = wp_styles()->queue;
+        $scripts_before = wp_scripts()->queue;
+        wp_enqueue_style( "trinity-forms" );
+        wp_enqueue_script( "trinity-forms" );
+        /** Action: trinity_forms_enqueue_assets. The page shows Trinity output; queue add-on CSS/JS here. */
+        do_action( "trinity_forms_enqueue_assets" );
+
+        // A form drawn after WordPress printed the footer scripts (a theme or a popup
+        // plugin printing after wp_footer's scripts): nothing would print the queue any
+        // more, and the form would show unstyled with no script (QA 7 Nov). Print our
+        // own files here instead; other plugins' queued files are left alone.
+        if ( did_action( "wp_print_footer_scripts" ) ) {
+            wp_print_styles( array_values( array_diff( wp_styles()->queue, $styles_before ) ) );
+            wp_print_scripts( array_values( array_diff( wp_scripts()->queue, $scripts_before ) ) );
+        }
+    }
+
+    /** Minified files when the build made them and SCRIPT_DEBUG is off. */
+    public static function asset_url( string $path ): string {
+        $min = preg_replace( '/\.(css|js)$/', '.min.$1', $path );
+        if ( ! ( defined( "SCRIPT_DEBUG" ) && SCRIPT_DEBUG ) && is_string( $min ) && is_readable( TRINITY_FORMS_PATH . $min ) ) {
+            $path = $min;
+        }
+        return TRINITY_FORMS_URL . $path;
+    }
+
+    /** Register the page CSS/JS and their data (queued separately, see enqueue_assets()). */
+    public static function register_assets(): void {
+        wp_register_style( "trinity-forms", self::asset_url( "public/assets/css/public.css" ), [], TRINITY_FORMS_VERSION );
+        wp_register_script( "trinity-forms", self::asset_url( "public/assets/js/public.js" ), [], TRINITY_FORMS_VERSION, true );
 
         $settings  = get_option( "trinity_forms_settings", [] );
         $provider   = Anti_Spam::captcha_provider();

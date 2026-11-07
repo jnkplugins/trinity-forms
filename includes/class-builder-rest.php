@@ -76,9 +76,9 @@ class Builder_REST {
         ] );
     }
 
-    /** Templates are not per-post; gate on the create-forms capability + nonce. */
+    /** Templates are not per-post; gate on the manage capability + nonce. */
     public function can_list_templates( \WP_REST_Request $request ): bool {
-        if ( ! current_user_can( "edit_posts" ) ) {
+        if ( ! current_user_can( Admin::CAP ) ) {
             return false;
         }
         $nonce = $request->get_header( "x_wp_nonce" );
@@ -407,7 +407,18 @@ class Builder_REST {
                 return $attrs;
             }
             if ( (string) ( $attrs["fieldId"] ?? "" ) === "" ) {
-                return new \WP_Error( "no_field_id", sprintf( "Block %s needs a field ID.", $name ) );
+                // Shown to the person building the form (QA 7 Nov: it was English and
+                // named the internal block). A field ID typed in another script is
+                // emptied by the editor, so say which characters work.
+                $label = trim( wp_strip_all_tags( (string) ( $attrs["label"] ?? "" ) ) );
+                if ( "" === $label ) {
+                    $label = (string) ( $type->title ?: $name );
+                }
+                return new \WP_Error( "no_field_id", sprintf(
+                    /* translators: %s: the field's label. */
+                    __( "The field \"%s\" has no field ID. Give it one in the field's settings, using English letters (a-z), digits and underscores.", "trinity-forms" ),
+                    $label
+                ), [ "status" => 400 ] );
             }
 
             $chunks[] = serialize_block( [

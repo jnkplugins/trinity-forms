@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.25.2
+Stable tag: 2.26.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,19 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.26.0 =
+* New: the Visual Builder has an "All settings" window with every setting of the form: emails, confirmations, layout, restrictions and, in Pro, save and continue, popup, payments, integrations and workflow. Before, some of these could only be reached from the block editor.
+* Fixed: saving a form in the block editor said "Post updated." It now says "Form updated."
+* Improved: the poll results script is minified too.
+* Security: a file upload field now takes its value only from a file the visitor really uploaded, and a stored file path is checked against the upload folders before the file is attached to an email or deleted. Before, a crafted submission could point an entry at another file on the server. Please update.
+* Changed: forms can now be created and edited only by people who can manage Trinity Forms (administrators). Authors and Editors could create forms before, and a form can send email and, in Pro, create users and posts. They can still place a published form in a post: the block's form list shows them the published forms by name.
+* Security: the WordPress REST API no longer lists forms to visitors. The forms route answers only people who can manage Trinity Forms.
+* Security: the importers read other form plugins' stored settings without creating PHP objects.
+* Improved: pages without a form no longer load any Trinity Forms file. The form CSS and JavaScript (about 105 KB) used to load on every page of the site; now they load only on pages that show a form, whether it is placed in the content, a widget, a page builder or a theme template. A site that loads forms with AJAX can bring back the old behaviour with the trinity_forms_load_assets_everywhere filter.
+* Improved: the form CSS and JavaScript are minified, so a page with a form loads about 51 KB instead of 105 KB. The readable files are still included, and are used when SCRIPT_DEBUG is on.
+* Fixed: a list posted into a single-value field (text, email, number, date and the like) was stored as "Array" and logged a PHP warning. It is now stored as empty.
+* Fixed: saving a form in the Visual Builder with a field that has no field ID showed an English developer message naming the internal block. It now names the field, says which characters an ID can use, and is translated.
 
 = 2.25.2 =
 * Changed: nothing changes in the free version. This release fixes where Pro payment pages send visitors back to.

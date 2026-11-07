@@ -48,6 +48,7 @@ final class Plugin {
         // Before anything on init asks for a string: the .mo files ship in languages/.
         add_action( "init",          [ self::class, "load_textdomain" ], 1 );
         add_action( "init",          [ $this, "register_post_type" ] );
+        add_filter( "post_updated_messages", [ self::class, "updated_messages" ] );
         add_action( "init",          [ $this, "register_blocks" ] );
         add_action( "init",          [ $this, "register_shortcodes" ] );
         add_action( "rest_api_init", [ $this, "register_rest_routes" ] );
@@ -124,6 +125,33 @@ final class Plugin {
         return $post instanceof \WP_Post && "trinity_forms_form" === $post->post_type ? true : $use;
     }
 
+    /**
+     * Post type capabilities that all come down to the plugin's manage capability.
+     *
+     * The primitive capabilities are mapped, and map_meta_cap turns edit_post /
+     * delete_post / read_post (for an unpublished form) into them, so every
+     * current_user_can( "edit_post", $form_id ) in the plugin means "can manage
+     * Trinity Forms". No role is changed in the database.
+     *
+     * @return array<string,string>
+     */
+    public static function manage_capabilities(): array {
+        $cap = Admin::CAP;
+        return [
+            "create_posts"           => $cap,
+            "edit_posts"             => $cap,
+            "edit_others_posts"      => $cap,
+            "edit_private_posts"     => $cap,
+            "edit_published_posts"   => $cap,
+            "publish_posts"          => $cap,
+            "read_private_posts"     => $cap,
+            "delete_posts"           => $cap,
+            "delete_others_posts"    => $cap,
+            "delete_private_posts"   => $cap,
+            "delete_published_posts" => $cap,
+        ];
+    }
+
     public function register_post_type(): void {
         register_post_type( "trinity_forms_form", [
             "label"        => __( "Trinity Forms Forms", "trinity-forms" ),
@@ -138,20 +166,67 @@ final class Plugin {
                 "add_new_item"  => __( "Add Form",      "trinity-forms" ),
                 "edit_item"     => __( "Edit Form",     "trinity-forms" ),
                 "not_found"     => __( "No forms yet — start from a template, or add a blank one.", "trinity-forms" ),
+                // The block editor's save notice. Without these it said "Post updated."
+                "item_published"           => __( "Form published.", "trinity-forms" ),
+                "item_published_privately" => __( "Form published privately.", "trinity-forms" ),
+                "item_reverted_to_draft"   => __( "Form reverted to draft.", "trinity-forms" ),
+                "item_scheduled"           => __( "Form scheduled.", "trinity-forms" ),
+                "item_updated"             => __( "Form updated.", "trinity-forms" ),
             ],
             "public"       => false,
             "show_ui"      => true,
             "show_in_menu" => true,
+            // For the block editor. Reading is limited to people who manage the
+            // plugin (Form_REST_Controller): a published form is not a public post.
             "show_in_rest" => true,
+            "rest_controller_class" => Form_REST_Controller::class,
             "menu_icon"    => "dashicons-feedback",
             "supports"     => [ "title", "editor", "custom-fields" ],
+            // Forms are managed by whoever manages the plugin (Admin::CAP), not by
+            // everyone who can write posts: a form sends mail, creates users and
+            // posts, and runs integrations. With "post" capabilities an Author could
+            // create and publish one from wp-admin or the REST API.
             "capability_type" => "post",
+            "map_meta_cap"    => true,
+            "capabilities"    => self::manage_capabilities(),
             "template"     => [
                 [ "trinity-forms/field-text",     [ "label" => "Name",  "required" => true ] ],
                 [ "trinity-forms/field-email",    [ "label" => "Email", "required" => true ] ],
                 [ "trinity-forms/field-textarea", [ "label" => "Message" ] ],
             ],
         ] );
+    }
+
+    /**
+     * The notice after saving a form or a View on a classic edit screen (Views have
+     * one). WordPress fell back to the post messages: "Post updated."
+     *
+     * @param array<string,array<int,string>> $messages
+     * @return array<string,array<int,string>>
+     */
+    public static function updated_messages( $messages ): array {
+        $messages = (array) $messages;
+        $messages["trinity_forms_form"] = [
+            0  => "",
+            1  => __( "Form updated.", "trinity-forms" ),
+            4  => __( "Form updated.", "trinity-forms" ),
+            6  => __( "Form published.", "trinity-forms" ),
+            7  => __( "Form saved.", "trinity-forms" ),
+            8  => __( "Form submitted.", "trinity-forms" ),
+            9  => __( "Form scheduled.", "trinity-forms" ),
+            10 => __( "Form draft updated.", "trinity-forms" ),
+        ];
+        $messages["trinity_forms_view"] = [
+            0  => "",
+            1  => __( "View updated.", "trinity-forms" ),
+            4  => __( "View updated.", "trinity-forms" ),
+            6  => __( "View published.", "trinity-forms" ),
+            7  => __( "View saved.", "trinity-forms" ),
+            8  => __( "View submitted.", "trinity-forms" ),
+            9  => __( "View scheduled.", "trinity-forms" ),
+            10 => __( "View draft updated.", "trinity-forms" ),
+        ];
+        return $messages;
     }
 
     public function register_blocks(): void {

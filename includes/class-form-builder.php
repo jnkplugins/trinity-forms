@@ -26,6 +26,14 @@ class Form_Builder {
 
     private const PAGE = "trinity-forms-builder";
 
+    /**
+     * The form's full settings box (every tab: notifications, payments, save and
+     * continue, popup, workflow...), shown inside the builder's "All settings"
+     * window. Before 2.26.0 these lived only under the block editor, so someone who
+     * built forms in the Visual Builder never found the Pro settings at all.
+     */
+    public const SETTINGS_PAGE = "trinity-forms-form-settings";
+
     public static function enabled(): bool {
         if ( defined( "TRINITY_FORMS_BUILDER" ) ) {
             return (bool) TRINITY_FORMS_BUILDER;
@@ -72,7 +80,7 @@ class Form_Builder {
             return;
         }
         // phpcs:enable WordPress.Security.NonceVerification.Recommended
-        if ( "canvas" !== self::site_default_editor() || ! current_user_can( "edit_posts" ) ) {
+        if ( "canvas" !== self::site_default_editor() || ! current_user_can( Admin::CAP ) ) {
             return;
         }
         $id = self::create_draft();
@@ -84,7 +92,7 @@ class Form_Builder {
 
     /** The builder screen opened with no form: make one and show it. */
     public static function maybe_start_blank(): void {
-        if ( ! empty( $_GET["form"] ) || ! current_user_can( "edit_posts" ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- screen routing only.
+        if ( ! empty( $_GET["form"] ) || ! current_user_can( Admin::CAP ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- screen routing only.
             return;
         }
         $id = self::create_draft();
@@ -252,13 +260,108 @@ class Form_Builder {
             "edit.php?post_type=trinity_forms_form",
             __( "Visual Builder", "trinity-forms" ),
             __( "Visual Builder", "trinity-forms" ),
-            "edit_posts",
+            Admin::CAP,
             self::PAGE,
             [ __CLASS__, "render" ]
         );
         if ( $hook ) {
             add_action( "load-" . $hook, [ __CLASS__, "maybe_start_blank" ] );
         }
+
+        $settings_hook = add_submenu_page(
+            "edit.php?post_type=trinity_forms_form",
+            __( "Form settings", "trinity-forms" ),
+            __( "Form settings", "trinity-forms" ),
+            Admin::CAP,
+            self::SETTINGS_PAGE,
+            [ __CLASS__, "render_settings" ]
+        );
+        // Reached from the builder only: registered (so it may be opened) but not
+        // listed in the menu.
+        remove_submenu_page( "edit.php?post_type=trinity_forms_form", self::SETTINGS_PAGE );
+        if ( $settings_hook ) {
+            add_action( "load-" . $settings_hook, [ __CLASS__, "load_settings" ] );
+        }
+    }
+
+    public static function settings_url( int $form_id ): string {
+        // Under the forms menu's own address: a page left out of the menu is only
+        // found by WordPress through its parent (admin.php?page= answered 403).
+        return admin_url( "edit.php?post_type=trinity_forms_form&page=" . self::SETTINGS_PAGE . "&form=" . $form_id );
+    }
+
+    /** The form the settings window is for, when this user may edit it. */
+    private static function settings_post(): ?\WP_Post {
+        $id   = isset( $_GET["form"] ) ? absint( $_GET["form"] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- screen selector; the save is nonce-checked by Form_Editor::save().
+        $post = $id ? get_post( $id ) : null;
+        if ( ! $post || "trinity_forms_form" !== $post->post_type || ! current_user_can( "edit_post", $post->ID ) ) {
+            return null;
+        }
+        return $post;
+    }
+
+    /** Save (through the same code as the block editor's Update), then show the box. */
+    public static function load_settings(): void {
+        $post = self::settings_post();
+        if ( ! $post ) {
+            wp_die( esc_html__( "Sorry, you are not allowed to edit this form.", "trinity-forms" ), "", [ "response" => 403 ] );
+        }
+        if ( "POST" === ( $_SERVER["REQUEST_METHOD"] ?? "" ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated,WordPress.Security.ValidatedSanitizedInput.MissingUnslash,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- compared only.
+            $nonce = isset( $_POST[ Form_Editor::NONCE ] ) ? sanitize_text_field( wp_unslash( $_POST[ Form_Editor::NONCE ] ) ) : "";
+            if ( ! wp_verify_nonce( $nonce, Form_Editor::NONCE ) ) {
+                wp_die( esc_html__( "This page was open too long. Reload it and save again.", "trinity-forms" ), "", [ "response" => 403, "back_link" => true ] );
+            }
+            // Form_Editor::save() and everything else that listens for a form save
+            // (page-cache purge, revisions) runs as it does after the block editor.
+            do_action( "save_post_trinity_forms_form", (int) $post->ID, $post, true );
+            wp_safe_redirect( add_query_arg( "saved", "1", self::settings_url( (int) $post->ID ) ) );
+            exit;
+        }
+        add_action( "admin_enqueue_scripts", static function () use ( $post ) {
+            Form_Editor::enqueue_for( (int) $post->ID );
+        } );
+        add_filter( "admin_body_class", static fn( $c ) => $c . " tf-settings-embed" );
+        // A page left out of the menu has no title of its own (PHP 8.1 warns).
+        $GLOBALS["title"] = __( "Form settings", "trinity-forms" ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+        // The window has no admin menu, bar or footer of its own: the builder around
+        // it is the page. Links leave the window (target _top); the form stays in it.
+        add_action( "admin_head", static function () {
+            ?>
+            <base target="_top" />
+            <style>
+            .tf-settings-embed #adminmenumain, .tf-settings-embed #wpadminbar, .tf-settings-embed #wpfooter, .tf-settings-embed #wpbody-content > .notice, .tf-settings-embed .tf-settings-wrap > .notice:not(.tf-settings-notice), .tf-settings-embed #screen-meta-links { display: none !important; }
+            html.wp-toolbar { padding-top: 0 !important; }
+            .tf-settings-embed #wpcontent, .tf-settings-embed #wpbody-content { margin-left: 0 !important; padding: 0 0 72px !important; }
+            .tf-settings-embed .tf-settings-wrap { margin: 0; padding: 12px 16px; }
+            .tf-settings-embed .tf-settings-save { position: fixed; bottom: 0; left: 0; right: 0; padding: 12px 16px; background: #fff; border-top: 1px solid #dcdcde; z-index: 10; }
+            </style>
+            <?php
+        } );
+    }
+
+    public static function render_settings(): void {
+        $post = self::settings_post();
+        if ( ! $post ) {
+            return;
+        }
+        $GLOBALS["post"] = $post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- the settings box reads the current post, as on post.php.
+        setup_postdata( $post );
+        ?>
+        <div class="wrap tf-settings-wrap">
+            <h1 class="screen-reader-text"><?php echo esc_html( sprintf( /* translators: %s: form title */ __( "Settings for %s", "trinity-forms" ), get_the_title( $post ) ) ); ?></h1>
+            <?php if ( isset( $_GET["saved"] ) ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- display flag only. ?>
+                <div class="notice notice-success inline tf-settings-notice"><p><?php esc_html_e( "Settings saved.", "trinity-forms" ); ?></p></div>
+                <script>try { window.parent.postMessage( { trinityFormsSettingsSaved: <?php echo (int) $post->ID; ?> }, window.location.origin ); } catch ( e ) {}</script>
+            <?php endif; ?>
+            <form method="post" target="_self" action="<?php echo esc_url( self::settings_url( (int) $post->ID ) ); ?>">
+                <div id="trinity-forms-form-settings" class="postbox"><div class="inside">
+                    <?php Form_Editor::render_meta_box( $post ); ?>
+                </div></div>
+                <p class="tf-settings-save"><button type="submit" class="button button-primary"><?php esc_html_e( "Save settings", "trinity-forms" ); ?></button></p>
+            </form>
+        </div>
+        <?php
+        wp_reset_postdata();
     }
 
     public static function render(): void {
@@ -305,6 +408,8 @@ class Form_Builder {
             "formId"         => $form_id,
             "nonce"          => wp_create_nonce( "wp_rest" ),
             "blockEditorUrl" => $form_id ? self::block_editor_url( $form_id ) : "",
+            // Every setting the form has, in a window inside the builder.
+            "allSettingsUrl" => $form_id ? self::settings_url( $form_id ) : "",
             // The starter library already creates a form and redirects to post.php,
             // which this class routes straight here — so the builder needs no gallery
             // of its own, just a way in from an empty canvas.

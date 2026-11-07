@@ -820,3 +820,22 @@ $tf-ctrl-text: #98a2b3;
 	input[type="datetime-local"],
 	input[type="number"] { max-inline-size: 16rem; }
 }
+
+// "All settings": the form's full settings box in a window.
+.tf-builder__all-settings-modal {
+	inline-size: min( 1100px, 96vw );
+	max-inline-size: 96vw;
+	block-size: 92vh;
+	max-block-size: 92vh;
+	.components-modal__content { display: flex; flex-direction: column; }
+	.components-modal__content > div:not(.components-modal__header) { display: flex; flex-direction: column; flex: 1; min-block-size: 0; }
+	.tf-builder__palette-hint { margin: 0 0 8px; }
+}
+.tf-builder__all-settings-frame {
+	flex: 1;
+	inline-size: 100%;
+	min-block-size: 70vh;
+	border: 1px solid var( --jnk-line, #e2e8f0 );
+	border-radius: 4px;
+	background: #fff;
+}

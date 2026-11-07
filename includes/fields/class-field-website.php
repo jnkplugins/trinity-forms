@@ -26,7 +26,7 @@ class Field_Website extends Field_Base {
     }
 
     public function sanitize( $raw, array $config ) {
-        $raw = trim( (string) $raw );
+        $raw = trim( self::text( $raw ) );
         if ( "" === $raw ) {
             return "";
         }

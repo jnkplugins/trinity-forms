@@ -46,6 +46,17 @@ abstract class Field_Base {
         return false === $n ? $value : $n;
     }
 
+    /**
+     * A posted value as text. A visitor can post a list where one value is
+     * expected (name[]=x); (string) on an array logs "Array to string
+     * conversion" and stores "Array". A list or object reads as empty.
+     *
+     * @param mixed $raw
+     */
+    public static function text( $raw ): string {
+        return is_scalar( $raw ) ? (string) $raw : "";
+    }
+
     public static function ascii_digits( string $value ): string {
         if ( "" === $value || ! preg_match( "/[^\x00-\x7F]/", $value ) ) {
             return $value;

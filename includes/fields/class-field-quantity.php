@@ -25,7 +25,7 @@ class Field_Quantity extends Field_Pricing_Base {
     }
 
     public function sanitize( $raw, array $config ) {
-        return "" === (string) $raw ? "" : (string) max( 0, (int) $raw );
+        return "" === self::text( $raw ) ? "" : (string) max( 0, (int) $raw );
     }
 
     public function validate( $value, array $config ): array {

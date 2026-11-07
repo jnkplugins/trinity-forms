@@ -2,557 +2,557 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Trinity Forms 2.25.2\n"
+"Project-Id-Version: Trinity Forms 2.26.0\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-06T16:02:53+00:00\n"
+"POT-Creation-Date: 2026-11-07T07:28:27+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: trinity-forms\n"
 
-#: pro/licensorpro-client/licensorpro-client.php:751
+#: pro/licensorpro-client/licensorpro-client.php:761
 msgid "Manage license"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:754
+#: pro/licensorpro-client/licensorpro-client.php:764
 msgid "Renew license"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:755
+#: pro/licensorpro-client/licensorpro-client.php:765
 msgid "Activate license"
 msgstr ""
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:782
+#: pro/licensorpro-client/licensorpro-client.php:802
 #, php-format
 msgid "<strong>%s Pro is on.</strong> Thank you! Every Pro tool is switched on for this site, and updates come to your dashboard."
 msgstr ""
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:831
+#: pro/licensorpro-client/licensorpro-client.php:851
 #, php-format
 msgid "<strong>%s Pro is installed, but no Pro license is active on this site.</strong> Enter your license key to switch on the Pro tools."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:837
-#: builder/src/app.jsx:829
+#: pro/licensorpro-client/licensorpro-client.php:857
+#: builder/src/app.jsx:904
 msgid "Enter license key"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:840
+#: pro/licensorpro-client/licensorpro-client.php:860
 msgid "Find your key in your account"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:866
+#: pro/licensorpro-client/licensorpro-client.php:886
 msgid "Renew your license"
 msgstr ""
 
 #. translators: 1: plugin name, 2: expiry date, 3: lock date, 4: days left
-#: pro/licensorpro-client/licensorpro-client.php:872
+#: pro/licensorpro-client/licensorpro-client.php:892
 #, php-format
 msgid "<strong>Your %1$s Pro license expired on %2$s.</strong> Pro keeps working as normal until %3$s (%4$d days left). Updates, including security fixes, and email support have stopped. After %3$s, everything you already set up keeps working and your visitors won't notice a thing, but the Pro tools in your dashboard will lock."
 msgstr ""
 
 #. translators: 1: plugin name, 2: expiry date
-#: pro/licensorpro-client/licensorpro-client.php:882
+#: pro/licensorpro-client/licensorpro-client.php:902
 #, php-format
 msgid "<strong>%1$s Pro tools are locked because your license expired on %2$s.</strong> Your site, and everything visitors see, still works. Renew to unlock the Pro tools and get updates, including security fixes, again."
 msgstr ""
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:890
+#: pro/licensorpro-client/licensorpro-client.php:910
 #, php-format
 msgid "<strong>This site is no longer activated on your %s Pro license.</strong> The Pro tools in your dashboard are locked until you activate it again. Everything visitors see keeps working."
 msgstr ""
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:897
+#: pro/licensorpro-client/licensorpro-client.php:917
 #, php-format
 msgid "<strong>Your %s Pro license is no longer active.</strong> It was refunded or cancelled, so the Pro tools in your dashboard are locked and updates have stopped. Everything visitors see keeps working."
 msgstr ""
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:906
+#: pro/licensorpro-client/licensorpro-client.php:926
 #, php-format
 msgid "Your %s Pro license is no longer active on this site."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1010
+#: pro/licensorpro-client/licensorpro-client.php:1072
 msgid "Please enter a license key."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1025
-#: pro/licensorpro-client/licensorpro-client.php:1085
+#: pro/licensorpro-client/licensorpro-client.php:1087
+#: pro/licensorpro-client/licensorpro-client.php:1147
 msgid "License response failed signature verification."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1067
+#: pro/licensorpro-client/licensorpro-client.php:1129
 msgid "No license key set."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1200
+#: pro/licensorpro-client/licensorpro-client.php:1262
 msgid "Only deactivating temporarily"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1201
+#: pro/licensorpro-client/licensorpro-client.php:1263
 msgid "I could not work out how to use it"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1202
+#: pro/licensorpro-client/licensorpro-client.php:1264
 msgid "It is missing a feature I need"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1203
+#: pro/licensorpro-client/licensorpro-client.php:1265
 msgid "It did not work"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1204
+#: pro/licensorpro-client/licensorpro-client.php:1266
 msgid "It broke something on my site"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1205
+#: pro/licensorpro-client/licensorpro-client.php:1267
 msgid "I found a better plugin"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1206
+#: pro/licensorpro-client/licensorpro-client.php:1268
 msgid "I no longer need it"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1207
+#: pro/licensorpro-client/licensorpro-client.php:1269
 msgid "Something else"
 msgstr ""
 
 #. translators: %s: plugin name.
-#: pro/licensorpro-client/licensorpro-client.php:1234
+#: pro/licensorpro-client/licensorpro-client.php:1296
 #, php-format
 msgid "Before you turn %s off"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1238
+#: pro/licensorpro-client/licensorpro-client.php:1300
 msgid "If you have a moment, what went wrong? It is the only way we hear about it."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1249
+#: pro/licensorpro-client/licensorpro-client.php:1311
 msgid "Anything else? (optional)"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1251
+#: pro/licensorpro-client/licensorpro-client.php:1313
 msgid "Sends your answer, the plugin version and your site address. Nothing else, and nothing from your site content."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1255
+#: pro/licensorpro-client/licensorpro-client.php:1317
 msgid "Send and deactivate"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1258
+#: pro/licensorpro-client/licensorpro-client.php:1320
 msgid "Skip and deactivate"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1261
+#: pro/licensorpro-client/licensorpro-client.php:1323
 #: admin/views/entry-edit.php:138
 #: includes/class-classic-editor.php:90
 #: includes/class-classic-editor.php:96
-#: public/class-public-front.php:67
+#: public/class-public-front.php:164
 msgid "Cancel"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1392
-#: pro/licensorpro-client/licensorpro-client.php:1408
+#: pro/licensorpro-client/licensorpro-client.php:1454
+#: pro/licensorpro-client/licensorpro-client.php:1470
 msgid "API URL not configured."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1427
+#: pro/licensorpro-client/licensorpro-client.php:1489
 msgid "Unexpected response from license server."
 msgstr ""
 
 #. translators: %s: human-readable time difference, e.g. "3 months".
-#: pro/licensorpro-client/licensorpro-client.php:1804
+#: pro/licensorpro-client/licensorpro-client.php:1866
 #: includes/class-dates.php:47
 #, php-format
 msgid "in %s"
 msgstr ""
 
 #. translators: %s: human-readable time difference, e.g. "13 days".
-#: pro/licensorpro-client/licensorpro-client.php:1805
+#: pro/licensorpro-client/licensorpro-client.php:1867
 #: includes/class-dates.php:49
 #, php-format
 msgid "%s ago"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1821
+#: pro/licensorpro-client/licensorpro-client.php:1883
 #, php-format
 msgid "%s License"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1831
+#: pro/licensorpro-client/licensorpro-client.php:1893
 msgid "This site was deactivated, so its seat is free for another site. Enter the key again here to switch the Pro tools back on."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1849
-#: pro/licensorpro-client/licensorpro-client.php:2397
+#: pro/licensorpro-client/licensorpro-client.php:1911
+#: pro/licensorpro-client/licensorpro-client.php:2459
 msgid "Enter your license key first."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1850
+#: pro/licensorpro-client/licensorpro-client.php:1912
 msgid "Installing Pro. This takes a few seconds, keep this page open…"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1851
+#: pro/licensorpro-client/licensorpro-client.php:1913
 msgid "Reloading to switch on the Pro tools…"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1852
+#: pro/licensorpro-client/licensorpro-client.php:1914
 msgid "Reload now"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1853
+#: pro/licensorpro-client/licensorpro-client.php:1915
 msgid "Could not reach the licensing server. Check your connection and try again."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1854
+#: pro/licensorpro-client/licensorpro-client.php:1916
 msgid "Deactivate this license on this site? Premium features switch off here and the seat is freed for another site."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1855
+#: pro/licensorpro-client/licensorpro-client.php:1917
 msgid "Done."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1856
+#: pro/licensorpro-client/licensorpro-client.php:1918
 msgid "Deactivated."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:1857
+#: pro/licensorpro-client/licensorpro-client.php:1919
 msgid "Checked."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2028
-#: pro/licensorpro-client/licensorpro-client.php:2059
-#: pro/licensorpro-client/licensorpro-client.php:2134
+#: pro/licensorpro-client/licensorpro-client.php:2090
+#: pro/licensorpro-client/licensorpro-client.php:2121
+#: pro/licensorpro-client/licensorpro-client.php:2196
 msgid "License key"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2029
+#: pro/licensorpro-client/licensorpro-client.php:2091
 #: admin/views/feedback.php:50
 msgid "Type"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2031
+#: pro/licensorpro-client/licensorpro-client.php:2093
 msgid "Free license: updates of the free version only. It does not switch on Pro."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2032
+#: pro/licensorpro-client/licensorpro-client.php:2094
 msgid "Free license: updates arrive in your dashboard like any other plugin."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2034
-#: pro/licensorpro-client/licensorpro-client.php:2102
+#: pro/licensorpro-client/licensorpro-client.php:2096
+#: pro/licensorpro-client/licensorpro-client.php:2164
 msgid "Last checked"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2038
-#: pro/licensorpro-client/licensorpro-client.php:2108
+#: pro/licensorpro-client/licensorpro-client.php:2100
+#: pro/licensorpro-client/licensorpro-client.php:2170
 msgid "Check for updates now"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2041
+#: pro/licensorpro-client/licensorpro-client.php:2103
 msgid "Bought Pro?"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2042
+#: pro/licensorpro-client/licensorpro-client.php:2104
 msgid "Enter your Pro license key and Pro is installed over this version. Everything you set up stays."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2044
+#: pro/licensorpro-client/licensorpro-client.php:2106
 msgid "Pro license key"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2047
-#: pro/licensorpro-client/licensorpro-client.php:2115
+#: pro/licensorpro-client/licensorpro-client.php:2109
+#: pro/licensorpro-client/licensorpro-client.php:2177
 msgid "Install Pro now"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2049
+#: pro/licensorpro-client/licensorpro-client.php:2111
 msgid "Rather do it by hand? Download the Pro zip from your account and upload it over this plugin."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2050
-#: pro/licensorpro-client/licensorpro-client.php:2142
+#: pro/licensorpro-client/licensorpro-client.php:2112
+#: pro/licensorpro-client/licensorpro-client.php:2204
 msgid "Go to your account"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2063
+#: pro/licensorpro-client/licensorpro-client.php:2125
 msgid "this site is not activated"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2064
+#: pro/licensorpro-client/licensorpro-client.php:2126
 msgid "this key is for a different plugin"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2065
+#: pro/licensorpro-client/licensorpro-client.php:2127
 msgid "key not recognised"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2066
-#: pro/licensorpro-client/licensorpro-client.php:2067
+#: pro/licensorpro-client/licensorpro-client.php:2128
+#: pro/licensorpro-client/licensorpro-client.php:2129
 msgid "revoked"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2071
+#: pro/licensorpro-client/licensorpro-client.php:2133
 msgid "active"
 msgstr ""
 
 #. translators: %s: date the Pro tools lock
-#: pro/licensorpro-client/licensorpro-client.php:2073
+#: pro/licensorpro-client/licensorpro-client.php:2135
 #, php-format
 msgid "expired, Pro tools stay on until %s"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2074
+#: pro/licensorpro-client/licensorpro-client.php:2136
 msgid "expired, Pro tools locked"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2075
+#: pro/licensorpro-client/licensorpro-client.php:2137
 msgid "no longer active (refunded or cancelled)"
 msgstr ""
 
 #. translators: %s: date the Pro tools lock
-#: pro/licensorpro-client/licensorpro-client.php:2079
+#: pro/licensorpro-client/licensorpro-client.php:2141
 #, php-format
 msgid "renewal payment failed, Pro tools stay on until %s"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2081
+#: pro/licensorpro-client/licensorpro-client.php:2143
 #: admin/views/entries-list.php:356
 #: admin/views/entry-detail.php:370
 #: includes/class-entries.php:686
-#: includes/class-my-submissions.php:51
+#: includes/class-my-submissions.php:52
 msgid "Status"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2083
+#: pro/licensorpro-client/licensorpro-client.php:2145
 msgid "Renew"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2087
+#: pro/licensorpro-client/licensorpro-client.php:2149
 msgid "Offline mode"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2089
+#: pro/licensorpro-client/licensorpro-client.php:2151
 #, php-format
 msgid "cached license valid until %s"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2094
+#: pro/licensorpro-client/licensorpro-client.php:2156
 msgctxt "update channel"
 msgid "stable"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2095
+#: pro/licensorpro-client/licensorpro-client.php:2157
 msgctxt "update channel"
 msgid "beta"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2096
+#: pro/licensorpro-client/licensorpro-client.php:2158
 msgctxt "update channel"
 msgid "release candidate"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2097
+#: pro/licensorpro-client/licensorpro-client.php:2159
 msgctxt "update channel"
 msgid "development"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2099
+#: pro/licensorpro-client/licensorpro-client.php:2161
 msgid "Update channel"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2100
+#: pro/licensorpro-client/licensorpro-client.php:2162
 msgid "Site limit"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2100
+#: pro/licensorpro-client/licensorpro-client.php:2162
 msgid "Unlimited"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2101
+#: pro/licensorpro-client/licensorpro-client.php:2163
 msgid "Expires"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2101
+#: pro/licensorpro-client/licensorpro-client.php:2163
 msgid "Never"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2106
+#: pro/licensorpro-client/licensorpro-client.php:2168
 msgid "Deactivate this site"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2113
+#: pro/licensorpro-client/licensorpro-client.php:2175
 msgid "This is the free version, running on your Pro license."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2130
+#: pro/licensorpro-client/licensorpro-client.php:2192
 msgid "Have a Pro license key? Enter it here to switch on the Pro tools. It replaces the free license on this site."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2131
+#: pro/licensorpro-client/licensorpro-client.php:2193
 msgid "Enter your license key to activate this site."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2138
+#: pro/licensorpro-client/licensorpro-client.php:2200
 msgid "Activate"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2141
+#: pro/licensorpro-client/licensorpro-client.php:2203
 msgid "Your key is in your purchase email and in your account."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2149
+#: pro/licensorpro-client/licensorpro-client.php:2211
 msgid "Need a hand?"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2150
+#: pro/licensorpro-client/licensorpro-client.php:2212
 msgid "Contact support"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2197
+#: pro/licensorpro-client/licensorpro-client.php:2259
 msgid "Only someone who may install plugins on this site can install Pro."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2210
+#: pro/licensorpro-client/licensorpro-client.php:2272
 msgid "That is a free license key, so it keeps this free version updated. Pro needs the key from your purchase email."
 msgstr ""
 
 #. translators: %s: URL of the customer account
-#: pro/licensorpro-client/licensorpro-client.php:2215
+#: pro/licensorpro-client/licensorpro-client.php:2277
 #, php-format
 msgid "Your key is active. Download the Pro zip from your account (%s) and upload it over this plugin instead."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2219
+#: pro/licensorpro-client/licensorpro-client.php:2281
 msgid "This site does not allow installing plugins from the dashboard."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2223
+#: pro/licensorpro-client/licensorpro-client.php:2285
 msgid "The Pro download could not be fetched for this key."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2231
+#: pro/licensorpro-client/licensorpro-client.php:2293
 msgid "This site asks for FTP details to install plugins."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2266
+#: pro/licensorpro-client/licensorpro-client.php:2328
 msgid "Installing Pro did not finish."
 msgstr ""
 
 #. translators: %s: plugin name
-#: pro/licensorpro-client/licensorpro-client.php:2271
+#: pro/licensorpro-client/licensorpro-client.php:2333
 #, php-format
 msgid "%s Pro is installed and your license is active. Reloading…"
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2290
+#: pro/licensorpro-client/licensorpro-client.php:2352
 msgid "License activated."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2302
+#: pro/licensorpro-client/licensorpro-client.php:2364
 msgid "Site deactivated."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2324
+#: pro/licensorpro-client/licensorpro-client.php:2386
 msgid "License is valid. Update info refreshed."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2358
+#: pro/licensorpro-client/licensorpro-client.php:2420
 msgid "Every seat on this license is in use. Deactivate one of your other sites from your account, then try again."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2361
+#: pro/licensorpro-client/licensorpro-client.php:2423
 msgid "This license has expired. Renewing it from your account reactivates this site immediately. Your settings and data are untouched."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2363
+#: pro/licensorpro-client/licensorpro-client.php:2425
 msgid "The last renewal payment for this license did not go through, so it is paused. Update your payment details in your account and it switches back on. Your settings and data are untouched."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2366
+#: pro/licensorpro-client/licensorpro-client.php:2428
 msgid "This license was cancelled or refunded, so it no longer switches on Pro. If that is a mistake, reply to your purchase email."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2369
+#: pro/licensorpro-client/licensorpro-client.php:2431
 msgid "That key was not recognised. Check for a missing character, or copy it again from your purchase email."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2371
+#: pro/licensorpro-client/licensorpro-client.php:2433
 msgid "This key is for a different plugin. Each plugin has its own key: use the one from the purchase email for this plugin."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2374
+#: pro/licensorpro-client/licensorpro-client.php:2436
 msgid "This key has been revoked. If you believe that is a mistake, reply to your purchase email and we will sort it out."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2376
+#: pro/licensorpro-client/licensorpro-client.php:2438
 msgid "This site is not activated on this license any more. Enter the key again to activate it."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2378
+#: pro/licensorpro-client/licensorpro-client.php:2440
 msgid "That is a free license key. It keeps the free version updated but does not switch on Pro. Enter the Pro key from your purchase email."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2381
+#: pro/licensorpro-client/licensorpro-client.php:2443
 msgid "This plugin has no free license. Use the key from your purchase email."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2383
+#: pro/licensorpro-client/licensorpro-client.php:2445
 msgid "The licensing server does not know this plugin. Update the plugin, or reply to your purchase email."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2385
+#: pro/licensorpro-client/licensorpro-client.php:2447
 msgid "This site's license session ran out. Check the license again to renew it."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2388
+#: pro/licensorpro-client/licensorpro-client.php:2450
 msgid "The download link has expired. Check for updates again to get a fresh one."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2390
+#: pro/licensorpro-client/licensorpro-client.php:2452
 msgid "The download is not on the server right now. Try again later, or download the zip from your account."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2392
+#: pro/licensorpro-client/licensorpro-client.php:2454
 msgid "Enter a valid email address."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2395
+#: pro/licensorpro-client/licensorpro-client.php:2457
 msgid "The request to the licensing server was missing details. Reload this page and try again."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2399
+#: pro/licensorpro-client/licensorpro-client.php:2461
 msgid "The answer from the licensing server could not be verified, so it was not trusted. Try again in a few minutes. If it keeps happening, reply to your purchase email."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2402
+#: pro/licensorpro-client/licensorpro-client.php:2464
 msgid "Could not reach the licensing server. Your site may be blocking outbound requests. This is usually temporary, so try again in a minute."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2405
+#: pro/licensorpro-client/licensorpro-client.php:2467
 msgid "Too many attempts in a short window. Wait a minute and try again."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2407
+#: pro/licensorpro-client/licensorpro-client.php:2469
 msgid "The licensing server had a problem on its side. Your key was not rejected. Try again in a few minutes, and if it keeps happening, reply to your purchase email."
 msgstr ""
 
 #. translators: %s: short error code from the licensing server
-#: pro/licensorpro-client/licensorpro-client.php:2411
+#: pro/licensorpro-client/licensorpro-client.php:2473
 #, php-format
 msgid "The licensing server could not confirm this license (%s). Try again in a few minutes. If it keeps happening, reply to your purchase email and quote that code."
 msgstr ""
 
-#: pro/licensorpro-client/licensorpro-client.php:2437
+#: pro/licensorpro-client/licensorpro-client.php:2499
 msgid "Permission denied."
 msgstr ""
 
@@ -563,7 +563,7 @@ msgstr ""
 #: includes/class-abilities.php:58
 #: includes/class-entry-notes.php:131
 #: includes/class-form-widget.php:15
-#: includes/class-plugin.php:135
+#: includes/class-plugin.php:163
 #: includes/elementor/class-form-widget.php:22
 msgid "Trinity Forms"
 msgstr ""
@@ -597,7 +597,7 @@ msgstr ""
 #: includes/class-templates.php:24
 #: includes/class-templates.php:25
 #: includes/class-templates.php:214
-#: builder/src/app.jsx:504
+#: builder/src/app.jsx:534
 msgid "Templates"
 msgstr ""
 
@@ -673,7 +673,7 @@ msgstr ""
 #: admin/class-admin.php:189
 #: admin/class-admin.php:190
 #: admin/views/settings.php:27
-#: builder/src/app.jsx:514
+#: builder/src/app.jsx:544
 msgid "Settings"
 msgstr ""
 
@@ -687,7 +687,7 @@ msgstr ""
 
 #: admin/class-admin-ui.php:250
 #: admin/class-forms-list.php:61
-#: builder/src/app.jsx:775
+#: builder/src/app.jsx:850
 msgid "Start from a template"
 msgstr ""
 
@@ -790,6 +790,7 @@ msgstr ""
 
 #: admin/class-assistants.php:102
 #: admin/class-assistants.php:114
+#: includes/class-form-rest-controller.php:31
 msgid "Sorry, you are not allowed to do that."
 msgstr ""
 
@@ -797,586 +798,587 @@ msgstr ""
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr ""
 
-#: admin/class-form-editor.php:67
+#: admin/class-form-editor.php:76
 msgid "Testing…"
 msgstr ""
 
-#: admin/class-form-editor.php:68
+#: admin/class-form-editor.php:77
 msgid "✓ Connected"
 msgstr ""
 
-#: admin/class-form-editor.php:69
+#: admin/class-form-editor.php:78
 msgid "✗ Failed"
 msgstr ""
 
-#: admin/class-form-editor.php:70
+#: admin/class-form-editor.php:79
 msgid "✗ Network error"
 msgstr ""
 
-#: admin/class-form-editor.php:71
+#: admin/class-form-editor.php:80
 msgid "Insert a merge tag"
 msgstr ""
 
-#: admin/class-form-editor.php:72
+#: admin/class-form-editor.php:81
 msgid "Sending…"
 msgstr ""
 
-#: admin/class-form-editor.php:73
-#: admin/class-form-editor.php:827
+#: admin/class-form-editor.php:82
+#: admin/class-form-editor.php:836
 #: includes/fields/class-field-product.php:65
 msgid "— select —"
 msgstr ""
 
-#: admin/class-form-editor.php:74
+#: admin/class-form-editor.php:83
 msgid "Type an address in Send to first."
 msgstr ""
 
-#: admin/class-form-editor.php:75
+#: admin/class-form-editor.php:84
 msgid "A merge tag only becomes an address when someone submits the form. Type a real address to send a test."
 msgstr ""
 
-#: admin/class-form-editor.php:83
+#: admin/class-form-editor.php:92
 msgid "Trinity Forms — Settings"
 msgstr ""
 
-#: admin/class-form-editor.php:113
+#: admin/class-form-editor.php:122
 msgid "General"
 msgstr ""
 
-#: admin/class-form-editor.php:114
-#: builder/src/app.jsx:565
+#: admin/class-form-editor.php:123
+#: builder/src/app.jsx:602
+#: builder/src/app.jsx:615
 msgid "Notifications"
 msgstr ""
 
-#: admin/class-form-editor.php:115
+#: admin/class-form-editor.php:124
 msgid "Confirmations"
 msgstr ""
 
-#: admin/class-form-editor.php:116
+#: admin/class-form-editor.php:125
 msgid "Layout"
 msgstr ""
 
-#: admin/class-form-editor.php:117
-#: builder/src/app.jsx:687
+#: admin/class-form-editor.php:126
+#: builder/src/app.jsx:745
 msgid "Restrictions"
 msgstr ""
 
-#: admin/class-form-editor.php:126
-#: builder/src/app.jsx:642
+#: admin/class-form-editor.php:135
+#: builder/src/app.jsx:700
 msgid "Submit button text"
 msgstr ""
 
-#: admin/class-form-editor.php:127
-#: admin/class-form-editor.php:338
+#: admin/class-form-editor.php:136
+#: admin/class-form-editor.php:347
 #: includes/class-form-basics.php:48
 #: includes/class-form-manager.php:275
 #: includes/class-gf-importer.php:231
-#: public/class-form-renderer.php:135
-#: builder/src/app.jsx:644
+#: public/class-form-renderer.php:136
+#: builder/src/app.jsx:702
 msgid "Submit"
 msgstr ""
 
-#: admin/class-form-editor.php:129
-#: builder/src/app.jsx:648
+#: admin/class-form-editor.php:138
+#: builder/src/app.jsx:706
 msgid "After submit"
 msgstr ""
 
-#: admin/class-form-editor.php:131
-#: builder/src/app.jsx:651
+#: admin/class-form-editor.php:140
+#: builder/src/app.jsx:709
 msgid "Show a message"
 msgstr ""
 
-#: admin/class-form-editor.php:132
-#: builder/src/app.jsx:652
+#: admin/class-form-editor.php:141
+#: builder/src/app.jsx:710
 msgid "Go to a page"
 msgstr ""
 
-#: admin/class-form-editor.php:133
-#: builder/src/app.jsx:653
+#: admin/class-form-editor.php:142
+#: builder/src/app.jsx:711
 msgid "Go to a URL"
 msgstr ""
 
-#: admin/class-form-editor.php:135
+#: admin/class-form-editor.php:144
 #: includes/importers/class-formidable.php:238
 #: includes/importers/class-forminator.php:231
 #: includes/importers/class-wpforms.php:517
-#: builder/src/app.jsx:659
+#: builder/src/app.jsx:717
 msgid "Confirmation message"
 msgstr ""
 
-#: admin/class-form-editor.php:136
+#: admin/class-form-editor.php:145
 #: includes/class-confirmations.php:46
 #: includes/class-form-manager.php:277
-#: builder/src/app.jsx:661
+#: builder/src/app.jsx:719
 msgid "Thank you!"
 msgstr ""
 
-#: admin/class-form-editor.php:137
-#: admin/class-form-editor.php:822
-#: builder/src/app.jsx:667
+#: admin/class-form-editor.php:146
+#: admin/class-form-editor.php:831
+#: builder/src/app.jsx:725
 msgid "Page"
 msgstr ""
 
-#: admin/class-form-editor.php:139
+#: admin/class-form-editor.php:148
 #: admin/class-form-qr.php:173
-#: builder/src/app.jsx:670
+#: builder/src/app.jsx:728
 msgid "Choose a page"
 msgstr ""
 
-#: admin/class-form-editor.php:144
-#: builder/src/app.jsx:678
+#: admin/class-form-editor.php:153
+#: builder/src/app.jsx:736
 msgid "Redirect URL"
 msgstr ""
 
-#: admin/class-form-editor.php:153
+#: admin/class-form-editor.php:162
 msgid "Allow save & continue later"
 msgstr ""
 
-#: admin/class-form-editor.php:154
+#: admin/class-form-editor.php:163
 msgid "Show a save button so users can resume later via emailed link"
 msgstr ""
 
-#: admin/class-form-editor.php:162
+#: admin/class-form-editor.php:171
 msgid "Bot challenge (CAPTCHA)"
 msgstr ""
 
 #. translators: %s: CAPTCHA provider name, e.g. "Google reCAPTCHA v2".
-#: admin/class-form-editor.php:168
+#: admin/class-form-editor.php:177
 #, php-format
 msgid "Enable the bot challenge for this form (provider: %s)"
 msgstr ""
 
 #. translators: %s = link to settings page
-#: admin/class-form-editor.php:175
+#: admin/class-form-editor.php:184
 #, php-format
 msgid "Add the CAPTCHA provider's site + secret keys in %s first."
 msgstr ""
 
-#: admin/class-form-editor.php:176
+#: admin/class-form-editor.php:185
 msgid "Trinity Forms Settings"
 msgstr ""
 
-#: admin/class-form-editor.php:181
+#: admin/class-form-editor.php:190
 msgid "Retention (days)"
 msgstr ""
 
-#: admin/class-form-editor.php:183
+#: admin/class-form-editor.php:192
 msgid "0 = inherit global setting. Entries older than this are deleted by the daily cron."
 msgstr ""
 
 #. translators: 1: opening link tag, 2: closing link tag.
-#: admin/class-form-editor.php:195
+#: admin/class-form-editor.php:204
 #, php-format
 msgid "Your Trinity Forms Pro license is not active, so new Pro features can't be added to this form. Everything it already uses keeps working for your visitors, and you can still change it. %1$sRenew or enter your license key in Settings%2$s."
 msgstr ""
 
 #. translators: 1: opening link tag, 2: closing link tag.
-#: admin/class-form-editor.php:208
+#: admin/class-form-editor.php:217
 #, php-format
 msgid "Pro is installed but not activated. %1$sEnter your license key in Settings%2$s to turn on file uploads, payments, integrations and the other Pro features."
 msgstr ""
 
 #. translators: 1: opening link tag, 2: closing link tag.
-#: admin/class-form-editor.php:227
+#: admin/class-form-editor.php:236
 #, php-format
 msgid "Need signatures, payments or save and continue? %1$sSee what Pro adds%2$s."
 msgstr ""
 
 #. translators: %s: the embed shortcode, wrapped in a <code> tag.
-#: admin/class-form-editor.php:239
+#: admin/class-form-editor.php:248
 #, php-format
 msgid "Embed shortcode: %s"
 msgstr ""
 
-#: admin/class-form-editor.php:244
+#: admin/class-form-editor.php:253
 #: includes/class-onboarding.php:118
 msgid "Create a page with this form"
 msgstr ""
 
-#: admin/class-form-editor.php:245
+#: admin/class-form-editor.php:254
 msgid "Makes a draft page holding this form and opens it. Nothing goes live until you publish it."
 msgstr ""
 
-#: admin/class-form-editor.php:250
+#: admin/class-form-editor.php:259
 msgid "Send an email each time the form is submitted."
 msgstr ""
 
-#: admin/class-form-editor.php:258
+#: admin/class-form-editor.php:267
 msgid "Merge tags for this form — click to copy:"
 msgstr ""
 
-#: admin/class-form-editor.php:268
+#: admin/class-form-editor.php:277
 msgid "Add fields to the form and save it to see their tags here."
 msgstr ""
 
-#: admin/class-form-editor.php:274
+#: admin/class-form-editor.php:283
 msgid "+ Add notification"
 msgstr ""
 
-#: admin/class-form-editor.php:279
+#: admin/class-form-editor.php:288
 msgid "What the visitor sees after submitting. The first confirmation whose conditions match wins; if none do, the default on the General tab is used."
 msgstr ""
 
-#: admin/class-form-editor.php:289
+#: admin/class-form-editor.php:298
 msgid "+ Add confirmation"
 msgstr ""
 
-#: admin/class-form-editor.php:291
+#: admin/class-form-editor.php:300
 msgid "Suspected spam"
 msgstr ""
 
-#: admin/class-form-editor.php:293
-#: admin/class-form-editor.php:819
+#: admin/class-form-editor.php:302
+#: admin/class-form-editor.php:828
 #: admin/views/feedback.php:62
 #: includes/class-block-defaults.php:62
 #: includes/class-templates.php:72
 msgid "Message"
 msgstr ""
 
-#: admin/class-form-editor.php:295
+#: admin/class-form-editor.php:304
 msgid "Leave blank to show the normal confirmation"
 msgstr ""
 
-#: admin/class-form-editor.php:297
+#: admin/class-form-editor.php:306
 msgid "Blank is the safer default: telling a bot it was caught helps it tune around the filter, and telling a wrongly-flagged person the same thing helps nobody. The submission is kept either way — look under Entries → Spam."
 msgstr ""
 
-#: admin/class-form-editor.php:304
+#: admin/class-form-editor.php:313
 msgid "How the form looks. Every setting here is a default — a field that makes its own choice keeps it."
 msgstr ""
 
-#: admin/class-form-editor.php:311
+#: admin/class-form-editor.php:320
 msgid "Style"
 msgstr ""
 
-#: admin/class-form-editor.php:319
+#: admin/class-form-editor.php:328
 msgid "Accent colour"
 msgstr ""
 
-#: admin/class-form-editor.php:322
+#: admin/class-form-editor.php:331
 msgid "Reset"
 msgstr ""
 
-#: admin/class-form-editor.php:323
+#: admin/class-form-editor.php:332
 msgid "Used for the button, the focus ring and ticked boxes."
 msgstr ""
 
-#: admin/class-form-editor.php:329
+#: admin/class-form-editor.php:338
 msgid "Preview"
 msgstr ""
 
-#: admin/class-form-editor.php:336
+#: admin/class-form-editor.php:345
 msgid "Your name"
 msgstr ""
 
-#: admin/class-form-editor.php:337
+#: admin/class-form-editor.php:346
 msgid "Send me a copy"
 msgstr ""
 
-#: admin/class-form-editor.php:340
+#: admin/class-form-editor.php:349
 msgid "A rough preview. Your theme's fonts and colours also apply on the real page."
 msgstr ""
 
-#: admin/class-form-editor.php:343
+#: admin/class-form-editor.php:352
 msgid "Labels"
 msgstr ""
 
-#: admin/class-form-editor.php:347
-#: admin/class-form-editor.php:360
-#: admin/class-form-editor.php:392
+#: admin/class-form-editor.php:356
+#: admin/class-form-editor.php:369
+#: admin/class-form-editor.php:401
 #: blocks/field-shared.js:155
 #: builder/src/field-panel.jsx:457
 msgid "Above the field"
 msgstr ""
 
-#: admin/class-form-editor.php:348
+#: admin/class-form-editor.php:357
 msgid "To the left"
 msgstr ""
 
-#: admin/class-form-editor.php:349
+#: admin/class-form-editor.php:358
 msgid "To the right"
 msgstr ""
 
-#: admin/class-form-editor.php:350
+#: admin/class-form-editor.php:359
 msgid "Hidden (use placeholders)"
 msgstr ""
 
-#: admin/class-form-editor.php:352
+#: admin/class-form-editor.php:361
 msgid "Hidden keeps the label for screen readers — it is only removed visually."
 msgstr ""
 
-#: admin/class-form-editor.php:355
+#: admin/class-form-editor.php:364
 #: blocks/field-shared.js:108
 #: builder/src/field-panel.jsx:23
 msgid "Help text"
 msgstr ""
 
-#: admin/class-form-editor.php:359
-#: admin/class-form-editor.php:391
+#: admin/class-form-editor.php:368
+#: admin/class-form-editor.php:400
 #: blocks/field-shared.js:154
 #: builder/src/field-panel.jsx:456
 msgid "Below the field"
 msgstr ""
 
-#: admin/class-form-editor.php:364
+#: admin/class-form-editor.php:373
 msgid "Sub-labels"
 msgstr ""
 
-#: admin/class-form-editor.php:368
+#: admin/class-form-editor.php:377
 msgid "Below the input"
 msgstr ""
 
-#: admin/class-form-editor.php:369
+#: admin/class-form-editor.php:378
 msgid "Above the input"
 msgstr ""
 
-#: admin/class-form-editor.php:370
+#: admin/class-form-editor.php:379
 #: includes/class-block-defaults.php:42
 #: blocks/field-hidden/index.js:34
 msgid "Hidden"
 msgstr ""
 
-#: admin/class-form-editor.php:372
+#: admin/class-form-editor.php:381
 msgid "The \"First\" and \"Last\" under a name field, or the parts of an address."
 msgstr ""
 
-#: admin/class-form-editor.php:375
+#: admin/class-form-editor.php:384
 msgid "Required fields"
 msgstr ""
 
-#: admin/class-form-editor.php:379
+#: admin/class-form-editor.php:388
 msgid "Mark required with *"
 msgstr ""
 
-#: admin/class-form-editor.php:380
+#: admin/class-form-editor.php:389
 msgid "Mark required with \"(required)\""
 msgstr ""
 
-#: admin/class-form-editor.php:381
+#: admin/class-form-editor.php:390
 msgid "Mark the optional ones instead"
 msgstr ""
 
-#: admin/class-form-editor.php:382
+#: admin/class-form-editor.php:391
 msgid "Do not mark either"
 msgstr ""
 
-#: admin/class-form-editor.php:384
+#: admin/class-form-editor.php:393
 msgid "On a form where nearly everything is required, marking the optional ones reads better."
 msgstr ""
 
-#: admin/class-form-editor.php:387
+#: admin/class-form-editor.php:396
 msgid "Errors"
 msgstr ""
 
-#: admin/class-form-editor.php:398
+#: admin/class-form-editor.php:407
 msgid "Also list every problem at the top of the form"
 msgstr ""
 
-#: admin/class-form-editor.php:400
+#: admin/class-form-editor.php:409
 msgid "Worth turning on for a long form, where the inline errors can all be below the fold and a failed submit looks like nothing happened."
 msgstr ""
 
-#: admin/class-form-editor.php:403
+#: admin/class-form-editor.php:412
 msgid "Form CSS class"
 msgstr ""
 
-#: admin/class-form-editor.php:407
+#: admin/class-form-editor.php:416
 msgid "Submit button"
 msgstr ""
 
-#: admin/class-form-editor.php:409
+#: admin/class-form-editor.php:418
 msgid "Image"
 msgstr ""
 
-#: admin/class-form-editor.php:412
+#: admin/class-form-editor.php:421
 msgid "Leave blank for a normal button. The button text above is used as the image's alt text."
 msgstr ""
 
-#: admin/class-form-editor.php:415
+#: admin/class-form-editor.php:424
 msgid "Only show when"
 msgstr ""
 
-#: admin/class-form-editor.php:424
+#: admin/class-form-editor.php:433
 msgid "— always show it —"
 msgstr ""
 
-#: admin/class-form-editor.php:440
+#: admin/class-form-editor.php:449
 msgid "Useful for a consent checkbox that has to be ticked before the form can be sent."
 msgstr ""
 
-#: admin/class-form-editor.php:446
-#: builder/src/app.jsx:689
+#: admin/class-form-editor.php:455
+#: builder/src/app.jsx:747
 msgid "Control when the form accepts submissions, and how many it takes. Leave a field blank or at 0 to leave that rule off."
 msgstr ""
 
-#: admin/class-form-editor.php:448
-#: builder/src/app.jsx:691
+#: admin/class-form-editor.php:457
+#: builder/src/app.jsx:749
 msgid "Schedule"
 msgstr ""
 
-#: admin/class-form-editor.php:450
-#: builder/src/app.jsx:693
+#: admin/class-form-editor.php:459
+#: builder/src/app.jsx:751
 msgid "Opens"
 msgstr ""
 
-#: admin/class-form-editor.php:453
-#: builder/src/app.jsx:696
+#: admin/class-form-editor.php:462
+#: builder/src/app.jsx:754
 msgid "Before this, visitors see the message below instead of the form. Uses your site's timezone."
 msgstr ""
 
-#: admin/class-form-editor.php:455
-#: builder/src/app.jsx:700
+#: admin/class-form-editor.php:464
+#: builder/src/app.jsx:758
 msgid "Message before it opens"
 msgstr ""
 
-#: admin/class-form-editor.php:456
+#: admin/class-form-editor.php:465
 #: includes/class-restrictions.php:73
-#: builder/src/app.jsx:702
+#: builder/src/app.jsx:760
 msgid "This form is not open yet."
 msgstr ""
 
-#: admin/class-form-editor.php:457
-#: builder/src/app.jsx:706
+#: admin/class-form-editor.php:466
+#: builder/src/app.jsx:764
 msgid "Closes"
 msgstr ""
 
-#: admin/class-form-editor.php:459
-#: builder/src/app.jsx:712
+#: admin/class-form-editor.php:468
+#: builder/src/app.jsx:770
 msgid "Message after it closes"
 msgstr ""
 
-#: admin/class-form-editor.php:460
+#: admin/class-form-editor.php:469
 #: includes/class-restrictions.php:81
-#: builder/src/app.jsx:714
+#: builder/src/app.jsx:772
 msgid "This form is now closed."
 msgstr ""
 
-#: admin/class-form-editor.php:463
-#: builder/src/app.jsx:717
+#: admin/class-form-editor.php:472
+#: builder/src/app.jsx:775
 msgid "Entry limits"
 msgstr ""
 
-#: admin/class-form-editor.php:465
-#: builder/src/app.jsx:719
+#: admin/class-form-editor.php:474
+#: builder/src/app.jsx:777
 msgid "Total entries"
 msgstr ""
 
-#: admin/class-form-editor.php:468
-#: builder/src/app.jsx:719
+#: admin/class-form-editor.php:477
+#: builder/src/app.jsx:777
 msgid "0 = unlimited. Spam and trashed entries do not count towards the limit."
 msgstr ""
 
-#: admin/class-form-editor.php:470
-#: builder/src/app.jsx:720
+#: admin/class-form-editor.php:479
+#: builder/src/app.jsx:778
 msgid "Per logged-in user"
 msgstr ""
 
-#: admin/class-form-editor.php:472
-#: builder/src/app.jsx:721
+#: admin/class-form-editor.php:481
+#: builder/src/app.jsx:779
 msgid "Per IP address"
 msgstr ""
 
-#: admin/class-form-editor.php:475
-#: builder/src/app.jsx:721
+#: admin/class-form-editor.php:484
+#: builder/src/app.jsx:779
 msgid "Blunt: everyone behind one office router or mobile network shares an address."
 msgstr ""
 
-#: admin/class-form-editor.php:477
-#: builder/src/app.jsx:734
+#: admin/class-form-editor.php:486
+#: builder/src/app.jsx:792
 msgid "Message when full"
 msgstr ""
 
-#: admin/class-form-editor.php:478
+#: admin/class-form-editor.php:487
 #: includes/class-restrictions.php:99
-#: builder/src/app.jsx:736
+#: builder/src/app.jsx:794
 msgid "This form is no longer accepting submissions."
 msgstr ""
 
-#: admin/class-form-editor.php:479
-#: builder/src/app.jsx:740
+#: admin/class-form-editor.php:488
+#: builder/src/app.jsx:798
 msgid "Message when you've already submitted"
 msgstr ""
 
-#: admin/class-form-editor.php:480
+#: admin/class-form-editor.php:489
 #: includes/class-restrictions.php:110
 #: includes/class-restrictions.php:122
-#: builder/src/app.jsx:742
+#: builder/src/app.jsx:800
 msgid "You have already submitted this form."
 msgstr ""
 
-#: admin/class-form-editor.php:483
-#: builder/src/app.jsx:745
+#: admin/class-form-editor.php:492
+#: builder/src/app.jsx:803
 msgid "Poll"
 msgstr ""
 
-#: admin/class-form-editor.php:485
+#: admin/class-form-editor.php:494
 msgid "Poll mode"
 msgstr ""
 
-#: admin/class-form-editor.php:490
-#: builder/src/app.jsx:747
+#: admin/class-form-editor.php:499
+#: builder/src/app.jsx:805
 msgid "Poll: after a vote, show the results instead of the form"
 msgstr ""
 
-#: admin/class-form-editor.php:492
-#: builder/src/app.jsx:748
+#: admin/class-form-editor.php:501
+#: builder/src/app.jsx:806
 msgid "The browser remembers the vote, so there is no IP check. The results show right after voting and on later visits from the same browser. The limits above, if you set one, also show the results instead of an error."
 msgstr ""
 
-#: admin/class-form-editor.php:496
-#: builder/src/app.jsx:752
+#: admin/class-form-editor.php:505
+#: builder/src/app.jsx:810
 msgid "Who can submit"
 msgstr ""
 
-#: admin/class-form-editor.php:498
+#: admin/class-form-editor.php:507
 msgid "Require login"
 msgstr ""
 
-#: admin/class-form-editor.php:503
-#: builder/src/app.jsx:754
+#: admin/class-form-editor.php:512
+#: builder/src/app.jsx:812
 msgid "Only logged-in users may see and submit this form"
 msgstr ""
 
-#: admin/class-form-editor.php:506
-#: builder/src/app.jsx:759
+#: admin/class-form-editor.php:515
+#: builder/src/app.jsx:817
 msgid "Message for logged-out visitors"
 msgstr ""
 
-#: admin/class-form-editor.php:507
+#: admin/class-form-editor.php:516
 #: includes/class-restrictions.php:52
-#: builder/src/app.jsx:761
+#: builder/src/app.jsx:819
 msgid "Please log in to fill in this form."
 msgstr ""
 
-#: admin/class-form-editor.php:630
+#: admin/class-form-editor.php:639
 msgid "Rule"
 msgstr ""
 
-#: admin/class-form-editor.php:632
+#: admin/class-form-editor.php:641
 msgid "Always send"
 msgstr ""
 
-#: admin/class-form-editor.php:633
+#: admin/class-form-editor.php:642
 msgid "Send only when"
 msgstr ""
 
-#: admin/class-form-editor.php:634
+#: admin/class-form-editor.php:643
 msgid "Don't send when"
 msgstr ""
 
-#: admin/class-form-editor.php:639
-#: admin/class-form-editor.php:748
+#: admin/class-form-editor.php:648
+#: admin/class-form-editor.php:757
 msgid "— choose a field —"
 msgstr ""
 
 #. translators: %s: the rules in words, e.g. "Room type is group, Email is not empty".
-#: admin/class-form-editor.php:661
+#: admin/class-form-editor.php:670
 #, php-format
 msgid "%s. These rules came with an import and are kept as they are when you save. Pick \"Always send\" to remove them."
 msgstr ""
 
-#: admin/class-form-editor.php:701
-#: admin/class-form-editor.php:809
+#: admin/class-form-editor.php:710
+#: admin/class-form-editor.php:818
 #: includes/class-block-defaults.php:48
 #: includes/class-templates.php:70
 #: includes/class-templates.php:75
@@ -1392,135 +1394,135 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: admin/class-form-editor.php:707
+#: admin/class-form-editor.php:716
 msgid "Enabled"
 msgstr ""
 
-#: admin/class-form-editor.php:712
+#: admin/class-form-editor.php:721
 msgid "Send when"
 msgstr ""
 
-#: admin/class-form-editor.php:716
+#: admin/class-form-editor.php:725
 msgid "The form is submitted"
 msgstr ""
 
-#: admin/class-form-editor.php:717
+#: admin/class-form-editor.php:726
 msgid "A payment completes"
 msgstr ""
 
-#: admin/class-form-editor.php:718
+#: admin/class-form-editor.php:727
 msgid "An entry is approved"
 msgstr ""
 
-#: admin/class-form-editor.php:719
+#: admin/class-form-editor.php:728
 msgid "An entry is edited"
 msgstr ""
 
-#: admin/class-form-editor.php:737
+#: admin/class-form-editor.php:746
 msgid "Send to"
 msgstr ""
 
-#: admin/class-form-editor.php:739
+#: admin/class-form-editor.php:748
 msgid "These addresses"
 msgstr ""
 
-#: admin/class-form-editor.php:740
+#: admin/class-form-editor.php:749
 msgid "An email field on the form"
 msgstr ""
 
-#: admin/class-form-editor.php:756
+#: admin/class-form-editor.php:765
 msgid "Cc"
 msgstr ""
 
-#: admin/class-form-editor.php:759
+#: admin/class-form-editor.php:768
 msgid "Bcc"
 msgstr ""
 
-#: admin/class-form-editor.php:762
+#: admin/class-form-editor.php:771
 msgid "Reply-To"
 msgstr ""
 
-#: admin/class-form-editor.php:764
+#: admin/class-form-editor.php:773
 msgid "Where your reply goes when you hit Reply. Put the tag of the form's email field here to answer the sender directly."
 msgstr ""
 
-#: admin/class-form-editor.php:766
+#: admin/class-form-editor.php:775
 msgid "From name"
 msgstr ""
 
-#: admin/class-form-editor.php:769
+#: admin/class-form-editor.php:778
 msgid "From email"
 msgstr ""
 
-#: admin/class-form-editor.php:771
+#: admin/class-form-editor.php:780
 msgid "Leave blank. Sending as the visitor's address makes your notification fail SPF checks and land in spam — use Reply-To above instead."
 msgstr ""
 
-#: admin/class-form-editor.php:773
+#: admin/class-form-editor.php:782
 #: includes/class-templates.php:111
 msgid "Subject"
 msgstr ""
 
-#: admin/class-form-editor.php:776
+#: admin/class-form-editor.php:785
 msgid "Body"
 msgstr ""
 
-#: admin/class-form-editor.php:782
+#: admin/class-form-editor.php:791
 msgid "Attach any files uploaded with the submission"
 msgstr ""
 
-#: admin/class-form-editor.php:787
+#: admin/class-form-editor.php:796
 msgid "Send a test"
 msgstr ""
 
-#: admin/class-form-editor.php:788
+#: admin/class-form-editor.php:797
 #: admin/class-forms-list.php:145
 msgid "Duplicate"
 msgstr ""
 
-#: admin/class-form-editor.php:789
-#: admin/class-form-editor.php:868
-#: public/class-public-front.php:74
+#: admin/class-form-editor.php:798
+#: admin/class-form-editor.php:877
+#: public/class-public-front.php:171
 msgid "Remove"
 msgstr ""
 
-#: admin/class-form-editor.php:810
+#: admin/class-form-editor.php:819
 msgid "Enterprise enquiries"
 msgstr ""
 
-#: admin/class-form-editor.php:812
+#: admin/class-form-editor.php:821
 msgid "Then show"
 msgstr ""
 
-#: admin/class-form-editor.php:814
+#: admin/class-form-editor.php:823
 msgid "A message"
 msgstr ""
 
-#: admin/class-form-editor.php:815
+#: admin/class-form-editor.php:824
 msgid "A page on this site"
 msgstr ""
 
-#: admin/class-form-editor.php:816
+#: admin/class-form-editor.php:825
 msgid "Another URL"
 msgstr ""
 
-#: admin/class-form-editor.php:832
+#: admin/class-form-editor.php:841
 msgid "URL"
 msgstr ""
 
-#: admin/class-form-editor.php:835
+#: admin/class-form-editor.php:844
 msgid "Query string"
 msgstr ""
 
-#: admin/class-form-editor.php:837
+#: admin/class-form-editor.php:846
 msgid "Appended to the page or URL above. Merge tags are resolved first."
 msgstr ""
 
-#: admin/class-form-editor.php:842
+#: admin/class-form-editor.php:851
 msgid "Only when"
 msgstr ""
 
-#: admin/class-form-editor.php:845
+#: admin/class-form-editor.php:854
 msgid "— always (use the default instead) —"
 msgstr ""
 
@@ -1982,7 +1984,7 @@ msgid "Result"
 msgstr ""
 
 #: admin/views/assistants.php:250
-#: builder/src/app.jsx:768
+#: builder/src/app.jsx:826
 msgid "Done"
 msgstr ""
 
@@ -2126,9 +2128,9 @@ msgstr ""
 #: includes/class-beaver-builder.php:58
 #: includes/class-classic-editor.php:81
 #: includes/class-form-widget.php:103
-#: includes/class-my-submissions.php:50
-#: includes/class-my-submissions.php:56
-#: includes/class-plugin.php:136
+#: includes/class-my-submissions.php:51
+#: includes/class-my-submissions.php:57
+#: includes/class-plugin.php:164
 #: includes/class-results.php:166
 #: includes/elementor/class-form-widget.php:55
 #: includes/elementor/class-form-widget.php:60
@@ -2843,6 +2845,7 @@ msgid "Settings sections"
 msgstr ""
 
 #: admin/views/settings.php:40
+#: includes/class-form-builder.php:353
 msgid "Settings saved."
 msgstr ""
 
@@ -2891,6 +2894,7 @@ msgstr ""
 
 #: admin/views/settings.php:117
 #: admin/views/settings.php:234
+#: includes/class-form-builder.php:360
 msgid "Save settings"
 msgstr ""
 
@@ -2903,12 +2907,12 @@ msgid "Open forms in"
 msgstr ""
 
 #: admin/views/settings.php:136
-#: includes/class-form-builder.php:173
+#: includes/class-form-builder.php:181
 msgid "Visual builder (drag and drop)"
 msgstr ""
 
 #: admin/views/settings.php:137
-#: includes/class-form-builder.php:174
+#: includes/class-form-builder.php:182
 msgid "Block editor"
 msgstr ""
 
@@ -3479,7 +3483,7 @@ msgid "Country"
 msgstr ""
 
 #: includes/class-block-defaults.php:37
-#: includes/class-my-submissions.php:49
+#: includes/class-my-submissions.php:50
 msgid "Date"
 msgstr ""
 
@@ -3521,13 +3525,13 @@ msgid "Option"
 msgstr ""
 
 #: includes/class-block-defaults.php:51
-#: public/class-form-renderer.php:300
-#: public/class-form-renderer.php:366
+#: public/class-form-renderer.php:301
+#: public/class-form-renderer.php:367
 msgid "Next"
 msgstr ""
 
 #: includes/class-block-defaults.php:52
-#: public/class-form-renderer.php:366
+#: public/class-form-renderer.php:367
 msgid "Back"
 msgstr ""
 
@@ -3608,7 +3612,7 @@ msgid "Items"
 msgstr ""
 
 #: includes/class-block-defaults.php:70
-#: public/class-public-front.php:73
+#: public/class-public-front.php:170
 msgid "Add item"
 msgstr ""
 
@@ -3689,6 +3693,12 @@ msgstr ""
 
 #: includes/class-builder-rest.php:317
 msgid "You are not allowed to publish this form."
+msgstr ""
+
+#. translators: %s: the field's label.
+#: includes/class-builder-rest.php:419
+#, php-format
+msgid "The field \"%s\" has no field ID. Give it one in the field's settings, using English letters (a-z), digits and underscores."
 msgstr ""
 
 #: includes/class-campaign.php:58
@@ -3924,8 +3934,8 @@ msgstr ""
 
 #: includes/class-field.php:65
 #: includes/fields/class-field-consent.php:29
-#: includes/fields/class-field-file.php:32
-#: public/class-public-front.php:63
+#: includes/fields/class-field-file.php:72
+#: public/class-public-front.php:160
 msgid "This field is required."
 msgstr ""
 
@@ -3935,35 +3945,56 @@ msgstr ""
 msgid "(no title #%d)"
 msgstr ""
 
-#: includes/class-form-builder.php:110
+#: includes/class-form-builder.php:118
 #: includes/class-rest-api.php:460
 msgid "Untitled form"
 msgstr ""
 
-#: includes/class-form-builder.php:169
+#: includes/class-form-builder.php:177
 msgid "Edit this form with"
 msgstr ""
 
-#: includes/class-form-builder.php:172
+#: includes/class-form-builder.php:180
 msgid "Site default"
 msgstr ""
 
-#: includes/class-form-builder.php:177
+#: includes/class-form-builder.php:185
 msgid "Both editors read and write the same form — switch whenever you like."
 msgstr ""
 
-#: includes/class-form-builder.php:179
+#: includes/class-form-builder.php:187
 msgid "Open in the visual builder"
 msgstr ""
 
-#: includes/class-form-builder.php:253
-#: includes/class-form-builder.php:254
-#: includes/class-form-builder.php:267
-#: includes/class-form-builder.php:268
+#: includes/class-form-builder.php:261
+#: includes/class-form-builder.php:262
+#: includes/class-form-builder.php:370
+#: includes/class-form-builder.php:371
 msgid "Visual Builder"
 msgstr ""
 
-#: includes/class-form-builder.php:281
+#: includes/class-form-builder.php:273
+#: includes/class-form-builder.php:274
+#: includes/class-form-builder.php:325
+#: builder/src/app.jsx:687
+msgid "Form settings"
+msgstr ""
+
+#: includes/class-form-builder.php:307
+msgid "Sorry, you are not allowed to edit this form."
+msgstr ""
+
+#: includes/class-form-builder.php:312
+msgid "This page was open too long. Reload it and save again."
+msgstr ""
+
+#. translators: %s: form title
+#: includes/class-form-builder.php:351
+#, php-format
+msgid "Settings for %s"
+msgstr ""
+
+#: includes/class-form-builder.php:384
 msgid "Trinity Forms Visual Builder: run `npm run build:builder` to compile the builder assets."
 msgstr ""
 
@@ -4176,7 +4207,7 @@ msgstr ""
 #. translators: 1: field label, 2: the other plugin's field type, e.g. "likert".
 #. translators: 1: field name, 2: Contact Form 7 field type, e.g. "quiz".
 #: includes/class-gf-importer.php:263
-#: includes/importers/class-base-importer.php:156
+#: includes/importers/class-base-importer.php:192
 #: includes/importers/class-contact-form-7.php:155
 #, php-format
 msgid "%1$s (%2$s)"
@@ -4184,8 +4215,8 @@ msgstr ""
 
 #. translators: %s: field label or notification name.
 #: includes/class-gf-importer.php:264
-#: includes/importers/class-base-importer.php:157
-#: includes/importers/class-base-importer.php:203
+#: includes/importers/class-base-importer.php:193
+#: includes/importers/class-base-importer.php:239
 #: includes/importers/class-contact-form-7.php:156
 #: includes/importers/class-contact-form-7.php:423
 msgid "Untitled field"
@@ -4492,11 +4523,11 @@ msgstr ""
 msgid "Admin email"
 msgstr ""
 
-#: includes/class-my-submissions.php:20
+#: includes/class-my-submissions.php:21
 msgid "Please log in to see your submissions."
 msgstr ""
 
-#: includes/class-my-submissions.php:44
+#: includes/class-my-submissions.php:45
 msgid "You have no submissions yet."
 msgstr ""
 
@@ -4587,31 +4618,92 @@ msgid "The page could not be created."
 msgstr ""
 
 #: includes/class-onboarding.php:229
-#: builder/src/app.jsx:552
+#: builder/src/app.jsx:592
 msgid "Create a page"
 msgstr ""
 
-#: includes/class-plugin.php:129
+#: includes/class-plugin.php:157
 msgid "Trinity Forms Forms"
 msgstr ""
 
-#: includes/class-plugin.php:137
+#: includes/class-plugin.php:165
 msgid "All Forms"
 msgstr ""
 
-#: includes/class-plugin.php:138
+#: includes/class-plugin.php:166
 msgid "Add Form"
 msgstr ""
 
-#: includes/class-plugin.php:139
+#: includes/class-plugin.php:167
 msgid "Edit Form"
 msgstr ""
 
-#: includes/class-plugin.php:140
+#: includes/class-plugin.php:168
 msgid "No forms yet — start from a template, or add a blank one."
 msgstr ""
 
-#: includes/class-plugin.php:289
+#: includes/class-plugin.php:170
+#: includes/class-plugin.php:213
+msgid "Form published."
+msgstr ""
+
+#: includes/class-plugin.php:171
+msgid "Form published privately."
+msgstr ""
+
+#: includes/class-plugin.php:172
+msgid "Form reverted to draft."
+msgstr ""
+
+#: includes/class-plugin.php:173
+#: includes/class-plugin.php:216
+msgid "Form scheduled."
+msgstr ""
+
+#: includes/class-plugin.php:174
+#: includes/class-plugin.php:211
+#: includes/class-plugin.php:212
+msgid "Form updated."
+msgstr ""
+
+#: includes/class-plugin.php:214
+msgid "Form saved."
+msgstr ""
+
+#: includes/class-plugin.php:215
+msgid "Form submitted."
+msgstr ""
+
+#: includes/class-plugin.php:217
+msgid "Form draft updated."
+msgstr ""
+
+#: includes/class-plugin.php:221
+#: includes/class-plugin.php:222
+msgid "View updated."
+msgstr ""
+
+#: includes/class-plugin.php:223
+msgid "View published."
+msgstr ""
+
+#: includes/class-plugin.php:224
+msgid "View saved."
+msgstr ""
+
+#: includes/class-plugin.php:225
+msgid "View submitted."
+msgstr ""
+
+#: includes/class-plugin.php:226
+msgid "View scheduled."
+msgstr ""
+
+#: includes/class-plugin.php:227
+msgid "View draft updated."
+msgstr ""
+
+#: includes/class-plugin.php:364
 msgid "Trinity Forms Fields"
 msgstr ""
 
@@ -4644,21 +4736,21 @@ msgid_plural "%s votes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-poll-results.php:226
+#: includes/class-poll-results.php:227
 msgid "Poll results: choose a published form."
 msgstr ""
 
-#: includes/class-poll-results.php:232
+#: includes/class-poll-results.php:233
 msgid "The results appear here after you vote."
 msgstr ""
 
-#: includes/class-poll-results.php:235
-#: includes/class-poll-results.php:314
-#: includes/class-poll-results.php:331
+#: includes/class-poll-results.php:236
+#: includes/class-poll-results.php:315
+#: includes/class-poll-results.php:332
 msgid "No votes yet."
 msgstr ""
 
-#: includes/class-poll-results.php:326
+#: includes/class-poll-results.php:327
 msgid "These results are not available."
 msgstr ""
 
@@ -4671,11 +4763,11 @@ msgstr ""
 msgid "Form submissions"
 msgstr ""
 
-#: includes/class-private-files.php:166
+#: includes/class-private-files.php:189
 msgid "You do not have permission to download this file."
 msgstr ""
 
-#: includes/class-private-files.php:174
+#: includes/class-private-files.php:197
 msgid "File not found."
 msgstr ""
 
@@ -4690,7 +4782,7 @@ msgid "Start here"
 msgstr ""
 
 #: includes/class-rest-api.php:144
-#: public/class-public-front.php:57
+#: public/class-public-front.php:154
 msgid "This page is out of date. Please reload it and try again."
 msgstr ""
 
@@ -4902,13 +4994,13 @@ msgid "This value has already been used."
 msgstr ""
 
 #. translators: %s: form title.
-#: includes/class-submission-pipeline.php:434
+#: includes/class-submission-pipeline.php:437
 #, php-format
 msgid "[Trinity Forms] Payments are failing on \"%s\""
 msgstr ""
 
 #. translators: 1: form title, 2: provider error, 3: entry admin URL.
-#: includes/class-submission-pipeline.php:437
+#: includes/class-submission-pipeline.php:440
 #, php-format
 msgid ""
 "A visitor could not start a payment on \"%1$s\". Nothing was charged.\n"
@@ -4918,28 +5010,28 @@ msgid ""
 "Check the payment keys under Trinity Forms > Settings. The entry: %3$s"
 msgstr ""
 
-#: includes/class-submission-pipeline.php:450
+#: includes/class-submission-pipeline.php:453
 msgid "Payment skipped: this site has never had a Pro licence."
 msgstr ""
 
 #. translators: %s: payment provider key, e.g. stripe.
-#: includes/class-submission-pipeline.php:462
+#: includes/class-submission-pipeline.php:465
 #, php-format
 msgid "Payment is on, but the provider \"%s\" is not available."
 msgstr ""
 
-#: includes/class-submission-pipeline.php:481
+#: includes/class-submission-pipeline.php:484
 msgid "Payment could not be started, so nothing was charged. Please try again later, or contact the site owner if it keeps happening."
 msgstr ""
 
 #. translators: %s: uploaded file name.
-#: includes/class-submission-pipeline.php:544
+#: includes/class-submission-pipeline.php:555
 #, php-format
 msgid "Upload error for %s."
 msgstr ""
 
 #. translators: %s: uploaded file name.
-#: includes/class-submission-pipeline.php:550
+#: includes/class-submission-pipeline.php:561
 #, php-format
 msgid "%s is empty."
 msgstr ""
@@ -5300,28 +5392,28 @@ msgstr ""
 msgid "Postal code"
 msgstr ""
 
-#: includes/fields/class-field-base.php:134
-#: includes/fields/class-field-base.php:207
+#: includes/fields/class-field-base.php:145
+#: includes/fields/class-field-base.php:218
 msgid "required"
 msgstr ""
 
-#: includes/fields/class-field-base.php:199
+#: includes/fields/class-field-base.php:210
 msgid "optional"
 msgstr ""
 
 #. translators: %d: minimum number of characters.
-#: includes/fields/class-field-base.php:283
+#: includes/fields/class-field-base.php:294
 #, php-format
 msgid "Must be at least %d characters."
 msgstr ""
 
 #. translators: %d: maximum number of characters.
-#: includes/fields/class-field-base.php:290
+#: includes/fields/class-field-base.php:301
 #, php-format
 msgid "Must be %d characters or fewer."
 msgstr ""
 
-#: includes/fields/class-field-base.php:298
+#: includes/fields/class-field-base.php:309
 msgid "Invalid format."
 msgstr ""
 
@@ -5351,18 +5443,18 @@ msgid "Invalid date."
 msgstr ""
 
 #: includes/fields/class-field-email.php:34
-#: public/class-public-front.php:64
+#: public/class-public-front.php:161
 msgid "Please enter a valid email address."
 msgstr ""
 
-#: includes/fields/class-field-file.php:49
+#: includes/fields/class-field-file.php:89
 #, php-format
 msgid "File %s has a disallowed type."
 msgstr ""
 
 #. translators: 1: file name, 2: the largest size accepted, e.g. "2 MB".
-#: includes/fields/class-field-file.php:72
-#: public/class-public-front.php:59
+#: includes/fields/class-field-file.php:112
+#: public/class-public-front.php:156
 #, php-format
 msgid "%1$s is too big. Files can be up to %2$s."
 msgstr ""
@@ -5474,7 +5566,7 @@ msgid "Please enter a valid web address."
 msgstr ""
 
 #. translators: %s: field label or notification name.
-#: includes/importers/class-base-importer.php:203
+#: includes/importers/class-base-importer.php:239
 #, php-format
 msgid "Show/hide rules on %s"
 msgstr ""
@@ -5619,82 +5711,82 @@ msgid "%s: choices filled from posts or categories"
 msgstr ""
 
 #. translators: %d: form ID.
-#: public/class-form-renderer.php:121
+#: public/class-form-renderer.php:122
 #, php-format
 msgid "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note."
 msgstr ""
 
-#: public/class-form-renderer.php:256
+#: public/class-form-renderer.php:257
 msgid "Welcome back — we restored the answers you saved. Check them and carry on."
 msgstr ""
 
-#: public/class-form-renderer.php:299
-#: public/class-form-renderer.php:366
+#: public/class-form-renderer.php:300
+#: public/class-form-renderer.php:367
 msgid "Previous"
 msgstr ""
 
-#: public/class-form-renderer.php:310
+#: public/class-form-renderer.php:311
 msgid "Save & continue later"
 msgstr ""
 
-#: public/class-form-renderer.php:577
+#: public/class-form-renderer.php:579
 msgid "Thank you — your submission was received."
 msgstr ""
 
-#: public/class-public-front.php:52
+#: public/class-public-front.php:149
 msgid "There is one thing to fix:"
 msgstr ""
 
-#: public/class-public-front.php:53
+#: public/class-public-front.php:150
 msgid "There are some things to fix:"
 msgstr ""
 
-#: public/class-public-front.php:54
+#: public/class-public-front.php:151
 msgid "Thanks — your submission was received."
 msgstr ""
 
-#: public/class-public-front.php:55
+#: public/class-public-front.php:152
 msgid "Submission failed."
 msgstr ""
 
-#: public/class-public-front.php:56
+#: public/class-public-front.php:153
 msgid "Network error — please try again."
 msgstr ""
 
-#: public/class-public-front.php:60
+#: public/class-public-front.php:157
 msgid "The file is too big to send."
 msgstr ""
 
 #. translators: 1: current step number, 2: number of steps.
-#: public/class-public-front.php:62
+#: public/class-public-front.php:159
 #, php-format
 msgid "Step %1$d of %2$d"
 msgstr ""
 
-#: public/class-public-front.php:65
+#: public/class-public-front.php:162
 msgid "Email me a link to finish this form later"
 msgstr ""
 
-#: public/class-public-front.php:66
+#: public/class-public-front.php:163
 msgid "Send link"
 msgstr ""
 
-#: public/class-public-front.php:68
-#: builder/src/app.jsx:599
+#: public/class-public-front.php:165
+#: builder/src/app.jsx:649
 msgid "Saving…"
 msgstr ""
 
-#: public/class-public-front.php:69
+#: public/class-public-front.php:166
 msgid "Saved. We've emailed you a link to resume."
 msgstr ""
 
 #. translators: %s: the link that resumes the form.
-#: public/class-public-front.php:71
+#: public/class-public-front.php:168
 #, php-format
 msgid "Saved. Bookmark this URL to resume: %s"
 msgstr ""
 
-#: public/class-public-front.php:72
+#: public/class-public-front.php:169
 msgid "Could not save progress."
 msgstr ""
 
@@ -6161,198 +6253,217 @@ msgstr ""
 msgid "Pick the poll whose results visitors should see."
 msgstr ""
 
-#: builder/src/app.jsx:158
+#: builder/src/app.jsx:161
 msgid "Could not load this form."
 msgstr ""
 
-#: builder/src/app.jsx:242
+#: builder/src/app.jsx:245
 msgid "new field"
 msgstr ""
 
-#: builder/src/app.jsx:245
+#: builder/src/app.jsx:248
 msgid "the end of the form"
 msgstr ""
 
-#: builder/src/app.jsx:250
+#: builder/src/app.jsx:253
 msgid "field"
 msgstr ""
 
 #. translators: 1: position, 2: total number of fields.
-#: builder/src/app.jsx:261
+#: builder/src/app.jsx:264
 #, js-format
 msgid "position %1$d of %2$d"
 msgstr ""
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:266
+#: builder/src/app.jsx:269
 #, js-format
 msgid "Picked up %s."
 msgstr ""
 
 #. translators: 1: dragged field label, 2: field it is over, 3: position text.
-#: builder/src/app.jsx:270
+#: builder/src/app.jsx:273
 #, js-format
 msgid "%1$s is over %2$s, %3$s."
 msgstr ""
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:272
+#: builder/src/app.jsx:275
 #, js-format
 msgid "%s is no longer over a drop position."
 msgstr ""
 
 #. translators: 1: dragged field label, 2: target field label.
-#: builder/src/app.jsx:276
+#: builder/src/app.jsx:279
 #, js-format
 msgid "%1$s was dropped at %2$s."
 msgstr ""
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:278
+#: builder/src/app.jsx:281
 #, js-format
 msgid "%s was dropped outside the form; nothing changed."
 msgstr ""
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:281
+#: builder/src/app.jsx:284
 #, js-format
 msgid "Moving %s was cancelled."
 msgstr ""
 
-#: builder/src/app.jsx:398
+#: builder/src/app.jsx:401
 msgid "Replace the current form with this template? Your unsaved changes will be lost."
 msgstr ""
 
-#: builder/src/app.jsx:446
+#: builder/src/app.jsx:449
 msgid "Form saved. It is published, so it shows wherever you embed it."
 msgstr ""
 
-#: builder/src/app.jsx:447
+#: builder/src/app.jsx:450
 msgid "Form saved as a draft. Visitors will not see it until you publish it."
 msgstr ""
 
-#: builder/src/app.jsx:461
+#: builder/src/app.jsx:465
 msgid "Could not save this form."
 msgstr ""
 
-#: builder/src/app.jsx:481
-#: builder/src/app.jsx:482
+#: builder/src/app.jsx:511
+#: builder/src/app.jsx:512
 msgid "Form title"
 msgstr ""
 
-#: builder/src/app.jsx:491
+#: builder/src/app.jsx:521
 msgid "Undo"
 msgstr ""
 
-#: builder/src/app.jsx:492
+#: builder/src/app.jsx:522
 msgid "Ctrl+Z"
 msgstr ""
 
-#: builder/src/app.jsx:498
+#: builder/src/app.jsx:528
 msgid "Redo"
 msgstr ""
 
-#: builder/src/app.jsx:499
+#: builder/src/app.jsx:529
 msgid "Ctrl+Shift+Z"
 msgstr ""
 
-#: builder/src/app.jsx:511
+#: builder/src/app.jsx:541
 msgid "Submit button text, what visitors see after they submit, schedule and entry limits"
 msgstr ""
 
-#: builder/src/app.jsx:534
+#: builder/src/app.jsx:551
+msgid "Every setting of this form: emails, layout, save and continue, popup, payments, integrations and more"
+msgstr ""
+
+#: builder/src/app.jsx:554
+#: builder/src/app.jsx:833
+#: builder/src/app.jsx:841
+msgid "All settings"
+msgstr ""
+
+#: builder/src/app.jsx:574
 msgid "Copy the shortcode that puts this form on a page or post"
 msgstr ""
 
-#: builder/src/app.jsx:537
+#: builder/src/app.jsx:577
 msgid "Copied"
 msgstr ""
 
-#: builder/src/app.jsx:538
+#: builder/src/app.jsx:578
 msgid "Press Ctrl+C to copy"
 msgstr ""
 
-#: builder/src/app.jsx:541
+#: builder/src/app.jsx:581
 msgid "Copy shortcode"
 msgstr ""
 
-#: builder/src/app.jsx:549
+#: builder/src/app.jsx:589
 msgid "Make a draft page holding this form and open it. Save your changes first."
 msgstr ""
 
-#: builder/src/app.jsx:562
+#: builder/src/app.jsx:599
+#: builder/src/app.jsx:612
 msgid "Set up the emails sent when this form is submitted"
 msgstr ""
 
-#: builder/src/app.jsx:570
+#: builder/src/app.jsx:620
 msgid "Open in block editor"
 msgstr ""
 
-#: builder/src/app.jsx:577
+#: builder/src/app.jsx:627
 msgid "Describe your form and let AI draft the fields (opens the block editor)"
 msgstr ""
 
-#: builder/src/app.jsx:580
+#: builder/src/app.jsx:630
 msgid "Draft with AI"
 msgstr ""
 
-#: builder/src/app.jsx:586
+#: builder/src/app.jsx:636
 msgid "Form status"
 msgstr ""
 
-#: builder/src/app.jsx:593
+#: builder/src/app.jsx:643
 msgid "Draft"
 msgstr ""
 
-#: builder/src/app.jsx:595
+#: builder/src/app.jsx:645
 msgid "Published"
 msgstr ""
 
-#: builder/src/app.jsx:599
+#: builder/src/app.jsx:649
 msgid "Save form"
 msgstr ""
 
-#: builder/src/app.jsx:607
+#: builder/src/app.jsx:657
 msgid "This form was saved in a format the builder can't open, so its fields don't show here. It still works on your site, and saving is turned off so nothing gets overwritten."
 msgstr ""
 
-#: builder/src/app.jsx:618
+#: builder/src/app.jsx:668
 msgid "This form changed somewhere else, most likely in the block editor in another tab. Your edits here have not been saved, and saving now would overwrite that change."
 msgstr ""
 
-#: builder/src/app.jsx:624
+#: builder/src/app.jsx:674
 msgid "Reload the form"
 msgstr ""
 
-#: builder/src/app.jsx:637
-msgid "Form settings"
+#: builder/src/app.jsx:693
+msgid "Emails, layout, save and continue, popup, payments and the rest are under All settings."
 msgstr ""
 
-#: builder/src/app.jsx:765
+#: builder/src/app.jsx:695
+msgid "Open All settings"
+msgstr ""
+
+#: builder/src/app.jsx:823
 msgid "These are saved with the form when you press Save form."
 msgstr ""
 
-#: builder/src/app.jsx:795
+#: builder/src/app.jsx:838
+msgid "Press Save settings at the bottom before you close this window."
+msgstr ""
+
+#: builder/src/app.jsx:870
 msgid "fields"
 msgstr ""
 
-#: builder/src/app.jsx:816
+#: builder/src/app.jsx:891
 msgid "Add a field"
 msgstr ""
 
-#: builder/src/app.jsx:818
+#: builder/src/app.jsx:893
 msgid "Click to append, or drag onto the canvas to place."
 msgstr ""
 
-#: builder/src/app.jsx:825
+#: builder/src/app.jsx:900
 msgid "Pro fields"
 msgstr ""
 
-#: builder/src/app.jsx:827
+#: builder/src/app.jsx:902
 msgid "Activate your Pro license to add these."
 msgstr ""
 
-#: builder/src/app.jsx:839
+#: builder/src/app.jsx:914
 msgid "Requires an active Pro license"
 msgstr ""
 

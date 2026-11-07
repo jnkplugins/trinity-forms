@@ -21,7 +21,7 @@ class Field_Number extends Field_Base {
         if ( $raw === null || $raw === "" ) {
             return "";
         }
-        $clean = preg_replace( "/[^0-9.\-]/", "", self::ascii_digits( (string) $raw ) );
+        $clean = preg_replace( "/[^0-9.\-]/", "", self::ascii_digits( self::text( $raw ) ) );
         if ( $clean === "" ) {
             return "";
         }

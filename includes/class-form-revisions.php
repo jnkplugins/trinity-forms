@@ -351,7 +351,7 @@ class Form_Revisions {
     }
 
     public static function add_page(): void {
-        $hook = add_submenu_page( Admin::PARENT, __( "Form revisions", "trinity-forms" ), __( "Form revisions", "trinity-forms" ), "edit_posts", self::PAGE, [ __CLASS__, "render_page" ] );
+        $hook = add_submenu_page( Admin::PARENT, __( "Form revisions", "trinity-forms" ), __( "Form revisions", "trinity-forms" ), Admin::CAP, self::PAGE, [ __CLASS__, "render_page" ] );
         // Out of the menu, WordPress has no title for the browser tab.
         if ( $hook ) {
             add_action( "load-" . $hook, static function () {

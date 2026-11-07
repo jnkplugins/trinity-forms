@@ -114,12 +114,35 @@ class Private_Files {
         return "" !== self::encode( $path );
     }
 
+    /**
+     * The real location of a stored file path, or "" when it is not an existing
+     * file inside the private root or the uploads folder.
+     *
+     * Everything that reads, attaches or deletes a stored path goes through this.
+     * The path is resolved first (realpath), so "uploads/../../wp-config.php" or a
+     * symlink pointing out of the folder is outside, whatever the text starts with.
+     */
+    public static function real_managed_path( string $path ): string {
+        return "" === self::encode( $path ) ? "" : wp_normalize_path( (string) realpath( $path ) );
+    }
+
     /** "p:<relative>" / "u:<relative>", or "" when the path is outside both roots. */
     private static function encode( string $path ): string {
-        $path = wp_normalize_path( $path );
+        // Compared after resolving, never as text: a stored path is not trusted (a
+        // row written by an older version may hold whatever a visitor posted).
+        $real = "" !== $path && false === strpos( $path, "\0" ) ? realpath( $path ) : false;
+        if ( ! $real || ! is_file( $real ) ) {
+            return "";
+        }
+        $real = wp_normalize_path( $real );
         foreach ( [ self::ROOT_PRIVATE => self::root(), self::ROOT_UPLOADS => self::uploads_base() ] as $key => $base ) {
-            if ( "" !== $base && 0 === strpos( $path, $base . "/" ) ) {
-                return $key . ":" . substr( $path, strlen( $base ) + 1 );
+            $base = "" !== $base ? realpath( $base ) : false;
+            if ( ! $base ) {
+                continue;
+            }
+            $base = untrailingslashit( wp_normalize_path( $base ) );
+            if ( 0 === strpos( $real, $base . "/" ) ) {
+                return $key . ":" . substr( $real, strlen( $base ) + 1 );
             }
         }
         return "";

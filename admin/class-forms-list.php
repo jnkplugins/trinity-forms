@@ -126,7 +126,7 @@ class Forms_List {
         if ( ! $post instanceof \WP_Post || $post->post_type !== "trinity_forms_form" ) {
             return $actions;
         }
-        if ( ! current_user_can( "edit_posts" ) ) {
+        if ( ! current_user_can( Admin::CAP ) ) {
             return $actions;
         }
         $url = wp_nonce_url(
@@ -165,7 +165,7 @@ class Forms_List {
      * Credentials are stripped by Form_Transfer.
      */
     public static function handle_export(): void {
-        if ( ! current_user_can( "edit_posts" ) ) {
+        if ( ! current_user_can( Admin::CAP ) ) {
             wp_die( esc_html__( "You do not have permission to export forms.", "trinity-forms" ) );
         }
         $form_id = absint( wp_unslash( $_REQUEST["form_id"] ?? 0 ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- verified on the next line.
@@ -187,7 +187,7 @@ class Forms_List {
 
     /** Create a form from an uploaded export file (as `wp trinity form import`). */
     public static function handle_import(): void {
-        if ( ! current_user_can( "edit_posts" ) ) {
+        if ( ! current_user_can( Admin::CAP ) ) {
             wp_die( esc_html__( "You do not have permission to import forms.", "trinity-forms" ) );
         }
         check_admin_referer( self::IMPORT_ACTION );
@@ -218,7 +218,7 @@ class Forms_List {
             Admin::PARENT,
             __( "Import / Export forms", "trinity-forms" ),
             __( "Import / Export", "trinity-forms" ),
-            "edit_posts",
+            Admin::CAP,
             self::TRANSFER_PAGE,
             [ self::class, "render_transfer_page" ]
         );
@@ -229,7 +229,7 @@ class Forms_List {
     }
 
     public static function handle_duplicate(): void {
-        if ( ! current_user_can( "edit_posts" ) ) {
+        if ( ! current_user_can( Admin::CAP ) ) {
             wp_die( esc_html__( "You do not have permission to duplicate forms.", "trinity-forms" ) );
         }
         $post_id = absint( wp_unslash( $_REQUEST["post_id"] ?? 0 ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- nonce verified via check_admin_referer() on the next line.

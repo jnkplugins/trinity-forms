@@ -29,7 +29,7 @@ class Form_QR {
     }
 
     public static function add_page(): void {
-        $hook = add_submenu_page( Admin::PARENT, __( "QR code", "trinity-forms" ), __( "QR code", "trinity-forms" ), "edit_posts", self::PAGE, [ __CLASS__, "render" ] );
+        $hook = add_submenu_page( Admin::PARENT, __( "QR code", "trinity-forms" ), __( "QR code", "trinity-forms" ), Admin::CAP, self::PAGE, [ __CLASS__, "render" ] );
         if ( $hook ) {
             add_action( "load-" . $hook, static function () {
                 $GLOBALS["title"] = __( "QR code", "trinity-forms" ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- the admin page title.

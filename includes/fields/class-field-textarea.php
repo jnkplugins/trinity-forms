@@ -16,7 +16,7 @@ class Field_Textarea extends Field_Base {
     }
 
     public function sanitize( $raw, array $config ) {
-        return sanitize_textarea_field( (string) $raw );
+        return sanitize_textarea_field( self::text( $raw ) );
     }
 
     public function validate( $value, array $config ): array {

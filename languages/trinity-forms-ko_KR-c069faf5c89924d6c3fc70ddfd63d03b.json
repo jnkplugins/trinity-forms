@@ -619,6 +619,15 @@
             "Moving %s was cancelled.": [
                 "%s \ud544\ub4dc \uc774\ub3d9\uc744 \ucde8\uc18c\ud588\uc2b5\ub2c8\ub2e4."
             ],
+            "Form saved. It is published, so it shows wherever you embed it.": [
+                "\uc591\uc2dd\uc744 \uc800\uc7a5\ud588\uc2b5\ub2c8\ub2e4. \uacf5\uac1c \uc0c1\ud0dc\uc774\ubbc0\ub85c \uc0bd\uc785\ud55c \uacf3 \uc5b4\ub514\uc5d0\ub098 \ud45c\uc2dc\ub429\ub2c8\ub2e4."
+            ],
+            "Form saved as a draft. Visitors will not see it until you publish it.": [
+                "\uc591\uc2dd\uc744 \ucd08\uc548\uc73c\ub85c \uc800\uc7a5\ud588\uc2b5\ub2c8\ub2e4. \uacf5\uac1c\ud558\uae30 \uc804\uae4c\uc9c0 \ubc29\ubb38\uc790\uc5d0\uac8c \ubcf4\uc774\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4."
+            ],
+            "Could not save this form.": [
+                "\uc774 \uc591\uc2dd\uc744 \uc800\uc7a5\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4."
+            ],
             "Form title": [
                 "\uc591\uc2dd \uc81c\ubaa9"
             ],
@@ -642,6 +651,12 @@
             ],
             "Settings": [
                 "\uc124\uc815"
+            ],
+            "Every setting of this form: emails, layout, save and continue, popup, payments, integrations and more": [
+                "\uc774 \ud3fc\uc758 \ubaa8\ub4e0 \uc124\uc815: \uc774\uba54\uc77c, \ub808\uc774\uc544\uc6c3, \uc800\uc7a5 \ud6c4 \uc774\uc5b4\uc11c \uc791\uc131, \ud31d\uc5c5, \uacb0\uc81c, \uc5f0\ub3d9 \ub4f1"
+            ],
+            "All settings": [
+                "\ubaa8\ub4e0 \uc124\uc815"
             ],
             "Copy the shortcode that puts this form on a page or post": [
                 "\uc774 \uc591\uc2dd\uc744 \ud398\uc774\uc9c0\ub098 \uae00\uc5d0 \ub123\ub294 \uc20f\ucf54\ub4dc \ubcf5\uc0ac"
@@ -685,15 +700,6 @@
             "Published": [
                 "\uac8c\uc2dc\ub428"
             ],
-            "Form saved. It is published, so it shows wherever you embed it.": [
-                "\uc591\uc2dd\uc744 \uc800\uc7a5\ud588\uc2b5\ub2c8\ub2e4. \uacf5\uac1c \uc0c1\ud0dc\uc774\ubbc0\ub85c \uc0bd\uc785\ud55c \uacf3 \uc5b4\ub514\uc5d0\ub098 \ud45c\uc2dc\ub429\ub2c8\ub2e4."
-            ],
-            "Form saved as a draft. Visitors will not see it until you publish it.": [
-                "\uc591\uc2dd\uc744 \ucd08\uc548\uc73c\ub85c \uc800\uc7a5\ud588\uc2b5\ub2c8\ub2e4. \uacf5\uac1c\ud558\uae30 \uc804\uae4c\uc9c0 \ubc29\ubb38\uc790\uc5d0\uac8c \ubcf4\uc774\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4."
-            ],
-            "Could not save this form.": [
-                "\uc774 \uc591\uc2dd\uc744 \uc800\uc7a5\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4."
-            ],
             "Saving\u2026": [
                 "\uc800\uc7a5 \uc911\u2026"
             ],
@@ -711,6 +717,12 @@
             ],
             "Form settings": [
                 "\uc591\uc2dd \uc124\uc815"
+            ],
+            "Emails, layout, save and continue, popup, payments and the rest are under All settings.": [
+                "\uc774\uba54\uc77c, \ub808\uc774\uc544\uc6c3, \uc800\uc7a5 \ud6c4 \uc774\uc5b4\uc11c \uc791\uc131, \ud31d\uc5c5, \uacb0\uc81c \ub4f1\uc740 \ubaa8\ub4e0 \uc124\uc815\uc5d0 \uc788\uc2b5\ub2c8\ub2e4."
+            ],
+            "Open All settings": [
+                "\ubaa8\ub4e0 \uc124\uc815 \uc5f4\uae30"
             ],
             "Submit button text": [
                 "\uc81c\ucd9c \ubc84\ud2bc \ud14d\uc2a4\ud2b8"
@@ -831,6 +843,9 @@
             ],
             "Done": [
                 "\uc644\ub8cc"
+            ],
+            "Press Save settings at the bottom before you close this window.": [
+                "\uc774 \ucc3d\uc744 \ub2eb\uae30 \uc804\uc5d0 \uc544\ub798\uc758 \uc124\uc815 \uc800\uc7a5\uc744 \ub204\ub974\uc138\uc694."
             ],
             "Start from a template": [
                 "\ud15c\ud50c\ub9bf\uc73c\ub85c \uc2dc\uc791\ud558\uae30"

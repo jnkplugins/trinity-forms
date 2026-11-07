@@ -15,7 +15,7 @@ class Field_Time extends Field_Base {
     }
 
     public function sanitize( $raw, array $config ) {
-        $raw = trim( (string) $raw );
+        $raw = trim( self::text( $raw ) );
         return preg_match( "/^\d{2}:\d{2}(:\d{2})?$/", $raw ) ? $raw : "";
     }
 

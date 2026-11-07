@@ -65,6 +65,11 @@
 		}
 		root.scrollIntoView( { behavior: "smooth", block: "start" } );
 	}
+	// The Visual Builder's "All settings" window opens on a tab: #tf-tab-<name>.
+	var tfTab = /^#tf-tab-([a-z0-9_-]+)$/.exec( window.location.hash );
+	if ( tfTab ) {
+		activateTab( tfTab[1] );
+	}
 	if ( window.location.hash === "#trinity-forms-notifications" && activateTab( "notifications" ) ) {
 		window.setTimeout( function () { revealMetaBox( 20 ); }, 300 );
 	}
