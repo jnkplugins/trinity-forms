@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.26.0
+Stable tag: 2.27.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,10 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.27.0 =
+* Fixed: a form made with Add Form was saved as a draft. Visitors saw nothing where it was placed, while its owner, who can see drafts, saw it working. A new form now saves as published, unless you choose Draft in the builder bar.
+* New: a draft form placed on a page shows the people who can edit it a note above it: "Visitors see nothing here: form #N is a draft." Visitors still see nothing.
 
 = 2.26.0 =
 * New: the Visual Builder has an "All settings" window with every setting of the form: emails, confirmations, layout, restrictions and, in Pro, save and continue, popup, payments, integrations and workflow. Before, some of these could only be reached from the block editor.

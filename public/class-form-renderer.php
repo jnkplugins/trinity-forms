@@ -33,6 +33,7 @@ class Form_Renderer {
         if ( self::$depth > 0 ) {
             return $html;
         }
+        $html = self::draft_notice( $form ) . $html;
         // Only on a real front-end page, where several forms can share one document.
         // template_redirect, not wp_head: a block theme renders the page's blocks
         // before wp_head runs, so a wp_head check never counted a form there.
@@ -105,6 +106,25 @@ class Form_Renderer {
             nocache_headers();
         }
         return map_deep( $note["values"], static fn( $v ) => is_scalar( $v ) ? (string) $v : "" );
+    }
+
+    /**
+     * Above a form that is not published. Visitors get nothing for it, but the
+     * people who can edit it see the whole form, so the owner checking the page saw
+     * it working while every visitor saw a blank space. Editors only, and not on
+     * admin screens, where the form's own status is already in view.
+     */
+    public static function draft_notice( Form $form ): string {
+        if ( is_admin() || "publish" === get_post_status( (int) $form->id ) || ! current_user_can( "edit_post", (int) $form->id ) ) {
+            return "";
+        }
+        return '<p class="trinity-forms-draft-note" style="border:1px dashed #b32d2e;padding:.75em 1em;color:#b32d2e;">'
+            . esc_html( sprintf(
+                /* translators: %d: form ID. */
+                __( "Visitors see nothing here: form #%d is a draft. Publish it in the form builder. Only people who can edit the form see this note.", "trinity-forms" ),
+                (int) $form->id
+            ) )
+            . "</p>";
     }
 
     /**

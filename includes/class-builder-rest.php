@@ -211,8 +211,16 @@ class Builder_REST {
         return empty( $block["innerBlocks"] );
     }
 
-    /** "publish" or "draft", as the builder bar shows it. */
+    /**
+     * "publish" or "draft", as the builder bar shows it. A new form (the auto-draft
+     * Add Form makes) starts on Published for anyone who may publish: the bar used
+     * to start on Draft, so the first save kept the form hidden from visitors while
+     * its owner, who can see drafts, saw it working on the page.
+     */
     private static function public_status( \WP_Post $post ): string {
+        if ( "auto-draft" === $post->post_status ) {
+            return current_user_can( "publish_post", (int) $post->ID ) ? "publish" : "draft";
+        }
         return "publish" === $post->post_status ? "publish" : "draft";
     }
 
@@ -320,8 +328,9 @@ class Builder_REST {
         } elseif ( "draft" === $status && "draft" !== $post->post_status ) {
             $update["post_status"] = "draft";
         } elseif ( "auto-draft" === $post->post_status ) {
-            // First save of a form started from Add Form or the menu: keep it.
-            $update["post_status"] = "draft";
+            // First save of a form started from Add Form or the menu, from a client
+            // that sent no status: keep it, published when the user may publish.
+            $update["post_status"] = current_user_can( "publish_post", (int) $post->ID ) ? "publish" : "draft";
         }
 
         if ( count( $update ) > 1 ) {

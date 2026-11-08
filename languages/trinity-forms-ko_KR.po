@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-07T07:28:27+00:00\n"
+"POT-Creation-Date: 2026-11-08T22:44:20+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Korean\n"
@@ -832,7 +832,7 @@ msgstr "제출 버튼 텍스트"
 
 #: admin/class-form-editor.php:136 admin/class-form-editor.php:347
 #: includes/class-form-basics.php:48 includes/class-form-manager.php:275
-#: includes/class-gf-importer.php:231 public/class-form-renderer.php:136
+#: includes/class-gf-importer.php:231 public/class-form-renderer.php:156
 #: builder/src/app.jsx:702
 msgid "Submit"
 msgstr "제출"
@@ -3332,12 +3332,12 @@ msgstr "숫자"
 msgid "Option"
 msgstr "옵션"
 
-#: includes/class-block-defaults.php:51 public/class-form-renderer.php:301
-#: public/class-form-renderer.php:367
+#: includes/class-block-defaults.php:51 public/class-form-renderer.php:321
+#: public/class-form-renderer.php:387
 msgid "Next"
 msgstr "다음"
 
-#: includes/class-block-defaults.php:52 public/class-form-renderer.php:367
+#: includes/class-block-defaults.php:52 public/class-form-renderer.php:387
 msgid "Back"
 msgstr "뒤로"
 
@@ -3481,20 +3481,20 @@ msgstr "날짜와 시간을 고르세요"
 msgid "Choose"
 msgstr "선택"
 
-#: includes/class-builder-rest.php:265
+#: includes/class-builder-rest.php:273
 msgid "This form can't be edited in the builder. Your form is unchanged."
 msgstr "이 양식은 빌더에서 편집할 수 없습니다. 양식은 변경되지 않았습니다."
 
-#: includes/class-builder-rest.php:281
+#: includes/class-builder-rest.php:289
 msgid "This form changed since you opened it. Reload before saving."
 msgstr "양식을 연 뒤에 변경되었습니다. 저장하기 전에 새로고침하세요."
 
-#: includes/class-builder-rest.php:317
+#: includes/class-builder-rest.php:325
 msgid "You are not allowed to publish this form."
 msgstr "이 양식을 게시할 권한이 없습니다."
 
 #. translators: %s: the field's label.
-#: includes/class-builder-rest.php:419
+#: includes/class-builder-rest.php:428
 #, php-format
 msgid "The field \"%s\" has no field ID. Give it one in the field's settings, using English letters (a-z), digits and underscores."
 msgstr "\"%s\" 필드에 필드 ID가 없습니다. 필드 설정에서 영문자(a-z), 숫자, 밑줄로 ID를 지정하세요."
@@ -5447,24 +5447,30 @@ msgid "%s: choices filled from posts or categories"
 msgstr "%s: 글이나 카테고리로 채워지는 선택지"
 
 #. translators: %d: form ID.
-#: public/class-form-renderer.php:122
+#: public/class-form-renderer.php:124
+#, php-format
+msgid "Visitors see nothing here: form #%d is a draft. Publish it in the form builder. Only people who can edit the form see this note."
+msgstr "방문자에게는 여기에 아무것도 보이지 않습니다. 양식 #%d은(는) 초안입니다. 양식 빌더에서 게시하세요. 이 안내는 양식을 편집할 수 있는 사람에게만 보입니다."
+
+#. translators: %d: form ID.
+#: public/class-form-renderer.php:142
 #, php-format
 msgid "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note."
 msgstr "방문자에게는 여기에 아무것도 보이지 않습니다. 양식 #%d이(가) 삭제되었거나 게시되지 않았습니다. 이 안내는 사이트를 편집할 수 있는 사람에게만 보입니다."
 
-#: public/class-form-renderer.php:257
+#: public/class-form-renderer.php:277
 msgid "Welcome back — we restored the answers you saved. Check them and carry on."
 msgstr "다시 오셨군요. 저장한 답변을 복원했습니다. 확인하고 계속 진행하세요."
 
-#: public/class-form-renderer.php:300 public/class-form-renderer.php:367
+#: public/class-form-renderer.php:320 public/class-form-renderer.php:387
 msgid "Previous"
 msgstr "이전"
 
-#: public/class-form-renderer.php:311
+#: public/class-form-renderer.php:331
 msgid "Save & continue later"
 msgstr "저장 후 나중에 계속"
 
-#: public/class-form-renderer.php:579
+#: public/class-form-renderer.php:599
 msgid "Thank you — your submission was received."
 msgstr "감사합니다. 제출이 접수되었습니다."
 

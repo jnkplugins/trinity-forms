@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-07T07:28:27+00:00\n"
+"POT-Creation-Date: 2026-11-08T22:44:20+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Spanish (Spain)\n"
@@ -833,7 +833,7 @@ msgstr "Texto del botón de envío"
 
 #: admin/class-form-editor.php:136 admin/class-form-editor.php:347
 #: includes/class-form-basics.php:48 includes/class-form-manager.php:275
-#: includes/class-gf-importer.php:231 public/class-form-renderer.php:136
+#: includes/class-gf-importer.php:231 public/class-form-renderer.php:156
 #: builder/src/app.jsx:702
 msgid "Submit"
 msgstr "Enviar"
@@ -3334,12 +3334,12 @@ msgstr "Número"
 msgid "Option"
 msgstr "Opción"
 
-#: includes/class-block-defaults.php:51 public/class-form-renderer.php:301
-#: public/class-form-renderer.php:367
+#: includes/class-block-defaults.php:51 public/class-form-renderer.php:321
+#: public/class-form-renderer.php:387
 msgid "Next"
 msgstr "Siguiente"
 
-#: includes/class-block-defaults.php:52 public/class-form-renderer.php:367
+#: includes/class-block-defaults.php:52 public/class-form-renderer.php:387
 msgid "Back"
 msgstr "Atrás"
 
@@ -3483,20 +3483,20 @@ msgstr "Elige fecha y hora"
 msgid "Choose"
 msgstr "Elige"
 
-#: includes/class-builder-rest.php:265
+#: includes/class-builder-rest.php:273
 msgid "This form can't be edited in the builder. Your form is unchanged."
 msgstr "Este formulario no se puede editar en el constructor. Tu formulario no ha cambiado."
 
-#: includes/class-builder-rest.php:281
+#: includes/class-builder-rest.php:289
 msgid "This form changed since you opened it. Reload before saving."
 msgstr "Este formulario ha cambiado desde que lo abriste. Recarga antes de guardar."
 
-#: includes/class-builder-rest.php:317
+#: includes/class-builder-rest.php:325
 msgid "You are not allowed to publish this form."
 msgstr "No tienes permiso para publicar este formulario."
 
 #. translators: %s: the field's label.
-#: includes/class-builder-rest.php:419
+#: includes/class-builder-rest.php:428
 #, php-format
 msgid "The field \"%s\" has no field ID. Give it one in the field's settings, using English letters (a-z), digits and underscores."
 msgstr "El campo «%s» no tiene ID de campo. Ponle uno en los ajustes del campo, con letras inglesas (a-z), números y guiones bajos."
@@ -5462,24 +5462,30 @@ msgid "%s: choices filled from posts or categories"
 msgstr "%s: opciones que se llenaban con entradas o categorías"
 
 #. translators: %d: form ID.
-#: public/class-form-renderer.php:122
+#: public/class-form-renderer.php:124
+#, php-format
+msgid "Visitors see nothing here: form #%d is a draft. Publish it in the form builder. Only people who can edit the form see this note."
+msgstr "Los visitantes no ven nada aquí: el formulario #%d es un borrador. Publícalo en el constructor de formularios. Solo quienes pueden editar el formulario ven este aviso."
+
+#. translators: %d: form ID.
+#: public/class-form-renderer.php:142
 #, php-format
 msgid "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note."
 msgstr "Los visitantes no ven nada aquí: el formulario #%d se eliminó o no está publicado. Solo quienes pueden editar el sitio ven este aviso."
 
-#: public/class-form-renderer.php:257
+#: public/class-form-renderer.php:277
 msgid "Welcome back — we restored the answers you saved. Check them and carry on."
 msgstr "Hola de nuevo. Hemos recuperado las respuestas que guardaste. Revísalas y continúa."
 
-#: public/class-form-renderer.php:300 public/class-form-renderer.php:367
+#: public/class-form-renderer.php:320 public/class-form-renderer.php:387
 msgid "Previous"
 msgstr "Anterior"
 
-#: public/class-form-renderer.php:311
+#: public/class-form-renderer.php:331
 msgid "Save & continue later"
 msgstr "Guardar y continuar más tarde"
 
-#: public/class-form-renderer.php:579
+#: public/class-form-renderer.php:599
 msgid "Thank you — your submission was received."
 msgstr "Gracias, hemos recibido tu envío."
 

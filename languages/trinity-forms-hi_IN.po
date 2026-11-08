@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.16.2\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-07T07:28:27+00:00\n"
+"POT-Creation-Date: 2026-11-08T22:44:20+00:00\n"
 "PO-Revision-Date: 2026-10-29 12:00+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Hindi\n"
@@ -833,7 +833,7 @@ msgstr "सबमिट बटन का टेक्स्ट"
 
 #: admin/class-form-editor.php:136 admin/class-form-editor.php:347
 #: includes/class-form-basics.php:48 includes/class-form-manager.php:275
-#: includes/class-gf-importer.php:231 public/class-form-renderer.php:136
+#: includes/class-gf-importer.php:231 public/class-form-renderer.php:156
 #: builder/src/app.jsx:702
 msgid "Submit"
 msgstr "भेजें"
@@ -3334,12 +3334,12 @@ msgstr "संख्या"
 msgid "Option"
 msgstr "विकल्प"
 
-#: includes/class-block-defaults.php:51 public/class-form-renderer.php:301
-#: public/class-form-renderer.php:367
+#: includes/class-block-defaults.php:51 public/class-form-renderer.php:321
+#: public/class-form-renderer.php:387
 msgid "Next"
 msgstr "अगला"
 
-#: includes/class-block-defaults.php:52 public/class-form-renderer.php:367
+#: includes/class-block-defaults.php:52 public/class-form-renderer.php:387
 msgid "Back"
 msgstr "वापस"
 
@@ -3483,20 +3483,20 @@ msgstr "तारीख और समय चुनें"
 msgid "Choose"
 msgstr "चुनें"
 
-#: includes/class-builder-rest.php:265
+#: includes/class-builder-rest.php:273
 msgid "This form can't be edited in the builder. Your form is unchanged."
 msgstr "यह फ़ॉर्म बिल्डर में संपादित नहीं हो सकता। आपका फ़ॉर्म नहीं बदला।"
 
-#: includes/class-builder-rest.php:281
+#: includes/class-builder-rest.php:289
 msgid "This form changed since you opened it. Reload before saving."
 msgstr "आपके खोलने के बाद यह फ़ॉर्म बदल गया है। सेव करने से पहले दोबारा लोड करें।"
 
-#: includes/class-builder-rest.php:317
+#: includes/class-builder-rest.php:325
 msgid "You are not allowed to publish this form."
 msgstr "आपको यह फ़ॉर्म प्रकाशित करने की अनुमति नहीं है।"
 
 #. translators: %s: the field's label.
-#: includes/class-builder-rest.php:419
+#: includes/class-builder-rest.php:428
 #, php-format
 msgid "The field \"%s\" has no field ID. Give it one in the field's settings, using English letters (a-z), digits and underscores."
 msgstr "फ़ील्ड \"%s\" का कोई फ़ील्ड ID नहीं है। फ़ील्ड की सेटिंग्स में अंग्रेज़ी अक्षरों (a-z), अंकों और अंडरस्कोर से एक ID दें।"
@@ -5462,24 +5462,30 @@ msgid "%s: choices filled from posts or categories"
 msgstr "%s: पोस्ट या श्रेणियों से भरे जाने वाले विकल्प"
 
 #. translators: %d: form ID.
-#: public/class-form-renderer.php:122
+#: public/class-form-renderer.php:124
+#, php-format
+msgid "Visitors see nothing here: form #%d is a draft. Publish it in the form builder. Only people who can edit the form see this note."
+msgstr "विज़िटर को यहाँ कुछ नहीं दिखता: फ़ॉर्म #%d ड्राफ़्ट है। इसे फ़ॉर्म बिल्डर में प्रकाशित करें। यह नोट सिर्फ़ वे लोग देखते हैं जो फ़ॉर्म संपादित कर सकते हैं।"
+
+#. translators: %d: form ID.
+#: public/class-form-renderer.php:142
 #, php-format
 msgid "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note."
 msgstr "विज़िटर को यहाँ कुछ नहीं दिखता: फ़ॉर्म #%d हटा दिया गया है या प्रकाशित नहीं है। यह नोट सिर्फ़ वे लोग देखते हैं जो साइट संपादित कर सकते हैं।"
 
-#: public/class-form-renderer.php:257
+#: public/class-form-renderer.php:277
 msgid "Welcome back — we restored the answers you saved. Check them and carry on."
 msgstr "फिर से स्वागत है — आपके सेव किए गए जवाब वापस भर दिए गए हैं। उन्हें जाँचें और आगे बढ़ें।"
 
-#: public/class-form-renderer.php:300 public/class-form-renderer.php:367
+#: public/class-form-renderer.php:320 public/class-form-renderer.php:387
 msgid "Previous"
 msgstr "पिछला"
 
-#: public/class-form-renderer.php:311
+#: public/class-form-renderer.php:331
 msgid "Save & continue later"
 msgstr "सहेजें और बाद में जारी रखें"
 
-#: public/class-form-renderer.php:579
+#: public/class-form-renderer.php:599
 msgid "Thank you — your submission was received."
 msgstr "धन्यवाद — आपका सबमिशन मिल गया है।"
 
