@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.27.0
+Stable tag: 2.27.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,9 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.27.1 =
+* Changed: nothing changes in the free version. This release stops a Pro install with a free licence key from being replaced by the free version when it updates.
 
 = 2.27.0 =
 * Fixed: a form made with Add Form was saved as a draft. Visitors saw nothing where it was placed, while its owner, who can see drafts, saw it working. A new form now saves as published, unless you choose Draft in the builder bar.
