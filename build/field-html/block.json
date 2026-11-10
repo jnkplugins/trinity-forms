@@ -18,7 +18,7 @@
     },
     "html": {
       "type": "string",
-      "default": "<p>Custom HTML</p>"
+      "default": ""
     },
     "conditional": {
       "type": "object"

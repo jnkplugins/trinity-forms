@@ -64,7 +64,7 @@ class Form_Editor {
             "confirmTemplate" => self::confirmation_template_html( $tpl_fields ),
             // The picker's list comes from Merge_Tags itself, so it can never offer
             // a tag that renders literally.
-            "mergeTags"     => Merge_Tags::catalogue( $tpl_fields ),
+            "mergeTags"     => Merge_Tags::catalogue( $tpl_fields, $editor_post ? (int) $editor_post->ID : 0 ),
             "restUrl"       => esc_url_raw( rest_url( "trinity-forms/v1/integrations/test" ) ),
             "mailTestUrl"   => esc_url_raw( rest_url( "trinity-forms/v1/mail-test" ) ),
             "stylePresets"  => Form_Style::presets(),
@@ -272,6 +272,11 @@ class Form_Editor {
                     <?php foreach ( [ "all_fields", "site_name", "site_url", "entry_id", "date" ] as $core ) : ?>
                         <button type="button" class="trinity-forms-tag" data-tag="<?php echo esc_attr( "{" . $core . "}" ); ?>"><?php echo esc_html( "{" . $core . "}" ); ?></button>
                     <?php endforeach; ?>
+                    <?php if ( Scoring::is_quiz( $form ) ) : ?>
+                        <?php foreach ( Scoring::picker_tags() as $tf_qt ) : ?>
+                            <button type="button" class="trinity-forms-tag" data-tag="<?php echo esc_attr( $tf_qt["tag"] ); ?>" title="<?php echo esc_attr( $tf_qt["label"] ); ?>"><?php echo esc_html( $tf_qt["tag"] ); ?></button>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </span>
                 <?php if ( ! $fields_options ) : ?>
                     <em><?php esc_html_e( "Add fields to the form and save it to see their tags here.", "trinity-forms" ); ?></em>

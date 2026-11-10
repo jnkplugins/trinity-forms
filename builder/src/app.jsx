@@ -662,6 +662,12 @@ export default function App( { config } ) {
 				</Notice>
 			) }
 
+			{ !! config.proOff && (
+				<Notice status="warning" isDismissible={ false }>
+					<p>{ config.proOff }</p>
+				</Notice>
+			) }
+
 			{ conflict && (
 				<Notice status="warning" isDismissible={ false }>
 					<p>

@@ -15,6 +15,9 @@
             ],
             "HTML markup": [
                 "C\u00f3digo HTML"
+            ],
+            "Custom HTML: write the markup in the block settings. Visitors see nothing until you do.": [
+                "HTML personalizado: escribe el c\u00f3digo en los ajustes del bloque. Los visitantes no ven nada hasta que lo hagas."
             ]
         }
     }

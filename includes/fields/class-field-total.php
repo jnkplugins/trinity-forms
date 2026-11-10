@@ -23,10 +23,21 @@ class Field_Total extends Field_Pricing_Base {
             . '<output class="trinity-forms-total-display" for="' . $id . '" dir="ltr">'
             . esc_html( $this->format_price( 0.0 ) ) . "</output>"
             . '<input type="hidden" id="' . $id . '" name="' . $name . '" value="0"'
-            . ' data-total="1" data-currency="' . esc_attr( $this->currency_symbol() ) . '" />'
+            . ' data-total="1" data-currency="' . esc_attr( $this->currency_symbol() ) . '"'
+            // The running total is written by public.js; these keep it in the same
+            // number format as the prices next to it ("$0,00", not "$0.00").
+            . ' data-decimal="' . esc_attr( self::separator( "decimal_point", "." ) ) . '"'
+            . ' data-thousands="' . esc_attr( self::separator( "thousands_sep", "," ) ) . '" />'
             . "</div>";
 
         return $this->wrap( $config, $control );
+    }
+
+    /** The site locale's decimal or thousands separator. */
+    private static function separator( string $key, string $fallback ): string {
+        global $wp_locale;
+        $sep = isset( $wp_locale->number_format[ $key ] ) ? (string) $wp_locale->number_format[ $key ] : $fallback;
+        return "" !== $sep ? html_entity_decode( $sep, ENT_QUOTES, "UTF-8" ) : $fallback;
     }
 
     public function sanitize( $raw, array $config ) {

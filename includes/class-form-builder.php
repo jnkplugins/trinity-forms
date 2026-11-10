@@ -333,7 +333,7 @@ class Form_Builder {
             html.wp-toolbar { padding-top: 0 !important; }
             .tf-settings-embed #wpcontent, .tf-settings-embed #wpbody-content { margin-left: 0 !important; padding: 0 0 72px !important; }
             .tf-settings-embed .tf-settings-wrap { margin: 0; padding: 12px 16px; }
-            .tf-settings-embed .tf-settings-save { position: fixed; bottom: 0; left: 0; right: 0; padding: 12px 16px; background: #fff; border-top: 1px solid #dcdcde; z-index: 10; }
+            .tf-settings-embed .tf-settings-save { position: fixed; bottom: 0; left: 0; right: 0; margin: 0; padding: 12px 16px; background: #fff; border-top: 1px solid #dcdcde; z-index: 100; }
             </style>
             <?php
         } );
@@ -351,6 +351,14 @@ class Form_Builder {
             <h1 class="screen-reader-text"><?php echo esc_html( sprintf( /* translators: %s: form title */ __( "Settings for %s", "trinity-forms" ), get_the_title( $post ) ) ); ?></h1>
             <?php if ( isset( $_GET["saved"] ) ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- display flag only. ?>
                 <div class="notice notice-success inline tf-settings-notice"><p><?php esc_html_e( "Settings saved.", "trinity-forms" ); ?></p></div>
+                <?php
+                /**
+                 * Warnings about what was just saved (Pro: payments on with no keys).
+                 *
+                 * @param \WP_Post $post The form.
+                 */
+                do_action( "trinity_forms_settings_saved_notices", $post );
+                ?>
                 <script>try { window.parent.postMessage( { trinityFormsSettingsSaved: <?php echo (int) $post->ID; ?> }, window.location.origin ); } catch ( e ) {}</script>
             <?php endif; ?>
             <form method="post" target="_self" action="<?php echo esc_url( self::settings_url( (int) $post->ID ) ); ?>">

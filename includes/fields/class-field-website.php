@@ -19,8 +19,13 @@ class Field_Website extends Field_Base {
         $required    = ! empty( $config["required"] ) ? " required" : "";
         $val         = esc_attr( (string) ( $value ?? "" ) );
 
-        $control = '<input type="url" id="' . $id . '" name="' . $name . '" value="' . $val . '"'
-            . ' placeholder="' . $placeholder . '"' . $required . $this->common_attrs( $config ) . " />";
+        // type="text" + inputmode="url", not type="url": the browser's URL check
+        // refused "ejemplo.es" (which sanitize() turns into https://ejemplo.es)
+        // before it reached us. The phone keyboard is the same; the pattern only
+        // asks for something with a dot in it, and the server does the real check.
+        $control = '<input type="text" inputmode="url" id="' . $id . '" name="' . $name . '" value="' . $val . '"'
+            . ' placeholder="' . $placeholder . '" pattern="\S*\.\S*" spellcheck="false" autocapitalize="none"'
+            . $required . $this->common_attrs( $config ) . " />";
 
         return $this->wrap( $config, $control );
     }
@@ -49,6 +54,33 @@ class Field_Website extends Field_Base {
         return esc_url_raw( $raw, [ "http", "https" ] );
     }
 
+    /**
+     * The URL as FILTER_VALIDATE_URL can read it.
+     *
+     * The filter only knows ASCII, so https://ejemplo.es/ñ and an Arabic Wikipedia
+     * page were refused while their percent-encoded twins passed. The host goes
+     * through IDNA (Punycode) and anything else non-ASCII is percent-encoded, for
+     * the check only: the address is stored as the visitor typed it.
+     */
+    public static function ascii_url( string $url ): string {
+        if ( ! preg_match( '/[^\x00-\x7F]/', $url ) ) {
+            return $url;
+        }
+        $host = (string) wp_parse_url( $url, PHP_URL_HOST );
+        if ( "" !== $host && preg_match( '/[^\x00-\x7F]/', $host ) ) {
+            $ascii = function_exists( "idn_to_ascii" ) ? idn_to_ascii( $host, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46 ) : false;
+            if ( ! is_string( $ascii ) || "" === $ascii ) {
+                // No intl: any well-formed label will do for a shape check.
+                $ascii = (string) preg_replace( '/[^\x00-\x7F]+/', "xn--a", $host );
+            }
+            $pos = strpos( $url, $host );
+            if ( false !== $pos ) {
+                $url = substr_replace( $url, $ascii, $pos, strlen( $host ) );
+            }
+        }
+        return (string) preg_replace_callback( '/[^\x00-\x7F]+/', static fn( $m ) => rawurlencode( $m[0] ), $url );
+    }
+
     public function validate( $value, array $config ): array {
         $value = (string) $value;
         if ( "" === $value ) {
@@ -57,7 +89,7 @@ class Field_Website extends Field_Base {
         // FILTER_VALIDATE_URL alone is not enough: "mailto:a@b.com" is a perfectly
         // valid URL and a perfectly wrong answer for a field labelled Website.
         $scheme = strtolower( (string) wp_parse_url( $value, PHP_URL_SCHEME ) );
-        if ( ! filter_var( $value, FILTER_VALIDATE_URL ) || ! in_array( $scheme, [ "http", "https" ], true ) ) {
+        if ( ! filter_var( self::ascii_url( $value ), FILTER_VALIDATE_URL ) || ! in_array( $scheme, [ "http", "https" ], true ) ) {
             return [ __( "Please enter a valid web address.", "trinity-forms" ) ];
         }
         return [];

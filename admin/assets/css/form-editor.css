@@ -1,4 +1,6 @@
-.trinity-forms-tabs { display:flex; gap:4px; border-bottom:1px solid #c3c4c7; margin-bottom:12px; }
+.trinity-forms-tabs { display:flex; flex-wrap:wrap; gap:4px; border-bottom:1px solid #c3c4c7; margin-bottom:12px; max-width:100%; }
+/* Narrow screens (the All settings window at phone width): every tab stays reachable, wrapped onto more rows rather than pushed off-screen. */
+.trinity-forms-tabs button { white-space:nowrap; }
 .trinity-forms-tabs button { background:transparent; border:1px solid transparent; border-bottom:0; padding:6px 12px; cursor:pointer; }
 .trinity-forms-tabs button.active { background:#fff; border-color:#c3c4c7; }
 .trinity-forms-tab-panel { display:none; }

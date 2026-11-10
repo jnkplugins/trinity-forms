@@ -121,6 +121,12 @@ abstract class Field_Base {
             }
         }
 
+        // The form's own wording for a failed check, read by public.js when the
+        // browser flags the field (empty, wrong format) so the visitor sees it
+        // instead of the browser's generic bubble.
+        $custom_msg = trim( (string) ( $config["validation_message"] ?? "" ) );
+        $msg_attr   = "" !== $custom_msg ? ' data-error-message="' . esc_attr( $custom_msg ) . '"' : "";
+
         $help_html = "" !== $help
             ? '<small class="trinity-forms-help" id="' . esc_attr( $id ) . '-help">' . esc_html( $help ) . "</small>"
             : "";
@@ -136,7 +142,7 @@ abstract class Field_Base {
 
         if ( $is_group ) {
             $described = "" !== $help ? ' aria-describedby="' . esc_attr( $id ) . '-help"' : "";
-            $out       = '<fieldset class="' . esc_attr( implode( " ", array_merge( $classes, [ "trinity-forms-fieldset" ] ) ) ) . '" data-field-id="' . esc_attr( $id ) . '"' . $described . '>';
+            $out       = '<fieldset class="' . esc_attr( implode( " ", array_merge( $classes, [ "trinity-forms-fieldset" ] ) ) ) . '" data-field-id="' . esc_attr( $id ) . '"' . $msg_attr . $described . '>';
             $out      .= '<legend id="' . esc_attr( $id ) . '-label" class="trinity-forms-legend">' . esc_html( $label ) . self::required_marker( $config, $required );
             // Radios carry `required` themselves, so the browser and screen readers
             // know; a checkbox group cannot (each box would become mandatory), and
@@ -168,7 +174,7 @@ abstract class Field_Base {
             );
         }
 
-        $out = '<div class="' . esc_attr( implode( " ", $classes ) ) . '" data-field-id="' . esc_attr( $id ) . '">';
+        $out = '<div class="' . esc_attr( implode( " ", $classes ) ) . '" data-field-id="' . esc_attr( $id ) . '"' . $msg_attr . '>';
         if ( "" !== $label ) {
             $out .= '<label for="' . esc_attr( $id ) . '">';
             $out .= esc_html( $label ) . self::required_marker( $config, $required );

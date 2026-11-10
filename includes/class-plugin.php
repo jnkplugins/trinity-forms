@@ -84,6 +84,8 @@ final class Plugin {
         Beaver_Builder::register();
         // A saved published form empties the page cache, so visitors see the new button and labels.
         Page_Cache::register();
+        // After a Pro -> free downgrade: no raw Pro shortcodes, readable Pro cards.
+        Pro_Absent::bootstrap();
 
         // Bulk "resend notifications" queues one action per entry rather than
         // sending inline, so a 200-entry resend doesn't time out the request.
@@ -189,12 +191,23 @@ final class Plugin {
             "capability_type" => "post",
             "map_meta_cap"    => true,
             "capabilities"    => self::manage_capabilities(),
-            "template"     => [
-                [ "trinity-forms/field-text",     [ "label" => "Name",  "required" => true ] ],
-                [ "trinity-forms/field-email",    [ "label" => "Email", "required" => true ] ],
-                [ "trinity-forms/field-textarea", [ "label" => "Message" ] ],
-            ],
+            // The starting fields of a new form, in the site language: a Spanish
+            // site met "Name", "Email", "Message" here, and visitors saw them.
+            "template"     => self::starter_template(),
         ] );
+    }
+
+    /**
+     * The fields a new form opens with in the block editor.
+     *
+     * @return array<int,array{0:string,1:array<string,mixed>}>
+     */
+    public static function starter_template(): array {
+        return [
+            [ "trinity-forms/field-text",     [ "label" => __( "Name", "trinity-forms" ),    "required" => true ] ],
+            [ "trinity-forms/field-email",    [ "label" => __( "Email", "trinity-forms" ),   "required" => true ] ],
+            [ "trinity-forms/field-textarea", [ "label" => __( "Message", "trinity-forms" ) ] ],
+        ];
     }
 
     /**

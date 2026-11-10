@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.27.1
+Stable tag: 2.28.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,25 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.28.0 =
+* Fixed: in the Visual Builder's All settings window, a strip of the page showed under the Save settings bar while scrolling.
+* Fixed: editing an entry in wp-admin erased its address and rewrote the total, even when you only changed another field. Fields you do not touch now stay exactly as they were, and the edit note names only the fields you changed.
+* Fixed: editing an entry no longer asks for a required field that conditional logic hid from the visitor.
+* Fixed: pressing Add note with an empty box said "Note added." It now says the note was empty and nothing was added.
+* Fixed: opening an entries page past the end of the list showed the first-run "No entries yet" screen. It now says there are no more entries on that page, with a link to page 1. Screen Options on the Entries screen now sets how many entries show per page.
+* Fixed: the Country field listed every country in English on a translated site. Visitors now read the names in the site language (sorted in that language), and the entry screen and notification emails show them the same way. The stored value and the CSV export keep the English name, so existing entries, conditions and integrations work unchanged.
+* Fixed: a new form opened in the block editor started with English fields (Name, Email, Message) on a translated site. They are now in the site language.
+* Fixed: an HTML field nobody filled in printed "Custom HTML" on the public form. It now prints nothing; the editor shows a hint instead.
+* Fixed: a field's custom error message only appeared when the server rejected the entry. Visitors now see it as soon as the browser flags the field (left empty, wrong format), including on Next in multi-step forms.
+* Fixed: the Website field refused addresses with accents or non-Latin letters (https://ejemplo.es/ñ, an Arabic Wikipedia page), and the browser blocked a bare domain such as ejemplo.es. Both are accepted now; a bare domain is saved with https:// in front.
+* Fixed: on a phone, the tabs in the Visual Builder's All settings window ran off the screen (with Pro, 8 of 11 tabs were out of reach). They now wrap onto more rows, in left-to-right and right-to-left languages.
+* Fixed: a fixed-price Product and a flat Shipping charge showed as "single" and "flat" in emails, on the entry screen and in exports, and the total showed as 0.00 next to prices like $0,00. They now show the amount, in the same number format everywhere; the CSV keeps the total as a plain number.
+* Fixed: answer columns on the Entries list showed stored choice keys (a, b) instead of the labels. They now show the labels, as the entry screen does.
+* Fixed: quiz scores were worked out but shown nowhere. The entry screen now shows the score (for example 7 / 10), exports have Quiz score columns, and a quiz form's merge tags list {quiz_score} and {quiz_max}.
+* Fixed: after going from Pro back to the free version, pages printed the raw View shortcode, the Visual Builder named Pro fields like "trinity-forms/field-signature", and the Views tab opened an "Invalid post type" error. Visitors now see nothing where a View was; people who manage forms see a short note naming the Pro features a form uses that are off, both on the page and in the builder, where Pro fields read like "Signature (Pro)". The free fields of those forms keep working.
+* Fixed: a form started blank in the Visual Builder kept an empty Reply-To on its admin notification, so replies went to the site. Once the form has an email field, Reply-To points to it (the first one when there are several); a Reply-To you set yourself is never changed.
+* Fixed: on the Entries list, entries from forms imported from Contact Form 7 (or any form whose name is a plain text field) showed only an email. Rows now show the person's name and the start of their first written answer.
 
 = 2.27.1 =
 * Changed: nothing changes in the free version. This release stops a Pro install with a free licence key from being replaced by the free version when it updates.

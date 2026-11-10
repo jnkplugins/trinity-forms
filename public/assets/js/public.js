@@ -815,6 +815,11 @@
             form.appendChild( box );
         }
         var input = box.querySelector( "input" );
+        // The visitor has usually typed their email into the form already.
+        var typed = Array.prototype.filter.call( form.querySelectorAll( 'input[type="email"]' ), function ( el ) {
+            return el !== input && ( el.value || "" ).trim() !== "";
+        } )[ 0 ];
+        if ( typed ) input.value = typed.value.trim();
         function send() {
             var value = ( input.value || "" ).trim();
             if ( ! value || ( input.checkValidity && ! input.checkValidity() ) ) {
@@ -883,6 +888,30 @@
         var form = btn.closest( ".trinity-forms-form" );
         if ( form ) saveProgress( form );
     } );
+
+    // A field with its own error message (Advanced > Custom error message) shows
+    // that text instead of the browser's "Please fill in this field." The message
+    // is set at the moment the browser flags the field (the invalid event runs
+    // before the bubble or validationMessage is read), and cleared on the next
+    // edit so a field that becomes valid, or is hidden by a condition, is not
+    // held back by a stale message.
+    document.addEventListener( "invalid", function ( e ) {
+        var el = e.target;
+        if ( ! el || typeof el.setCustomValidity !== "function" || ! el.closest ) return;
+        if ( ! el.closest( ".trinity-forms-form" ) ) return;
+        var wrap = el.closest( "[data-error-message]" );
+        var msg  = wrap ? wrap.getAttribute( "data-error-message" ) : "";
+        if ( msg && el.validationMessage !== msg ) el.setCustomValidity( msg );
+    }, true );
+    function clearCustomValidity( e ) {
+        var form = e.target && e.target.closest ? e.target.closest( ".trinity-forms-form" ) : null;
+        if ( ! form ) return;
+        Array.prototype.forEach.call( form.querySelectorAll( "[data-error-message] input, [data-error-message] select, [data-error-message] textarea" ), function ( el ) {
+            if ( typeof el.setCustomValidity === "function" ) el.setCustomValidity( "" );
+        } );
+    }
+    document.addEventListener( "input", clearCustomValidity, true );
+    document.addEventListener( "change", clearCustomValidity, true );
 
     document.addEventListener( "submit", function ( e ) {
         var form = e.target;
@@ -1075,6 +1104,15 @@
         }
         var display  = form.querySelector( ".trinity-forms-total-display" );
         var currency = totalInput.getAttribute( "data-currency" ) || "";
+        var decSep   = totalInput.getAttribute( "data-decimal" ) || ".";
+        var thouSep  = totalInput.hasAttribute( "data-thousands" ) ? totalInput.getAttribute( "data-thousands" ) : ",";
+
+        /** 1234.5 -> "1.234,50" in the site's number format, as PHP prints prices. */
+        function money( n ) {
+            var parts = n.toFixed( 2 ).split( "." );
+            parts[ 0 ] = parts[ 0 ].replace( /\B(?=(\d{3})+(?!\d))/g, thouSep );
+            return parts[ 0 ] + decSep + parts[ 1 ];
+        }
 
         /** The quantity bound to a product field, defaulting to one. */
         function quantityFor( productId ) {
@@ -1127,7 +1165,7 @@
             }
             totalInput.value = total.toFixed( 2 );
             if ( display ) {
-                display.textContent = currency + total.toFixed( 2 );
+                display.textContent = currency + money( total );
             }
         }
 

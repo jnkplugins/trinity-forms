@@ -107,7 +107,9 @@ class Admin_UI {
      * @return array{0:string,1:bool} URL and whether the tab is locked.
      */
     private static function href( string $url, bool $pro ): array {
-        if ( ! $pro || License::is_pro_runtime() ) {
+        // Without the Pro code a Pro tab has nothing behind it ("Invalid post
+        // type" for Views), even on a site that was licensed before the downgrade.
+        if ( ! $pro || ( License::is_pro_runtime() && ! Pro_Absent::active() ) ) {
             return [ $url, false ];
         }
         return License::pro_installed()

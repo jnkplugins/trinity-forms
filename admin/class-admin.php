@@ -51,6 +51,7 @@ class Admin {
 
     public static function bootstrap(): void {
         add_action( "admin_menu",            [ self::class, "register_menus" ] );
+        add_filter( "set_screen_option_" . self::PER_PAGE_OPTION, [ self::class, "save_per_page" ], 10, 3 );
         add_action( "admin_enqueue_scripts", [ self::class, "enqueue_assets" ] );
         add_action( "admin_init",            [ self::class, "register_settings" ] );
         add_action( "admin_init",            [ self::class, "maybe_render_print_view" ] );
@@ -170,8 +171,37 @@ class Admin {
         return array_values( array_unique( (array) apply_filters( "trinity_forms_form_palette", $palette, "edit" === $context ? "edit" : "insert" ) ) );
     }
 
+    /** Screen Options key holding how many entries a user sees per page. */
+    public const PER_PAGE_OPTION = "trinity_forms_entries_per_page";
+
+    /** Screen Options > "Number of items per page" on the entries list. */
+    public static function entries_screen_options(): void {
+        add_screen_option( "per_page", [
+            "label"   => __( "Entries per page", "trinity-forms" ),
+            "default" => 25,
+            "option"  => self::PER_PAGE_OPTION,
+        ] );
+    }
+
+    /**
+     * Keep the per-page choice WordPress hands back from Screen Options.
+     *
+     * @param mixed $keep
+     * @param mixed $value
+     * @return mixed
+     */
+    public static function save_per_page( $keep, string $option, $value ) {
+        return self::PER_PAGE_OPTION === $option ? max( 1, min( 500, absint( $value ) ) ) : $keep;
+    }
+
+    /** How many entries this user sees per page (Screen Options, default 25). */
+    public static function entries_per_page(): int {
+        $n = (int) get_user_option( self::PER_PAGE_OPTION );
+        return $n > 0 ? min( 500, $n ) : 25;
+    }
+
     public static function register_menus(): void {
-        add_submenu_page(
+        $entries_hook = add_submenu_page(
             self::PARENT,
             __( "Entries", "trinity-forms" ),
             __( "Entries", "trinity-forms" ),
@@ -179,6 +209,9 @@ class Admin {
             self::ENTRIES,
             [ self::class, "render_entries" ]
         );
+        if ( $entries_hook ) {
+            add_action( "load-" . $entries_hook, [ self::class, "entries_screen_options" ] );
+        }
 
         // Premium submenus (e.g. Integrations) register here from pro/; the free
         // build adds nothing further.
@@ -664,6 +697,26 @@ class Admin {
     }
 
     /**
+     * The field as the entry editor should enforce it.
+     *
+     * A required field that conditional logic hid from this visitor, and that has
+     * no stored answer, is not required when an admin edits the entry: the visitor
+     * was never asked, so nobody can know the answer.
+     *
+     * @param array<string,mixed> $stored The entry's stored values.
+     */
+    public static function edit_field( Field $field, Form $form, array $stored ): Field {
+        if ( ! $field->required ) {
+            return $field;
+        }
+        $has_value = isset( $stored[ $field->id ] ) && ! Entries::same_value( $stored[ $field->id ], "" );
+        if ( $has_value || Conditional_Logic::is_visible( $field, $stored, $form ) ) {
+            return $field;
+        }
+        return new Field( array_merge( $field->config, [ "required" => false ] ) );
+    }
+
+    /**
      * Save an admin edit of an entry.
      *
      * Runs the submitted values through the very same Field::sanitize()/validate()
@@ -716,7 +769,14 @@ class Admin {
 
             $submitted[ $field->id ] = $value;
 
-            $field_errors = $field->validate( $value );
+            // A field the admin did not touch keeps its stored value byte for byte.
+            // Redrawing and re-sanitising is not lossless for every type, and an
+            // edit of the phone number must never rewrite the address or the total.
+            if ( Entries::untouched( $field, $before[ $field->id ] ?? null, $value ) ) {
+                continue;
+            }
+
+            $field_errors = self::edit_field( $field, $form, $before )->validate( $value );
             if ( $field_errors ) {
                 $errors[ $field->id ] = array_map(
                     static fn( $m ) => sprintf( "%s: %s", $field->label ?: $field->id, $m ),
@@ -859,11 +919,14 @@ class Admin {
 
         // phpcs:ignore WordPress.Security.NonceVerification.Missing -- nonce verified above by check_admin_referer.
         $note = sanitize_textarea_field( wp_unslash( $_POST["note"] ?? "" ) );
+        // An empty box adds nothing, so it must not say "Note added."
+        $done = "note_empty";
         if ( "" !== trim( $note ) ) {
             Entry_Notes::add( $id, $note );
+            $done = "note";
         }
 
-        wp_safe_redirect( self::entries_url( [ "entry" => $id, "tf_done" => "note" ] ) . "#tf-notes" );
+        wp_safe_redirect( self::entries_url( [ "entry" => $id, "tf_done" => $done ] ) . "#tf-notes" );
         exit;
     }
 

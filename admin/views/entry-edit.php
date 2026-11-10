@@ -33,6 +33,7 @@ if ( ! $form ) {
 }
 
 $values     = Entries::values( $entry_id );
+$tf_stored  = $values;
 $uneditable = Entries::uneditable_types();
 
 // Validation errors survive one redirect in a transient keyed to this user + entry:
@@ -94,7 +95,7 @@ Admin_UI::open(
                 <tr>
                     <th scope="row">
                         <?php echo esc_html( $tf_field->label ?: $tf_field->id ); ?>
-                        <?php if ( $tf_field->required ) : ?>
+                        <?php if ( Admin::edit_field( $tf_field, $form, $tf_stored )->required ) : ?>
                             <span class="trinity-forms-required" aria-hidden="true">*</span>
                         <?php endif; ?>
                     </th>
@@ -118,7 +119,10 @@ Admin_UI::open(
                             // same shape and one sanitizer covers both.
                             // The row header already names the field, so the control is drawn
                             // without its own label ("Name *" then "Name * First Last").
-                            $tf_bare = new \TrinityForms\Field( array_merge( $tf_field->config, [ "label" => "" ] ) );
+                            // A required field hidden from this visitor by conditional logic
+                            // is drawn without "required", or the browser blocks every save.
+                            $tf_edit  = Admin::edit_field( $tf_field, $form, $tf_stored );
+                            $tf_bare  = new \TrinityForms\Field( array_merge( $tf_edit->config, [ "label" => "" ] ) );
                             echo $tf_bare->render( $tf_value ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Field_Base::render() escapes its own attributes and values.
                             ?>
                             <?php if ( ! empty( $field_errors[ $tf_field->id ] ) ) : ?>

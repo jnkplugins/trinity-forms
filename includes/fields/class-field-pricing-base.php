@@ -20,6 +20,19 @@ abstract class Field_Pricing_Base extends Field_Base {
 
     /** Currency symbol for display, from the site's Trinity Forms settings. */
     protected function currency_symbol(): string {
+        return self::symbol();
+    }
+
+    /**
+     * An amount the way every price on the form shows it ("$5,00" on a Spanish
+     * site): the entry screen and emails used to print the stored "0.00".
+     */
+    public static function money( float $amount ): string {
+        return self::symbol() . number_format_i18n( $amount, 2 );
+    }
+
+    /** Currency symbol for display, from the site's Trinity Forms settings. */
+    public static function symbol(): string {
         $settings = get_option( "trinity_forms_settings", [] );
         $code     = strtoupper( (string) ( $settings["currency"] ?? "USD" ) );
 

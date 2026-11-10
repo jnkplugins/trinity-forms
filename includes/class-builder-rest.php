@@ -345,6 +345,7 @@ class Builder_REST {
 
         // However the form was started, a saved form emails the site admin by default.
         Form_Manager::seed_default_notification( (int) $post->ID );
+        Form_Manager::fill_default_reply_to( (int) $post->ID );
 
         // Submit text, the default confirmation and the Restrictions, from the
         // builder's Settings.

@@ -23,7 +23,7 @@ $date_from   = isset( $_GET["from"] ) ? sanitize_text_field( wp_unslash( $_GET["
 $date_to     = isset( $_GET["to"] ) ? sanitize_text_field( wp_unslash( $_GET["to"] ) ) : "";
 $pay_filter  = isset( $_GET["payment_status"] ) ? sanitize_key( wp_unslash( $_GET["payment_status"] ) ) : "";
 $page        = max( 1, isset( $_GET["paged"] ) ? absint( wp_unslash( $_GET["paged"] ) ) : 1 );
-$per_page    = 25;
+$per_page    = Admin::entries_per_page();
 
 $query_args = [
     "form_id"        => $form_filter,
@@ -364,7 +364,11 @@ Admin_UI::open(
                     // An empty trash or spam queue is a good thing, not an onboarding
                     // moment: telling someone to "add a form to a page" here reads as if
                     // the plugin has lost track of what they were doing.
-                    if ( $search || $date_from || $date_to ) {
+                    if ( $total > 0 && $page > 1 ) {
+                        // Past the last page (an old bookmark, or entries deleted since):
+                        // there ARE entries, just not on this page.
+                        $tf_empty = [ __( "No more entries on this page.", "trinity-forms" ), __( "This page is past the end of the list.", "trinity-forms" ), '<a class="button" href="' . esc_url( remove_query_arg( "paged" ) ) . '">' . esc_html__( "Go to page 1", "trinity-forms" ) . "</a>", "inbox" ];
+                    } elseif ( $search || $date_from || $date_to ) {
                         $tf_empty = [ __( "No entries match those filters.", "trinity-forms" ), __( "Try a wider date range or a different search.", "trinity-forms" ), '<a class="button" href="' . esc_url( $tf_view_url( $view ) ) . '">' . esc_html__( "Clear the filters", "trinity-forms" ) . "</a>", "search" ];
                     } elseif ( $in_trash ) {
                         $tf_empty = [ __( "The trash is empty.", "trinity-forms" ), __( "Entries you move to the trash wait here before they are deleted for good.", "trinity-forms" ), "", "check" ];
@@ -431,6 +435,9 @@ Admin_UI::open(
                                 <?php echo Entries::ltr( esc_html( $s_email ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?> &middot;
                             <?php endif; ?>
                             #<?php echo (int) $rid; ?>
+                            <?php if ( ! empty( $sender["summary"] ) ) : ?>
+                                &middot; <span class="tf-entry-summary"><?php echo esc_html( (string) $sender["summary"] ); ?></span>
+                            <?php endif; ?>
                         </span>
                         <?php // Phones drop the date column; the age rides along here instead. ?>
                         <span class="jnkui-sub tf-mobile-only"><?php echo esc_html( Dates::relative( $r->submitted_at ) ); ?></span>

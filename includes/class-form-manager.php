@@ -207,6 +207,21 @@ class Form_Manager {
         }
         $map = [];
         foreach ( $form->fields() as $field ) {
+            // A fixed-price product posts "single" and a flat shipping charge posts
+            // "flat"; those are keys, not answers. Read them as the amount.
+            if ( "product" === $field->type && "single" === (string) ( $field->config["product_type"] ?? "single" ) ) {
+                $map[ $field->id ] = [ "single" => Fields\Field_Pricing_Base::money( (float) preg_replace( '/[^0-9.\-]/', "", (string) ( $field->config["price"] ?? "0" ) ) ) ];
+                continue;
+            }
+            if ( "shipping" === $field->type && empty( $field->config["options"] ) ) {
+                $map[ $field->id ] = [ "flat" => Fields\Field_Pricing_Base::money( (float) preg_replace( '/[^0-9.\-]/', "", (string) ( $field->config["price"] ?? "0" ) ) ) ];
+                continue;
+            }
+            if ( "country" === $field->type ) {
+                // Stored as the English name; read in the site language.
+                $map[ $field->id ] = Fields\Field_Country::labels();
+                continue;
+            }
             if ( empty( $field->config["options"] ) ) {
                 continue;
             }
@@ -226,17 +241,10 @@ class Form_Manager {
      * notifications do not work.
      */
     public static function default_notification( int $form_id = 0 ): array {
-        // Point Reply-To at the form's email field when there is exactly one, so
-        // hitting Reply answers the person who wrote in without anyone configuring
-        // anything. Two email fields and we cannot know which is the sender's.
-        $reply_to = "";
-        $form     = $form_id ? self::get( $form_id ) : null;
-        if ( $form ) {
-            $emails = array_values( array_filter( $form->fields(), static fn( $f ) => $f->type === "email" ) );
-            if ( count( $emails ) === 1 ) {
-                $reply_to = "{" . $emails[0]->id . "}";
-            }
-        }
+        // Point Reply-To at the form's first email field, so hitting Reply answers
+        // the person who wrote in without anyone configuring anything. (With two,
+        // the first is nearly always the sender's; the second a friend's or a CC.)
+        $reply_to = self::first_email_tag( $form_id );
         return [
             "name"       => __( "Admin notification", "trinity-forms" ),
             "to"         => (string) get_option( "admin_email" ),
@@ -246,6 +254,48 @@ class Form_Manager {
             "subject"    => __( "New form entry on {site_name}", "trinity-forms" ),
             "body"       => "{all_fields}",
         ];
+    }
+
+    /** "{email_id}" for the form's first email field, or "" when it has none. */
+    public static function first_email_tag( int $form_id ): string {
+        $form = $form_id ? self::get( $form_id ) : null;
+        if ( ! $form ) {
+            return "";
+        }
+        foreach ( $form->fields() as $f ) {
+            if ( "email" === $f->type && "" !== $f->id ) {
+                return "{" . $f->id . "}";
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Give the untouched default notification its Reply-To once the form has an
+     * email field.
+     *
+     * A form started blank in the Visual Builder is seeded with the default
+     * notification before it has any fields, so its Reply-To stayed empty for good
+     * and every reply went to the site itself. Only the seeded notification, as
+     * seeded (same subject and body, Reply-To still empty), is touched.
+     */
+    public static function fill_default_reply_to( int $form_id ): void {
+        $meta = get_post_meta( $form_id, Form::SETTINGS_META, true );
+        if ( ! is_array( $meta ) || ! isset( $meta["notifications"] ) || ! is_array( $meta["notifications"] ) || 1 !== count( $meta["notifications"] ) ) {
+            return;
+        }
+        $n       = (array) reset( $meta["notifications"] );
+        $key     = key( $meta["notifications"] );
+        $default = self::default_notification();
+        if ( "" !== trim( (string) ( $n["reply_to"] ?? "" ) ) || (string) ( $n["body"] ?? "" ) !== $default["body"] || (string) ( $n["subject"] ?? "" ) !== $default["subject"] ) {
+            return;
+        }
+        $tag = self::first_email_tag( $form_id );
+        if ( "" === $tag ) {
+            return;
+        }
+        $meta["notifications"][ $key ]["reply_to"] = $tag;
+        update_post_meta( $form_id, Form::SETTINGS_META, $meta );
     }
 
     /**

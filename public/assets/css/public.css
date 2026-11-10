@@ -42,7 +42,7 @@ fieldset.trinity-forms-field { display: block; }
 .trinity-forms-form .trinity-forms-field input[type="text"],
 .trinity-forms-form .trinity-forms-field input[type="email"],
 .trinity-forms-form .trinity-forms-field input[type="number"],
-.trinity-forms-form .trinity-forms-field input[type="url"],
+.trinity-forms-form .trinity-forms-field input[type="url"], .trinity-forms-form .trinity-forms-field input[inputmode="url"],
 .trinity-forms-form .trinity-forms-field input[type="tel"],
 .trinity-forms-form .trinity-forms-field input[type="date"],
 .trinity-forms-form .trinity-forms-field input[type="time"],
@@ -294,7 +294,7 @@ table.trinity-forms-list input { width: 100%; }
 .trinity-forms-form .trinity-forms-field input[type="text"],
 .trinity-forms-form .trinity-forms-field input[type="email"],
 .trinity-forms-form .trinity-forms-field input[type="number"],
-.trinity-forms-form .trinity-forms-field input[type="url"],
+.trinity-forms-form .trinity-forms-field input[type="url"], .trinity-forms-form .trinity-forms-field input[inputmode="url"],
 .trinity-forms-form .trinity-forms-field input[type="tel"],
 .trinity-forms-form .trinity-forms-field input[type="date"],
 .trinity-forms-form .trinity-forms-field input[type="time"],
@@ -434,7 +434,7 @@ table.trinity-forms-list input { width: 100%; }
 .trinity-forms-form .trinity-forms-field input[type="text"],
 .trinity-forms-form .trinity-forms-field input[type="email"],
 .trinity-forms-form .trinity-forms-field input[type="number"],
-.trinity-forms-form .trinity-forms-field input[type="url"],
+.trinity-forms-form .trinity-forms-field input[type="url"], .trinity-forms-form .trinity-forms-field input[inputmode="url"],
 .trinity-forms-form .trinity-forms-field input[type="tel"],
 .trinity-forms-form .trinity-forms-field input[type="date"],
 .trinity-forms-form .trinity-forms-field input[type="time"],
@@ -488,6 +488,37 @@ table.trinity-forms-list input { width: 100%; }
 .trinity-forms-form .trinity-forms-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
 .trinity-forms-form .trinity-forms-actions > [hidden] { display: none; }
 .trinity-forms-form .trinity-forms-actions > .trinity-forms-resume-ask { flex-basis: 100%; margin-top: 0; }
+/* The save-and-continue box's buttons wear the form's own button look ("Send
+   link" like Submit, "Cancel" like Previous) instead of the theme's default
+   button. Doubled classes for the same reason as Previous above. */
+.trinity-forms-form .trinity-forms-resume-ask .trinity-forms-resume-send.trinity-forms-resume-send,
+.trinity-forms-form .trinity-forms-resume-ask .trinity-forms-resume-cancel.trinity-forms-resume-cancel {
+    min-height: 2.75rem;
+    padding: .65rem 1.4rem;
+    border: 0;
+    border-radius: var(--trinity-forms-button-radius, var(--trinity-forms-radius, 4px));
+    font: inherit;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
+    cursor: pointer;
+    transition: filter .15s ease, background-color .15s ease;
+}
+.trinity-forms-form .trinity-forms-resume-ask .trinity-forms-resume-send.trinity-forms-resume-send {
+    background: var(--trinity-forms-accent, #2271b1);
+    color: var(--trinity-forms-button-text, #fff);
+    box-shadow: 0 1px 2px rgba(16, 24, 40, .1);
+}
+.trinity-forms-form .trinity-forms-resume-ask .trinity-forms-resume-send.trinity-forms-resume-send:hover { filter: brightness(1.08); }
+.trinity-forms-form .trinity-forms-resume-ask .trinity-forms-resume-cancel.trinity-forms-resume-cancel {
+    padding: calc(.65rem - 1px) calc(1.4rem - 1px);
+    border: 1px solid color-mix(in srgb, currentColor 45%, transparent);
+    background: transparent;
+    color: var(--trinity-forms-text, inherit);
+    box-shadow: none;
+}
+.trinity-forms-form .trinity-forms-resume-ask .trinity-forms-resume-cancel.trinity-forms-resume-cancel:hover { background: color-mix(in srgb, currentColor 8%, transparent); }
+.trinity-forms-form .trinity-forms-resume-ask button:focus-visible { outline: 2px solid var(--trinity-forms-accent, #2271b1); outline-offset: 2px; }
 
 /* Choice limits (2.10.0): a full option is shown but cannot be picked. */
 .trinity-forms-form .is-disabled { opacity: .55; cursor: not-allowed; }
@@ -546,15 +577,15 @@ table.trinity-forms-list input { width: 100%; }
 .trinity-forms-form:dir(rtl) .trinity-forms-field select:not([multiple]) { background-position: left .8rem center; }
 [dir="rtl"] .trinity-forms-form .trinity-forms-field select:not([multiple]) { background-position: left .8rem center; }
 .trinity-forms-form .trinity-forms-field input[type="email"],
-.trinity-forms-form .trinity-forms-field input[type="url"],
+.trinity-forms-form .trinity-forms-field input[type="url"], .trinity-forms-form .trinity-forms-field input[inputmode="url"],
 .trinity-forms-form .trinity-forms-field input[type="tel"],
 .trinity-forms-form .trinity-forms-field input[type="number"] { direction: ltr; }
 [dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="email"],
-[dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="url"],
+[dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="url"], [dir="rtl"] .trinity-forms-form .trinity-forms-field input[inputmode="url"],
 [dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="tel"],
 [dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="number"] { text-align: right; }
 [dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="email"]::placeholder,
-[dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="url"]::placeholder,
+[dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="url"]::placeholder, [dir="rtl"] .trinity-forms-form .trinity-forms-field input[inputmode="url"]::placeholder,
 [dir="rtl"] .trinity-forms-form .trinity-forms-field input[type="tel"]::placeholder { direction: rtl; }
 
 @media (prefers-reduced-motion: reduce) {

@@ -26,6 +26,17 @@ class Field_Address extends Field_Base {
         $id   = esc_attr( $config["id"] ?? "" );
         $base = esc_attr( $this->attr_name( $config ) );
         $req  = ! empty( $config["required"] ) ? " required" : "";
+
+        // Entries store the address as one joined string ("Calle Mayor 1, Sevilla,
+        // 41001, España"). Splitting it back into parts would be a guess (a street
+        // can hold commas), so a stored string is edited as the string it is: one
+        // box with the whole address, saved back unchanged unless someone edits it.
+        if ( is_string( $value ) && "" !== trim( $value ) ) {
+            $control = '<input type="text" class="trinity-forms-address-joined" id="' . $id . '" name="' . $base . '"'
+                . ' value="' . esc_attr( $value ) . '" autocomplete="street-address"' . $req . ' />';
+            return $this->wrap( $config, '<span class="trinity-forms-address">' . $control . '</span>' );
+        }
+
         $vals = is_array( $value ) ? $value : [];
 
         $rows = "";

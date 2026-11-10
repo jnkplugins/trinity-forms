@@ -721,8 +721,13 @@ class Entries {
             ), ARRAY_A );
             foreach ( (array) $cols as $c ) {
                 $fid = $c["field_id"];
-                if ( self::is_internal_field( (string) $fid ) && ! Campaign::is_campaign_field( (string) $fid ) ) {
+                $tf_quiz_col = in_array( (string) $fid, [ Scoring::SCORE_META, Scoring::MAX_META ], true );
+                if ( self::is_internal_field( (string) $fid ) && ! Campaign::is_campaign_field( (string) $fid ) && ! $tf_quiz_col ) {
                     continue;
+                }
+                if ( $tf_quiz_col ) {
+                    // A quiz's result belongs in the export, as numbers a sheet can sort.
+                    $c["field_label"] = Scoring::SCORE_META === (string) $fid ? __( "Quiz score", "trinity-forms" ) : __( "Highest possible quiz score", "trinity-forms" );
                 }
                 if ( Campaign::is_campaign_field( (string) $fid ) ) {
                     // utm_source etc. under a stable header, whatever language wrote it.
@@ -826,11 +831,17 @@ class Entries {
                 if ( ! isset( $labels[ $form_id ] ) ) {
                     $labels[ $form_id ] = Form_Manager::choice_labels( $form_id );
                 }
+                // A country stays the stored English name in a spreadsheet: it is
+                // a key people filter and join on, the same on every site.
                 $by_entry[ (int) $m["entry_id"] ][ $m["field_id"] ] = self::display_value(
                     (string) $m["field_type"],
                     $m["value"],
-                    $labels[ $form_id ][ $m["field_id"] ] ?? []
+                    "country" === (string) $m["field_type"] ? [] : ( $labels[ $form_id ][ $m["field_id"] ] ?? [] )
                 );
+                // A total stays a plain number a spreadsheet can add up.
+                if ( "total" === (string) $m["field_type"] ) {
+                    $by_entry[ (int) $m["entry_id"] ][ $m["field_id"] ] = (string) $m["value"];
+                }
             }
 
             foreach ( (array) $entry_rows as $r ) {
@@ -1125,6 +1136,11 @@ class Entries {
             }
         }
 
+        if ( "total" === $type && is_scalar( $value ) && is_numeric( (string) $value ) ) {
+            $text = Fields\Field_Pricing_Base::money( (float) $value );
+            return $html ? esc_html( $text ) : $text;
+        }
+
         if ( "consent" === $type ) {
             $yes = is_array( $value ) ? ! empty( array_filter( $value ) ) : ( "" !== (string) $value && "0" !== (string) $value );
             return $yes ? __( "Yes", "trinity-forms" ) : __( "No", "trinity-forms" );
@@ -1211,6 +1227,36 @@ class Entries {
     }
 
     /**
+     * Whether an edit left a field exactly as it was.
+     *
+     * The entry editor posts every field back, drawn by the same renderer the
+     * visitor saw. Some fields cannot redraw their stored value byte for byte (a
+     * total posts "0" for a stored "0.00"), so a value counts as untouched when it
+     * equals the stored one, or equals what the stored one sanitises to. Untouched
+     * fields are never rewritten and never named in the audit note.
+     *
+     * @param mixed $old Stored value (null when the entry has no row for the field).
+     * @param mixed $new Sanitised posted value.
+     */
+    public static function untouched( Field $field, $old, $new ): bool {
+        $canon = static function ( $v ) use ( &$canon ) {
+            if ( is_array( $v ) ) {
+                $v = array_map( $canon, $v );
+                return array_values( array_filter( $v, static fn( $x ) => "" !== $x && [] !== $x ) );
+            }
+            if ( null === $v || false === $v ) {
+                return "";
+            }
+            return true === $v ? "1" : trim( (string) $v );
+        };
+        $n = $canon( $new );
+        if ( $canon( $old ) === $n ) {
+            return true;
+        }
+        return null !== $old && $canon( $field->sanitize( $old ) ) === $n;
+    }
+
+    /**
      * True for rows the plugin writes for itself (quiz score, created-post marker…),
      * which are not answers and must not be listed as if they were form fields.
      */
@@ -1221,7 +1267,9 @@ class Entries {
     public static function uneditable_types(): array {
         return (array) apply_filters(
             "trinity_forms_uneditable_field_types",
-            [ "payment", "signature", "file", "calculation", "html", "section", "page_break" ]
+            // "total" is worked out by the server from the products; the editor
+            // could only post back "0" over it (QA 10 Nov 2026).
+            [ "payment", "signature", "file", "calculation", "html", "section", "page_break", "total" ]
         );
     }
 
@@ -1404,25 +1452,29 @@ class Entries {
             ...array_merge( $entry_ids, $field_ids )
         ), ARRAY_A );
 
+        // Read as people read them everywhere else (entry screen, mail, CSV): the
+        // choice's label, not its stored key ("Opción A", not "a"); a fixed product
+        // as its price; consent as Yes/No. Views printed the stored keys.
+        $entries_table = self::table();
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
+        $form_of = $wpdb->get_results( $wpdb->prepare(
+            "SELECT id, form_id FROM {$entries_table} WHERE id IN ({$entry_holds})",
+            ...$entry_ids
+        ), ARRAY_A );
+        $form_of = array_map( "intval", array_column( (array) $form_of, "form_id", "id" ) );
+        $labels  = [];
+
         $out = [];
         foreach ( (array) $rows as $r ) {
-            $raw = (string) $r["value"];
-            // Types whose stored shape is not an answer: a file's JSON (with its
-            // server path), consent's "1", Rich Text markup printed as literal tags.
-            if ( in_array( (string) $r["field_type"], [ "file", "consent", "rich_text" ], true ) ) {
-                $out[ (int) $r["entry_id"] ][ $r["field_id"] ] = self::display_value( (string) $r["field_type"], $raw );
-                continue;
+            $form_id = (int) ( $form_of[ (int) $r["entry_id"] ] ?? 0 );
+            if ( ! isset( $labels[ $form_id ] ) ) {
+                $labels[ $form_id ] = Form_Manager::choice_labels( $form_id );
             }
-            $decoded = json_decode( $raw, true );
-            if ( is_array( $decoded ) ) {
-                // Composite ({first,last}) and multi-choice (list) values both land
-                // here; joining is the only sane single-cell rendering of either.
-                $raw = implode( array_is_list( $decoded ) ? ", " : " ", array_filter( array_map(
-                    static fn( $v ) => is_scalar( $v ) ? (string) $v : "",
-                    $decoded
-                ) ) );
-            }
-            $out[ (int) $r["entry_id"] ][ $r["field_id"] ] = $raw;
+            $out[ (int) $r["entry_id"] ][ $r["field_id"] ] = self::display_value(
+                (string) $r["field_type"],
+                (string) $r["value"],
+                $labels[ $form_id ][ $r["field_id"] ] ?? []
+            );
         }
         return $out;
     }
@@ -1431,8 +1483,13 @@ class Entries {
      * "Submitted by" for a page of rows — one query for the page, not one per row.
      *
      * @param array<int,int> $entry_ids
-     * @return array<int,array{name?:string,email?:string}>
+     * @return array<int,array{name?:string,email?:string,summary?:string}>
      */
+    /** Whether a text field's id or label says it holds a person's name. */
+    private static function looks_like_name( string $text ): bool {
+        return (bool) preg_match( '/name|nombre|nome|\bnom\b|prénom|vorname|이름|성명|اسم|नाम|名前|姓名/iu', $text );
+    }
+
     public static function senders( array $entry_ids ): array {
         global $wpdb;
 
@@ -1443,13 +1500,17 @@ class Entries {
 
         $meta  = self::meta_table();
         $holds = implode( ",", array_fill( 0, count( $entry_ids ), "%d" ) );
+        // Text and paragraph answers too: a form imported from Contact Form 7 has
+        // its "Your name" as a plain text field, so the list showed only an email
+        // with nothing to tell one message from the next.
         // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
         $rows = $wpdb->get_results( $wpdb->prepare(
-            "SELECT entry_id, field_type, value FROM {$meta} WHERE entry_id IN ({$holds}) AND field_type IN ('email','name')",
+            "SELECT entry_id, field_id, field_label, field_type, value FROM {$meta} WHERE entry_id IN ({$holds}) AND field_type IN ('email','name','text','textarea') ORDER BY id ASC",
             ...$entry_ids
         ) );
 
-        $out = [];
+        $out      = [];
+        $fallback = [];
         foreach ( (array) $rows as $m ) {
             $eid     = (int) $m->entry_id;
             $value   = (string) $m->value;
@@ -1458,6 +1519,7 @@ class Entries {
                 // The name field stores {first,last}.
                 $value = trim( implode( " ", array_filter( [ $decoded["first"] ?? "", $decoded["last"] ?? "" ] ) ) );
             }
+            $value = trim( $value );
             if ( "" === $value ) {
                 continue;
             }
@@ -1465,6 +1527,18 @@ class Entries {
                 $out[ $eid ]["email"] = $value;
             } elseif ( "name" === $m->field_type && empty( $out[ $eid ]["name"] ) ) {
                 $out[ $eid ]["name"] = $value;
+            } elseif ( "text" === $m->field_type && empty( $fallback[ $eid ]["name"] ) && self::looks_like_name( (string) $m->field_id . " " . (string) $m->field_label ) ) {
+                $fallback[ $eid ]["name"] = $value;
+            } elseif ( in_array( $m->field_type, [ "text", "textarea" ], true ) && empty( $fallback[ $eid ]["summary"] ) ) {
+                $fallback[ $eid ]["summary"] = wp_html_excerpt( preg_replace( '/\s+/u', " ", $value ), 80, "…" );
+            }
+        }
+        foreach ( $fallback as $eid => $f ) {
+            if ( empty( $out[ $eid ]["name"] ) && ! empty( $f["name"] ) ) {
+                $out[ $eid ]["name"] = $f["name"];
+            }
+            if ( ! empty( $f["summary"] ) ) {
+                $out[ $eid ]["summary"] = $f["summary"];
             }
         }
         return $out;

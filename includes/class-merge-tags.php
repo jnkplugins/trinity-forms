@@ -15,12 +15,16 @@ class Merge_Tags {
      * @param array<string,string> $fields Field id => label, for the form being edited.
      * @return array<int,array{label:string,tags:array<int,array{tag:string,label:string}>}>
      */
-    public static function catalogue( array $fields = [] ): array {
+    public static function catalogue( array $fields = [], int $form_id = 0 ): array {
         $field_tags = [];
         foreach ( $fields as $id => $label ) {
             $field_tags[] = [ "tag" => "{" . $id . "}", "label" => (string) $label ];
         }
         $field_tags[] = [ "tag" => "{all_fields}", "label" => __( "Every answer", "trinity-forms" ) ];
+        // A quiz form's score was resolvable but offered nowhere.
+        if ( $form_id && Scoring::is_quiz( Form_Manager::get( $form_id ) ) ) {
+            $field_tags = array_merge( $field_tags, Scoring::picker_tags() );
+        }
 
         $groups = [
             [
@@ -324,7 +328,7 @@ class Merge_Tags {
         if ( is_string( $pre ) ) {
             return $pre;
         }
-        if ( in_array( $type, [ "consent", "file", "rich_text", "repeater" ], true ) ) {
+        if ( in_array( $type, [ "consent", "file", "rich_text", "repeater", "total" ], true ) ) {
             return Entries::display_value( $type, $row["value"], [], true );
         }
         $value = $row["value"];

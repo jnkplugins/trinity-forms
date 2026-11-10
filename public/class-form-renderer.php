@@ -33,7 +33,7 @@ class Form_Renderer {
         if ( self::$depth > 0 ) {
             return $html;
         }
-        $html = self::draft_notice( $form ) . $html;
+        $html = self::draft_notice( $form ) . Pro_Absent::form_notice( $form ) . $html;
         // Only on a real front-end page, where several forms can share one document.
         // template_redirect, not wp_head: a block theme renders the page's blocks
         // before wp_head runs, so a wp_head check never counted a form there.

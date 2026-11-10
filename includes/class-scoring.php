@@ -55,6 +55,45 @@ class Scoring {
         $wpdb->insert( $meta_t, [ "entry_id" => $entry_id, "field_id" => self::MAX_META,   "field_label" => "Quiz total", "field_type" => "quiz_max",   "value" => self::fmt( $max ) ],   [ "%d", "%s", "%s", "%s", "%s" ] );
     }
 
+    /** Whether a form scores its entries (a field has a correct answer). */
+    public static function is_quiz( ?Form $form ): bool {
+        if ( ! $form ) {
+            return false;
+        }
+        foreach ( $form->fields() as $field ) {
+            if ( "" !== (string) ( $field->config["correct_answer"] ?? "" ) ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** The quiz tags for a merge-tag picker. @return array<int,array{tag:string,label:string}> */
+    public static function picker_tags(): array {
+        return [
+            [ "tag" => "{quiz_score}", "label" => __( "Quiz score", "trinity-forms" ) ],
+            [ "tag" => "{quiz_max}",   "label" => __( "Highest possible quiz score", "trinity-forms" ) ],
+        ];
+    }
+
+    /**
+     * An entry's score as "7 / 10", or "" when it was not scored.
+     *
+     * @param array<string,mixed> $values field id => stored value (Entries::values()).
+     */
+    public static function summary( array $values ): string {
+        if ( ! isset( $values[ self::SCORE_META ] ) || ! is_scalar( $values[ self::SCORE_META ] ) ) {
+            return "";
+        }
+        $score = number_format_i18n( (float) $values[ self::SCORE_META ], fmod( (float) $values[ self::SCORE_META ], 1.0 ) ? 2 : 0 );
+        if ( ! isset( $values[ self::MAX_META ] ) || ! is_scalar( $values[ self::MAX_META ] ) ) {
+            return $score;
+        }
+        $max = number_format_i18n( (float) $values[ self::MAX_META ], fmod( (float) $values[ self::MAX_META ], 1.0 ) ? 2 : 0 );
+        /* translators: 1: points scored, 2: highest possible score. */
+        return sprintf( __( "%1\$s / %2\$s", "trinity-forms" ), $score, $max );
+    }
+
     /** Case-insensitive answer match (trimmed). */
     private static function matches( string $val, string $correct ): bool {
         return 0 === strcasecmp( trim( $val ), trim( $correct ) );

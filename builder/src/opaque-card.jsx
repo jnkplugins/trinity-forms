@@ -10,6 +10,22 @@ import { Button } from '@wordpress/components';
 import { __, sprintf } from '@wordpress/i18n';
 
 export default function OpaqueCard( { block, blockEditorUrl } ) {
+	// A Pro field on a site that now runs the free version: name it the way people
+	// know it ("Signature (Pro)"), not "trinity-forms/field-signature", and skip the
+	// block editor link, which can only show an "unsupported block" box there.
+	const proBlocks = ( window.TrinityFormsBuilder && window.TrinityFormsBuilder.proBlocks ) || {};
+	const proName = proBlocks[ block.name ];
+	if ( proName ) {
+		return (
+			<div className="tf-builder__opaque">
+				<span className="tf-builder__opaque-badge">{ __( 'Pro field', 'trinity-forms' ) }</span>
+				<strong>{ proName }</strong>
+				<p>
+					{ __( 'Needs Trinity Forms Pro. Kept exactly as it is; visitors do not see it until Pro is active again.', 'trinity-forms' ) }
+				</p>
+			</div>
+		);
+	}
 	return (
 		<div className="tf-builder__opaque">
 			<span className="tf-builder__opaque-badge">{ __( 'Advanced block', 'trinity-forms' ) }</span>

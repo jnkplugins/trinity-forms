@@ -107,9 +107,10 @@ function SortableRow( props ) {
 		flexBasis:
 			width > 0 && width < 100 ? `calc(${ width }% - 8px)` : '100%',
 	};
+	const proBlocks = ( window.TrinityFormsBuilder && window.TrinityFormsBuilder.proBlocks ) || {};
 	const name = field
 		? attrValue( block, schema, 'label' ) || titleFor( palette, block )
-		: block.title || block.name;
+		: proBlocks[ block.name ] || block.title || block.name;
 
 	return (
 		<li

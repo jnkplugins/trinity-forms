@@ -154,6 +154,7 @@ Admin_UI::open(
     $tf_done = isset( $_GET["tf_done"] ) ? sanitize_key( wp_unslash( $_GET["tf_done"] ) ) : "";
     $tf_msgs = [
         "note"         => __( "Note added.", "trinity-forms" ),
+        "note_empty"   => __( "The note was empty, so nothing was added. Write something in the box first.", "trinity-forms" ),
         "note_deleted" => __( "Note deleted.", "trinity-forms" ),
         "resend"       => __( "Notifications resent.", "trinity-forms" ),
         "star"         => __( "Entry starred.", "trinity-forms" ),
@@ -168,7 +169,7 @@ Admin_UI::open(
     ];
     if ( isset( $tf_msgs[ $tf_done ] ) ) :
         ?>
-        <div class="notice notice-<?php echo "unchanged" === $tf_done ? "info" : "success"; ?> is-dismissible">
+        <div class="notice notice-<?php echo "note_empty" === $tf_done ? "warning" : ( "unchanged" === $tf_done ? "info" : "success" ); ?> is-dismissible">
             <p><?php echo esc_html( $tf_msgs[ $tf_done ] ); ?></p>
         </div>
     <?php endif; ?>
@@ -330,7 +331,7 @@ Admin_UI::open(
                     <input type="hidden" name="entry_id" value="<?php echo (int) $entry_id; ?>" />
                     <?php wp_nonce_field( "trinity_forms_add_note_" . $entry_id ); ?>
                     <label class="screen-reader-text" for="tf-note"><?php esc_html_e( "Add a note", "trinity-forms" ); ?></label>
-                    <textarea id="tf-note" name="note" rows="3" class="large-text" placeholder="<?php esc_attr_e( "Add a note…", "trinity-forms" ); ?>"></textarea>
+                    <textarea id="tf-note" name="note" rows="3" class="large-text" required placeholder="<?php esc_attr_e( "Add a note…", "trinity-forms" ); ?>"></textarea>
                     <p><button type="submit" class="button"><?php esc_html_e( "Add note", "trinity-forms" ); ?></button></p>
                 </form>
             </div>
@@ -380,6 +381,14 @@ Admin_UI::open(
                                     <span class="jnkui-sub"><?php esc_html_e( "Transaction ID", "trinity-forms" ); ?>: <bdi dir="ltr"><code><?php echo esc_html( (string) $entry["payment_id"] ); ?></code></bdi></span>
                                 <?php endif; ?>
                             </dd></div>
+                    <?php endif; ?>
+                    <?php
+                    // The quiz result was stored but shown nowhere.
+                    $tf_quiz = \TrinityForms\Scoring::summary( array_column( $meta, "value", "field_id" ) );
+                    if ( "" !== $tf_quiz ) :
+                        ?>
+                        <div><dt><?php esc_html_e( "Quiz score", "trinity-forms" ); ?></dt>
+                            <dd><strong><?php echo esc_html( $tf_quiz ); ?></strong></dd></div>
                     <?php endif; ?>
                     <?php if ( ! empty( $entry["user_id"] ) ) :
                         $tf_user = get_userdata( (int) $entry["user_id"] );

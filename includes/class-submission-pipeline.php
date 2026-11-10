@@ -479,7 +479,17 @@ class Submission_Pipeline {
                 return $this->error( self::DECLINED, $e->getMessage() );
             }
             Logger::error( "payment", $e->getMessage(), $entry_id );
-            self::alert_admin_payment_failure( $form, $entry_id, $e->getMessage() );
+            // The provider's own words are English SDK text ("No API key provided.
+            // (HINT: set your API key using Stripe::setApiKey..."). When the cause
+            // is known (no keys saved), say it in the site language instead.
+            $reason = (string) apply_filters( "trinity_forms_payment_failure_reason", "", $form, $e );
+            $reason = "" !== $reason ? $reason : $e->getMessage();
+            Entry_Notes::log( $entry_id, sprintf(
+                /* translators: %s: why the payment could not start. */
+                __( "Payment could not be started, so the visitor was not charged and this entry stays pending. Reason: %s", "trinity-forms" ),
+                $reason
+            ) );
+            self::alert_admin_payment_failure( $form, $entry_id, $reason );
             do_action( "trinity_forms_payment_start_failed", $entry_id, $form, $e->getMessage() );
             return $this->error( 503, __( "Payment could not be started, so nothing was charged. Please try again later, or contact the site owner if it keeps happening.", "trinity-forms" ) );
         }

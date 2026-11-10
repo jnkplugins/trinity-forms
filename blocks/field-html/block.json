@@ -9,7 +9,7 @@
     "supports": { "html": false, "reusable": false, "inserter": true },
     "attributes": {
         "fieldId":     { "type": "string", "default": "" },
-        "html":        { "type": "string", "default": "<p>Custom HTML</p>" },
+        "html":        { "type": "string", "default": "" },
         "conditional": { "type": "object" }
     },
     "editorScript": "file:./index.js"

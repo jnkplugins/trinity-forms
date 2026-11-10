@@ -21,7 +21,14 @@ registerBlockType( metadata.name, {
                         />
                     </PanelBody>
                 </InspectorControls>
-                <div dangerouslySetInnerHTML={ { __html: attributes.html || "" } } />
+                { attributes.html ? (
+                    <div dangerouslySetInnerHTML={ { __html: attributes.html } } />
+                ) : (
+                    // Editor-only hint: an empty HTML field prints nothing to visitors.
+                    <p className="trinity-forms-field-block__placeholder" style={ { opacity: 0.6, fontStyle: "italic" } }>
+                        { __( "Custom HTML: write the markup in the block settings. Visitors see nothing until you do.", "trinity-forms" ) }
+                    </p>
+                ) }
             </div>
         );
     },
