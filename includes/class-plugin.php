@@ -89,7 +89,8 @@ final class Plugin {
 
         // Bulk "resend notifications" queues one action per entry rather than
         // sending inline, so a 200-entry resend doesn't time out the request.
-        add_action( "trinity_forms_resend_notification", [ Notification_Engine::class, "dispatch" ] );
+        // resend(), not dispatch(): an entry marked as spam while it waited is skipped.
+        add_action( "trinity_forms_resend_notification", [ Notification_Engine::class, "resend" ] );
 
         add_filter( "the_content", [ Form_Renderer::class, "maybe_render_resume_notice" ], 20 );
 

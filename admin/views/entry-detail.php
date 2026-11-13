@@ -157,6 +157,7 @@ Admin_UI::open(
         "note_empty"   => __( "The note was empty, so nothing was added. Write something in the box first.", "trinity-forms" ),
         "note_deleted" => __( "Note deleted.", "trinity-forms" ),
         "resend"       => __( "Notifications resent.", "trinity-forms" ),
+        "resend_held"  => __( "Nothing was sent. This entry is in Spam or Trash: restore it first, then resend its notifications.", "trinity-forms" ),
         "star"         => __( "Entry starred.", "trinity-forms" ),
         "unstar"       => __( "Star removed.", "trinity-forms" ),
         "restore"      => __( "Entry restored.", "trinity-forms" ),
@@ -169,7 +170,7 @@ Admin_UI::open(
     ];
     if ( isset( $tf_msgs[ $tf_done ] ) ) :
         ?>
-        <div class="notice notice-<?php echo "note_empty" === $tf_done ? "warning" : ( "unchanged" === $tf_done ? "info" : "success" ); ?> is-dismissible">
+        <div class="notice notice-<?php echo in_array( $tf_done, [ "note_empty", "resend_held" ], true ) ? "warning" : ( "unchanged" === $tf_done ? "info" : "success" ); ?> is-dismissible">
             <p><?php echo esc_html( $tf_msgs[ $tf_done ] ); ?></p>
         </div>
     <?php endif; ?>
@@ -197,10 +198,27 @@ Admin_UI::open(
             <?php echo $starred ? esc_html__( "Unstar", "trinity-forms" ) : esc_html__( "Star", "trinity-forms" ); ?>
         </a>
         <a class="button" href="<?php echo esc_url( $action_url( "unread" ) ); ?>"><?php esc_html_e( "Mark unread", "trinity-forms" ); ?></a>
-        <a class="button" href="<?php echo esc_url( $action_url( "resend" ) ); ?>"
-           onclick="return confirm('<?php echo esc_js( __( "Resend this entry's notifications?", "trinity-forms" ) ); ?>');">
-            <?php esc_html_e( "Resend notifications", "trinity-forms" ); ?>
-        </a>
+        <?php if ( "trash" === $status || "spam" === $status ) : ?>
+            <?php
+            // Resending a spam entry's emails while it stays in Spam surprised
+            // people; the handler refuses it too (Notification_Engine::NO_RESEND).
+            ?>
+            <span class="button disabled" aria-disabled="true" aria-describedby="tf-resend-hint"><?php esc_html_e( "Resend notifications", "trinity-forms" ); ?></span>
+            <span id="tf-resend-hint" class="jnkui-muted tf-resend-hint">
+                <?php
+                if ( "spam" === $status ) {
+                    esc_html_e( "In Spam: restore it first to resend.", "trinity-forms" );
+                } else {
+                    esc_html_e( "In Trash: restore it first to resend.", "trinity-forms" );
+                }
+                ?>
+            </span>
+        <?php else : ?>
+            <a class="button" href="<?php echo esc_url( $action_url( "resend" ) ); ?>"
+               onclick="return confirm('<?php echo esc_js( __( "Resend this entry's notifications?", "trinity-forms" ) ); ?>');">
+                <?php esc_html_e( "Resend notifications", "trinity-forms" ); ?>
+            </a>
+        <?php endif; ?>
         <?php
         // Only offered when the form still exists: there is no schema to edit
         // against once it is gone, and the editor says so rather than 404ing.

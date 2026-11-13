@@ -46,10 +46,12 @@ class My_Submissions {
         }
 
         $titles = [];
-        $out  = '<table class="trinity-forms-my-submissions"><thead><tr>';
-        $out .= '<th>' . esc_html__( "Date", "trinity-forms" ) . '</th>';
-        $out .= '<th>' . esc_html__( "Form", "trinity-forms" ) . '</th>';
-        $out .= '<th>' . esc_html__( "Status", "trinity-forms" ) . '</th>';
+        // The wrapper scrolls a long form name sideways on a phone instead of
+        // pushing the whole page wider than the screen.
+        $out  = '<div class="trinity-forms-my-submissions-wrap"><table class="trinity-forms-my-submissions"><thead><tr>';
+        $out .= '<th scope="col">' . esc_html__( "Date", "trinity-forms" ) . '</th>';
+        $out .= '<th scope="col">' . esc_html__( "Form", "trinity-forms" ) . '</th>';
+        $out .= '<th scope="col">' . esc_html__( "Status", "trinity-forms" ) . '</th>';
         $out .= '</tr></thead><tbody>';
         foreach ( $rows as $r ) {
             $fid = (int) $r["form_id"];
@@ -62,7 +64,7 @@ class My_Submissions {
             $out .= '<td>' . esc_html( self::status_label( (string) $r["status"] ) ) . '</td>';
             $out .= '</tr>';
         }
-        $out .= '</tbody></table>';
+        $out .= '</tbody></table></div>';
 
         return $out;
     }

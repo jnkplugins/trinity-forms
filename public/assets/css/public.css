@@ -124,8 +124,24 @@ fieldset.trinity-forms-field { display: block; }
 .trinity-forms-confirmation { padding: 1rem; background: #edfaef; color: #1d2327; border-inline-start: 4px solid #00a32a; margin: 1rem 0; }
 .trinity-forms-payment-cancelled { padding: 1rem; background: #fcf9e8; color: #1d2327; border-inline-start: 4px solid #dba617; margin: 1rem 0; }
 .trinity-forms-payment-cancelled p { margin: 0; }
-table.trinity-forms-submissions { width: 100%; border-collapse: collapse; }
-table.trinity-forms-submissions th, table.trinity-forms-submissions td { padding: .5rem; border-bottom: 1px solid #ddd; text-align: start; }
+/* [trinity_forms_my_submissions]. Block themes such as Twenty Twenty-Five style only
+   tables inside a Table block, so a bare table had no borders or padding and the
+   browser centred its headings: the columns ran together. Borders use the text
+   colour at low strength, so they show on light and dark themes alike (the same
+   look as the Pro View list). */
+.trinity-forms-my-submissions-wrap { overflow-x: auto; margin: 1.5rem 0; }
+table.trinity-forms-my-submissions,
+table.trinity-forms-submissions { width: 100%; border-collapse: collapse; border-spacing: 0; margin: 0; border: 0; font-size: inherit; }
+table.trinity-forms-my-submissions th,
+table.trinity-forms-my-submissions td,
+table.trinity-forms-submissions th,
+table.trinity-forms-submissions td { padding: .6rem .75rem; border: 0; border-bottom: 1px solid rgba(128, 128, 128, .3); text-align: start; vertical-align: top; }
+table.trinity-forms-my-submissions th,
+table.trinity-forms-submissions th { font-weight: 600; border-bottom-width: 2px; white-space: nowrap; }
+table.trinity-forms-my-submissions tbody tr:nth-child(even) { background: rgba(128, 128, 128, .06); }
+table.trinity-forms-my-submissions th:first-child,
+table.trinity-forms-my-submissions td:first-child { padding-inline-start: .5rem; }
+.trinity-forms-my-submissions-empty { opacity: .85; }
 
 /* --- Phase 4 field types ---------------------------------------------------- */
 

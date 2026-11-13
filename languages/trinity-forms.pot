@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Trinity Forms 2.28.0\n"
+"Project-Id-Version: Trinity Forms 2.28.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-10T10:53:59+00:00\n"
+"POT-Creation-Date: 2026-11-13T18:16:50+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: trinity-forms\n"
@@ -156,7 +156,7 @@ msgstr ""
 #: admin/views/entry-edit.php:142
 #: includes/class-classic-editor.php:90
 #: includes/class-classic-editor.php:96
-#: public/class-public-front.php:164
+#: public/class-public-front.php:165
 msgid "Cancel"
 msgstr ""
 
@@ -326,10 +326,10 @@ msgid "renewal payment failed, Pro tools stay on until %s"
 msgstr ""
 
 #: pro/licensorpro-client/licensorpro-client.php:2175
-#: admin/views/entries-list.php:356
-#: admin/views/entry-detail.php:371
+#: admin/views/entries-list.php:366
+#: admin/views/entry-detail.php:389
 #: includes/class-entries.php:686
-#: includes/class-my-submissions.php:52
+#: includes/class-my-submissions.php:54
 msgid "Status"
 msgstr ""
 
@@ -563,7 +563,7 @@ msgstr ""
 #: includes/class-abilities.php:58
 #: includes/class-entry-notes.php:131
 #: includes/class-form-widget.php:15
-#: includes/class-plugin.php:165
+#: includes/class-plugin.php:166
 #: includes/elementor/class-form-widget.php:22
 msgid "Trinity Forms"
 msgstr ""
@@ -722,8 +722,8 @@ msgid "Kept in your own database"
 msgstr ""
 
 #: admin/class-admin-ui.php:298
-#: admin/views/entries-list.php:200
-#: admin/views/entries-list.php:421
+#: admin/views/entries-list.php:210
+#: admin/views/entries-list.php:431
 msgid "Unread"
 msgstr ""
 
@@ -781,14 +781,13 @@ msgid "You are not allowed to view this entry."
 msgstr ""
 
 #. translators: %s: display name of the user who resent the notification.
-#: admin/class-admin.php:602
-#: admin/class-admin.php:683
+#: admin/class-admin.php:649
 #, php-format
 msgid "Notifications resent by %s."
 msgstr ""
 
 #. translators: 1: user display name, 2: comma-separated list of field labels.
-#: admin/class-admin.php:824
+#: admin/class-admin.php:846
 #, php-format
 msgid "Edited by %1$s — changed: %2$s."
 msgstr ""
@@ -1036,7 +1035,7 @@ msgstr ""
 #: admin/class-form-editor.php:833
 #: admin/views/feedback.php:62
 #: includes/class-block-defaults.php:62
-#: includes/class-plugin.php:209
+#: includes/class-plugin.php:210
 #: includes/class-templates.php:72
 msgid "Message"
 msgstr ""
@@ -1386,7 +1385,7 @@ msgstr ""
 #: admin/class-form-editor.php:715
 #: admin/class-form-editor.php:823
 #: includes/class-block-defaults.php:48
-#: includes/class-plugin.php:207
+#: includes/class-plugin.php:208
 #: includes/class-templates.php:70
 #: includes/class-templates.php:75
 #: includes/class-templates.php:83
@@ -1489,7 +1488,7 @@ msgstr ""
 
 #: admin/class-form-editor.php:803
 #: admin/class-form-editor.php:882
-#: public/class-public-front.php:171
+#: public/class-public-front.php:172
 msgid "Remove"
 msgstr ""
 
@@ -1793,8 +1792,8 @@ msgstr ""
 
 #. translators: %s: number of entries.
 #: admin/views/assistants.php:104
-#: admin/views/entries-list.php:184
-#: admin/views/entries-list.php:334
+#: admin/views/entries-list.php:185
+#: admin/views/entries-list.php:344
 #, php-format
 msgid "%s entry"
 msgid_plural "%s entries"
@@ -1978,7 +1977,7 @@ msgid "When"
 msgstr ""
 
 #: admin/views/assistants.php:240
-#: admin/views/entry-detail.php:396
+#: admin/views/entry-detail.php:414
 msgid "User"
 msgstr ""
 
@@ -2069,75 +2068,87 @@ msgid "Notifications resent for %s."
 msgstr ""
 
 #: admin/views/entries-list.php:174
+msgid "Nothing was sent: entries in Spam or Trash are not resent. Restore them first, then resend."
+msgstr ""
+
+#: admin/views/entries-list.php:175
 #: admin/views/entry-detail.php:156
 msgid "Note added."
 msgstr ""
 
-#: admin/views/entries-list.php:175
+#: admin/views/entries-list.php:176
 #: admin/views/entry-detail.php:158
 msgid "Note deleted."
 msgstr ""
 
-#: admin/views/entries-list.php:176
-msgid "Columns updated."
-msgstr ""
-
 #: admin/views/entries-list.php:177
-#, php-format
-msgid "%s approved."
+msgid "Columns updated."
 msgstr ""
 
 #: admin/views/entries-list.php:178
 #, php-format
-msgid "%s rejected."
+msgid "%s approved."
 msgstr ""
 
 #: admin/views/entries-list.php:179
+#, php-format
+msgid "%s rejected."
+msgstr ""
+
+#: admin/views/entries-list.php:180
 msgid "Nothing selected."
 msgstr ""
 
-#: admin/views/entries-list.php:199
+#. translators: %s: number of entries.
+#: admin/views/entries-list.php:194
+#, php-format
+msgid "%s entry in Spam or Trash was skipped: restore it first."
+msgid_plural "%s entries in Spam or Trash were skipped: restore them first."
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/views/entries-list.php:209
 msgid "All"
 msgstr ""
 
-#: admin/views/entries-list.php:201
-#: admin/views/entries-list.php:349
+#: admin/views/entries-list.php:211
+#: admin/views/entries-list.php:359
 msgid "Starred"
 msgstr ""
 
-#: admin/views/entries-list.php:202
-#: admin/views/entries-list.php:455
+#: admin/views/entries-list.php:212
+#: admin/views/entries-list.php:465
 #: includes/class-entries.php:63
 msgid "Spam"
 msgstr ""
 
-#: admin/views/entries-list.php:203
-#: admin/views/entries-list.php:456
-#: admin/views/entry-detail.php:222
+#: admin/views/entries-list.php:213
+#: admin/views/entries-list.php:466
+#: admin/views/entry-detail.php:240
 #: includes/class-entries.php:64
 msgid "Trash"
 msgstr ""
 
-#: admin/views/entries-list.php:207
+#: admin/views/entries-list.php:217
 #: includes/class-entries.php:65
 msgid "Partial"
 msgstr ""
 
-#: admin/views/entries-list.php:217
+#: admin/views/entries-list.php:227
 msgid "Filter entries"
 msgstr ""
 
-#: admin/views/entries-list.php:231
-#: admin/views/entries-list.php:351
-#: admin/views/entry-detail.php:354
+#: admin/views/entries-list.php:241
+#: admin/views/entries-list.php:361
+#: admin/views/entry-detail.php:372
 #: admin/views/import.php:108
 #: includes/class-beaver-builder.php:39
 #: includes/class-beaver-builder.php:58
 #: includes/class-classic-editor.php:81
 #: includes/class-form-widget.php:103
-#: includes/class-my-submissions.php:51
-#: includes/class-my-submissions.php:57
-#: includes/class-plugin.php:166
+#: includes/class-my-submissions.php:53
+#: includes/class-my-submissions.php:59
+#: includes/class-plugin.php:167
 #: includes/class-results.php:166
 #: includes/elementor/class-form-widget.php:55
 #: includes/elementor/class-form-widget.php:60
@@ -2145,230 +2156,231 @@ msgstr ""
 msgid "Form"
 msgstr ""
 
-#: admin/views/entries-list.php:233
+#: admin/views/entries-list.php:243
 #: includes/class-ip-privacy.php:147
 msgid "All forms"
 msgstr ""
 
-#: admin/views/entries-list.php:240
-#: admin/views/entries-list.php:357
-#: admin/views/entry-detail.php:374
+#: admin/views/entries-list.php:250
+#: admin/views/entries-list.php:367
+#: admin/views/entry-detail.php:392
 msgid "Payment"
 msgstr ""
 
-#: admin/views/entries-list.php:242
+#: admin/views/entries-list.php:252
 msgid "Any payment"
 msgstr ""
 
-#: admin/views/entries-list.php:250
+#: admin/views/entries-list.php:260
 msgid "From date"
 msgstr ""
 
-#: admin/views/entries-list.php:252
+#: admin/views/entries-list.php:262
 msgid "to"
 msgstr ""
 
-#: admin/views/entries-list.php:253
+#: admin/views/entries-list.php:263
 msgid "To date"
 msgstr ""
 
-#: admin/views/entries-list.php:257
+#: admin/views/entries-list.php:267
 msgid "Search entries"
 msgstr ""
 
-#: admin/views/entries-list.php:258
+#: admin/views/entries-list.php:268
 msgid "Search answers…"
 msgstr ""
 
-#: admin/views/entries-list.php:260
+#: admin/views/entries-list.php:270
 msgid "Filter"
 msgstr ""
 
-#: admin/views/entries-list.php:263
+#: admin/views/entries-list.php:273
 msgid "Clear"
 msgstr ""
 
-#: admin/views/entries-list.php:272
+#: admin/views/entries-list.php:282
 msgid "Choose answer columns"
 msgstr ""
 
-#: admin/views/entries-list.php:279
+#: admin/views/entries-list.php:289
 msgid "Show these answers as columns in the list."
 msgstr ""
 
-#: admin/views/entries-list.php:289
+#: admin/views/entries-list.php:299
 msgid "Apply columns"
 msgstr ""
 
-#: admin/views/entries-list.php:306
+#: admin/views/entries-list.php:316
 msgid "Bulk action"
 msgstr ""
 
-#: admin/views/entries-list.php:308
+#: admin/views/entries-list.php:318
 msgid "With selected…"
 msgstr ""
 
-#: admin/views/entries-list.php:310
-#: admin/views/entries-list.php:450
-#: admin/views/entry-detail.php:220
+#: admin/views/entries-list.php:320
+#: admin/views/entries-list.php:460
+#: admin/views/entry-detail.php:238
 #: includes/class-form-revisions.php:429
 msgid "Restore"
 msgstr ""
 
-#: admin/views/entries-list.php:311
-#: admin/views/entries-list.php:452
+#: admin/views/entries-list.php:321
+#: admin/views/entries-list.php:462
 msgid "Delete permanently"
 msgstr ""
 
-#: admin/views/entries-list.php:313
+#: admin/views/entries-list.php:323
 msgid "Mark as read"
 msgstr ""
 
-#: admin/views/entries-list.php:314
+#: admin/views/entries-list.php:324
 msgid "Mark as unread"
 msgstr ""
 
-#: admin/views/entries-list.php:315
-#: admin/views/entry-detail.php:197
+#: admin/views/entries-list.php:325
+#: admin/views/entry-detail.php:198
 msgid "Star"
 msgstr ""
 
-#: admin/views/entries-list.php:316
-#: admin/views/entries-list.php:415
+#: admin/views/entries-list.php:326
+#: admin/views/entries-list.php:425
 msgid "Remove star"
 msgstr ""
 
-#: admin/views/entries-list.php:317
-#: admin/views/entry-detail.php:202
+#: admin/views/entries-list.php:327
+#: admin/views/entry-detail.php:206
+#: admin/views/entry-detail.php:219
 msgid "Resend notifications"
 msgstr ""
 
-#: admin/views/entries-list.php:318
-#: admin/views/entry-detail.php:218
+#: admin/views/entries-list.php:328
+#: admin/views/entry-detail.php:236
 #: admin/views/entry-print.php:81
 msgid "Print"
 msgstr ""
 
-#: admin/views/entries-list.php:319
+#: admin/views/entries-list.php:329
 msgid "Export selected to CSV"
 msgstr ""
 
-#: admin/views/entries-list.php:320
+#: admin/views/entries-list.php:330
 msgid "Export selected to Excel"
 msgstr ""
 
-#: admin/views/entries-list.php:321
+#: admin/views/entries-list.php:331
 msgid "Mark as spam"
 msgstr ""
 
-#: admin/views/entries-list.php:322
+#: admin/views/entries-list.php:332
 msgid "Move to trash"
 msgstr ""
 
-#: admin/views/entries-list.php:328
+#: admin/views/entries-list.php:338
 msgid "Apply"
 msgstr ""
 
-#: admin/views/entries-list.php:346
+#: admin/views/entries-list.php:356
 msgid "Select all"
 msgstr ""
 
-#: admin/views/entries-list.php:350
+#: admin/views/entries-list.php:360
 msgid "Entry"
 msgstr ""
 
-#: admin/views/entries-list.php:355
-#: admin/views/entry-detail.php:369
-#: admin/views/entry-detail.php:468
+#: admin/views/entries-list.php:365
+#: admin/views/entry-detail.php:387
+#: admin/views/entry-detail.php:486
 msgid "Submitted"
 msgstr ""
 
-#: admin/views/entries-list.php:370
+#: admin/views/entries-list.php:380
 msgid "No more entries on this page."
 msgstr ""
 
-#: admin/views/entries-list.php:370
+#: admin/views/entries-list.php:380
 msgid "This page is past the end of the list."
 msgstr ""
 
-#: admin/views/entries-list.php:370
+#: admin/views/entries-list.php:380
 msgid "Go to page 1"
 msgstr ""
 
-#: admin/views/entries-list.php:372
+#: admin/views/entries-list.php:382
 msgid "No entries match those filters."
 msgstr ""
 
-#: admin/views/entries-list.php:372
+#: admin/views/entries-list.php:382
 msgid "Try a wider date range or a different search."
 msgstr ""
 
-#: admin/views/entries-list.php:372
+#: admin/views/entries-list.php:382
 msgid "Clear the filters"
 msgstr ""
 
-#: admin/views/entries-list.php:374
+#: admin/views/entries-list.php:384
 msgid "The trash is empty."
 msgstr ""
 
-#: admin/views/entries-list.php:374
+#: admin/views/entries-list.php:384
 msgid "Entries you move to the trash wait here before they are deleted for good."
 msgstr ""
 
-#: admin/views/entries-list.php:376
+#: admin/views/entries-list.php:386
 msgid "No spam. Nice."
 msgstr ""
 
-#: admin/views/entries-list.php:376
+#: admin/views/entries-list.php:386
 msgid "Anything the spam checks catch lands here, so you can rescue a real message."
 msgstr ""
 
-#: admin/views/entries-list.php:378
+#: admin/views/entries-list.php:388
 msgid "You are all caught up."
 msgstr ""
 
-#: admin/views/entries-list.php:378
+#: admin/views/entries-list.php:388
 msgid "New entries show up here until you open them."
 msgstr ""
 
-#: admin/views/entries-list.php:380
+#: admin/views/entries-list.php:390
 msgid "No starred entries yet."
 msgstr ""
 
-#: admin/views/entries-list.php:380
+#: admin/views/entries-list.php:390
 msgid "Star an entry from the list to keep it handy here."
 msgstr ""
 
-#: admin/views/entries-list.php:382
+#: admin/views/entries-list.php:392
 msgid "No entries yet."
 msgstr ""
 
-#: admin/views/entries-list.php:382
+#: admin/views/entries-list.php:392
 msgid "Entries appear here the moment someone submits. Add a form to a page to start collecting."
 msgstr ""
 
-#: admin/views/entries-list.php:382
+#: admin/views/entries-list.php:392
 #: includes/class-results.php:189
 msgid "Go to your forms"
 msgstr ""
 
 #. translators: %d: entry ID.
-#: admin/views/entries-list.php:407
+#: admin/views/entries-list.php:417
 #, php-format
 msgid "Select entry %d"
 msgstr ""
 
-#: admin/views/entries-list.php:415
+#: admin/views/entries-list.php:425
 msgid "Star this entry"
 msgstr ""
 
-#: admin/views/entries-list.php:421
+#: admin/views/entries-list.php:431
 msgid "Unread:"
 msgstr ""
 
 #. translators: %d: entry ID.
 #. translators: %d: numeric entry ID.
-#: admin/views/entries-list.php:429
+#: admin/views/entries-list.php:439
 #: admin/views/entry-detail.php:144
 #: admin/views/entry-print.php:57
 #: admin/views/entry-print.php:97
@@ -2376,13 +2388,13 @@ msgstr ""
 msgid "Entry #%d"
 msgstr ""
 
-#: admin/views/entries-list.php:445
+#: admin/views/entries-list.php:455
 msgid "View"
 msgstr ""
 
-#: admin/views/entries-list.php:447
+#: admin/views/entries-list.php:457
 #: includes/class-block-defaults.php:38
-#: includes/class-plugin.php:208
+#: includes/class-plugin.php:209
 #: includes/class-templates.php:71
 #: includes/class-templates.php:76
 #: includes/class-templates.php:84
@@ -2396,20 +2408,20 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: admin/views/entries-list.php:452
+#: admin/views/entries-list.php:462
 msgid "Permanently delete this entry? This cannot be undone."
 msgstr ""
 
-#: admin/views/entries-list.php:454
+#: admin/views/entries-list.php:464
 msgid "Mark read"
 msgstr ""
 
-#: admin/views/entries-list.php:454
-#: admin/views/entry-detail.php:199
+#: admin/views/entries-list.php:464
+#: admin/views/entry-detail.php:200
 msgid "Mark unread"
 msgstr ""
 
-#: admin/views/entries-list.php:493
+#: admin/views/entries-list.php:503
 msgid "This form does not take payments"
 msgstr ""
 
@@ -2463,71 +2475,83 @@ msgid "Notifications resent."
 msgstr ""
 
 #: admin/views/entry-detail.php:160
-msgid "Entry starred."
+msgid "Nothing was sent. This entry is in Spam or Trash: restore it first, then resend its notifications."
 msgstr ""
 
 #: admin/views/entry-detail.php:161
-msgid "Star removed."
+msgid "Entry starred."
 msgstr ""
 
 #: admin/views/entry-detail.php:162
-msgid "Entry restored."
+msgid "Star removed."
 msgstr ""
 
 #: admin/views/entry-detail.php:163
-msgid "Marked as read."
+msgid "Entry restored."
 msgstr ""
 
 #: admin/views/entry-detail.php:164
-msgid "Marked as unread."
+msgid "Marked as read."
 msgstr ""
 
 #: admin/views/entry-detail.php:165
-msgid "Entry saved."
+msgid "Marked as unread."
 msgstr ""
 
 #: admin/views/entry-detail.php:166
-msgid "Nothing changed."
+msgid "Entry saved."
 msgstr ""
 
 #: admin/views/entry-detail.php:167
-msgid "Entry approved."
+msgid "Nothing changed."
 msgstr ""
 
 #: admin/views/entry-detail.php:168
+msgid "Entry approved."
+msgstr ""
+
+#: admin/views/entry-detail.php:169
 msgid "Entry rejected."
 msgstr ""
 
 #. translators: %s: form name.
-#: admin/views/entry-detail.php:191
+#: admin/views/entry-detail.php:192
 #, php-format
 msgid "Re: %s"
 msgstr ""
 
 #. translators: %s: form name.
-#: admin/views/entry-detail.php:192
+#: admin/views/entry-detail.php:193
 msgid "Reply by email"
 msgstr ""
 
-#: admin/views/entry-detail.php:197
+#: admin/views/entry-detail.php:198
 msgid "Unstar"
 msgstr ""
 
-#: admin/views/entry-detail.php:201
+#: admin/views/entry-detail.php:210
+msgid "In Spam: restore it first to resend."
+msgstr ""
+
+#: admin/views/entry-detail.php:212
+msgid "In Trash: restore it first to resend."
+msgstr ""
+
+#: admin/views/entry-detail.php:218
 msgid "Resend this entry's notifications?"
 msgstr ""
 
-#: admin/views/entry-detail.php:216
+#: admin/views/entry-detail.php:234
 msgid "Edit"
 msgstr ""
 
 #. translators: %s: the reason the mail system gave.
-#: admin/views/entry-detail.php:237
+#: admin/views/entry-detail.php:255
 #, php-format
 msgid "Reason: %s"
 msgstr ""
 
-#: admin/views/entry-detail.php:239
+#: admin/views/entry-detail.php:257
 #: admin/views/settings.php:67
 #: includes/class-mail-check.php:179
 #: includes/class-mail-check.php:189
@@ -2536,84 +2560,84 @@ msgstr ""
 msgid "Send a test email"
 msgstr ""
 
-#: admin/views/entry-detail.php:246
+#: admin/views/entry-detail.php:264
 msgid "Answers"
 msgstr ""
 
-#: admin/views/entry-detail.php:270
+#: admin/views/entry-detail.php:288
 msgid "Not answered"
 msgstr ""
 
-#: admin/views/entry-detail.php:284
+#: admin/views/entry-detail.php:302
 msgid "Files"
 msgstr ""
 
-#: admin/views/entry-detail.php:290
-#: admin/views/entry-detail.php:292
+#: admin/views/entry-detail.php:308
+#: admin/views/entry-detail.php:310
 #: admin/views/transfer.php:61
 #: includes/class-export-columns.php:127
 msgid "Download"
 msgstr ""
 
-#: admin/views/entry-detail.php:301
+#: admin/views/entry-detail.php:319
 #: admin/views/entry-print.php:127
 #: includes/class-templates.php:95
 msgid "Notes"
 msgstr ""
 
-#: admin/views/entry-detail.php:302
+#: admin/views/entry-detail.php:320
 msgid "Private to your team. Never emailed or shown to the person who sent this."
 msgstr ""
 
-#: admin/views/entry-detail.php:320
+#: admin/views/entry-detail.php:338
 msgid "Delete this note?"
 msgstr ""
 
-#: admin/views/entry-detail.php:320
+#: admin/views/entry-detail.php:338
 msgid "Delete"
 msgstr ""
 
-#: admin/views/entry-detail.php:333
+#: admin/views/entry-detail.php:351
 msgid "Add a note"
 msgstr ""
 
-#: admin/views/entry-detail.php:334
+#: admin/views/entry-detail.php:352
 msgid "Add a note…"
 msgstr ""
 
-#: admin/views/entry-detail.php:335
+#: admin/views/entry-detail.php:353
 msgid "Add note"
 msgstr ""
 
-#: admin/views/entry-detail.php:352
+#: admin/views/entry-detail.php:370
 msgid "Details"
 msgstr ""
 
-#: admin/views/entry-detail.php:366
+#: admin/views/entry-detail.php:384
 msgid "Form deleted"
 msgstr ""
 
-#: admin/views/entry-detail.php:381
+#: admin/views/entry-detail.php:399
 msgid "Transaction ID"
 msgstr ""
 
-#: admin/views/entry-detail.php:390
+#: admin/views/entry-detail.php:408
 #: includes/class-entries.php:730
 #: includes/class-scoring.php:74
 msgid "Quiz score"
 msgstr ""
 
-#: admin/views/entry-detail.php:397
+#: admin/views/entry-detail.php:415
 #: includes/class-entry-notes.php:134
 #: includes/class-form-revisions.php:289
 msgid "Deleted user"
 msgstr ""
 
-#: admin/views/entry-detail.php:405
+#: admin/views/entry-detail.php:423
 msgid "Created post"
 msgstr ""
 
-#: admin/views/entry-detail.php:411
+#: admin/views/entry-detail.php:429
 #: includes/class-entries.php:759
 #: includes/class-entries.php:771
 #: includes/class-export-columns.php:35
@@ -2622,28 +2646,28 @@ msgstr ""
 msgid "IP address"
 msgstr ""
 
-#: admin/views/entry-detail.php:411
+#: admin/views/entry-detail.php:429
 msgid "Not stored"
 msgstr ""
 
-#: admin/views/entry-detail.php:413
+#: admin/views/entry-detail.php:431
 msgid "Sent from"
 msgstr ""
 
-#: admin/views/entry-detail.php:417
+#: admin/views/entry-detail.php:435
 msgid "Came from"
 msgstr ""
 
-#: admin/views/entry-detail.php:428
+#: admin/views/entry-detail.php:446
 #: includes/class-privacy.php:62
 msgid "Browser"
 msgstr ""
 
-#: admin/views/entry-detail.php:440
+#: admin/views/entry-detail.php:458
 msgid "Activity"
 msgstr ""
 
-#: admin/views/entry-detail.php:467
+#: admin/views/entry-detail.php:485
 #: includes/class-logger.php:30
 msgid "entry"
 msgstr ""
@@ -3514,7 +3538,7 @@ msgid "Country"
 msgstr ""
 
 #: includes/class-block-defaults.php:37
-#: includes/class-my-submissions.php:50
+#: includes/class-my-submissions.php:52
 msgid "Date"
 msgstr ""
 
@@ -3643,7 +3667,7 @@ msgid "Items"
 msgstr ""
 
 #: includes/class-block-defaults.php:70
-#: public/class-public-front.php:170
+#: public/class-public-front.php:171
 msgid "Add item"
 msgstr ""
 
@@ -4570,13 +4594,13 @@ msgid "You have no submissions yet."
 msgstr ""
 
 #. translators: 1: notification name, 2: email address(es).
-#: includes/class-notification-engine.php:115
+#: includes/class-notification-engine.php:147
 #, php-format
 msgid "Email \"%1$s\" handed to the mail server for %2$s"
 msgstr ""
 
 #. translators: %s: email address(es).
-#: includes/class-notification-engine.php:125
+#: includes/class-notification-engine.php:157
 #, php-format
 msgid "Email to %s could not be sent"
 msgstr ""
@@ -4660,88 +4684,88 @@ msgstr ""
 msgid "Create a page"
 msgstr ""
 
-#: includes/class-plugin.php:159
+#: includes/class-plugin.php:160
 msgid "Trinity Forms Forms"
 msgstr ""
 
-#: includes/class-plugin.php:167
+#: includes/class-plugin.php:168
 msgid "All Forms"
 msgstr ""
 
-#: includes/class-plugin.php:168
+#: includes/class-plugin.php:169
 msgid "Add Form"
 msgstr ""
 
-#: includes/class-plugin.php:169
+#: includes/class-plugin.php:170
 msgid "Edit Form"
 msgstr ""
 
-#: includes/class-plugin.php:170
+#: includes/class-plugin.php:171
 msgid "No forms yet — start from a template, or add a blank one."
 msgstr ""
 
-#: includes/class-plugin.php:172
-#: includes/class-plugin.php:226
+#: includes/class-plugin.php:173
+#: includes/class-plugin.php:227
 msgid "Form published."
 msgstr ""
 
-#: includes/class-plugin.php:173
+#: includes/class-plugin.php:174
 msgid "Form published privately."
 msgstr ""
 
-#: includes/class-plugin.php:174
+#: includes/class-plugin.php:175
 msgid "Form reverted to draft."
 msgstr ""
 
-#: includes/class-plugin.php:175
-#: includes/class-plugin.php:229
+#: includes/class-plugin.php:176
+#: includes/class-plugin.php:230
 msgid "Form scheduled."
 msgstr ""
 
-#: includes/class-plugin.php:176
-#: includes/class-plugin.php:224
+#: includes/class-plugin.php:177
 #: includes/class-plugin.php:225
+#: includes/class-plugin.php:226
 msgid "Form updated."
 msgstr ""
 
-#: includes/class-plugin.php:227
+#: includes/class-plugin.php:228
 msgid "Form saved."
 msgstr ""
 
-#: includes/class-plugin.php:228
+#: includes/class-plugin.php:229
 msgid "Form submitted."
 msgstr ""
 
-#: includes/class-plugin.php:230
+#: includes/class-plugin.php:231
 msgid "Form draft updated."
 msgstr ""
 
-#: includes/class-plugin.php:234
 #: includes/class-plugin.php:235
+#: includes/class-plugin.php:236
 msgid "View updated."
 msgstr ""
 
-#: includes/class-plugin.php:236
+#: includes/class-plugin.php:237
 msgid "View published."
 msgstr ""
 
-#: includes/class-plugin.php:237
+#: includes/class-plugin.php:238
 msgid "View saved."
 msgstr ""
 
-#: includes/class-plugin.php:238
+#: includes/class-plugin.php:239
 msgid "View submitted."
 msgstr ""
 
-#: includes/class-plugin.php:239
+#: includes/class-plugin.php:240
 msgid "View scheduled."
 msgstr ""
 
-#: includes/class-plugin.php:240
+#: includes/class-plugin.php:241
 msgid "View draft updated."
 msgstr ""
 
-#: includes/class-plugin.php:377
+#: includes/class-plugin.php:378
 msgid "Trinity Forms Fields"
 msgstr ""
 
@@ -5914,29 +5938,33 @@ msgid "Step %1$d of %2$d"
 msgstr ""
 
 #: public/class-public-front.php:162
-msgid "Email me a link to finish this form later"
+msgid "Please fix the problems listed at the top of the form."
 msgstr ""
 
 #: public/class-public-front.php:163
+msgid "Email me a link to finish this form later"
+msgstr ""
+
+#: public/class-public-front.php:164
 msgid "Send link"
 msgstr ""
 
-#: public/class-public-front.php:165
+#: public/class-public-front.php:166
 #: builder/src/app.jsx:649
 msgid "Saving…"
 msgstr ""
 
-#: public/class-public-front.php:166
+#: public/class-public-front.php:167
 msgid "Saved. We've emailed you a link to resume."
 msgstr ""
 
 #. translators: %s: the link that resumes the form.
-#: public/class-public-front.php:168
+#: public/class-public-front.php:169
 #, php-format
 msgid "Saved. Bookmark this URL to resume: %s"
 msgstr ""
 
-#: public/class-public-front.php:169
+#: public/class-public-front.php:170
 msgid "Could not save progress."
 msgstr ""
 

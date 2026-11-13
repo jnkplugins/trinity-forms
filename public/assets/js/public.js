@@ -67,6 +67,13 @@
             box.textContent = msgs;
             return;
         }
+        // Field problems are already listed in the summary at the top (role="alert"):
+        // repeating the list here made screen readers read every problem twice.
+        var summary = form.querySelector( ".trinity-forms-summary" );
+        if ( type === "error" && summary && ! summary.hidden && ( msgs || [] ).length && ( msgs || [] ).every( function ( m ) { return m && m.field; } ) ) {
+            box.textContent = t( "seeSummary", "Please fix the problems listed at the top of the form." );
+            return;
+        }
         var ul = document.createElement( "ul" );
         ( msgs || [] ).forEach( function ( m ) {
             var li = document.createElement( "li" );
@@ -141,7 +148,9 @@
 
         ( errors || [] ).forEach( function ( e ) {
             if ( ! e.field ) return;
-            var control = form.querySelector( '[name^="trinity_forms_fields[' + e.field + ']"]' );
+            // A browser check knows which box failed (the third line of an address);
+            // a server error only names the field.
+            var control = e.control || form.querySelector( '[name^="trinity_forms_fields[' + e.field + ']"]' );
             if ( ! control ) return;
             var wrap = control.closest( ".trinity-forms-field" ) || control.parentNode;
             wrap.classList.add( "has-error" );
@@ -326,6 +335,44 @@
         return errors;
     }
 
+    // "Also list every problem at the top of the form" (validation_summary) is on.
+    // Such a form is set to novalidate when it is attached, so the browser's own
+    // bubble no longer stops the submit before this script runs; these checks
+    // take its place and feed the summary. Off, the browser checks as before.
+    function usesSummary( form ) {
+        return !! form.querySelector( ".trinity-forms-summary" );
+    }
+
+    /**
+     * The browser's own checks (required, email, number min/max/step, pattern,
+     * length, url, date ranges) on the fields inside `scope`, as error objects
+     * for paintFieldErrors: one per field, the first failing control.
+     *
+     * checkValidity() fires the "invalid" event, so a field's custom error message
+     * (data-error-message) is what validationMessage returns. Disabled controls
+     * (hidden by a condition) are skipped by the browser itself, and required
+     * fields on the steps a multi-step form is not showing are parked. Controls
+     * that are not form fields (the resume-email box, Turnstile) are left alone:
+     * the server does not check them either.
+     */
+    function constraintErrors( scope ) {
+        var errors = [];
+        var seen = {};
+        Array.prototype.forEach.call( scope.querySelectorAll( "input, select, textarea" ), function ( el ) {
+            if ( el.disabled || el.type === "hidden" || typeof el.checkValidity !== "function" ) return;
+            var field = fieldIdOf( el );
+            if ( ! field || seen[ field ] ) return;
+            if ( el.checkValidity() ) return;
+            seen[ field ] = true;
+            errors.push( {
+                field: field,
+                control: el,
+                message: el.validationMessage || t( "required", "This field is required." )
+            } );
+        } );
+        return errors;
+    }
+
     // Add-ons can do async work before the POST (a card field turning the card into
     // a one-time token). Each hook in window.TrinityFormsHooks.beforeSubmit gets the
     // form and may return a promise; they run in order, and a rejection stops the
@@ -351,6 +398,14 @@
         showMessages( form, "", "info" );
 
         var tooBig = fileSizeErrors( form );
+        if ( usesSummary( form ) ) {
+            var seenField = {};
+            tooBig = constraintErrors( form ).concat( tooBig ).filter( function ( e ) {
+                if ( seenField[ e.field ] ) return false;
+                seenField[ e.field ] = true;
+                return true;
+            } );
+        }
         if ( tooBig.length ) {
             paintFieldErrors( form, tooBig );
             showMessages( form, tooBig, "error" );
@@ -720,6 +775,13 @@
         function validateCurrent() {
             var controls = steps[ current ].querySelectorAll( "input, select, textarea" );
             clearFieldErrors( form );
+            // With the summary on, Next lists every problem on this step at the top,
+            // the same as a failed submit, instead of one browser bubble at a time.
+            if ( usesSummary( form ) ) {
+                var problems = constraintErrors( steps[ current ] );
+                if ( problems.length ) paintFieldErrors( form, problems );
+                return ! problems.length;
+            }
             for ( var i = 0; i < controls.length; i++ ) {
                 var el = controls[ i ];
                 if ( el.disabled ) continue;
@@ -1579,6 +1641,10 @@
             if ( form.dataset.tfAttached === "1" ) return;
             form.dataset.tfAttached = "1";
             fresh.push( form );
+            // The summary replaces the browser's bubbles (see usesSummary). Set here,
+            // not in the HTML, so a visitor without JavaScript still gets the
+            // browser's checks. A form that posts natively keeps them too.
+            if ( usesSummary( form ) && ! form.hasAttribute( "data-trinity-forms-native" ) ) form.noValidate = true;
             attachRepeaters( form );
             attachConditional( form );
             attachStepper( form );

@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.28.0
+Stable tag: 2.28.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,11 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.28.1 =
+* Fixed: the [trinity_forms_my_submissions] list showed as a bare table on block themes such as Twenty Twenty-Five, with no lines or spacing and the columns running together. It now has its own row lines, spacing and left-aligned headings on block and classic themes, and scrolls sideways on a phone instead of widening the page.
+* Fixed: Resend notifications on an entry in Spam sent the emails while the entry stayed in Spam. Entries in Spam or Trash are no longer resent: the entry screen shows the button greyed out with "restore it first", and the bulk action skips them and says how many it skipped.
+* Fixed: with "Also list every problem at the top of the form" on, an empty required field or a badly typed email was stopped by the browser's small pop-up, so the list at the top only appeared for problems the server found. The form now checks itself: every problem is listed at the top with a link to its field, and keyboard and screen-reader focus moves to the list, on Next in multi-step forms too. With the option off, nothing changes.
 
 = 2.28.0 =
 * Fixed: in the Visual Builder's All settings window, a strip of the page showed under the Save settings bar while scrolling.

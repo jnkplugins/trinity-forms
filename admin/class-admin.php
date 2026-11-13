@@ -596,12 +596,12 @@ class Admin {
             case "restore":  Entries::set_status( [ $id ], "completed" ); break;
             case "delete":   Entries::delete( [ $id ] ); $done = "deleted"; break;
             case "resend":
-                Notification_Engine::dispatch( $id );
-                Entry_Notes::log( $id, sprintf(
-                    /* translators: %s: display name of the user who resent the notification. */
-                    __( "Notifications resent by %s.", "trinity-forms" ),
-                    wp_get_current_user()->display_name
-                ) );
+                // Spam and Trash entries are not resent: the screen hides the button,
+                // and a direct request lands here with a "restore it first" notice.
+                if ( ! self::resend_notifications( [ $id ] ) ) {
+                    wp_safe_redirect( self::entries_url( [ "tf_done" => "resend_held", "tf_n" => 1 ] ) );
+                    exit;
+                }
                 break;
             default:
                 wp_safe_redirect( self::entries_url() );
@@ -619,6 +619,38 @@ class Admin {
 
         wp_safe_redirect( self::entries_url( $args ) );
         exit;
+    }
+
+    /**
+     * Resend the notifications of these entries and note it on each one.
+     *
+     * Entries in Spam or Trash are skipped (Notification_Engine::NO_RESEND): they
+     * have to be restored first. Sending mail inline blocks the request, so more
+     * than a handful are queued; Action Scheduler ships with the plugin and is
+     * already how integrations run, and the queued run checks the status again.
+     *
+     * @param int[] $ids
+     * @return int How many entries were resent (or queued).
+     */
+    public static function resend_notifications( array $ids ): int {
+        $ids = array_values( array_filter( array_map( "absint", $ids ), [ Notification_Engine::class, "can_resend" ] ) );
+        if ( ! $ids ) {
+            return 0;
+        }
+        $queue = count( $ids ) > 10 && function_exists( "as_enqueue_async_action" );
+        foreach ( $ids as $id ) {
+            if ( $queue ) {
+                as_enqueue_async_action( "trinity_forms_resend_notification", [ $id ] );
+            } else {
+                Notification_Engine::dispatch( $id );
+            }
+            Entry_Notes::log( $id, sprintf(
+                /* translators: %s: display name of the user who resent the notification. */
+                __( "Notifications resent by %s.", "trinity-forms" ),
+                wp_get_current_user()->display_name
+            ) );
+        }
+        return count( $ids );
     }
 
     /** Bulk actions from the entries list. */
@@ -665,26 +697,12 @@ class Admin {
                 $n = (int) apply_filters( "trinity_forms_entry_bulk_moderate", 0, $ids, "approve" === $verb ? "approved" : "rejected" );
                 break;
             case "resend":
-                // Sending mail inline blocks the request, so anything beyond a
-                // handful is queued. Action Scheduler ships with the plugin and is
-                // already how integrations run.
-                if ( count( $ids ) > 10 && function_exists( "as_enqueue_async_action" ) ) {
-                    foreach ( $ids as $id ) {
-                        as_enqueue_async_action( "trinity_forms_resend_notification", [ $id ] );
-                    }
-                } else {
-                    foreach ( $ids as $id ) {
-                        Notification_Engine::dispatch( $id );
-                    }
+                $n = self::resend_notifications( $ids );
+                if ( ! $n ) {
+                    // Every selected entry was in Spam or Trash.
+                    wp_safe_redirect( self::entries_url( [ "tf_done" => "resend_held", "tf_n" => count( $ids ) ] ) );
+                    exit;
                 }
-                foreach ( $ids as $id ) {
-                    Entry_Notes::log( $id, sprintf(
-                        /* translators: %s: display name of the user who resent the notification. */
-                        __( "Notifications resent by %s.", "trinity-forms" ),
-                        wp_get_current_user()->display_name
-                    ) );
-                }
-                $n = count( $ids );
                 break;
             default:
                 wp_safe_redirect( self::entries_url( [ "tf_done" => "noop" ] ) );
@@ -692,7 +710,11 @@ class Admin {
         }
 
         Activity::record( $ids, $verb );
-        wp_safe_redirect( self::entries_url( [ "tf_done" => $verb, "tf_n" => $n ] ) );
+        $args = [ "tf_done" => $verb, "tf_n" => $n ];
+        if ( "resend" === $verb && $n < count( $ids ) ) {
+            $args["tf_skip"] = count( $ids ) - $n; // in Spam or Trash, so not resent
+        }
+        wp_safe_redirect( self::entries_url( $args ) );
         exit;
     }
 

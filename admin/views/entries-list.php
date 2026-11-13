@@ -171,6 +171,7 @@ Admin_UI::open(
             "delete"       => __( "%s permanently deleted.", "trinity-forms" ),
             "deleted"      => __( "%s permanently deleted.", "trinity-forms" ),
             "resend"       => __( "Notifications resent for %s.", "trinity-forms" ),
+            "resend_held"  => __( "Nothing was sent: entries in Spam or Trash are not resent. Restore them first, then resend.", "trinity-forms" ),
             "note"         => __( "Note added.", "trinity-forms" ),
             "note_deleted" => __( "Note deleted.", "trinity-forms" ),
             "columns"      => __( "Columns updated.", "trinity-forms" ),
@@ -184,10 +185,19 @@ Admin_UI::open(
                 _n( "%s entry", "%s entries", max( 1, $tf_n ), "trinity-forms" ),
                 number_format_i18n( max( 1, $tf_n ) )
             );
-            $tf_class = "noop" === $tf_done ? "notice-warning" : "notice-success";
+            $tf_class = in_array( $tf_done, [ "noop", "resend_held" ], true ) ? "notice-warning" : "notice-success";
+            $tf_text  = sprintf( $tf_messages[ $tf_done ], $tf_count_label );
+            $tf_skip  = "resend" === $tf_done && isset( $_GET["tf_skip"] ) ? absint( wp_unslash( $_GET["tf_skip"] ) ) : 0;
+            if ( $tf_skip ) {
+                $tf_text .= " " . sprintf(
+                    /* translators: %s: number of entries. */
+                    _n( "%s entry in Spam or Trash was skipped: restore it first.", "%s entries in Spam or Trash were skipped: restore them first.", $tf_skip, "trinity-forms" ),
+                    number_format_i18n( $tf_skip )
+                );
+            }
             ?>
             <div class="notice <?php echo esc_attr( $tf_class ); ?> is-dismissible">
-                <p><?php echo esc_html( sprintf( $tf_messages[ $tf_done ], $tf_count_label ) ); ?></p>
+                <p><?php echo esc_html( $tf_text ); ?></p>
             </div>
         <?php endif; ?>
     <?php endif; ?>

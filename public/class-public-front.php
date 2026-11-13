@@ -159,6 +159,7 @@ class Public_Front {
             "stepOf"       => __( "Step %1\$d of %2\$d", "trinity-forms" ),
             "required"     => __( "This field is required.", "trinity-forms" ),
             "badEmail"     => __( "Please enter a valid email address.", "trinity-forms" ),
+            "seeSummary"   => __( "Please fix the problems listed at the top of the form.", "trinity-forms" ),
             "resumeAsk"    => __( "Email me a link to finish this form later", "trinity-forms" ),
             "sendLink"     => __( "Send link", "trinity-forms" ),
             "cancel"       => __( "Cancel", "trinity-forms" ),

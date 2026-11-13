@@ -7,6 +7,38 @@ defined( "ABSPATH" ) || exit;
 class Notification_Engine {
 
     /**
+     * Statuses whose entries are never resent. An entry in Spam or Trash was put
+     * there on purpose; resending its emails while it stays there surprised people
+     * (finding 18, 13 Nov 2026). Restore it first.
+     */
+    public const NO_RESEND = [ "spam", "trash" ];
+
+    /** Whether "Resend notifications" may send for this entry; false for a missing one. */
+    public static function can_resend( int $entry_id ): bool {
+        global $wpdb;
+        $status = $wpdb->get_var( $wpdb->prepare(
+            "SELECT status FROM {$wpdb->prefix}trinity_forms_entries WHERE id = %d",
+            $entry_id
+        ) );
+        return null !== $status && ! in_array( (string) $status, self::NO_RESEND, true );
+    }
+
+    /**
+     * "Resend notifications" from the entry screen, the bulk action or the queue.
+     * Checked again when a queued resend runs, because the entry may have been
+     * marked as spam in between.
+     *
+     * @return bool Whether the notifications were sent.
+     */
+    public static function resend( int $entry_id ): bool {
+        if ( ! self::can_resend( $entry_id ) ) {
+            return false;
+        }
+        self::dispatch( $entry_id );
+        return true;
+    }
+
+    /**
      * Send the notifications for an entry.
      *
      * @param int    $entry_id
