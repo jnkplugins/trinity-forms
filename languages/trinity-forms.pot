@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Trinity Forms 2.28.1\n"
+"Project-Id-Version: Trinity Forms 2.28.2\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-13T18:16:50+00:00\n"
+"POT-Creation-Date: 2026-11-13T20:18:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: trinity-forms\n"
@@ -39,7 +39,7 @@ msgid "<strong>%s Pro is installed, but no Pro license is active on this site.</
 msgstr ""
 
 #: pro/licensorpro-client/licensorpro-client.php:857
-#: builder/src/app.jsx:910
+#: builder/src/app.jsx:926
 msgid "Enter license key"
 msgstr ""
 
@@ -597,7 +597,7 @@ msgstr ""
 #: includes/class-templates.php:24
 #: includes/class-templates.php:25
 #: includes/class-templates.php:214
-#: builder/src/app.jsx:534
+#: builder/src/app.jsx:550
 msgid "Templates"
 msgstr ""
 
@@ -674,7 +674,7 @@ msgstr ""
 #: admin/class-admin.php:222
 #: admin/class-admin.php:223
 #: admin/views/settings.php:27
-#: builder/src/app.jsx:544
+#: builder/src/app.jsx:560
 msgid "Settings"
 msgstr ""
 
@@ -688,7 +688,7 @@ msgstr ""
 
 #: admin/class-admin-ui.php:252
 #: admin/class-forms-list.php:61
-#: builder/src/app.jsx:856
+#: builder/src/app.jsx:872
 msgid "Start from a template"
 msgstr ""
 
@@ -849,8 +849,8 @@ msgid "General"
 msgstr ""
 
 #: admin/class-form-editor.php:123
-#: builder/src/app.jsx:602
-#: builder/src/app.jsx:615
+#: builder/src/app.jsx:618
+#: builder/src/app.jsx:631
 msgid "Notifications"
 msgstr ""
 
@@ -863,12 +863,12 @@ msgid "Layout"
 msgstr ""
 
 #: admin/class-form-editor.php:126
-#: builder/src/app.jsx:751
+#: builder/src/app.jsx:767
 msgid "Restrictions"
 msgstr ""
 
 #: admin/class-form-editor.php:135
-#: builder/src/app.jsx:706
+#: builder/src/app.jsx:722
 msgid "Submit button text"
 msgstr ""
 
@@ -878,27 +878,27 @@ msgstr ""
 #: includes/class-form-manager.php:325
 #: includes/class-gf-importer.php:231
 #: public/class-form-renderer.php:156
-#: builder/src/app.jsx:708
+#: builder/src/app.jsx:724
 msgid "Submit"
 msgstr ""
 
 #: admin/class-form-editor.php:138
-#: builder/src/app.jsx:712
+#: builder/src/app.jsx:728
 msgid "After submit"
 msgstr ""
 
 #: admin/class-form-editor.php:140
-#: builder/src/app.jsx:715
+#: builder/src/app.jsx:731
 msgid "Show a message"
 msgstr ""
 
 #: admin/class-form-editor.php:141
-#: builder/src/app.jsx:716
+#: builder/src/app.jsx:732
 msgid "Go to a page"
 msgstr ""
 
 #: admin/class-form-editor.php:142
-#: builder/src/app.jsx:717
+#: builder/src/app.jsx:733
 msgid "Go to a URL"
 msgstr ""
 
@@ -906,31 +906,31 @@ msgstr ""
 #: includes/importers/class-formidable.php:238
 #: includes/importers/class-forminator.php:231
 #: includes/importers/class-wpforms.php:517
-#: builder/src/app.jsx:723
+#: builder/src/app.jsx:739
 msgid "Confirmation message"
 msgstr ""
 
 #: admin/class-form-editor.php:145
 #: includes/class-confirmations.php:46
 #: includes/class-form-manager.php:327
-#: builder/src/app.jsx:725
+#: builder/src/app.jsx:741
 msgid "Thank you!"
 msgstr ""
 
 #: admin/class-form-editor.php:146
 #: admin/class-form-editor.php:836
-#: builder/src/app.jsx:731
+#: builder/src/app.jsx:747
 msgid "Page"
 msgstr ""
 
 #: admin/class-form-editor.php:148
 #: admin/class-form-qr.php:173
-#: builder/src/app.jsx:734
+#: builder/src/app.jsx:750
 msgid "Choose a page"
 msgstr ""
 
 #: admin/class-form-editor.php:153
-#: builder/src/app.jsx:742
+#: builder/src/app.jsx:758
 msgid "Redirect URL"
 msgstr ""
 
@@ -1212,107 +1212,107 @@ msgid "Useful for a consent checkbox that has to be ticked before the form can b
 msgstr ""
 
 #: admin/class-form-editor.php:460
-#: builder/src/app.jsx:753
+#: builder/src/app.jsx:769
 msgid "Control when the form accepts submissions, and how many it takes. Leave a field blank or at 0 to leave that rule off."
 msgstr ""
 
 #: admin/class-form-editor.php:462
-#: builder/src/app.jsx:755
+#: builder/src/app.jsx:771
 msgid "Schedule"
 msgstr ""
 
 #: admin/class-form-editor.php:464
-#: builder/src/app.jsx:757
+#: builder/src/app.jsx:773
 msgid "Opens"
 msgstr ""
 
 #: admin/class-form-editor.php:467
-#: builder/src/app.jsx:760
+#: builder/src/app.jsx:776
 msgid "Before this, visitors see the message below instead of the form. Uses your site's timezone."
 msgstr ""
 
 #: admin/class-form-editor.php:469
-#: builder/src/app.jsx:764
+#: builder/src/app.jsx:780
 msgid "Message before it opens"
 msgstr ""
 
 #: admin/class-form-editor.php:470
 #: includes/class-restrictions.php:73
-#: builder/src/app.jsx:766
+#: builder/src/app.jsx:782
 msgid "This form is not open yet."
 msgstr ""
 
 #: admin/class-form-editor.php:471
-#: builder/src/app.jsx:770
+#: builder/src/app.jsx:786
 msgid "Closes"
 msgstr ""
 
 #: admin/class-form-editor.php:473
-#: builder/src/app.jsx:776
+#: builder/src/app.jsx:792
 msgid "Message after it closes"
 msgstr ""
 
 #: admin/class-form-editor.php:474
 #: includes/class-restrictions.php:81
-#: builder/src/app.jsx:778
+#: builder/src/app.jsx:794
 msgid "This form is now closed."
 msgstr ""
 
 #: admin/class-form-editor.php:477
-#: builder/src/app.jsx:781
+#: builder/src/app.jsx:797
 msgid "Entry limits"
 msgstr ""
 
 #: admin/class-form-editor.php:479
-#: builder/src/app.jsx:783
+#: builder/src/app.jsx:799
 msgid "Total entries"
 msgstr ""
 
 #: admin/class-form-editor.php:482
-#: builder/src/app.jsx:783
+#: builder/src/app.jsx:799
 msgid "0 = unlimited. Spam and trashed entries do not count towards the limit."
 msgstr ""
 
 #: admin/class-form-editor.php:484
-#: builder/src/app.jsx:784
+#: builder/src/app.jsx:800
 msgid "Per logged-in user"
 msgstr ""
 
 #: admin/class-form-editor.php:486
-#: builder/src/app.jsx:785
+#: builder/src/app.jsx:801
 msgid "Per IP address"
 msgstr ""
 
 #: admin/class-form-editor.php:489
-#: builder/src/app.jsx:785
+#: builder/src/app.jsx:801
 msgid "Blunt: everyone behind one office router or mobile network shares an address."
 msgstr ""
 
 #: admin/class-form-editor.php:491
-#: builder/src/app.jsx:798
+#: builder/src/app.jsx:814
 msgid "Message when full"
 msgstr ""
 
 #: admin/class-form-editor.php:492
 #: includes/class-restrictions.php:99
-#: builder/src/app.jsx:800
+#: builder/src/app.jsx:816
 msgid "This form is no longer accepting submissions."
 msgstr ""
 
 #: admin/class-form-editor.php:493
-#: builder/src/app.jsx:804
+#: builder/src/app.jsx:820
 msgid "Message when you've already submitted"
 msgstr ""
 
 #: admin/class-form-editor.php:494
 #: includes/class-restrictions.php:110
 #: includes/class-restrictions.php:122
-#: builder/src/app.jsx:806
+#: builder/src/app.jsx:822
 msgid "You have already submitted this form."
 msgstr ""
 
 #: admin/class-form-editor.php:497
-#: builder/src/app.jsx:809
+#: builder/src/app.jsx:825
 msgid "Poll"
 msgstr ""
 
@@ -1321,17 +1321,17 @@ msgid "Poll mode"
 msgstr ""
 
 #: admin/class-form-editor.php:504
-#: builder/src/app.jsx:811
+#: builder/src/app.jsx:827
 msgid "Poll: after a vote, show the results instead of the form"
 msgstr ""
 
 #: admin/class-form-editor.php:506
-#: builder/src/app.jsx:812
+#: builder/src/app.jsx:828
 msgid "The browser remembers the vote, so there is no IP check. The results show right after voting and on later visits from the same browser. The limits above, if you set one, also show the results instead of an error."
 msgstr ""
 
 #: admin/class-form-editor.php:510
-#: builder/src/app.jsx:816
+#: builder/src/app.jsx:832
 msgid "Who can submit"
 msgstr ""
 
@@ -1340,18 +1340,18 @@ msgid "Require login"
 msgstr ""
 
 #: admin/class-form-editor.php:517
-#: builder/src/app.jsx:818
+#: builder/src/app.jsx:834
 msgid "Only logged-in users may see and submit this form"
 msgstr ""
 
 #: admin/class-form-editor.php:520
-#: builder/src/app.jsx:823
+#: builder/src/app.jsx:839
 msgid "Message for logged-out visitors"
 msgstr ""
 
 #: admin/class-form-editor.php:521
 #: includes/class-restrictions.php:52
-#: builder/src/app.jsx:825
+#: builder/src/app.jsx:841
 msgid "Please log in to fill in this form."
 msgstr ""
 
@@ -1990,7 +1990,7 @@ msgid "Result"
 msgstr ""
 
 #: admin/views/assistants.php:250
-#: builder/src/app.jsx:832
+#: builder/src/app.jsx:848
 msgid "Done"
 msgstr ""
 
@@ -4038,7 +4038,7 @@ msgstr ""
 #: includes/class-form-builder.php:273
 #: includes/class-form-builder.php:274
 #: includes/class-form-builder.php:325
-#: builder/src/app.jsx:693
+#: builder/src/app.jsx:709
 msgid "Form settings"
 msgstr ""
 
@@ -4680,7 +4680,7 @@ msgid "The page could not be created."
 msgstr ""
 
 #: includes/class-onboarding.php:229
-#: builder/src/app.jsx:592
+#: builder/src/app.jsx:608
 msgid "Create a page"
 msgstr ""
 
@@ -5950,7 +5950,7 @@ msgid "Send link"
 msgstr ""
 
 #: public/class-public-front.php:166
-#: builder/src/app.jsx:649
+#: builder/src/app.jsx:665
 msgid "Saving…"
 msgstr ""
 
@@ -6439,213 +6439,213 @@ msgstr ""
 msgid "Could not load this form."
 msgstr ""
 
-#: builder/src/app.jsx:245
+#: builder/src/app.jsx:261
 msgid "new field"
 msgstr ""
 
-#: builder/src/app.jsx:248
+#: builder/src/app.jsx:264
 msgid "the end of the form"
 msgstr ""
 
-#: builder/src/app.jsx:253
+#: builder/src/app.jsx:269
 msgid "field"
 msgstr ""
 
 #. translators: 1: position, 2: total number of fields.
-#: builder/src/app.jsx:264
+#: builder/src/app.jsx:280
 #, js-format
 msgid "position %1$d of %2$d"
 msgstr ""
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:269
+#: builder/src/app.jsx:285
 #, js-format
 msgid "Picked up %s."
 msgstr ""
 
 #. translators: 1: dragged field label, 2: field it is over, 3: position text.
-#: builder/src/app.jsx:273
+#: builder/src/app.jsx:289
 #, js-format
 msgid "%1$s is over %2$s, %3$s."
 msgstr ""
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:275
+#: builder/src/app.jsx:291
 #, js-format
 msgid "%s is no longer over a drop position."
 msgstr ""
 
 #. translators: 1: dragged field label, 2: target field label.
-#: builder/src/app.jsx:279
+#: builder/src/app.jsx:295
 #, js-format
 msgid "%1$s was dropped at %2$s."
 msgstr ""
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:281
+#: builder/src/app.jsx:297
 #, js-format
 msgid "%s was dropped outside the form; nothing changed."
 msgstr ""
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:284
+#: builder/src/app.jsx:300
 #, js-format
 msgid "Moving %s was cancelled."
 msgstr ""
 
-#: builder/src/app.jsx:401
+#: builder/src/app.jsx:417
 msgid "Replace the current form with this template? Your unsaved changes will be lost."
 msgstr ""
 
-#: builder/src/app.jsx:449
+#: builder/src/app.jsx:465
 msgid "Form saved. It is published, so it shows wherever you embed it."
 msgstr ""
 
-#: builder/src/app.jsx:450
+#: builder/src/app.jsx:466
 msgid "Form saved as a draft. Visitors will not see it until you publish it."
 msgstr ""
 
-#: builder/src/app.jsx:465
+#: builder/src/app.jsx:481
 msgid "Could not save this form."
 msgstr ""
 
-#: builder/src/app.jsx:511
-#: builder/src/app.jsx:512
+#: builder/src/app.jsx:527
+#: builder/src/app.jsx:528
 msgid "Form title"
 msgstr ""
 
-#: builder/src/app.jsx:521
+#: builder/src/app.jsx:537
 msgid "Undo"
 msgstr ""
 
-#: builder/src/app.jsx:522
+#: builder/src/app.jsx:538
 msgid "Ctrl+Z"
 msgstr ""
 
-#: builder/src/app.jsx:528
+#: builder/src/app.jsx:544
 msgid "Redo"
 msgstr ""
 
-#: builder/src/app.jsx:529
+#: builder/src/app.jsx:545
 msgid "Ctrl+Shift+Z"
 msgstr ""
 
-#: builder/src/app.jsx:541
+#: builder/src/app.jsx:557
 msgid "Submit button text, what visitors see after they submit, schedule and entry limits"
 msgstr ""
 
-#: builder/src/app.jsx:551
+#: builder/src/app.jsx:567
 msgid "Every setting of this form: emails, layout, save and continue, popup, payments, integrations and more"
 msgstr ""
 
-#: builder/src/app.jsx:554
-#: builder/src/app.jsx:839
-#: builder/src/app.jsx:847
+#: builder/src/app.jsx:570
+#: builder/src/app.jsx:855
+#: builder/src/app.jsx:863
 msgid "All settings"
 msgstr ""
 
-#: builder/src/app.jsx:574
+#: builder/src/app.jsx:590
 msgid "Copy the shortcode that puts this form on a page or post"
 msgstr ""
 
-#: builder/src/app.jsx:577
+#: builder/src/app.jsx:593
 msgid "Copied"
 msgstr ""
 
-#: builder/src/app.jsx:578
+#: builder/src/app.jsx:594
 msgid "Press Ctrl+C to copy"
 msgstr ""
 
-#: builder/src/app.jsx:581
+#: builder/src/app.jsx:597
 msgid "Copy shortcode"
 msgstr ""
 
-#: builder/src/app.jsx:589
+#: builder/src/app.jsx:605
 msgid "Make a draft page holding this form and open it. Save your changes first."
 msgstr ""
 
-#: builder/src/app.jsx:599
-#: builder/src/app.jsx:612
+#: builder/src/app.jsx:615
+#: builder/src/app.jsx:628
 msgid "Set up the emails sent when this form is submitted"
 msgstr ""
 
-#: builder/src/app.jsx:620
+#: builder/src/app.jsx:636
 msgid "Open in block editor"
 msgstr ""
 
-#: builder/src/app.jsx:627
+#: builder/src/app.jsx:643
 msgid "Describe your form and let AI draft the fields (opens the block editor)"
 msgstr ""
 
-#: builder/src/app.jsx:630
+#: builder/src/app.jsx:646
 msgid "Draft with AI"
 msgstr ""
 
-#: builder/src/app.jsx:636
+#: builder/src/app.jsx:652
 msgid "Form status"
 msgstr ""
 
-#: builder/src/app.jsx:643
+#: builder/src/app.jsx:659
 msgid "Draft"
 msgstr ""
 
-#: builder/src/app.jsx:645
+#: builder/src/app.jsx:661
 msgid "Published"
 msgstr ""
 
-#: builder/src/app.jsx:649
+#: builder/src/app.jsx:665
 msgid "Save form"
 msgstr ""
 
-#: builder/src/app.jsx:657
+#: builder/src/app.jsx:673
 msgid "This form was saved in a format the builder can't open, so its fields don't show here. It still works on your site, and saving is turned off so nothing gets overwritten."
 msgstr ""
 
-#: builder/src/app.jsx:674
+#: builder/src/app.jsx:690
 msgid "This form changed somewhere else, most likely in the block editor in another tab. Your edits here have not been saved, and saving now would overwrite that change."
 msgstr ""
 
-#: builder/src/app.jsx:680
+#: builder/src/app.jsx:696
 msgid "Reload the form"
 msgstr ""
 
-#: builder/src/app.jsx:699
+#: builder/src/app.jsx:715
 msgid "Emails, layout, save and continue, popup, payments and the rest are under All settings."
 msgstr ""
 
-#: builder/src/app.jsx:701
+#: builder/src/app.jsx:717
 msgid "Open All settings"
 msgstr ""
 
-#: builder/src/app.jsx:829
+#: builder/src/app.jsx:845
 msgid "These are saved with the form when you press Save form."
 msgstr ""
 
-#: builder/src/app.jsx:844
+#: builder/src/app.jsx:860
 msgid "Press Save settings at the bottom before you close this window."
 msgstr ""
 
-#: builder/src/app.jsx:876
+#: builder/src/app.jsx:892
 msgid "fields"
 msgstr ""
 
-#: builder/src/app.jsx:897
+#: builder/src/app.jsx:913
 msgid "Add a field"
 msgstr ""
 
-#: builder/src/app.jsx:899
+#: builder/src/app.jsx:915
 msgid "Click to append, or drag onto the canvas to place."
 msgstr ""
 
-#: builder/src/app.jsx:906
+#: builder/src/app.jsx:922
 msgid "Pro fields"
 msgstr ""
 
-#: builder/src/app.jsx:908
+#: builder/src/app.jsx:924
 msgid "Activate your Pro license to add these."
 msgstr ""
 
-#: builder/src/app.jsx:920
+#: builder/src/app.jsx:936
 msgid "Requires an active Pro license"
 msgstr ""
 

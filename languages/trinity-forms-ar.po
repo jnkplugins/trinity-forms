@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.17.0\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-13T18:16:50+00:00\n"
+"POT-Creation-Date: 2026-11-13T20:18:13+00:00\n"
 "PO-Revision-Date: 2026-10-29 12:00+0000\n"
 "Last-Translator: JnK Plugins\n"
 "Language-Team: Arabic\n"
@@ -39,7 +39,7 @@ msgstr "<strong>%s Pro مُفعّل.</strong> شكرًا لك! كل أدوات P
 msgid "<strong>%s Pro is installed, but no Pro license is active on this site.</strong> Enter your license key to switch on the Pro tools."
 msgstr "<strong>%s Pro مثبّت، لكن لا يوجد ترخيص Pro نشط على هذا الموقع.</strong> أدخل مفتاح الترخيص لتشغيل أدوات Pro."
 
-#: pro/licensorpro-client/licensorpro-client.php:857 builder/src/app.jsx:910
+#: pro/licensorpro-client/licensorpro-client.php:857 builder/src/app.jsx:926
 msgid "Enter license key"
 msgstr "أدخل مفتاح الترخيص"
 
@@ -586,7 +586,7 @@ msgstr "النماذج"
 
 #: admin/class-admin-ui.php:61 includes/class-templates.php:24
 #: includes/class-templates.php:25 includes/class-templates.php:214
-#: builder/src/app.jsx:534
+#: builder/src/app.jsx:550
 msgid "Templates"
 msgstr "القوالب"
 
@@ -647,7 +647,7 @@ msgstr "مساعدة"
 
 #: admin/class-admin-ui.php:156 admin/class-admin.php:85
 #: admin/class-admin.php:222 admin/class-admin.php:223
-#: admin/views/settings.php:27 builder/src/app.jsx:544
+#: admin/views/settings.php:27 builder/src/app.jsx:560
 msgid "Settings"
 msgstr "الإعدادات"
 
@@ -660,7 +660,7 @@ msgid "Show entries on your site as a table, a list or cards. Put a View on any 
 msgstr "اعرض الإدخالات على موقعك كجدول أو قائمة أو بطاقات. ضع العرض في أي صفحة باستخدام رمزه القصير."
 
 #: admin/class-admin-ui.php:252 admin/class-forms-list.php:61
-#: builder/src/app.jsx:856
+#: builder/src/app.jsx:872
 msgid "Start from a template"
 msgstr "البدء من قالب"
 
@@ -818,8 +818,8 @@ msgstr "Trinity Forms — الإعدادات"
 msgid "General"
 msgstr "عام"
 
-#: admin/class-form-editor.php:123 builder/src/app.jsx:602
-#: builder/src/app.jsx:615
+#: admin/class-form-editor.php:123 builder/src/app.jsx:618
+#: builder/src/app.jsx:631
 msgid "Notifications"
 msgstr "الإشعارات"
 
@@ -831,59 +831,59 @@ msgstr "رسائل التأكيد"
 msgid "Layout"
 msgstr "التخطيط"
 
-#: admin/class-form-editor.php:126 builder/src/app.jsx:751
+#: admin/class-form-editor.php:126 builder/src/app.jsx:767
 msgid "Restrictions"
 msgstr "القيود"
 
-#: admin/class-form-editor.php:135 builder/src/app.jsx:706
+#: admin/class-form-editor.php:135 builder/src/app.jsx:722
 msgid "Submit button text"
 msgstr "نص زر الإرسال"
 
 #: admin/class-form-editor.php:136 admin/class-form-editor.php:352
 #: includes/class-form-basics.php:48 includes/class-form-manager.php:325
 #: includes/class-gf-importer.php:231 public/class-form-renderer.php:156
-#: builder/src/app.jsx:708
+#: builder/src/app.jsx:724
 msgid "Submit"
 msgstr "إرسال"
 
-#: admin/class-form-editor.php:138 builder/src/app.jsx:712
+#: admin/class-form-editor.php:138 builder/src/app.jsx:728
 msgid "After submit"
 msgstr "بعد الإرسال"
 
-#: admin/class-form-editor.php:140 builder/src/app.jsx:715
+#: admin/class-form-editor.php:140 builder/src/app.jsx:731
 msgid "Show a message"
 msgstr "إظهار رسالة"
 
-#: admin/class-form-editor.php:141 builder/src/app.jsx:716
+#: admin/class-form-editor.php:141 builder/src/app.jsx:732
 msgid "Go to a page"
 msgstr "الانتقال إلى صفحة"
 
-#: admin/class-form-editor.php:142 builder/src/app.jsx:717
+#: admin/class-form-editor.php:142 builder/src/app.jsx:733
 msgid "Go to a URL"
 msgstr "الانتقال إلى URL"
 
 #: admin/class-form-editor.php:144 includes/importers/class-formidable.php:238
 #: includes/importers/class-forminator.php:231
-#: includes/importers/class-wpforms.php:517 builder/src/app.jsx:723
+#: includes/importers/class-wpforms.php:517 builder/src/app.jsx:739
 msgid "Confirmation message"
 msgstr "رسالة التأكيد"
 
 #: admin/class-form-editor.php:145 includes/class-confirmations.php:46
-#: includes/class-form-manager.php:327 builder/src/app.jsx:725
+#: includes/class-form-manager.php:327 builder/src/app.jsx:741
 msgid "Thank you!"
 msgstr "شكرًا لك!"
 
 #: admin/class-form-editor.php:146 admin/class-form-editor.php:836
-#: builder/src/app.jsx:731
+#: builder/src/app.jsx:747
 msgid "Page"
 msgstr "الصفحة"
 
 #: admin/class-form-editor.php:148 admin/class-form-qr.php:173
-#: builder/src/app.jsx:734
+#: builder/src/app.jsx:750
 msgid "Choose a page"
 msgstr "اختر صفحة"
 
-#: admin/class-form-editor.php:153 builder/src/app.jsx:742
+#: admin/class-form-editor.php:153 builder/src/app.jsx:758
 msgid "Redirect URL"
 msgstr "رابط إعادة التوجيه (URL)"
 
@@ -1154,87 +1154,87 @@ msgstr "— الإظهار دائمًا —"
 msgid "Useful for a consent checkbox that has to be ticked before the form can be sent."
 msgstr "مفيد لمربع موافقة يجب تحديده قبل إرسال النموذج."
 
-#: admin/class-form-editor.php:460 builder/src/app.jsx:753
+#: admin/class-form-editor.php:460 builder/src/app.jsx:769
 msgid "Control when the form accepts submissions, and how many it takes. Leave a field blank or at 0 to leave that rule off."
 msgstr "تحكّم في متى يقبل النموذج الإرسالات، وكم إرسالًا يقبل. اترك الحقل فارغًا أو 0 لتعطيل تلك القاعدة."
 
-#: admin/class-form-editor.php:462 builder/src/app.jsx:755
+#: admin/class-form-editor.php:462 builder/src/app.jsx:771
 msgid "Schedule"
 msgstr "الجدولة"
 
-#: admin/class-form-editor.php:464 builder/src/app.jsx:757
+#: admin/class-form-editor.php:464 builder/src/app.jsx:773
 msgid "Opens"
 msgstr "يُفتح في"
 
-#: admin/class-form-editor.php:467 builder/src/app.jsx:760
+#: admin/class-form-editor.php:467 builder/src/app.jsx:776
 msgid "Before this, visitors see the message below instead of the form. Uses your site's timezone."
 msgstr "قبل ذلك يرى الزوّار الرسالة أدناه بدل النموذج. يستخدم المنطقة الزمنية لموقعك."
 
-#: admin/class-form-editor.php:469 builder/src/app.jsx:764
+#: admin/class-form-editor.php:469 builder/src/app.jsx:780
 msgid "Message before it opens"
 msgstr "الرسالة قبل الفتح"
 
 #: admin/class-form-editor.php:470 includes/class-restrictions.php:73
-#: builder/src/app.jsx:766
+#: builder/src/app.jsx:782
 msgid "This form is not open yet."
 msgstr "هذا النموذج لم يُفتح بعد."
 
-#: admin/class-form-editor.php:471 builder/src/app.jsx:770
+#: admin/class-form-editor.php:471 builder/src/app.jsx:786
 msgid "Closes"
 msgstr "يُغلق في"
 
-#: admin/class-form-editor.php:473 builder/src/app.jsx:776
+#: admin/class-form-editor.php:473 builder/src/app.jsx:792
 msgid "Message after it closes"
 msgstr "الرسالة بعد الإغلاق"
 
 #: admin/class-form-editor.php:474 includes/class-restrictions.php:81
-#: builder/src/app.jsx:778
+#: builder/src/app.jsx:794
 msgid "This form is now closed."
 msgstr "هذا النموذج مغلق الآن."
 
-#: admin/class-form-editor.php:477 builder/src/app.jsx:781
+#: admin/class-form-editor.php:477 builder/src/app.jsx:797
 msgid "Entry limits"
 msgstr "حدود الإدخالات"
 
-#: admin/class-form-editor.php:479 builder/src/app.jsx:783
+#: admin/class-form-editor.php:479 builder/src/app.jsx:799
 msgid "Total entries"
 msgstr "إجمالي الإدخالات"
 
-#: admin/class-form-editor.php:482 builder/src/app.jsx:783
+#: admin/class-form-editor.php:482 builder/src/app.jsx:799
 msgid "0 = unlimited. Spam and trashed entries do not count towards the limit."
 msgstr "0 = بلا حد. الإدخالات المزعجة والمحذوفة لا تُحسب ضمن الحد."
 
-#: admin/class-form-editor.php:484 builder/src/app.jsx:784
+#: admin/class-form-editor.php:484 builder/src/app.jsx:800
 msgid "Per logged-in user"
 msgstr "لكل عضو مسجّل"
 
-#: admin/class-form-editor.php:486 builder/src/app.jsx:785
+#: admin/class-form-editor.php:486 builder/src/app.jsx:801
 msgid "Per IP address"
 msgstr "لكل عنوان IP"
 
-#: admin/class-form-editor.php:489 builder/src/app.jsx:785
+#: admin/class-form-editor.php:489 builder/src/app.jsx:801
 msgid "Blunt: everyone behind one office router or mobile network shares an address."
 msgstr "تقييد حاد: كل من يتصل عبر موجّه مكتب واحد أو شبكة جوال واحدة يتشاركون العنوان نفسه."
 
-#: admin/class-form-editor.php:491 builder/src/app.jsx:798
+#: admin/class-form-editor.php:491 builder/src/app.jsx:814
 msgid "Message when full"
 msgstr "الرسالة عند امتلاء الحد"
 
 #: admin/class-form-editor.php:492 includes/class-restrictions.php:99
-#: builder/src/app.jsx:800
+#: builder/src/app.jsx:816
 msgid "This form is no longer accepting submissions."
 msgstr "هذا النموذج لم يعد يقبل الإرسالات."
 
-#: admin/class-form-editor.php:493 builder/src/app.jsx:804
+#: admin/class-form-editor.php:493 builder/src/app.jsx:820
 msgid "Message when you've already submitted"
 msgstr "الرسالة عند الإرسال السابق"
 
 #: admin/class-form-editor.php:494 includes/class-restrictions.php:110
-#: includes/class-restrictions.php:122 builder/src/app.jsx:806
+#: includes/class-restrictions.php:122 builder/src/app.jsx:822
 msgid "You have already submitted this form."
 msgstr "لقد أرسلت هذا النموذج من قبل."
 
-#: admin/class-form-editor.php:497 builder/src/app.jsx:809
+#: admin/class-form-editor.php:497 builder/src/app.jsx:825
 msgid "Poll"
 msgstr "استطلاع"
 
@@ -1242,15 +1242,15 @@ msgstr "استطلاع"
 msgid "Poll mode"
 msgstr "وضع الاستطلاع"
 
-#: admin/class-form-editor.php:504 builder/src/app.jsx:811
+#: admin/class-form-editor.php:504 builder/src/app.jsx:827
 msgid "Poll: after a vote, show the results instead of the form"
 msgstr "استطلاع: بعد التصويت، اعرض النتائج بدلًا من النموذج"
 
-#: admin/class-form-editor.php:506 builder/src/app.jsx:812
+#: admin/class-form-editor.php:506 builder/src/app.jsx:828
 msgid "The browser remembers the vote, so there is no IP check. The results show right after voting and on later visits from the same browser. The limits above, if you set one, also show the results instead of an error."
 msgstr "يتذكّر المتصفح التصويت، لذلك لا يوجد فحص لعنوان IP. تظهر النتائج بعد التصويت مباشرة وفي الزيارات اللاحقة من المتصفح نفسه. والحدود أعلاه، إن وضعت أحدها، تعرض النتائج أيضًا بدلًا من رسالة خطأ."
 
-#: admin/class-form-editor.php:510 builder/src/app.jsx:816
+#: admin/class-form-editor.php:510 builder/src/app.jsx:832
 msgid "Who can submit"
 msgstr "من يمكنه الإرسال"
 
@@ -1258,16 +1258,16 @@ msgstr "من يمكنه الإرسال"
 msgid "Require login"
 msgstr "اشتراط تسجيل الدخول"
 
-#: admin/class-form-editor.php:517 builder/src/app.jsx:818
+#: admin/class-form-editor.php:517 builder/src/app.jsx:834
 msgid "Only logged-in users may see and submit this form"
 msgstr "فقط الأعضاء المسجّلون يمكنهم رؤية هذا النموذج وإرساله"
 
-#: admin/class-form-editor.php:520 builder/src/app.jsx:823
+#: admin/class-form-editor.php:520 builder/src/app.jsx:839
 msgid "Message for logged-out visitors"
 msgstr "رسالة للزوّار غير المسجّلين"
 
 #: admin/class-form-editor.php:521 includes/class-restrictions.php:52
-#: builder/src/app.jsx:825
+#: builder/src/app.jsx:841
 msgid "Please log in to fill in this form."
 msgstr "الرجاء تسجيل الدخول لتعبئة هذا النموذج."
 
@@ -1885,7 +1885,7 @@ msgstr "الطلب"
 msgid "Result"
 msgstr "النتيجة"
 
-#: admin/views/assistants.php:250 builder/src/app.jsx:832
+#: admin/views/assistants.php:250 builder/src/app.jsx:848
 msgid "Done"
 msgstr "تم"
 
@@ -3816,7 +3816,7 @@ msgid "Visual Builder"
 msgstr "المنشئ المرئي"
 
 #: includes/class-form-builder.php:273 includes/class-form-builder.php:274
-#: includes/class-form-builder.php:325 builder/src/app.jsx:693
+#: includes/class-form-builder.php:325 builder/src/app.jsx:709
 msgid "Form settings"
 msgstr "إعدادات النموذج"
 
@@ -4474,7 +4474,7 @@ msgstr "غير مسموح لك بإنشاء صفحات."
 msgid "The page could not be created."
 msgstr "تعذّر إنشاء الصفحة."
 
-#: includes/class-onboarding.php:229 builder/src/app.jsx:592
+#: includes/class-onboarding.php:229 builder/src/app.jsx:608
 msgid "Create a page"
 msgstr "إنشاء صفحة"
 
@@ -5757,7 +5757,7 @@ msgstr "أرسل لي رابطًا بالبريد لإكمال هذا النمو
 msgid "Send link"
 msgstr "إرسال الرابط"
 
-#: public/class-public-front.php:166 builder/src/app.jsx:649
+#: public/class-public-front.php:166 builder/src/app.jsx:665
 msgid "Saving…"
 msgstr "جارٍ الحفظ…"
 
@@ -6179,202 +6179,202 @@ msgstr "اختر الاستطلاع الذي سيرى الزوار نتائجه.
 msgid "Could not load this form."
 msgstr "تعذّر تحميل هذا النموذج."
 
-#: builder/src/app.jsx:245
+#: builder/src/app.jsx:261
 msgid "new field"
 msgstr "حقل جديد"
 
-#: builder/src/app.jsx:248
+#: builder/src/app.jsx:264
 msgid "the end of the form"
 msgstr "نهاية النموذج"
 
-#: builder/src/app.jsx:253
+#: builder/src/app.jsx:269
 msgid "field"
 msgstr "حقل"
 
 #. translators: 1: position, 2: total number of fields.
-#: builder/src/app.jsx:264
+#: builder/src/app.jsx:280
 msgid "position %1$d of %2$d"
 msgstr "الموضع %1$d من %2$d"
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:269
+#: builder/src/app.jsx:285
 msgid "Picked up %s."
 msgstr "تم التقاط %s."
 
 #. translators: 1: dragged field label, 2: field it is over, 3: position text.
-#: builder/src/app.jsx:273
+#: builder/src/app.jsx:289
 msgid "%1$s is over %2$s, %3$s."
 msgstr "%1$s فوق %2$s، %3$s."
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:275
+#: builder/src/app.jsx:291
 msgid "%s is no longer over a drop position."
 msgstr "لم يعد %s فوق موضع إفلات."
 
 #. translators: 1: dragged field label, 2: target field label.
-#: builder/src/app.jsx:279
+#: builder/src/app.jsx:295
 msgid "%1$s was dropped at %2$s."
 msgstr "تم إفلات %1$s عند %2$s."
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:281
+#: builder/src/app.jsx:297
 msgid "%s was dropped outside the form; nothing changed."
 msgstr "تم إفلات %s خارج النموذج، ولم يتغيّر شيء."
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:284
+#: builder/src/app.jsx:300
 msgid "Moving %s was cancelled."
 msgstr "تم إلغاء نقل %s."
 
-#: builder/src/app.jsx:401
+#: builder/src/app.jsx:417
 msgid "Replace the current form with this template? Your unsaved changes will be lost."
 msgstr "هل تريد استبدال النموذج الحالي بهذا القالب؟ ستضيع تغييراتك غير المحفوظة."
 
-#: builder/src/app.jsx:449
+#: builder/src/app.jsx:465
 msgid "Form saved. It is published, so it shows wherever you embed it."
 msgstr "تم حفظ النموذج. إنه منشور، فيظهر في كل مكان تضمّنه فيه."
 
-#: builder/src/app.jsx:450
+#: builder/src/app.jsx:466
 msgid "Form saved as a draft. Visitors will not see it until you publish it."
 msgstr "تم حفظ النموذج كمسودة. لن يراه الزوّار حتى تنشره."
 
-#: builder/src/app.jsx:465
+#: builder/src/app.jsx:481
 msgid "Could not save this form."
 msgstr "تعذّر حفظ هذا النموذج."
 
-#: builder/src/app.jsx:511 builder/src/app.jsx:512
+#: builder/src/app.jsx:527 builder/src/app.jsx:528
 msgid "Form title"
 msgstr "عنوان النموذج"
 
-#: builder/src/app.jsx:521
+#: builder/src/app.jsx:537
 msgid "Undo"
 msgstr "تراجع"
 
-#: builder/src/app.jsx:522
+#: builder/src/app.jsx:538
 msgid "Ctrl+Z"
 msgstr "Ctrl+Z"
 
-#: builder/src/app.jsx:528
+#: builder/src/app.jsx:544
 msgid "Redo"
 msgstr "إعادة"
 
-#: builder/src/app.jsx:529
+#: builder/src/app.jsx:545
 msgid "Ctrl+Shift+Z"
 msgstr "Ctrl+Shift+Z"
 
-#: builder/src/app.jsx:541
+#: builder/src/app.jsx:557
 msgid "Submit button text, what visitors see after they submit, schedule and entry limits"
 msgstr "نص زر الإرسال، وما يراه الزوّار بعد الإرسال، والجدولة وحدود الإدخالات"
 
-#: builder/src/app.jsx:551
+#: builder/src/app.jsx:567
 msgid "Every setting of this form: emails, layout, save and continue, popup, payments, integrations and more"
 msgstr "كل إعدادات هذا النموذج: الرسائل، التخطيط، الحفظ والمتابعة، النافذة المنبثقة، المدفوعات، التكاملات والمزيد"
 
-#: builder/src/app.jsx:554 builder/src/app.jsx:839 builder/src/app.jsx:847
+#: builder/src/app.jsx:570 builder/src/app.jsx:855 builder/src/app.jsx:863
 msgid "All settings"
 msgstr "كل الإعدادات"
 
-#: builder/src/app.jsx:574
+#: builder/src/app.jsx:590
 msgid "Copy the shortcode that puts this form on a page or post"
 msgstr "انسخ الرمز القصير (shortcode) الذي يضع هذا النموذج في صفحة أو مقالة"
 
-#: builder/src/app.jsx:577
+#: builder/src/app.jsx:593
 msgid "Copied"
 msgstr "تم النسخ"
 
-#: builder/src/app.jsx:578
+#: builder/src/app.jsx:594
 msgid "Press Ctrl+C to copy"
 msgstr "اضغط Ctrl+C للنسخ"
 
-#: builder/src/app.jsx:581
+#: builder/src/app.jsx:597
 msgid "Copy shortcode"
 msgstr "نسخ الرمز القصير"
 
-#: builder/src/app.jsx:589
+#: builder/src/app.jsx:605
 msgid "Make a draft page holding this form and open it. Save your changes first."
 msgstr "أنشئ صفحة مسودة تحتوي هذا النموذج وافتحها. احفظ تغييراتك أولًا."
 
-#: builder/src/app.jsx:599 builder/src/app.jsx:612
+#: builder/src/app.jsx:615 builder/src/app.jsx:628
 msgid "Set up the emails sent when this form is submitted"
 msgstr "إعداد رسائل البريد التي تُرسل عند إرسال هذا النموذج"
 
-#: builder/src/app.jsx:620
+#: builder/src/app.jsx:636
 msgid "Open in block editor"
 msgstr "فتح في محرر المكوّنات"
 
-#: builder/src/app.jsx:627
+#: builder/src/app.jsx:643
 msgid "Describe your form and let AI draft the fields (opens the block editor)"
 msgstr "صِف نموذجك ودع الذكاء الاصطناعي يكتب مسودة الحقول (يفتح محرر المكوّنات)"
 
-#: builder/src/app.jsx:630
+#: builder/src/app.jsx:646
 msgid "Draft with AI"
 msgstr "مسودة بالذكاء الاصطناعي"
 
-#: builder/src/app.jsx:636
+#: builder/src/app.jsx:652
 msgid "Form status"
 msgstr "حالة النموذج"
 
-#: builder/src/app.jsx:643
+#: builder/src/app.jsx:659
 msgid "Draft"
 msgstr "مسودة"
 
-#: builder/src/app.jsx:645
+#: builder/src/app.jsx:661
 msgid "Published"
 msgstr "منشور"
 
-#: builder/src/app.jsx:649
+#: builder/src/app.jsx:665
 msgid "Save form"
 msgstr "حفظ النموذج"
 
-#: builder/src/app.jsx:657
+#: builder/src/app.jsx:673
 msgid "This form was saved in a format the builder can't open, so its fields don't show here. It still works on your site, and saving is turned off so nothing gets overwritten."
 msgstr "حُفظ هذا النموذج بصيغة لا يستطيع المنشئ فتحها، لذا لا تظهر حقوله هنا. ما زال يعمل على موقعك، والحفظ معطّل حتى لا يُستبدل شيء."
 
-#: builder/src/app.jsx:674
+#: builder/src/app.jsx:690
 msgid "This form changed somewhere else, most likely in the block editor in another tab. Your edits here have not been saved, and saving now would overwrite that change."
 msgstr "تغيّر هذا النموذج في مكان آخر، غالبًا في محرر المكوّنات في تبويب آخر. لم تُحفظ تعديلاتك هنا، والحفظ الآن سيستبدل ذلك التغيير."
 
-#: builder/src/app.jsx:680
+#: builder/src/app.jsx:696
 msgid "Reload the form"
 msgstr "إعادة تحميل النموذج"
 
-#: builder/src/app.jsx:699
+#: builder/src/app.jsx:715
 msgid "Emails, layout, save and continue, popup, payments and the rest are under All settings."
 msgstr "الرسائل والتخطيط والحفظ والمتابعة والنافذة المنبثقة والمدفوعات وغيرها موجودة في «كل الإعدادات»."
 
-#: builder/src/app.jsx:701
+#: builder/src/app.jsx:717
 msgid "Open All settings"
 msgstr "افتح كل الإعدادات"
 
-#: builder/src/app.jsx:829
+#: builder/src/app.jsx:845
 msgid "These are saved with the form when you press Save form."
 msgstr "تُحفظ هذه مع النموذج عند الضغط على حفظ النموذج."
 
-#: builder/src/app.jsx:844
+#: builder/src/app.jsx:860
 msgid "Press Save settings at the bottom before you close this window."
 msgstr "اضغط «حفظ الإعدادات» في الأسفل قبل إغلاق هذه النافذة."
 
-#: builder/src/app.jsx:876
+#: builder/src/app.jsx:892
 msgid "fields"
 msgstr "حقول"
 
-#: builder/src/app.jsx:897
+#: builder/src/app.jsx:913
 msgid "Add a field"
 msgstr "إضافة حقل"
 
-#: builder/src/app.jsx:899
+#: builder/src/app.jsx:915
 msgid "Click to append, or drag onto the canvas to place."
 msgstr "انقر للإضافة في النهاية، أو اسحب إلى اللوحة لوضعه."
 
-#: builder/src/app.jsx:906
+#: builder/src/app.jsx:922
 msgid "Pro fields"
 msgstr "حقول Pro"
 
-#: builder/src/app.jsx:908
+#: builder/src/app.jsx:924
 msgid "Activate your Pro license to add these."
 msgstr "فعّل ترخيص Pro لإضافة هذه الحقول."
 
-#: builder/src/app.jsx:920
+#: builder/src/app.jsx:936
 msgid "Requires an active Pro license"
 msgstr "يتطلب ترخيص Pro نشطًا"
 

@@ -236,6 +236,22 @@ export default function App( { config } ) {
 
 	const addField = ( name ) => insertField( name, blocks.length );
 
+	// Phones and narrow windows: the three panes stack, so a field's settings
+	// open far below the canvas and tapping a field seemed to do nothing. Take
+	// the person to the settings when they pick a field on the canvas.
+	const selectField = ( key ) => {
+		setSelectedKey( key );
+		if ( ! key || ! window.matchMedia( '(max-width: 960px)' ).matches ) {
+			return;
+		}
+		window.requestAnimationFrame( () => {
+			const panel = document.querySelector( '.tf-builder__panel' );
+			if ( panel ) {
+				panel.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+			}
+		} );
+	};
+
 	// Screen-reader announcements in words: dnd-kit's defaults read out internal ids
 	// ("Draggable item b24 was dropped over droppable area b0").
 	const labelForId = ( id ) => {
@@ -930,7 +946,7 @@ export default function App( { config } ) {
 						blocks={ blocks }
 						palette={ palette }
 						selectedKey={ selectedKey }
-						onSelect={ setSelectedKey }
+						onSelect={ selectField }
 						onMove={ move }
 						onRemove={ remove }
 						blockEditorUrl={ config.blockEditorUrl }

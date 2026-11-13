@@ -459,6 +459,8 @@ $brand-soft: var( --jnk-brand-soft, #eef2ff );
 		min-width: 0;
 		max-height: 70vh;
 		overflow-y: auto;
+		/* Clears the admin bar when a phone scrolls a picked field's settings into view. */
+		scroll-margin-top: 56px;
 
 		&.is-empty {
 			display: flex;

@@ -35,9 +35,34 @@
         } );
     } );
 
-    if ( document.readyState === "loading" ) {
-        document.addEventListener( "DOMContentLoaded", buildJumpLinks );
-    } else {
+    // Phones: the section tabs scroll sideways, and the current one could sit
+    // off the right edge (Import / Export, Integrations). Bring it into view.
+    // Only the tab row scrolls; the page itself stays where it is.
+    function showActiveTab() {
+        var row = document.querySelector( ".jnkui .jnkui-tabs" );
+        if ( ! row || row.scrollWidth <= row.clientWidth ) {
+            return;
+        }
+        var tab = row.querySelector( ":scope > .jnkui-tab.is-active, :scope > .jnkui-more > summary.is-active" );
+        if ( ! tab ) {
+            return;
+        }
+        var r = row.getBoundingClientRect();
+        var t = tab.getBoundingClientRect();
+        if ( t.left < r.left || t.right > r.right ) {
+            // Centre it; scrollLeft clamps itself, in either writing direction.
+            row.scrollLeft += ( t.left + t.width / 2 ) - ( r.left + r.width / 2 );
+        }
+    }
+
+    function ready() {
         buildJumpLinks();
+        showActiveTab();
+    }
+
+    if ( document.readyState === "loading" ) {
+        document.addEventListener( "DOMContentLoaded", ready );
+    } else {
+        ready();
     }
 } )();

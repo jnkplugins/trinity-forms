@@ -414,3 +414,47 @@ body.tf-ui-list #screen-meta { margin: 0 28px 0 8px; max-width: 1280px; }
 @media (max-width: 600px) {
     .tf-export-panel { position: fixed; inset-inline: 1rem; inset-block-start: 4rem; inline-size: auto; }
 }
+
+/* ---------- Phones ----------
+   Everything below only applies at phone width; the desktop look is untouched. */
+@media (max-width: 782px) {
+	/* Forms list: WordPress shows a row's links only on hover unless it detects a
+	   phone browser, so a narrow window left a blank gap under every title. */
+	body.tf-ui-list .wp-list-table .row-actions { position: static; left: auto; }
+
+	/* A long form name in a drop-down (Results, Settings > Stored IP addresses)
+	   made the select, and the whole page, wider than the screen. */
+	.jnkui select { max-width: 100%; }
+	.jnkui .tf-res-picker { flex: 1 1 100%; min-width: 0; }
+	.jnkui .tf-res-picker select { flex: 1 1 100%; min-width: 0; }
+
+	/* Entries list: a long email address could not wrap, which pushed the Status
+	   pill off the right edge. The unread dot sits on the first line of a name
+	   that wraps, not halfway down it. */
+	.jnkui table.tf-entries .tf-col-who { overflow-wrap: anywhere; }
+	.jnkui table.tf-entries .tf-entry-link { align-items: flex-start; }
+	.jnkui table.tf-entries .tf-entry-link .jnkui-dot { flex: none; margin-top: .45em; }
+	/* The two date boxes kept the browser's own width and ran 2px off a 360px screen. */
+	.jnkui .tf-filterbar .tf-dates input { width: 0; }
+
+	/* Two-column card grids fall to one column here, but a plain 1fr column would
+	   not shrink below its widest line (Import / Export ran off a 360px screen). */
+	.jnkui .jnkui-grid-2 { grid-template-columns: minmax(0, 1fr); }
+
+	/* Form settings: a table cell grows to fit its widest content, and the Layout
+	   tab's colour grid made the whole box twice the screen width. */
+	.trinity-forms-tab-panel .form-table { table-layout: fixed; width: 100%; }
+}
+
+/* Tables that turn into one card per row on a phone (AI assistants screen). */
+@media (max-width: 600px) {
+	.jnkui table.tf-stack thead { display: none; }
+	.jnkui table.tf-stack,
+	.jnkui table.tf-stack tbody,
+	.jnkui table.tf-stack tr,
+	.jnkui table.tf-stack td { display: block; width: auto; }
+	.jnkui table.tf-stack tr { padding: 10px 0; border-bottom: 1px solid var(--jnk-line-2); }
+	.jnkui table.tf-stack tr:last-child { border-bottom: 0; }
+	.jnkui table.tf-stack td { padding: 3px 16px; border: 0; overflow-wrap: anywhere; }
+	.jnkui table.tf-stack td.tf-stack-inline { display: inline-block; padding-inline-end: 0; }
+}

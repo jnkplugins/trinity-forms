@@ -122,6 +122,15 @@
         return copy.textContent.replace( /\*/g, "" ).trim();
     }
 
+    // "Question: message" for the summary. A question that already ends in a
+    // question mark, an exclamation mark, a colon or a full stop gets a space
+    // instead, so it never reads "How can we help?: Please fill in this field."
+    // Covers the Arabic question mark and the full-width forms CJK labels use.
+    function withQuestion( q, message ) {
+        if ( ! q ) return message;
+        return /[?!:.\u061F\u3002\uFF01\uFF1A\uFF1F]$/.test( q ) ? q + " " + message : q + ": " + message;
+    }
+
     function clearFieldErrors( form ) {
         form.querySelectorAll( ".trinity-forms-field-error" ).forEach( function ( el ) {
             if ( el.id ) {
@@ -164,7 +173,7 @@
             // the box they have to go and fix.
             var q = questionText( wrap );
             listed.push( {
-                text: ( q ? q + ": " : "" ) + e.message,
+                text: withQuestion( q, e.message ),
                 wrap: wrap,
                 control: control
             } );

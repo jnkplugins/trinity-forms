@@ -268,6 +268,10 @@ table.trinity-forms-list input { width: 100%; }
     padding: .85rem 1rem;
     margin: 0 0 1rem;
     flex-basis: 100%;
+    /* Full width means the padding and border go inside it: added on the outside,
+       they ran the box past the form's right edge (a sideways scroll on phones). */
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
 }
 .trinity-forms-summary p { margin: 0 0 .4rem; font-weight: 600; }
 .trinity-forms-summary ul { margin: 0; margin-inline-start: 1.1rem; padding: 0; }
@@ -281,7 +285,17 @@ table.trinity-forms-list input { width: 100%; }
 /* Save & continue: in-page email prompt (replaces window.prompt). */
 .trinity-forms-form .trinity-forms-resume-ask { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: .75rem; }
 .trinity-forms-form .trinity-forms-resume-ask label { flex-basis: 100%; font-weight: 600; }
-.trinity-forms-form .trinity-forms-resume-ask input[type="email"] { flex: 1 1 14rem; min-width: 0; }
+.trinity-forms-form .trinity-forms-resume-ask input[type="email"] {
+    flex: 1 1 14rem; min-width: 0;
+    /* Sits outside .trinity-forms-field, so it missed the field look and showed as
+       a tiny bare browser box (and small text makes phones zoom in on focus). */
+    box-sizing: border-box; min-height: 2.75rem; padding: .55rem .8rem;
+    border: var(--trinity-forms-stroke, 1px) solid var(--trinity-forms-border, #c3c4c7);
+    border-radius: var(--trinity-forms-radius, 4px);
+    background-color: var(--trinity-forms-field-bg, #fff);
+    color: var(--trinity-forms-field-color, var(--trinity-forms-text, #101828));
+    font: inherit; line-height: 1.4;
+}
 .trinity-forms-form .trinity-forms-resume-ask input[aria-invalid="true"] { border-color: #b32d2e; }
 .tf-view-notice { padding: .5rem .75rem; margin: 0 0 1rem; border-inline-start: 4px solid #00a32a; background: #f0f6f0; color: #1d2327; }
 
@@ -614,4 +628,35 @@ table.trinity-forms-list input { width: 100%; }
     .trinity-forms-form .trinity-forms-field input:focus,
     .trinity-forms-form .trinity-forms-field select:focus,
     .trinity-forms-form .trinity-forms-field textarea:focus { outline: 2px solid Highlight; }
+}
+
+/* ---------- Phones and touch screens ---------- */
+/* Pasted text in an HTML block (a long link) could not wrap and widened the page. */
+.trinity-forms-form .trinity-forms-field-html { overflow-wrap: anywhere; }
+/* Finger-sized targets for the small helper buttons (signature, repeater, list
+   rows, file picker): on touch screens and at phone width. Desktop is unchanged. */
+@media (pointer: coarse), (max-width: 600px) {
+    .trinity-forms-form .trinity-forms-signature-clear,
+    .trinity-forms-form .trinity-forms-signature-type,
+    .trinity-forms-form .trinity-forms-repeater-add,
+    .trinity-forms-form .trinity-forms-repeater-remove,
+    .trinity-forms-form .trinity-forms-list-add,
+    .trinity-forms-form .trinity-forms-list-remove { min-height: 2.75rem; min-width: 2.75rem; padding-inline: .9rem; }
+    .trinity-forms-form input[type="file"] { min-height: 2.75rem; }
+    .trinity-forms-form input[type="file"]::file-selector-button { min-height: 2.75rem; padding-inline: .9rem; }
+    .trinity-forms-form .trinity-forms-star { padding: .15rem; }
+    .trinity-forms-submissions-search input[type="search"],
+    .trinity-forms-submissions-search button { min-height: 2.75rem; }
+}
+/* [trinity_forms_submissions] on a phone: one card per entry, each value under
+   its column name, instead of a table several screens wide. */
+@media (max-width: 600px) {
+    table.trinity-forms-submissions thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    table.trinity-forms-submissions,
+    table.trinity-forms-submissions tbody,
+    table.trinity-forms-submissions tr,
+    table.trinity-forms-submissions td { display: block; width: auto; }
+    table.trinity-forms-submissions tr { padding: .5rem 0; border-bottom: 2px solid rgba(128, 128, 128, .3); }
+    table.trinity-forms-submissions td { display: grid; grid-template-columns: minmax(5.5rem, 35%) minmax(0, 1fr); gap: .75rem; padding: .3rem 0; border: 0; overflow-wrap: anywhere; }
+    table.trinity-forms-submissions td::before { content: attr(data-label); font-weight: 600; }
 }

@@ -205,7 +205,7 @@ if ( isset( $notices[ $notice ] ) ) {
 <div class="jnkui-card">
     <div class="jnkui-card-head"><div><h2><?php esc_html_e( '4. What an assistant can use', 'trinity-forms' ); ?></h2>
         <p><?php esc_html_e( 'Every Trinity Forms ability on this site and whether assistants can use it now.', 'trinity-forms' ); ?></p></div></div>
-    <div class="jnkui-table-wrap"><table class="widefat striped">
+    <div class="jnkui-table-wrap"><table class="widefat striped tf-stack">
         <thead><tr><th><?php esc_html_e( 'Ability', 'trinity-forms' ); ?></th><th><?php esc_html_e( 'What it does', 'trinity-forms' ); ?></th><th><?php esc_html_e( 'Kind', 'trinity-forms' ); ?></th><th><?php esc_html_e( 'Assistants', 'trinity-forms' ); ?></th></tr></thead>
         <tbody>
         <?php foreach ( $ours as $ability ) :
@@ -221,8 +221,8 @@ if ( isset( $notices[ $notice ] ) ) {
             <tr>
                 <td dir="ltr"><code><?php echo esc_html( $ability->get_name() ); ?></code><span class="jnkui-sub"><?php echo esc_html( $ability->get_label() ); ?></span></td>
                 <td><?php echo esc_html( $ability->get_description() ); ?></td>
-                <td><span class="jnkui-pill <?php echo esc_attr( $kind_class ); ?>"><?php echo esc_html( $kind_label ); ?></span></td>
-                <td><?php echo $on ? '<span class="jnkui-pill is-ok">' . esc_html__( 'Allowed', 'trinity-forms' ) . '</span>' : '<span class="jnkui-pill">' . esc_html__( 'Off', 'trinity-forms' ) . '</span>'; ?></td>
+                <td class="tf-stack-inline"><span class="jnkui-pill <?php echo esc_attr( $kind_class ); ?>"><?php echo esc_html( $kind_label ); ?></span></td>
+                <td class="tf-stack-inline"><?php echo $on ? '<span class="jnkui-pill is-ok">' . esc_html__( 'Allowed', 'trinity-forms' ) . '</span>' : '<span class="jnkui-pill">' . esc_html__( 'Off', 'trinity-forms' ) . '</span>'; ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>
@@ -236,7 +236,7 @@ if ( isset( $notices[ $notice ] ) ) {
     <?php if ( ! $entries ) : ?>
         <div class="jnkui-card-body"><p class="jnkui-sub"><?php esc_html_e( 'No requests yet.', 'trinity-forms' ); ?></p></div>
     <?php else : ?>
-    <div class="jnkui-table-wrap"><table class="widefat striped">
+    <div class="jnkui-table-wrap"><table class="widefat striped tf-stack">
         <thead><tr><th><?php esc_html_e( 'When', 'trinity-forms' ); ?></th><th><?php esc_html_e( 'User', 'trinity-forms' ); ?></th><th><?php esc_html_e( 'Ability', 'trinity-forms' ); ?></th><th><?php esc_html_e( 'Asked', 'trinity-forms' ); ?></th><th><?php esc_html_e( 'Result', 'trinity-forms' ); ?></th></tr></thead>
         <tbody>
         <?php foreach ( $entries as $e ) :
@@ -247,7 +247,7 @@ if ( isset( $notices[ $notice ] ) ) {
                 <td><?php echo esc_html( $who ? $who->display_name : '-' ); ?></td>
                 <td dir="ltr"><code><?php echo esc_html( (string) ( $e['a'] ?? '' ) ); ?></code></td>
                 <td dir="ltr"><code><?php echo esc_html( (string) ( $e['i'] ?? '' ) ); ?></code></td>
-                <td><?php echo ! empty( $e['o'] ) ? '<span class="jnkui-pill is-ok">' . esc_html__( 'Done', 'trinity-forms' ) . '</span>' : '<span class="jnkui-pill is-bad">' . esc_html__( 'Failed', 'trinity-forms' ) . '</span>'; ?>
+                <td class="tf-stack-inline"><?php echo ! empty( $e['o'] ) ? '<span class="jnkui-pill is-ok">' . esc_html__( 'Done', 'trinity-forms' ) . '</span>' : '<span class="jnkui-pill is-bad">' . esc_html__( 'Failed', 'trinity-forms' ) . '</span>'; ?>
                     <?php if ( ! empty( $e['m'] ) ) : ?><span class="jnkui-sub"><?php echo esc_html( (string) $e['m'] ); ?></span><?php endif; ?></td>
             </tr>
         <?php endforeach; ?>

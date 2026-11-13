@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.28.1
+Stable tag: 2.28.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,17 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.28.2 =
+* Fixed: in the list of problems at the top of a form, a question that already ends in a question mark read "How can we help?: Please fill in this field." It now reads "How can we help? Please fill in this field.", and the same goes for a question ending in !, : or a full stop.
+* Fixed: on a phone, the list of problems at the top of a form ran past the right edge and made the page scroll sideways. It now fits the form's width.
+* Fixed: on a phone, the "Email me a link to finish this form later" box was a tiny bare box with small text. It now looks like the form's other fields. A long link pasted into an HTML block now wraps instead of widening the page, and the List field's add and remove buttons and the file picker are finger-sized.
+* Fixed (wp-admin on a phone): on the Entries list a long email address pushed the Status column off the right edge, and the date boxes ran off a small screen. Both now fit, and the unread dot sits on the first line of a long name.
+* Fixed (wp-admin on a phone): on Results and Settings, a long form name in a drop-down made the whole page wider than the screen, and Import / Export ran off a 360px screen. They now fit.
+* Fixed (wp-admin in a narrow window): the Forms list showed a blank gap under every form instead of its Edit, Trash and other links. The links now show.
+* Fixed (wp-admin on a phone): the section tabs scroll sideways, and the screen you were on could be hidden off the edge. The current tab now scrolls into view.
+* Fixed (wp-admin on a phone): the AI assistants table was wider than the screen, with its last column out of sight. Each ability is now its own card.
+* Fixed (wp-admin on a phone): in the Visual Builder, tapping a field seemed to do nothing, because its settings opened at the very bottom of the page. The page now scrolls to the settings.
 
 = 2.28.1 =
 * Fixed: the [trinity_forms_my_submissions] list showed as a bare table on block themes such as Twenty Twenty-Five, with no lines or spacing and the columns running together. It now has its own row lines, spacing and left-aligned headings on block and classic themes, and scrolls sideways on a phone instead of widening the page.

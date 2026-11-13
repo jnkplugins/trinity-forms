@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-13T18:16:50+00:00\n"
+"POT-Creation-Date: 2026-11-13T20:18:13+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Korean\n"
@@ -39,7 +39,7 @@ msgstr "<strong>%s Pro가 켜졌습니다.</strong> 감사합니다! 이 사이�
 msgid "<strong>%s Pro is installed, but no Pro license is active on this site.</strong> Enter your license key to switch on the Pro tools."
 msgstr "<strong>%s Pro가 설치되었지만 이 사이트에 활성화된 Pro 라이선스가 없습니다.</strong> Pro 도구를 켜려면 라이선스 키를 입력하세요."
 
-#: pro/licensorpro-client/licensorpro-client.php:857 builder/src/app.jsx:910
+#: pro/licensorpro-client/licensorpro-client.php:857 builder/src/app.jsx:926
 msgid "Enter license key"
 msgstr "라이선스 키 입력"
 
@@ -586,7 +586,7 @@ msgstr "양식"
 
 #: admin/class-admin-ui.php:61 includes/class-templates.php:24
 #: includes/class-templates.php:25 includes/class-templates.php:214
-#: builder/src/app.jsx:534
+#: builder/src/app.jsx:550
 msgid "Templates"
 msgstr "템플릿"
 
@@ -647,7 +647,7 @@ msgstr "도움말"
 
 #: admin/class-admin-ui.php:156 admin/class-admin.php:85
 #: admin/class-admin.php:222 admin/class-admin.php:223
-#: admin/views/settings.php:27 builder/src/app.jsx:544
+#: admin/views/settings.php:27 builder/src/app.jsx:560
 msgid "Settings"
 msgstr "설정"
 
@@ -660,7 +660,7 @@ msgid "Show entries on your site as a table, a list or cards. Put a View on any 
 msgstr "사이트에 항목을 표, 목록 또는 카드로 표시합니다. 숏코드로 어떤 페이지에든 뷰를 넣을 수 있습니다."
 
 #: admin/class-admin-ui.php:252 admin/class-forms-list.php:61
-#: builder/src/app.jsx:856
+#: builder/src/app.jsx:872
 msgid "Start from a template"
 msgstr "템플릿으로 시작하기"
 
@@ -813,8 +813,8 @@ msgstr "Trinity Forms 설정"
 msgid "General"
 msgstr "일반"
 
-#: admin/class-form-editor.php:123 builder/src/app.jsx:602
-#: builder/src/app.jsx:615
+#: admin/class-form-editor.php:123 builder/src/app.jsx:618
+#: builder/src/app.jsx:631
 msgid "Notifications"
 msgstr "알림"
 
@@ -826,59 +826,59 @@ msgstr "확인 메시지"
 msgid "Layout"
 msgstr "레이아웃"
 
-#: admin/class-form-editor.php:126 builder/src/app.jsx:751
+#: admin/class-form-editor.php:126 builder/src/app.jsx:767
 msgid "Restrictions"
 msgstr "제한"
 
-#: admin/class-form-editor.php:135 builder/src/app.jsx:706
+#: admin/class-form-editor.php:135 builder/src/app.jsx:722
 msgid "Submit button text"
 msgstr "제출 버튼 텍스트"
 
 #: admin/class-form-editor.php:136 admin/class-form-editor.php:352
 #: includes/class-form-basics.php:48 includes/class-form-manager.php:325
 #: includes/class-gf-importer.php:231 public/class-form-renderer.php:156
-#: builder/src/app.jsx:708
+#: builder/src/app.jsx:724
 msgid "Submit"
 msgstr "제출"
 
-#: admin/class-form-editor.php:138 builder/src/app.jsx:712
+#: admin/class-form-editor.php:138 builder/src/app.jsx:728
 msgid "After submit"
 msgstr "제출 후"
 
-#: admin/class-form-editor.php:140 builder/src/app.jsx:715
+#: admin/class-form-editor.php:140 builder/src/app.jsx:731
 msgid "Show a message"
 msgstr "메시지 표시"
 
-#: admin/class-form-editor.php:141 builder/src/app.jsx:716
+#: admin/class-form-editor.php:141 builder/src/app.jsx:732
 msgid "Go to a page"
 msgstr "페이지로 이동"
 
-#: admin/class-form-editor.php:142 builder/src/app.jsx:717
+#: admin/class-form-editor.php:142 builder/src/app.jsx:733
 msgid "Go to a URL"
 msgstr "URL로 이동"
 
 #: admin/class-form-editor.php:144 includes/importers/class-formidable.php:238
 #: includes/importers/class-forminator.php:231
-#: includes/importers/class-wpforms.php:517 builder/src/app.jsx:723
+#: includes/importers/class-wpforms.php:517 builder/src/app.jsx:739
 msgid "Confirmation message"
 msgstr "확인 메시지"
 
 #: admin/class-form-editor.php:145 includes/class-confirmations.php:46
-#: includes/class-form-manager.php:327 builder/src/app.jsx:725
+#: includes/class-form-manager.php:327 builder/src/app.jsx:741
 msgid "Thank you!"
 msgstr "감사합니다!"
 
 #: admin/class-form-editor.php:146 admin/class-form-editor.php:836
-#: builder/src/app.jsx:731
+#: builder/src/app.jsx:747
 msgid "Page"
 msgstr "페이지"
 
 #: admin/class-form-editor.php:148 admin/class-form-qr.php:173
-#: builder/src/app.jsx:734
+#: builder/src/app.jsx:750
 msgid "Choose a page"
 msgstr "페이지 선택"
 
-#: admin/class-form-editor.php:153 builder/src/app.jsx:742
+#: admin/class-form-editor.php:153 builder/src/app.jsx:758
 msgid "Redirect URL"
 msgstr "리디렉션 URL"
 
@@ -1149,87 +1149,87 @@ msgstr "— 항상 표시 —"
 msgid "Useful for a consent checkbox that has to be ticked before the form can be sent."
 msgstr "양식을 보내기 전에 체크해야 하는 동의 체크박스에 유용합니다."
 
-#: admin/class-form-editor.php:460 builder/src/app.jsx:753
+#: admin/class-form-editor.php:460 builder/src/app.jsx:769
 msgid "Control when the form accepts submissions, and how many it takes. Leave a field blank or at 0 to leave that rule off."
 msgstr "양식이 제출을 받는 시기와 받는 개수를 설정합니다. 해당 규칙을 끄려면 필드를 비워 두거나 0으로 두세요."
 
-#: admin/class-form-editor.php:462 builder/src/app.jsx:755
+#: admin/class-form-editor.php:462 builder/src/app.jsx:771
 msgid "Schedule"
 msgstr "일정"
 
-#: admin/class-form-editor.php:464 builder/src/app.jsx:757
+#: admin/class-form-editor.php:464 builder/src/app.jsx:773
 msgid "Opens"
 msgstr "시작"
 
-#: admin/class-form-editor.php:467 builder/src/app.jsx:760
+#: admin/class-form-editor.php:467 builder/src/app.jsx:776
 msgid "Before this, visitors see the message below instead of the form. Uses your site's timezone."
 msgstr "이 시간 전에는 방문자에게 양식 대신 아래 메시지가 표시됩니다. 사이트의 시간대를 사용합니다."
 
-#: admin/class-form-editor.php:469 builder/src/app.jsx:764
+#: admin/class-form-editor.php:469 builder/src/app.jsx:780
 msgid "Message before it opens"
 msgstr "시작 전 메시지"
 
 #: admin/class-form-editor.php:470 includes/class-restrictions.php:73
-#: builder/src/app.jsx:766
+#: builder/src/app.jsx:782
 msgid "This form is not open yet."
 msgstr "이 양식은 아직 열리지 않았습니다."
 
-#: admin/class-form-editor.php:471 builder/src/app.jsx:770
+#: admin/class-form-editor.php:471 builder/src/app.jsx:786
 msgid "Closes"
 msgstr "마감"
 
-#: admin/class-form-editor.php:473 builder/src/app.jsx:776
+#: admin/class-form-editor.php:473 builder/src/app.jsx:792
 msgid "Message after it closes"
 msgstr "마감 후 메시지"
 
 #: admin/class-form-editor.php:474 includes/class-restrictions.php:81
-#: builder/src/app.jsx:778
+#: builder/src/app.jsx:794
 msgid "This form is now closed."
 msgstr "이 양식은 마감되었습니다."
 
-#: admin/class-form-editor.php:477 builder/src/app.jsx:781
+#: admin/class-form-editor.php:477 builder/src/app.jsx:797
 msgid "Entry limits"
 msgstr "항목 제한"
 
-#: admin/class-form-editor.php:479 builder/src/app.jsx:783
+#: admin/class-form-editor.php:479 builder/src/app.jsx:799
 msgid "Total entries"
 msgstr "총 항목 수"
 
-#: admin/class-form-editor.php:482 builder/src/app.jsx:783
+#: admin/class-form-editor.php:482 builder/src/app.jsx:799
 msgid "0 = unlimited. Spam and trashed entries do not count towards the limit."
 msgstr "0 = 무제한. 스팸 및 휴지통의 항목은 제한에 포함되지 않습니다."
 
-#: admin/class-form-editor.php:484 builder/src/app.jsx:784
+#: admin/class-form-editor.php:484 builder/src/app.jsx:800
 msgid "Per logged-in user"
 msgstr "로그인한 사용자당"
 
-#: admin/class-form-editor.php:486 builder/src/app.jsx:785
+#: admin/class-form-editor.php:486 builder/src/app.jsx:801
 msgid "Per IP address"
 msgstr "IP 주소당"
 
-#: admin/class-form-editor.php:489 builder/src/app.jsx:785
+#: admin/class-form-editor.php:489 builder/src/app.jsx:801
 msgid "Blunt: everyone behind one office router or mobile network shares an address."
 msgstr "대략적인 방법입니다. 같은 사무실 라우터나 모바일 네트워크를 쓰는 사람은 모두 같은 주소를 공유합니다."
 
-#: admin/class-form-editor.php:491 builder/src/app.jsx:798
+#: admin/class-form-editor.php:491 builder/src/app.jsx:814
 msgid "Message when full"
 msgstr "한도 도달 시 메시지"
 
 #: admin/class-form-editor.php:492 includes/class-restrictions.php:99
-#: builder/src/app.jsx:800
+#: builder/src/app.jsx:816
 msgid "This form is no longer accepting submissions."
 msgstr "이 양식은 더 이상 제출을 받지 않습니다."
 
-#: admin/class-form-editor.php:493 builder/src/app.jsx:804
+#: admin/class-form-editor.php:493 builder/src/app.jsx:820
 msgid "Message when you've already submitted"
 msgstr "이미 제출한 경우 메시지"
 
 #: admin/class-form-editor.php:494 includes/class-restrictions.php:110
-#: includes/class-restrictions.php:122 builder/src/app.jsx:806
+#: includes/class-restrictions.php:122 builder/src/app.jsx:822
 msgid "You have already submitted this form."
 msgstr "이미 이 양식을 제출했습니다."
 
-#: admin/class-form-editor.php:497 builder/src/app.jsx:809
+#: admin/class-form-editor.php:497 builder/src/app.jsx:825
 msgid "Poll"
 msgstr "투표"
 
@@ -1237,15 +1237,15 @@ msgstr "투표"
 msgid "Poll mode"
 msgstr "투표 모드"
 
-#: admin/class-form-editor.php:504 builder/src/app.jsx:811
+#: admin/class-form-editor.php:504 builder/src/app.jsx:827
 msgid "Poll: after a vote, show the results instead of the form"
 msgstr "투표: 투표 후 양식 대신 결과 표시"
 
-#: admin/class-form-editor.php:506 builder/src/app.jsx:812
+#: admin/class-form-editor.php:506 builder/src/app.jsx:828
 msgid "The browser remembers the vote, so there is no IP check. The results show right after voting and on later visits from the same browser. The limits above, if you set one, also show the results instead of an error."
 msgstr "투표는 브라우저가 기억하므로 IP 확인은 없습니다. 결과는 투표 직후와 같은 브라우저로 다시 방문할 때 표시됩니다. 위의 제한을 설정한 경우에도 오류 대신 결과가 표시됩니다."
 
-#: admin/class-form-editor.php:510 builder/src/app.jsx:816
+#: admin/class-form-editor.php:510 builder/src/app.jsx:832
 msgid "Who can submit"
 msgstr "제출할 수 있는 사람"
 
@@ -1253,16 +1253,16 @@ msgstr "제출할 수 있는 사람"
 msgid "Require login"
 msgstr "로그인 필요"
 
-#: admin/class-form-editor.php:517 builder/src/app.jsx:818
+#: admin/class-form-editor.php:517 builder/src/app.jsx:834
 msgid "Only logged-in users may see and submit this form"
 msgstr "로그인한 사용자만 이 양식을 보고 제출할 수 있습니다"
 
-#: admin/class-form-editor.php:520 builder/src/app.jsx:823
+#: admin/class-form-editor.php:520 builder/src/app.jsx:839
 msgid "Message for logged-out visitors"
 msgstr "로그인하지 않은 방문자용 메시지"
 
 #: admin/class-form-editor.php:521 includes/class-restrictions.php:52
-#: builder/src/app.jsx:825
+#: builder/src/app.jsx:841
 msgid "Please log in to fill in this form."
 msgstr "이 양식을 작성하려면 로그인하세요."
 
@@ -1875,7 +1875,7 @@ msgstr "요청 내용"
 msgid "Result"
 msgstr "결과"
 
-#: admin/views/assistants.php:250 builder/src/app.jsx:832
+#: admin/views/assistants.php:250 builder/src/app.jsx:848
 msgid "Done"
 msgstr "완료"
 
@@ -3801,7 +3801,7 @@ msgid "Visual Builder"
 msgstr "비주얼 빌더"
 
 #: includes/class-form-builder.php:273 includes/class-form-builder.php:274
-#: includes/class-form-builder.php:325 builder/src/app.jsx:693
+#: includes/class-form-builder.php:325 builder/src/app.jsx:709
 msgid "Form settings"
 msgstr "양식 설정"
 
@@ -4434,7 +4434,7 @@ msgstr "페이지를 만들 권한이 없습니다."
 msgid "The page could not be created."
 msgstr "페이지를 만들지 못했습니다."
 
-#: includes/class-onboarding.php:229 builder/src/app.jsx:592
+#: includes/class-onboarding.php:229 builder/src/app.jsx:608
 msgid "Create a page"
 msgstr "페이지 만들기"
 
@@ -5677,7 +5677,7 @@ msgstr "나중에 이 양식을 마칠 수 있도록 링크를 이메일로 보�
 msgid "Send link"
 msgstr "링크 보내기"
 
-#: public/class-public-front.php:166 builder/src/app.jsx:649
+#: public/class-public-front.php:166 builder/src/app.jsx:665
 msgid "Saving…"
 msgstr "저장 중…"
 
@@ -6099,202 +6099,202 @@ msgstr "방문자에게 결과를 보여 줄 설문을 고르세요."
 msgid "Could not load this form."
 msgstr "이 양식을 불러올 수 없습니다."
 
-#: builder/src/app.jsx:245
+#: builder/src/app.jsx:261
 msgid "new field"
 msgstr "새 필드"
 
-#: builder/src/app.jsx:248
+#: builder/src/app.jsx:264
 msgid "the end of the form"
 msgstr "양식 끝"
 
-#: builder/src/app.jsx:253
+#: builder/src/app.jsx:269
 msgid "field"
 msgstr "필드"
 
 #. translators: 1: position, 2: total number of fields.
-#: builder/src/app.jsx:264
+#: builder/src/app.jsx:280
 msgid "position %1$d of %2$d"
 msgstr "%2$d개 중 %1$d번째 위치"
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:269
+#: builder/src/app.jsx:285
 msgid "Picked up %s."
 msgstr "%s 필드를 잡았습니다."
 
 #. translators: 1: dragged field label, 2: field it is over, 3: position text.
-#: builder/src/app.jsx:273
+#: builder/src/app.jsx:289
 msgid "%1$s is over %2$s, %3$s."
 msgstr "%1$s 필드가 %2$s 위에 있습니다. %3$s."
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:275
+#: builder/src/app.jsx:291
 msgid "%s is no longer over a drop position."
 msgstr "%s 필드가 더 이상 놓을 수 있는 위치 위에 있지 않습니다."
 
 #. translators: 1: dragged field label, 2: target field label.
-#: builder/src/app.jsx:279
+#: builder/src/app.jsx:295
 msgid "%1$s was dropped at %2$s."
 msgstr "%1$s 필드를 %2$s에 놓았습니다."
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:281
+#: builder/src/app.jsx:297
 msgid "%s was dropped outside the form; nothing changed."
 msgstr "%s 필드를 양식 밖에 놓았습니다. 변경된 내용은 없습니다."
 
 #. translators: %s: field label.
-#: builder/src/app.jsx:284
+#: builder/src/app.jsx:300
 msgid "Moving %s was cancelled."
 msgstr "%s 필드 이동을 취소했습니다."
 
-#: builder/src/app.jsx:401
+#: builder/src/app.jsx:417
 msgid "Replace the current form with this template? Your unsaved changes will be lost."
 msgstr "현재 양식을 이 템플릿으로 바꿀까요? 저장하지 않은 변경 사항은 사라집니다."
 
-#: builder/src/app.jsx:449
+#: builder/src/app.jsx:465
 msgid "Form saved. It is published, so it shows wherever you embed it."
 msgstr "양식을 저장했습니다. 공개 상태이므로 삽입한 곳 어디에나 표시됩니다."
 
-#: builder/src/app.jsx:450
+#: builder/src/app.jsx:466
 msgid "Form saved as a draft. Visitors will not see it until you publish it."
 msgstr "양식을 초안으로 저장했습니다. 공개하기 전까지 방문자에게 보이지 않습니다."
 
-#: builder/src/app.jsx:465
+#: builder/src/app.jsx:481
 msgid "Could not save this form."
 msgstr "이 양식을 저장할 수 없습니다."
 
-#: builder/src/app.jsx:511 builder/src/app.jsx:512
+#: builder/src/app.jsx:527 builder/src/app.jsx:528
 msgid "Form title"
 msgstr "양식 제목"
 
-#: builder/src/app.jsx:521
+#: builder/src/app.jsx:537
 msgid "Undo"
 msgstr "실행 취소"
 
-#: builder/src/app.jsx:522
+#: builder/src/app.jsx:538
 msgid "Ctrl+Z"
 msgstr "Ctrl+Z"
 
-#: builder/src/app.jsx:528
+#: builder/src/app.jsx:544
 msgid "Redo"
 msgstr "다시 실행"
 
-#: builder/src/app.jsx:529
+#: builder/src/app.jsx:545
 msgid "Ctrl+Shift+Z"
 msgstr "Ctrl+Shift+Z"
 
-#: builder/src/app.jsx:541
+#: builder/src/app.jsx:557
 msgid "Submit button text, what visitors see after they submit, schedule and entry limits"
 msgstr "제출 버튼 텍스트, 방문자가 제출한 뒤 보게 되는 화면, 일정과 항목 제한"
 
-#: builder/src/app.jsx:551
+#: builder/src/app.jsx:567
 msgid "Every setting of this form: emails, layout, save and continue, popup, payments, integrations and more"
 msgstr "이 폼의 모든 설정: 이메일, 레이아웃, 저장 후 이어서 작성, 팝업, 결제, 연동 등"
 
-#: builder/src/app.jsx:554 builder/src/app.jsx:839 builder/src/app.jsx:847
+#: builder/src/app.jsx:570 builder/src/app.jsx:855 builder/src/app.jsx:863
 msgid "All settings"
 msgstr "모든 설정"
 
-#: builder/src/app.jsx:574
+#: builder/src/app.jsx:590
 msgid "Copy the shortcode that puts this form on a page or post"
 msgstr "이 양식을 페이지나 글에 넣는 숏코드 복사"
 
-#: builder/src/app.jsx:577
+#: builder/src/app.jsx:593
 msgid "Copied"
 msgstr "복사됨"
 
-#: builder/src/app.jsx:578
+#: builder/src/app.jsx:594
 msgid "Press Ctrl+C to copy"
 msgstr "Ctrl+C를 눌러 복사하세요"
 
-#: builder/src/app.jsx:581
+#: builder/src/app.jsx:597
 msgid "Copy shortcode"
 msgstr "숏코드 복사"
 
-#: builder/src/app.jsx:589
+#: builder/src/app.jsx:605
 msgid "Make a draft page holding this form and open it. Save your changes first."
 msgstr "이 양식이 들어간 임시 페이지를 만들고 엽니다. 먼저 변경 사항을 저장하세요."
 
-#: builder/src/app.jsx:599 builder/src/app.jsx:612
+#: builder/src/app.jsx:615 builder/src/app.jsx:628
 msgid "Set up the emails sent when this form is submitted"
 msgstr "이 양식이 제출될 때 보낼 이메일 설정"
 
-#: builder/src/app.jsx:620
+#: builder/src/app.jsx:636
 msgid "Open in block editor"
 msgstr "블록 편집기에서 열기"
 
-#: builder/src/app.jsx:627
+#: builder/src/app.jsx:643
 msgid "Describe your form and let AI draft the fields (opens the block editor)"
 msgstr "양식을 설명하면 AI가 필드 초안을 만듭니다(블록 편집기가 열림)"
 
-#: builder/src/app.jsx:630
+#: builder/src/app.jsx:646
 msgid "Draft with AI"
 msgstr "AI로 초안 만들기"
 
-#: builder/src/app.jsx:636
+#: builder/src/app.jsx:652
 msgid "Form status"
 msgstr "양식 상태"
 
-#: builder/src/app.jsx:643
+#: builder/src/app.jsx:659
 msgid "Draft"
 msgstr "초안"
 
-#: builder/src/app.jsx:645
+#: builder/src/app.jsx:661
 msgid "Published"
 msgstr "게시됨"
 
-#: builder/src/app.jsx:649
+#: builder/src/app.jsx:665
 msgid "Save form"
 msgstr "양식 저장"
 
-#: builder/src/app.jsx:657
+#: builder/src/app.jsx:673
 msgid "This form was saved in a format the builder can't open, so its fields don't show here. It still works on your site, and saving is turned off so nothing gets overwritten."
 msgstr "이 양식은 빌더에서 열 수 없는 형식으로 저장되어 필드가 여기에 표시되지 않습니다. 사이트에서는 계속 작동하며, 아무것도 덮어쓰지 않도록 저장이 꺼져 있습니다."
 
-#: builder/src/app.jsx:674
+#: builder/src/app.jsx:690
 msgid "This form changed somewhere else, most likely in the block editor in another tab. Your edits here have not been saved, and saving now would overwrite that change."
 msgstr "이 양식이 다른 곳에서 변경되었습니다. 다른 탭의 블록 편집기일 가능성이 큽니다. 여기서 수정한 내용은 저장되지 않았으며, 지금 저장하면 그 변경 사항을 덮어씁니다."
 
-#: builder/src/app.jsx:680
+#: builder/src/app.jsx:696
 msgid "Reload the form"
 msgstr "양식 다시 불러오기"
 
-#: builder/src/app.jsx:699
+#: builder/src/app.jsx:715
 msgid "Emails, layout, save and continue, popup, payments and the rest are under All settings."
 msgstr "이메일, 레이아웃, 저장 후 이어서 작성, 팝업, 결제 등은 모든 설정에 있습니다."
 
-#: builder/src/app.jsx:701
+#: builder/src/app.jsx:717
 msgid "Open All settings"
 msgstr "모든 설정 열기"
 
-#: builder/src/app.jsx:829
+#: builder/src/app.jsx:845
 msgid "These are saved with the form when you press Save form."
 msgstr "양식 저장을 누르면 양식과 함께 저장됩니다."
 
-#: builder/src/app.jsx:844
+#: builder/src/app.jsx:860
 msgid "Press Save settings at the bottom before you close this window."
 msgstr "이 창을 닫기 전에 아래의 설정 저장을 누르세요."
 
-#: builder/src/app.jsx:876
+#: builder/src/app.jsx:892
 msgid "fields"
 msgstr "필드"
 
-#: builder/src/app.jsx:897
+#: builder/src/app.jsx:913
 msgid "Add a field"
 msgstr "필드 추가"
 
-#: builder/src/app.jsx:899
+#: builder/src/app.jsx:915
 msgid "Click to append, or drag onto the canvas to place."
 msgstr "클릭하면 끝에 추가되고, 캔버스로 끌어다 놓으면 원하는 위치에 놓입니다."
 
-#: builder/src/app.jsx:906
+#: builder/src/app.jsx:922
 msgid "Pro fields"
 msgstr "Pro 필드"
 
-#: builder/src/app.jsx:908
+#: builder/src/app.jsx:924
 msgid "Activate your Pro license to add these."
 msgstr "이 필드를 추가하려면 Pro 라이선스를 활성화하세요."
 
-#: builder/src/app.jsx:920
+#: builder/src/app.jsx:936
 msgid "Requires an active Pro license"
 msgstr "활성 Pro 라이선스가 필요합니다"
 
