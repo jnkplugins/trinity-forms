@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.28.3
+Stable tag: 2.28.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ A free WordPress form builder with conditional logic, native entry storage, and 
 
 **Tired of hitting a paywall the moment your form needs to do something useful?**
 
-https://www.youtube.com/watch?v=gpTBkVRzSqs
+https://www.youtube.com/watch?v=GT-gAGaSuns
 
 Most WordPress form plugins hand you a free builder, then gate everything that
 matters. The big-name form plugins put conditional logic, entry storage, and
@@ -183,6 +183,10 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.28.4 =
+* Fixed: a form made from the Newsletter signup or Testimonial template showed "I agree to the terms." next to its consent box instead of the template's own words ("I agree to receive email updates.", "I agree to have this testimonial published."). Forms already made from those templates now show the right words too, and the Visual Builder opens and saves them with those words.
+* Changed: the readme links to the new product video.
 
 = 2.28.3 =
 * Fixed: on a phone, ticking an entry in the Entries list drew its links (View, Email, Spam, Trash) on top of the entry's name. On a phone they now sit on a line of their own under each entry, big enough to tap.

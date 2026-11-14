@@ -205,6 +205,29 @@ class Form {
         return $content !== "" && strpos( $content, "<!-- wp:trinity-forms/field-" ) !== false;
     }
 
+    /**
+     * Read block attributes written under an old name.
+     *
+     * Form templates before 2.28.4 saved the consent wording as `consent_text`, but
+     * the block declares `consentText`, so visitors saw the default "I agree to the
+     * terms." instead. A form made from such a template keeps the old key, so read it
+     * when `consentText` is empty and drop it, which lets the next builder save write
+     * the right key.
+     *
+     * @param array<string,mixed> $attrs Raw attributes of one block, before defaults.
+     * @return array<string,mixed>
+     */
+    public static function legacy_attrs( array $attrs ): array {
+        if ( array_key_exists( "consent_text", $attrs ) ) {
+            $old = $attrs["consent_text"];
+            unset( $attrs["consent_text"] );
+            if ( ( ! isset( $attrs["consentText"] ) || "" === $attrs["consentText"] ) && is_scalar( $old ) && "" !== (string) $old ) {
+                $attrs["consentText"] = (string) $old;
+            }
+        }
+        return $attrs;
+    }
+
     /** @return array{version:string, steps:array} */
     private static function schema_from_blocks( string $content ): array {
         $blocks    = parse_blocks( $content );
@@ -216,7 +239,7 @@ class Form {
                 continue;
             }
             $type  = substr( $name, strlen( "trinity-forms/field-" ) );
-            $attrs = is_array( $b["attrs"] ?? null ) ? $b["attrs"] : [];
+            $attrs = self::legacy_attrs( is_array( $b["attrs"] ?? null ) ? $b["attrs"] : [] );
 
             // Gutenberg only serializes attrs that differ from defaults; merge the
             // block-type defaults underneath so we don't lose label/placeholder/etc.

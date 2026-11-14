@@ -103,7 +103,7 @@ class Templates {
             "newsletter" => [ "name" => __( "Newsletter signup", "trinity-forms" ), "desc" => __( "Email plus a consent checkbox.", "trinity-forms" ), "icon" => "megaphone", "fields" => [
                 [ "name",    [ "fieldId" => "name",    "label" => __( "Name", "trinity-forms" ) ] ],
                 [ "email",   [ "fieldId" => "email",   "label" => __( "Email", "trinity-forms" ), "required" => true ] ],
-                [ "consent", [ "fieldId" => "consent", "label" => __( "Consent", "trinity-forms" ), "consent_text" => __( "I agree to receive email updates.", "trinity-forms" ), "required" => true ] ],
+                [ "consent", [ "fieldId" => "consent", "label" => __( "Consent", "trinity-forms" ), "consentText" => __( "I agree to receive email updates.", "trinity-forms" ), "required" => true ] ],
             ] ],
             "support" => [ "name" => __( "Support request", "trinity-forms" ), "desc" => __( "Subject, priority and a message.", "trinity-forms" ), "icon" => "sos", "fields" => [
                 [ "name",     [ "fieldId" => "name",     "label" => __( "Name", "trinity-forms" ),    "required" => true ] ],
@@ -144,7 +144,7 @@ class Templates {
                 [ "name",     [ "fieldId" => "name",        "label" => __( "Name", "trinity-forms" ),   "required" => true ] ],
                 [ "rating",   [ "fieldId" => "rating",      "label" => __( "Your rating", "trinity-forms" ) ] ],
                 [ "textarea", [ "fieldId" => "testimonial", "label" => __( "Your testimonial", "trinity-forms" ), "required" => true ] ],
-                [ "consent",  [ "fieldId" => "consent",     "label" => __( "Consent", "trinity-forms" ), "consent_text" => __( "I agree to have this testimonial published.", "trinity-forms" ), "required" => true ] ],
+                [ "consent",  [ "fieldId" => "consent",     "label" => __( "Consent", "trinity-forms" ), "consentText" => __( "I agree to have this testimonial published.", "trinity-forms" ), "required" => true ] ],
             ] ],
             // One required question, poll mode on, no IP limit: the browser remembers the vote.
             "quick-poll" => [ "name" => __( "Quick poll", "trinity-forms" ), "desc" => __( "One question with a few answers. After voting, visitors see the results.", "trinity-forms" ), "icon" => "chart-bar", "fields" => [

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.17.0\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-14T07:25:51+00:00\n"
+"POT-Creation-Date: 2026-11-14T18:06:38+00:00\n"
 "PO-Revision-Date: 2026-10-29 12:00+0000\n"
 "Last-Translator: JnK Plugins\n"
 "Language-Team: Arabic\n"
@@ -3547,20 +3547,20 @@ msgstr "اختر التاريخ والوقت"
 msgid "Choose"
 msgstr "اختر"
 
-#: includes/class-builder-rest.php:273
+#: includes/class-builder-rest.php:274
 msgid "This form can't be edited in the builder. Your form is unchanged."
 msgstr "لا يمكن تحرير هذا النموذج في المنشئ. نموذجك لم يتغيّر."
 
-#: includes/class-builder-rest.php:289
+#: includes/class-builder-rest.php:290
 msgid "This form changed since you opened it. Reload before saving."
 msgstr "تغيّر هذا النموذج منذ فتحته. أعد تحميله قبل الحفظ."
 
-#: includes/class-builder-rest.php:325
+#: includes/class-builder-rest.php:326
 msgid "You are not allowed to publish this form."
 msgstr "غير مسموح لك بنشر هذا النموذج."
 
 #. translators: %s: the field's label.
-#: includes/class-builder-rest.php:429
+#: includes/class-builder-rest.php:430
 #, php-format
 msgid "The field \"%s\" has no field ID. Give it one in the field's settings, using English letters (a-z), digits and underscores."
 msgstr "الحقل «%s» بلا معرّف. أضف له معرّفًا في إعدادات الحقل، باستخدام حروف إنجليزية (a-z) وأرقام وشرطات سفلية."

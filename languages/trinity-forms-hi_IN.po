@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.16.2\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-14T07:25:51+00:00\n"
+"POT-Creation-Date: 2026-11-14T18:06:38+00:00\n"
 "PO-Revision-Date: 2026-10-29 12:00+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Hindi\n"
@@ -3535,20 +3535,20 @@ msgstr "तारीख और समय चुनें"
 msgid "Choose"
 msgstr "चुनें"
 
-#: includes/class-builder-rest.php:273
+#: includes/class-builder-rest.php:274
 msgid "This form can't be edited in the builder. Your form is unchanged."
 msgstr "यह फ़ॉर्म बिल्डर में संपादित नहीं हो सकता। आपका फ़ॉर्म नहीं बदला।"
 
-#: includes/class-builder-rest.php:289
+#: includes/class-builder-rest.php:290
 msgid "This form changed since you opened it. Reload before saving."
 msgstr "आपके खोलने के बाद यह फ़ॉर्म बदल गया है। सेव करने से पहले दोबारा लोड करें।"
 
-#: includes/class-builder-rest.php:325
+#: includes/class-builder-rest.php:326
 msgid "You are not allowed to publish this form."
 msgstr "आपको यह फ़ॉर्म प्रकाशित करने की अनुमति नहीं है।"
 
 #. translators: %s: the field's label.
-#: includes/class-builder-rest.php:429
+#: includes/class-builder-rest.php:430
 #, php-format
 msgid "The field \"%s\" has no field ID. Give it one in the field's settings, using English letters (a-z), digits and underscores."
 msgstr "फ़ील्ड \"%s\" का कोई फ़ील्ड ID नहीं है। फ़ील्ड की सेटिंग्स में अंग्रेज़ी अक्षरों (a-z), अंकों और अंडरस्कोर से एक ID दें।"

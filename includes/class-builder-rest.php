@@ -173,7 +173,8 @@ class Builder_REST {
                     "key"   => "b$ref",
                     "kind"  => "field",
                     "name"  => $name,
-                    "attrs" => is_array( $block["attrs"] ?? null ) ? $block["attrs"] : [],
+                    // Old key names (a template's consent_text) under the names the canvas edits.
+                    "attrs" => Form::legacy_attrs( is_array( $block["attrs"] ?? null ) ? $block["attrs"] : [] ),
                 ];
                 continue;
             }

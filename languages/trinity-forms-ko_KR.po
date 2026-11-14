@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-14T07:25:51+00:00\n"
+"POT-Creation-Date: 2026-11-14T18:06:38+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Korean\n"
@@ -3532,20 +3532,20 @@ msgstr "날짜와 시간을 고르세요"
 msgid "Choose"
 msgstr "선택"
 
-#: includes/class-builder-rest.php:273
+#: includes/class-builder-rest.php:274
 msgid "This form can't be edited in the builder. Your form is unchanged."
 msgstr "이 양식은 빌더에서 편집할 수 없습니다. 양식은 변경되지 않았습니다."
 
-#: includes/class-builder-rest.php:289
+#: includes/class-builder-rest.php:290
 msgid "This form changed since you opened it. Reload before saving."
 msgstr "양식을 연 뒤에 변경되었습니다. 저장하기 전에 새로고침하세요."
 
-#: includes/class-builder-rest.php:325
+#: includes/class-builder-rest.php:326
 msgid "You are not allowed to publish this form."
 msgstr "이 양식을 게시할 권한이 없습니다."
 
 #. translators: %s: the field's label.
-#: includes/class-builder-rest.php:429
+#: includes/class-builder-rest.php:430
 #, php-format
 msgid "The field \"%s\" has no field ID. Give it one in the field's settings, using English letters (a-z), digits and underscores."
 msgstr "\"%s\" 필드에 필드 ID가 없습니다. 필드 설정에서 영문자(a-z), 숫자, 밑줄로 ID를 지정하세요."
