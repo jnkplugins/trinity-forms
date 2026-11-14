@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.28.2
+Stable tag: 2.28.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,9 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.28.3 =
+* Fixed: on a phone, ticking an entry in the Entries list drew its links (View, Email, Spam, Trash) on top of the entry's name. On a phone they now sit on a line of their own under each entry, big enough to tap.
 
 = 2.28.2 =
 * Fixed: in the list of problems at the top of a form, a question that already ends in a question mark read "How can we help?: Please fill in this field." It now reads "How can we help? Please fill in this field.", and the same goes for a question ending in !, : or a full stop.

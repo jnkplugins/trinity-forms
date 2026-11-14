@@ -201,6 +201,15 @@ body.tf-ui-list .wp-list-table .column-date { color: var(--jnk-mute); }
 	.jnkui table.tf-entries .tf-col-pay { display: none; }
 	.jnkui table.tf-entries .tf-mobile-only { display: block; }
 	.jnkui table.tf-entries .tf-col-who { min-width: 150px; }
+	/* Phones have no hover: a tapped checkbox gave the row focus and the actions,
+	   which swap in over the email line on desktop, landed on top of a wrapped name.
+	   Here they always sit on a line of their own, big enough to tap. */
+	.jnkui table.tf-entries .tf-col-who .row-actions,
+	.jnkui table.tf-entries tr:hover .tf-col-who .row-actions,
+	.jnkui table.tf-entries .tf-col-who:focus-within .row-actions { position: static; inset: auto; margin-top: 4px; white-space: normal; overflow: visible; line-height: 1.4; }
+	.jnkui table.tf-entries .tf-col-who .row-actions a { display: inline-block; padding: 6px 0; }
+	.jnkui table.tf-entries tr:hover .tf-col-who .jnkui-sub,
+	.jnkui table.tf-entries .tf-col-who:focus-within .jnkui-sub { visibility: visible; }
 	.jnkui .tf-filterbar select, .jnkui .tf-filterbar .tf-dates { flex: 1 1 100%; }
 	.jnkui .tf-filterbar .tf-dates input { flex: 1; min-width: 0; }
 }
