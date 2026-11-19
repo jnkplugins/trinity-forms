@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-14T18:06:38+00:00\n"
+"POT-Creation-Date: 2026-11-19T21:07:49+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Spanish (Spain)\n"
@@ -837,7 +837,7 @@ msgstr "Texto del botón de envío"
 
 #: admin/class-form-editor.php:136 admin/class-form-editor.php:352
 #: includes/class-form-basics.php:48 includes/class-form-manager.php:325
-#: includes/class-gf-importer.php:231 public/class-form-renderer.php:156
+#: includes/class-gf-importer.php:231 public/class-form-renderer.php:166
 #: builder/src/app.jsx:724
 msgid "Submit"
 msgstr "Enviar"
@@ -3386,12 +3386,12 @@ msgstr "Número"
 msgid "Option"
 msgstr "Opción"
 
-#: includes/class-block-defaults.php:51 public/class-form-renderer.php:321
-#: public/class-form-renderer.php:387
+#: includes/class-block-defaults.php:51 public/class-form-renderer.php:346
+#: public/class-form-renderer.php:412
 msgid "Next"
 msgstr "Siguiente"
 
-#: includes/class-block-defaults.php:52 public/class-form-renderer.php:387
+#: includes/class-block-defaults.php:52 public/class-form-renderer.php:412
 msgid "Back"
 msgstr "Atrás"
 
@@ -4563,12 +4563,12 @@ msgstr "Resultados de la encuesta: elige un formulario publicado."
 msgid "The results appear here after you vote."
 msgstr "Los resultados aparecerán aquí cuando votes."
 
-#: includes/class-poll-results.php:236 includes/class-poll-results.php:315
-#: includes/class-poll-results.php:332
+#: includes/class-poll-results.php:236 includes/class-poll-results.php:330
+#: includes/class-poll-results.php:347
 msgid "No votes yet."
 msgstr "Aún no hay votos."
 
-#: includes/class-poll-results.php:327
+#: includes/class-poll-results.php:342
 msgid "These results are not available."
 msgstr "Estos resultados no están disponibles."
 
@@ -5624,30 +5624,30 @@ msgid "%s: choices filled from posts or categories"
 msgstr "%s: opciones que se llenaban con entradas o categorías"
 
 #. translators: %d: form ID.
-#: public/class-form-renderer.php:124
+#: public/class-form-renderer.php:134
 #, php-format
 msgid "Visitors see nothing here: form #%d is a draft. Publish it in the form builder. Only people who can edit the form see this note."
 msgstr "Los visitantes no ven nada aquí: el formulario #%d es un borrador. Publícalo en el constructor de formularios. Solo quienes pueden editar el formulario ven este aviso."
 
 #. translators: %d: form ID.
-#: public/class-form-renderer.php:142
+#: public/class-form-renderer.php:152
 #, php-format
 msgid "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note."
 msgstr "Los visitantes no ven nada aquí: el formulario #%d se eliminó o no está publicado. Solo quienes pueden editar el sitio ven este aviso."
 
-#: public/class-form-renderer.php:277
+#: public/class-form-renderer.php:302
 msgid "Welcome back — we restored the answers you saved. Check them and carry on."
 msgstr "Hola de nuevo. Hemos recuperado las respuestas que guardaste. Revísalas y continúa."
 
-#: public/class-form-renderer.php:320 public/class-form-renderer.php:387
+#: public/class-form-renderer.php:345 public/class-form-renderer.php:412
 msgid "Previous"
 msgstr "Anterior"
 
-#: public/class-form-renderer.php:331
+#: public/class-form-renderer.php:356
 msgid "Save & continue later"
 msgstr "Guardar y continuar más tarde"
 
-#: public/class-form-renderer.php:599
+#: public/class-form-renderer.php:624
 msgid "Thank you — your submission was received."
 msgstr "Gracias, hemos recibido tu envío."
 

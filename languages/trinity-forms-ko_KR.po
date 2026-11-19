@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-14T18:06:38+00:00\n"
+"POT-Creation-Date: 2026-11-19T21:07:49+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Korean\n"
@@ -836,7 +836,7 @@ msgstr "제출 버튼 텍스트"
 
 #: admin/class-form-editor.php:136 admin/class-form-editor.php:352
 #: includes/class-form-basics.php:48 includes/class-form-manager.php:325
-#: includes/class-gf-importer.php:231 public/class-form-renderer.php:156
+#: includes/class-gf-importer.php:231 public/class-form-renderer.php:166
 #: builder/src/app.jsx:724
 msgid "Submit"
 msgstr "제출"
@@ -3383,12 +3383,12 @@ msgstr "숫자"
 msgid "Option"
 msgstr "옵션"
 
-#: includes/class-block-defaults.php:51 public/class-form-renderer.php:321
-#: public/class-form-renderer.php:387
+#: includes/class-block-defaults.php:51 public/class-form-renderer.php:346
+#: public/class-form-renderer.php:412
 msgid "Next"
 msgstr "다음"
 
-#: includes/class-block-defaults.php:52 public/class-form-renderer.php:387
+#: includes/class-block-defaults.php:52 public/class-form-renderer.php:412
 msgid "Back"
 msgstr "뒤로"
 
@@ -4554,12 +4554,12 @@ msgstr "설문 결과: 게시된 양식을 고르세요."
 msgid "The results appear here after you vote."
 msgstr "투표하면 여기에 결과가 표시됩니다."
 
-#: includes/class-poll-results.php:236 includes/class-poll-results.php:315
-#: includes/class-poll-results.php:332
+#: includes/class-poll-results.php:236 includes/class-poll-results.php:330
+#: includes/class-poll-results.php:347
 msgid "No votes yet."
 msgstr "아직 투표가 없습니다."
 
-#: includes/class-poll-results.php:327
+#: includes/class-poll-results.php:342
 msgid "These results are not available."
 msgstr "이 결과는 볼 수 없습니다."
 
@@ -5608,30 +5608,30 @@ msgid "%s: choices filled from posts or categories"
 msgstr "%s: 글이나 카테고리로 채워지는 선택지"
 
 #. translators: %d: form ID.
-#: public/class-form-renderer.php:124
+#: public/class-form-renderer.php:134
 #, php-format
 msgid "Visitors see nothing here: form #%d is a draft. Publish it in the form builder. Only people who can edit the form see this note."
 msgstr "방문자에게는 여기에 아무것도 보이지 않습니다. 양식 #%d은(는) 초안입니다. 양식 빌더에서 게시하세요. 이 안내는 양식을 편집할 수 있는 사람에게만 보입니다."
 
 #. translators: %d: form ID.
-#: public/class-form-renderer.php:142
+#: public/class-form-renderer.php:152
 #, php-format
 msgid "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note."
 msgstr "방문자에게는 여기에 아무것도 보이지 않습니다. 양식 #%d이(가) 삭제되었거나 게시되지 않았습니다. 이 안내는 사이트를 편집할 수 있는 사람에게만 보입니다."
 
-#: public/class-form-renderer.php:277
+#: public/class-form-renderer.php:302
 msgid "Welcome back — we restored the answers you saved. Check them and carry on."
 msgstr "다시 오셨군요. 저장한 답변을 복원했습니다. 확인하고 계속 진행하세요."
 
-#: public/class-form-renderer.php:320 public/class-form-renderer.php:387
+#: public/class-form-renderer.php:345 public/class-form-renderer.php:412
 msgid "Previous"
 msgstr "이전"
 
-#: public/class-form-renderer.php:331
+#: public/class-form-renderer.php:356
 msgid "Save & continue later"
 msgstr "저장 후 나중에 계속"
 
-#: public/class-form-renderer.php:599
+#: public/class-form-renderer.php:624
 msgid "Thank you — your submission was received."
 msgstr "감사합니다. 제출이 접수되었습니다."
 

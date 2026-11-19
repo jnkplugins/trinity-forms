@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.17.0\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-14T18:06:38+00:00\n"
+"POT-Creation-Date: 2026-11-19T21:07:49+00:00\n"
 "PO-Revision-Date: 2026-10-29 12:00+0000\n"
 "Last-Translator: JnK Plugins\n"
 "Language-Team: Arabic\n"
@@ -841,7 +841,7 @@ msgstr "نص زر الإرسال"
 
 #: admin/class-form-editor.php:136 admin/class-form-editor.php:352
 #: includes/class-form-basics.php:48 includes/class-form-manager.php:325
-#: includes/class-gf-importer.php:231 public/class-form-renderer.php:156
+#: includes/class-gf-importer.php:231 public/class-form-renderer.php:166
 #: builder/src/app.jsx:724
 msgid "Submit"
 msgstr "إرسال"
@@ -3398,12 +3398,12 @@ msgstr "رقم"
 msgid "Option"
 msgstr "خيار"
 
-#: includes/class-block-defaults.php:51 public/class-form-renderer.php:321
-#: public/class-form-renderer.php:387
+#: includes/class-block-defaults.php:51 public/class-form-renderer.php:346
+#: public/class-form-renderer.php:412
 msgid "Next"
 msgstr "التالي"
 
-#: includes/class-block-defaults.php:52 public/class-form-renderer.php:387
+#: includes/class-block-defaults.php:52 public/class-form-renderer.php:412
 msgid "Back"
 msgstr "رجوع"
 
@@ -4599,12 +4599,12 @@ msgstr "نتائج الاستطلاع: اختر نموذجًا منشورًا."
 msgid "The results appear here after you vote."
 msgstr "تظهر النتائج هنا بعد أن تصوّت."
 
-#: includes/class-poll-results.php:236 includes/class-poll-results.php:315
-#: includes/class-poll-results.php:332
+#: includes/class-poll-results.php:236 includes/class-poll-results.php:330
+#: includes/class-poll-results.php:347
 msgid "No votes yet."
 msgstr "لا توجد أصوات بعد."
 
-#: includes/class-poll-results.php:327
+#: includes/class-poll-results.php:342
 msgid "These results are not available."
 msgstr "هذه النتائج غير متاحة."
 
@@ -5688,30 +5688,30 @@ msgid "%s: choices filled from posts or categories"
 msgstr "%s: خيارات تُملأ من المقالات أو التصنيفات"
 
 #. translators: %d: form ID.
-#: public/class-form-renderer.php:124
+#: public/class-form-renderer.php:134
 #, php-format
 msgid "Visitors see nothing here: form #%d is a draft. Publish it in the form builder. Only people who can edit the form see this note."
 msgstr "لا يرى الزوّار شيئًا هنا: النموذج #%d مسودة. انشره من منشئ النماذج. هذه الملاحظة تظهر فقط لمن يمكنهم تحرير النموذج."
 
 #. translators: %d: form ID.
-#: public/class-form-renderer.php:142
+#: public/class-form-renderer.php:152
 #, php-format
 msgid "Visitors see nothing here: form #%d was deleted or is not published. Only people who can edit the site see this note."
 msgstr "لا يرى الزوّار شيئًا هنا: النموذج #%d محذوف أو غير منشور. هذه الملاحظة تظهر فقط لمن يمكنهم تحرير الموقع."
 
-#: public/class-form-renderer.php:277
+#: public/class-form-renderer.php:302
 msgid "Welcome back — we restored the answers you saved. Check them and carry on."
 msgstr "مرحبًا بعودتك، استعدنا الإجابات التي حفظتها. راجعها وتابع."
 
-#: public/class-form-renderer.php:320 public/class-form-renderer.php:387
+#: public/class-form-renderer.php:345 public/class-form-renderer.php:412
 msgid "Previous"
 msgstr "السابق"
 
-#: public/class-form-renderer.php:331
+#: public/class-form-renderer.php:356
 msgid "Save & continue later"
 msgstr "الحفظ والمتابعة لاحقًا"
 
-#: public/class-form-renderer.php:599
+#: public/class-form-renderer.php:624
 msgid "Thank you — your submission was received."
 msgstr "شكرًا لك، تم استلام إرسالك."
 

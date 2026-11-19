@@ -113,6 +113,15 @@ class Form_Style {
         return $out;
     }
 
+    /**
+     * The form's accent as one value: its own colour, else its preset's, else the
+     * default. For markup drawn outside the <form> (poll results), which can't
+     * inherit the variable from it.
+     */
+    public static function accent_value( Form $form ): string {
+        return (string) ( self::vars( $form )["--trinity-forms-accent"] ?? self::DEFAULT_ACCENT );
+    }
+
     /** The style attribute value ("" when the form uses the plain default). */
     public static function inline( Form $form ): string {
         $parts = [];

@@ -83,6 +83,16 @@ class Form_Renderer {
         return '<div id="trinity-forms-' . (int) $form->id . '" class="trinity-forms-messages trinity-forms-' . $type . '" role="status"><ul>' . implode( "", $items ) . "</ul></div>";
     }
 
+    /** Did a JavaScript-off submit of this form just succeed? (Reads, does not consume.) */
+    private static function plain_post_succeeded( Form $form ): bool {
+        $token = isset( $_GET["tf_result"] ) ? sanitize_key( wp_unslash( (string) $_GET["tf_result"] ) ) : ""; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- a read-only lookup key, not an action.
+        if ( "" === $token ) {
+            return false;
+        }
+        $note = get_transient( "trinity_forms_plain_" . $token );
+        return is_array( $note ) && (int) ( $note["form_id"] ?? 0 ) === (int) $form->id && ! empty( $note["ok"] );
+    }
+
     /**
      * The answers a no-JS visitor sent from a page too old to time (see
      * REST_API::back_to_the_page()), to fill the fresh form with. This page holds
@@ -167,6 +177,21 @@ class Form_Renderer {
         $paid_entry = self::payment_return_for( $form );
         if ( $paid_entry ) {
             return self::payment_return_html( $paid_entry );
+        }
+
+        // Poll voted with JavaScript off: the page came back with the "thanks" note.
+        // Show it with the results, as the script does, not above the form again
+        // (where the hidden results box never appears without JS).
+        if ( Poll_Results::is_poll( $form ) && self::plain_post_succeeded( $form ) ) {
+            // Fresh numbers for this visitor: no page cache may keep this page (some
+            // caches ignore unknown query strings such as ?tf_result=).
+            if ( ! defined( "DONOTCACHEPAGE" ) ) {
+                define( "DONOTCACHEPAGE", true );
+            }
+            if ( ! headers_sent() ) {
+                nocache_headers();
+            }
+            return self::plain_post_notice( $form ) . Poll_Results::results_instead_of_form( $form );
         }
 
         // A form that is closed, not open yet, full, or login-gated is replaced by

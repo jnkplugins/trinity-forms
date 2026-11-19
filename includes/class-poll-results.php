@@ -203,7 +203,7 @@ class Poll_Results {
         return '<span class="tf-poll-row" style="display:block;margin:0 0 .5em">'
             . '<span class="tf-poll-label" style="display:block">' . esc_html( $label ) . ' <b class="tf-poll-figure">' . esc_html( $figure ) . "</b></span>"
             . '<span class="tf-poll-track" style="display:block;height:.6em;border-radius:999px;background-color:#7f7f7f33;overflow:hidden">'
-            . '<span class="tf-poll-fill" style="display:block;height:100%;width:' . $pct . '%;border-radius:999px;background-color:var(--trinity-forms-accent,#2271b1)"></span>'
+            . '<span class="tf-poll-fill" style="display:block;height:100%;width:' . $pct . '%;border-radius:999px;background-color:var(--trinity-forms-accent,#4f46e5)"></span>'
             . "</span></span>";
     }
 
@@ -253,15 +253,30 @@ class Poll_Results {
      */
     private static function box( int $form_id, string $field_id, bool $after, string $inner, string $attrs = "" ): string {
         return sprintf(
-            '<div class="tf-poll-results" data-tf-poll="%1$d" data-field="%2$s" data-sig="%3$s" data-after-vote="%4$s" data-endpoint="%5$s"%7$s aria-live="polite">%6$s</div>',
+            '<div class="tf-poll-results" data-tf-poll="%1$d" data-field="%2$s" data-sig="%3$s" data-after-vote="%4$s" data-endpoint="%5$s"%7$s%8$s aria-live="polite">%6$s</div>',
             $form_id,
             esc_attr( $field_id ),
             esc_attr( self::sig( $form_id, $field_id ) ),
             $after ? "1" : "0",
             esc_url( rest_url( "trinity-forms/v1/poll-results/" . $form_id ) ),
             $inner,
-            $attrs
+            $attrs,
+            self::accent_style( $form_id )
         );
+    }
+
+    /**
+     * The form's accent on markup that sits outside its <form>: the results box (a
+     * shortcode or block can put it anywhere on the page) and the poll wrapper. The
+     * variable is set only on the <form>, so without this the bars fell back to a
+     * fixed blue whatever colour the form used (reported 20 Nov 2026, 2.28.4).
+     */
+    private static function accent_style( int $form_id ): string {
+        $form = Form_Manager::get( $form_id );
+        if ( ! $form ) {
+            return "";
+        }
+        return ' style="--trinity-forms-accent:' . esc_attr( Form_Style::accent_value( $form ) ) . '"';
     }
 
     /* ------------------------------------------------------------- Poll mode */
@@ -295,7 +310,7 @@ class Poll_Results {
         $id  = (int) $form->id;
         // The rule travels with every wrapper (about 100 bytes), so the markup is the
         // same wherever and however often the form is drawn.
-        $out = '<div class="trinity-forms-poll" data-tf-poll-form="' . $id . '">'
+        $out = '<div class="trinity-forms-poll" data-tf-poll-form="' . $id . '"' . self::accent_style( $id ) . '>'
             . '<style>.trinity-forms-poll.tf-poll-voted>.trinity-forms-form{display:none!important}</style>'
             . '<script>(function(s){try{if(window.localStorage.getItem("tf_voted_' . $id . '")){s.parentNode.className+=" tf-poll-voted"}}catch(e){}})(document.currentScript)</script>'
             . $html
@@ -314,7 +329,7 @@ class Poll_Results {
         if ( "" === $inner ) {
             $inner = '<p class="tf-poll-results-empty">' . esc_html__( "No votes yet.", "trinity-forms" ) . "</p>";
         }
-        return '<div class="trinity-forms-poll tf-poll-voted" data-tf-poll-form="' . (int) $form->id . '">'
+        return '<div class="trinity-forms-poll tf-poll-voted" data-tf-poll-form="' . (int) $form->id . '"' . self::accent_style( (int) $form->id ) . '>'
             . self::box( (int) $form->id, "", false, $inner ) . "</div>";
     }
 

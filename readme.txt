@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.28.4
+Stable tag: 2.28.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,10 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.28.5 =
+* Fixed: in Poll mode the results bars were always blue, whatever accent colour the form used. They now use the form's accent colour (or its style's colour), next to the form and wherever the results are shown with the Poll Results block or shortcode. Thanks to the user who reported it with the exact cause.
+* Fixed: with JavaScript turned off, after voting in a poll the visitor saw "Thanks" and the form again. They now see "Thanks" with the results, as with JavaScript on.
 
 = 2.28.4 =
 * Fixed: a form made from the Newsletter signup or Testimonial template showed "I agree to the terms." next to its consent box instead of the template's own words ("I agree to receive email updates.", "I agree to have this testimonial published."). Forms already made from those templates now show the right words too, and the Visual Builder opens and saves them with those words.

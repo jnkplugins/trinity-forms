@@ -24,9 +24,12 @@ final class License {
     /**
      * Premium feature slugs. These gate premium *code paths* (payment processing,
      * ESP dispatch, save-&-continue, the frontend submissions table). Premium
-     * field types (signature / payment / repeater) and multi-step
-     * (page_break) are gated by simple feature-absence: the free build never
-     * registers those field types, so there is nothing to cap.
+     * field types (signature / payment / repeater) are gated by simple
+     * feature-absence: the free build never registers those field types, so
+     * there is nothing to cap.
+     *
+     * Multi-step forms (the page_break field) are free: the field lives in
+     * includes/fields/ and is registered by the free core.
      *
      * File upload is free since 2.9.0, so it has no slug here: listing it would
      * silently re-gate it for any future can_use( "file_uploads" ) caller.
