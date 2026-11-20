@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.28.5
+Stable tag: 2.28.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,9 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.28.6 =
+* Fixed: on Trinity Forms > Import forms, the Entries heading sat on the left while the numbers under it sat on the right. Heading and numbers now line up on the right.
 
 = 2.28.5 =
 * Fixed: in Poll mode the results bars were always blue, whatever accent colour the form used. They now use the form's accent colour (or its style's colour), next to the form and wherever the results are shown with the Poll Results block or shortcode. Thanks to the user who reported it with the exact cause.
