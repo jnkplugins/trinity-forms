@@ -37,7 +37,7 @@ class Form {
         "min_length" => "minLength", "max_length" => "maxLength", "pattern" => "pattern",
         "pattern_message" => "patternMessage", "rows" => "rows", "min" => "min", "max" => "max",
         "step" => "step", "accept" => "accept", "multiple" => "multiple", "intl" => "intl",
-        "correct_answer" => "correctAnswer", "points" => "points", "formula" => "formula",
+        "correct_answer" => "correctAnswer", "points" => "points", "wrong_points" => "wrongPoints", "formula" => "formula",
         "prefix" => "prefix", "suffix" => "suffix", "decimals" => "decimals", "max_size" => "maxSize",
         "default" => "default", "html" => "html", "description" => "description",
         "consent_text" => "consentText", "next_text" => "nextText", "prev_text" => "prevText",
@@ -285,6 +285,7 @@ class Form {
             if ( isset( $attrs["intl"] ) )        { $field["intl"]         = (bool) $attrs["intl"]; }
             if ( isset( $attrs["correctAnswer"] ) && $attrs["correctAnswer"] !== "" ) { $field["correct_answer"] = (string) $attrs["correctAnswer"]; }
             if ( isset( $attrs["points"] ) )      { $field["points"]       = (float) $attrs["points"]; }
+            if ( isset( $attrs["wrongPoints"] ) && "" !== $attrs["wrongPoints"] ) { $field["wrong_points"] = Quiz_Settings::points( $attrs["wrongPoints"] ); }
             if ( isset( $attrs["formula"] ) )     { $field["formula"]      = (string) $attrs["formula"]; }
             if ( isset( $attrs["prefix"] ) )      { $field["prefix"]       = (string) $attrs["prefix"]; }
             if ( isset( $attrs["suffix"] ) )      { $field["suffix"]       = (string) $attrs["suffix"]; }

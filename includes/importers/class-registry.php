@@ -25,6 +25,7 @@ class Registry {
                 "everest-forms" => new Everest_Forms(),
                 "sureforms"     => new SureForms(),
                 "metform"       => new MetForm(),
+                "qsm"           => new QSM(),
             ];
             /**
              * Add or replace form-builder importers.

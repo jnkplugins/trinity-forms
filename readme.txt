@@ -4,7 +4,7 @@ Tags: contact form, form builder, conditional logic, csv export, survey
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 2.28.6
+Stable tag: 2.29.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,14 @@ alongside its build output, so no external download is needed to read or rebuild
 Running that regenerates `build/` from `blocks/`. No other build step is required.
 
 == Changelog ==
+
+= 2.29.0 =
+* New: negative marking for quizzes. In the new Quiz tab set the points a wrong answer costs (for example 0.25), or set it per question. A question left unanswered scores 0, and the total can go below zero, as exam boards mark it.
+* New: {quiz_answer_key} lists every question with the answer given, right or wrong, the correct answer and the points earned. Use it in the confirmation message or an email. A Quiz setting hides the correct answers if you prefer.
+* New: more quiz tags: {quiz_percent}, {quiz_correct}, {quiz_wrong}, {quiz_blank} and {quiz_time}.
+* New: on a quiz's entries, a Score column you can sort by, with the right / wrong / unanswered counts. Each entry shows its percentage and an Answer key card, and the CSV export has the quiz columns.
+* New: import quizzes from Quiz And Survey Master (QSM), also with QSM deactivated. Multiple choice and drop-down questions come across with their correct answer, points and negative marking, together with the timer, random order, pages, contact fields and the results page. Other question types come in as plain fields or are listed as skipped. QSM's data is never changed.
+* Changed: the Import forms screen has a box to select every form at once.
 
 = 2.28.6 =
 * Fixed: on Trinity Forms > Import forms, the Entries heading sat on the left while the numbers under it sat on the right. Heading and numbers now line up on the right.

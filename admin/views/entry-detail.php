@@ -297,6 +297,18 @@ Admin_UI::open(
                 </dl>
             </div>
 
+            <?php
+            // Quiz: every question with the answer given and the right one. The admin
+            // always sees the correct answers, whatever the visitor was shown.
+            $tf_key_rows = json_decode( (string) ( array_column( $meta, "value", "field_id" )[ \TrinityForms\Scoring::DETAIL_META ] ?? "" ), true );
+            if ( is_array( $tf_key_rows ) && $tf_key_rows ) :
+                ?>
+                <div class="jnkui-card">
+                    <div class="jnkui-card-head"><div><h2><?php esc_html_e( "Answer key", "trinity-forms" ); ?></h2></div></div>
+                    <div class="jnkui-card-body"><?php echo wp_kses_post( \TrinityForms\Scoring::answer_key_html( $tf_key_rows, true ) ); ?></div>
+                </div>
+            <?php endif; ?>
+
             <?php if ( $files ) : ?>
                 <div class="jnkui-card">
                     <div class="jnkui-card-head"><div><h2><?php esc_html_e( "Files", "trinity-forms" ); ?></h2></div></div>
@@ -405,8 +417,23 @@ Admin_UI::open(
                     $tf_quiz = \TrinityForms\Scoring::summary( array_column( $meta, "value", "field_id" ) );
                     if ( "" !== $tf_quiz ) :
                         ?>
+                        <?php $tf_qv = array_column( $meta, "value", "field_id" ); ?>
                         <div><dt><?php esc_html_e( "Quiz score", "trinity-forms" ); ?></dt>
-                            <dd><strong><?php echo esc_html( $tf_quiz ); ?></strong></dd></div>
+                            <dd><strong><?php echo esc_html( $tf_quiz ); ?></strong>
+                                <?php if ( isset( $tf_qv[ \TrinityForms\Scoring::MAX_META ] ) && (float) $tf_qv[ \TrinityForms\Scoring::MAX_META ] > 0 ) : ?>
+                                    (<?php echo esc_html( \TrinityForms\Scoring::percent( (float) $tf_qv[ \TrinityForms\Scoring::SCORE_META ], (float) $tf_qv[ \TrinityForms\Scoring::MAX_META ] ) ); ?>)
+                                <?php endif; ?>
+                                <?php $tf_counts = \TrinityForms\Scoring::counts_line( $tf_qv ); ?>
+                                <?php if ( "" !== $tf_counts ) : ?><span class="jnkui-sub"><?php echo esc_html( $tf_counts ); ?></span><?php endif; ?>
+                            </dd></div>
+                        <?php if ( isset( $tf_qv[ \TrinityForms\Scoring::SECONDS_META ] ) ) : ?>
+                            <div><dt><?php esc_html_e( "Time taken", "trinity-forms" ); ?></dt>
+                                <dd><bdi dir="ltr"><?php echo esc_html( \TrinityForms\Scoring::hms( (int) $tf_qv[ \TrinityForms\Scoring::SECONDS_META ] ) ); ?></bdi>
+                                    <?php if ( ! empty( $tf_qv[ \TrinityForms\Scoring::LATE_META ] ) ) : ?>
+                                        <span class="jnkui-sub"><?php esc_html_e( "Sent after the time limit", "trinity-forms" ); ?></span>
+                                    <?php endif; ?>
+                                </dd></div>
+                        <?php endif; ?>
                     <?php endif; ?>
                     <?php if ( ! empty( $entry["user_id"] ) ) :
                         $tf_user = get_userdata( (int) $entry["user_id"] );

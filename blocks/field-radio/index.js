@@ -32,6 +32,15 @@ registerBlockType( metadata.name, {
                                     onChange={ ( v ) => setAttributes( { points: v === "" ? undefined : Number( v ) } ) }
                                 />
                             ) : null }
+                            { attributes.correctAnswer ? (
+                                <TextControl
+                                    label={ __( "Points off for a wrong answer", "trinity-forms" ) }
+                                    help={ __( "e.g. 0.25 for negative marking. Leave blank to use the form's Quiz setting. A question left unanswered always scores 0.", "trinity-forms" ) }
+                                    inputMode="decimal"
+                                    value={ attributes.wrongPoints ?? "" }
+                                    onChange={ ( v ) => setAttributes( { wrongPoints: v } ) }
+                                />
+                            ) : null }
                         </>
                     }
                 />

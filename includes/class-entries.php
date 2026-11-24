@@ -721,13 +721,22 @@ class Entries {
             ), ARRAY_A );
             foreach ( (array) $cols as $c ) {
                 $fid = $c["field_id"];
-                $tf_quiz_col = in_array( (string) $fid, [ Scoring::SCORE_META, Scoring::MAX_META ], true );
+                $tf_quiz_labels = [
+                    Scoring::SCORE_META   => __( "Quiz score", "trinity-forms" ),
+                    Scoring::MAX_META     => __( "Highest possible quiz score", "trinity-forms" ),
+                    Scoring::CORRECT_META => __( "Correct answers", "trinity-forms" ),
+                    Scoring::WRONG_META   => __( "Wrong answers", "trinity-forms" ),
+                    Scoring::BLANK_META   => __( "Unanswered", "trinity-forms" ),
+                    Scoring::SECONDS_META => __( "Time taken (seconds)", "trinity-forms" ),
+                    Scoring::LATE_META    => __( "Sent after the time limit", "trinity-forms" ),
+                ];
+                $tf_quiz_col = isset( $tf_quiz_labels[ (string) $fid ] );
                 if ( self::is_internal_field( (string) $fid ) && ! Campaign::is_campaign_field( (string) $fid ) && ! $tf_quiz_col ) {
                     continue;
                 }
                 if ( $tf_quiz_col ) {
                     // A quiz's result belongs in the export, as numbers a sheet can sort.
-                    $c["field_label"] = Scoring::SCORE_META === (string) $fid ? __( "Quiz score", "trinity-forms" ) : __( "Highest possible quiz score", "trinity-forms" );
+                    $c["field_label"] = $tf_quiz_labels[ (string) $fid ];
                 }
                 if ( Campaign::is_campaign_field( (string) $fid ) ) {
                     // utm_source etc. under a stable header, whatever language wrote it.

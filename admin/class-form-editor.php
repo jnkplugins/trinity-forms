@@ -124,6 +124,7 @@ class Form_Editor {
             <button type="button" data-tab="confirmations"><?php esc_html_e( "Confirmations", "trinity-forms" ); ?></button>
             <button type="button" data-tab="layout"><?php esc_html_e( "Layout", "trinity-forms" ); ?></button>
             <button type="button" data-tab="restrictions"><?php esc_html_e( "Restrictions", "trinity-forms" ); ?></button>
+            <button type="button" data-tab="quiz"><?php esc_html_e( "Quiz", "trinity-forms" ); ?></button>
             <?php
             // Premium tab buttons (Payment, Integrations) are injected by pro/.
             do_action( "trinity_forms_form_editor_tabs", $form );
@@ -520,6 +521,74 @@ class Form_Editor {
                 <tr><th><?php esc_html_e( "Message for logged-out visitors", "trinity-forms" ); ?></th>
                     <td><input type="text" class="large-text" name="trinity-forms[settings][login_required_message]" value="<?php echo esc_attr( (string) ( $settings["login_required_message"] ?? "" ) ); ?>" placeholder="<?php esc_attr_e( "Please log in to fill in this form.", "trinity-forms" ); ?>" /></td></tr>
             </table>
+        </div>
+
+        <div class="trinity-forms-tab-panel" data-panel="quiz">
+            <?php
+            $tf_quiz     = Quiz_Settings::for_editor( $settings );
+            $tf_quiz_pro = License::is_pro() || ( License::is_pro_runtime() && ( $tf_quiz["quiz_time_limit"] > 0 || $tf_quiz["quiz_shuffle_questions"] || $tf_quiz["quiz_shuffle_options"] ) );
+            ?>
+            <p class="description"><?php esc_html_e( "A form becomes a quiz when a Radio or Dropdown field has a correct answer (in the field's settings). These settings apply to the whole quiz.", "trinity-forms" ); ?></p>
+            <h3><?php esc_html_e( "Marking", "trinity-forms" ); ?></h3>
+            <table class="form-table">
+                <tr><th><label for="tf-quiz-wrong"><?php esc_html_e( "Points off for a wrong answer", "trinity-forms" ); ?></label></th>
+                    <td>
+                        <input type="text" inputmode="decimal" id="tf-quiz-wrong" class="small-text" name="trinity-forms[settings][quiz_wrong_points]" value="<?php echo esc_attr( (string) $tf_quiz["quiz_wrong_points"] ); ?>" />
+                        <p class="description"><?php esc_html_e( "Negative marking, e.g. 0.25. 0 = none. A question left unanswered scores 0, and the total can go below zero. A field's own value overrides this.", "trinity-forms" ); ?></p>
+                    </td></tr>
+                <tr><th><?php esc_html_e( "Answer key", "trinity-forms" ); ?></th>
+                    <td>
+                        <label>
+                            <input type="hidden" name="trinity-forms[settings][quiz_reveal_answers]" value="0" />
+                            <input type="checkbox" name="trinity-forms[settings][quiz_reveal_answers]" value="1" <?php checked( $tf_quiz["quiz_reveal_answers"] ); ?> />
+                            <?php esc_html_e( "Show the correct answers in {quiz_answer_key}", "trinity-forms" ); ?>
+                        </label>
+                        <p class="description"><?php esc_html_e( "Put {quiz_answer_key} in the confirmation message or an email to list every question with the answer given. Unticked, it shows only right or wrong.", "trinity-forms" ); ?></p>
+                    </td></tr>
+            </table>
+            <?php if ( $tf_quiz_pro ) : ?>
+            <h3><?php esc_html_e( "Time limit", "trinity-forms" ); ?></h3>
+            <table class="form-table">
+                <tr><th><label for="tf-quiz-time"><?php esc_html_e( "Time limit (minutes)", "trinity-forms" ); ?></label></th>
+                    <td>
+                        <input type="number" min="0" max="<?php echo esc_attr( (string) Quiz_Settings::MAX_MINUTES ); ?>" id="tf-quiz-time" class="small-text" name="trinity-forms[settings][quiz_time_limit]" value="<?php echo esc_attr( (string) $tf_quiz["quiz_time_limit"] ); ?>" />
+                        <p class="description"><?php esc_html_e( "0 = no limit. 180 is a 3-hour test. When time runs out, the answers given so far are sent and scored.", "trinity-forms" ); ?></p>
+                    </td></tr>
+                <tr><th><?php esc_html_e( "Countdown", "trinity-forms" ); ?></th>
+                    <td><label>
+                        <input type="hidden" name="trinity-forms[settings][quiz_show_countdown]" value="0" />
+                        <input type="checkbox" name="trinity-forms[settings][quiz_show_countdown]" value="1" <?php checked( $tf_quiz["quiz_show_countdown"] ); ?> />
+                        <?php esc_html_e( "Show the time left (h:mm:ss) at the top of the quiz", "trinity-forms" ); ?>
+                    </label></td></tr>
+            </table>
+            <h3><?php esc_html_e( "Order", "trinity-forms" ); ?></h3>
+            <table class="form-table">
+                <tr><th><?php esc_html_e( "Shuffle", "trinity-forms" ); ?></th>
+                    <td>
+                        <label><input type="hidden" name="trinity-forms[settings][quiz_shuffle_questions]" value="0" />
+                            <input type="checkbox" name="trinity-forms[settings][quiz_shuffle_questions]" value="1" <?php checked( $tf_quiz["quiz_shuffle_questions"] ); ?> />
+                            <?php esc_html_e( "Shuffle the order of the questions (within each page)", "trinity-forms" ); ?></label><br>
+                        <label><input type="hidden" name="trinity-forms[settings][quiz_shuffle_options]" value="0" />
+                            <input type="checkbox" name="trinity-forms[settings][quiz_shuffle_options]" value="1" <?php checked( $tf_quiz["quiz_shuffle_options"] ); ?> />
+                            <?php esc_html_e( "Shuffle the answer options of each question", "trinity-forms" ); ?></label>
+                        <p class="description"><?php esc_html_e( "Each visitor gets their own order, even on a cached page. Marks are not affected.", "trinity-forms" ); ?></p>
+                    </td></tr>
+            </table>
+            <?php else : ?>
+                <?php foreach ( [ "quiz_time_limit", "quiz_show_countdown", "quiz_shuffle_questions", "quiz_shuffle_options" ] as $tf_qk ) : ?>
+                    <input type="hidden" name="trinity-forms[settings][<?php echo esc_attr( $tf_qk ); ?>]" value="<?php echo esc_attr( is_bool( $tf_quiz[ $tf_qk ] ) ? ( $tf_quiz[ $tf_qk ] ? "1" : "0" ) : (string) $tf_quiz[ $tf_qk ] ); ?>" />
+                <?php endforeach; ?>
+                <p class="description">
+                    <?php
+                    printf(
+                        /* translators: 1: opening link tag, 2: closing link tag. */
+                        esc_html__( "Need a time limit with a countdown, or shuffled questions? %1\$sSee what Pro adds%2\$s.", "trinity-forms" ),
+                        '<a href="' . esc_url( admin_url( \TrinityForms\Admin::PARENT . "&page=trinity-forms-upgrade&src=quiz" ) ) . '">',
+                        '</a>'
+                    );
+                    ?>
+                </p>
+            <?php endif; ?>
         </div>
 
         <?php
@@ -965,7 +1034,9 @@ class Form_Editor {
             "submit_conditional"    => Conditional_Logic::sanitize_rules( $raw["submit_conditional"] ?? [] ),
         ]
         // Restrictions (schedule, entry limits, login): shared with the Visual Builder.
-        + Restriction_Settings::sanitize( $raw ) );
+        + Restriction_Settings::sanitize( $raw )
+        // Quiz (marking, answer key, timer, shuffle): shared with the Visual Builder.
+        + Quiz_Settings::sanitize( $raw ) );
     }
 
     /**

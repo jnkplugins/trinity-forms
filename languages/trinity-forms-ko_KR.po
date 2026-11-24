@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.8.1\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-20T07:04:16+00:00\n"
+"POT-Creation-Date: 2026-11-24T14:41:26+00:00\n"
 "PO-Revision-Date: 2026-10-10 16:35+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Korean\n"
@@ -39,7 +39,7 @@ msgstr "<strong>%s Pro가 켜졌습니다.</strong> 감사합니다! 이 사이�
 msgid "<strong>%s Pro is installed, but no Pro license is active on this site.</strong> Enter your license key to switch on the Pro tools."
 msgstr "<strong>%s Pro가 설치되었지만 이 사이트에 활성화된 Pro 라이선스가 없습니다.</strong> Pro 도구를 켜려면 라이선스 키를 입력하세요."
 
-#: pro/licensorpro-client/licensorpro-client.php:857 builder/src/app.jsx:926
+#: pro/licensorpro-client/licensorpro-client.php:857 builder/src/app.jsx:969
 msgid "Enter license key"
 msgstr "라이선스 키 입력"
 
@@ -324,7 +324,7 @@ msgid "renewal payment failed, Pro tools stay on until %s"
 msgstr "갱신 결제 실패, Pro 도구는 %s까지 계속 켜져 있습니다"
 
 #: pro/licensorpro-client/licensorpro-client.php:2175
-#: admin/views/entries-list.php:366 admin/views/entry-detail.php:389
+#: admin/views/entries-list.php:401 admin/views/entry-detail.php:401
 #: includes/class-entries.php:686 includes/class-my-submissions.php:54
 msgid "Status"
 msgstr "상태"
@@ -592,8 +592,8 @@ msgstr "템플릿"
 
 #: admin/class-admin-ui.php:62 admin/class-admin-ui.php:296
 #: admin/class-admin.php:206 admin/class-admin.php:207
-#: admin/class-forms-list.php:77 admin/views/entries-list.php:136
-#: admin/views/import.php:110 includes/class-entries.php:911
+#: admin/class-forms-list.php:77 admin/views/entries-list.php:155
+#: admin/views/import.php:114 includes/class-entries.php:920
 msgid "Entries"
 msgstr "항목"
 
@@ -660,7 +660,7 @@ msgid "Show entries on your site as a table, a list or cards. Put a View on any 
 msgstr "사이트에 항목을 표, 목록 또는 카드로 표시합니다. 숏코드로 어떤 페이지에든 뷰를 넣을 수 있습니다."
 
 #: admin/class-admin-ui.php:252 admin/class-forms-list.php:61
-#: builder/src/app.jsx:872
+#: builder/src/app.jsx:915
 msgid "Start from a template"
 msgstr "템플릿으로 시작하기"
 
@@ -692,8 +692,8 @@ msgstr "대기 중인 초안 없음"
 msgid "Kept in your own database"
 msgstr "내 데이터베이스에 보관됨"
 
-#: admin/class-admin-ui.php:298 admin/views/entries-list.php:210
-#: admin/views/entries-list.php:431
+#: admin/class-admin-ui.php:298 admin/views/entries-list.php:229
+#: admin/views/entries-list.php:466
 msgid "Unread"
 msgstr "읽지 않음"
 
@@ -792,7 +792,7 @@ msgstr "병합 태그 삽입"
 msgid "Sending…"
 msgstr "보내는 중…"
 
-#: admin/class-form-editor.php:82 admin/class-form-editor.php:841
+#: admin/class-form-editor.php:82 admin/class-form-editor.php:910
 #: includes/fields/class-field-product.php:65
 msgid "— select —"
 msgstr "— 선택 —"
@@ -830,469 +830,549 @@ msgstr "레이아웃"
 msgid "Restrictions"
 msgstr "제한"
 
-#: admin/class-form-editor.php:135 builder/src/app.jsx:722
+#: admin/class-form-editor.php:127 builder/src/app.jsx:832
+msgid "Quiz"
+msgstr ""
+
+#: admin/class-form-editor.php:136 builder/src/app.jsx:722
 msgid "Submit button text"
 msgstr "제출 버튼 텍스트"
 
-#: admin/class-form-editor.php:136 admin/class-form-editor.php:352
+#: admin/class-form-editor.php:137 admin/class-form-editor.php:353
 #: includes/class-form-basics.php:48 includes/class-form-manager.php:325
 #: includes/class-gf-importer.php:231 public/class-form-renderer.php:166
 #: builder/src/app.jsx:724
 msgid "Submit"
 msgstr "제출"
 
-#: admin/class-form-editor.php:138 builder/src/app.jsx:728
+#: admin/class-form-editor.php:139 builder/src/app.jsx:728
 msgid "After submit"
 msgstr "제출 후"
 
-#: admin/class-form-editor.php:140 builder/src/app.jsx:731
+#: admin/class-form-editor.php:141 builder/src/app.jsx:731
 msgid "Show a message"
 msgstr "메시지 표시"
 
-#: admin/class-form-editor.php:141 builder/src/app.jsx:732
+#: admin/class-form-editor.php:142 builder/src/app.jsx:732
 msgid "Go to a page"
 msgstr "페이지로 이동"
 
-#: admin/class-form-editor.php:142 builder/src/app.jsx:733
+#: admin/class-form-editor.php:143 builder/src/app.jsx:733
 msgid "Go to a URL"
 msgstr "URL로 이동"
 
-#: admin/class-form-editor.php:144 includes/importers/class-formidable.php:238
+#: admin/class-form-editor.php:145 includes/importers/class-formidable.php:238
 #: includes/importers/class-forminator.php:231
 #: includes/importers/class-wpforms.php:517 builder/src/app.jsx:739
 msgid "Confirmation message"
 msgstr "확인 메시지"
 
-#: admin/class-form-editor.php:145 includes/class-confirmations.php:46
+#: admin/class-form-editor.php:146 includes/class-confirmations.php:46
 #: includes/class-form-manager.php:327 builder/src/app.jsx:741
 msgid "Thank you!"
 msgstr "감사합니다!"
 
-#: admin/class-form-editor.php:146 admin/class-form-editor.php:836
+#: admin/class-form-editor.php:147 admin/class-form-editor.php:905
 #: builder/src/app.jsx:747
 msgid "Page"
 msgstr "페이지"
 
-#: admin/class-form-editor.php:148 admin/class-form-qr.php:173
+#: admin/class-form-editor.php:149 admin/class-form-qr.php:173
 #: builder/src/app.jsx:750
 msgid "Choose a page"
 msgstr "페이지 선택"
 
-#: admin/class-form-editor.php:153 builder/src/app.jsx:758
+#: admin/class-form-editor.php:154 builder/src/app.jsx:758
 msgid "Redirect URL"
 msgstr "리디렉션 URL"
 
-#: admin/class-form-editor.php:162
+#: admin/class-form-editor.php:163
 msgid "Allow save & continue later"
 msgstr "저장 후 나중에 계속 허용"
 
-#: admin/class-form-editor.php:163
+#: admin/class-form-editor.php:164
 msgid "Show a save button so users can resume later via emailed link"
 msgstr "사용자가 이메일로 받은 링크로 나중에 계속할 수 있도록 저장 버튼을 표시합니다"
 
-#: admin/class-form-editor.php:171
+#: admin/class-form-editor.php:172
 msgid "Bot challenge (CAPTCHA)"
 msgstr "봇 확인(CAPTCHA)"
 
 #. translators: %s: CAPTCHA provider name, e.g. "Google reCAPTCHA v2".
-#: admin/class-form-editor.php:177
+#: admin/class-form-editor.php:178
 #, php-format
 msgid "Enable the bot challenge for this form (provider: %s)"
 msgstr "이 양식에 봇 확인 사용(제공업체: %s)"
 
 #. translators: %s = link to settings page
-#: admin/class-form-editor.php:184
+#: admin/class-form-editor.php:185
 #, php-format
 msgid "Add the CAPTCHA provider's site + secret keys in %s first."
 msgstr "먼저 %s에서 CAPTCHA 제공업체의 사이트 키와 비밀 키를 추가하세요."
 
-#: admin/class-form-editor.php:185
+#: admin/class-form-editor.php:186
 msgid "Trinity Forms Settings"
 msgstr "Trinity Forms 설정"
 
-#: admin/class-form-editor.php:190
+#: admin/class-form-editor.php:191
 msgid "Retention (days)"
 msgstr "보관 기간(일)"
 
-#: admin/class-form-editor.php:192
+#: admin/class-form-editor.php:193
 msgid "0 = inherit global setting. Entries older than this are deleted by the daily cron."
 msgstr "0 = 전역 설정 사용. 이보다 오래된 항목은 매일 실행되는 크론이 삭제합니다."
 
 #. translators: 1: opening link tag, 2: closing link tag.
-#: admin/class-form-editor.php:204
+#: admin/class-form-editor.php:205
 #, php-format
 msgid "Your Trinity Forms Pro license is not active, so new Pro features can't be added to this form. Everything it already uses keeps working for your visitors, and you can still change it. %1$sRenew or enter your license key in Settings%2$s."
 msgstr "Trinity Forms Pro 라이선스가 활성 상태가 아니므로 이 양식에 새 Pro 기능을 추가할 수 없습니다. 이미 사용 중인 기능은 방문자에게 계속 작동하며 수정도 할 수 있습니다. %1$s설정에서 라이선스를 갱신하거나 라이선스 키를 입력하세요%2$s."
 
 #. translators: 1: opening link tag, 2: closing link tag.
-#: admin/class-form-editor.php:217
+#: admin/class-form-editor.php:218
 #, php-format
 msgid "Pro is installed but not activated. %1$sEnter your license key in Settings%2$s to turn on file uploads, payments, integrations and the other Pro features."
 msgstr "Pro가 설치되었지만 활성화되지 않았습니다. 파일 업로드, 결제, 연동 및 기타 Pro 기능을 사용하려면 %1$s설정에서 라이선스 키를 입력하세요%2$s."
 
 #. translators: 1: opening link tag, 2: closing link tag.
-#: admin/class-form-editor.php:236
+#: admin/class-form-editor.php:237
 #, php-format
 msgid "Need signatures, payments or save and continue? %1$sSee what Pro adds%2$s."
 msgstr "서명, 결제 또는 저장 후 계속 기능이 필요하신가요? %1$sPro에 추가되는 기능 보기%2$s."
 
 #. translators: %s: the embed shortcode, wrapped in a <code> tag.
-#: admin/class-form-editor.php:248
+#: admin/class-form-editor.php:249
 #, php-format
 msgid "Embed shortcode: %s"
 msgstr "삽입용 숏코드: %s"
 
-#: admin/class-form-editor.php:253 includes/class-onboarding.php:118
+#: admin/class-form-editor.php:254 includes/class-onboarding.php:118
 msgid "Create a page with this form"
 msgstr "이 양식으로 페이지 만들기"
 
-#: admin/class-form-editor.php:254
+#: admin/class-form-editor.php:255
 msgid "Makes a draft page holding this form and opens it. Nothing goes live until you publish it."
 msgstr "이 양식이 들어간 임시 페이지를 만들고 엽니다. 직접 발행하기 전에는 공개되지 않습니다."
 
-#: admin/class-form-editor.php:259
+#: admin/class-form-editor.php:260
 msgid "Send an email each time the form is submitted."
 msgstr "양식이 제출될 때마다 이메일을 보냅니다."
 
-#: admin/class-form-editor.php:267
+#: admin/class-form-editor.php:268
 msgid "Merge tags for this form — click to copy:"
 msgstr "이 양식의 병합 태그(클릭하면 복사됩니다):"
 
-#: admin/class-form-editor.php:282
+#: admin/class-form-editor.php:283
 msgid "Add fields to the form and save it to see their tags here."
 msgstr "양식에 필드를 추가하고 저장하면 여기에 태그가 표시됩니다."
 
-#: admin/class-form-editor.php:288
+#: admin/class-form-editor.php:289
 msgid "+ Add notification"
 msgstr "+ 알림 추가"
 
-#: admin/class-form-editor.php:293
+#: admin/class-form-editor.php:294
 msgid "What the visitor sees after submitting. The first confirmation whose conditions match wins; if none do, the default on the General tab is used."
 msgstr "방문자가 제출 후 보게 되는 내용입니다. 조건이 맞는 첫 번째 확인 메시지가 사용되며, 맞는 것이 없으면 일반 탭의 기본값이 사용됩니다."
 
-#: admin/class-form-editor.php:303
+#: admin/class-form-editor.php:304
 msgid "+ Add confirmation"
 msgstr "+ 확인 메시지 추가"
 
-#: admin/class-form-editor.php:305
+#: admin/class-form-editor.php:306
 msgid "Suspected spam"
 msgstr "스팸 의심"
 
-#: admin/class-form-editor.php:307 admin/class-form-editor.php:833
+#: admin/class-form-editor.php:308 admin/class-form-editor.php:902
 #: admin/views/feedback.php:62 includes/class-block-defaults.php:62
 #: includes/class-plugin.php:210 includes/class-templates.php:72
 msgid "Message"
 msgstr "메시지"
 
-#: admin/class-form-editor.php:309
+#: admin/class-form-editor.php:310
 msgid "Leave blank to show the normal confirmation"
 msgstr "일반 확인 메시지를 표시하려면 비워 두세요"
 
-#: admin/class-form-editor.php:311
+#: admin/class-form-editor.php:312
 msgid "Blank is the safer default: telling a bot it was caught helps it tune around the filter, and telling a wrongly-flagged person the same thing helps nobody. The submission is kept either way — look under Entries → Spam."
 msgstr "비워 두는 것이 더 안전한 기본값입니다. 봇에게 걸렸다고 알려 주면 필터를 피하는 데 도움이 되고, 잘못 걸린 사람에게 알려 줘도 도움이 되지 않습니다. 제출 내용은 어느 경우든 보관됩니다. 항목 → 스팸에서 확인하세요."
 
-#: admin/class-form-editor.php:318
+#: admin/class-form-editor.php:319
 msgid "How the form looks. Every setting here is a default — a field that makes its own choice keeps it."
 msgstr "양식의 모양을 정합니다. 여기의 모든 설정은 기본값이며, 자체 설정이 있는 필드는 그 설정을 유지합니다."
 
-#: admin/class-form-editor.php:325
+#: admin/class-form-editor.php:326
 msgid "Style"
 msgstr "스타일"
 
-#: admin/class-form-editor.php:333
+#: admin/class-form-editor.php:334
 msgid "Accent colour"
 msgstr "강조 색상"
 
-#: admin/class-form-editor.php:336
+#: admin/class-form-editor.php:337
 msgid "Reset"
 msgstr "초기화"
 
-#: admin/class-form-editor.php:337
+#: admin/class-form-editor.php:338
 msgid "Used for the button, the focus ring and ticked boxes."
 msgstr "버튼, 포커스 테두리, 체크된 상자에 쓰입니다."
 
-#: admin/class-form-editor.php:343
+#: admin/class-form-editor.php:344
 msgid "Preview"
 msgstr "미리보기"
 
-#: admin/class-form-editor.php:350
+#: admin/class-form-editor.php:351
 msgid "Your name"
 msgstr "이름"
 
-#: admin/class-form-editor.php:351
+#: admin/class-form-editor.php:352
 msgid "Send me a copy"
 msgstr "사본 받기"
 
-#: admin/class-form-editor.php:354
+#: admin/class-form-editor.php:355
 msgid "A rough preview. Your theme's fonts and colours also apply on the real page."
 msgstr "대략적인 미리보기입니다. 실제 페이지에서는 테마의 글꼴과 색상도 적용됩니다."
 
-#: admin/class-form-editor.php:357
+#: admin/class-form-editor.php:358
 msgid "Labels"
 msgstr "레이블"
 
-#: admin/class-form-editor.php:361 admin/class-form-editor.php:374
-#: admin/class-form-editor.php:406 blocks/field-shared.js:155
-#: builder/src/field-panel.jsx:457
+#: admin/class-form-editor.php:362 admin/class-form-editor.php:375
+#: admin/class-form-editor.php:407 blocks/field-shared.js:155
+#: builder/src/field-panel.jsx:458
 msgid "Above the field"
 msgstr "필드 위"
 
-#: admin/class-form-editor.php:362
+#: admin/class-form-editor.php:363
 msgid "To the left"
 msgstr "왼쪽"
 
-#: admin/class-form-editor.php:363
+#: admin/class-form-editor.php:364
 msgid "To the right"
 msgstr "오른쪽"
 
-#: admin/class-form-editor.php:364
+#: admin/class-form-editor.php:365
 msgid "Hidden (use placeholders)"
 msgstr "숨김(플레이스홀더 사용)"
 
-#: admin/class-form-editor.php:366
+#: admin/class-form-editor.php:367
 msgid "Hidden keeps the label for screen readers — it is only removed visually."
 msgstr "숨김을 선택해도 화면 낭독기용 레이블은 유지되며, 화면에서만 보이지 않습니다."
 
-#: admin/class-form-editor.php:369 blocks/field-shared.js:108
+#: admin/class-form-editor.php:370 blocks/field-shared.js:108
 #: builder/src/field-panel.jsx:23
 msgid "Help text"
 msgstr "도움말 텍스트"
 
-#: admin/class-form-editor.php:373 admin/class-form-editor.php:405
-#: blocks/field-shared.js:154 builder/src/field-panel.jsx:456
+#: admin/class-form-editor.php:374 admin/class-form-editor.php:406
+#: blocks/field-shared.js:154 builder/src/field-panel.jsx:457
 msgid "Below the field"
 msgstr "필드 아래"
 
-#: admin/class-form-editor.php:378
+#: admin/class-form-editor.php:379
 msgid "Sub-labels"
 msgstr "하위 레이블"
 
-#: admin/class-form-editor.php:382
+#: admin/class-form-editor.php:383
 msgid "Below the input"
 msgstr "입력란 아래"
 
-#: admin/class-form-editor.php:383
+#: admin/class-form-editor.php:384
 msgid "Above the input"
 msgstr "입력란 위"
 
-#: admin/class-form-editor.php:384 includes/class-block-defaults.php:42
+#: admin/class-form-editor.php:385 includes/class-block-defaults.php:42
 #: blocks/field-hidden/index.js:34
 msgid "Hidden"
 msgstr "숨김"
 
-#: admin/class-form-editor.php:386
+#: admin/class-form-editor.php:387
 msgid "The \"First\" and \"Last\" under a name field, or the parts of an address."
 msgstr "이름 필드 아래의 \"이름\"과 \"성\", 또는 주소의 각 부분입니다."
 
-#: admin/class-form-editor.php:389
+#: admin/class-form-editor.php:390
 msgid "Required fields"
 msgstr "필수 필드"
 
-#: admin/class-form-editor.php:393
+#: admin/class-form-editor.php:394
 msgid "Mark required with *"
 msgstr "필수 항목을 *로 표시"
 
-#: admin/class-form-editor.php:394
+#: admin/class-form-editor.php:395
 msgid "Mark required with \"(required)\""
 msgstr "필수 항목을 \"(필수)\"로 표시"
 
-#: admin/class-form-editor.php:395
+#: admin/class-form-editor.php:396
 msgid "Mark the optional ones instead"
 msgstr "대신 선택 사항 표시"
 
-#: admin/class-form-editor.php:396
+#: admin/class-form-editor.php:397
 msgid "Do not mark either"
 msgstr "표시하지 않음"
 
-#: admin/class-form-editor.php:398
+#: admin/class-form-editor.php:399
 msgid "On a form where nearly everything is required, marking the optional ones reads better."
 msgstr "거의 모든 항목이 필수인 양식에서는 선택 사항을 표시하는 편이 더 읽기 쉽습니다."
 
-#: admin/class-form-editor.php:401
+#: admin/class-form-editor.php:402
 msgid "Errors"
 msgstr "오류"
 
-#: admin/class-form-editor.php:412
+#: admin/class-form-editor.php:413
 msgid "Also list every problem at the top of the form"
 msgstr "양식 맨 위에도 모든 문제 나열"
 
-#: admin/class-form-editor.php:414
+#: admin/class-form-editor.php:415
 msgid "Worth turning on for a long form, where the inline errors can all be below the fold and a failed submit looks like nothing happened."
 msgstr "긴 양식에서는 켜 두는 것이 좋습니다. 필드별 오류가 모두 화면 아래쪽에 있어 제출에 실패해도 아무 일도 없었던 것처럼 보일 수 있기 때문입니다."
 
-#: admin/class-form-editor.php:417
+#: admin/class-form-editor.php:418
 msgid "Form CSS class"
 msgstr "양식 CSS 클래스"
 
-#: admin/class-form-editor.php:421
+#: admin/class-form-editor.php:422
 msgid "Submit button"
 msgstr "제출 버튼"
 
-#: admin/class-form-editor.php:423
+#: admin/class-form-editor.php:424
 msgid "Image"
 msgstr "이미지"
 
-#: admin/class-form-editor.php:426
+#: admin/class-form-editor.php:427
 msgid "Leave blank for a normal button. The button text above is used as the image's alt text."
 msgstr "일반 버튼을 사용하려면 비워 두세요. 위의 버튼 텍스트가 이미지의 대체 텍스트로 사용됩니다."
 
-#: admin/class-form-editor.php:429
+#: admin/class-form-editor.php:430
 msgid "Only show when"
 msgstr "다음 경우에만 표시"
 
-#: admin/class-form-editor.php:438
+#: admin/class-form-editor.php:439
 msgid "— always show it —"
 msgstr "— 항상 표시 —"
 
-#: admin/class-form-editor.php:454
+#: admin/class-form-editor.php:455
 msgid "Useful for a consent checkbox that has to be ticked before the form can be sent."
 msgstr "양식을 보내기 전에 체크해야 하는 동의 체크박스에 유용합니다."
 
-#: admin/class-form-editor.php:460 builder/src/app.jsx:769
+#: admin/class-form-editor.php:461 builder/src/app.jsx:769
 msgid "Control when the form accepts submissions, and how many it takes. Leave a field blank or at 0 to leave that rule off."
 msgstr "양식이 제출을 받는 시기와 받는 개수를 설정합니다. 해당 규칙을 끄려면 필드를 비워 두거나 0으로 두세요."
 
-#: admin/class-form-editor.php:462 builder/src/app.jsx:771
+#: admin/class-form-editor.php:463 builder/src/app.jsx:771
 msgid "Schedule"
 msgstr "일정"
 
-#: admin/class-form-editor.php:464 builder/src/app.jsx:773
+#: admin/class-form-editor.php:465 builder/src/app.jsx:773
 msgid "Opens"
 msgstr "시작"
 
-#: admin/class-form-editor.php:467 builder/src/app.jsx:776
+#: admin/class-form-editor.php:468 builder/src/app.jsx:776
 msgid "Before this, visitors see the message below instead of the form. Uses your site's timezone."
 msgstr "이 시간 전에는 방문자에게 양식 대신 아래 메시지가 표시됩니다. 사이트의 시간대를 사용합니다."
 
-#: admin/class-form-editor.php:469 builder/src/app.jsx:780
+#: admin/class-form-editor.php:470 builder/src/app.jsx:780
 msgid "Message before it opens"
 msgstr "시작 전 메시지"
 
-#: admin/class-form-editor.php:470 includes/class-restrictions.php:73
+#: admin/class-form-editor.php:471 includes/class-restrictions.php:73
 #: builder/src/app.jsx:782
 msgid "This form is not open yet."
 msgstr "이 양식은 아직 열리지 않았습니다."
 
-#: admin/class-form-editor.php:471 builder/src/app.jsx:786
+#: admin/class-form-editor.php:472 builder/src/app.jsx:786
 msgid "Closes"
 msgstr "마감"
 
-#: admin/class-form-editor.php:473 builder/src/app.jsx:792
+#: admin/class-form-editor.php:474 builder/src/app.jsx:792
 msgid "Message after it closes"
 msgstr "마감 후 메시지"
 
-#: admin/class-form-editor.php:474 includes/class-restrictions.php:81
+#: admin/class-form-editor.php:475 includes/class-restrictions.php:81
 #: builder/src/app.jsx:794
 msgid "This form is now closed."
 msgstr "이 양식은 마감되었습니다."
 
-#: admin/class-form-editor.php:477 builder/src/app.jsx:797
+#: admin/class-form-editor.php:478 builder/src/app.jsx:797
 msgid "Entry limits"
 msgstr "항목 제한"
 
-#: admin/class-form-editor.php:479 builder/src/app.jsx:799
+#: admin/class-form-editor.php:480 builder/src/app.jsx:799
 msgid "Total entries"
 msgstr "총 항목 수"
 
-#: admin/class-form-editor.php:482 builder/src/app.jsx:799
+#: admin/class-form-editor.php:483 builder/src/app.jsx:799
 msgid "0 = unlimited. Spam and trashed entries do not count towards the limit."
 msgstr "0 = 무제한. 스팸 및 휴지통의 항목은 제한에 포함되지 않습니다."
 
-#: admin/class-form-editor.php:484 builder/src/app.jsx:800
+#: admin/class-form-editor.php:485 builder/src/app.jsx:800
 msgid "Per logged-in user"
 msgstr "로그인한 사용자당"
 
-#: admin/class-form-editor.php:486 builder/src/app.jsx:801
+#: admin/class-form-editor.php:487 builder/src/app.jsx:801
 msgid "Per IP address"
 msgstr "IP 주소당"
 
-#: admin/class-form-editor.php:489 builder/src/app.jsx:801
+#: admin/class-form-editor.php:490 builder/src/app.jsx:801
 msgid "Blunt: everyone behind one office router or mobile network shares an address."
 msgstr "대략적인 방법입니다. 같은 사무실 라우터나 모바일 네트워크를 쓰는 사람은 모두 같은 주소를 공유합니다."
 
-#: admin/class-form-editor.php:491 builder/src/app.jsx:814
+#: admin/class-form-editor.php:492 builder/src/app.jsx:814
 msgid "Message when full"
 msgstr "한도 도달 시 메시지"
 
-#: admin/class-form-editor.php:492 includes/class-restrictions.php:99
+#: admin/class-form-editor.php:493 includes/class-restrictions.php:99
 #: builder/src/app.jsx:816
 msgid "This form is no longer accepting submissions."
 msgstr "이 양식은 더 이상 제출을 받지 않습니다."
 
-#: admin/class-form-editor.php:493 builder/src/app.jsx:820
+#: admin/class-form-editor.php:494 builder/src/app.jsx:820
 msgid "Message when you've already submitted"
 msgstr "이미 제출한 경우 메시지"
 
-#: admin/class-form-editor.php:494 includes/class-restrictions.php:110
+#: admin/class-form-editor.php:495 includes/class-restrictions.php:110
 #: includes/class-restrictions.php:122 builder/src/app.jsx:822
 msgid "You have already submitted this form."
 msgstr "이미 이 양식을 제출했습니다."
 
-#: admin/class-form-editor.php:497 builder/src/app.jsx:825
+#: admin/class-form-editor.php:498 builder/src/app.jsx:825
 msgid "Poll"
 msgstr "투표"
 
-#: admin/class-form-editor.php:499
+#: admin/class-form-editor.php:500
 msgid "Poll mode"
 msgstr "투표 모드"
 
-#: admin/class-form-editor.php:504 builder/src/app.jsx:827
+#: admin/class-form-editor.php:505 builder/src/app.jsx:827
 msgid "Poll: after a vote, show the results instead of the form"
 msgstr "투표: 투표 후 양식 대신 결과 표시"
 
-#: admin/class-form-editor.php:506 builder/src/app.jsx:828
+#: admin/class-form-editor.php:507 builder/src/app.jsx:828
 msgid "The browser remembers the vote, so there is no IP check. The results show right after voting and on later visits from the same browser. The limits above, if you set one, also show the results instead of an error."
 msgstr "투표는 브라우저가 기억하므로 IP 확인은 없습니다. 결과는 투표 직후와 같은 브라우저로 다시 방문할 때 표시됩니다. 위의 제한을 설정한 경우에도 오류 대신 결과가 표시됩니다."
 
-#: admin/class-form-editor.php:510 builder/src/app.jsx:832
+#: admin/class-form-editor.php:511 builder/src/app.jsx:875
 msgid "Who can submit"
 msgstr "제출할 수 있는 사람"
 
-#: admin/class-form-editor.php:512
+#: admin/class-form-editor.php:513
 msgid "Require login"
 msgstr "로그인 필요"
 
-#: admin/class-form-editor.php:517 builder/src/app.jsx:834
+#: admin/class-form-editor.php:518 builder/src/app.jsx:877
 msgid "Only logged-in users may see and submit this form"
 msgstr "로그인한 사용자만 이 양식을 보고 제출할 수 있습니다"
 
-#: admin/class-form-editor.php:520 builder/src/app.jsx:839
+#: admin/class-form-editor.php:521 builder/src/app.jsx:882
 msgid "Message for logged-out visitors"
 msgstr "로그인하지 않은 방문자용 메시지"
 
-#: admin/class-form-editor.php:521 includes/class-restrictions.php:52
-#: builder/src/app.jsx:841
+#: admin/class-form-editor.php:522 includes/class-restrictions.php:52
+#: builder/src/app.jsx:884
 msgid "Please log in to fill in this form."
 msgstr "이 양식을 작성하려면 로그인하세요."
 
-#: admin/class-form-editor.php:644
+#: admin/class-form-editor.php:531
+msgid "A form becomes a quiz when a Radio or Dropdown field has a correct answer (in the field's settings). These settings apply to the whole quiz."
+msgstr ""
+
+#: admin/class-form-editor.php:532
+msgid "Marking"
+msgstr ""
+
+#: admin/class-form-editor.php:534 blocks/field-radio/index.js:37
+#: blocks/field-select/index.js:37 builder/src/app.jsx:837
+#: builder/src/field-panel.jsx:128
+msgid "Points off for a wrong answer"
+msgstr ""
+
+#: admin/class-form-editor.php:537
+msgid "Negative marking, e.g. 0.25. 0 = none. A question left unanswered scores 0, and the total can go below zero. A field's own value overrides this."
+msgstr ""
+
+#: admin/class-form-editor.php:539 admin/views/entry-detail.php:307
+msgid "Answer key"
+msgstr ""
+
+#: admin/class-form-editor.php:544 builder/src/app.jsx:844
+msgid "Show the correct answers in {quiz_answer_key}"
+msgstr ""
+
+#: admin/class-form-editor.php:546
+msgid "Put {quiz_answer_key} in the confirmation message or an email to list every question with the answer given. Unticked, it shows only right or wrong."
+msgstr ""
+
+#: admin/class-form-editor.php:550
+msgid "Time limit"
+msgstr ""
+
+#: admin/class-form-editor.php:552 builder/src/app.jsx:851
+msgid "Time limit (minutes)"
+msgstr ""
+
+#: admin/class-form-editor.php:555 builder/src/app.jsx:852
+msgid "0 = no limit. 180 is a 3-hour test. When time runs out, the answers given so far are sent and scored."
+msgstr ""
+
+#: admin/class-form-editor.php:557
+msgid "Countdown"
+msgstr ""
+
+#: admin/class-form-editor.php:561 builder/src/app.jsx:859
+msgid "Show the time left (h:mm:ss) at the top of the quiz"
+msgstr ""
+
+#: admin/class-form-editor.php:564
+msgid "Order"
+msgstr ""
+
+#: admin/class-form-editor.php:566
+msgid "Shuffle"
+msgstr ""
+
+#: admin/class-form-editor.php:570 builder/src/app.jsx:864
+msgid "Shuffle the order of the questions (within each page)"
+msgstr ""
+
+#: admin/class-form-editor.php:573 builder/src/app.jsx:869
+msgid "Shuffle the answer options of each question"
+msgstr ""
+
+#: admin/class-form-editor.php:574
+msgid "Each visitor gets their own order, even on a cached page. Marks are not affected."
+msgstr ""
+
+#. translators: 1: opening link tag, 2: closing link tag.
+#: admin/class-form-editor.php:585
+#, php-format
+msgid "Need a time limit with a countdown, or shuffled questions? %1$sSee what Pro adds%2$s."
+msgstr ""
+
+#: admin/class-form-editor.php:713
 msgid "Rule"
 msgstr "규칙"
 
-#: admin/class-form-editor.php:646
+#: admin/class-form-editor.php:715
 msgid "Always send"
 msgstr "항상 보내기"
 
-#: admin/class-form-editor.php:647
+#: admin/class-form-editor.php:716
 msgid "Send only when"
 msgstr "다음 경우에만 보내기"
 
-#: admin/class-form-editor.php:648
+#: admin/class-form-editor.php:717
 msgid "Don't send when"
 msgstr "다음 경우 보내지 않기"
 
-#: admin/class-form-editor.php:653 admin/class-form-editor.php:762
+#: admin/class-form-editor.php:722 admin/class-form-editor.php:831
 msgid "— choose a field —"
 msgstr "— 필드 선택 —"
 
 #. translators: %s: the rules in words, e.g. "Room type is group, Email is not empty".
-#: admin/class-form-editor.php:675
+#: admin/class-form-editor.php:744
 #, php-format
 msgid "%s. These rules came with an import and are kept as they are when you save. Pick \"Always send\" to remove them."
 msgstr "%s. 이 규칙은 가져오기로 들어왔으며 저장해도 그대로 유지됩니다. 없애려면 \"항상 보내기\"를 고르세요."
 
-#: admin/class-form-editor.php:715 admin/class-form-editor.php:823
+#: admin/class-form-editor.php:784 admin/class-form-editor.php:892
 #: includes/class-block-defaults.php:48 includes/class-plugin.php:208
 #: includes/class-templates.php:70 includes/class-templates.php:75
 #: includes/class-templates.php:83 includes/class-templates.php:90
@@ -1303,132 +1383,132 @@ msgstr "%s. 이 규칙은 가져오기로 들어왔으며 저장해도 그대로
 msgid "Name"
 msgstr "이름"
 
-#: admin/class-form-editor.php:721
+#: admin/class-form-editor.php:790
 msgid "Enabled"
 msgstr "사용"
 
-#: admin/class-form-editor.php:726
+#: admin/class-form-editor.php:795
 msgid "Send when"
 msgstr "보내는 시점"
 
-#: admin/class-form-editor.php:730
+#: admin/class-form-editor.php:799
 msgid "The form is submitted"
 msgstr "양식이 제출될 때"
 
-#: admin/class-form-editor.php:731
+#: admin/class-form-editor.php:800
 msgid "A payment completes"
 msgstr "결제가 완료될 때"
 
-#: admin/class-form-editor.php:732
+#: admin/class-form-editor.php:801
 msgid "An entry is approved"
 msgstr "항목이 승인될 때"
 
-#: admin/class-form-editor.php:733
+#: admin/class-form-editor.php:802
 msgid "An entry is edited"
 msgstr "항목이 수정될 때"
 
-#: admin/class-form-editor.php:751
+#: admin/class-form-editor.php:820
 msgid "Send to"
 msgstr "받는 사람"
 
-#: admin/class-form-editor.php:753
+#: admin/class-form-editor.php:822
 msgid "These addresses"
 msgstr "다음 주소"
 
-#: admin/class-form-editor.php:754
+#: admin/class-form-editor.php:823
 msgid "An email field on the form"
 msgstr "양식의 이메일 필드"
 
-#: admin/class-form-editor.php:770
+#: admin/class-form-editor.php:839
 msgid "Cc"
 msgstr "참조(Cc)"
 
-#: admin/class-form-editor.php:773
+#: admin/class-form-editor.php:842
 msgid "Bcc"
 msgstr "숨은 참조(Bcc)"
 
-#: admin/class-form-editor.php:776
+#: admin/class-form-editor.php:845
 msgid "Reply-To"
 msgstr "회신 주소(Reply-To)"
 
-#: admin/class-form-editor.php:778
+#: admin/class-form-editor.php:847
 msgid "Where your reply goes when you hit Reply. Put the tag of the form's email field here to answer the sender directly."
 msgstr "답장을 누를 때 회신이 가는 곳입니다. 보낸 사람에게 바로 답장하려면 양식의 이메일 필드 태그를 여기에 넣으세요."
 
-#: admin/class-form-editor.php:780
+#: admin/class-form-editor.php:849
 msgid "From name"
 msgstr "보내는 사람 이름"
 
-#: admin/class-form-editor.php:783
+#: admin/class-form-editor.php:852
 msgid "From email"
 msgstr "보내는 사람 이메일"
 
-#: admin/class-form-editor.php:785
+#: admin/class-form-editor.php:854
 msgid "Leave blank. Sending as the visitor's address makes your notification fail SPF checks and land in spam — use Reply-To above instead."
 msgstr "비워 두세요. 방문자의 주소로 보내면 알림이 SPF 검사에 실패해 스팸함으로 가게 됩니다. 대신 위의 회신 주소를 사용하세요."
 
-#: admin/class-form-editor.php:787 includes/class-templates.php:111
+#: admin/class-form-editor.php:856 includes/class-templates.php:111
 msgid "Subject"
 msgstr "제목"
 
-#: admin/class-form-editor.php:790
+#: admin/class-form-editor.php:859
 msgid "Body"
 msgstr "본문"
 
-#: admin/class-form-editor.php:796
+#: admin/class-form-editor.php:865
 msgid "Attach any files uploaded with the submission"
 msgstr "제출과 함께 업로드된 파일 첨부"
 
-#: admin/class-form-editor.php:801
+#: admin/class-form-editor.php:870
 msgid "Send a test"
 msgstr "테스트 보내기"
 
-#: admin/class-form-editor.php:802 admin/class-forms-list.php:145
+#: admin/class-form-editor.php:871 admin/class-forms-list.php:145
 msgid "Duplicate"
 msgstr "복제"
 
-#: admin/class-form-editor.php:803 admin/class-form-editor.php:882
+#: admin/class-form-editor.php:872 admin/class-form-editor.php:951
 #: public/class-public-front.php:172
 msgid "Remove"
 msgstr "제거"
 
-#: admin/class-form-editor.php:824
+#: admin/class-form-editor.php:893
 msgid "Enterprise enquiries"
 msgstr "기업 문의"
 
-#: admin/class-form-editor.php:826
+#: admin/class-form-editor.php:895
 msgid "Then show"
 msgstr "다음 표시"
 
-#: admin/class-form-editor.php:828
+#: admin/class-form-editor.php:897
 msgid "A message"
 msgstr "메시지"
 
-#: admin/class-form-editor.php:829
+#: admin/class-form-editor.php:898
 msgid "A page on this site"
 msgstr "이 사이트의 페이지"
 
-#: admin/class-form-editor.php:830
+#: admin/class-form-editor.php:899
 msgid "Another URL"
 msgstr "다른 URL"
 
-#: admin/class-form-editor.php:846
+#: admin/class-form-editor.php:915
 msgid "URL"
 msgstr "URL"
 
-#: admin/class-form-editor.php:849
+#: admin/class-form-editor.php:918
 msgid "Query string"
 msgstr "쿼리 문자열"
 
-#: admin/class-form-editor.php:851
+#: admin/class-form-editor.php:920
 msgid "Appended to the page or URL above. Merge tags are resolved first."
 msgstr "위의 페이지 또는 URL 뒤에 붙습니다. 병합 태그가 먼저 처리됩니다."
 
-#: admin/class-form-editor.php:856
+#: admin/class-form-editor.php:925
 msgid "Only when"
 msgstr "다음 경우에만"
 
-#: admin/class-form-editor.php:859
+#: admin/class-form-editor.php:928
 msgid "— always (use the default instead) —"
 msgstr "— 항상 (대신 기본값 사용) —"
 
@@ -1517,7 +1597,7 @@ msgstr "PNG 다운로드"
 msgid "SVG stays sharp at any size, for print. PNG is 1024 pixels, for documents and social posts. Test-scan it with a phone before printing."
 msgstr "SVG는 어떤 크기에서도 선명해 인쇄용으로 좋습니다. PNG는 1024픽셀로 문서와 소셜 게시물용입니다. 인쇄하기 전에 휴대폰으로 스캔해 보세요."
 
-#: admin/class-forms-list.php:48 admin/views/entries-list.php:149
+#: admin/class-forms-list.php:48 admin/views/entries-list.php:168
 msgid "Create your first form"
 msgstr "첫 양식 만들기"
 
@@ -1531,7 +1611,7 @@ msgstr "준비된 양식 12개 중 하나로 시작하거나 처음부터 만드
 msgid "Found on this site: %s. Import instead of building from scratch."
 msgstr "이 사이트에서 찾음: %s. 처음부터 만들지 말고 가져오세요."
 
-#: admin/class-forms-list.php:57 admin/views/import.php:153
+#: admin/class-forms-list.php:57 admin/views/import.php:157
 msgid "Import"
 msgstr "가져오기"
 
@@ -1682,8 +1762,8 @@ msgid "Entries of the forms you tick are not listed and cannot be opened by an a
 msgstr "선택한 양식(예: 입사 지원서나 의료 양식)의 항목은 목록에 나오지 않으며 어시스턴트가 열 수 없습니다. 양식 자체는 계속 읽을 수 있습니다."
 
 #. translators: %s: number of entries.
-#: admin/views/assistants.php:104 admin/views/entries-list.php:185
-#: admin/views/entries-list.php:344
+#: admin/views/assistants.php:104 admin/views/entries-list.php:204
+#: admin/views/entries-list.php:369
 #, php-format
 msgid "%s entry"
 msgid_plural "%s entries"
@@ -1863,7 +1943,7 @@ msgstr "아직 요청이 없습니다."
 msgid "When"
 msgstr "조건"
 
-#: admin/views/assistants.php:240 admin/views/entry-detail.php:414
+#: admin/views/assistants.php:240 admin/views/entry-detail.php:441
 msgid "User"
 msgstr "사용자"
 
@@ -1875,7 +1955,7 @@ msgstr "요청 내용"
 msgid "Result"
 msgstr "결과"
 
-#: admin/views/assistants.php:250 builder/src/app.jsx:848
+#: admin/views/assistants.php:250 builder/src/app.jsx:891
 msgid "Done"
 msgstr "완료"
 
@@ -1885,134 +1965,134 @@ msgid "Failed"
 msgstr "실패"
 
 #. translators: %d: form ID.
-#: admin/views/entries-list.php:77 includes/class-classic-editor.php:40
+#: admin/views/entries-list.php:96 includes/class-classic-editor.php:40
 #: includes/class-form-manager.php:54
 #, php-format
 msgid "(untitled form #%d)"
 msgstr "(제목 없는 양식 #%d)"
 
-#: admin/views/entries-list.php:137
+#: admin/views/entries-list.php:156
 msgid "Everything people have sent through your forms. Open one to read it, reply or add a note."
 msgstr "사람들이 양식으로 보낸 모든 내용입니다. 하나를 열어 읽거나, 답장하거나, 메모를 추가하세요."
 
-#: admin/views/entries-list.php:147 admin/views/transfer.php:55
+#: admin/views/entries-list.php:166 admin/views/transfer.php:55
 msgid "No forms yet"
 msgstr "아직 양식이 없습니다"
 
-#: admin/views/entries-list.php:148
+#: admin/views/entries-list.php:167
 msgid "Build a form, put its shortcode on a page, and every submission is stored here in your own database. No caps, no per-entry fees."
 msgstr "양식을 만들고 숏코드를 페이지에 넣으면 모든 제출이 여기, 내 데이터베이스에 저장됩니다. 한도도, 항목당 요금도 없습니다."
 
-#: admin/views/entries-list.php:164
+#: admin/views/entries-list.php:183
 #, php-format
 msgid "%s marked as read."
 msgstr "%s: 읽음으로 표시했습니다."
 
-#: admin/views/entries-list.php:165
+#: admin/views/entries-list.php:184
 #, php-format
 msgid "%s marked as unread."
 msgstr "%s: 읽지 않음으로 표시했습니다."
 
-#: admin/views/entries-list.php:166
+#: admin/views/entries-list.php:185
 #, php-format
 msgid "%s starred."
 msgstr "%s: 별표를 표시했습니다."
 
-#: admin/views/entries-list.php:167
+#: admin/views/entries-list.php:186
 #, php-format
 msgid "%s unstarred."
 msgstr "%s: 별표를 해제했습니다."
 
-#: admin/views/entries-list.php:168
+#: admin/views/entries-list.php:187
 #, php-format
 msgid "%s marked as spam."
 msgstr "%s: 스팸으로 표시했습니다."
 
-#: admin/views/entries-list.php:169
+#: admin/views/entries-list.php:188
 #, php-format
 msgid "%s moved to trash."
 msgstr "%s: 휴지통으로 이동했습니다."
 
-#: admin/views/entries-list.php:170
+#: admin/views/entries-list.php:189
 #, php-format
 msgid "%s restored."
 msgstr "%s: 복원했습니다."
 
-#: admin/views/entries-list.php:171 admin/views/entries-list.php:172
+#: admin/views/entries-list.php:190 admin/views/entries-list.php:191
 #, php-format
 msgid "%s permanently deleted."
 msgstr "%s: 영구 삭제했습니다."
 
-#: admin/views/entries-list.php:173
+#: admin/views/entries-list.php:192
 #, php-format
 msgid "Notifications resent for %s."
 msgstr "%s의 알림을 다시 보냈습니다."
 
-#: admin/views/entries-list.php:174
+#: admin/views/entries-list.php:193
 msgid "Nothing was sent: entries in Spam or Trash are not resent. Restore them first, then resend."
 msgstr "아무것도 보내지 않았습니다: 스팸이나 휴지통에 있는 항목은 다시 보내지 않습니다. 먼저 복원한 뒤 다시 보내세요."
 
-#: admin/views/entries-list.php:175 admin/views/entry-detail.php:156
+#: admin/views/entries-list.php:194 admin/views/entry-detail.php:156
 msgid "Note added."
 msgstr "메모를 추가했습니다."
 
-#: admin/views/entries-list.php:176 admin/views/entry-detail.php:158
+#: admin/views/entries-list.php:195 admin/views/entry-detail.php:158
 msgid "Note deleted."
 msgstr "메모를 삭제했습니다."
 
-#: admin/views/entries-list.php:177
+#: admin/views/entries-list.php:196
 msgid "Columns updated."
 msgstr "열을 업데이트했습니다."
 
-#: admin/views/entries-list.php:178
+#: admin/views/entries-list.php:197
 #, php-format
 msgid "%s approved."
 msgstr "%s: 승인했습니다."
 
-#: admin/views/entries-list.php:179
+#: admin/views/entries-list.php:198
 #, php-format
 msgid "%s rejected."
 msgstr "%s: 거부했습니다."
 
-#: admin/views/entries-list.php:180
+#: admin/views/entries-list.php:199
 msgid "Nothing selected."
 msgstr "선택한 항목이 없습니다."
 
 #. translators: %s: number of entries.
-#: admin/views/entries-list.php:194
+#: admin/views/entries-list.php:213
 #, php-format
 msgid "%s entry in Spam or Trash was skipped: restore it first."
 msgid_plural "%s entries in Spam or Trash were skipped: restore them first."
 msgstr[0] "스팸이나 휴지통에 있는 항목 %s개를 건너뛰었습니다: 먼저 복원하세요."
 
-#: admin/views/entries-list.php:209
+#: admin/views/entries-list.php:228
 msgid "All"
 msgstr "전체"
 
-#: admin/views/entries-list.php:211 admin/views/entries-list.php:359
+#: admin/views/entries-list.php:230 admin/views/entries-list.php:384
 msgid "Starred"
 msgstr "별표 표시됨"
 
-#: admin/views/entries-list.php:212 admin/views/entries-list.php:465
+#: admin/views/entries-list.php:231 admin/views/entries-list.php:500
 #: includes/class-entries.php:63
 msgid "Spam"
 msgstr "스팸"
 
-#: admin/views/entries-list.php:213 admin/views/entries-list.php:466
+#: admin/views/entries-list.php:232 admin/views/entries-list.php:501
 #: admin/views/entry-detail.php:240 includes/class-entries.php:64
 msgid "Trash"
 msgstr "휴지통"
 
-#: admin/views/entries-list.php:217 includes/class-entries.php:65
+#: admin/views/entries-list.php:236 includes/class-entries.php:65
 msgid "Partial"
 msgstr "부분 제출"
 
-#: admin/views/entries-list.php:227
+#: admin/views/entries-list.php:246
 msgid "Filter entries"
 msgstr "항목 필터"
 
-#: admin/views/entries-list.php:241 admin/views/entries-list.php:361
-#: admin/views/entry-detail.php:372 admin/views/import.php:108
+#: admin/views/entries-list.php:260 admin/views/entries-list.php:386
+#: admin/views/entry-detail.php:384 admin/views/import.php:112
 #: includes/class-beaver-builder.php:39 includes/class-beaver-builder.php:58
 #: includes/class-classic-editor.php:81 includes/class-form-widget.php:103
 #: includes/class-my-submissions.php:53 includes/class-my-submissions.php:59
@@ -2022,230 +2102,234 @@ msgstr "항목 필터"
 msgid "Form"
 msgstr "양식"
 
-#: admin/views/entries-list.php:243 includes/class-ip-privacy.php:147
+#: admin/views/entries-list.php:262 includes/class-ip-privacy.php:147
 msgid "All forms"
 msgstr "모든 양식"
 
-#: admin/views/entries-list.php:250 admin/views/entries-list.php:367
-#: admin/views/entry-detail.php:392
+#: admin/views/entries-list.php:269 admin/views/entries-list.php:402
+#: admin/views/entry-detail.php:404
 msgid "Payment"
 msgstr "결제"
 
-#: admin/views/entries-list.php:252
+#: admin/views/entries-list.php:271
 msgid "Any payment"
 msgstr "모든 결제"
 
-#: admin/views/entries-list.php:260
+#: admin/views/entries-list.php:279
 msgid "From date"
 msgstr "시작 날짜"
 
-#: admin/views/entries-list.php:262
+#: admin/views/entries-list.php:281
 msgid "to"
 msgstr "~"
 
-#: admin/views/entries-list.php:263
+#: admin/views/entries-list.php:282
 msgid "To date"
 msgstr "종료 날짜"
 
-#: admin/views/entries-list.php:267
+#: admin/views/entries-list.php:286
 msgid "Search entries"
 msgstr "항목 검색"
 
-#: admin/views/entries-list.php:268
+#: admin/views/entries-list.php:287
 msgid "Search answers…"
 msgstr "답변 검색…"
 
-#: admin/views/entries-list.php:270
+#: admin/views/entries-list.php:289
 msgid "Filter"
 msgstr "필터"
 
-#: admin/views/entries-list.php:273
+#: admin/views/entries-list.php:292
 msgid "Clear"
 msgstr "지우기"
 
-#: admin/views/entries-list.php:282
+#: admin/views/entries-list.php:301
 msgid "Choose answer columns"
 msgstr "답변 열 선택"
 
-#: admin/views/entries-list.php:289
+#: admin/views/entries-list.php:308
 msgid "Show these answers as columns in the list."
 msgstr "이 답변들을 목록의 열로 표시합니다."
 
-#: admin/views/entries-list.php:299
+#: admin/views/entries-list.php:318
 msgid "Apply columns"
 msgstr "열 적용"
 
-#: admin/views/entries-list.php:316
+#: admin/views/entries-list.php:341
 msgid "Bulk action"
 msgstr "일괄 작업"
 
-#: admin/views/entries-list.php:318
+#: admin/views/entries-list.php:343
 msgid "With selected…"
 msgstr "선택한 항목으로…"
 
-#: admin/views/entries-list.php:320 admin/views/entries-list.php:460
+#: admin/views/entries-list.php:345 admin/views/entries-list.php:495
 #: admin/views/entry-detail.php:238 includes/class-form-revisions.php:429
 msgid "Restore"
 msgstr "복원"
 
-#: admin/views/entries-list.php:321 admin/views/entries-list.php:462
+#: admin/views/entries-list.php:346 admin/views/entries-list.php:497
 msgid "Delete permanently"
 msgstr "영구 삭제"
 
-#: admin/views/entries-list.php:323
+#: admin/views/entries-list.php:348
 msgid "Mark as read"
 msgstr "읽음으로 표시"
 
-#: admin/views/entries-list.php:324
+#: admin/views/entries-list.php:349
 msgid "Mark as unread"
 msgstr "읽지 않음으로 표시"
 
-#: admin/views/entries-list.php:325 admin/views/entry-detail.php:198
+#: admin/views/entries-list.php:350 admin/views/entry-detail.php:198
 msgid "Star"
 msgstr "별표"
 
-#: admin/views/entries-list.php:326 admin/views/entries-list.php:425
+#: admin/views/entries-list.php:351 admin/views/entries-list.php:460
 msgid "Remove star"
 msgstr "별표 해제"
 
-#: admin/views/entries-list.php:327 admin/views/entry-detail.php:206
+#: admin/views/entries-list.php:352 admin/views/entry-detail.php:206
 #: admin/views/entry-detail.php:219
 msgid "Resend notifications"
 msgstr "알림 다시 보내기"
 
-#: admin/views/entries-list.php:328 admin/views/entry-detail.php:236
+#: admin/views/entries-list.php:353 admin/views/entry-detail.php:236
 #: admin/views/entry-print.php:81
 msgid "Print"
 msgstr "인쇄"
 
-#: admin/views/entries-list.php:329
+#: admin/views/entries-list.php:354
 msgid "Export selected to CSV"
 msgstr "선택한 항목을 CSV로 내보내기"
 
-#: admin/views/entries-list.php:330
+#: admin/views/entries-list.php:355
 msgid "Export selected to Excel"
 msgstr "선택 항목을 Excel로 내보내기"
 
-#: admin/views/entries-list.php:331
+#: admin/views/entries-list.php:356
 msgid "Mark as spam"
 msgstr "스팸으로 표시"
 
-#: admin/views/entries-list.php:332
+#: admin/views/entries-list.php:357
 msgid "Move to trash"
 msgstr "휴지통으로 이동"
 
-#: admin/views/entries-list.php:338
+#: admin/views/entries-list.php:363
 msgid "Apply"
 msgstr "적용"
 
-#: admin/views/entries-list.php:356
+#: admin/views/entries-list.php:381 admin/views/import.php:108
 msgid "Select all"
 msgstr "모두 선택"
 
-#: admin/views/entries-list.php:360
+#: admin/views/entries-list.php:385
 msgid "Entry"
 msgstr "항목"
 
-#: admin/views/entries-list.php:365 admin/views/entry-detail.php:387
-#: admin/views/entry-detail.php:486
+#: admin/views/entries-list.php:392
+msgid "Score"
+msgstr ""
+
+#: admin/views/entries-list.php:400 admin/views/entry-detail.php:399
+#: admin/views/entry-detail.php:513
 msgid "Submitted"
 msgstr "제출됨"
 
-#: admin/views/entries-list.php:380
+#: admin/views/entries-list.php:415
 msgid "No more entries on this page."
 msgstr "이 페이지에는 더 이상 항목이 없습니다."
 
-#: admin/views/entries-list.php:380
+#: admin/views/entries-list.php:415
 msgid "This page is past the end of the list."
 msgstr "이 페이지는 목록의 끝을 지났습니다."
 
-#: admin/views/entries-list.php:380
+#: admin/views/entries-list.php:415
 msgid "Go to page 1"
 msgstr "1페이지로 이동"
 
-#: admin/views/entries-list.php:382
+#: admin/views/entries-list.php:417
 msgid "No entries match those filters."
 msgstr "해당 필터와 일치하는 항목이 없습니다."
 
-#: admin/views/entries-list.php:382
+#: admin/views/entries-list.php:417
 msgid "Try a wider date range or a different search."
 msgstr "날짜 범위를 넓히거나 다른 검색어를 사용해 보세요."
 
-#: admin/views/entries-list.php:382
+#: admin/views/entries-list.php:417
 msgid "Clear the filters"
 msgstr "필터 지우기"
 
-#: admin/views/entries-list.php:384
+#: admin/views/entries-list.php:419
 msgid "The trash is empty."
 msgstr "휴지통이 비어 있습니다."
 
-#: admin/views/entries-list.php:384
+#: admin/views/entries-list.php:419
 msgid "Entries you move to the trash wait here before they are deleted for good."
 msgstr "휴지통으로 옮긴 항목은 영구 삭제되기 전까지 여기에 보관됩니다."
 
-#: admin/views/entries-list.php:386
+#: admin/views/entries-list.php:421
 msgid "No spam. Nice."
 msgstr "스팸이 없습니다. 좋네요."
 
-#: admin/views/entries-list.php:386
+#: admin/views/entries-list.php:421
 msgid "Anything the spam checks catch lands here, so you can rescue a real message."
 msgstr "스팸 검사에 걸린 항목은 모두 여기로 오므로, 진짜 메시지를 되살릴 수 있습니다."
 
-#: admin/views/entries-list.php:388
+#: admin/views/entries-list.php:423
 msgid "You are all caught up."
 msgstr "모두 확인했습니다."
 
-#: admin/views/entries-list.php:388
+#: admin/views/entries-list.php:423
 msgid "New entries show up here until you open them."
 msgstr "새 항목은 열어 볼 때까지 여기에 표시됩니다."
 
-#: admin/views/entries-list.php:390
+#: admin/views/entries-list.php:425
 msgid "No starred entries yet."
 msgstr "아직 별표 표시한 항목이 없습니다."
 
-#: admin/views/entries-list.php:390
+#: admin/views/entries-list.php:425
 msgid "Star an entry from the list to keep it handy here."
 msgstr "목록에서 항목에 별표를 표시하면 여기에서 바로 볼 수 있습니다."
 
-#: admin/views/entries-list.php:392
+#: admin/views/entries-list.php:427
 msgid "No entries yet."
 msgstr "아직 항목이 없습니다."
 
-#: admin/views/entries-list.php:392
+#: admin/views/entries-list.php:427
 msgid "Entries appear here the moment someone submits. Add a form to a page to start collecting."
 msgstr "누군가 제출하는 즉시 항목이 여기에 표시됩니다. 페이지에 양식을 추가해 수집을 시작하세요."
 
-#: admin/views/entries-list.php:392 includes/class-results.php:189
+#: admin/views/entries-list.php:427 includes/class-results.php:189
 msgid "Go to your forms"
 msgstr "양식으로 이동"
 
 #. translators: %d: entry ID.
-#: admin/views/entries-list.php:417
+#: admin/views/entries-list.php:452
 #, php-format
 msgid "Select entry %d"
 msgstr "항목 %d 선택"
 
-#: admin/views/entries-list.php:425
+#: admin/views/entries-list.php:460
 msgid "Star this entry"
 msgstr "이 항목에 별표 표시"
 
-#: admin/views/entries-list.php:431
+#: admin/views/entries-list.php:466
 msgid "Unread:"
 msgstr "읽지 않음:"
 
 #. translators: %d: entry ID.
 #. translators: %d: numeric entry ID.
-#: admin/views/entries-list.php:439 admin/views/entry-detail.php:144
+#: admin/views/entries-list.php:474 admin/views/entry-detail.php:144
 #: admin/views/entry-print.php:57 admin/views/entry-print.php:97
 #, php-format
 msgid "Entry #%d"
 msgstr "항목 #%d"
 
-#: admin/views/entries-list.php:455
+#: admin/views/entries-list.php:490
 msgid "View"
 msgstr "보기"
 
-#: admin/views/entries-list.php:457 includes/class-block-defaults.php:38
+#: admin/views/entries-list.php:492 includes/class-block-defaults.php:38
 #: includes/class-plugin.php:209 includes/class-templates.php:71
 #: includes/class-templates.php:76 includes/class-templates.php:84
 #: includes/class-templates.php:91 includes/class-templates.php:99
@@ -2255,19 +2339,23 @@ msgstr "보기"
 msgid "Email"
 msgstr "이메일"
 
-#: admin/views/entries-list.php:462
+#: admin/views/entries-list.php:497
 msgid "Permanently delete this entry? This cannot be undone."
 msgstr "이 항목을 영구 삭제할까요? 되돌릴 수 없습니다."
 
-#: admin/views/entries-list.php:464
+#: admin/views/entries-list.php:499
 msgid "Mark read"
 msgstr "읽음 표시"
 
-#: admin/views/entries-list.php:464 admin/views/entry-detail.php:200
+#: admin/views/entries-list.php:499 admin/views/entry-detail.php:200
 msgid "Mark unread"
 msgstr "읽지 않음 표시"
 
-#: admin/views/entries-list.php:503
+#: admin/views/entries-list.php:515
+msgid "late"
+msgstr ""
+
+#: admin/views/entries-list.php:554
 msgid "This form does not take payments"
 msgstr "이 양식은 결제를 받지 않습니다"
 
@@ -2405,101 +2493,110 @@ msgstr "테스트 이메일 보내기"
 msgid "Answers"
 msgstr "답변"
 
-#: admin/views/entry-detail.php:288
+#: admin/views/entry-detail.php:288 includes/class-scoring.php:228
+#: includes/class-scoring.php:234
 msgid "Not answered"
 msgstr "답변 없음"
 
-#: admin/views/entry-detail.php:302
+#: admin/views/entry-detail.php:314
 msgid "Files"
 msgstr "파일"
 
-#: admin/views/entry-detail.php:308 admin/views/entry-detail.php:310
+#: admin/views/entry-detail.php:320 admin/views/entry-detail.php:322
 #: admin/views/transfer.php:61 includes/class-export-columns.php:127
 msgid "Download"
 msgstr "다운로드"
 
-#: admin/views/entry-detail.php:319 admin/views/entry-print.php:127
+#: admin/views/entry-detail.php:331 admin/views/entry-print.php:127
 #: includes/class-templates.php:95
 msgid "Notes"
 msgstr "메모"
 
-#: admin/views/entry-detail.php:320
+#: admin/views/entry-detail.php:332
 msgid "Private to your team. Never emailed or shown to the person who sent this."
 msgstr "팀 내부 전용입니다. 이 내용을 보낸 사람에게 이메일로 보내거나 표시하지 않습니다."
 
-#: admin/views/entry-detail.php:338
+#: admin/views/entry-detail.php:350
 msgid "Delete this note?"
 msgstr "이 메모를 삭제할까요?"
 
-#: admin/views/entry-detail.php:338
+#: admin/views/entry-detail.php:350
 msgid "Delete"
 msgstr "삭제"
 
-#: admin/views/entry-detail.php:351
+#: admin/views/entry-detail.php:363
 msgid "Add a note"
 msgstr "메모 추가"
 
-#: admin/views/entry-detail.php:352
+#: admin/views/entry-detail.php:364
 msgid "Add a note…"
 msgstr "메모 추가…"
 
-#: admin/views/entry-detail.php:353
+#: admin/views/entry-detail.php:365
 msgid "Add note"
 msgstr "메모 추가"
 
-#: admin/views/entry-detail.php:370
+#: admin/views/entry-detail.php:382
 msgid "Details"
 msgstr "세부 정보"
 
-#: admin/views/entry-detail.php:384
+#: admin/views/entry-detail.php:396
 msgid "Form deleted"
 msgstr "삭제된 양식"
 
-#: admin/views/entry-detail.php:399
+#: admin/views/entry-detail.php:411
 msgid "Transaction ID"
 msgstr "거래 ID"
 
-#: admin/views/entry-detail.php:408 includes/class-entries.php:730
-#: includes/class-scoring.php:74
+#: admin/views/entry-detail.php:421 includes/class-entries.php:725
+#: includes/class-scoring.php:158
 msgid "Quiz score"
 msgstr "퀴즈 점수"
 
-#: admin/views/entry-detail.php:415 includes/class-entry-notes.php:134
+#: admin/views/entry-detail.php:430
+msgid "Time taken"
+msgstr ""
+
+#: admin/views/entry-detail.php:433 includes/class-entries.php:731
+msgid "Sent after the time limit"
+msgstr ""
+
+#: admin/views/entry-detail.php:442 includes/class-entry-notes.php:134
 #: includes/class-form-revisions.php:289
 msgid "Deleted user"
 msgstr "삭제된 사용자"
 
-#: admin/views/entry-detail.php:423
+#: admin/views/entry-detail.php:450
 msgid "Created post"
 msgstr "생성된 글"
 
-#: admin/views/entry-detail.php:429 includes/class-entries.php:759
-#: includes/class-entries.php:771 includes/class-export-columns.php:35
+#: admin/views/entry-detail.php:456 includes/class-entries.php:768
+#: includes/class-entries.php:780 includes/class-export-columns.php:35
 #: includes/class-merge-tags.php:42 includes/class-privacy.php:59
 msgid "IP address"
 msgstr "IP 주소"
 
-#: admin/views/entry-detail.php:429
+#: admin/views/entry-detail.php:456
 msgid "Not stored"
 msgstr "저장 안 함"
 
-#: admin/views/entry-detail.php:431
+#: admin/views/entry-detail.php:458
 msgid "Sent from"
 msgstr "보낸 위치"
 
-#: admin/views/entry-detail.php:435
+#: admin/views/entry-detail.php:462
 msgid "Came from"
 msgstr "유입 경로"
 
-#: admin/views/entry-detail.php:446 includes/class-privacy.php:62
+#: admin/views/entry-detail.php:473 includes/class-privacy.php:62
 msgid "Browser"
 msgstr "브라우저"
 
-#: admin/views/entry-detail.php:458
+#: admin/views/entry-detail.php:485
 msgid "Activity"
 msgstr "활동"
 
-#: admin/views/entry-detail.php:485 includes/class-logger.php:30
+#: admin/views/entry-detail.php:512 includes/class-logger.php:30
 msgid "entry"
 msgstr "항목"
 
@@ -2688,27 +2785,23 @@ msgstr "1. 양식 선택"
 msgid "Tick one form or several. Each import makes a new Trinity Forms form, so you can look at the result and import again if you want to start over."
 msgstr "양식을 하나 또는 여러 개 선택하세요. 가져올 때마다 새 Trinity Forms 양식이 만들어지므로, 결과를 확인하고 처음부터 다시 하고 싶으면 다시 가져올 수 있습니다."
 
-#: admin/views/import.php:107
-msgid "Select"
-msgstr "선택"
-
-#: admin/views/import.php:109
+#: admin/views/import.php:113
 msgid "From"
 msgstr "시작"
 
-#: admin/views/import.php:128
+#: admin/views/import.php:132
 msgid "This plugin does not keep submissions, so there are none to bring."
 msgstr "이 플러그인은 제출 내용을 저장하지 않으므로 가져올 항목이 없습니다."
 
-#: admin/views/import.php:137
+#: admin/views/import.php:141
 msgid "2. Choose what to bring"
 msgstr "2. 가져올 항목 선택"
 
-#: admin/views/import.php:142
+#: admin/views/import.php:146
 msgid "Bring the entries across as well (where the other plugin kept them)"
 msgstr "항목도 함께 가져오기 (다른 플러그인이 저장한 경우)"
 
-#: admin/views/import.php:148
+#: admin/views/import.php:152
 msgid "Dry run: tell me what would happen, change nothing"
 msgstr "테스트 실행: 아무것도 바꾸지 않고 결과만 알려 주기"
 
@@ -3516,7 +3609,7 @@ msgstr "매우 그렇다"
 msgid "Put these in order of importance"
 msgstr "중요한 순서대로 정렬하세요"
 
-#: includes/class-block-defaults.php:84 builder/src/field-panel.jsx:169
+#: includes/class-block-defaults.php:84 builder/src/field-panel.jsx:170
 msgid "Price"
 msgstr "가격"
 
@@ -3545,7 +3638,7 @@ msgid "You are not allowed to publish this form."
 msgstr "이 양식을 게시할 권한이 없습니다."
 
 #. translators: %s: the field's label.
-#: includes/class-builder-rest.php:430
+#: includes/class-builder-rest.php:431
 #, php-format
 msgid "The field \"%s\" has no field ID. Give it one in the field's settings, using English letters (a-z), digits and underscores."
 msgstr "\"%s\" 필드에 필드 ID가 없습니다. 필드 설정에서 영문자(a-z), 숫자, 밑줄로 ID를 지정하세요."
@@ -3711,15 +3804,31 @@ msgstr "제출 날짜"
 msgid "Entry ID"
 msgstr "항목 ID"
 
-#: includes/class-entries.php:730 includes/class-scoring.php:75
+#: includes/class-entries.php:726 includes/class-scoring.php:159
 msgid "Highest possible quiz score"
 msgstr "퀴즈 최고 가능 점수"
 
-#: includes/class-entries.php:1146 includes/class-templates.php:100
+#: includes/class-entries.php:727 includes/class-scoring.php:161
+msgid "Correct answers"
+msgstr ""
+
+#: includes/class-entries.php:728 includes/class-scoring.php:162
+msgid "Wrong answers"
+msgstr ""
+
+#: includes/class-entries.php:729
+msgid "Unanswered"
+msgstr ""
+
+#: includes/class-entries.php:730
+msgid "Time taken (seconds)"
+msgstr ""
+
+#: includes/class-entries.php:1155 includes/class-templates.php:100
 msgid "Yes"
 msgstr "예"
 
-#: includes/class-entries.php:1146 includes/class-templates.php:100
+#: includes/class-entries.php:1155 includes/class-templates.php:100
 msgid "No"
 msgstr "아니요"
 
@@ -3728,7 +3837,7 @@ msgid "Export"
 msgstr "내보내기"
 
 #: includes/class-export-columns.php:107 blocks/conditional-panel.js:75
-#: builder/src/field-panel.jsx:415
+#: builder/src/field-panel.jsx:416
 msgid "Format"
 msgstr "형식"
 
@@ -3775,7 +3884,7 @@ msgstr "필수 필드입니다."
 msgid "(no title #%d)"
 msgstr "(제목 없음 #%d)"
 
-#: includes/class-form-builder.php:118 includes/class-rest-api.php:460
+#: includes/class-form-builder.php:118 includes/class-rest-api.php:469
 msgid "Untitled form"
 msgstr "제목 없는 양식"
 
@@ -4692,41 +4801,41 @@ msgid "Invalid or missing nonce."
 msgstr "nonce가 잘못되었거나 없습니다."
 
 #. translators: 1: field label, 2: what is wrong with it.
-#: includes/class-rest-api.php:305
+#: includes/class-rest-api.php:314
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: includes/class-rest-api.php:308
+#: includes/class-rest-api.php:317
 msgid "Your browser's Back button brings back what you typed."
 msgstr "브라우저의 뒤로 버튼을 누르면 입력한 내용이 돌아옵니다."
 
 #. translators: %s: the largest file size accepted, e.g. "2 MB".
-#: includes/class-rest-api.php:327
+#: includes/class-rest-api.php:336
 #, php-format
 msgid "The file is too big to send. Files can be up to %s."
 msgstr "파일이 너무 커서 보낼 수 없습니다. 파일은 최대 %s까지 가능합니다."
 
-#: includes/class-rest-api.php:332 includes/class-submission-pipeline.php:98
+#: includes/class-rest-api.php:341 includes/class-submission-pipeline.php:98
 msgid "Upload failed."
 msgstr "업로드에 실패했습니다."
 
 #. translators: %d: seconds to wait.
-#: includes/class-rest-api.php:415
+#: includes/class-rest-api.php:424
 #, php-format
 msgid "This form is getting a lot of submissions right now. Please try again in %d second."
 msgid_plural "This form is getting a lot of submissions right now. Please try again in %d seconds."
 msgstr[0] "지금 이 양식에 제출이 많이 몰리고 있습니다. %d초 후에 다시 시도하세요."
 
 #. translators: %d: minutes to wait.
-#: includes/class-rest-api.php:418
+#: includes/class-rest-api.php:427
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d minute."
 msgid_plural "Too many submissions from your connection. Please try again in %d minutes."
 msgstr[0] "연결에서 너무 많은 제출이 발생했습니다. %d분 후에 다시 시도하세요."
 
 #. translators: %d: seconds to wait.
-#: includes/class-rest-api.php:420
+#: includes/class-rest-api.php:429
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d second."
 msgid_plural "Too many submissions from your connection. Please try again in %d seconds."
@@ -4847,11 +4956,49 @@ msgid "The %d table Trinity Forms needs is in the database."
 msgid_plural "All %d tables Trinity Forms needs are in the database."
 msgstr[0] "Trinity Forms에 필요한 테이블 %d개가 모두 데이터베이스에 있습니다."
 
+#: includes/class-scoring.php:160
+msgid "Quiz score as a percentage"
+msgstr ""
+
+#: includes/class-scoring.php:163
+msgid "Questions left unanswered"
+msgstr ""
+
+#: includes/class-scoring.php:164
+msgid "Time taken (timed quizzes)"
+msgstr ""
+
+#: includes/class-scoring.php:165
+msgid "Answer key (each question, the answer given and the correct one)"
+msgstr ""
+
 #. translators: 1: points scored, 2: highest possible score.
-#: includes/class-scoring.php:94
+#: includes/class-scoring.php:183
 #, php-format
 msgid "%1$s / %2$s"
 msgstr "%1$s / %2$s"
+
+#. translators: 1: correct answers, 2: wrong answers, 3: unanswered questions.
+#: includes/class-scoring.php:193
+#, php-format
+msgid "%1$d correct · %2$d wrong · %3$d unanswered"
+msgstr ""
+
+#: includes/class-scoring.php:226
+msgid "Correct"
+msgstr ""
+
+#: includes/class-scoring.php:227
+msgid "Wrong"
+msgstr ""
+
+#: includes/class-scoring.php:239
+msgid "Your answer:"
+msgstr ""
+
+#: includes/class-scoring.php:241
+msgid "Correct answer:"
+msgstr ""
 
 #: includes/class-secrets.php:85
 msgid "Trinity Forms: The PHP OpenSSL extension is required to encrypt credentials at rest. Credentials are currently stored in plaintext — please enable the openssl extension."
@@ -5411,7 +5558,7 @@ msgstr "%s 이상이어야 합니다."
 msgid "Must be no more than %s."
 msgstr "%s 이하여야 합니다."
 
-#: includes/fields/class-field-password.php:35 builder/src/field-panel.jsx:184
+#: includes/fields/class-field-password.php:35 builder/src/field-panel.jsx:185
 msgid "Confirm password"
 msgstr "비밀번호 확인"
 
@@ -5581,8 +5728,40 @@ msgstr "방문자에게 보내는 확인 이메일: 알림에서 이메일 필�
 msgid "Action: %s"
 msgstr "작업: %s"
 
+#. translators: %s: question text.
+#: includes/importers/class-qsm.php:253
+#, php-format
+msgid "%s: its wrong answers cost different points; every wrong answer now costs %s."
+msgstr ""
+
+#. translators: %s: question text.
+#: includes/importers/class-qsm.php:259
+#, php-format
+msgid "%s: no correct answer is set, so it is not marked."
+msgstr ""
+
+#. translators: 1: question text, 2: QSM question type.
+#: includes/importers/class-qsm.php:298
+#, php-format
+msgid "%1$s (%2$s): imported as a plain field. Trinity marks only Radio and Dropdown questions, so its answer is not scored."
+msgstr ""
+
+#: includes/importers/class-qsm.php:335
+msgid "Time limit and shuffling are saved with the quiz and work with Trinity Forms Pro."
+msgstr ""
+
+#. translators: %s: list of QSM template variables.
+#: includes/importers/class-qsm.php:367
+#, php-format
+msgid "Results page: %s had no equivalent and were left out."
+msgstr ""
+
+#: includes/importers/class-qsm.php:371
+msgid "Your score: {quiz_score} / {quiz_max}"
+msgstr ""
+
 #. translators: 1: number of forms, 2: form plugin name, e.g. "Contact Form 7".
-#: includes/importers/class-registry.php:79
+#: includes/importers/class-registry.php:80
 #, php-format
 msgid "%1$d %2$s form"
 msgid_plural "%1$d %2$s forms"
@@ -5695,7 +5874,7 @@ msgstr "저장했습니다. 이어서 작성하려면 이 URL을 북마크하세
 msgid "Could not save progress."
 msgstr "진행 상황을 저장하지 못했습니다."
 
-#: blocks/conditional-panel.js:78 builder/src/field-panel.jsx:418
+#: blocks/conditional-panel.js:78 builder/src/field-panel.jsx:419
 msgid "Pattern"
 msgstr "패턴"
 
@@ -5703,7 +5882,7 @@ msgstr "패턴"
 msgid "A regular expression the value must match, e.g. ^[0-9]{5}$ for a 5-digit ZIP. Leave empty for no check."
 msgstr "값이 일치해야 하는 정규식입니다. 예: 5자리 우편번호는 ^[0-9]{5}$. 검사하지 않으려면 비워 두세요."
 
-#: blocks/conditional-panel.js:86 builder/src/field-panel.jsx:426
+#: blocks/conditional-panel.js:86 builder/src/field-panel.jsx:427
 msgid "Error message"
 msgstr "오류 메시지"
 
@@ -5711,7 +5890,7 @@ msgstr "오류 메시지"
 msgid "Shown when the value doesn't match."
 msgstr "값이 일치하지 않을 때 표시됩니다."
 
-#: blocks/conditional-panel.js:94 builder/src/field-panel.jsx:545
+#: blocks/conditional-panel.js:94 builder/src/field-panel.jsx:546
 msgid "Conditional logic"
 msgstr "조건부 로직"
 
@@ -5724,7 +5903,7 @@ msgid "Any rule matches"
 msgstr "하나 이상의 규칙 일치"
 
 #: blocks/conditional-rules.js:136 blocks/field-shared.js:88
-#: blocks/field-shared.js:229 builder/src/field-panel.jsx:370
+#: blocks/field-shared.js:229 builder/src/field-panel.jsx:371
 msgid "Field"
 msgstr "필드"
 
@@ -5785,13 +5964,13 @@ msgstr "옵션(한 줄에 하나씩, 레이블 | 값)"
 msgid "Internal label"
 msgstr "내부 레이블"
 
-#: blocks/field-consent/index.js:17 builder/src/field-panel.jsx:171
+#: blocks/field-consent/index.js:17 builder/src/field-panel.jsx:172
 #: builder/src/field-preview.jsx:85
 msgid "Consent text"
 msgstr "동의 문구"
 
 #: blocks/field-consent/index.js:18 blocks/field-shared.js:113
-#: builder/src/field-panel.jsx:392
+#: builder/src/field-panel.jsx:393
 msgid "Required"
 msgstr "필수"
 
@@ -5812,13 +5991,13 @@ msgid "Hidden field"
 msgstr "숨김 필드"
 
 #: blocks/field-hidden/index.js:17 blocks/field-shared.js:90
-#: builder/src/field-panel.jsx:373
+#: builder/src/field-panel.jsx:374
 msgid "Field ID"
 msgstr "필드 ID"
 
 #: blocks/field-hidden/index.js:27 blocks/field-range/index.js:22
-#: blocks/field-shared.js:169 builder/src/field-panel.jsx:176
-#: builder/src/field-panel.jsx:475
+#: blocks/field-shared.js:169 builder/src/field-panel.jsx:177
+#: builder/src/field-panel.jsx:476
 msgid "Default value"
 msgstr "기본값"
 
@@ -5826,7 +6005,7 @@ msgstr "기본값"
 msgid "HTML"
 msgstr "HTML"
 
-#: blocks/field-html/index.js:17 builder/src/field-panel.jsx:175
+#: blocks/field-html/index.js:17 builder/src/field-panel.jsx:176
 msgid "HTML markup"
 msgstr "HTML 마크업"
 
@@ -5834,35 +6013,35 @@ msgstr "HTML 마크업"
 msgid "Custom HTML: write the markup in the block settings. Visitors see nothing until you do."
 msgstr "사용자 정의 HTML: 블록 설정에서 마크업을 작성하세요. 작성하기 전까지 방문자에게는 아무것도 보이지 않습니다."
 
-#: blocks/field-multiple-choice/index.js:10 builder/src/field-panel.jsx:155
-#: builder/src/field-panel.jsx:165
+#: blocks/field-multiple-choice/index.js:10 builder/src/field-panel.jsx:156
+#: builder/src/field-panel.jsx:166
 msgid "Radio buttons (pick one)"
 msgstr "라디오 버튼(하나 선택)"
 
-#: blocks/field-multiple-choice/index.js:11 builder/src/field-panel.jsx:156
+#: blocks/field-multiple-choice/index.js:11 builder/src/field-panel.jsx:157
 msgid "Checkboxes (pick several)"
 msgstr "체크박스(여러 개 선택)"
 
-#: blocks/field-multiple-choice/index.js:12 builder/src/field-panel.jsx:157
-#: builder/src/field-panel.jsx:166
+#: blocks/field-multiple-choice/index.js:12 builder/src/field-panel.jsx:158
+#: builder/src/field-panel.jsx:167
 msgid "Dropdown (pick one)"
 msgstr "드롭다운(하나 선택)"
 
-#: blocks/field-multiple-choice/index.js:13 builder/src/field-panel.jsx:158
+#: blocks/field-multiple-choice/index.js:13 builder/src/field-panel.jsx:159
 msgid "Dropdown (pick several)"
 msgstr "드롭다운(여러 개 선택)"
 
 #: blocks/field-multiple-choice/index.js:45 builder/src/field-panel.jsx:65
-#: builder/src/field-panel.jsx:403
+#: builder/src/field-panel.jsx:404
 msgid "Choices"
 msgstr "선택 항목"
 
-#: blocks/field-multiple-choice/index.js:47 builder/src/field-panel.jsx:145
-#: builder/src/field-panel.jsx:152
+#: blocks/field-multiple-choice/index.js:47 builder/src/field-panel.jsx:146
+#: builder/src/field-panel.jsx:153
 msgid "Show as"
 msgstr "표시 형식"
 
-#: blocks/field-multiple-choice/index.js:48 builder/src/field-panel.jsx:153
+#: blocks/field-multiple-choice/index.js:48 builder/src/field-panel.jsx:154
 msgid "Switching style keeps your options — no need to delete the field and start again."
 msgstr "스타일을 바꿔도 옵션은 유지됩니다. 필드를 삭제하고 다시 만들 필요가 없습니다."
 
@@ -5875,17 +6054,17 @@ msgid "One per line. Use \"Label | value\" to store a different value."
 msgstr "한 줄에 하나씩 입력하세요. 다른 값을 저장하려면 \"레이블 | 값\" 형식을 사용하세요."
 
 #: blocks/field-number/index.js:19 blocks/field-range/index.js:19
-#: builder/src/field-panel.jsx:177
+#: builder/src/field-panel.jsx:178
 msgid "Min"
 msgstr "최소"
 
 #: blocks/field-number/index.js:20 blocks/field-range/index.js:20
-#: builder/src/field-panel.jsx:178
+#: builder/src/field-panel.jsx:179
 msgid "Max"
 msgstr "최대"
 
 #: blocks/field-number/index.js:21 blocks/field-range/index.js:21
-#: builder/src/field-panel.jsx:179
+#: builder/src/field-panel.jsx:180
 msgid "Step"
 msgstr "간격"
 
@@ -5894,11 +6073,11 @@ msgstr "간격"
 msgid "Page break"
 msgstr "페이지 나누기"
 
-#: blocks/field-page-break/index.js:16 builder/src/field-panel.jsx:172
+#: blocks/field-page-break/index.js:16 builder/src/field-panel.jsx:173
 msgid "Next button text"
 msgstr "다음 버튼 텍스트"
 
-#: blocks/field-page-break/index.js:17 builder/src/field-panel.jsx:173
+#: blocks/field-page-break/index.js:17 builder/src/field-panel.jsx:174
 msgid "Back button text"
 msgstr "뒤로 버튼 텍스트"
 
@@ -5919,7 +6098,12 @@ msgstr "점수를 얻는 옵션 값입니다. 퀴즈가 아닌 양식에서는 �
 msgid "Points"
 msgstr "점수"
 
-#: blocks/field-rating/index.js:18 builder/src/field-panel.jsx:260
+#: blocks/field-radio/index.js:38 blocks/field-select/index.js:38
+#: builder/src/field-panel.jsx:128
+msgid "e.g. 0.25 for negative marking. Leave blank to use the form's Quiz setting. A question left unanswered always scores 0."
+msgstr ""
+
+#: blocks/field-rating/index.js:18 builder/src/field-panel.jsx:261
 msgid "Stars"
 msgstr "별"
 
@@ -5927,11 +6111,11 @@ msgstr "별"
 msgid "Heading"
 msgstr "제목"
 
-#: blocks/field-section/index.js:17 builder/src/field-panel.jsx:174
+#: blocks/field-section/index.js:17 builder/src/field-panel.jsx:175
 msgid "Description"
 msgstr "설명"
 
-#: blocks/field-shared.js:91 builder/src/field-panel.jsx:374
+#: blocks/field-shared.js:91 builder/src/field-panel.jsx:375
 msgid "Used in merge tags and entry export."
 msgstr "병합 태그와 항목 내보내기에 사용됩니다."
 
@@ -5943,51 +6127,51 @@ msgstr "레이블"
 msgid "Placeholder"
 msgstr "플레이스홀더"
 
-#: blocks/field-shared.js:137 builder/src/field-panel.jsx:435
+#: blocks/field-shared.js:137 builder/src/field-panel.jsx:436
 msgid "Appearance"
 msgstr "모양"
 
-#: blocks/field-shared.js:139 builder/src/field-panel.jsx:439
+#: blocks/field-shared.js:139 builder/src/field-panel.jsx:440
 msgid "Field width"
 msgstr "필드 너비"
 
-#: blocks/field-shared.js:142 builder/src/field-panel.jsx:442
+#: blocks/field-shared.js:142 builder/src/field-panel.jsx:443
 msgid "Full width"
 msgstr "전체 너비"
 
-#: blocks/field-shared.js:143 builder/src/field-panel.jsx:443
+#: blocks/field-shared.js:143 builder/src/field-panel.jsx:444
 msgid "One half"
 msgstr "1/2"
 
-#: blocks/field-shared.js:144 builder/src/field-panel.jsx:444
+#: blocks/field-shared.js:144 builder/src/field-panel.jsx:445
 msgid "One third"
 msgstr "1/3"
 
-#: blocks/field-shared.js:145 builder/src/field-panel.jsx:445
+#: blocks/field-shared.js:145 builder/src/field-panel.jsx:446
 msgid "One quarter"
 msgstr "1/4"
 
-#: blocks/field-shared.js:150 builder/src/field-panel.jsx:452
+#: blocks/field-shared.js:150 builder/src/field-panel.jsx:453
 msgid "Help text position"
 msgstr "도움말 텍스트 위치"
 
-#: blocks/field-shared.js:153 builder/src/field-panel.jsx:455
+#: blocks/field-shared.js:153 builder/src/field-panel.jsx:456
 msgid "Use the form's setting"
 msgstr "양식 설정 따르기"
 
-#: blocks/field-shared.js:160 builder/src/field-panel.jsx:463
+#: blocks/field-shared.js:160 builder/src/field-panel.jsx:464
 msgid "CSS class"
 msgstr "CSS 클래스"
 
-#: blocks/field-shared.js:161 builder/src/field-panel.jsx:464
+#: blocks/field-shared.js:161 builder/src/field-panel.jsx:465
 msgid "Added to the field wrapper, for your own styling."
 msgstr "직접 스타일을 지정할 수 있도록 필드 래퍼에 추가됩니다."
 
-#: blocks/field-shared.js:167 builder/src/field-panel.jsx:472
+#: blocks/field-shared.js:167 builder/src/field-panel.jsx:473
 msgid "Advanced"
 msgstr "고급"
 
-#: blocks/field-shared.js:174 builder/src/field-panel.jsx:481
+#: blocks/field-shared.js:174 builder/src/field-panel.jsx:482
 msgid "Admin label"
 msgstr "관리자 레이블"
 
@@ -5995,55 +6179,55 @@ msgstr "관리자 레이블"
 msgid "Shown instead of the label in entries and exports."
 msgstr "항목과 내보내기에서 레이블 대신 표시됩니다."
 
-#: blocks/field-shared.js:180 builder/src/field-panel.jsx:489
+#: blocks/field-shared.js:180 builder/src/field-panel.jsx:490
 msgid "Visible to"
 msgstr "표시 대상"
 
-#: blocks/field-shared.js:183 builder/src/field-panel.jsx:492
+#: blocks/field-shared.js:183 builder/src/field-panel.jsx:493
 msgid "Everyone"
 msgstr "모두"
 
-#: blocks/field-shared.js:184 builder/src/field-panel.jsx:493
+#: blocks/field-shared.js:184 builder/src/field-panel.jsx:494
 msgid "Logged-in users"
 msgstr "로그인한 사용자"
 
-#: blocks/field-shared.js:185 builder/src/field-panel.jsx:494
+#: blocks/field-shared.js:185 builder/src/field-panel.jsx:495
 msgid "Administrators only"
 msgstr "관리자만"
 
-#: blocks/field-shared.js:190 builder/src/field-panel.jsx:501
+#: blocks/field-shared.js:190 builder/src/field-panel.jsx:502
 msgid "Allow this field to be pre-filled from the URL"
 msgstr "URL에서 이 필드를 미리 채우도록 허용"
 
-#: blocks/field-shared.js:191 builder/src/field-panel.jsx:502
+#: blocks/field-shared.js:191 builder/src/field-panel.jsx:503
 msgid "Off by default: a form whose every field can be set from a link is a form whose data you cannot trust."
 msgstr "기본값은 꺼짐입니다. 모든 필드를 링크로 채울 수 있는 양식은 데이터를 신뢰할 수 없습니다."
 
-#: blocks/field-shared.js:197 builder/src/field-panel.jsx:509
+#: blocks/field-shared.js:197 builder/src/field-panel.jsx:510
 msgid "Parameter name"
 msgstr "매개변수 이름"
 
-#: blocks/field-shared.js:198 builder/src/field-panel.jsx:510
+#: blocks/field-shared.js:198 builder/src/field-panel.jsx:511
 msgid "Defaults to the field ID. Also reads user_email, first_name, post_id and user_meta_<key>."
 msgstr "기본값은 필드 ID입니다. user_email, first_name, post_id, user_meta_<key>도 읽습니다."
 
-#: blocks/field-shared.js:204 builder/src/field-panel.jsx:518
+#: blocks/field-shared.js:204 builder/src/field-panel.jsx:519
 msgid "No duplicates"
 msgstr "중복 금지"
 
-#: blocks/field-shared.js:205 builder/src/field-panel.jsx:519
+#: blocks/field-shared.js:205 builder/src/field-panel.jsx:520
 msgid "Refuse a submission if another entry on this form already has the same value."
 msgstr "이 양식의 다른 항목에 같은 값이 이미 있으면 제출을 거부합니다."
 
-#: blocks/field-shared.js:210 builder/src/field-panel.jsx:525
+#: blocks/field-shared.js:210 builder/src/field-panel.jsx:526
 msgid "Custom error message"
 msgstr "사용자 정의 오류 메시지"
 
-#: blocks/field-shared.js:215 builder/src/field-panel.jsx:532
+#: blocks/field-shared.js:215 builder/src/field-panel.jsx:533
 msgid "Autocomplete"
 msgstr "자동 완성"
 
-#: blocks/field-shared.js:216 builder/src/field-panel.jsx:533
+#: blocks/field-shared.js:216 builder/src/field-panel.jsx:534
 msgid "The HTML autocomplete hint, e.g. email, given-name, organization."
 msgstr "HTML 자동 완성 힌트입니다. 예: email, given-name, organization."
 
@@ -6190,7 +6374,7 @@ msgstr "제출 버튼 텍스트, 방문자가 제출한 뒤 보게 되는 화면
 msgid "Every setting of this form: emails, layout, save and continue, popup, payments, integrations and more"
 msgstr "이 폼의 모든 설정: 이메일, 레이아웃, 저장 후 이어서 작성, 팝업, 결제, 연동 등"
 
-#: builder/src/app.jsx:570 builder/src/app.jsx:855 builder/src/app.jsx:863
+#: builder/src/app.jsx:570 builder/src/app.jsx:898 builder/src/app.jsx:906
 msgid "All settings"
 msgstr "모든 설정"
 
@@ -6266,35 +6450,43 @@ msgstr "이메일, 레이아웃, 저장 후 이어서 작성, 팝업, 결제 등
 msgid "Open All settings"
 msgstr "모든 설정 열기"
 
-#: builder/src/app.jsx:845
+#: builder/src/app.jsx:834
+msgid "A form becomes a quiz when a Radio or Dropdown field has a correct answer. Put {quiz_answer_key} in the confirmation to list every question with the answer given."
+msgstr ""
+
+#: builder/src/app.jsx:838
+msgid "Negative marking, e.g. 0.25. 0 = none. Unanswered questions score 0; the total can go below zero."
+msgstr ""
+
+#: builder/src/app.jsx:888
 msgid "These are saved with the form when you press Save form."
 msgstr "양식 저장을 누르면 양식과 함께 저장됩니다."
 
-#: builder/src/app.jsx:860
+#: builder/src/app.jsx:903
 msgid "Press Save settings at the bottom before you close this window."
 msgstr "이 창을 닫기 전에 아래의 설정 저장을 누르세요."
 
-#: builder/src/app.jsx:892
+#: builder/src/app.jsx:935
 msgid "fields"
 msgstr "필드"
 
-#: builder/src/app.jsx:913
+#: builder/src/app.jsx:956
 msgid "Add a field"
 msgstr "필드 추가"
 
-#: builder/src/app.jsx:915
+#: builder/src/app.jsx:958
 msgid "Click to append, or drag onto the canvas to place."
 msgstr "클릭하면 끝에 추가되고, 캔버스로 끌어다 놓으면 원하는 위치에 놓입니다."
 
-#: builder/src/app.jsx:922
+#: builder/src/app.jsx:965
 msgid "Pro fields"
 msgstr "Pro 필드"
 
-#: builder/src/app.jsx:924
+#: builder/src/app.jsx:967
 msgid "Activate your Pro license to add these."
 msgstr "이 필드를 추가하려면 Pro 라이선스를 활성화하세요."
 
-#: builder/src/app.jsx:936
+#: builder/src/app.jsx:979
 msgid "Requires an active Pro license"
 msgstr "활성 Pro 라이선스가 필요합니다"
 
@@ -6426,169 +6618,169 @@ msgstr "예: [{\"id\":\"name\",\"type\":\"text\",\"label\":\"Name\"}]. 비워 �
 msgid "Correct answer value (quiz)"
 msgstr "정답 값(퀴즈)"
 
-#: builder/src/field-panel.jsx:128
+#: builder/src/field-panel.jsx:129
 msgid "Check it is a full phone number (7 to 15 digits, + allowed)"
 msgstr "전체 전화번호인지 확인(7~15자리, + 허용)"
 
-#: builder/src/field-panel.jsx:129
+#: builder/src/field-panel.jsx:130
 msgid "Statements (one per line)"
 msgstr "문항 (한 줄에 하나)"
 
-#: builder/src/field-panel.jsx:130
+#: builder/src/field-panel.jsx:131
 msgid "Label under 0"
 msgstr "0 아래 레이블"
 
-#: builder/src/field-panel.jsx:131
+#: builder/src/field-panel.jsx:132
 msgid "Label under 10"
 msgstr "10 아래 레이블"
 
-#: builder/src/field-panel.jsx:132
+#: builder/src/field-panel.jsx:133
 msgid "Open days (1 = Monday ... 7 = Sunday)"
 msgstr "영업일 (1 = 월요일 ... 7 = 일요일)"
 
-#: builder/src/field-panel.jsx:133
+#: builder/src/field-panel.jsx:134
 msgid "Opens at (HH:MM)"
 msgstr "시작 시각 (HH:MM)"
 
-#: builder/src/field-panel.jsx:134
+#: builder/src/field-panel.jsx:135
 msgid "Closes at (HH:MM)"
 msgstr "종료 시각 (HH:MM)"
 
-#: builder/src/field-panel.jsx:135
+#: builder/src/field-panel.jsx:136
 msgid "Slot length (minutes)"
 msgstr "시간대 길이(분)"
 
-#: builder/src/field-panel.jsx:136
+#: builder/src/field-panel.jsx:137
 msgid "Break between slots (minutes)"
 msgstr "시간대 사이 휴식(분)"
 
-#: builder/src/field-panel.jsx:137
+#: builder/src/field-panel.jsx:138
 msgid "People per slot"
 msgstr "시간대당 인원"
 
-#: builder/src/field-panel.jsx:138
+#: builder/src/field-panel.jsx:139
 msgid "Days ahead people can book"
 msgstr "며칠 앞까지 예약 가능"
 
-#: builder/src/field-panel.jsx:139
+#: builder/src/field-panel.jsx:140
 msgid "Minimum notice (hours)"
 msgstr "최소 사전 예약 시간(시간)"
 
-#: builder/src/field-panel.jsx:140
+#: builder/src/field-panel.jsx:141
 msgid "Closed dates (one per line, YYYY-MM-DD or YYYY-MM-DD..YYYY-MM-DD)"
 msgstr "휴무일 (한 줄에 하나, YYYY-MM-DD 또는 YYYY-MM-DD..YYYY-MM-DD)"
 
-#: builder/src/field-panel.jsx:141
+#: builder/src/field-panel.jsx:142
 msgid "Attach a calendar file (.ics) to emails"
 msgstr "이메일에 캘린더 파일(.ics) 첨부"
 
-#: builder/src/field-panel.jsx:142
+#: builder/src/field-panel.jsx:143
 msgid "Take answers from form (form ID)"
 msgstr "답변을 가져올 양식(양식 ID)"
 
-#: builder/src/field-panel.jsx:142
+#: builder/src/field-panel.jsx:143
 msgid "The number in the form's shortcode, e.g. 12 in [trinity-forms id=\"12\"]."
 msgstr "양식 숏코드의 숫자입니다. 예: [trinity-forms id=\"12\"]의 12."
 
-#: builder/src/field-panel.jsx:143
+#: builder/src/field-panel.jsx:144
 msgid "Field in that form"
 msgstr "그 양식의 필드"
 
-#: builder/src/field-panel.jsx:147
+#: builder/src/field-panel.jsx:148
 msgid "Dropdown of the answers"
 msgstr "답변 드롭다운"
 
-#: builder/src/field-panel.jsx:148
+#: builder/src/field-panel.jsx:149
 msgid "Text box filled with the person's latest answer"
 msgstr "그 사람의 최근 답변이 채워진 텍스트 상자"
 
-#: builder/src/field-panel.jsx:162
+#: builder/src/field-panel.jsx:163
 msgid "Product type"
 msgstr "상품 유형"
 
-#: builder/src/field-panel.jsx:164
+#: builder/src/field-panel.jsx:165
 msgid "Single item at a fixed price"
 msgstr "고정 가격의 단일 상품"
 
-#: builder/src/field-panel.jsx:170
+#: builder/src/field-panel.jsx:171
 msgid "Product (field ID)"
 msgstr "상품(필드 ID)"
 
-#: builder/src/field-panel.jsx:180
+#: builder/src/field-panel.jsx:181
 msgid "Minimum length"
 msgstr "최소 길이"
 
-#: builder/src/field-panel.jsx:181
+#: builder/src/field-panel.jsx:182
 msgid "Maximum length"
 msgstr "최대 길이"
 
-#: builder/src/field-panel.jsx:182
+#: builder/src/field-panel.jsx:183
 msgid "Maximum rows"
 msgstr "최대 행 수"
 
-#: builder/src/field-panel.jsx:183
+#: builder/src/field-panel.jsx:184
 msgid "Maximum choices"
 msgstr "최대 선택 수"
 
-#: builder/src/field-panel.jsx:185
+#: builder/src/field-panel.jsx:186
 msgid "Only the logged-in person's own entries"
 msgstr "로그인한 사람의 항목만"
 
-#: builder/src/field-panel.jsx:185
+#: builder/src/field-panel.jsx:186
 msgid "Off: every visitor sees the answers from all entries in the dropdown, so email, phone and name fields can't be used."
 msgstr "끄면: 모든 방문자가 드롭다운에서 모든 항목의 답변을 보게 되므로 이메일, 전화번호, 이름 필드는 사용할 수 없습니다."
 
-#: builder/src/field-panel.jsx:208
+#: builder/src/field-panel.jsx:209
 msgid "Email, phone and name fields are listed only when \"Only the logged-in person's own entries\" is on."
 msgstr "이메일, 전화번호, 이름 필드는 \"로그인한 사람의 항목만\"이 켜져 있을 때만 표시됩니다."
 
-#: builder/src/field-panel.jsx:219
+#: builder/src/field-panel.jsx:220
 msgid "The saved field can't be used here, so the dropdown stays empty. Pick another field or turn on \"Only the logged-in person's own entries\"."
 msgstr "저장된 필드는 여기서 사용할 수 없어 드롭다운이 비어 있습니다. 다른 필드를 고르거나 \"로그인한 사람의 항목만\"을 켜세요."
 
-#: builder/src/field-panel.jsx:249
+#: builder/src/field-panel.jsx:250
 msgid "Field settings"
 msgstr "필드 설정"
 
-#: builder/src/field-panel.jsx:258
+#: builder/src/field-panel.jsx:259
 msgid "Allow multiple selections"
 msgstr "여러 개 선택 허용"
 
-#: builder/src/field-panel.jsx:335
+#: builder/src/field-panel.jsx:336
 msgid "Used by"
 msgstr "사용하는 곳"
 
 #. translators: %s: field label
-#: builder/src/field-panel.jsx:341
+#: builder/src/field-panel.jsx:342
 msgid "%s (calculation)"
 msgstr "%s (계산)"
 
 #. translators: %s: field label
-#: builder/src/field-panel.jsx:342
+#: builder/src/field-panel.jsx:343
 msgid "%s (show / hide rule)"
 msgstr "%s (표시 / 숨김 규칙)"
 
-#: builder/src/field-panel.jsx:347
+#: builder/src/field-panel.jsx:348
 msgid "No other field uses this one in a rule or a calculation."
 msgstr "규칙이나 계산에서 이 필드를 쓰는 다른 필드가 없습니다."
 
-#: builder/src/field-panel.jsx:349
+#: builder/src/field-panel.jsx:350
 msgid "Changing this field's ID or choices can break these."
 msgstr "이 필드의 ID나 선택지를 바꾸면 이것들이 깨질 수 있습니다."
 
-#: builder/src/field-panel.jsx:358
+#: builder/src/field-panel.jsx:359
 msgid "Select a field to edit its settings."
 msgstr "설정을 편집할 필드를 선택하세요."
 
-#: builder/src/field-panel.jsx:419
+#: builder/src/field-panel.jsx:420
 msgid "A regular expression the value must match. Leave empty for no check."
 msgstr "값이 일치해야 하는 정규식입니다. 확인하지 않으려면 비워 두세요."
 
-#: builder/src/field-panel.jsx:482
+#: builder/src/field-panel.jsx:483
 msgid "Shown instead of the label in entries and exports. Useful when the public label is a long question."
 msgstr "항목과 내보내기에서 레이블 대신 표시됩니다. 공개 레이블이 긴 질문일 때 유용합니다."
 
-#: builder/src/field-panel.jsx:526
+#: builder/src/field-panel.jsx:527
 msgid "Replaces the built-in \"this field is required\" wording."
 msgstr "기본 문구 \"이 필드는 필수입니다\"를 대체합니다."
 

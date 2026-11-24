@@ -104,7 +104,11 @@ $tf_names     = implode( ", ", array_map( static fn( $i ) => $i->label(), $tf_im
         <div class="jnkui-table-wrap"><table class="jnkui-table">
             <thead>
                 <tr>
-                    <th style="width:2.5em"><span class="screen-reader-text"><?php esc_html_e( "Select", "trinity-forms" ); ?></span></th>
+                    <th style="width:2.5em">
+                        <label class="screen-reader-text" for="tf-import-all"><?php esc_html_e( "Select all", "trinity-forms" ); ?></label>
+                        <?php // A quiz site can hold hundreds of quizzes: one tick for all of them. ?>
+                        <input type="checkbox" id="tf-import-all" onclick="document.querySelectorAll('input[name=&quot;source[]&quot;]').forEach(function(c){c.checked=this.checked;},this)" />
+                    </th>
                     <th><?php esc_html_e( "Form", "trinity-forms" ); ?></th>
                     <th><?php esc_html_e( "From", "trinity-forms" ); ?></th>
                     <th class="is-num"><?php esc_html_e( "Entries", "trinity-forms" ); ?></th>

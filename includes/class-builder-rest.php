@@ -143,7 +143,7 @@ class Builder_REST {
             // editor's settings box writes (Form_Basics), plus pages to send people to.
             // Restrictions (schedule, entry limits, login) ride along in the same
             // object: the keys the block editor's Restrictions tab writes.
-            "settings"     => Form_Basics::get( (int) $post->ID ) + Restriction_Settings::get( (int) $post->ID ),
+            "settings"     => Form_Basics::get( (int) $post->ID ) + Restriction_Settings::get( (int) $post->ID ) + Quiz_Settings::get( (int) $post->ID ),
             "pages"        => Form_Basics::pages(),
         ] );
     }
@@ -354,6 +354,7 @@ class Builder_REST {
         if ( is_array( $settings ) ) {
             Form_Basics::save( (int) $post->ID, $settings );
             Restriction_Settings::save( (int) $post->ID, $settings );
+            Quiz_Settings::save( (int) $post->ID, $settings );
         }
 
         $fresh = get_post( $post->ID );

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trinity Forms 2.16.2\n"
 "Report-Msgid-Bugs-To: https://jnkplugins.com/contact.php\n"
-"POT-Creation-Date: 2026-11-20T07:04:16+00:00\n"
+"POT-Creation-Date: 2026-11-24T14:41:26+00:00\n"
 "PO-Revision-Date: 2026-10-29 12:00+0000\n"
 "Last-Translator: JNK Plugins\n"
 "Language-Team: Hindi\n"
@@ -39,7 +39,7 @@ msgstr "<strong>%s Pro चालू है।</strong> धन्यवाद! �
 msgid "<strong>%s Pro is installed, but no Pro license is active on this site.</strong> Enter your license key to switch on the Pro tools."
 msgstr "<strong>%s Pro इंस्टॉल है, लेकिन इस साइट पर कोई Pro लाइसेंस सक्रिय नहीं है।</strong> Pro टूल चालू करने के लिए अपनी लाइसेंस Key डालें।"
 
-#: pro/licensorpro-client/licensorpro-client.php:857 builder/src/app.jsx:926
+#: pro/licensorpro-client/licensorpro-client.php:857 builder/src/app.jsx:969
 msgid "Enter license key"
 msgstr "लाइसेंस Key डालें"
 
@@ -324,7 +324,7 @@ msgid "renewal payment failed, Pro tools stay on until %s"
 msgstr "नवीनीकरण भुगतान विफल रहा, Pro टूल %s तक चालू रहेंगे"
 
 #: pro/licensorpro-client/licensorpro-client.php:2175
-#: admin/views/entries-list.php:366 admin/views/entry-detail.php:389
+#: admin/views/entries-list.php:401 admin/views/entry-detail.php:401
 #: includes/class-entries.php:686 includes/class-my-submissions.php:54
 msgid "Status"
 msgstr "स्थिति"
@@ -592,8 +592,8 @@ msgstr "टेम्पलेट"
 
 #: admin/class-admin-ui.php:62 admin/class-admin-ui.php:296
 #: admin/class-admin.php:206 admin/class-admin.php:207
-#: admin/class-forms-list.php:77 admin/views/entries-list.php:136
-#: admin/views/import.php:110 includes/class-entries.php:911
+#: admin/class-forms-list.php:77 admin/views/entries-list.php:155
+#: admin/views/import.php:114 includes/class-entries.php:920
 msgid "Entries"
 msgstr "एंट्रियाँ"
 
@@ -660,7 +660,7 @@ msgid "Show entries on your site as a table, a list or cards. Put a View on any 
 msgstr "अपनी साइट पर एंट्रियों को टेबल, सूची या कार्ड के रूप में दिखाएँ। किसी भी पेज पर व्यू को उसके शॉर्टकोड से लगाएँ।"
 
 #: admin/class-admin-ui.php:252 admin/class-forms-list.php:61
-#: builder/src/app.jsx:872
+#: builder/src/app.jsx:915
 msgid "Start from a template"
 msgstr "किसी टेम्पलेट से शुरू करें"
 
@@ -693,8 +693,8 @@ msgstr "कोई ड्राफ़्ट बाकी नहीं"
 msgid "Kept in your own database"
 msgstr "आपके अपने डेटाबेस में रखी गईं"
 
-#: admin/class-admin-ui.php:298 admin/views/entries-list.php:210
-#: admin/views/entries-list.php:431
+#: admin/class-admin-ui.php:298 admin/views/entries-list.php:229
+#: admin/views/entries-list.php:466
 msgid "Unread"
 msgstr "बिना पढ़ी"
 
@@ -793,7 +793,7 @@ msgstr "मर्ज टैग डालें"
 msgid "Sending…"
 msgstr "भेजा जा रहा है…"
 
-#: admin/class-form-editor.php:82 admin/class-form-editor.php:841
+#: admin/class-form-editor.php:82 admin/class-form-editor.php:910
 #: includes/fields/class-field-product.php:65
 msgid "— select —"
 msgstr "— चुनें —"
@@ -831,469 +831,549 @@ msgstr "लेआउट"
 msgid "Restrictions"
 msgstr "पाबंदियाँ"
 
-#: admin/class-form-editor.php:135 builder/src/app.jsx:722
+#: admin/class-form-editor.php:127 builder/src/app.jsx:832
+msgid "Quiz"
+msgstr ""
+
+#: admin/class-form-editor.php:136 builder/src/app.jsx:722
 msgid "Submit button text"
 msgstr "सबमिट बटन का टेक्स्ट"
 
-#: admin/class-form-editor.php:136 admin/class-form-editor.php:352
+#: admin/class-form-editor.php:137 admin/class-form-editor.php:353
 #: includes/class-form-basics.php:48 includes/class-form-manager.php:325
 #: includes/class-gf-importer.php:231 public/class-form-renderer.php:166
 #: builder/src/app.jsx:724
 msgid "Submit"
 msgstr "भेजें"
 
-#: admin/class-form-editor.php:138 builder/src/app.jsx:728
+#: admin/class-form-editor.php:139 builder/src/app.jsx:728
 msgid "After submit"
 msgstr "सबमिट करने के बाद"
 
-#: admin/class-form-editor.php:140 builder/src/app.jsx:731
+#: admin/class-form-editor.php:141 builder/src/app.jsx:731
 msgid "Show a message"
 msgstr "संदेश दिखाएँ"
 
-#: admin/class-form-editor.php:141 builder/src/app.jsx:732
+#: admin/class-form-editor.php:142 builder/src/app.jsx:732
 msgid "Go to a page"
 msgstr "किसी पेज पर भेजें"
 
-#: admin/class-form-editor.php:142 builder/src/app.jsx:733
+#: admin/class-form-editor.php:143 builder/src/app.jsx:733
 msgid "Go to a URL"
 msgstr "किसी URL पर भेजें"
 
-#: admin/class-form-editor.php:144 includes/importers/class-formidable.php:238
+#: admin/class-form-editor.php:145 includes/importers/class-formidable.php:238
 #: includes/importers/class-forminator.php:231
 #: includes/importers/class-wpforms.php:517 builder/src/app.jsx:739
 msgid "Confirmation message"
 msgstr "पुष्टि संदेश"
 
-#: admin/class-form-editor.php:145 includes/class-confirmations.php:46
+#: admin/class-form-editor.php:146 includes/class-confirmations.php:46
 #: includes/class-form-manager.php:327 builder/src/app.jsx:741
 msgid "Thank you!"
 msgstr "धन्यवाद!"
 
-#: admin/class-form-editor.php:146 admin/class-form-editor.php:836
+#: admin/class-form-editor.php:147 admin/class-form-editor.php:905
 #: builder/src/app.jsx:747
 msgid "Page"
 msgstr "पेज"
 
-#: admin/class-form-editor.php:148 admin/class-form-qr.php:173
+#: admin/class-form-editor.php:149 admin/class-form-qr.php:173
 #: builder/src/app.jsx:750
 msgid "Choose a page"
 msgstr "कोई पेज चुनें"
 
-#: admin/class-form-editor.php:153 builder/src/app.jsx:758
+#: admin/class-form-editor.php:154 builder/src/app.jsx:758
 msgid "Redirect URL"
 msgstr "रीडायरेक्ट URL"
 
-#: admin/class-form-editor.php:162
+#: admin/class-form-editor.php:163
 msgid "Allow save & continue later"
 msgstr "सेव करके बाद में जारी रखने दें"
 
-#: admin/class-form-editor.php:163
+#: admin/class-form-editor.php:164
 msgid "Show a save button so users can resume later via emailed link"
 msgstr "एक सहेजें बटन दिखाएँ ताकि उपयोगकर्ता ईमेल में मिले लिंक से बाद में जारी रख सकें"
 
-#: admin/class-form-editor.php:171
+#: admin/class-form-editor.php:172
 msgid "Bot challenge (CAPTCHA)"
 msgstr "बॉट जाँच (कैप्चा)"
 
 #. translators: %s: CAPTCHA provider name, e.g. "Google reCAPTCHA v2".
-#: admin/class-form-editor.php:177
+#: admin/class-form-editor.php:178
 #, php-format
 msgid "Enable the bot challenge for this form (provider: %s)"
 msgstr "इस फ़ॉर्म के लिए बॉट जाँच चालू करें (प्रदाता: %s)"
 
 #. translators: %s = link to settings page
-#: admin/class-form-editor.php:184
+#: admin/class-form-editor.php:185
 #, php-format
 msgid "Add the CAPTCHA provider's site + secret keys in %s first."
 msgstr "पहले %s में कैप्चा प्रदाता की site + secret Keys जोड़ें।"
 
-#: admin/class-form-editor.php:185
+#: admin/class-form-editor.php:186
 msgid "Trinity Forms Settings"
 msgstr "Trinity Forms सेटिंग्स"
 
-#: admin/class-form-editor.php:190
+#: admin/class-form-editor.php:191
 msgid "Retention (days)"
 msgstr "रखने की अवधि (दिन)"
 
-#: admin/class-form-editor.php:192
+#: admin/class-form-editor.php:193
 msgid "0 = inherit global setting. Entries older than this are deleted by the daily cron."
 msgstr "0 = ग्लोबल सेटिंग अपनाएँ। इससे पुरानी एंट्रियाँ रोज़ाना के क्रॉन से हटा दी जाती हैं।"
 
 #. translators: 1: opening link tag, 2: closing link tag.
-#: admin/class-form-editor.php:204
+#: admin/class-form-editor.php:205
 #, php-format
 msgid "Your Trinity Forms Pro license is not active, so new Pro features can't be added to this form. Everything it already uses keeps working for your visitors, and you can still change it. %1$sRenew or enter your license key in Settings%2$s."
 msgstr "आपका Trinity Forms Pro लाइसेंस सक्रिय नहीं है, इसलिए इस फ़ॉर्म में नए Pro फ़ीचर नहीं जोड़े जा सकते। जो पहले से इस्तेमाल हो रहा है वह आपके विज़िटर के लिए काम करता रहेगा, और आप इसे अब भी बदल सकते हैं। %1$sसेटिंग्स में रिन्यू करें या अपनी लाइसेंस Key डालें%2$s।"
 
 #. translators: 1: opening link tag, 2: closing link tag.
-#: admin/class-form-editor.php:217
+#: admin/class-form-editor.php:218
 #, php-format
 msgid "Pro is installed but not activated. %1$sEnter your license key in Settings%2$s to turn on file uploads, payments, integrations and the other Pro features."
 msgstr "Pro इंस्टॉल है पर सक्रिय नहीं है। फ़ाइल अपलोड, भुगतान, इंटीग्रेशन और बाकी Pro फ़ीचर चालू करने के लिए %1$sसेटिंग्स में अपनी लाइसेंस Key डालें%2$s।"
 
 #. translators: 1: opening link tag, 2: closing link tag.
-#: admin/class-form-editor.php:236
+#: admin/class-form-editor.php:237
 #, php-format
 msgid "Need signatures, payments or save and continue? %1$sSee what Pro adds%2$s."
 msgstr "हस्ताक्षर, भुगतान या सेव करके बाद में जारी रखना चाहिए? %1$sदेखें Pro में क्या मिलता है%2$s।"
 
 #. translators: %s: the embed shortcode, wrapped in a <code> tag.
-#: admin/class-form-editor.php:248
+#: admin/class-form-editor.php:249
 #, php-format
 msgid "Embed shortcode: %s"
 msgstr "एम्बेड शॉर्टकोड: %s"
 
-#: admin/class-form-editor.php:253 includes/class-onboarding.php:118
+#: admin/class-form-editor.php:254 includes/class-onboarding.php:118
 msgid "Create a page with this form"
 msgstr "इस फ़ॉर्म के साथ एक पेज बनाएँ"
 
-#: admin/class-form-editor.php:254
+#: admin/class-form-editor.php:255
 msgid "Makes a draft page holding this form and opens it. Nothing goes live until you publish it."
 msgstr "इस फ़ॉर्म वाला एक ड्राफ़्ट पेज बनाता है और उसे खोलता है। जब तक आप प्रकाशित नहीं करते, कुछ भी लाइव नहीं होता।"
 
-#: admin/class-form-editor.php:259
+#: admin/class-form-editor.php:260
 msgid "Send an email each time the form is submitted."
 msgstr "हर बार फ़ॉर्म सबमिट होने पर एक ईमेल भेजें।"
 
-#: admin/class-form-editor.php:267
+#: admin/class-form-editor.php:268
 msgid "Merge tags for this form — click to copy:"
 msgstr "इस फ़ॉर्म के मर्ज टैग — कॉपी करने के लिए क्लिक करें:"
 
-#: admin/class-form-editor.php:282
+#: admin/class-form-editor.php:283
 msgid "Add fields to the form and save it to see their tags here."
 msgstr "फ़ॉर्म में फ़ील्ड जोड़ें और सहेजें, ताकि उनके टैग यहाँ दिखें।"
 
-#: admin/class-form-editor.php:288
+#: admin/class-form-editor.php:289
 msgid "+ Add notification"
 msgstr "+ सूचना जोड़ें"
 
-#: admin/class-form-editor.php:293
+#: admin/class-form-editor.php:294
 msgid "What the visitor sees after submitting. The first confirmation whose conditions match wins; if none do, the default on the General tab is used."
 msgstr "सबमिट करने के बाद विज़िटर को क्या दिखे। जिस पहले पुष्टि संदेश की शर्तें मेल खाती हैं, वही दिखता है; अगर कोई मेल नहीं खाता, तो सामान्य टैब वाला डिफ़ॉल्ट इस्तेमाल होता है।"
 
-#: admin/class-form-editor.php:303
+#: admin/class-form-editor.php:304
 msgid "+ Add confirmation"
 msgstr "+ पुष्टि संदेश जोड़ें"
 
-#: admin/class-form-editor.php:305
+#: admin/class-form-editor.php:306
 msgid "Suspected spam"
 msgstr "संदिग्ध स्पैम"
 
-#: admin/class-form-editor.php:307 admin/class-form-editor.php:833
+#: admin/class-form-editor.php:308 admin/class-form-editor.php:902
 #: admin/views/feedback.php:62 includes/class-block-defaults.php:62
 #: includes/class-plugin.php:210 includes/class-templates.php:72
 msgid "Message"
 msgstr "संदेश"
 
-#: admin/class-form-editor.php:309
+#: admin/class-form-editor.php:310
 msgid "Leave blank to show the normal confirmation"
 msgstr "सामान्य पुष्टि संदेश दिखाने के लिए खाली छोड़ें"
 
-#: admin/class-form-editor.php:311
+#: admin/class-form-editor.php:312
 msgid "Blank is the safer default: telling a bot it was caught helps it tune around the filter, and telling a wrongly-flagged person the same thing helps nobody. The submission is kept either way — look under Entries → Spam."
 msgstr "खाली छोड़ना ज़्यादा सुरक्षित है: बॉट को बताना कि वह पकड़ा गया, उसे फ़िल्टर से बचना सिखाता है, और गलती से पकड़े गए व्यक्ति को यही बताने से किसी का भला नहीं होता। सबमिशन दोनों हालात में रखा जाता है — एंट्रियाँ → स्पैम में देखें।"
 
-#: admin/class-form-editor.php:318
+#: admin/class-form-editor.php:319
 msgid "How the form looks. Every setting here is a default — a field that makes its own choice keeps it."
 msgstr "फ़ॉर्म कैसा दिखे। यहाँ की हर सेटिंग डिफ़ॉल्ट है — जो फ़ील्ड अपनी सेटिंग खुद चुनता है, उसकी वही रहती है।"
 
-#: admin/class-form-editor.php:325
+#: admin/class-form-editor.php:326
 msgid "Style"
 msgstr "स्टाइल"
 
-#: admin/class-form-editor.php:333
+#: admin/class-form-editor.php:334
 msgid "Accent colour"
 msgstr "मुख्य रंग"
 
-#: admin/class-form-editor.php:336
+#: admin/class-form-editor.php:337
 msgid "Reset"
 msgstr "रीसेट करें"
 
-#: admin/class-form-editor.php:337
+#: admin/class-form-editor.php:338
 msgid "Used for the button, the focus ring and ticked boxes."
 msgstr "बटन, फ़ोकस रिंग और टिक किए गए बॉक्स के लिए इस्तेमाल होता है।"
 
-#: admin/class-form-editor.php:343
+#: admin/class-form-editor.php:344
 msgid "Preview"
 msgstr "पूर्वावलोकन"
 
-#: admin/class-form-editor.php:350
+#: admin/class-form-editor.php:351
 msgid "Your name"
 msgstr "आपका नाम"
 
-#: admin/class-form-editor.php:351
+#: admin/class-form-editor.php:352
 msgid "Send me a copy"
 msgstr "मुझे एक कॉपी भेजें"
 
-#: admin/class-form-editor.php:354
+#: admin/class-form-editor.php:355
 msgid "A rough preview. Your theme's fonts and colours also apply on the real page."
 msgstr "एक मोटा पूर्वावलोकन। असली पेज पर आपकी थीम के फ़ॉन्ट और रंग भी लागू होते हैं।"
 
-#: admin/class-form-editor.php:357
+#: admin/class-form-editor.php:358
 msgid "Labels"
 msgstr "लेबल"
 
-#: admin/class-form-editor.php:361 admin/class-form-editor.php:374
-#: admin/class-form-editor.php:406 blocks/field-shared.js:155
-#: builder/src/field-panel.jsx:457
+#: admin/class-form-editor.php:362 admin/class-form-editor.php:375
+#: admin/class-form-editor.php:407 blocks/field-shared.js:155
+#: builder/src/field-panel.jsx:458
 msgid "Above the field"
 msgstr "फ़ील्ड के ऊपर"
 
-#: admin/class-form-editor.php:362
+#: admin/class-form-editor.php:363
 msgid "To the left"
 msgstr "बाईं ओर"
 
-#: admin/class-form-editor.php:363
+#: admin/class-form-editor.php:364
 msgid "To the right"
 msgstr "दाईं ओर"
 
-#: admin/class-form-editor.php:364
+#: admin/class-form-editor.php:365
 msgid "Hidden (use placeholders)"
 msgstr "छिपे हुए (प्लेसहोल्डर इस्तेमाल करें)"
 
-#: admin/class-form-editor.php:366
+#: admin/class-form-editor.php:367
 msgid "Hidden keeps the label for screen readers — it is only removed visually."
 msgstr "छिपाने पर भी लेबल स्क्रीन रीडर के लिए रहता है — यह सिर्फ़ दिखने से हटता है।"
 
-#: admin/class-form-editor.php:369 blocks/field-shared.js:108
+#: admin/class-form-editor.php:370 blocks/field-shared.js:108
 #: builder/src/field-panel.jsx:23
 msgid "Help text"
 msgstr "सहायता टेक्स्ट"
 
-#: admin/class-form-editor.php:373 admin/class-form-editor.php:405
-#: blocks/field-shared.js:154 builder/src/field-panel.jsx:456
+#: admin/class-form-editor.php:374 admin/class-form-editor.php:406
+#: blocks/field-shared.js:154 builder/src/field-panel.jsx:457
 msgid "Below the field"
 msgstr "फ़ील्ड के नीचे"
 
-#: admin/class-form-editor.php:378
+#: admin/class-form-editor.php:379
 msgid "Sub-labels"
 msgstr "सब-लेबल"
 
-#: admin/class-form-editor.php:382
+#: admin/class-form-editor.php:383
 msgid "Below the input"
 msgstr "इनपुट के नीचे"
 
-#: admin/class-form-editor.php:383
+#: admin/class-form-editor.php:384
 msgid "Above the input"
 msgstr "इनपुट के ऊपर"
 
-#: admin/class-form-editor.php:384 includes/class-block-defaults.php:42
+#: admin/class-form-editor.php:385 includes/class-block-defaults.php:42
 #: blocks/field-hidden/index.js:34
 msgid "Hidden"
 msgstr "छिपा हुआ"
 
-#: admin/class-form-editor.php:386
+#: admin/class-form-editor.php:387
 msgid "The \"First\" and \"Last\" under a name field, or the parts of an address."
 msgstr "नाम फ़ील्ड के नीचे \"पहला\" और \"अंतिम\", या पते के हिस्से।"
 
-#: admin/class-form-editor.php:389
+#: admin/class-form-editor.php:390
 msgid "Required fields"
 msgstr "ज़रूरी फ़ील्ड"
 
-#: admin/class-form-editor.php:393
+#: admin/class-form-editor.php:394
 msgid "Mark required with *"
 msgstr "ज़रूरी फ़ील्ड पर * लगाएँ"
 
-#: admin/class-form-editor.php:394
+#: admin/class-form-editor.php:395
 msgid "Mark required with \"(required)\""
 msgstr "ज़रूरी फ़ील्ड पर \"(ज़रूरी)\" लगाएँ"
 
-#: admin/class-form-editor.php:395
+#: admin/class-form-editor.php:396
 msgid "Mark the optional ones instead"
 msgstr "इसके बजाय वैकल्पिक फ़ील्ड पर निशान लगाएँ"
 
-#: admin/class-form-editor.php:396
+#: admin/class-form-editor.php:397
 msgid "Do not mark either"
 msgstr "किसी पर निशान न लगाएँ"
 
-#: admin/class-form-editor.php:398
+#: admin/class-form-editor.php:399
 msgid "On a form where nearly everything is required, marking the optional ones reads better."
 msgstr "जिस फ़ॉर्म में लगभग सब कुछ ज़रूरी है, वहाँ वैकल्पिक फ़ील्ड पर निशान लगाना बेहतर पढ़ता है।"
 
-#: admin/class-form-editor.php:401
+#: admin/class-form-editor.php:402
 msgid "Errors"
 msgstr "त्रुटियाँ"
 
-#: admin/class-form-editor.php:412
+#: admin/class-form-editor.php:413
 msgid "Also list every problem at the top of the form"
 msgstr "हर समस्या की सूची फ़ॉर्म के ऊपर भी दिखाएँ"
 
-#: admin/class-form-editor.php:414
+#: admin/class-form-editor.php:415
 msgid "Worth turning on for a long form, where the inline errors can all be below the fold and a failed submit looks like nothing happened."
 msgstr "लंबे फ़ॉर्म के लिए चालू करना अच्छा है, जहाँ सारी त्रुटियाँ स्क्रीन के नीचे हो सकती हैं और विफल सबमिट ऐसा लगता है जैसे कुछ हुआ ही नहीं।"
 
-#: admin/class-form-editor.php:417
+#: admin/class-form-editor.php:418
 msgid "Form CSS class"
 msgstr "फ़ॉर्म की CSS क्लास"
 
-#: admin/class-form-editor.php:421
+#: admin/class-form-editor.php:422
 msgid "Submit button"
 msgstr "सबमिट बटन"
 
-#: admin/class-form-editor.php:423
+#: admin/class-form-editor.php:424
 msgid "Image"
 msgstr "इमेज"
 
-#: admin/class-form-editor.php:426
+#: admin/class-form-editor.php:427
 msgid "Leave blank for a normal button. The button text above is used as the image's alt text."
 msgstr "सामान्य बटन के लिए खाली छोड़ें। ऊपर का बटन टेक्स्ट इमेज के alt टेक्स्ट के रूप में इस्तेमाल होता है।"
 
-#: admin/class-form-editor.php:429
+#: admin/class-form-editor.php:430
 msgid "Only show when"
 msgstr "सिर्फ़ तब दिखाएँ जब"
 
-#: admin/class-form-editor.php:438
+#: admin/class-form-editor.php:439
 msgid "— always show it —"
 msgstr "— हमेशा दिखाएँ —"
 
-#: admin/class-form-editor.php:454
+#: admin/class-form-editor.php:455
 msgid "Useful for a consent checkbox that has to be ticked before the form can be sent."
 msgstr "सहमति चेकबॉक्स के लिए काम का, जिसे फ़ॉर्म भेजने से पहले टिक करना ज़रूरी हो।"
 
-#: admin/class-form-editor.php:460 builder/src/app.jsx:769
+#: admin/class-form-editor.php:461 builder/src/app.jsx:769
 msgid "Control when the form accepts submissions, and how many it takes. Leave a field blank or at 0 to leave that rule off."
 msgstr "तय करें कि फ़ॉर्म कब सबमिशन ले और कितने ले। किसी नियम को बंद रखने के लिए फ़ील्ड खाली या 0 पर छोड़ें।"
 
-#: admin/class-form-editor.php:462 builder/src/app.jsx:771
+#: admin/class-form-editor.php:463 builder/src/app.jsx:771
 msgid "Schedule"
 msgstr "समय-सारणी"
 
-#: admin/class-form-editor.php:464 builder/src/app.jsx:773
+#: admin/class-form-editor.php:465 builder/src/app.jsx:773
 msgid "Opens"
 msgstr "खुलता है"
 
-#: admin/class-form-editor.php:467 builder/src/app.jsx:776
+#: admin/class-form-editor.php:468 builder/src/app.jsx:776
 msgid "Before this, visitors see the message below instead of the form. Uses your site's timezone."
 msgstr "इससे पहले विज़िटर को फ़ॉर्म की जगह नीचे वाला संदेश दिखता है। आपकी साइट के टाइमज़ोन का इस्तेमाल होता है।"
 
-#: admin/class-form-editor.php:469 builder/src/app.jsx:780
+#: admin/class-form-editor.php:470 builder/src/app.jsx:780
 msgid "Message before it opens"
 msgstr "खुलने से पहले का संदेश"
 
-#: admin/class-form-editor.php:470 includes/class-restrictions.php:73
+#: admin/class-form-editor.php:471 includes/class-restrictions.php:73
 #: builder/src/app.jsx:782
 msgid "This form is not open yet."
 msgstr "यह फ़ॉर्म अभी खुला नहीं है।"
 
-#: admin/class-form-editor.php:471 builder/src/app.jsx:786
+#: admin/class-form-editor.php:472 builder/src/app.jsx:786
 msgid "Closes"
 msgstr "बंद होता है"
 
-#: admin/class-form-editor.php:473 builder/src/app.jsx:792
+#: admin/class-form-editor.php:474 builder/src/app.jsx:792
 msgid "Message after it closes"
 msgstr "बंद होने के बाद का संदेश"
 
-#: admin/class-form-editor.php:474 includes/class-restrictions.php:81
+#: admin/class-form-editor.php:475 includes/class-restrictions.php:81
 #: builder/src/app.jsx:794
 msgid "This form is now closed."
 msgstr "यह फ़ॉर्म अब बंद हो चुका है।"
 
-#: admin/class-form-editor.php:477 builder/src/app.jsx:797
+#: admin/class-form-editor.php:478 builder/src/app.jsx:797
 msgid "Entry limits"
 msgstr "एंट्री की सीमाएँ"
 
-#: admin/class-form-editor.php:479 builder/src/app.jsx:799
+#: admin/class-form-editor.php:480 builder/src/app.jsx:799
 msgid "Total entries"
 msgstr "कुल एंट्रियाँ"
 
-#: admin/class-form-editor.php:482 builder/src/app.jsx:799
+#: admin/class-form-editor.php:483 builder/src/app.jsx:799
 msgid "0 = unlimited. Spam and trashed entries do not count towards the limit."
 msgstr "0 = असीमित। स्पैम और ट्रैश की गई एंट्रियाँ सीमा में नहीं गिनी जातीं।"
 
-#: admin/class-form-editor.php:484 builder/src/app.jsx:800
+#: admin/class-form-editor.php:485 builder/src/app.jsx:800
 msgid "Per logged-in user"
 msgstr "हर लॉग-इन उपयोगकर्ता के लिए"
 
-#: admin/class-form-editor.php:486 builder/src/app.jsx:801
+#: admin/class-form-editor.php:487 builder/src/app.jsx:801
 msgid "Per IP address"
 msgstr "हर IP पते के लिए"
 
-#: admin/class-form-editor.php:489 builder/src/app.jsx:801
+#: admin/class-form-editor.php:490 builder/src/app.jsx:801
 msgid "Blunt: everyone behind one office router or mobile network shares an address."
 msgstr "मोटा तरीका: एक ही ऑफ़िस राउटर या मोबाइल नेटवर्क के पीछे सभी लोग एक ही पता साझा करते हैं।"
 
-#: admin/class-form-editor.php:491 builder/src/app.jsx:814
+#: admin/class-form-editor.php:492 builder/src/app.jsx:814
 msgid "Message when full"
 msgstr "भर जाने पर संदेश"
 
-#: admin/class-form-editor.php:492 includes/class-restrictions.php:99
+#: admin/class-form-editor.php:493 includes/class-restrictions.php:99
 #: builder/src/app.jsx:816
 msgid "This form is no longer accepting submissions."
 msgstr "यह फ़ॉर्म अब सबमिशन स्वीकार नहीं कर रहा है।"
 
-#: admin/class-form-editor.php:493 builder/src/app.jsx:820
+#: admin/class-form-editor.php:494 builder/src/app.jsx:820
 msgid "Message when you've already submitted"
 msgstr "पहले से सबमिट करने पर संदेश"
 
-#: admin/class-form-editor.php:494 includes/class-restrictions.php:110
+#: admin/class-form-editor.php:495 includes/class-restrictions.php:110
 #: includes/class-restrictions.php:122 builder/src/app.jsx:822
 msgid "You have already submitted this form."
 msgstr "आप यह फ़ॉर्म पहले ही सबमिट कर चुके हैं।"
 
-#: admin/class-form-editor.php:497 builder/src/app.jsx:825
+#: admin/class-form-editor.php:498 builder/src/app.jsx:825
 msgid "Poll"
 msgstr "पोल"
 
-#: admin/class-form-editor.php:499
+#: admin/class-form-editor.php:500
 msgid "Poll mode"
 msgstr "पोल मोड"
 
-#: admin/class-form-editor.php:504 builder/src/app.jsx:827
+#: admin/class-form-editor.php:505 builder/src/app.jsx:827
 msgid "Poll: after a vote, show the results instead of the form"
 msgstr "पोल: वोट देने के बाद फ़ॉर्म की जगह नतीजे दिखाएँ"
 
-#: admin/class-form-editor.php:506 builder/src/app.jsx:828
+#: admin/class-form-editor.php:507 builder/src/app.jsx:828
 msgid "The browser remembers the vote, so there is no IP check. The results show right after voting and on later visits from the same browser. The limits above, if you set one, also show the results instead of an error."
 msgstr "वोट ब्राउज़र याद रखता है, इसलिए कोई IP जाँच नहीं होती। नतीजे वोट देते ही और उसी ब्राउज़र से अगली बार आने पर दिखते हैं। ऊपर की कोई सीमा लगाने पर भी त्रुटि की जगह नतीजे दिखते हैं।"
 
-#: admin/class-form-editor.php:510 builder/src/app.jsx:832
+#: admin/class-form-editor.php:511 builder/src/app.jsx:875
 msgid "Who can submit"
 msgstr "कौन सबमिट कर सकता है"
 
-#: admin/class-form-editor.php:512
+#: admin/class-form-editor.php:513
 msgid "Require login"
 msgstr "लॉग-इन ज़रूरी करें"
 
-#: admin/class-form-editor.php:517 builder/src/app.jsx:834
+#: admin/class-form-editor.php:518 builder/src/app.jsx:877
 msgid "Only logged-in users may see and submit this form"
 msgstr "सिर्फ़ लॉग-इन उपयोगकर्ता यह फ़ॉर्म देख और सबमिट कर सकें"
 
-#: admin/class-form-editor.php:520 builder/src/app.jsx:839
+#: admin/class-form-editor.php:521 builder/src/app.jsx:882
 msgid "Message for logged-out visitors"
 msgstr "लॉग-आउट विज़िटर के लिए संदेश"
 
-#: admin/class-form-editor.php:521 includes/class-restrictions.php:52
-#: builder/src/app.jsx:841
+#: admin/class-form-editor.php:522 includes/class-restrictions.php:52
+#: builder/src/app.jsx:884
 msgid "Please log in to fill in this form."
 msgstr "यह फ़ॉर्म भरने के लिए कृपया लॉग इन करें।"
 
-#: admin/class-form-editor.php:644
+#: admin/class-form-editor.php:531
+msgid "A form becomes a quiz when a Radio or Dropdown field has a correct answer (in the field's settings). These settings apply to the whole quiz."
+msgstr ""
+
+#: admin/class-form-editor.php:532
+msgid "Marking"
+msgstr ""
+
+#: admin/class-form-editor.php:534 blocks/field-radio/index.js:37
+#: blocks/field-select/index.js:37 builder/src/app.jsx:837
+#: builder/src/field-panel.jsx:128
+msgid "Points off for a wrong answer"
+msgstr ""
+
+#: admin/class-form-editor.php:537
+msgid "Negative marking, e.g. 0.25. 0 = none. A question left unanswered scores 0, and the total can go below zero. A field's own value overrides this."
+msgstr ""
+
+#: admin/class-form-editor.php:539 admin/views/entry-detail.php:307
+msgid "Answer key"
+msgstr ""
+
+#: admin/class-form-editor.php:544 builder/src/app.jsx:844
+msgid "Show the correct answers in {quiz_answer_key}"
+msgstr ""
+
+#: admin/class-form-editor.php:546
+msgid "Put {quiz_answer_key} in the confirmation message or an email to list every question with the answer given. Unticked, it shows only right or wrong."
+msgstr ""
+
+#: admin/class-form-editor.php:550
+msgid "Time limit"
+msgstr ""
+
+#: admin/class-form-editor.php:552 builder/src/app.jsx:851
+msgid "Time limit (minutes)"
+msgstr ""
+
+#: admin/class-form-editor.php:555 builder/src/app.jsx:852
+msgid "0 = no limit. 180 is a 3-hour test. When time runs out, the answers given so far are sent and scored."
+msgstr ""
+
+#: admin/class-form-editor.php:557
+msgid "Countdown"
+msgstr ""
+
+#: admin/class-form-editor.php:561 builder/src/app.jsx:859
+msgid "Show the time left (h:mm:ss) at the top of the quiz"
+msgstr ""
+
+#: admin/class-form-editor.php:564
+msgid "Order"
+msgstr ""
+
+#: admin/class-form-editor.php:566
+msgid "Shuffle"
+msgstr ""
+
+#: admin/class-form-editor.php:570 builder/src/app.jsx:864
+msgid "Shuffle the order of the questions (within each page)"
+msgstr ""
+
+#: admin/class-form-editor.php:573 builder/src/app.jsx:869
+msgid "Shuffle the answer options of each question"
+msgstr ""
+
+#: admin/class-form-editor.php:574
+msgid "Each visitor gets their own order, even on a cached page. Marks are not affected."
+msgstr ""
+
+#. translators: 1: opening link tag, 2: closing link tag.
+#: admin/class-form-editor.php:585
+#, php-format
+msgid "Need a time limit with a countdown, or shuffled questions? %1$sSee what Pro adds%2$s."
+msgstr ""
+
+#: admin/class-form-editor.php:713
 msgid "Rule"
 msgstr "नियम"
 
-#: admin/class-form-editor.php:646
+#: admin/class-form-editor.php:715
 msgid "Always send"
 msgstr "हमेशा भेजें"
 
-#: admin/class-form-editor.php:647
+#: admin/class-form-editor.php:716
 msgid "Send only when"
 msgstr "सिर्फ़ तब भेजें जब"
 
-#: admin/class-form-editor.php:648
+#: admin/class-form-editor.php:717
 msgid "Don't send when"
 msgstr "तब न भेजें जब"
 
-#: admin/class-form-editor.php:653 admin/class-form-editor.php:762
+#: admin/class-form-editor.php:722 admin/class-form-editor.php:831
 msgid "— choose a field —"
 msgstr "— कोई फ़ील्ड चुनें —"
 
 #. translators: %s: the rules in words, e.g. "Room type is group, Email is not empty".
-#: admin/class-form-editor.php:675
+#: admin/class-form-editor.php:744
 #, php-format
 msgid "%s. These rules came with an import and are kept as they are when you save. Pick \"Always send\" to remove them."
 msgstr "%s। ये नियम इंपोर्ट के साथ आए थे और सेव करने पर जैसे के तैसे बने रहते हैं। इन्हें हटाने के लिए \"हमेशा भेजें\" चुनें।"
 
-#: admin/class-form-editor.php:715 admin/class-form-editor.php:823
+#: admin/class-form-editor.php:784 admin/class-form-editor.php:892
 #: includes/class-block-defaults.php:48 includes/class-plugin.php:208
 #: includes/class-templates.php:70 includes/class-templates.php:75
 #: includes/class-templates.php:83 includes/class-templates.php:90
@@ -1304,132 +1384,132 @@ msgstr "%s। ये नियम इंपोर्ट के साथ आए 
 msgid "Name"
 msgstr "नाम"
 
-#: admin/class-form-editor.php:721
+#: admin/class-form-editor.php:790
 msgid "Enabled"
 msgstr "चालू"
 
-#: admin/class-form-editor.php:726
+#: admin/class-form-editor.php:795
 msgid "Send when"
 msgstr "कब भेजें"
 
-#: admin/class-form-editor.php:730
+#: admin/class-form-editor.php:799
 msgid "The form is submitted"
 msgstr "फ़ॉर्म सबमिट होने पर"
 
-#: admin/class-form-editor.php:731
+#: admin/class-form-editor.php:800
 msgid "A payment completes"
 msgstr "भुगतान पूरा होने पर"
 
-#: admin/class-form-editor.php:732
+#: admin/class-form-editor.php:801
 msgid "An entry is approved"
 msgstr "एंट्री स्वीकृत होने पर"
 
-#: admin/class-form-editor.php:733
+#: admin/class-form-editor.php:802
 msgid "An entry is edited"
 msgstr "एंट्री संपादित होने पर"
 
-#: admin/class-form-editor.php:751
+#: admin/class-form-editor.php:820
 msgid "Send to"
 msgstr "किसे भेजें"
 
-#: admin/class-form-editor.php:753
+#: admin/class-form-editor.php:822
 msgid "These addresses"
 msgstr "ये पते"
 
-#: admin/class-form-editor.php:754
+#: admin/class-form-editor.php:823
 msgid "An email field on the form"
 msgstr "फ़ॉर्म का कोई ईमेल फ़ील्ड"
 
-#: admin/class-form-editor.php:770
+#: admin/class-form-editor.php:839
 msgid "Cc"
 msgstr "Cc"
 
-#: admin/class-form-editor.php:773
+#: admin/class-form-editor.php:842
 msgid "Bcc"
 msgstr "Bcc"
 
-#: admin/class-form-editor.php:776
+#: admin/class-form-editor.php:845
 msgid "Reply-To"
 msgstr "Reply-To"
 
-#: admin/class-form-editor.php:778
+#: admin/class-form-editor.php:847
 msgid "Where your reply goes when you hit Reply. Put the tag of the form's email field here to answer the sender directly."
 msgstr "Reply दबाने पर आपका जवाब कहाँ जाए। भेजने वाले को सीधे जवाब देने के लिए यहाँ फ़ॉर्म के ईमेल फ़ील्ड का टैग डालें।"
 
-#: admin/class-form-editor.php:780
+#: admin/class-form-editor.php:849
 msgid "From name"
 msgstr "भेजने वाले का नाम"
 
-#: admin/class-form-editor.php:783
+#: admin/class-form-editor.php:852
 msgid "From email"
 msgstr "भेजने वाले का ईमेल"
 
-#: admin/class-form-editor.php:785
+#: admin/class-form-editor.php:854
 msgid "Leave blank. Sending as the visitor's address makes your notification fail SPF checks and land in spam — use Reply-To above instead."
 msgstr "खाली छोड़ें। विज़िटर के पते से भेजने पर आपकी सूचना SPF जाँच में फ़ेल होकर स्पैम में चली जाती है — इसकी जगह ऊपर Reply-To इस्तेमाल करें।"
 
-#: admin/class-form-editor.php:787 includes/class-templates.php:111
+#: admin/class-form-editor.php:856 includes/class-templates.php:111
 msgid "Subject"
 msgstr "विषय"
 
-#: admin/class-form-editor.php:790
+#: admin/class-form-editor.php:859
 msgid "Body"
 msgstr "मुख्य भाग"
 
-#: admin/class-form-editor.php:796
+#: admin/class-form-editor.php:865
 msgid "Attach any files uploaded with the submission"
 msgstr "सबमिशन के साथ अपलोड की गई फ़ाइलें अटैच करें"
 
-#: admin/class-form-editor.php:801
+#: admin/class-form-editor.php:870
 msgid "Send a test"
 msgstr "टेस्ट भेजें"
 
-#: admin/class-form-editor.php:802 admin/class-forms-list.php:145
+#: admin/class-form-editor.php:871 admin/class-forms-list.php:145
 msgid "Duplicate"
 msgstr "डुप्लिकेट करें"
 
-#: admin/class-form-editor.php:803 admin/class-form-editor.php:882
+#: admin/class-form-editor.php:872 admin/class-form-editor.php:951
 #: public/class-public-front.php:172
 msgid "Remove"
 msgstr "हटाएँ"
 
-#: admin/class-form-editor.php:824
+#: admin/class-form-editor.php:893
 msgid "Enterprise enquiries"
 msgstr "एंटरप्राइज़ पूछताछ"
 
-#: admin/class-form-editor.php:826
+#: admin/class-form-editor.php:895
 msgid "Then show"
 msgstr "तब दिखाएँ"
 
-#: admin/class-form-editor.php:828
+#: admin/class-form-editor.php:897
 msgid "A message"
 msgstr "एक संदेश"
 
-#: admin/class-form-editor.php:829
+#: admin/class-form-editor.php:898
 msgid "A page on this site"
 msgstr "इस साइट का कोई पेज"
 
-#: admin/class-form-editor.php:830
+#: admin/class-form-editor.php:899
 msgid "Another URL"
 msgstr "कोई दूसरा URL"
 
-#: admin/class-form-editor.php:846
+#: admin/class-form-editor.php:915
 msgid "URL"
 msgstr "URL"
 
-#: admin/class-form-editor.php:849
+#: admin/class-form-editor.php:918
 msgid "Query string"
 msgstr "क्वेरी स्ट्रिंग"
 
-#: admin/class-form-editor.php:851
+#: admin/class-form-editor.php:920
 msgid "Appended to the page or URL above. Merge tags are resolved first."
 msgstr "ऊपर वाले पेज या URL के अंत में जोड़ी जाती है। मर्ज टैग पहले बदले जाते हैं।"
 
-#: admin/class-form-editor.php:856
+#: admin/class-form-editor.php:925
 msgid "Only when"
 msgstr "सिर्फ़ तब जब"
 
-#: admin/class-form-editor.php:859
+#: admin/class-form-editor.php:928
 msgid "— always (use the default instead) —"
 msgstr "— हमेशा (इसकी जगह डिफ़ॉल्ट इस्तेमाल करें) —"
 
@@ -1518,7 +1598,7 @@ msgstr "PNG डाउनलोड करें"
 msgid "SVG stays sharp at any size, for print. PNG is 1024 pixels, for documents and social posts. Test-scan it with a phone before printing."
 msgstr "SVG हर आकार में साफ़ रहता है, छपाई के लिए। PNG 1024 पिक्सेल का है, दस्तावेज़ों और सोशल पोस्ट के लिए। छापने से पहले फ़ोन से स्कैन करके जाँच लें।"
 
-#: admin/class-forms-list.php:48 admin/views/entries-list.php:149
+#: admin/class-forms-list.php:48 admin/views/entries-list.php:168
 msgid "Create your first form"
 msgstr "अपना पहला फ़ॉर्म बनाएँ"
 
@@ -1532,7 +1612,7 @@ msgstr "बारह तैयार फ़ॉर्म में से कि�
 msgid "Found on this site: %s. Import instead of building from scratch."
 msgstr "इस साइट पर मिले: %s। शुरू से बनाने के बजाय इंपोर्ट करें।"
 
-#: admin/class-forms-list.php:57 admin/views/import.php:153
+#: admin/class-forms-list.php:57 admin/views/import.php:157
 msgid "Import"
 msgstr "इंपोर्ट करें"
 
@@ -1683,8 +1763,8 @@ msgid "Entries of the forms you tick are not listed and cannot be opened by an a
 msgstr "जिन फ़ॉर्म पर आप टिक लगाते हैं, उनकी एंट्रियाँ असिस्टेंट की सूची में नहीं आतीं और वह उन्हें खोल नहीं सकता, जैसे नौकरी का आवेदन या मेडिकल फ़ॉर्म। फ़ॉर्म खुद अब भी पढ़ा जा सकता है।"
 
 #. translators: %s: number of entries.
-#: admin/views/assistants.php:104 admin/views/entries-list.php:185
-#: admin/views/entries-list.php:344
+#: admin/views/assistants.php:104 admin/views/entries-list.php:204
+#: admin/views/entries-list.php:369
 #, php-format
 msgid "%s entry"
 msgid_plural "%s entries"
@@ -1865,7 +1945,7 @@ msgstr "अभी तक कोई अनुरोध नहीं।"
 msgid "When"
 msgstr "जब"
 
-#: admin/views/assistants.php:240 admin/views/entry-detail.php:414
+#: admin/views/assistants.php:240 admin/views/entry-detail.php:441
 msgid "User"
 msgstr "उपयोगकर्ता"
 
@@ -1877,7 +1957,7 @@ msgstr "क्या माँगा"
 msgid "Result"
 msgstr "नतीजा"
 
-#: admin/views/assistants.php:250 builder/src/app.jsx:848
+#: admin/views/assistants.php:250 builder/src/app.jsx:891
 msgid "Done"
 msgstr "हो गया"
 
@@ -1887,135 +1967,135 @@ msgid "Failed"
 msgstr "विफल"
 
 #. translators: %d: form ID.
-#: admin/views/entries-list.php:77 includes/class-classic-editor.php:40
+#: admin/views/entries-list.php:96 includes/class-classic-editor.php:40
 #: includes/class-form-manager.php:54
 #, php-format
 msgid "(untitled form #%d)"
 msgstr "(बिना शीर्षक का फ़ॉर्म #%d)"
 
-#: admin/views/entries-list.php:137
+#: admin/views/entries-list.php:156
 msgid "Everything people have sent through your forms. Open one to read it, reply or add a note."
 msgstr "लोगों ने आपके फ़ॉर्म से जो कुछ भेजा है, सब यहाँ है। पढ़ने, जवाब देने या नोट जोड़ने के लिए किसी को खोलें।"
 
-#: admin/views/entries-list.php:147 admin/views/transfer.php:55
+#: admin/views/entries-list.php:166 admin/views/transfer.php:55
 msgid "No forms yet"
 msgstr "अभी कोई फ़ॉर्म नहीं"
 
-#: admin/views/entries-list.php:148
+#: admin/views/entries-list.php:167
 msgid "Build a form, put its shortcode on a page, and every submission is stored here in your own database. No caps, no per-entry fees."
 msgstr "एक फ़ॉर्म बनाएँ, उसका शॉर्टकोड किसी पेज पर लगाएँ, और हर सबमिशन यहाँ आपके अपने डेटाबेस में रखा जाएगा। कोई सीमा नहीं, हर एंट्री का कोई शुल्क नहीं।"
 
-#: admin/views/entries-list.php:164
+#: admin/views/entries-list.php:183
 #, php-format
 msgid "%s marked as read."
 msgstr "%s पढ़ी हुई चिह्नित की गई।"
 
-#: admin/views/entries-list.php:165
+#: admin/views/entries-list.php:184
 #, php-format
 msgid "%s marked as unread."
 msgstr "%s बिना पढ़ी चिह्नित की गई।"
 
-#: admin/views/entries-list.php:166
+#: admin/views/entries-list.php:185
 #, php-format
 msgid "%s starred."
 msgstr "%s पर स्टार लगाया गया।"
 
-#: admin/views/entries-list.php:167
+#: admin/views/entries-list.php:186
 #, php-format
 msgid "%s unstarred."
 msgstr "%s से स्टार हटाया गया।"
 
-#: admin/views/entries-list.php:168
+#: admin/views/entries-list.php:187
 #, php-format
 msgid "%s marked as spam."
 msgstr "%s स्पैम चिह्नित की गई।"
 
-#: admin/views/entries-list.php:169
+#: admin/views/entries-list.php:188
 #, php-format
 msgid "%s moved to trash."
 msgstr "%s ट्रैश में भेजी गई।"
 
-#: admin/views/entries-list.php:170
+#: admin/views/entries-list.php:189
 #, php-format
 msgid "%s restored."
 msgstr "%s वापस लाई गई।"
 
-#: admin/views/entries-list.php:171 admin/views/entries-list.php:172
+#: admin/views/entries-list.php:190 admin/views/entries-list.php:191
 #, php-format
 msgid "%s permanently deleted."
 msgstr "%s हमेशा के लिए हटा दी गई।"
 
-#: admin/views/entries-list.php:173
+#: admin/views/entries-list.php:192
 #, php-format
 msgid "Notifications resent for %s."
 msgstr "%s के लिए सूचनाएँ दोबारा भेजी गईं।"
 
-#: admin/views/entries-list.php:174
+#: admin/views/entries-list.php:193
 msgid "Nothing was sent: entries in Spam or Trash are not resent. Restore them first, then resend."
 msgstr "कुछ नहीं भेजा गया: स्पैम या ट्रैश की एंट्रियाँ दोबारा नहीं भेजी जातीं। पहले उन्हें वापस लाएँ, फिर दोबारा भेजें।"
 
-#: admin/views/entries-list.php:175 admin/views/entry-detail.php:156
+#: admin/views/entries-list.php:194 admin/views/entry-detail.php:156
 msgid "Note added."
 msgstr "नोट जोड़ा गया।"
 
-#: admin/views/entries-list.php:176 admin/views/entry-detail.php:158
+#: admin/views/entries-list.php:195 admin/views/entry-detail.php:158
 msgid "Note deleted."
 msgstr "नोट हटाया गया।"
 
-#: admin/views/entries-list.php:177
+#: admin/views/entries-list.php:196
 msgid "Columns updated."
 msgstr "कॉलम अपडेट किए गए।"
 
-#: admin/views/entries-list.php:178
+#: admin/views/entries-list.php:197
 #, php-format
 msgid "%s approved."
 msgstr "%s स्वीकृत की गई।"
 
-#: admin/views/entries-list.php:179
+#: admin/views/entries-list.php:198
 #, php-format
 msgid "%s rejected."
 msgstr "%s अस्वीकार की गई।"
 
-#: admin/views/entries-list.php:180
+#: admin/views/entries-list.php:199
 msgid "Nothing selected."
 msgstr "कुछ भी नहीं चुना गया।"
 
 #. translators: %s: number of entries.
-#: admin/views/entries-list.php:194
+#: admin/views/entries-list.php:213
 #, php-format
 msgid "%s entry in Spam or Trash was skipped: restore it first."
 msgid_plural "%s entries in Spam or Trash were skipped: restore them first."
 msgstr[0] "स्पैम या ट्रैश की %s एंट्री छोड़ दी गई: पहले उसे वापस लाएँ।"
 msgstr[1] "स्पैम या ट्रैश की %s एंट्रियाँ छोड़ दी गईं: पहले उन्हें वापस लाएँ।"
 
-#: admin/views/entries-list.php:209
+#: admin/views/entries-list.php:228
 msgid "All"
 msgstr "सभी"
 
-#: admin/views/entries-list.php:211 admin/views/entries-list.php:359
+#: admin/views/entries-list.php:230 admin/views/entries-list.php:384
 msgid "Starred"
 msgstr "स्टार वाली"
 
-#: admin/views/entries-list.php:212 admin/views/entries-list.php:465
+#: admin/views/entries-list.php:231 admin/views/entries-list.php:500
 #: includes/class-entries.php:63
 msgid "Spam"
 msgstr "स्पैम"
 
-#: admin/views/entries-list.php:213 admin/views/entries-list.php:466
+#: admin/views/entries-list.php:232 admin/views/entries-list.php:501
 #: admin/views/entry-detail.php:240 includes/class-entries.php:64
 msgid "Trash"
 msgstr "ट्रैश"
 
-#: admin/views/entries-list.php:217 includes/class-entries.php:65
+#: admin/views/entries-list.php:236 includes/class-entries.php:65
 msgid "Partial"
 msgstr "अधूरी"
 
-#: admin/views/entries-list.php:227
+#: admin/views/entries-list.php:246
 msgid "Filter entries"
 msgstr "एंट्रियाँ फ़िल्टर करें"
 
-#: admin/views/entries-list.php:241 admin/views/entries-list.php:361
-#: admin/views/entry-detail.php:372 admin/views/import.php:108
+#: admin/views/entries-list.php:260 admin/views/entries-list.php:386
+#: admin/views/entry-detail.php:384 admin/views/import.php:112
 #: includes/class-beaver-builder.php:39 includes/class-beaver-builder.php:58
 #: includes/class-classic-editor.php:81 includes/class-form-widget.php:103
 #: includes/class-my-submissions.php:53 includes/class-my-submissions.php:59
@@ -2025,230 +2105,234 @@ msgstr "एंट्रियाँ फ़िल्टर करें"
 msgid "Form"
 msgstr "फ़ॉर्म"
 
-#: admin/views/entries-list.php:243 includes/class-ip-privacy.php:147
+#: admin/views/entries-list.php:262 includes/class-ip-privacy.php:147
 msgid "All forms"
 msgstr "सभी फ़ॉर्म"
 
-#: admin/views/entries-list.php:250 admin/views/entries-list.php:367
-#: admin/views/entry-detail.php:392
+#: admin/views/entries-list.php:269 admin/views/entries-list.php:402
+#: admin/views/entry-detail.php:404
 msgid "Payment"
 msgstr "भुगतान"
 
-#: admin/views/entries-list.php:252
+#: admin/views/entries-list.php:271
 msgid "Any payment"
 msgstr "कोई भी भुगतान"
 
-#: admin/views/entries-list.php:260
+#: admin/views/entries-list.php:279
 msgid "From date"
 msgstr "शुरुआती तारीख"
 
-#: admin/views/entries-list.php:262
+#: admin/views/entries-list.php:281
 msgid "to"
 msgstr "से"
 
-#: admin/views/entries-list.php:263
+#: admin/views/entries-list.php:282
 msgid "To date"
 msgstr "अंतिम तारीख"
 
-#: admin/views/entries-list.php:267
+#: admin/views/entries-list.php:286
 msgid "Search entries"
 msgstr "एंट्रियाँ खोजें"
 
-#: admin/views/entries-list.php:268
+#: admin/views/entries-list.php:287
 msgid "Search answers…"
 msgstr "जवाबों में खोजें…"
 
-#: admin/views/entries-list.php:270
+#: admin/views/entries-list.php:289
 msgid "Filter"
 msgstr "फ़िल्टर करें"
 
-#: admin/views/entries-list.php:273
+#: admin/views/entries-list.php:292
 msgid "Clear"
 msgstr "साफ़ करें"
 
-#: admin/views/entries-list.php:282
+#: admin/views/entries-list.php:301
 msgid "Choose answer columns"
 msgstr "जवाब वाले कॉलम चुनें"
 
-#: admin/views/entries-list.php:289
+#: admin/views/entries-list.php:308
 msgid "Show these answers as columns in the list."
 msgstr "इन जवाबों को सूची में कॉलम के रूप में दिखाएँ।"
 
-#: admin/views/entries-list.php:299
+#: admin/views/entries-list.php:318
 msgid "Apply columns"
 msgstr "कॉलम लागू करें"
 
-#: admin/views/entries-list.php:316
+#: admin/views/entries-list.php:341
 msgid "Bulk action"
 msgstr "बल्क एक्शन"
 
-#: admin/views/entries-list.php:318
+#: admin/views/entries-list.php:343
 msgid "With selected…"
 msgstr "चुनी गई के साथ…"
 
-#: admin/views/entries-list.php:320 admin/views/entries-list.php:460
+#: admin/views/entries-list.php:345 admin/views/entries-list.php:495
 #: admin/views/entry-detail.php:238 includes/class-form-revisions.php:429
 msgid "Restore"
 msgstr "वापस लाएँ"
 
-#: admin/views/entries-list.php:321 admin/views/entries-list.php:462
+#: admin/views/entries-list.php:346 admin/views/entries-list.php:497
 msgid "Delete permanently"
 msgstr "हमेशा के लिए हटाएँ"
 
-#: admin/views/entries-list.php:323
+#: admin/views/entries-list.php:348
 msgid "Mark as read"
 msgstr "पढ़ी हुई चिह्नित करें"
 
-#: admin/views/entries-list.php:324
+#: admin/views/entries-list.php:349
 msgid "Mark as unread"
 msgstr "बिना पढ़ी चिह्नित करें"
 
-#: admin/views/entries-list.php:325 admin/views/entry-detail.php:198
+#: admin/views/entries-list.php:350 admin/views/entry-detail.php:198
 msgid "Star"
 msgstr "स्टार लगाएँ"
 
-#: admin/views/entries-list.php:326 admin/views/entries-list.php:425
+#: admin/views/entries-list.php:351 admin/views/entries-list.php:460
 msgid "Remove star"
 msgstr "स्टार हटाएँ"
 
-#: admin/views/entries-list.php:327 admin/views/entry-detail.php:206
+#: admin/views/entries-list.php:352 admin/views/entry-detail.php:206
 #: admin/views/entry-detail.php:219
 msgid "Resend notifications"
 msgstr "सूचनाएँ दोबारा भेजें"
 
-#: admin/views/entries-list.php:328 admin/views/entry-detail.php:236
+#: admin/views/entries-list.php:353 admin/views/entry-detail.php:236
 #: admin/views/entry-print.php:81
 msgid "Print"
 msgstr "प्रिंट करें"
 
-#: admin/views/entries-list.php:329
+#: admin/views/entries-list.php:354
 msgid "Export selected to CSV"
 msgstr "चुनी गई को CSV में एक्सपोर्ट करें"
 
-#: admin/views/entries-list.php:330
+#: admin/views/entries-list.php:355
 msgid "Export selected to Excel"
 msgstr "चुनी हुई को Excel में एक्सपोर्ट करें"
 
-#: admin/views/entries-list.php:331
+#: admin/views/entries-list.php:356
 msgid "Mark as spam"
 msgstr "स्पैम चिह्नित करें"
 
-#: admin/views/entries-list.php:332
+#: admin/views/entries-list.php:357
 msgid "Move to trash"
 msgstr "ट्रैश में भेजें"
 
-#: admin/views/entries-list.php:338
+#: admin/views/entries-list.php:363
 msgid "Apply"
 msgstr "लागू करें"
 
-#: admin/views/entries-list.php:356
+#: admin/views/entries-list.php:381 admin/views/import.php:108
 msgid "Select all"
 msgstr "सभी चुनें"
 
-#: admin/views/entries-list.php:360
+#: admin/views/entries-list.php:385
 msgid "Entry"
 msgstr "एंट्री"
 
-#: admin/views/entries-list.php:365 admin/views/entry-detail.php:387
-#: admin/views/entry-detail.php:486
+#: admin/views/entries-list.php:392
+msgid "Score"
+msgstr ""
+
+#: admin/views/entries-list.php:400 admin/views/entry-detail.php:399
+#: admin/views/entry-detail.php:513
 msgid "Submitted"
 msgstr "सबमिट किया गया"
 
-#: admin/views/entries-list.php:380
+#: admin/views/entries-list.php:415
 msgid "No more entries on this page."
 msgstr "इस पेज पर और एंट्री नहीं हैं।"
 
-#: admin/views/entries-list.php:380
+#: admin/views/entries-list.php:415
 msgid "This page is past the end of the list."
 msgstr "यह पेज सूची के आख़िर से आगे है।"
 
-#: admin/views/entries-list.php:380
+#: admin/views/entries-list.php:415
 msgid "Go to page 1"
 msgstr "पेज 1 पर जाएँ"
 
-#: admin/views/entries-list.php:382
+#: admin/views/entries-list.php:417
 msgid "No entries match those filters."
 msgstr "इन फ़िल्टर से कोई एंट्री मेल नहीं खाती।"
 
-#: admin/views/entries-list.php:382
+#: admin/views/entries-list.php:417
 msgid "Try a wider date range or a different search."
 msgstr "लंबी तारीख सीमा या कोई दूसरी खोज आज़माएँ।"
 
-#: admin/views/entries-list.php:382
+#: admin/views/entries-list.php:417
 msgid "Clear the filters"
 msgstr "फ़िल्टर साफ़ करें"
 
-#: admin/views/entries-list.php:384
+#: admin/views/entries-list.php:419
 msgid "The trash is empty."
 msgstr "ट्रैश खाली है।"
 
-#: admin/views/entries-list.php:384
+#: admin/views/entries-list.php:419
 msgid "Entries you move to the trash wait here before they are deleted for good."
 msgstr "जिन एंट्रियों को आप ट्रैश में भेजते हैं, वे हमेशा के लिए हटने से पहले यहाँ रहती हैं।"
 
-#: admin/views/entries-list.php:386
+#: admin/views/entries-list.php:421
 msgid "No spam. Nice."
 msgstr "कोई स्पैम नहीं। बढ़िया।"
 
-#: admin/views/entries-list.php:386
+#: admin/views/entries-list.php:421
 msgid "Anything the spam checks catch lands here, so you can rescue a real message."
 msgstr "स्पैम जाँच में जो भी पकड़ा जाता है वह यहाँ आता है, ताकि आप असली संदेश को बचा सकें।"
 
-#: admin/views/entries-list.php:388
+#: admin/views/entries-list.php:423
 msgid "You are all caught up."
 msgstr "आपने सब देख लिया है।"
 
-#: admin/views/entries-list.php:388
+#: admin/views/entries-list.php:423
 msgid "New entries show up here until you open them."
 msgstr "नई एंट्रियाँ तब तक यहाँ दिखती हैं जब तक आप उन्हें खोलते नहीं।"
 
-#: admin/views/entries-list.php:390
+#: admin/views/entries-list.php:425
 msgid "No starred entries yet."
 msgstr "अभी स्टार वाली कोई एंट्री नहीं।"
 
-#: admin/views/entries-list.php:390
+#: admin/views/entries-list.php:425
 msgid "Star an entry from the list to keep it handy here."
 msgstr "किसी एंट्री को यहाँ आसानी से पाने के लिए सूची में उस पर स्टार लगाएँ।"
 
-#: admin/views/entries-list.php:392
+#: admin/views/entries-list.php:427
 msgid "No entries yet."
 msgstr "अभी कोई एंट्री नहीं।"
 
-#: admin/views/entries-list.php:392
+#: admin/views/entries-list.php:427
 msgid "Entries appear here the moment someone submits. Add a form to a page to start collecting."
 msgstr "जैसे ही कोई सबमिट करता है, एंट्रियाँ यहाँ दिखती हैं। एंट्रियाँ पाना शुरू करने के लिए किसी पेज पर फ़ॉर्म लगाएँ।"
 
-#: admin/views/entries-list.php:392 includes/class-results.php:189
+#: admin/views/entries-list.php:427 includes/class-results.php:189
 msgid "Go to your forms"
 msgstr "अपने फ़ॉर्म पर जाएँ"
 
 #. translators: %d: entry ID.
-#: admin/views/entries-list.php:417
+#: admin/views/entries-list.php:452
 #, php-format
 msgid "Select entry %d"
 msgstr "एंट्री %d चुनें"
 
-#: admin/views/entries-list.php:425
+#: admin/views/entries-list.php:460
 msgid "Star this entry"
 msgstr "इस एंट्री पर स्टार लगाएँ"
 
-#: admin/views/entries-list.php:431
+#: admin/views/entries-list.php:466
 msgid "Unread:"
 msgstr "बिना पढ़ी:"
 
 #. translators: %d: entry ID.
 #. translators: %d: numeric entry ID.
-#: admin/views/entries-list.php:439 admin/views/entry-detail.php:144
+#: admin/views/entries-list.php:474 admin/views/entry-detail.php:144
 #: admin/views/entry-print.php:57 admin/views/entry-print.php:97
 #, php-format
 msgid "Entry #%d"
 msgstr "एंट्री #%d"
 
-#: admin/views/entries-list.php:455
+#: admin/views/entries-list.php:490
 msgid "View"
 msgstr "व्यू"
 
-#: admin/views/entries-list.php:457 includes/class-block-defaults.php:38
+#: admin/views/entries-list.php:492 includes/class-block-defaults.php:38
 #: includes/class-plugin.php:209 includes/class-templates.php:71
 #: includes/class-templates.php:76 includes/class-templates.php:84
 #: includes/class-templates.php:91 includes/class-templates.php:99
@@ -2258,19 +2342,23 @@ msgstr "व्यू"
 msgid "Email"
 msgstr "ईमेल"
 
-#: admin/views/entries-list.php:462
+#: admin/views/entries-list.php:497
 msgid "Permanently delete this entry? This cannot be undone."
 msgstr "इस एंट्री को हमेशा के लिए हटाएँ? यह वापस नहीं हो सकता।"
 
-#: admin/views/entries-list.php:464
+#: admin/views/entries-list.php:499
 msgid "Mark read"
 msgstr "पढ़ी हुई"
 
-#: admin/views/entries-list.php:464 admin/views/entry-detail.php:200
+#: admin/views/entries-list.php:499 admin/views/entry-detail.php:200
 msgid "Mark unread"
 msgstr "बिना पढ़ी"
 
-#: admin/views/entries-list.php:503
+#: admin/views/entries-list.php:515
+msgid "late"
+msgstr ""
+
+#: admin/views/entries-list.php:554
 msgid "This form does not take payments"
 msgstr "यह फ़ॉर्म भुगतान नहीं लेता"
 
@@ -2408,101 +2496,110 @@ msgstr "टेस्ट ईमेल भेजें"
 msgid "Answers"
 msgstr "जवाब"
 
-#: admin/views/entry-detail.php:288
+#: admin/views/entry-detail.php:288 includes/class-scoring.php:228
+#: includes/class-scoring.php:234
 msgid "Not answered"
 msgstr "जवाब नहीं दिया"
 
-#: admin/views/entry-detail.php:302
+#: admin/views/entry-detail.php:314
 msgid "Files"
 msgstr "फ़ाइलें"
 
-#: admin/views/entry-detail.php:308 admin/views/entry-detail.php:310
+#: admin/views/entry-detail.php:320 admin/views/entry-detail.php:322
 #: admin/views/transfer.php:61 includes/class-export-columns.php:127
 msgid "Download"
 msgstr "डाउनलोड करें"
 
-#: admin/views/entry-detail.php:319 admin/views/entry-print.php:127
+#: admin/views/entry-detail.php:331 admin/views/entry-print.php:127
 #: includes/class-templates.php:95
 msgid "Notes"
 msgstr "नोट"
 
-#: admin/views/entry-detail.php:320
+#: admin/views/entry-detail.php:332
 msgid "Private to your team. Never emailed or shown to the person who sent this."
 msgstr "सिर्फ़ आपकी टीम के लिए। भेजने वाले व्यक्ति को कभी ईमेल नहीं किया जाता और न दिखाया जाता है।"
 
-#: admin/views/entry-detail.php:338
+#: admin/views/entry-detail.php:350
 msgid "Delete this note?"
 msgstr "यह नोट हटाएँ?"
 
-#: admin/views/entry-detail.php:338
+#: admin/views/entry-detail.php:350
 msgid "Delete"
 msgstr "हटाएँ"
 
-#: admin/views/entry-detail.php:351
+#: admin/views/entry-detail.php:363
 msgid "Add a note"
 msgstr "नोट जोड़ें"
 
-#: admin/views/entry-detail.php:352
+#: admin/views/entry-detail.php:364
 msgid "Add a note…"
 msgstr "नोट जोड़ें…"
 
-#: admin/views/entry-detail.php:353
+#: admin/views/entry-detail.php:365
 msgid "Add note"
 msgstr "नोट जोड़ें"
 
-#: admin/views/entry-detail.php:370
+#: admin/views/entry-detail.php:382
 msgid "Details"
 msgstr "विवरण"
 
-#: admin/views/entry-detail.php:384
+#: admin/views/entry-detail.php:396
 msgid "Form deleted"
 msgstr "फ़ॉर्म हटा दिया गया"
 
-#: admin/views/entry-detail.php:399
+#: admin/views/entry-detail.php:411
 msgid "Transaction ID"
 msgstr "ट्रांज़ैक्शन ID"
 
-#: admin/views/entry-detail.php:408 includes/class-entries.php:730
-#: includes/class-scoring.php:74
+#: admin/views/entry-detail.php:421 includes/class-entries.php:725
+#: includes/class-scoring.php:158
 msgid "Quiz score"
 msgstr "क्विज़ स्कोर"
 
-#: admin/views/entry-detail.php:415 includes/class-entry-notes.php:134
+#: admin/views/entry-detail.php:430
+msgid "Time taken"
+msgstr ""
+
+#: admin/views/entry-detail.php:433 includes/class-entries.php:731
+msgid "Sent after the time limit"
+msgstr ""
+
+#: admin/views/entry-detail.php:442 includes/class-entry-notes.php:134
 #: includes/class-form-revisions.php:289
 msgid "Deleted user"
 msgstr "हटाया गया उपयोगकर्ता"
 
-#: admin/views/entry-detail.php:423
+#: admin/views/entry-detail.php:450
 msgid "Created post"
 msgstr "बनाई गई पोस्ट"
 
-#: admin/views/entry-detail.php:429 includes/class-entries.php:759
-#: includes/class-entries.php:771 includes/class-export-columns.php:35
+#: admin/views/entry-detail.php:456 includes/class-entries.php:768
+#: includes/class-entries.php:780 includes/class-export-columns.php:35
 #: includes/class-merge-tags.php:42 includes/class-privacy.php:59
 msgid "IP address"
 msgstr "IP पता"
 
-#: admin/views/entry-detail.php:429
+#: admin/views/entry-detail.php:456
 msgid "Not stored"
 msgstr "सहेजा नहीं गया"
 
-#: admin/views/entry-detail.php:431
+#: admin/views/entry-detail.php:458
 msgid "Sent from"
 msgstr "यहाँ से भेजा गया"
 
-#: admin/views/entry-detail.php:435
+#: admin/views/entry-detail.php:462
 msgid "Came from"
 msgstr "यहाँ से आया"
 
-#: admin/views/entry-detail.php:446 includes/class-privacy.php:62
+#: admin/views/entry-detail.php:473 includes/class-privacy.php:62
 msgid "Browser"
 msgstr "ब्राउज़र"
 
-#: admin/views/entry-detail.php:458
+#: admin/views/entry-detail.php:485
 msgid "Activity"
 msgstr "गतिविधि"
 
-#: admin/views/entry-detail.php:485 includes/class-logger.php:30
+#: admin/views/entry-detail.php:512 includes/class-logger.php:30
 msgid "entry"
 msgstr "एंट्री"
 
@@ -2691,27 +2788,23 @@ msgstr "1. फ़ॉर्म चुनें"
 msgid "Tick one form or several. Each import makes a new Trinity Forms form, so you can look at the result and import again if you want to start over."
 msgstr "एक या कई फ़ॉर्म चुनें। हर इंपोर्ट एक नया Trinity Forms फ़ॉर्म बनाता है, ताकि आप नतीजा देख सकें और दोबारा शुरू करना हो तो फिर से इंपोर्ट कर सकें।"
 
-#: admin/views/import.php:107
-msgid "Select"
-msgstr "चुनें"
-
-#: admin/views/import.php:109
+#: admin/views/import.php:113
 msgid "From"
 msgstr "से"
 
-#: admin/views/import.php:128
+#: admin/views/import.php:132
 msgid "This plugin does not keep submissions, so there are none to bring."
 msgstr "यह प्लगइन सबमिशन नहीं रखता, इसलिए लाने को कुछ नहीं है।"
 
-#: admin/views/import.php:137
+#: admin/views/import.php:141
 msgid "2. Choose what to bring"
 msgstr "2. चुनें कि क्या लाना है"
 
-#: admin/views/import.php:142
+#: admin/views/import.php:146
 msgid "Bring the entries across as well (where the other plugin kept them)"
 msgstr "एंट्रियाँ भी लाएँ (जहाँ दूसरे प्लगइन ने उन्हें रखा हो)"
 
-#: admin/views/import.php:148
+#: admin/views/import.php:152
 msgid "Dry run: tell me what would happen, change nothing"
 msgstr "ड्राई रन: बताएँ कि क्या होगा, कुछ न बदलें"
 
@@ -3519,7 +3612,7 @@ msgstr "बहुत संभावना है"
 msgid "Put these in order of importance"
 msgstr "इन्हें महत्व के क्रम में लगाएँ"
 
-#: includes/class-block-defaults.php:84 builder/src/field-panel.jsx:169
+#: includes/class-block-defaults.php:84 builder/src/field-panel.jsx:170
 msgid "Price"
 msgstr "कीमत"
 
@@ -3548,7 +3641,7 @@ msgid "You are not allowed to publish this form."
 msgstr "आपको यह फ़ॉर्म प्रकाशित करने की अनुमति नहीं है।"
 
 #. translators: %s: the field's label.
-#: includes/class-builder-rest.php:430
+#: includes/class-builder-rest.php:431
 #, php-format
 msgid "The field \"%s\" has no field ID. Give it one in the field's settings, using English letters (a-z), digits and underscores."
 msgstr "फ़ील्ड \"%s\" का कोई फ़ील्ड ID नहीं है। फ़ील्ड की सेटिंग्स में अंग्रेज़ी अक्षरों (a-z), अंकों और अंडरस्कोर से एक ID दें।"
@@ -3714,15 +3807,31 @@ msgstr "सबमिट करने की तारीख"
 msgid "Entry ID"
 msgstr "एंट्री ID"
 
-#: includes/class-entries.php:730 includes/class-scoring.php:75
+#: includes/class-entries.php:726 includes/class-scoring.php:159
 msgid "Highest possible quiz score"
 msgstr "क्विज़ का अधिकतम संभव स्कोर"
 
-#: includes/class-entries.php:1146 includes/class-templates.php:100
+#: includes/class-entries.php:727 includes/class-scoring.php:161
+msgid "Correct answers"
+msgstr ""
+
+#: includes/class-entries.php:728 includes/class-scoring.php:162
+msgid "Wrong answers"
+msgstr ""
+
+#: includes/class-entries.php:729
+msgid "Unanswered"
+msgstr ""
+
+#: includes/class-entries.php:730
+msgid "Time taken (seconds)"
+msgstr ""
+
+#: includes/class-entries.php:1155 includes/class-templates.php:100
 msgid "Yes"
 msgstr "हाँ"
 
-#: includes/class-entries.php:1146 includes/class-templates.php:100
+#: includes/class-entries.php:1155 includes/class-templates.php:100
 msgid "No"
 msgstr "नहीं"
 
@@ -3731,7 +3840,7 @@ msgid "Export"
 msgstr "एक्सपोर्ट"
 
 #: includes/class-export-columns.php:107 blocks/conditional-panel.js:75
-#: builder/src/field-panel.jsx:415
+#: builder/src/field-panel.jsx:416
 msgid "Format"
 msgstr "फ़ॉर्मेट"
 
@@ -3778,7 +3887,7 @@ msgstr "यह फ़ील्ड ज़रूरी है।"
 msgid "(no title #%d)"
 msgstr "(कोई शीर्षक नहीं #%d)"
 
-#: includes/class-form-builder.php:118 includes/class-rest-api.php:460
+#: includes/class-form-builder.php:118 includes/class-rest-api.php:469
 msgid "Untitled form"
 msgstr "बिना शीर्षक का फ़ॉर्म"
 
@@ -4701,27 +4810,27 @@ msgid "Invalid or missing nonce."
 msgstr "nonce अमान्य है या मौजूद नहीं है।"
 
 #. translators: 1: field label, 2: what is wrong with it.
-#: includes/class-rest-api.php:305
+#: includes/class-rest-api.php:314
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: includes/class-rest-api.php:308
+#: includes/class-rest-api.php:317
 msgid "Your browser's Back button brings back what you typed."
 msgstr "आपके ब्राउज़र का Back बटन आपका लिखा हुआ वापस ले आएगा।"
 
 #. translators: %s: the largest file size accepted, e.g. "2 MB".
-#: includes/class-rest-api.php:327
+#: includes/class-rest-api.php:336
 #, php-format
 msgid "The file is too big to send. Files can be up to %s."
 msgstr "फ़ाइल भेजने के लिए बहुत बड़ी है। फ़ाइलें %s तक की हो सकती हैं।"
 
-#: includes/class-rest-api.php:332 includes/class-submission-pipeline.php:98
+#: includes/class-rest-api.php:341 includes/class-submission-pipeline.php:98
 msgid "Upload failed."
 msgstr "अपलोड विफल रहा।"
 
 #. translators: %d: seconds to wait.
-#: includes/class-rest-api.php:415
+#: includes/class-rest-api.php:424
 #, php-format
 msgid "This form is getting a lot of submissions right now. Please try again in %d second."
 msgid_plural "This form is getting a lot of submissions right now. Please try again in %d seconds."
@@ -4729,7 +4838,7 @@ msgstr[0] "इस फ़ॉर्म पर अभी बहुत सारे 
 msgstr[1] "इस फ़ॉर्म पर अभी बहुत सारे सबमिशन आ रहे हैं। कृपया %d सेकंड बाद फिर से कोशिश करें।"
 
 #. translators: %d: minutes to wait.
-#: includes/class-rest-api.php:418
+#: includes/class-rest-api.php:427
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d minute."
 msgid_plural "Too many submissions from your connection. Please try again in %d minutes."
@@ -4737,7 +4846,7 @@ msgstr[0] "आपके कनेक्शन से बहुत ज़्य�
 msgstr[1] "आपके कनेक्शन से बहुत ज़्यादा सबमिशन हुए हैं। कृपया %d मिनट बाद फिर से कोशिश करें।"
 
 #. translators: %d: seconds to wait.
-#: includes/class-rest-api.php:420
+#: includes/class-rest-api.php:429
 #, php-format
 msgid "Too many submissions from your connection. Please try again in %d second."
 msgid_plural "Too many submissions from your connection. Please try again in %d seconds."
@@ -4861,11 +4970,49 @@ msgid_plural "All %d tables Trinity Forms needs are in the database."
 msgstr[0] "Trinity Forms को जिस %d टेबल की ज़रूरत है, वह डेटाबेस में है।"
 msgstr[1] "Trinity Forms को जिन सभी %d टेबल की ज़रूरत है, वे डेटाबेस में हैं।"
 
+#: includes/class-scoring.php:160
+msgid "Quiz score as a percentage"
+msgstr ""
+
+#: includes/class-scoring.php:163
+msgid "Questions left unanswered"
+msgstr ""
+
+#: includes/class-scoring.php:164
+msgid "Time taken (timed quizzes)"
+msgstr ""
+
+#: includes/class-scoring.php:165
+msgid "Answer key (each question, the answer given and the correct one)"
+msgstr ""
+
 #. translators: 1: points scored, 2: highest possible score.
-#: includes/class-scoring.php:94
+#: includes/class-scoring.php:183
 #, php-format
 msgid "%1$s / %2$s"
 msgstr "%1$s / %2$s"
+
+#. translators: 1: correct answers, 2: wrong answers, 3: unanswered questions.
+#: includes/class-scoring.php:193
+#, php-format
+msgid "%1$d correct · %2$d wrong · %3$d unanswered"
+msgstr ""
+
+#: includes/class-scoring.php:226
+msgid "Correct"
+msgstr ""
+
+#: includes/class-scoring.php:227
+msgid "Wrong"
+msgstr ""
+
+#: includes/class-scoring.php:239
+msgid "Your answer:"
+msgstr ""
+
+#: includes/class-scoring.php:241
+msgid "Correct answer:"
+msgstr ""
 
 #: includes/class-secrets.php:85
 msgid "Trinity Forms: The PHP OpenSSL extension is required to encrypt credentials at rest. Credentials are currently stored in plaintext — please enable the openssl extension."
@@ -5426,7 +5573,7 @@ msgstr "कम से कम %s होना चाहिए।"
 msgid "Must be no more than %s."
 msgstr "%s से ज़्यादा नहीं होना चाहिए।"
 
-#: includes/fields/class-field-password.php:35 builder/src/field-panel.jsx:184
+#: includes/fields/class-field-password.php:35 builder/src/field-panel.jsx:185
 msgid "Confirm password"
 msgstr "पासवर्ड की पुष्टि करें"
 
@@ -5596,8 +5743,40 @@ msgstr "विज़िटर को जाने वाला पुष्ट�
 msgid "Action: %s"
 msgstr "एक्शन: %s"
 
+#. translators: %s: question text.
+#: includes/importers/class-qsm.php:253
+#, php-format
+msgid "%s: its wrong answers cost different points; every wrong answer now costs %s."
+msgstr ""
+
+#. translators: %s: question text.
+#: includes/importers/class-qsm.php:259
+#, php-format
+msgid "%s: no correct answer is set, so it is not marked."
+msgstr ""
+
+#. translators: 1: question text, 2: QSM question type.
+#: includes/importers/class-qsm.php:298
+#, php-format
+msgid "%1$s (%2$s): imported as a plain field. Trinity marks only Radio and Dropdown questions, so its answer is not scored."
+msgstr ""
+
+#: includes/importers/class-qsm.php:335
+msgid "Time limit and shuffling are saved with the quiz and work with Trinity Forms Pro."
+msgstr ""
+
+#. translators: %s: list of QSM template variables.
+#: includes/importers/class-qsm.php:367
+#, php-format
+msgid "Results page: %s had no equivalent and were left out."
+msgstr ""
+
+#: includes/importers/class-qsm.php:371
+msgid "Your score: {quiz_score} / {quiz_max}"
+msgstr ""
+
 #. translators: 1: number of forms, 2: form plugin name, e.g. "Contact Form 7".
-#: includes/importers/class-registry.php:79
+#: includes/importers/class-registry.php:80
 #, php-format
 msgid "%1$d %2$s form"
 msgid_plural "%1$d %2$s forms"
@@ -5711,7 +5890,7 @@ msgstr "सेव किया गया। फिर से शुरू कर
 msgid "Could not save progress."
 msgstr "प्रगति सेव नहीं की जा सकी।"
 
-#: blocks/conditional-panel.js:78 builder/src/field-panel.jsx:418
+#: blocks/conditional-panel.js:78 builder/src/field-panel.jsx:419
 msgid "Pattern"
 msgstr "पैटर्न"
 
@@ -5719,7 +5898,7 @@ msgstr "पैटर्न"
 msgid "A regular expression the value must match, e.g. ^[0-9]{5}$ for a 5-digit ZIP. Leave empty for no check."
 msgstr "एक रेगुलर एक्सप्रेशन जिससे मान का मेल खाना ज़रूरी है, जैसे 5 अंकों के ZIP के लिए ^[0-9]{5}$। जाँच न करनी हो तो खाली छोड़ें।"
 
-#: blocks/conditional-panel.js:86 builder/src/field-panel.jsx:426
+#: blocks/conditional-panel.js:86 builder/src/field-panel.jsx:427
 msgid "Error message"
 msgstr "त्रुटि संदेश"
 
@@ -5727,7 +5906,7 @@ msgstr "त्रुटि संदेश"
 msgid "Shown when the value doesn't match."
 msgstr "तब दिखता है जब मान मेल नहीं खाता।"
 
-#: blocks/conditional-panel.js:94 builder/src/field-panel.jsx:545
+#: blocks/conditional-panel.js:94 builder/src/field-panel.jsx:546
 msgid "Conditional logic"
 msgstr "कंडीशनल लॉजिक"
 
@@ -5740,7 +5919,7 @@ msgid "Any rule matches"
 msgstr "कोई भी नियम मेल खाए"
 
 #: blocks/conditional-rules.js:136 blocks/field-shared.js:88
-#: blocks/field-shared.js:229 builder/src/field-panel.jsx:370
+#: blocks/field-shared.js:229 builder/src/field-panel.jsx:371
 msgid "Field"
 msgstr "फ़ील्ड"
 
@@ -5801,13 +5980,13 @@ msgstr "विकल्प (हर पंक्ति में एक, label | 
 msgid "Internal label"
 msgstr "आंतरिक लेबल"
 
-#: blocks/field-consent/index.js:17 builder/src/field-panel.jsx:171
+#: blocks/field-consent/index.js:17 builder/src/field-panel.jsx:172
 #: builder/src/field-preview.jsx:85
 msgid "Consent text"
 msgstr "सहमति टेक्स्ट"
 
 #: blocks/field-consent/index.js:18 blocks/field-shared.js:113
-#: builder/src/field-panel.jsx:392
+#: builder/src/field-panel.jsx:393
 msgid "Required"
 msgstr "ज़रूरी"
 
@@ -5828,13 +6007,13 @@ msgid "Hidden field"
 msgstr "छिपा फ़ील्ड"
 
 #: blocks/field-hidden/index.js:17 blocks/field-shared.js:90
-#: builder/src/field-panel.jsx:373
+#: builder/src/field-panel.jsx:374
 msgid "Field ID"
 msgstr "फ़ील्ड ID"
 
 #: blocks/field-hidden/index.js:27 blocks/field-range/index.js:22
-#: blocks/field-shared.js:169 builder/src/field-panel.jsx:176
-#: builder/src/field-panel.jsx:475
+#: blocks/field-shared.js:169 builder/src/field-panel.jsx:177
+#: builder/src/field-panel.jsx:476
 msgid "Default value"
 msgstr "डिफ़ॉल्ट मान"
 
@@ -5842,7 +6021,7 @@ msgstr "डिफ़ॉल्ट मान"
 msgid "HTML"
 msgstr "HTML"
 
-#: blocks/field-html/index.js:17 builder/src/field-panel.jsx:175
+#: blocks/field-html/index.js:17 builder/src/field-panel.jsx:176
 msgid "HTML markup"
 msgstr "HTML मार्कअप"
 
@@ -5850,35 +6029,35 @@ msgstr "HTML मार्कअप"
 msgid "Custom HTML: write the markup in the block settings. Visitors see nothing until you do."
 msgstr "कस्टम HTML: ब्लॉक सेटिंग्स में मार्कअप लिखें। जब तक आप नहीं लिखते, विज़िटर को यहाँ कुछ नहीं दिखेगा।"
 
-#: blocks/field-multiple-choice/index.js:10 builder/src/field-panel.jsx:155
-#: builder/src/field-panel.jsx:165
+#: blocks/field-multiple-choice/index.js:10 builder/src/field-panel.jsx:156
+#: builder/src/field-panel.jsx:166
 msgid "Radio buttons (pick one)"
 msgstr "रेडियो बटन (एक चुनें)"
 
-#: blocks/field-multiple-choice/index.js:11 builder/src/field-panel.jsx:156
+#: blocks/field-multiple-choice/index.js:11 builder/src/field-panel.jsx:157
 msgid "Checkboxes (pick several)"
 msgstr "चेकबॉक्स (कई चुनें)"
 
-#: blocks/field-multiple-choice/index.js:12 builder/src/field-panel.jsx:157
-#: builder/src/field-panel.jsx:166
+#: blocks/field-multiple-choice/index.js:12 builder/src/field-panel.jsx:158
+#: builder/src/field-panel.jsx:167
 msgid "Dropdown (pick one)"
 msgstr "ड्रॉपडाउन (एक चुनें)"
 
-#: blocks/field-multiple-choice/index.js:13 builder/src/field-panel.jsx:158
+#: blocks/field-multiple-choice/index.js:13 builder/src/field-panel.jsx:159
 msgid "Dropdown (pick several)"
 msgstr "ड्रॉपडाउन (कई चुनें)"
 
 #: blocks/field-multiple-choice/index.js:45 builder/src/field-panel.jsx:65
-#: builder/src/field-panel.jsx:403
+#: builder/src/field-panel.jsx:404
 msgid "Choices"
 msgstr "विकल्प"
 
-#: blocks/field-multiple-choice/index.js:47 builder/src/field-panel.jsx:145
-#: builder/src/field-panel.jsx:152
+#: blocks/field-multiple-choice/index.js:47 builder/src/field-panel.jsx:146
+#: builder/src/field-panel.jsx:153
 msgid "Show as"
 msgstr "इस रूप में दिखाएँ"
 
-#: blocks/field-multiple-choice/index.js:48 builder/src/field-panel.jsx:153
+#: blocks/field-multiple-choice/index.js:48 builder/src/field-panel.jsx:154
 msgid "Switching style keeps your options — no need to delete the field and start again."
 msgstr "स्टाइल बदलने पर आपके विकल्प बने रहते हैं — फ़ील्ड हटाकर दोबारा शुरू करने की ज़रूरत नहीं।"
 
@@ -5891,17 +6070,17 @@ msgid "One per line. Use \"Label | value\" to store a different value."
 msgstr "हर पंक्ति में एक। अलग मान सेव करने के लिए \"Label | value\" लिखें।"
 
 #: blocks/field-number/index.js:19 blocks/field-range/index.js:19
-#: builder/src/field-panel.jsx:177
+#: builder/src/field-panel.jsx:178
 msgid "Min"
 msgstr "न्यूनतम"
 
 #: blocks/field-number/index.js:20 blocks/field-range/index.js:20
-#: builder/src/field-panel.jsx:178
+#: builder/src/field-panel.jsx:179
 msgid "Max"
 msgstr "अधिकतम"
 
 #: blocks/field-number/index.js:21 blocks/field-range/index.js:21
-#: builder/src/field-panel.jsx:179
+#: builder/src/field-panel.jsx:180
 msgid "Step"
 msgstr "स्टेप"
 
@@ -5910,11 +6089,11 @@ msgstr "स्टेप"
 msgid "Page break"
 msgstr "पेज ब्रेक"
 
-#: blocks/field-page-break/index.js:16 builder/src/field-panel.jsx:172
+#: blocks/field-page-break/index.js:16 builder/src/field-panel.jsx:173
 msgid "Next button text"
 msgstr "आगे बटन का टेक्स्ट"
 
-#: blocks/field-page-break/index.js:17 builder/src/field-panel.jsx:173
+#: blocks/field-page-break/index.js:17 builder/src/field-panel.jsx:174
 msgid "Back button text"
 msgstr "पीछे बटन का टेक्स्ट"
 
@@ -5935,7 +6114,12 @@ msgstr "वह विकल्प मान जिस पर अंक मिल
 msgid "Points"
 msgstr "अंक"
 
-#: blocks/field-rating/index.js:18 builder/src/field-panel.jsx:260
+#: blocks/field-radio/index.js:38 blocks/field-select/index.js:38
+#: builder/src/field-panel.jsx:128
+msgid "e.g. 0.25 for negative marking. Leave blank to use the form's Quiz setting. A question left unanswered always scores 0."
+msgstr ""
+
+#: blocks/field-rating/index.js:18 builder/src/field-panel.jsx:261
 msgid "Stars"
 msgstr "स्टार"
 
@@ -5943,11 +6127,11 @@ msgstr "स्टार"
 msgid "Heading"
 msgstr "शीर्षक"
 
-#: blocks/field-section/index.js:17 builder/src/field-panel.jsx:174
+#: blocks/field-section/index.js:17 builder/src/field-panel.jsx:175
 msgid "Description"
 msgstr "विवरण"
 
-#: blocks/field-shared.js:91 builder/src/field-panel.jsx:374
+#: blocks/field-shared.js:91 builder/src/field-panel.jsx:375
 msgid "Used in merge tags and entry export."
 msgstr "मर्ज टैग और एंट्री एक्सपोर्ट में इस्तेमाल होता है।"
 
@@ -5959,51 +6143,51 @@ msgstr "लेबल"
 msgid "Placeholder"
 msgstr "प्लेसहोल्डर"
 
-#: blocks/field-shared.js:137 builder/src/field-panel.jsx:435
+#: blocks/field-shared.js:137 builder/src/field-panel.jsx:436
 msgid "Appearance"
 msgstr "अपीयरेंस"
 
-#: blocks/field-shared.js:139 builder/src/field-panel.jsx:439
+#: blocks/field-shared.js:139 builder/src/field-panel.jsx:440
 msgid "Field width"
 msgstr "फ़ील्ड की चौड़ाई"
 
-#: blocks/field-shared.js:142 builder/src/field-panel.jsx:442
+#: blocks/field-shared.js:142 builder/src/field-panel.jsx:443
 msgid "Full width"
 msgstr "पूरी चौड़ाई"
 
-#: blocks/field-shared.js:143 builder/src/field-panel.jsx:443
+#: blocks/field-shared.js:143 builder/src/field-panel.jsx:444
 msgid "One half"
 msgstr "आधी"
 
-#: blocks/field-shared.js:144 builder/src/field-panel.jsx:444
+#: blocks/field-shared.js:144 builder/src/field-panel.jsx:445
 msgid "One third"
 msgstr "एक तिहाई"
 
-#: blocks/field-shared.js:145 builder/src/field-panel.jsx:445
+#: blocks/field-shared.js:145 builder/src/field-panel.jsx:446
 msgid "One quarter"
 msgstr "एक चौथाई"
 
-#: blocks/field-shared.js:150 builder/src/field-panel.jsx:452
+#: blocks/field-shared.js:150 builder/src/field-panel.jsx:453
 msgid "Help text position"
 msgstr "सहायता टेक्स्ट की जगह"
 
-#: blocks/field-shared.js:153 builder/src/field-panel.jsx:455
+#: blocks/field-shared.js:153 builder/src/field-panel.jsx:456
 msgid "Use the form's setting"
 msgstr "फ़ॉर्म की सेटिंग इस्तेमाल करें"
 
-#: blocks/field-shared.js:160 builder/src/field-panel.jsx:463
+#: blocks/field-shared.js:160 builder/src/field-panel.jsx:464
 msgid "CSS class"
 msgstr "CSS क्लास"
 
-#: blocks/field-shared.js:161 builder/src/field-panel.jsx:464
+#: blocks/field-shared.js:161 builder/src/field-panel.jsx:465
 msgid "Added to the field wrapper, for your own styling."
 msgstr "फ़ील्ड रैपर में जोड़ी जाती है, आपकी अपनी स्टाइलिंग के लिए।"
 
-#: blocks/field-shared.js:167 builder/src/field-panel.jsx:472
+#: blocks/field-shared.js:167 builder/src/field-panel.jsx:473
 msgid "Advanced"
 msgstr "एडवांस्ड"
 
-#: blocks/field-shared.js:174 builder/src/field-panel.jsx:481
+#: blocks/field-shared.js:174 builder/src/field-panel.jsx:482
 msgid "Admin label"
 msgstr "एडमिन लेबल"
 
@@ -6011,55 +6195,55 @@ msgstr "एडमिन लेबल"
 msgid "Shown instead of the label in entries and exports."
 msgstr "एंट्रियों और एक्सपोर्ट में लेबल की जगह दिखता है।"
 
-#: blocks/field-shared.js:180 builder/src/field-panel.jsx:489
+#: blocks/field-shared.js:180 builder/src/field-panel.jsx:490
 msgid "Visible to"
 msgstr "किसे दिखे"
 
-#: blocks/field-shared.js:183 builder/src/field-panel.jsx:492
+#: blocks/field-shared.js:183 builder/src/field-panel.jsx:493
 msgid "Everyone"
 msgstr "सभी को"
 
-#: blocks/field-shared.js:184 builder/src/field-panel.jsx:493
+#: blocks/field-shared.js:184 builder/src/field-panel.jsx:494
 msgid "Logged-in users"
 msgstr "लॉग-इन उपयोगकर्ता"
 
-#: blocks/field-shared.js:185 builder/src/field-panel.jsx:494
+#: blocks/field-shared.js:185 builder/src/field-panel.jsx:495
 msgid "Administrators only"
 msgstr "सिर्फ़ एडमिनिस्ट्रेटर"
 
-#: blocks/field-shared.js:190 builder/src/field-panel.jsx:501
+#: blocks/field-shared.js:190 builder/src/field-panel.jsx:502
 msgid "Allow this field to be pre-filled from the URL"
 msgstr "इस फ़ील्ड को URL से पहले से भरने दें"
 
-#: blocks/field-shared.js:191 builder/src/field-panel.jsx:502
+#: blocks/field-shared.js:191 builder/src/field-panel.jsx:503
 msgid "Off by default: a form whose every field can be set from a link is a form whose data you cannot trust."
 msgstr "डिफ़ॉल्ट रूप से बंद: जिस फ़ॉर्म का हर फ़ील्ड किसी लिंक से भरा जा सके, उसके डेटा पर भरोसा नहीं किया जा सकता।"
 
-#: blocks/field-shared.js:197 builder/src/field-panel.jsx:509
+#: blocks/field-shared.js:197 builder/src/field-panel.jsx:510
 msgid "Parameter name"
 msgstr "पैरामीटर का नाम"
 
-#: blocks/field-shared.js:198 builder/src/field-panel.jsx:510
+#: blocks/field-shared.js:198 builder/src/field-panel.jsx:511
 msgid "Defaults to the field ID. Also reads user_email, first_name, post_id and user_meta_<key>."
 msgstr "डिफ़ॉल्ट रूप से फ़ील्ड ID। user_email, first_name, post_id और user_meta_<key> भी पढ़ता है।"
 
-#: blocks/field-shared.js:204 builder/src/field-panel.jsx:518
+#: blocks/field-shared.js:204 builder/src/field-panel.jsx:519
 msgid "No duplicates"
 msgstr "दोहराव नहीं"
 
-#: blocks/field-shared.js:205 builder/src/field-panel.jsx:519
+#: blocks/field-shared.js:205 builder/src/field-panel.jsx:520
 msgid "Refuse a submission if another entry on this form already has the same value."
 msgstr "अगर इस फ़ॉर्म की किसी दूसरी एंट्री में पहले से यही मान है, तो सबमिशन स्वीकार न करें।"
 
-#: blocks/field-shared.js:210 builder/src/field-panel.jsx:525
+#: blocks/field-shared.js:210 builder/src/field-panel.jsx:526
 msgid "Custom error message"
 msgstr "अपना त्रुटि संदेश"
 
-#: blocks/field-shared.js:215 builder/src/field-panel.jsx:532
+#: blocks/field-shared.js:215 builder/src/field-panel.jsx:533
 msgid "Autocomplete"
 msgstr "ऑटोकम्प्लीट"
 
-#: blocks/field-shared.js:216 builder/src/field-panel.jsx:533
+#: blocks/field-shared.js:216 builder/src/field-panel.jsx:534
 msgid "The HTML autocomplete hint, e.g. email, given-name, organization."
 msgstr "HTML autocomplete संकेत, जैसे email, given-name, organization।"
 
@@ -6206,7 +6390,7 @@ msgstr "सबमिट बटन का टेक्स्ट, सबमिट 
 msgid "Every setting of this form: emails, layout, save and continue, popup, payments, integrations and more"
 msgstr "इस फ़ॉर्म की हर सेटिंग: ईमेल, लेआउट, सेव करके बाद में जारी रखें, पॉपअप, भुगतान, इंटीग्रेशन और बहुत कुछ"
 
-#: builder/src/app.jsx:570 builder/src/app.jsx:855 builder/src/app.jsx:863
+#: builder/src/app.jsx:570 builder/src/app.jsx:898 builder/src/app.jsx:906
 msgid "All settings"
 msgstr "सभी सेटिंग्स"
 
@@ -6282,35 +6466,43 @@ msgstr "ईमेल, लेआउट, सेव करके बाद मे�
 msgid "Open All settings"
 msgstr "सभी सेटिंग्स खोलें"
 
-#: builder/src/app.jsx:845
+#: builder/src/app.jsx:834
+msgid "A form becomes a quiz when a Radio or Dropdown field has a correct answer. Put {quiz_answer_key} in the confirmation to list every question with the answer given."
+msgstr ""
+
+#: builder/src/app.jsx:838
+msgid "Negative marking, e.g. 0.25. 0 = none. Unanswered questions score 0; the total can go below zero."
+msgstr ""
+
+#: builder/src/app.jsx:888
 msgid "These are saved with the form when you press Save form."
 msgstr "ये \"फ़ॉर्म सहेजें\" दबाने पर फ़ॉर्म के साथ सहेजे जाते हैं।"
 
-#: builder/src/app.jsx:860
+#: builder/src/app.jsx:903
 msgid "Press Save settings at the bottom before you close this window."
 msgstr "यह विंडो बंद करने से पहले नीचे \"सेटिंग्स सेव करें\" दबाएँ।"
 
-#: builder/src/app.jsx:892
+#: builder/src/app.jsx:935
 msgid "fields"
 msgstr "फ़ील्ड"
 
-#: builder/src/app.jsx:913
+#: builder/src/app.jsx:956
 msgid "Add a field"
 msgstr "फ़ील्ड जोड़ें"
 
-#: builder/src/app.jsx:915
+#: builder/src/app.jsx:958
 msgid "Click to append, or drag onto the canvas to place."
 msgstr "अंत में जोड़ने के लिए क्लिक करें, या जगह चुनने के लिए कैनवास पर खींचें।"
 
-#: builder/src/app.jsx:922
+#: builder/src/app.jsx:965
 msgid "Pro fields"
 msgstr "Pro फ़ील्ड"
 
-#: builder/src/app.jsx:924
+#: builder/src/app.jsx:967
 msgid "Activate your Pro license to add these."
 msgstr "इन्हें जोड़ने के लिए अपना Pro लाइसेंस सक्रिय करें।"
 
-#: builder/src/app.jsx:936
+#: builder/src/app.jsx:979
 msgid "Requires an active Pro license"
 msgstr "सक्रिय Pro लाइसेंस ज़रूरी है"
 
@@ -6442,169 +6634,169 @@ msgstr "जैसे [{\"id\":\"name\",\"type\":\"text\",\"label\":\"Name\"}]।
 msgid "Correct answer value (quiz)"
 msgstr "सही उत्तर का मान (क्विज़)"
 
-#: builder/src/field-panel.jsx:128
+#: builder/src/field-panel.jsx:129
 msgid "Check it is a full phone number (7 to 15 digits, + allowed)"
 msgstr "जाँचें कि यह पूरा फ़ोन नंबर है (7 से 15 अंक, + की अनुमति है)"
 
-#: builder/src/field-panel.jsx:129
+#: builder/src/field-panel.jsx:130
 msgid "Statements (one per line)"
 msgstr "कथन (हर पंक्ति में एक)"
 
-#: builder/src/field-panel.jsx:130
+#: builder/src/field-panel.jsx:131
 msgid "Label under 0"
 msgstr "0 के नीचे का लेबल"
 
-#: builder/src/field-panel.jsx:131
+#: builder/src/field-panel.jsx:132
 msgid "Label under 10"
 msgstr "10 के नीचे का लेबल"
 
-#: builder/src/field-panel.jsx:132
+#: builder/src/field-panel.jsx:133
 msgid "Open days (1 = Monday ... 7 = Sunday)"
 msgstr "खुले दिन (1 = सोमवार ... 7 = रविवार)"
 
-#: builder/src/field-panel.jsx:133
+#: builder/src/field-panel.jsx:134
 msgid "Opens at (HH:MM)"
 msgstr "खुलने का समय (HH:MM)"
 
-#: builder/src/field-panel.jsx:134
+#: builder/src/field-panel.jsx:135
 msgid "Closes at (HH:MM)"
 msgstr "बंद होने का समय (HH:MM)"
 
-#: builder/src/field-panel.jsx:135
+#: builder/src/field-panel.jsx:136
 msgid "Slot length (minutes)"
 msgstr "हर स्लॉट की अवधि (मिनट)"
 
-#: builder/src/field-panel.jsx:136
+#: builder/src/field-panel.jsx:137
 msgid "Break between slots (minutes)"
 msgstr "स्लॉट के बीच ब्रेक (मिनट)"
 
-#: builder/src/field-panel.jsx:137
+#: builder/src/field-panel.jsx:138
 msgid "People per slot"
 msgstr "हर स्लॉट में लोग"
 
-#: builder/src/field-panel.jsx:138
+#: builder/src/field-panel.jsx:139
 msgid "Days ahead people can book"
 msgstr "कितने दिन आगे तक बुकिंग हो सकती है"
 
-#: builder/src/field-panel.jsx:139
+#: builder/src/field-panel.jsx:140
 msgid "Minimum notice (hours)"
 msgstr "न्यूनतम पूर्व सूचना (घंटे)"
 
-#: builder/src/field-panel.jsx:140
+#: builder/src/field-panel.jsx:141
 msgid "Closed dates (one per line, YYYY-MM-DD or YYYY-MM-DD..YYYY-MM-DD)"
 msgstr "बंद तारीखें (हर पंक्ति में एक, YYYY-MM-DD या YYYY-MM-DD..YYYY-MM-DD)"
 
-#: builder/src/field-panel.jsx:141
+#: builder/src/field-panel.jsx:142
 msgid "Attach a calendar file (.ics) to emails"
 msgstr "ईमेल के साथ कैलेंडर फ़ाइल (.ics) जोड़ें"
 
-#: builder/src/field-panel.jsx:142
+#: builder/src/field-panel.jsx:143
 msgid "Take answers from form (form ID)"
 msgstr "इस फ़ॉर्म से जवाब लें (फ़ॉर्म ID)"
 
-#: builder/src/field-panel.jsx:142
+#: builder/src/field-panel.jsx:143
 msgid "The number in the form's shortcode, e.g. 12 in [trinity-forms id=\"12\"]."
 msgstr "फ़ॉर्म के शॉर्टकोड में दी गई संख्या, जैसे [trinity-forms id=\"12\"] में 12।"
 
-#: builder/src/field-panel.jsx:143
+#: builder/src/field-panel.jsx:144
 msgid "Field in that form"
 msgstr "उस फ़ॉर्म का फ़ील्ड"
 
-#: builder/src/field-panel.jsx:147
+#: builder/src/field-panel.jsx:148
 msgid "Dropdown of the answers"
 msgstr "जवाबों का ड्रॉपडाउन"
 
-#: builder/src/field-panel.jsx:148
+#: builder/src/field-panel.jsx:149
 msgid "Text box filled with the person's latest answer"
 msgstr "व्यक्ति के आख़िरी जवाब से भरा टेक्स्ट बॉक्स"
 
-#: builder/src/field-panel.jsx:162
+#: builder/src/field-panel.jsx:163
 msgid "Product type"
 msgstr "प्रोडक्ट का प्रकार"
 
-#: builder/src/field-panel.jsx:164
+#: builder/src/field-panel.jsx:165
 msgid "Single item at a fixed price"
 msgstr "तय कीमत वाला एक आइटम"
 
-#: builder/src/field-panel.jsx:170
+#: builder/src/field-panel.jsx:171
 msgid "Product (field ID)"
 msgstr "प्रोडक्ट (फ़ील्ड ID)"
 
-#: builder/src/field-panel.jsx:180
+#: builder/src/field-panel.jsx:181
 msgid "Minimum length"
 msgstr "न्यूनतम लंबाई"
 
-#: builder/src/field-panel.jsx:181
+#: builder/src/field-panel.jsx:182
 msgid "Maximum length"
 msgstr "अधिकतम लंबाई"
 
-#: builder/src/field-panel.jsx:182
+#: builder/src/field-panel.jsx:183
 msgid "Maximum rows"
 msgstr "अधिकतम पंक्तियाँ"
 
-#: builder/src/field-panel.jsx:183
+#: builder/src/field-panel.jsx:184
 msgid "Maximum choices"
 msgstr "अधिकतम विकल्प"
 
-#: builder/src/field-panel.jsx:185
+#: builder/src/field-panel.jsx:186
 msgid "Only the logged-in person's own entries"
 msgstr "सिर्फ़ लॉग-इन व्यक्ति की अपनी एंट्री"
 
-#: builder/src/field-panel.jsx:185
+#: builder/src/field-panel.jsx:186
 msgid "Off: every visitor sees the answers from all entries in the dropdown, so email, phone and name fields can't be used."
 msgstr "बंद: हर विज़िटर ड्रॉपडाउन में सभी एंट्री के जवाब देखता है, इसलिए ईमेल, फ़ोन और नाम फ़ील्ड इस्तेमाल नहीं किए जा सकते।"
 
-#: builder/src/field-panel.jsx:208
+#: builder/src/field-panel.jsx:209
 msgid "Email, phone and name fields are listed only when \"Only the logged-in person's own entries\" is on."
 msgstr "ईमेल, फ़ोन और नाम फ़ील्ड तभी दिखते हैं जब \"सिर्फ़ लॉग-इन व्यक्ति की अपनी एंट्री\" चालू हो।"
 
-#: builder/src/field-panel.jsx:219
+#: builder/src/field-panel.jsx:220
 msgid "The saved field can't be used here, so the dropdown stays empty. Pick another field or turn on \"Only the logged-in person's own entries\"."
 msgstr "सेव किया गया फ़ील्ड यहाँ इस्तेमाल नहीं हो सकता, इसलिए ड्रॉपडाउन खाली रहता है। कोई दूसरा फ़ील्ड चुनें या \"सिर्फ़ लॉग-इन व्यक्ति की अपनी एंट्री\" चालू करें।"
 
-#: builder/src/field-panel.jsx:249
+#: builder/src/field-panel.jsx:250
 msgid "Field settings"
 msgstr "फ़ील्ड सेटिंग्स"
 
-#: builder/src/field-panel.jsx:258
+#: builder/src/field-panel.jsx:259
 msgid "Allow multiple selections"
 msgstr "एक से ज़्यादा चुनने की अनुमति दें"
 
-#: builder/src/field-panel.jsx:335
+#: builder/src/field-panel.jsx:336
 msgid "Used by"
 msgstr "इनमें इस्तेमाल"
 
 #. translators: %s: field label
-#: builder/src/field-panel.jsx:341
+#: builder/src/field-panel.jsx:342
 msgid "%s (calculation)"
 msgstr "%s (गणना)"
 
 #. translators: %s: field label
-#: builder/src/field-panel.jsx:342
+#: builder/src/field-panel.jsx:343
 msgid "%s (show / hide rule)"
 msgstr "%s (दिखाने / छिपाने का नियम)"
 
-#: builder/src/field-panel.jsx:347
+#: builder/src/field-panel.jsx:348
 msgid "No other field uses this one in a rule or a calculation."
 msgstr "कोई दूसरा फ़ील्ड इसे किसी नियम या गणना में इस्तेमाल नहीं करता।"
 
-#: builder/src/field-panel.jsx:349
+#: builder/src/field-panel.jsx:350
 msgid "Changing this field's ID or choices can break these."
 msgstr "इस फ़ील्ड का ID या विकल्प बदलने से ये टूट सकते हैं।"
 
-#: builder/src/field-panel.jsx:358
+#: builder/src/field-panel.jsx:359
 msgid "Select a field to edit its settings."
 msgstr "सेटिंग्स बदलने के लिए कोई फ़ील्ड चुनें।"
 
-#: builder/src/field-panel.jsx:419
+#: builder/src/field-panel.jsx:420
 msgid "A regular expression the value must match. Leave empty for no check."
 msgstr "एक रेगुलर एक्सप्रेशन जिससे मान का मेल खाना ज़रूरी है। जाँच न करनी हो तो खाली छोड़ें।"
 
-#: builder/src/field-panel.jsx:482
+#: builder/src/field-panel.jsx:483
 msgid "Shown instead of the label in entries and exports. Useful when the public label is a long question."
 msgstr "एंट्रियों और एक्सपोर्ट में लेबल की जगह दिखता है। तब काम का है जब सार्वजनिक लेबल एक लंबा सवाल हो।"
 
-#: builder/src/field-panel.jsx:526
+#: builder/src/field-panel.jsx:527
 msgid "Replaces the built-in \"this field is required\" wording."
 msgstr "पहले से बने \"यह फ़ील्ड ज़रूरी है\" संदेश की जगह लेता है।"
 

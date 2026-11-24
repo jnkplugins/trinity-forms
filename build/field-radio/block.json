@@ -49,6 +49,10 @@
       "type": "number",
       "default": 1
     },
+    "wrongPoints": {
+      "type": "string",
+      "default": ""
+    },
     "conditional": {
       "type": "object"
     }

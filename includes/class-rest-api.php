@@ -163,6 +163,15 @@ class REST_API {
         $payload[ Anti_Spam::HONEYPOT_FIELD ] = (string) $request->get_param( Anti_Spam::HONEYPOT_FIELD );
         $payload[ Anti_Spam::TIMETRAP_FIELD ] = (string) $request->get_param( Anti_Spam::TIMETRAP_FIELD );
         $payload[ Anti_Spam::HUMAN_FIELD ]    = (string) $request->get_param( Anti_Spam::HUMAN_FIELD );
+        // Timed quiz (Pro): when the visitor started, signed by the server, and
+        // whether the clock sent the form. Plain strings; the Pro module checks them.
+        $quiz_start = $request->get_param( "_trinity_forms_quiz_start" );
+        if ( is_string( $quiz_start ) && "" !== $quiz_start ) {
+            $payload["_trinity_forms_quiz_start"] = substr( $quiz_start, 0, 100 );
+        }
+        if ( "1" === (string) $request->get_param( "_trinity_forms_quiz_time_up" ) ) {
+            $payload["_trinity_forms_quiz_time_up"] = "1";
+        }
 
         // The page the form was on. The browser sends JSON, so this never reached
         // $_POST and every entry's "Submitted from" stayed empty.

@@ -25,6 +25,11 @@ $pay_filter  = isset( $_GET["payment_status"] ) ? sanitize_key( wp_unslash( $_GE
 $page        = max( 1, isset( $_GET["paged"] ) ? absint( wp_unslash( $_GET["paged"] ) ) : 1 );
 $per_page    = Admin::entries_per_page();
 
+// A quiz: its score is a column, and the list can be sorted by it.
+$tf_quiz_form = $form_filter ? \TrinityForms\Scoring::is_quiz( \TrinityForms\Form_Manager::get( $form_filter ) ) : false;
+$tf_quiz_sort = $tf_quiz_form && isset( $_GET["orderby"] ) && "quiz_score" === sanitize_key( wp_unslash( $_GET["orderby"] ) );
+$tf_quiz_dir  = isset( $_GET["order"] ) && "asc" === strtolower( sanitize_key( wp_unslash( $_GET["order"] ) ) ) ? "asc" : "desc";
+
 $query_args = [
     "form_id"        => $form_filter,
     "view"           => $view,
@@ -35,12 +40,26 @@ $query_args = [
     "paged"          => $page,
     "per_page"       => $per_page,
 ];
+if ( $tf_quiz_sort ) {
+    $query_args += [ "orderby" => "field", "sort_field" => \TrinityForms\Scoring::SCORE_META, "order" => $tf_quiz_dir ];
+}
 
 $result  = Entries::query( $query_args );
 $rows    = $result["rows"];
 $total   = $result["total"];
 $counts  = Entries::counts( $form_filter );
 $senders = Entries::senders( array_map( static fn( $r ) => (int) $r->id, $rows ) );
+$tf_quiz_vals = [];
+if ( $tf_quiz_form && $rows ) {
+    global $wpdb;
+    $tf_qids   = array_map( static fn( $r ) => (int) $r->id, $rows );
+    $tf_holds  = implode( ",", array_fill( 0, count( $tf_qids ), "%d" ) );
+    $tf_meta_t = $wpdb->prefix . "trinity_forms_entry_meta";
+    // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
+    foreach ( (array) $wpdb->get_results( $wpdb->prepare( "SELECT entry_id, field_id, value FROM {$tf_meta_t} WHERE entry_id IN ({$tf_holds}) AND field_id IN ('_quiz_score','_quiz_max','_quiz_correct','_quiz_wrong','_quiz_blank','_quiz_seconds','_quiz_late')", ...$tf_qids ), ARRAY_A ) as $tf_qrow ) {
+        $tf_quiz_vals[ (int) $tf_qrow["entry_id"] ][ $tf_qrow["field_id"] ] = $tf_qrow["value"];
+    }
+}
 
 $forms        = get_posts( [ "post_type" => "trinity_forms_form", "post_status" => [ "publish", "draft" ], "numberposts" => 200 ] );
 
@@ -124,7 +143,7 @@ $column_values     = $chosen_columns
 $in_trash = "trash" === $view;
 $in_spam  = "spam" === $view;
 // checkbox, star, Entry (who sent it), Form, Submitted, Status (+ Payment when shown).
-$col_span = 6 + ( $show_payment ? 1 : 0 ) + count( $chosen_columns );
+$col_span = 6 + ( $show_payment ? 1 : 0 ) + count( $chosen_columns ) + ( $tf_quiz_form ? 1 : 0 );
 
 // The Export panel (Export_Columns::panel) honours the filters you are looking at:
 // exporting something other than what is on screen is the classic way to lose trust.
@@ -301,6 +320,12 @@ Admin_UI::open(
         </details>
     <?php endif; ?>
 
+    <?php
+    if ( $tf_quiz_form ) {
+        /** Above the entries of a quiz form (Pro prints the quiz statistics). */
+        do_action( "trinity_forms_quiz_entries_top", $form_filter );
+    }
+    ?>
     <form method="post" action="<?php echo esc_url( admin_url( "admin-post.php" ) ); ?>" class="tf-entries-form">
         <input type="hidden" name="action" value="trinity_forms_entry_bulk" />
         <input type="hidden" name="form_id" value="<?php echo (int) $form_filter; ?>" />
@@ -359,6 +384,16 @@ Admin_UI::open(
                     <th class="tf-col-star"><span class="screen-reader-text"><?php esc_html_e( "Starred", "trinity-forms" ); ?></span></th>
                     <th class="tf-col-who"><?php esc_html_e( "Entry", "trinity-forms" ); ?></th>
                     <th class="tf-col-form"><?php esc_html_e( "Form", "trinity-forms" ); ?></th>
+                    <?php if ( $tf_quiz_form ) :
+                        $tf_sort_next = $tf_quiz_sort && "desc" === $tf_quiz_dir ? "asc" : "desc";
+                        ?>
+                        <th class="tf-col-score" <?php echo $tf_quiz_sort ? 'aria-sort="' . ( "asc" === $tf_quiz_dir ? "ascending" : "descending" ) . '"' : ""; ?>>
+                            <a href="<?php echo esc_url( add_query_arg( [ "orderby" => "quiz_score", "order" => $tf_sort_next, "paged" => false ] ) ); ?>">
+                                <?php esc_html_e( "Score", "trinity-forms" ); ?>
+                                <?php if ( $tf_quiz_sort ) : ?><span aria-hidden="true"><?php echo "asc" === $tf_quiz_dir ? "▲" : "▼"; ?></span><?php endif; ?>
+                            </a>
+                        </th>
+                    <?php endif; ?>
                     <?php foreach ( $chosen_columns as $tf_cid ) : ?>
                         <th class="tf-col-answer"><?php echo esc_html( $available_columns[ $tf_cid ] ?? $tf_cid ); ?></th>
                     <?php endforeach; ?>
@@ -468,6 +503,22 @@ Admin_UI::open(
                         </div>
                     </td>
                     <td class="tf-col-form"><?php echo esc_html( $titles_by_id[ (int) $r->form_id ] ?? "–" ); ?></td>
+                    <?php if ( $tf_quiz_form ) :
+                        $tf_qv = $tf_quiz_vals[ (int) $rid ] ?? [];
+                        ?>
+                        <td class="tf-col-score">
+                            <?php if ( isset( $tf_qv["_quiz_score"] ) ) : ?>
+                                <strong><?php echo esc_html( \TrinityForms\Scoring::summary( $tf_qv ) ); ?></strong>
+                                <?php $tf_counts = \TrinityForms\Scoring::counts_line( $tf_qv ); ?>
+                                <?php if ( "" !== $tf_counts ) : ?><span class="jnkui-sub"><?php echo esc_html( $tf_counts ); ?></span><?php endif; ?>
+                                <?php if ( isset( $tf_qv["_quiz_seconds"] ) ) : ?>
+                                    <span class="jnkui-sub"><bdi dir="ltr"><?php echo esc_html( \TrinityForms\Scoring::hms( (int) $tf_qv["_quiz_seconds"] ) ); ?></bdi><?php echo ! empty( $tf_qv["_quiz_late"] ) ? " · " . esc_html__( "late", "trinity-forms" ) : ""; ?></span>
+                                <?php endif; ?>
+                            <?php else : ?>
+                                <span class="jnkui-muted">–</span>
+                            <?php endif; ?>
+                        </td>
+                    <?php endif; ?>
                     <?php foreach ( $chosen_columns as $tf_cid ) :
                         $tf_cval = (string) ( $column_values[ $rid ][ $tf_cid ] ?? "" );
                         ?>

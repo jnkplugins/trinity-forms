@@ -21,6 +21,7 @@
         },
         "correctAnswer": { "type": "string", "default": "" },
         "points":        { "type": "number", "default": 1 },
+        "wrongPoints":   { "type": "string", "default": "" },
         "conditional":   { "type": "object" }
     },
     "editorScript": "file:./index.js"

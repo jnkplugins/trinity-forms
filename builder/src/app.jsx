@@ -829,6 +829,49 @@ export default function App( { config } ) {
 						checked={ !! settings.poll_mode }
 						onChange={ ( v ) => changeSetting( 'poll_mode', v ) }
 					/>
+					<h4 className="tf-builder__settings-subheading">{ __( 'Quiz', 'trinity-forms' ) }</h4>
+					<p className="tf-builder__palette-hint">
+						{ __( 'A form becomes a quiz when a Radio or Dropdown field has a correct answer. Put {quiz_answer_key} in the confirmation to list every question with the answer given.', 'trinity-forms' ) }
+					</p>
+					<TextControl
+						label={ __( 'Points off for a wrong answer', 'trinity-forms' ) }
+						help={ __( 'Negative marking, e.g. 0.25. 0 = none. Unanswered questions score 0; the total can go below zero.', 'trinity-forms' ) }
+						inputMode="decimal"
+						value={ String( settings.quiz_wrong_points ?? 0 ) }
+						onChange={ ( v ) => changeSetting( 'quiz_wrong_points', v ) }
+					/>
+					<CheckboxControl
+						label={ __( 'Show the correct answers in {quiz_answer_key}', 'trinity-forms' ) }
+						checked={ settings.quiz_reveal_answers !== false }
+						onChange={ ( v ) => changeSetting( 'quiz_reveal_answers', v ) }
+					/>
+					{ config.quizPro ? (
+						<>
+							<TextControl
+								label={ __( 'Time limit (minutes)', 'trinity-forms' ) }
+								help={ __( '0 = no limit. 180 is a 3-hour test. When time runs out, the answers given so far are sent and scored.', 'trinity-forms' ) }
+								type="number"
+								min={ 0 }
+								value={ String( settings.quiz_time_limit || 0 ) }
+								onChange={ ( v ) => changeSetting( 'quiz_time_limit', Math.max( 0, parseInt( v, 10 ) || 0 ) ) }
+							/>
+							<CheckboxControl
+								label={ __( 'Show the time left (h:mm:ss) at the top of the quiz', 'trinity-forms' ) }
+								checked={ settings.quiz_show_countdown !== false }
+								onChange={ ( v ) => changeSetting( 'quiz_show_countdown', v ) }
+							/>
+							<CheckboxControl
+								label={ __( 'Shuffle the order of the questions (within each page)', 'trinity-forms' ) }
+								checked={ !! settings.quiz_shuffle_questions }
+								onChange={ ( v ) => changeSetting( 'quiz_shuffle_questions', v ) }
+							/>
+							<CheckboxControl
+								label={ __( 'Shuffle the answer options of each question', 'trinity-forms' ) }
+								checked={ !! settings.quiz_shuffle_options }
+								onChange={ ( v ) => changeSetting( 'quiz_shuffle_options', v ) }
+							/>
+						</>
+					) : null }
 					<h4 className="tf-builder__settings-subheading">{ __( 'Who can submit', 'trinity-forms' ) }</h4>
 					<CheckboxControl
 						label={ __( 'Only logged-in users may see and submit this form', 'trinity-forms' ) }

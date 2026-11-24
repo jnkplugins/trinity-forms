@@ -125,6 +125,7 @@ const EXTRA = {
 	subFieldsJson: { label: __( 'Sub-field schema (JSON array)', 'trinity-forms' ), textarea: true, help: __( 'e.g. [{"id":"name","type":"text","label":"Name"}]. Left empty, one "Item" column is shown.', 'trinity-forms' ) },
 	correctAnswer: { label: __( 'Correct answer value (quiz)', 'trinity-forms' ) },
 	points: { label: __( 'Points', 'trinity-forms' ) },
+	wrongPoints: { label: __( 'Points off for a wrong answer', 'trinity-forms' ), help: __( 'e.g. 0.25 for negative marking. Leave blank to use the form\'s Quiz setting. A question left unanswered always scores 0.', 'trinity-forms' ) },
 	intl: { label: __( 'Check it is a full phone number (7 to 15 digits, + allowed)', 'trinity-forms' ) },
 	statements: { label: __( 'Statements (one per line)', 'trinity-forms' ), textarea: true },
 	lowLabel: { label: __( 'Label under 0', 'trinity-forms' ) },

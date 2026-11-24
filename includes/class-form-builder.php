@@ -425,6 +425,8 @@ class Form_Builder {
             "settingsUrl"    => admin_url( "edit.php?post_type=trinity_forms_form&page=" . Admin::SETTINGS ),
             // Extensions (Pro's AI assistant) add their own entry points here.
             "aiUrl"          => "",
+            // Quiz timer and shuffle (Pro) show in Settings only when they can work.
+            "quizPro"        => License::is_pro(),
         ], $form_id ) );
     }
 }

@@ -407,7 +407,8 @@
         showMessages( form, "", "info" );
 
         var tooBig = fileSizeErrors( form );
-        if ( usesSummary( form ) ) {
+        // A timed quiz whose time ran out sends what it has: blanks are allowed.
+        if ( usesSummary( form ) && form.dataset.quizTimeUp !== "1" ) {
             var seenField = {};
             tooBig = constraintErrors( form ).concat( tooBig ).filter( function ( e ) {
                 if ( seenField[ e.field ] ) return false;
@@ -465,6 +466,16 @@
             } else if ( isPollRepeat( form, res ) ) {
                 // Poll mode: a limit refused a repeat vote. Show the results, not an error.
                 try { form.dispatchEvent( new CustomEvent( "trinity-forms:poll-repeat" ) ); } catch ( e ) {}
+            } else if ( isStalePage( res ) && form.hasAttribute( "data-quiz-time-limit" ) && form.dataset.quizResent !== "1" ) {
+                // A timed quiz is always open longer than the page token lives (5
+                // minutes). Nobody should have to press twice at the end of an exam,
+                // least of all when the clock sent it: fetch a token and send again.
+                form.dataset.quizResent = "1";
+                refreshTimeTokens( [ form ] ).then( function () {
+                    form.dataset.submitting = "0";
+                    submit( form );
+                } );
+                return;
             } else if ( isStalePage( res ) ) {
                 // The page sat open too long to time this visitor. Get a fresh token;
                 // the answers stay in the form for one more press.
@@ -983,6 +994,15 @@
     }
     document.addEventListener( "input", clearCustomValidity, true );
     document.addEventListener( "change", clearCustomValidity, true );
+
+    // Pro quiz timer: time is up, send the form as it is, from any step.
+    document.addEventListener( "trinity-forms:quiz-time-up", function ( e ) {
+        var form = e.target;
+        if ( ! form || ! form.classList || ! form.classList.contains( "trinity-forms-form" ) || form.classList.contains( "is-submitted" ) ) return;
+        form.dataset.quizTimeUp = "1";
+        form.dataset.submitting = "0";
+        submit( form );
+    } );
 
     document.addEventListener( "submit", function ( e ) {
         var form = e.target;
